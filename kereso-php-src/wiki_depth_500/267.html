@@ -1,0 +1,331 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+				<meta name="keywords" content="Heap (data structure),2-3 heap,Algorithm,Amortized analysis,Array,Beap,Big O notation,Binary heap,Binomial heap,C++,Child node" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="http://www.gnu.org/copyleft/fdl.html" />
+		<title>Heap (data structure) - Wikipedia, the free encyclopedia</title>
+		<style type="text/css" media="screen, projection">/*<![CDATA[*/
+			@import "/skins-1.5/common/shared.css?99";
+			@import "/skins-1.5/monobook/main.css?99";
+		/*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="/skins-1.5/common/commonPrint.css?99" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE50Fixes.css?99";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE55Fixes.css?99";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "/skins-1.5/monobook/IE60Fixes.css?99";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "/skins-1.5/monobook/IE70Fixes.css?99";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="/skins-1.5/common/IEFixes.js?99"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		
+		<script type= "text/javascript">/*<![CDATA[*/
+var skin = "monobook";
+var stylepath = "/skins-1.5";
+var wgArticlePath = "/wiki/$1";
+var wgScriptPath = "/w";
+var wgScript = "/w/index.php";
+var wgServer = "http://en.wikipedia.org";
+var wgCanonicalNamespace = "";
+var wgCanonicalSpecialPageName = false;
+var wgNamespaceNumber = 0;
+var wgPageName = "Heap_(data_structure)";
+var wgTitle = "Heap (data structure)";
+var wgAction = "view";
+var wgRestrictionEdit = [];
+var wgRestrictionMove = [];
+var wgArticleId = "13996";
+var wgIsArticle = true;
+var wgUserName = null;
+var wgUserGroups = null;
+var wgUserLanguage = "en";
+var wgContentLanguage = "en";
+var wgBreakFrames = false;
+var wgCurRevisionId = "155346151";
+/*]]>*/</script>
+                
+		<script type="text/javascript" src="/skins-1.5/common/wikibits.js?99"><!-- wikibits js --></script>
+		<script type="text/javascript" src="/w/index.php?title=-&amp;action=raw&amp;gen=js&amp;useskin=monobook"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "/w/index.php?title=MediaWiki:Common.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=MediaWiki:Monobook.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=-&action=raw&gen=css&maxage=2678400";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+		<script type="text/javascript" src="/skins-1.5/common/ajax.js?99"></script>
+	</head>
+<body  class="mediawiki ns-0 ltr page-Heap_data_structure">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">Heap (data structure)</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<div class="dablink">This article is about heap data structures.  For “the heap” as a large pool of unused memory, see <a href="/wiki/Dynamic_memory_allocation" title="Dynamic memory allocation">Dynamic memory allocation</a>.</div>
+<div class="thumb tright">
+<div class="thumbinner" style="width:242px;"><a href="/wiki/Image:Max-heap.png" class="image" title="Example of a complete binary max heap"><img alt="Example of a complete binary max heap" src="http://upload.wikimedia.org/wikipedia/en/thumb/b/bf/Max-heap.png/240px-Max-heap.png" width="240" height="161" border="0" class="thumbimage" /></a>
+<div class="thumbcaption">
+<div class="magnify" style="float:right"><a href="/wiki/Image:Max-heap.png" class="internal" title="Enlarge"><img src="/skins-1.5/common/images/magnify-clip.png" width="15" height="11" alt="" /></a></div>
+Example of a complete binary max heap</div>
+</div>
+</div>
+<p>In <a href="/wiki/Computer_science" title="Computer science">computer science</a>, a <b>heap</b> is a specialized <a href="/wiki/Tree_data_structure" title="Tree data structure">tree</a>-based <a href="/wiki/Data_structure" title="Data structure">data structure</a> that satisfies the <i>heap property:</i> if <i>B</i> is a <a href="/wiki/Child_node" title="Child node">child node</a> of <i>A</i>, then key(<i>A</i>) ≥ key(<i>B</i>). This implies that the element with the greatest key is always in the root node, and so such a heap is sometimes called a <i>max heap</i>. (Alternatively, if the comparison is reversed, the smallest element is always in the root node, which results in a <i>min heap</i>.) This is why heaps are used to implement <a href="/wiki/Priority_queue" title="Priority queue">priority queues</a>. The efficiency of heap operations is crucial in several <a href="/wiki/Graph_theory" title="Graph theory">graph</a> <a href="/wiki/Algorithm" title="Algorithm">algorithms</a>.</p>
+<p>The operations commonly performed with a heap are</p>
+<ul>
+<li><i>delete-max</i> or <i>delete-min</i>: removing the root node of a max- or min-heap, respectively</li>
+<li><i>increase-key</i> or <i>decrease-key</i>: updating a key within a max- or min-heap, respectively</li>
+<li><i>insert</i>: adding a new key to the heap</li>
+<li><i>merge</i>: joining two heaps to form a valid new heap containing all the elements of both.</li>
+</ul>
+<p>Heaps are used in the sorting algorithm called <a href="/wiki/Heapsort" title="Heapsort">heapsort</a>.</p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Variants"><span class="tocnumber">1</span> <span class="toctext">Variants</span></a></li>
+<li class="toclevel-1"><a href="#Comparison_of_theoretic_bounds_for_variants"><span class="tocnumber">2</span> <span class="toctext">Comparison of theoretic bounds for variants</span></a></li>
+<li class="toclevel-1"><a href="#Heap_applications"><span class="tocnumber">3</span> <span class="toctext">Heap applications</span></a></li>
+<li class="toclevel-1"><a href="#Heap_implementations"><span class="tocnumber">4</span> <span class="toctext">Heap implementations</span></a></li>
+<li class="toclevel-1"><a href="#See_also"><span class="tocnumber">5</span> <span class="toctext">See also</span></a></li>
+<li class="toclevel-1"><a href="#Notes"><span class="tocnumber">6</span> <span class="toctext">Notes</span></a></li>
+<li class="toclevel-1"><a href="#External_links"><span class="tocnumber">7</span> <span class="toctext">External links</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script>
+<p><a name="Variants" id="Variants"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Heap_%28data_structure%29&amp;action=edit&amp;section=1" title="Edit section: Variants">edit</a>]</span> <span class="mw-headline">Variants</span></h2>
+<ul>
+<li><a href="/wiki/Binary_heap" title="Binary heap">Binary heap</a></li>
+<li><a href="/wiki/Binomial_heap" title="Binomial heap">Binomial heap</a></li>
+<li><a href="/wiki/Fibonacci_heap" title="Fibonacci heap">Fibonacci heap</a></li>
+<li><a href="/wiki/Pairing_heap" title="Pairing heap">Pairing heap</a></li>
+<li><a href="/wiki/Leftist_tree" title="Leftist tree">Leftist heap</a></li>
+<li><a href="/wiki/Soft_heap" title="Soft heap">Soft heap</a></li>
+<li><a href="/wiki/2-3_heap" title="2-3 heap">2-3 heap</a></li>
+<li><a href="/wiki/Treap" title="Treap">Treap</a></li>
+<li><a href="/wiki/Beap" title="Beap">Beap</a></li>
+<li><a href="/wiki/Skew_heap" title="Skew heap">Skew heap</a></li>
+</ul>
+<p><a name="Comparison_of_theoretic_bounds_for_variants" id="Comparison_of_theoretic_bounds_for_variants"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Heap_%28data_structure%29&amp;action=edit&amp;section=2" title="Edit section: Comparison of theoretic bounds for variants">edit</a>]</span> <span class="mw-headline">Comparison of theoretic bounds for variants</span></h2>
+<p>The following complexities<sup id="_ref-0" class="reference"><a href="#_note-0" title="">[1]</a></sup> are worst-case for binary and binomial heaps and <a href="/wiki/Amortized_analysis" title="Amortized analysis">amortized complexity</a> for Fibonacci heap. O(f) gives asymptotic upper bound and Θ(f) is asymptotically tight bound (see <a href="/wiki/Big_O_notation" title="Big O notation">Big O notation</a>). Function names assume a min-heap.</p>
+<table class="toccolours" border="1" cellpadding="4" style="border-collapse:collapse">
+<tr style="background-color:#e9e9e9">
+<th>Operation</th>
+<th><a href="/wiki/Binary_heap" title="Binary heap">Binary</a></th>
+<th><a href="/wiki/Binomial_heap" title="Binomial heap">Binomial</a></th>
+<th><a href="/wiki/Fibonacci_heap" title="Fibonacci heap">Fibonacci</a></th>
+</tr>
+<tr>
+<td>createHeap</td>
+<td>Θ(1)</td>
+<td>Θ(1)</td>
+<td>Θ(1)</td>
+</tr>
+<tr>
+<td>findMin</td>
+<td>Θ(1)</td>
+<td>O(lg <i>n</i>) or Θ(1)</td>
+<td>Θ(1)</td>
+</tr>
+<tr>
+<td>deleteMin</td>
+<td>Θ(lg <i>n</i>)</td>
+<td>Θ(lg <i>n</i>)</td>
+<td>O(lg <i>n</i>)</td>
+</tr>
+<tr>
+<td>insert</td>
+<td>Θ(lg <i>n</i>)</td>
+<td>O(lg <i>n</i>)</td>
+<td>Θ(1)</td>
+</tr>
+<tr>
+<td>decreaseKey</td>
+<td>Θ(lg <i>n</i>)</td>
+<td>Θ(lg <i>n</i>)</td>
+<td>Θ(1)</td>
+</tr>
+<tr>
+<td>merge</td>
+<td>Θ(<i>n</i>)</td>
+<td>O(lg <i>n</i>)</td>
+<td>Θ(1)</td>
+</tr>
+</table>
+<p>For <a href="/wiki/Pairing_heap" title="Pairing heap">pairing heaps</a> the <i>insert</i>, <i>decreaseKey</i> and <i>merge</i> operations are conjectured to be O<span class="texhtml">(1)</span> <a href="/wiki/Amortized_analysis" title="Amortized analysis">amortized complexity</a> but this has not yet been proven.</p>
+<p><a name="Heap_applications" id="Heap_applications"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Heap_%28data_structure%29&amp;action=edit&amp;section=3" title="Edit section: Heap applications">edit</a>]</span> <span class="mw-headline">Heap applications</span></h2>
+<p>Heaps are favorite data structures for many applications.</p>
+<ul>
+<li><a href="/wiki/Heap_sort" title="Heap sort">Heap sort</a>: One of the best sorting methods being in-place and with no quadratic worst case scenarios.</li>
+<li><a href="/wiki/Selection_algorithm" title="Selection algorithm">Selection algorithms</a>: Finding the min, max or both of them, median or even any <i>k</i>-th element in sublinear time can be done dynamically with heaps.</li>
+<li><a href="/wiki/List_of_algorithms#Graph_algorithms" title="List of algorithms">Graph algorithms</a>: By using heaps as internal traversal data structures, run time will be reduced by an order of polynomial. Examples of such problems are <a href="/wiki/Prim%27s_algorithm" title="Prim's algorithm">Prim's minimal spanning tree algorithm</a> and <a href="/wiki/Dijkstra%27s_algorithm" title="Dijkstra's algorithm">Dijkstra's shortest path problem</a>.</li>
+</ul>
+<p>Interestingly, binary heaps may be represented using an <a href="/wiki/Array" title="Array">array</a> alone. The first (or last) element will contain the root. The next two elements of the array contain its children. The next four contain the four children of the two child nodes, etc. Thus the children of the node at position <code>n</code> would be at positions <code>2n</code> and <code>2n+1</code> in a one-based array, or <code>2n+1</code> and <code>2n+2</code> in a zero-based array. Balancing a heap is done by swapping elements which are out of order. As we can build a heap from an array without requiring extra memory (for the nodes, for example), heapsort can be used to sort an array in-place.</p>
+<p>One more advantage of heaps over trees in some applications is that construction of heaps can be done in linear time using <a href="/wiki/Tarjan%27s_algorithm" title="Tarjan's algorithm">Tarjan's algorithm</a>.</p>
+<p><a name="Heap_implementations" id="Heap_implementations"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Heap_%28data_structure%29&amp;action=edit&amp;section=4" title="Edit section: Heap implementations">edit</a>]</span> <span class="mw-headline">Heap implementations</span></h2>
+<ul>
+<li>The <a href="/wiki/C%2B%2B" title="C++">C++</a> <a href="/wiki/Standard_Template_Library" title="Standard Template Library">Standard Template Library</a> provides the make_heap, push_heap and pop_heap algorithms for binary heaps, which operate on arbitrary random access <a href="/wiki/Iterator" title="Iterator">iterators</a>. It treats the iterators as a reference to an array, and uses the array-to-heap conversion detailed above.</li>
+</ul>
+<p><br /></p>
+<p><a name="See_also" id="See_also"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Heap_%28data_structure%29&amp;action=edit&amp;section=5" title="Edit section: See also">edit</a>]</span> <span class="mw-headline">See also</span></h2>
+<ul>
+<li><a href="http://en.wikibooks.org/wiki/Data_Structures/Min_and_Max_Heaps" class="extiw" title="wikibooks:Data_Structures/Min_and_Max_Heaps">Heaps at wikibooks</a></li>
+</ul>
+<p><a name="Notes" id="Notes"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Heap_%28data_structure%29&amp;action=edit&amp;section=6" title="Edit section: Notes">edit</a>]</span> <span class="mw-headline">Notes</span></h2>
+<ol class="references">
+<li id="_note-0"><b><a href="#_ref-0" title="">^</a></b> Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest (1990): Introduction to algorithms. MIT Press / McGraw-Hill.</li>
+</ol>
+<p><a name="External_links" id="External_links"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Heap_%28data_structure%29&amp;action=edit&amp;section=7" title="Edit section: External links">edit</a>]</span> <span class="mw-headline">External links</span></h2>
+<ul>
+<li><a href="http://leekillough.com/heaps/" class="external text" title="http://leekillough.com/heaps/" rel="nofollow">Priority Queues</a> by <a href="/wiki/Lee_Killough_%28programmer%29" title="Lee Killough (programmer)">Lee Killough</a></li>
+</ul>
+
+<!-- 
+Pre-expand include size: 1948 bytes
+Post-expand include size: 1216 bytes
+Template argument size: 568 bytes
+Maximum: 2048000 bytes
+-->
+
+<!-- Saved in parser cache with key enwiki:pcache:idhash:13996-0!1!0!default!!en!2 and timestamp 20070912102104 -->
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org/wiki/Heap_%28data_structure%29">http://en.wikipedia.org/wiki/Heap_%28data_structure%29</a>"</div>
+			<div id="catlinks"><p class='catlinks'><a href="/wiki/Special:Categories" title="Special:Categories">Categories</a>: <span dir='ltr'><a href="/wiki/Category:Data_structures" title="Category:Data structures">Data structures</a></span> | <span dir='ltr'><a href="/wiki/Category:Heaps_%28structure%29" title="Category:Heaps (structure)">Heaps (structure)</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<div class="pBody">
+			<ul>
+					 <li id="ca-nstab-main" class="selected"><a href="/wiki/Heap_%28data_structure%29" title="View the content page [c]" accesskey="c">Article</a></li>
+					 <li id="ca-talk"><a href="/wiki/Talk:Heap_%28data_structure%29" title="Discussion about the content page [t]" accesskey="t">Discussion</a></li>
+					 <li id="ca-edit"><a href="/w/index.php?title=Heap_%28data_structure%29&amp;action=edit" title="You can edit this page. Please use the preview button before saving. [e]" accesskey="e">Edit this page</a></li>
+					 <li id="ca-history"><a href="/w/index.php?title=Heap_%28data_structure%29&amp;action=history" title="Past versions of this page [h]" accesskey="h">History</a></li>
+				</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-personal">
+		<h5>Personal tools</h5>
+		<div class="pBody">
+			<ul>
+				<li id="pt-login"><a href="/w/index.php?title=Special:Userlogin&amp;returnto=Heap_(data_structure)" title="You are encouraged to log in, it is not mandatory however. [o]" accesskey="o">Sign in / create account</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-logo">
+		<a style="background-image: url(/images/wiki-en.png);" href="/wiki/Main_Page" title="Visit the Main Page [z]" accesskey="z"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-Main-page"><a href="/wiki/Main_Page">Main page</a></li>
+				<li id="n-Contents"><a href="/wiki/Wikipedia:Contents">Contents</a></li>
+				<li id="n-Featured-content"><a href="/wiki/Wikipedia:Featured_content">Featured content</a></li>
+				<li id="n-currentevents"><a href="/wiki/Portal:Current_events" title="Find background information on current events">Current events</a></li>
+				<li id="n-randompage"><a href="/wiki/Special:Random" title="Load a random page [x]" accesskey="x">Random article</a></li>
+			</ul>
+		</div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+		<h5>interaction</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-About-Wikipedia"><a href="/wiki/Wikipedia:About">About Wikipedia</a></li>
+				<li id="n-portal"><a href="/wiki/Wikipedia:Community_Portal" title="About the project, what you can do, where to find things">Community portal</a></li>
+				<li id="n-recentchanges"><a href="/wiki/Special:Recentchanges" title="The list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li>
+				<li id="n-contact"><a href="/wiki/Wikipedia:Contact_us">Contact Wikipedia</a></li>
+				<li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising" title="Support us">Donate to Wikipedia</a></li>
+				<li id="n-help"><a href="/wiki/Help:Contents" title="Guidance on how to use and edit Wikipedia">Help</a></li>
+			</ul>
+		</div>
+	</div>
+		<div id="p-search" class="portlet">
+		<h5><label for="searchInput">Search</label></h5>
+		<div id="searchBody" class="pBody">
+			<form action="/wiki/Special:Search" id="searchform"><div>
+				<input id="searchInput" name="search" type="text" title="Search Wikipedia [f]" accesskey="f" value="" />
+				<input type='submit' name="go" class="searchButton" id="searchGoButton"	value="Go" />&nbsp;
+				<input type='submit' name="fulltext" class="searchButton" id="mw-searchButton" value="Search" />
+			</div></form>
+		</div>
+	</div>
+	<div class="portlet" id="p-tb">
+		<h5>Toolbox</h5>
+		<div class="pBody">
+			<ul>
+				<li id="t-whatlinkshere"><a href="/wiki/Special:Whatlinkshere/Heap_%28data_structure%29" title="List of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+				<li id="t-recentchangeslinked"><a href="/wiki/Special:Recentchangeslinked/Heap_%28data_structure%29" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+<li id="t-upload"><a href="/wiki/Wikipedia:Upload" title="Upload images or media files [u]" accesskey="u">Upload file</a></li>
+<li id="t-specialpages"><a href="/wiki/Special:Specialpages" title="List of all special pages [q]" accesskey="q">Special pages</a></li>
+				<li id="t-print"><a href="/w/index.php?title=Heap_%28data_structure%29&amp;printable=yes" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>				<li id="t-permalink"><a href="/w/index.php?title=Heap_%28data_structure%29&amp;oldid=155346151" title="Permanent link to this version of the page">Permanent link</a></li><li id="t-cite"><a href="/w/index.php?title=Special:Cite&amp;page=Heap_%28data_structure%29&amp;id=155346151">Cite this article</a></li>			</ul>
+		</div>
+	</div>
+	<div id="p-lang" class="portlet">
+		<h5>In other languages</h5>
+		<div class="pBody">
+			<ul>
+				<li class="interwiki-cs"><a href="http://cs.wikipedia.org/wiki/Halda_%28datov%C3%A1_struktura%29">Česky</a></li>
+				<li class="interwiki-de"><a href="http://de.wikipedia.org/wiki/Heap_%28Datenstruktur%29">Deutsch</a></li>
+				<li class="interwiki-es"><a href="http://es.wikipedia.org/wiki/Mont%C3%ADculo_%28programaci%C3%B3n%29">Español</a></li>
+				<li class="interwiki-fr"><a href="http://fr.wikipedia.org/wiki/Tas">Français</a></li>
+				<li class="interwiki-ko"><a href="http://ko.wikipedia.org/wiki/%ED%9E%99_%28%EC%9E%90%EB%A3%8C_%EA%B5%AC%EC%A1%B0%29">한국어</a></li>
+				<li class="interwiki-is"><a href="http://is.wikipedia.org/wiki/Hr%C3%BAga_%28t%C3%B6lvunarfr%C3%A6%C3%B0i%29">Íslenska</a></li>
+				<li class="interwiki-it"><a href="http://it.wikipedia.org/wiki/Heap">Italiano</a></li>
+				<li class="interwiki-he"><a href="http://he.wikipedia.org/wiki/%D7%A2%D7%A8%D7%99%D7%9E%D7%94_%28%D7%9E%D7%91%D7%A0%D7%94_%D7%A0%D7%AA%D7%95%D7%A0%D7%99%D7%9D%29">עברית</a></li>
+				<li class="interwiki-lt"><a href="http://lt.wikipedia.org/wiki/Kr%C5%ABva">Lietuvių</a></li>
+				<li class="interwiki-nl"><a href="http://nl.wikipedia.org/wiki/Heap">Nederlands</a></li>
+				<li class="interwiki-ja"><a href="http://ja.wikipedia.org/wiki/%E3%83%92%E3%83%BC%E3%83%97">日本語</a></li>
+				<li class="interwiki-no"><a href="http://no.wikipedia.org/wiki/Heap">‪Norsk (bokmål)‬</a></li>
+				<li class="interwiki-pl"><a href="http://pl.wikipedia.org/wiki/Kopiec_%28informatyka%29">Polski</a></li>
+				<li class="interwiki-pt"><a href="http://pt.wikipedia.org/wiki/Heap">Português</a></li>
+				<li class="interwiki-ru"><a href="http://ru.wikipedia.org/wiki/%D0%9A%D1%83%D1%87%D0%B0_%28%D1%81%D1%82%D1%80%D1%83%D0%BA%D1%82%D1%83%D1%80%D0%B0_%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D1%85%29">Русский</a></li>
+				<li class="interwiki-sk"><a href="http://sk.wikipedia.org/wiki/Halda">Slovenčina</a></li>
+				<li class="interwiki-sl"><a href="http://sl.wikipedia.org/wiki/Kopica">Slovenščina</a></li>
+				<li class="interwiki-fi"><a href="http://fi.wikipedia.org/wiki/Keko_%28tietorakenne%29">Suomi</a></li>
+				<li class="interwiki-sv"><a href="http://sv.wikipedia.org/wiki/Heap_%28datastruktur%29">Svenska</a></li>
+				<li class="interwiki-uk"><a href="http://uk.wikipedia.org/wiki/%D0%9A%D1%83%D0%BF%D0%B0_%28%D1%81%D1%82%D1%80%D1%83%D0%BA%D1%82%D1%83%D1%80%D0%B0_%D0%B4%D0%B0%D0%BD%D0%B8%D1%85%29">Українська</a></li>
+				<li class="interwiki-zh"><a href="http://zh.wikipedia.org/wiki/%E5%A0%86">中文</a></li>
+			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="/skins-1.5/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>
+				<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="/images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>
+			<ul id="f-list">
+				<li id="lastmod"> This page was last modified 04:27, 3 September 2007.</li>
+				<li id="copyright">All text is available under the terms of the <a class='internal' href="/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="/wiki/Wikipedia:Copyrights" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a U.S. registered <a class='internal' href="/wiki/501%28c%29#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="/wiki/Non-profit_organization" title="Non-profit organization">nonprofit</a> <a href="/wiki/Charitable_organization" title="Charitable organization">charity</a>.<br /></li>
+				<li id="privacy"><a href="http://wikimediafoundation.org/wiki/Privacy_policy" title="wikimedia:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="/wiki/Wikipedia:About" title="Wikipedia:About">About Wikipedia</a></li>
+				<li id="disclaimer"><a href="/wiki/Wikipedia:General_disclaimer" title="Wikipedia:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+		
+	
+		<script type="text/javascript">if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by srv146 in 0.066 secs. --></body></html>

@@ -1,0 +1,386 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+				<meta name="keywords" content="String (computer science),API,ASCII,AWK programming language,Algorithm,Alphabet (computer science),Alphabetical order,Array,Assembly language,Associative,Binary operation" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="http://www.gnu.org/copyleft/fdl.html" />
+		<title>String (computer science) - Wikipedia, the free encyclopedia</title>
+		<style type="text/css" media="screen, projection">/*<![CDATA[*/
+			@import "/skins-1.5/common/shared.css?99";
+			@import "/skins-1.5/monobook/main.css?99";
+		/*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="/skins-1.5/common/commonPrint.css?99" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE50Fixes.css?99";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE55Fixes.css?99";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "/skins-1.5/monobook/IE60Fixes.css?99";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "/skins-1.5/monobook/IE70Fixes.css?99";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="/skins-1.5/common/IEFixes.js?99"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		
+		<script type= "text/javascript">/*<![CDATA[*/
+var skin = "monobook";
+var stylepath = "/skins-1.5";
+var wgArticlePath = "/wiki/$1";
+var wgScriptPath = "/w";
+var wgScript = "/w/index.php";
+var wgServer = "http://en.wikipedia.org";
+var wgCanonicalNamespace = "";
+var wgCanonicalSpecialPageName = false;
+var wgNamespaceNumber = 0;
+var wgPageName = "String_(computer_science)";
+var wgTitle = "String (computer science)";
+var wgAction = "view";
+var wgRestrictionEdit = [];
+var wgRestrictionMove = [];
+var wgArticleId = "27701";
+var wgIsArticle = true;
+var wgUserName = null;
+var wgUserGroups = null;
+var wgUserLanguage = "en";
+var wgContentLanguage = "en";
+var wgBreakFrames = false;
+var wgCurRevisionId = "154468983";
+/*]]>*/</script>
+                
+		<script type="text/javascript" src="/skins-1.5/common/wikibits.js?99"><!-- wikibits js --></script>
+		<script type="text/javascript" src="/w/index.php?title=-&amp;action=raw&amp;gen=js&amp;useskin=monobook"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "/w/index.php?title=MediaWiki:Common.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=MediaWiki:Monobook.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=-&action=raw&gen=css&maxage=2678400";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+		<script type="text/javascript" src="/skins-1.5/common/ajax.js?99"></script>
+	</head>
+<body  class="mediawiki ns-0 ltr page-String_computer_science">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">String (computer science)</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<p>In <a href="/wiki/Computer_programming" title="Computer programming">computer programming</a> and <a href="/wiki/Formal_language" title="Formal language">formal language theory</a>, (and other branches of <a href="/wiki/Mathematics" title="Mathematics">mathematics</a>), a <b>string</b> is an ordered <a href="/wiki/Sequence" title="Sequence">sequence</a> of <a href="/wiki/Symbols" title="Symbols">symbols</a>. These symbols are chosen from a predetermined <a href="/wiki/Set" title="Set">set</a>.</p>
+<p>In programming, when stored in memory each symbol is represented using a numeric value. A <a href="/wiki/Variable" title="Variable">variable</a> declared to have a string <a href="/wiki/Datatype" title="Datatype">datatype</a> usually causes storage to be allocated in memory that is capable of holding some predetermined number of symbols. When it appears in <a href="/wiki/Source_code" title="Source code">source code</a> a string is known as a <a href="/wiki/String_literal" title="String literal">string literal</a> and has a representation that denotes it as such. Sometimes the term <b>binary string</b> is used to refer to an arbitrary sequence of bits.</p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Formal_theory"><span class="tocnumber">1</span> <span class="toctext">Formal theory</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Concatenation_and_substrings"><span class="tocnumber">1.1</span> <span class="toctext">Concatenation and substrings</span></a></li>
+<li class="toclevel-2"><a href="#Lexicographical_ordering"><span class="tocnumber">1.2</span> <span class="toctext">Lexicographical ordering</span></a></li>
+<li class="toclevel-2"><a href="#String_operations"><span class="tocnumber">1.3</span> <span class="toctext">String operations</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#String_datatypes"><span class="tocnumber">2</span> <span class="toctext">String datatypes</span></a>
+<ul>
+<li class="toclevel-2"><a href="#String_length"><span class="tocnumber">2.1</span> <span class="toctext">String length</span></a></li>
+<li class="toclevel-2"><a href="#Character_encoding"><span class="tocnumber">2.2</span> <span class="toctext">Character encoding</span></a></li>
+<li class="toclevel-2"><a href="#Implementations"><span class="tocnumber">2.3</span> <span class="toctext">Implementations</span></a></li>
+<li class="toclevel-2"><a href="#Representations"><span class="tocnumber">2.4</span> <span class="toctext">Representations</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Vectors"><span class="tocnumber">3</span> <span class="toctext">Vectors</span></a></li>
+<li class="toclevel-1"><a href="#String_processing_algorithms"><span class="tocnumber">4</span> <span class="toctext">String processing algorithms</span></a></li>
+<li class="toclevel-1"><a href="#Character_string_oriented_languages_and_utilities"><span class="tocnumber">5</span> <span class="toctext">Character string oriented languages and utilities</span></a></li>
+<li class="toclevel-1"><a href="#Character_string_functions"><span class="tocnumber">6</span> <span class="toctext">Character string functions</span></a></li>
+<li class="toclevel-1"><a href="#Notes"><span class="tocnumber">7</span> <span class="toctext">Notes</span></a></li>
+<li class="toclevel-1"><a href="#See_also"><span class="tocnumber">8</span> <span class="toctext">See also</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script>
+<p><a name="Formal_theory" id="Formal_theory"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=String_%28computer_science%29&amp;action=edit&amp;section=1" title="Edit section: Formal theory">edit</a>]</span> <span class="mw-headline">Formal theory</span></h2>
+<p>Let Σ be an <i><a href="/wiki/Alphabet_%28computer_science%29" title="Alphabet (computer science)">alphabet</a></i>, a <a href="/wiki/Empty_set" title="Empty set">non-empty</a> <a href="/wiki/Finite_set" title="Finite set">finite</a> <a href="/wiki/Set" title="Set">set</a>. Elements of Σ are called <i>symbols</i> or <i>characters</i>. A <b>string</b> (or <b>word</b>) over Σ is any finite <a href="/wiki/Sequence" title="Sequence">sequence</a> of characters from Σ. For example, if Σ = {0, 1}, then <i>0101</i> is a string over Σ.</p>
+<p>The <i><a href="/wiki/Length" title="Length">length</a></i> of a string is the number of characters in the string (the length of the sequence) and can be any <a href="/wiki/Non-negative_integer" title="Non-negative integer">non-negative integer</a>. The <i><a href="/wiki/Empty_string" title="Empty string">empty string</a></i> is the unique string over Σ of length 0, and is denoted <i>ε</i> or <i>λ</i>.</p>
+<p>The set of all strings over Σ of length <i>n</i> is denoted Σ<sup><i>n</i></sup>. For example, if Σ = {0, 1}, then Σ<sup>2</sup> = {00, 01, 10, 11}. Note that Σ<sup>0</sup> = {ε} for any alphabet Σ.</p>
+<p>The set of all strings over Σ of any length is the <a href="/wiki/Kleene_star" title="Kleene star">Kleene closure</a> of Σ and is denoted Σ*. In terms of Σ<sup><i>n</i></sup>, <img class="tex" alt="\Sigma^{*} = \bigcup_{n=0}^{\infty}\Sigma^{n}" src="http://upload.wikimedia.org/math/6/2/6/6266d58194fb69c714fedbfaef8da85e.png" />. For example, if Σ = {0, 1}, Σ* = {ε, 0, 1, 00, 01, 10, 11, 000, 001, 010, 011, …}. Although Σ* itself is <a href="/wiki/Countably_infinite" title="Countably infinite">countably infinite</a>, all elements of Σ* have finite length.</p>
+<p>A set of strings over Σ (i.e. any <a href="/wiki/Subset" title="Subset">subset</a> of Σ*) is called a <i><a href="/wiki/Formal_language" title="Formal language">formal language</a></i> over Σ. For example, if Σ = {0, 1}, the set of strings with an even number of zeros ({ε, 1, 00, 11, 001, 010, 100, 111, 0000, 0011, 0101, 0110, 1001, 1010, 1100, 1111, …}) is a formal language over Σ*.</p>
+<p><a name="Concatenation_and_substrings" id="Concatenation_and_substrings"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=String_%28computer_science%29&amp;action=edit&amp;section=2" title="Edit section: Concatenation and substrings">edit</a>]</span> <span class="mw-headline">Concatenation and substrings</span></h3>
+<p><i><a href="/wiki/Concatenation" title="Concatenation">Concatenation</a></i> is an important <a href="/wiki/Binary_operation" title="Binary operation">binary operation</a> on Σ*. For any two strings <i>s</i> and <i>t</i> in Σ*, their concatenation is defined as the sequence of characters in <i>s</i> followed by the sequence of characters in <i>t</i>, and is denoted <i>st</i>. For example, if Σ = {a, b, …, z}, <i>s</i> = <tt>bear</tt>, and <i>t</i> = <tt>hug</tt>, then <i>st</i> = <tt>bearhug</tt> and <i>ts</i> = <tt>hugbear</tt>.</p>
+<p>String concatenation is an <a href="/wiki/Associative" title="Associative">associative</a>, but non-<a href="/wiki/Commutative" title="Commutative">commutative</a> operation. The empty string serves as the <a href="/wiki/Identity_element" title="Identity element">identity element</a>; for any string <i>s</i>, ε<i>s</i> = <i>s</i>ε = <i>s</i>. Therefore, the set Σ* and the concatenation operation form a <a href="/wiki/Monoid" title="Monoid">monoid</a>, the <a href="/wiki/Free_monoid" title="Free monoid">free monoid</a> generated by Σ. In addition, the length function defines a <a href="/wiki/Monoid_homomorphism" title="Monoid homomorphism">monoid homomorphism</a> from Σ* to the non-negative integers.</p>
+<p>A string <i>s</i> is said to be a <i><a href="/wiki/Substring" title="Substring">substring</a></i> or <i>factor</i> of <i>t</i> if there exist (possibly empty) strings <i>u</i> and <i>v</i> such that <i>t</i> = <i>usv</i>. The <a href="/wiki/Binary_relation" title="Binary relation">relation</a> "is a substring of" defines a <a href="/wiki/Partial_order" title="Partial order">partial order</a> on Σ*, the <a href="/wiki/Least_element" title="Least element">least element</a> of which is the empty string.</p>
+<p><a name="Lexicographical_ordering" id="Lexicographical_ordering"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=String_%28computer_science%29&amp;action=edit&amp;section=3" title="Edit section: Lexicographical ordering">edit</a>]</span> <span class="mw-headline">Lexicographical ordering</span></h3>
+<p>It is often necessary to define an <a href="/wiki/Ordering" title="Ordering">ordering</a> on the set of strings. If the alphabet Σ has a <a href="/wiki/Total_order" title="Total order">total order</a> (cf. <a href="/wiki/Alphabetical_order" title="Alphabetical order">alphabetical order</a>) one can define a <a href="/wiki/Total_order" title="Total order">total order</a> on Σ* called <a href="/wiki/Lexicographical_order" title="Lexicographical order">lexicographical order</a>. Note that since Σ is finite, it is always possible to define a well ordering on Σ and thus on Σ*. For example, if Σ = {0, 1} and 0 &lt; 1, then the lexicographical ordering of Σ* is ε &lt; 0 &lt; 00 &lt; 000 &lt; … &lt; 011 &lt; 0110 &lt; … &lt; 01111 &lt; … &lt; 1 &lt; 10 &lt; 100 &lt; … &lt; 101 &lt; … &lt; 111 …</p>
+<p><a name="String_operations" id="String_operations"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=String_%28computer_science%29&amp;action=edit&amp;section=4" title="Edit section: String operations">edit</a>]</span> <span class="mw-headline">String operations</span></h3>
+<p>A number of additional operations on strings commonly occur in the formal theory. These are given in the article on <a href="/wiki/String_operations" title="String operations">string operations</a>.</p>
+<p><a name="String_datatypes" id="String_datatypes"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=String_%28computer_science%29&amp;action=edit&amp;section=5" title="Edit section: String datatypes">edit</a>]</span> <span class="mw-headline">String datatypes</span></h2>
+<p>A <b>string datatype</b> is a <a href="/wiki/Datatype" title="Datatype">datatype</a> modeled on the idea of a formal string. Strings are such an important and useful datatype that they are implemented in nearly every <a href="/wiki/Programming_language" title="Programming language">programming language</a>. In some languages they are available as <a href="/wiki/Primitive_type" title="Primitive type">primitive types</a> and in others as <a href="/wiki/Composite_type" title="Composite type">composite types</a>. The <a href="/wiki/Syntax" title="Syntax">syntax</a> of most high-level programming languages allows for a string, usually quoted in some way, to represent an instance of a string datatype; such a meta-string is called a <i>literal</i> or <i><a href="/wiki/String_literal" title="String literal">string literal</a></i>.</p>
+<p><a name="String_length" id="String_length"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=String_%28computer_science%29&amp;action=edit&amp;section=6" title="Edit section: String length">edit</a>]</span> <span class="mw-headline">String length</span></h3>
+<p>Although formal strings can have an arbitrary (but finite) length, the length of strings in real languages is often constrained to an artificial maximum. In general, there are two types of string datatypes: <i>fixed length strings</i> which have a fixed maximum length and which use the same amount of memory whether this maximum is reached or not, and <i>variable length strings</i> whose length is not arbitrarily fixed and which use varying amounts of memory depending on their actual size. Most strings in modern <a href="/wiki/Programming_languages" title="Programming languages">programming languages</a> are variable length strings. Despite the name, even variable length strings are limited in length; although, generally, the limit depends only on the amount of <a href="/wiki/Computer_memory" title="Computer memory">memory</a> available..</p>
+<p><a name="Character_encoding" id="Character_encoding"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=String_%28computer_science%29&amp;action=edit&amp;section=7" title="Edit section: Character encoding">edit</a>]</span> <span class="mw-headline">Character encoding</span></h3>
+<p>Historically, string datatypes allocated one <a href="/wiki/Byte" title="Byte">byte</a> per character, and although the exact character set varied by region, <a href="/wiki/Character_encoding" title="Character encoding">character encodings</a> were similar enough that programmers could generally get away with ignoring this — groups of character sets used by the same system in different regions either had a character in the same place, or did not have it at all. These character sets were typically based on <a href="/wiki/ASCII" title="ASCII">ASCII</a> or <a href="/wiki/EBCDIC" title="EBCDIC">EBCDIC</a>.</p>
+<p><a href="/wiki/Logograph" title="Logograph">Logographic</a> languages such as <a href="/wiki/Chinese_language" title="Chinese language">Chinese</a>, <a href="/wiki/Japanese_language" title="Japanese language">Japanese</a>, and <a href="/wiki/Korean_language" title="Korean language">Korean</a> (known collectively as <a href="/wiki/CJK" title="CJK">CJK</a>) need far more than 256 characters (the limit of a one-<a href="/wiki/Byte" title="Byte">byte</a>-per-character encoding) for reasonable representation. The normal solutions involved keeping single-byte representations for <a href="/wiki/ASCII" title="ASCII">ASCII</a> and using two-byte representations for CJK <a href="/wiki/Ideographs" title="Ideographs">ideographs</a>. Use of these with existing code led to problems with matching and cutting of strings, the severity of which depended on how the character encoding was designed. Some encodings such as the <a href="/wiki/EUC" title="EUC">EUC</a> family guarantee that a byte value in the ASCII range will only represent that ASCII character, making the encoding safe for systems that use those characters as field separators. Other encodings such as <a href="/wiki/ISO-2022" title="ISO-2022">ISO-2022</a> and <a href="/wiki/Shift-JIS" title="Shift-JIS">Shift-JIS</a> do not make such guarantees, making matching on byte codes unsafe. Another issue is that if the beginning of a string is deleted, important instructions for the decoder or information on position in a multibyte sequence may be lost. Another is that if strings are joined together (especially after having their ends truncated by code not aware of the encoding), the first string may not leave the encoder in a state suitable for dealing with the second string.</p>
+<p><a href="/wiki/Unicode" title="Unicode">Unicode</a> has complicated the picture somewhat. Most languages have a datatype for Unicode strings (usually <a href="/wiki/UTF-16" title="UTF-16">UTF-16</a> as it was usually added before Unicode supplemental planes were introduced). Converting between Unicode and local encodings requires an understanding of the local encoding, which may be problematic for existing systems where strings of various encodings are being transmitted together with no real marking as to what encoding they are in.</p>
+<p><a name="Implementations" id="Implementations"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=String_%28computer_science%29&amp;action=edit&amp;section=8" title="Edit section: Implementations">edit</a>]</span> <span class="mw-headline">Implementations</span></h3>
+<p>Some languages like <a href="/wiki/C%2B%2B" title="C++">C++</a> implement strings as <a href="/wiki/Generic_programming" title="Generic programming">templates</a> that can be used with any <a href="/wiki/Primitive_type" title="Primitive type">primitive type</a>, but this is the exception, not the rule.</p>
+<p>If an object-oriented language represents strings as objects, they are called <i>mutable</i> if the value can change at runtime and <i>immutable</i> if the value is frozen after creation. For example, <a href="/wiki/Ruby_%28programming_language%29" title="Ruby (programming language)">Ruby</a> has mutable strings, while <a href="/wiki/Python_%28programming_language%29" title="Python (programming language)">Python</a>'s strings are immutable.</p>
+<p>Other languages, most notably <a href="/wiki/Prolog" title="Prolog">Prolog</a> and <a href="/wiki/Erlang_%28programming_language%29" title="Erlang (programming language)">Erlang</a>, avoid implementing a string datatype, instead adopting the convention of representing strings as lists of character codes.</p>
+<p><a name="Representations" id="Representations"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=String_%28computer_science%29&amp;action=edit&amp;section=9" title="Edit section: Representations">edit</a>]</span> <span class="mw-headline">Representations</span></h3>
+<p>Representations of strings depend heavily on the choice of character repertoire and the method of character encoding. Older string implementations were designed to work with repertoire and encoding defined by <a href="/wiki/ASCII" title="ASCII">ASCII</a>, or more recent extensions like the <a href="/wiki/ISO_8859" title="ISO 8859">ISO 8859</a> series. Modern implementations often use the extensive repertoire defined by <a href="/wiki/Unicode" title="Unicode">Unicode</a> along with a variety of complex encodings such as <a href="/wiki/UTF-8" title="UTF-8">UTF-8</a> and <a href="/wiki/UTF-16" title="UTF-16">UTF-16</a>.</p>
+<p>Most string implementations are very similar to variable-length <a href="/wiki/Array" title="Array">arrays</a> with the entries storing the <a href="/wiki/Character_code" title="Character code">character codes</a> of corresponding characters. The principal difference is that, with certain encodings, a single logical character may take up more than one entry in the array. This happens for example with <a href="/wiki/UTF-8" title="UTF-8">UTF-8</a>, where single characters can take anywhere from one to four bytes. In these cases, the logical length of the string differs from the logical length of the array.</p>
+<p>The length of a string can be stored implicitly by using a special terminating character; often this is the <a href="/wiki/Null_character" title="Null character">null character</a> having value zero, a convention used and perpetuated by the popular <a href="/wiki/C_%28programming_language%29" title="C (programming language)">C programming language</a><sup id="_ref-0" class="reference"><a href="#_note-0" title="">[1]</a></sup>. Hence, this representation is commonly referred to as <a href="/wiki/C_string" title="C string">C string</a>. The length of a string can also be stored explicitly, for example by prefixing the string with <a href="/wiki/Byte" title="Byte">byte</a> value — a convention used in <a href="/wiki/Pascal_%28programming_language%29" title="Pascal (programming language)">Pascal</a>; consequently some people call it a P-string.</p>
+<p>In terminated strings, the terminating code is not an allowable character in any string.</p>
+<p>Here is an example of a <b>null-terminated string</b> stored in a 10-byte <a href="/wiki/Buffer_%28computer_science%29" title="Buffer (computer science)">buffer</a>, along with its ASCII representation:</p>
+<table class="wikitable" style="margin-left: auto; margin-right:auto">
+<tr>
+<td>F</td>
+<td>R</td>
+<td>A</td>
+<td>N</td>
+<td>K</td>
+<td><small>NUL</small></td>
+<td style="background: #DDD">k</td>
+<td style="background: #DDD">e</td>
+<td style="background: #DDD">f</td>
+<td style="background: #DDD">w</td>
+</tr>
+<tr>
+<td>46</td>
+<td>52</td>
+<td>41</td>
+<td>4E</td>
+<td>4B</td>
+<td>00</td>
+<td style="background: #DDD">6B</td>
+<td style="background: #DDD">66</td>
+<td style="background: #DDD">66</td>
+<td style="background: #DDD">77</td>
+</tr>
+</table>
+<p>The length of a string in the above example is 5 characters, but it occupies 6 bytes. Characters after the terminator do not form part of the representation; they may be either part of another string or just garbage. (Strings of this form are sometimes called <i>ASCIZ strings</i>, after the original <a href="/wiki/Assembly_language" title="Assembly language">assembly language</a> directive used to declare them.)</p>
+<p>Here is the equivalent (old style) <b>Pascal string</b> stored in a 10-byte buffer, along with its ASCII representation:</p>
+<table class="wikitable" style="margin-left: auto; margin-right:auto">
+<tr>
+<td><small>length</small></td>
+<td>F</td>
+<td>R</td>
+<td>A</td>
+<td>N</td>
+<td>K</td>
+<td style="background: #DDD">k</td>
+<td style="background: #DDD">e</td>
+<td style="background: #DDD">f</td>
+<td style="background: #DDD">w</td>
+</tr>
+<tr>
+<td>05</td>
+<td>46</td>
+<td>52</td>
+<td>41</td>
+<td>4E</td>
+<td>4B</td>
+<td style="background: #DDD">6B</td>
+<td style="background: #DDD">66</td>
+<td style="background: #DDD">66</td>
+<td style="background: #DDD">77</td>
+</tr>
+</table>
+<p>While these representations are common, others are possible. Using <a href="/wiki/Rope_%28computer_science%29" title="Rope (computer science)">ropes</a> makes certain string operations, such as insertions, deletions, and concatenations more efficient.</p>
+<p><a name="Vectors" id="Vectors"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=String_%28computer_science%29&amp;action=edit&amp;section=10" title="Edit section: Vectors">edit</a>]</span> <span class="mw-headline">Vectors</span></h2>
+<p>While character strings are very common uses of strings, a string in computer science may refer generically to any vector of homogenously typed data. A string of bits or bytes, for example, may be used to represent data retrieved from a communications medium. This data may or may not be represented by a string-specific datatype, depending on the needs of the application, the desire of the programmer, and the capabilities of the programming language being used.</p>
+<p><a name="String_processing_algorithms" id="String_processing_algorithms"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=String_%28computer_science%29&amp;action=edit&amp;section=11" title="Edit section: String processing algorithms">edit</a>]</span> <span class="mw-headline">String processing algorithms</span></h2>
+<p>There are many <a href="/wiki/Algorithm" title="Algorithm">algorithms</a> for processing strings, each with various trade-offs. Some categories of algorithms include</p>
+<ul>
+<li><a href="/wiki/String_searching_algorithm" title="String searching algorithm">string searching algorithms</a> for finding a given substring or pattern;</li>
+<li><a href="/wiki/String_manipulation_algorithm" title="String manipulation algorithm">string manipulation algorithms</a>;</li>
+<li><a href="/wiki/Sorting_algorithm" title="Sorting algorithm">sorting algorithms</a>;</li>
+<li><a href="/wiki/Regular_expression" title="Regular expression">regular expression</a> algorithms; and</li>
+<li><a href="/wiki/Parser" title="Parser">parsing</a> a string.</li>
+</ul>
+<p>Advanced string algorithms often employ complex mechanisms and data structures, among them <a href="/wiki/Suffix_tree" title="Suffix tree">suffix trees</a> and <a href="/wiki/Finite_state_machine" title="Finite state machine">finite state machines</a>.</p>
+<p><a name="Character_string_oriented_languages_and_utilities" id="Character_string_oriented_languages_and_utilities"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=String_%28computer_science%29&amp;action=edit&amp;section=12" title="Edit section: Character string oriented languages and utilities">edit</a>]</span> <span class="mw-headline">Character string oriented languages and utilities</span></h2>
+<p>Character strings are such a useful datatype that several languages have been designed in order to make string processing applications easy to write. Examples include the following languages:</p>
+<ul>
+<li><a href="/wiki/AWK_programming_language" title="AWK programming language">awk</a></li>
+<li><a href="/wiki/Icon_programming_language" title="Icon programming language">Icon</a></li>
+<li><a href="/wiki/MUMPS" title="MUMPS">MUMPS</a></li>
+<li><a href="/wiki/Perl" title="Perl">Perl</a></li>
+<li><a href="/wiki/Rexx" title="Rexx">Rexx</a></li>
+<li><a href="/wiki/Ruby_programming_language" title="Ruby programming language">Ruby</a></li>
+<li><a href="/wiki/Sed" title="Sed">sed</a></li>
+<li><a href="/wiki/SNOBOL" title="SNOBOL">SNOBOL</a></li>
+<li><a href="/wiki/Tcl" title="Tcl">Tcl</a></li>
+</ul>
+<p>Many <a href="/wiki/Unix" title="Unix">UNIX</a> utilities perform simple string manipulations and can be used to easily program some powerful string processing algorithms. Files and finite streams may be viewed as strings.</p>
+<p>Some <a href="/wiki/API" title="API">APIs</a> like <a href="/wiki/Multimedia_Control_Interface" title="Multimedia Control Interface">Multimedia Control Interface</a>, <a href="/wiki/Embedded_SQL" title="Embedded SQL">embedded SQL</a> or <a href="/wiki/Printf" title="Printf">printf</a> use strings to hold commands that will be interpreted.</p>
+<p>Recent <a href="/wiki/Scripting_programming_language" title="Scripting programming language">scripting programming languages</a>, including <a href="/wiki/Perl" title="Perl">Perl</a>, <a href="/wiki/Python_%28programming_language%29" title="Python (programming language)">Python</a>, <a href="/wiki/Ruby_programming_language" title="Ruby programming language">Ruby</a>, and <a href="/wiki/Tcl" title="Tcl">Tcl</a> employ <a href="/wiki/Regular_expression" title="Regular expression">regular expressions</a> to facilitate text operations.</p>
+<p><a name="Character_string_functions" id="Character_string_functions"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=String_%28computer_science%29&amp;action=edit&amp;section=13" title="Edit section: Character string functions">edit</a>]</span> <span class="mw-headline">Character string functions</span></h2>
+<dl>
+<dd>
+<div class="noprint"><i>Main article: <a href="/wiki/String_Functions_%28Computer_Science%29" title="String Functions (Computer Science)">String Functions (Computer Science)</a></i></div>
+</dd>
+</dl>
+<p><a href="/wiki/String_Functions_%28Computer_Science%29" title="String Functions (Computer Science)">String functions</a> are used to manipulate a string or change or edit the contents of a string. They also are used to query information about a string. They are usually used within the context of a computer <a href="/wiki/Programming_language" title="Programming language">programming language</a>.</p>
+<p>The most basic example of a string function is the <i>length(string)</i> function. This function returns the length of a string (not counting the null terminator or any other of the string's internal structural information) and does not change the string.</p>
+<p>eg. <i>length("hello world")</i> would return 11.</p>
+<p>There are many string functions which exist in other languages with similar or exactly the same syntax or parameters. For example in many languages the length function is usually represented as <i>len(string)</i>. Even though string functions are very useful to a computer programmer, a computer programmer using these functions should be mindful that a string function in one language could in another language behave differently or have a similar or completely different function name, parameters, syntax and outcomes.</p>
+<p><a name="Notes" id="Notes"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=String_%28computer_science%29&amp;action=edit&amp;section=14" title="Edit section: Notes">edit</a>]</span> <span class="mw-headline">Notes</span></h2>
+<ol class="references">
+<li id="_note-0"><b><a href="#_ref-0" title="">^</a></b> <cite id="CITEREFBryantDavid2003"><a href="/wiki/Randal_Bryant" title="Randal Bryant">Bryant, Randal E.</a> &amp; O'Hallaron David (2003), <i><a href="http://csapp.cs.cmu.edu/" class="external text" title="http://csapp.cs.cmu.edu/" rel="nofollow">Computer Systems: A Programmer's Perspective</a></i> (2003 ed.), Upper Saddle River, NJ: Pearson Education, pp. 40, <a href="/w/index.php?title=Special:Booksources&amp;isbn=013034074X" class="internal">ISBN 0-13-034074-X</a><span class="printonly">, &lt;<a href="http://csapp.cs.cmu.edu/" class="external free" title="http://csapp.cs.cmu.edu/" rel="nofollow">http://csapp.cs.cmu.edu/</a>&gt;</span></cite></li>
+</ol>
+<p><a name="See_also" id="See_also"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=String_%28computer_science%29&amp;action=edit&amp;section=15" title="Edit section: See also">edit</a>]</span> <span class="mw-headline">See also</span></h2>
+<ul>
+<li><a href="/wiki/Bitstring" title="Bitstring">Bitstring</a></li>
+<li><a href="/wiki/Category:Algorithms_on_strings" title="Category:Algorithms on strings">Category:Algorithms on strings</a></li>
+</ul>
+
+<!-- 
+Pre-expand include size: 22574 bytes
+Post-expand include size: 4750 bytes
+Template argument size: 3100 bytes
+Maximum: 2048000 bytes
+-->
+
+<!-- Saved in parser cache with key enwiki:pcache:idhash:27701-0!1!0!default!!en!2 and timestamp 20070914191201 -->
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org/wiki/String_%28computer_science%29">http://en.wikipedia.org/wiki/String_%28computer_science%29</a>"</div>
+			<div id="catlinks"><p class='catlinks'><a href="/wiki/Special:Categories" title="Special:Categories">Categories</a>: <span dir='ltr'><a href="/wiki/Category:Character_encoding" title="Category:Character encoding">Character encoding</a></span> | <span dir='ltr'><a href="/wiki/Category:Data_structures" title="Category:Data structures">Data structures</a></span> | <span dir='ltr'><a href="/wiki/Category:Data_types" title="Category:Data types">Data types</a></span> | <span dir='ltr'><a href="/wiki/Category:Formal_languages" title="Category:Formal languages">Formal languages</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<div class="pBody">
+			<ul>
+					 <li id="ca-nstab-main" class="selected"><a href="/wiki/String_%28computer_science%29" title="View the content page [c]" accesskey="c">Article</a></li>
+					 <li id="ca-talk"><a href="/wiki/Talk:String_%28computer_science%29" title="Discussion about the content page [t]" accesskey="t">Discussion</a></li>
+					 <li id="ca-edit"><a href="/w/index.php?title=String_%28computer_science%29&amp;action=edit" title="You can edit this page. Please use the preview button before saving. [e]" accesskey="e">Edit this page</a></li>
+					 <li id="ca-history"><a href="/w/index.php?title=String_%28computer_science%29&amp;action=history" title="Past versions of this page [h]" accesskey="h">History</a></li>
+				</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-personal">
+		<h5>Personal tools</h5>
+		<div class="pBody">
+			<ul>
+				<li id="pt-login"><a href="/w/index.php?title=Special:Userlogin&amp;returnto=String_(computer_science)" title="You are encouraged to log in, it is not mandatory however. [o]" accesskey="o">Sign in / create account</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-logo">
+		<a style="background-image: url(/images/wiki-en.png);" href="/wiki/Main_Page" title="Visit the Main Page [z]" accesskey="z"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-Main-page"><a href="/wiki/Main_Page">Main page</a></li>
+				<li id="n-Contents"><a href="/wiki/Wikipedia:Contents">Contents</a></li>
+				<li id="n-Featured-content"><a href="/wiki/Wikipedia:Featured_content">Featured content</a></li>
+				<li id="n-currentevents"><a href="/wiki/Portal:Current_events" title="Find background information on current events">Current events</a></li>
+				<li id="n-randompage"><a href="/wiki/Special:Random" title="Load a random page [x]" accesskey="x">Random article</a></li>
+			</ul>
+		</div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+		<h5>interaction</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-About-Wikipedia"><a href="/wiki/Wikipedia:About">About Wikipedia</a></li>
+				<li id="n-portal"><a href="/wiki/Wikipedia:Community_Portal" title="About the project, what you can do, where to find things">Community portal</a></li>
+				<li id="n-recentchanges"><a href="/wiki/Special:Recentchanges" title="The list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li>
+				<li id="n-contact"><a href="/wiki/Wikipedia:Contact_us">Contact Wikipedia</a></li>
+				<li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising" title="Support us">Donate to Wikipedia</a></li>
+				<li id="n-help"><a href="/wiki/Help:Contents" title="Guidance on how to use and edit Wikipedia">Help</a></li>
+			</ul>
+		</div>
+	</div>
+		<div id="p-search" class="portlet">
+		<h5><label for="searchInput">Search</label></h5>
+		<div id="searchBody" class="pBody">
+			<form action="/wiki/Special:Search" id="searchform"><div>
+				<input id="searchInput" name="search" type="text" title="Search Wikipedia [f]" accesskey="f" value="" />
+				<input type='submit' name="go" class="searchButton" id="searchGoButton"	value="Go" />&nbsp;
+				<input type='submit' name="fulltext" class="searchButton" id="mw-searchButton" value="Search" />
+			</div></form>
+		</div>
+	</div>
+	<div class="portlet" id="p-tb">
+		<h5>Toolbox</h5>
+		<div class="pBody">
+			<ul>
+				<li id="t-whatlinkshere"><a href="/wiki/Special:Whatlinkshere/String_%28computer_science%29" title="List of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+				<li id="t-recentchangeslinked"><a href="/wiki/Special:Recentchangeslinked/String_%28computer_science%29" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+<li id="t-upload"><a href="/wiki/Wikipedia:Upload" title="Upload images or media files [u]" accesskey="u">Upload file</a></li>
+<li id="t-specialpages"><a href="/wiki/Special:Specialpages" title="List of all special pages [q]" accesskey="q">Special pages</a></li>
+				<li id="t-print"><a href="/w/index.php?title=String_%28computer_science%29&amp;printable=yes" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>				<li id="t-permalink"><a href="/w/index.php?title=String_%28computer_science%29&amp;oldid=154468983" title="Permanent link to this version of the page">Permanent link</a></li><li id="t-cite"><a href="/w/index.php?title=Special:Cite&amp;page=String_%28computer_science%29&amp;id=154468983">Cite this article</a></li>			</ul>
+		</div>
+	</div>
+	<div id="p-lang" class="portlet">
+		<h5>In other languages</h5>
+		<div class="pBody">
+			<ul>
+				<li class="interwiki-ar"><a href="http://ar.wikipedia.org/wiki/%D8%B3%D9%84%D8%B3%D9%84%D8%A9_%D8%A3%D8%BA%D8%B1%D8%A7%D8%B6">العربية</a></li>
+				<li class="interwiki-bg"><a href="http://bg.wikipedia.org/wiki/%D0%9D%D0%B8%D0%B7">Български</a></li>
+				<li class="interwiki-cs"><a href="http://cs.wikipedia.org/wiki/Textov%C3%BD_%C5%99et%C4%9Bzec">Česky</a></li>
+				<li class="interwiki-de"><a href="http://de.wikipedia.org/wiki/Zeichenkette">Deutsch</a></li>
+				<li class="interwiki-el"><a href="http://el.wikipedia.org/wiki/%CE%A3%CF%84%CE%BF%CE%B9%CF%87%CE%B5%CE%B9%CE%BF%CF%83%CE%B5%CE%B9%CF%81%CE%AC">Ελληνικά</a></li>
+				<li class="interwiki-es"><a href="http://es.wikipedia.org/wiki/Cadena_de_caracteres">Español</a></li>
+				<li class="interwiki-fr"><a href="http://fr.wikipedia.org/wiki/Cha%C3%AEne_de_caract%C3%A8res">Français</a></li>
+				<li class="interwiki-it"><a href="http://it.wikipedia.org/wiki/Stringa_%28informatica%29">Italiano</a></li>
+				<li class="interwiki-he"><a href="http://he.wikipedia.org/wiki/%D7%9E%D7%97%D7%A8%D7%95%D7%96%D7%AA_%28%D7%AA%D7%9B%D7%A0%D7%95%D7%AA%29">עברית</a></li>
+				<li class="interwiki-hu"><a href="http://hu.wikipedia.org/wiki/String">Magyar</a></li>
+				<li class="interwiki-nl"><a href="http://nl.wikipedia.org/wiki/String_%28informatica%29">Nederlands</a></li>
+				<li class="interwiki-ja"><a href="http://ja.wikipedia.org/wiki/%E6%96%87%E5%AD%97%E5%88%97">日本語</a></li>
+				<li class="interwiki-no"><a href="http://no.wikipedia.org/wiki/Streng_%28informatikk%29">‪Norsk (bokmål)‬</a></li>
+				<li class="interwiki-pl"><a href="http://pl.wikipedia.org/wiki/String">Polski</a></li>
+				<li class="interwiki-pt"><a href="http://pt.wikipedia.org/wiki/Cadeia_de_caracteres">Português</a></li>
+				<li class="interwiki-ru"><a href="http://ru.wikipedia.org/wiki/%D0%A1%D1%82%D1%80%D0%BE%D0%BA%D0%BE%D0%B2%D1%8B%D0%B9_%D1%82%D0%B8%D0%BF">Русский</a></li>
+				<li class="interwiki-sr"><a href="http://sr.wikipedia.org/wiki/%D0%9D%D0%B8%D1%81%D0%BA%D0%B0">Српски / Srpski</a></li>
+				<li class="interwiki-fi"><a href="http://fi.wikipedia.org/wiki/Merkkijono">Suomi</a></li>
+				<li class="interwiki-sv"><a href="http://sv.wikipedia.org/wiki/Str%C3%A4ng_%28data%29">Svenska</a></li>
+				<li class="interwiki-uk"><a href="http://uk.wikipedia.org/wiki/%D0%A0%D1%8F%D0%B4%D0%BE%D0%BA">Українська</a></li>
+				<li class="interwiki-zh"><a href="http://zh.wikipedia.org/wiki/%E5%AD%97%E7%AC%A6%E4%B8%B2">中文</a></li>
+			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="/skins-1.5/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>
+				<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="/images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>
+			<ul id="f-list">
+				<li id="lastmod"> This page was last modified 21:48, 29 August 2007.</li>
+				<li id="copyright">All text is available under the terms of the <a class='internal' href="/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="/wiki/Wikipedia:Copyrights" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a U.S. registered <a class='internal' href="/wiki/501%28c%29#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="/wiki/Non-profit_organization" title="Non-profit organization">nonprofit</a> <a href="/wiki/Charitable_organization" title="Charitable organization">charity</a>.<br /></li>
+				<li id="privacy"><a href="http://wikimediafoundation.org/wiki/Privacy_policy" title="wikimedia:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="/wiki/Wikipedia:About" title="Wikipedia:About">About Wikipedia</a></li>
+				<li id="disclaimer"><a href="/wiki/Wikipedia:General_disclaimer" title="Wikipedia:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+		
+	
+		<script type="text/javascript">if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by srv180 in 0.380 secs. --></body></html>

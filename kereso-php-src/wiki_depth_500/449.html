@@ -1,0 +1,262 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pl" lang="pl" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+				<meta name="keywords" content="Algorytm Johnsona,Algorytm A*,Algorytm Bellmana-Forda,Algorytm Dijkstry,Algorytm Fleury'ego,Algorytm Floyda-Warshalla,Algorytm Kruskala,Algorytm Prima,Algorytm najbliższego sąsiada,Cykl (teoria grafów),Diagram Hassego" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (Polski)" />
+		<link rel="copyright" href="http://www.gnu.org/copyleft/fdl.html" />
+		<title>Algorytm Johnsona - Wikipedia, wolna encyklopedia</title>
+		<style type="text/css" media="screen, projection">/*<![CDATA[*/
+			@import "/skins-1.5/common/shared.css?99";
+			@import "/skins-1.5/monobook/main.css?99";
+		/*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="/skins-1.5/common/commonPrint.css?99" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE50Fixes.css?99";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE55Fixes.css?99";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "/skins-1.5/monobook/IE60Fixes.css?99";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "/skins-1.5/monobook/IE70Fixes.css?99";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="/skins-1.5/common/IEFixes.js?99"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		
+		<script type= "text/javascript">/*<![CDATA[*/
+var skin = "monobook";
+var stylepath = "/skins-1.5";
+var wgArticlePath = "/wiki/$1";
+var wgScriptPath = "/w";
+var wgScript = "/w/index.php";
+var wgServer = "http://pl.wikipedia.org";
+var wgCanonicalNamespace = "";
+var wgCanonicalSpecialPageName = false;
+var wgNamespaceNumber = 0;
+var wgPageName = "Algorytm_Johnsona";
+var wgTitle = "Algorytm Johnsona";
+var wgAction = "view";
+var wgRestrictionEdit = [];
+var wgRestrictionMove = [];
+var wgArticleId = "770916";
+var wgIsArticle = true;
+var wgUserName = null;
+var wgUserGroups = null;
+var wgUserLanguage = "pl";
+var wgContentLanguage = "pl";
+var wgBreakFrames = false;
+var wgCurRevisionId = "8926341";
+/*]]>*/</script>
+                
+		<script type="text/javascript" src="/skins-1.5/common/wikibits.js?99"><!-- wikibits js --></script>
+		<script type="text/javascript" src="/w/index.php?title=-&amp;action=raw&amp;gen=js&amp;useskin=monobook"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "/w/index.php?title=MediaWiki:Common.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=MediaWiki:Monobook.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=-&action=raw&gen=css&maxage=2678400";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+		<script type="text/javascript" src="/skins-1.5/common/ajax.js?99"></script>
+	</head>
+<body  class="mediawiki ns-0 ltr page-Algorytm_Johnsona">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+		<div id="siteNotice"><script type="text/javascript" language="JavaScript">
+<!--
+document.writeln("\x3cdiv style=\"font-style:normal; font-size: 8pt; text-align:center; line-height: 1.4em;\"\x3e\x3cb\x3eWikipedia obchodzi 6. urodziny - weź udział w \x3ca href=\"http://pl.wikimedia.org/wiki/6._urodziny_polskiej_Wikipedii\" class=\"extiw\" title=\"chapter:6._urodziny_polskiej_Wikipedii\"\x3espotkaniach wikipedystów\x3c/a\x3e w różnych miastach Polski!\x3c/b\x3e\x3c/div\x3e\n\x3cdiv style=\"font-style:normal; font-size: 8pt; text-align:center; line-height: 1.4em;\"\x3eZapraszamy też na robocze spotkanie \x3ca href=\"http://meta.wikimedia.org/wiki/GDJ\" class=\"extiw\" title=\"meta:GDJ\"\x3e\"Gdzie jesteśmy? Dokąd zmierzamy? Jak?\"\x3c/a\x3e do Częstochowy 22-23 września 2007r.!\x3c/div\x3e\n\x3cp\x3e\x3cbr /\x3e\n\x3c/p\x3e");
+-->
+</script></div>		<h1 class="firstHeading">Algorytm Johnsona</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">Z Wikipedii</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Skocz do: <a href="#column-one">nawigacji</a>, <a href="#searchInput">szukaj</a></div>			<!-- start content -->
+			<table align="right" style="margin-left: 15px; margin-bottom: 15px; text-align: left; border:1px solid #aaaaaa; padding:5px; font-size: 85%; width: 16em;" class="box">
+<tr>
+<td align="center">Niniejszy artykuł jest częścią cyklu <b><a href="/wiki/Teoria_graf%C3%B3w" title="Teoria grafów">teoria grafów</a></b>.
+<p><br /></p>
+<div class="center">
+<div class="floatnone"><span><a href="/wiki/Grafika:6n-graf.svg" class="image" title="6n-graf.svg"><img alt="" src="http://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/6n-graf.svg/120px-6n-graf.svg.png" width="120" height="79" border="0" /></a></span></div>
+</div>
+<br /></td>
+</tr>
+<tr>
+<td bgcolor="#F3F4F4">
+<hr />
+<p><i><b>Najważniejsze pojęcia</b></i><br />
+<a href="/wiki/Graf_%28matematyka%29" title="Graf (matematyka)">graf</a><br />
+<a href="/wiki/Podgraf" title="Podgraf">podgraf</a><br />
+<a href="/wiki/Cykl_%28teoria_graf%C3%B3w%29" title="Cykl (teoria grafów)">cykl</a><br />
+<a href="/wiki/Klika_%28teoria_graf%C3%B3w%29" title="Klika (teoria grafów)">klika</a><br />
+<a href="/wiki/Stopie%C5%84_wierzcho%C5%82ka" title="Stopień wierzchołka">stopień wierzchołka</a><br />
+<a href="/wiki/Dope%C5%82nienie_grafu" title="Dopełnienie grafu">dopełnienie grafu</a><br />
+<a href="/wiki/Obw%C3%B3d_grafu" title="Obwód grafu">obwód grafu</a><br />
+<a href="/wiki/Pokrycie_wierzcho%C5%82kowe" title="Pokrycie wierzchołkowe">pokrycie wierzchołkowe</a><br />
+<a href="/wiki/Liczba_chromatyczna" title="Liczba chromatyczna">liczba chromatyczna</a><br />
+<a href="/wiki/Indeks_chromatyczny" title="Indeks chromatyczny">indeks chromatyczny</a><br />
+<a href="/wiki/Izomorfizm_graf%C3%B3w" title="Izomorfizm grafów">izomorfizm grafów</a><br />
+<a href="/wiki/Homeomorfizm_graf%C3%B3w" title="Homeomorfizm grafów">homeomorfizm grafów</a><br /></p>
+<div style="text-align: right"><i><a href="/wiki/Graf_%28matematyka%29#Poj.C4.99cia" title="Graf (matematyka)">więcej...</a></i></div>
+<hr />
+<p><i><b>Wybrane klasy grafów</b></i><br />
+<a href="/wiki/Graf_pe%C5%82ny" title="Graf pełny">graf pełny</a><br />
+<a href="/wiki/Graf_sp%C3%B3jny" title="Graf spójny">graf spójny</a><br />
+<a href="/wiki/Drzewo_%28matematyka%29" title="Drzewo (matematyka)">drzewo</a><br />
+<a href="/wiki/Graf_dwudzielny" title="Graf dwudzielny">graf dwudzielny</a><br />
+<a href="/wiki/Graf_regularny" title="Graf regularny">graf regularny</a><br />
+<a href="/wiki/Graf_eulerowski" title="Graf eulerowski">graf eulerowski</a><br />
+<a href="/wiki/Graf_hamiltonowski" title="Graf hamiltonowski">graf hamiltonowski</a><br />
+<a href="/wiki/Graf_planarny" title="Graf planarny">graf planarny</a><br /></p>
+<div style="text-align: right"><i><a href="/wiki/Klasa_graf%C3%B3w" title="Klasa grafów">więcej...</a></i></div>
+<hr />
+<p><i><b>Algorytmy grafowe</b></i><br />
+<a href="/wiki/Algorytm_A%2A" title="Algorytm A*">A*</a><br />
+<a href="/wiki/Algorytm_Bellmana-Forda" title="Algorytm Bellmana-Forda">Bellmana-Forda</a><br />
+<a href="/wiki/Przeszukiwanie_wszerz" title="Przeszukiwanie wszerz">Breadth-first search</a><br />
+<a href="/wiki/Przeszukiwanie_w_g%C5%82%C4%85b" title="Przeszukiwanie w głąb">Depth-first search</a><br />
+<a href="/wiki/Algorytm_Dijkstry" title="Algorytm Dijkstry">Dijkstry</a><br />
+<a href="/wiki/Algorytm_Fleury%27ego" title="Algorytm Fleury'ego">Fleury'ego</a><br />
+<a href="/wiki/Algorytm_Floyda-Warshalla" title="Algorytm Floyda-Warshalla">Floyda-Warshalla</a><br />
+<strong class="selflink">Johnsona</strong><br />
+<a href="/wiki/Algorytm_Kruskala" title="Algorytm Kruskala">Kruskala</a><br />
+<a href="/wiki/Algorytm_Prima" title="Algorytm Prima">Prima</a><br />
+<a href="/wiki/Przeszukiwanie_grafu" title="Przeszukiwanie grafu">przeszukiwanie grafu</a><br />
+<a href="/wiki/Algorytm_najbli%C5%BCszego_s%C4%85siada" title="Algorytm najbliższego sąsiada">najbliższego sąsiada</a><br /></p>
+<hr />
+<p><i><b>Zagadnienia przedstawiane jako problemy grafowe</b></i><br />
+<a href="/wiki/Problem_komiwoja%C5%BCera" title="Problem komiwojażera">problem komiwojażera</a><br />
+<a href="/wiki/Problem_chi%C5%84skiego_listonosza" title="Problem chińskiego listonosza">problem chińskiego listonosza</a><br />
+<a href="/wiki/Twierdzenie_o_kojarzeniu_ma%C5%82%C5%BCe%C5%84stw" title="Twierdzenie o kojarzeniu małżeństw">problem kojarzenia małżeństw</a><br /></p>
+<hr />
+<p><i><b>Inne zagadnienia</b></i><br />
+<a href="/wiki/Kod_Graya" title="Kod Graya">kod Graya</a><br />
+<a href="/wiki/Diagram_Hassego" title="Diagram Hassego">diagram Hassego</a><br /></p>
+<hr /></td>
+</tr>
+<tr>
+<td align="right"><small><a href="http://pl.wikipedia.org/w/index.php?title=Szablon:Teoria_grafów&amp;action=edit" class="external text" title="http://pl.wikipedia.org/w/index.php?title=Szablon:Teoria_grafów&amp;action=edit" rel="nofollow">edytuj ten szablon</a></small></td>
+</tr>
+</table>
+<p><b>Algorytm Johnsona</b> - algorytm znajdowania najkrótszych ścieżek między wszystkimi parami wierzchołków. Działa w czasie <span class="texhtml"><i>O</i>( | <i>V</i> | <sup>2</sup><i>l</i><i>g</i> | <i>V</i> | + | <i>V</i> | | <i>E</i> | )</span>, dla grafów rzadkich jest więc asymptotycznie szybszy od <a href="/wiki/Algorytm_Floyda-Warshalla" title="Algorytm Floyda-Warshalla">algorytmu Floyda-Warshalla</a>. Algorytm Johnsona zwraca albo macierz wag najkrótszych ścieżek, albo informuje, że graf wejściowy ma cykl o ujemnej wadze. W algorytmie Johnsona jako podprogramy używane są algorytmy <a href="/wiki/Algorytm_Dijkstry" title="Algorytm Dijkstry">Dijkstry</a> i <a href="/wiki/Algorytm_Bellmana-Forda" title="Algorytm Bellmana-Forda">Bellmana-Forda</a>.</p>
+
+<!-- 
+Pre-expand include size: 2152 bytes
+Post-expand include size: 2118 bytes
+Template argument size: 0 bytes
+Maximum: 2048000 bytes
+-->
+
+<!-- Saved in parser cache with key plwiki:pcache:idhash:770916-0!1!0!!pl!2 and timestamp 20070913212555 -->
+<div class="printfooter">
+Źródło: "<a href="http://pl.wikipedia.org/wiki/Algorytm_Johnsona">http://pl.wikipedia.org/wiki/Algorytm_Johnsona</a>"</div>
+			<div id="catlinks"><p class='catlinks'><a href="/wiki/Specjalna:Categories" title="Specjalna:Categories">Kategoria</a>: <span dir='ltr'><a href="/wiki/Kategoria:Algorytmy_grafowe" title="Kategoria:Algorytmy grafowe">Algorytmy grafowe</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Widok</h5>
+		<div class="pBody">
+			<ul>
+					 <li id="ca-nstab-main" class="selected"><a href="/wiki/Algorytm_Johnsona" title="Zobacz stronę artykułu [c]" accesskey="c">artykuł</a></li>
+					 <li id="ca-talk" class="new"><a href="/w/index.php?title=Dyskusja:Algorytm_Johnsona&amp;action=edit" title="Dyskusja o zawartości tej strony. [t]" accesskey="t">dyskusja</a></li>
+					 <li id="ca-edit"><a href="/w/index.php?title=Algorytm_Johnsona&amp;action=edit" title="Możesz edytować tę stronę. Przed zapisaniem zmian użyj przycisku podgląd. [e]" accesskey="e">edytuj</a></li>
+					 <li id="ca-history"><a href="/w/index.php?title=Algorytm_Johnsona&amp;action=history" title="Starsze wersje tej strony. [h]" accesskey="h">historia i autorzy</a></li>
+				</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-personal">
+		<h5>osobiste</h5>
+		<div class="pBody">
+			<ul>
+				<li id="pt-login"><a href="/w/index.php?title=Specjalna:Zaloguj&amp;returnto=Algorytm_Johnsona" title="Zachęcamy do zalogowania się, choć nie jest to obowiązkowe. [o]" accesskey="o">Logowanie / rejestracja</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-logo">
+		<a style="background-image: url(http://upload.wikimedia.org/wikipedia/pl/b/bc/Wiki.png);" href="/wiki/Strona_g%C5%82%C3%B3wna" title="Zobacz stronę główną [z]" accesskey="z"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>nawigacja</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="/wiki/Strona_g%C5%82%C3%B3wna" title="Zobacz stronę główną [z]" accesskey="z">Strona główna</a></li>
+				<li id="n-Kategorie"><a href="/wiki/Portal:Kategorie_G%C5%82%C3%B3wne">Kategorie artykułów</a></li>
+				<li id="n-randompage"><a href="/wiki/Specjalna:Losowa_strona" title="Pokaż losowo wybraną stronę [x]" accesskey="x">Losuj stronę</a></li>
+				<li id="n-Currentevents"><a href="/wiki/Portal:Aktualno%C5%9Bci">Bieżące wydarzenia</a></li>
+				<li id="n-help"><a href="/wiki/Pomoc:Spis_tre%C5%9Bci" title="Zapoznaj się z obsługą wiki">Pomoc</a></li>
+				<li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Dary_pieni%C4%99%C5%BCne" title="Wesprzyj nas">Dary pieniężne</a></li>
+			</ul>
+		</div>
+	</div>
+		<div class='portlet' id='p-techniczne'>
+		<h5>techniczne</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-portal"><a href="/wiki/Wikipedia:Portal_wikipedyst%C3%B3w" title="O projekcie, co możesz zrobić, gdzie możesz znaleźć informacje">Portal wikipedystów</a></li>
+				<li id="n-contact"><a href="/wiki/Wikipedia:Kontakt">Kontakt z Wikipedią</a></li>
+				<li id="n-bug_in_article"><a href="http://tools.wikimedia.de/~dodek/wikibug.php">Zgłoś błąd</a></li>
+				<li id="n-bad-image"><a href="http://tools.wikimedia.de/~dodek/wikibug.php?what=image">Zgłoś złą grafikę</a></li>
+			</ul>
+		</div>
+	</div>
+		<div class='portlet' id='p-zmiany'>
+		<h5>zmiany</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-recentchanges"><a href="/wiki/Specjalna:Ostatnie_zmiany" title="Lista ostatnich zmian na wiki [r]" accesskey="r">Ostatnie zmiany</a></li>
+				<li id="n-recentchanges_in_category"><a href="/wiki/Wikipedia:Ostatnie_zmiany_tematyczne">Zmiany tematyczne</a></li>
+				<li id="n-changes-in-category"><a href="http://adamdziura.9g.pl/wikipedia/changes-in-category.php">Zmiany w kategorii</a></li>
+			</ul>
+		</div>
+	</div>
+		<div id="p-search" class="portlet">
+		<h5><label for="searchInput">Szukaj</label></h5>
+		<div id="searchBody" class="pBody">
+			<form action="/wiki/Specjalna:Szukaj" id="searchform"><div>
+				<input id="searchInput" name="search" type="text" title="Przeszukaj serwis Wikipedia [f]" accesskey="f" value="" />
+				<input type='submit' name="go" class="searchButton" id="searchGoButton"	value="Przejdź" />&nbsp;
+				<input type='submit' name="fulltext" class="searchButton" id="mw-searchButton" value="Szukaj" />
+			</div></form>
+		</div>
+	</div>
+	<div class="portlet" id="p-tb">
+		<h5>narzędzia</h5>
+		<div class="pBody">
+			<ul>
+				<li id="t-whatlinkshere"><a href="/wiki/Specjalna:Linkuj%C4%85ce/Algorytm_Johnsona" title="Pokaż listę stron linkujących do tego artykułu [j]" accesskey="j">Linkujące</a></li>
+				<li id="t-recentchangeslinked"><a href="/wiki/Specjalna:Zmiany_w_linkuj%C4%85cych/Algorytm_Johnsona" title="Ostatnie zmiany w stronach linkujących do tej strony [k]" accesskey="k">Zmiany w dolinkowanych</a></li>
+<li id="t-upload"><a href="/wiki/Specjalna:Prze%C5%9Blij" title="Wyślij plik na serwer [u]" accesskey="u">Prześlij plik</a></li>
+<li id="t-specialpages"><a href="/wiki/Specjalna:Strony_specjalne" title="Lista wszystkich specjalnych stron [q]" accesskey="q">Strony specjalne</a></li>
+				<li id="t-print"><a href="/w/index.php?title=Algorytm_Johnsona&amp;printable=yes" title="Wersja do wydruku [p]" accesskey="p">Wersja do druku</a></li>				<li id="t-permalink"><a href="/w/index.php?title=Algorytm_Johnsona&amp;oldid=8926341" title="Permanent link to this version of the page">Link do tej wersji</a></li><li id="t-cite"><a href="/w/index.php?title=Specjalna:Cite&amp;page=Algorytm_Johnsona&amp;id=8926341">Cytowanie tego artykułu</a></li>			</ul>
+		</div>
+	</div>
+	<div id="p-lang" class="portlet">
+		<h5>W innych językach</h5>
+		<div class="pBody">
+			<ul>
+				<li class="interwiki-de"><a href="http://de.wikipedia.org/wiki/Johnson-Algorithmus">Deutsch</a></li>
+				<li class="interwiki-en"><a href="http://en.wikipedia.org/wiki/Johnson%27s_algorithm">English</a></li>
+				<li class="interwiki-he"><a href="http://he.wikipedia.org/wiki/%D7%94%D7%90%D7%9C%D7%92%D7%95%D7%A8%D7%99%D7%AA%D7%9D_%D7%A9%D7%9C_%D7%92%27%D7%95%D7%A0%D7%A1%D7%95%D7%9F">עברית</a></li>
+				<li class="interwiki-it"><a href="http://it.wikipedia.org/wiki/Regola_di_Johnson">Italiano</a></li>
+			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="/skins-1.5/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>
+				<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="/images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>
+			<ul id="f-list">
+				<li id="lastmod"> Tę stronę ostatnio zmodyfikowano 13:33, 3 sie 2007.</li>
+				<li id="copyright"><br/>Tekst udostępniany na licencji <a class='internal' href="/wiki/Wikipedia:Tekst_licencji_GNU_Free_Documentation_License" title="Wikipedia:Tekst licencji GNU Free Documentation License">GNU Free Documentation License</a>. (patrz: <a class='internal' href="/wiki/Wikipedia:Prawa_autorskie" title="Wikipedia:Prawa autorskie">Prawa autorskie</a>)<br/>
+Wikipedia&reg; jest zarejestrowanym znakiem towarowym <a href="http://wikimediafoundation.org/wiki/Strona_g%C5%82%C3%B3wna">Wikimedia Foundation</a>. Możesz <a href="http://wikimediafoundation.org/wiki/Dary_pieniężne">przekazać dary pieniężne Fundacji Wikimedia</a>.<br/></li>
+				<li id="privacy"><a href="http://wikimediafoundation.org/wiki/Zasady_ochrony_prywatno%C5%9Bci" title="wikimedia:Zasady ochrony prywatności">Zasady ochrony prywatności</a></li>
+				<li id="about"><a href="/wiki/Wikipedia:O_Wikipedii" title="Wikipedia:O Wikipedii">O serwisie Wikipedia</a></li>
+				<li id="disclaimer"><a href="/wiki/Wikipedia:Zrzeczenie_si%C4%99_odpowiedzialno%C5%9Bci" title="Wikipedia:Zrzeczenie się odpowiedzialności">Informacje&nbsp;prawne</a></li>
+			</ul>
+		</div>
+		
+	
+		<script type="text/javascript">if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by srv147 in 0.071 secs. --></body></html>

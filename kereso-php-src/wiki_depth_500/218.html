@@ -1,0 +1,290 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+				<meta name="keywords" content="Ford-Fulkerson algorithm,Algorithm,Augmenting path,Big O notation,Breadth-first search,Charles E. Leiserson,Clifford Stein,D. R. Fulkerson,Depth-first search,Edmonds-Karp algorithm,Flow network" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="http://www.gnu.org/copyleft/fdl.html" />
+		<title>Ford-Fulkerson algorithm - Wikipedia, the free encyclopedia</title>
+		<style type="text/css" media="screen, projection">/*<![CDATA[*/
+			@import "/skins-1.5/common/shared.css?99";
+			@import "/skins-1.5/monobook/main.css?99";
+		/*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="/skins-1.5/common/commonPrint.css?99" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE50Fixes.css?99";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE55Fixes.css?99";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "/skins-1.5/monobook/IE60Fixes.css?99";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "/skins-1.5/monobook/IE70Fixes.css?99";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="/skins-1.5/common/IEFixes.js?99"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		
+		<script type= "text/javascript">/*<![CDATA[*/
+var skin = "monobook";
+var stylepath = "/skins-1.5";
+var wgArticlePath = "/wiki/$1";
+var wgScriptPath = "/w";
+var wgScript = "/w/index.php";
+var wgServer = "http://en.wikipedia.org";
+var wgCanonicalNamespace = "";
+var wgCanonicalSpecialPageName = false;
+var wgNamespaceNumber = 0;
+var wgPageName = "Ford-Fulkerson_algorithm";
+var wgTitle = "Ford-Fulkerson algorithm";
+var wgAction = "view";
+var wgRestrictionEdit = [];
+var wgRestrictionMove = [];
+var wgArticleId = "53777";
+var wgIsArticle = true;
+var wgUserName = null;
+var wgUserGroups = null;
+var wgUserLanguage = "en";
+var wgContentLanguage = "en";
+var wgBreakFrames = false;
+var wgCurRevisionId = "147226392";
+/*]]>*/</script>
+                
+		<script type="text/javascript" src="/skins-1.5/common/wikibits.js?99"><!-- wikibits js --></script>
+		<script type="text/javascript" src="/w/index.php?title=-&amp;action=raw&amp;gen=js&amp;useskin=monobook"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "/w/index.php?title=MediaWiki:Common.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=MediaWiki:Monobook.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=-&action=raw&gen=css&maxage=2678400";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+		<script type="text/javascript" src="/skins-1.5/common/ajax.js?99"></script>
+	</head>
+<body  class="mediawiki ns-0 ltr page-Ford-Fulkerson_algorithm">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">Ford-Fulkerson algorithm</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<p>The <b>Ford-Fulkerson algorithm</b> (named for <a href="/wiki/L._R._Ford%2C_Jr." title="L. R. Ford, Jr.">L. R. Ford, Jr.</a> and <a href="/wiki/D._R._Fulkerson" title="D. R. Fulkerson">D. R. Fulkerson</a>) computes the <a href="/wiki/Maximum_flow_problem" title="Maximum flow problem">maximum flow</a> in a <a href="/wiki/Flow_network" title="Flow network">flow network</a>. It was published in 1956. The name Ford-Fulkerson is often also used for the <a href="/wiki/Edmonds-Karp_algorithm" title="Edmonds-Karp algorithm">Edmonds-Karp algorithm</a>, which is a specialisation of Ford-Fulkerson.</p>
+<p>The idea behind the <a href="/wiki/Algorithm" title="Algorithm">algorithm</a> is very simple: As long as there is a path from the source (start node) to the sink (end node), with available capacity on all edges in the path, we send flow along one of these paths. Then we find another path, and so on. A path with available capacity is called an <a href="/wiki/Augmenting_path" title="Augmenting path">augmenting path</a>.</p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Algorithm"><span class="tocnumber">1</span> <span class="toctext">Algorithm</span></a></li>
+<li class="toclevel-1"><a href="#Complexity"><span class="tocnumber">2</span> <span class="toctext">Complexity</span></a></li>
+<li class="toclevel-1"><a href="#Example"><span class="tocnumber">3</span> <span class="toctext">Example</span></a></li>
+<li class="toclevel-1"><a href="#External_links"><span class="tocnumber">4</span> <span class="toctext">External links</span></a></li>
+<li class="toclevel-1"><a href="#References"><span class="tocnumber">5</span> <span class="toctext">References</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script>
+<p><a name="Algorithm" id="Algorithm"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Ford-Fulkerson_algorithm&amp;action=edit&amp;section=1" title="Edit section: Algorithm">edit</a>]</span> <span class="mw-headline">Algorithm</span></h2>
+<p>Given is a graph <span class="texhtml"><i>G</i>(<i>V</i>,<i>E</i>)</span>, with capacity <span class="texhtml"><i>c</i>(<i>u</i>,<i>v</i>)</span> and flow <span class="texhtml"><i>f</i>(<i>u</i>,<i>v</i>) = 0</span> for the edge from <span class="texhtml"><i>u</i></span> to <span class="texhtml"><i>v</i></span>. We want to find the maximum flow from the source <span class="texhtml"><i>s</i></span> to the sink <span class="texhtml"><i>t</i></span>. After every step in the algorithm the following is maintained:</p>
+<ul>
+<li><img class="tex" alt="\ f(u,v) \leq c(u,v)" src="http://upload.wikimedia.org/math/b/1/b/b1b19a3da3f50b9d77754f5bb7a372f7.png" />. The flow from <span class="texhtml"><i>u</i></span> to <span class="texhtml"><i>v</i></span> does not exceed the capacity.</li>
+<li><img class="tex" alt="\ f(u,v) = - f(v,u)" src="http://upload.wikimedia.org/math/3/3/8/33822aebf1b6b794cd1f0d06ee25fd67.png" />. Maintain the net flow between <span class="texhtml"><i>u</i></span> and <span class="texhtml"><i>v</i></span>. If in reality <span class="texhtml"><i>a</i></span> units are going from <span class="texhtml"><i>u</i></span> to <span class="texhtml"><i>v</i></span>, and <span class="texhtml"><i>b</i></span> units from <span class="texhtml"><i>v</i></span> to <span class="texhtml"><i>u</i></span>, maintain <span class="texhtml"><i>f</i>(<i>u</i>,<i>v</i>) = <i>a</i> − <i>b</i></span> and <span class="texhtml"><i>f</i>(<i>v</i>,<i>u</i>) = <i>b</i> − <i>a</i></span>.</li>
+<li><img class="tex" alt="\ \sum_v f(u,v) = 0 \Longleftrightarrow f_{in}(u) = f_{out}(u)" src="http://upload.wikimedia.org/math/0/2/9/0298160b46cb696e9d9374d1b30a9ea3.png" /> for all nodes <span class="texhtml"><i>u</i></span>, except <span class="texhtml"><i>s</i></span> and <span class="texhtml"><i>t</i></span>. The amount of flow into a node equals the flow out of the node.</li>
+</ul>
+<p>This means that the flow through the network is a <i>legal flow</i> after each round in the algorithm. We define the <b>residual network</b> <span class="texhtml"><i>G</i><sub><i>f</i></sub>(<i>V</i>,<i>E</i><sub><i>f</i></sub>)</span> to be the network with capacity <span class="texhtml"><i>c</i><sub><i>f</i></sub>(<i>u</i>,<i>v</i>) = <i>c</i>(<i>u</i>,<i>v</i>) − <i>f</i>(<i>u</i>,<i>v</i>)</span> and no flow. Notice that it is not certain that <span class="texhtml"><i>E</i> = <i>E</i><sub><i>f</i></sub></span>, as sending flow on <span class="texhtml"><i>u</i>,<i>v</i></span> might close <span class="texhtml"><i>u</i>,<i>v</i></span> (it is saturated), but open a new edge <span class="texhtml"><i>v</i>,<i>u</i></span> in the residual network.</p>
+<p><b>Algorithm</b> Ford-Fulkerson</p>
+<dl>
+<dd><b>Inputs</b> Graph <img class="tex" alt="\,G" src="http://upload.wikimedia.org/math/6/9/5/6958febf0f25ee976f06475c2e1b66fe.png" /> with flow capacity <img class="tex" alt="\,c" src="http://upload.wikimedia.org/math/8/d/1/8d16932cd2d7d0d5aa264f213956f8d3.png" />, a source node <img class="tex" alt="\,s" src="http://upload.wikimedia.org/math/d/2/a/d2abeaf3610030421364c7e16235207d.png" />, and a sink node <img class="tex" alt="\,t" src="http://upload.wikimedia.org/math/8/4/5/845b044c59f7077581612cc0f1e7c53e.png" /></dd>
+<dd><b>Output</b> A flow <img class="tex" alt="\,f" src="http://upload.wikimedia.org/math/6/9/4/6942cf05cb0188b1e8e3129445991760.png" /> from <img class="tex" alt="\,s" src="http://upload.wikimedia.org/math/d/2/a/d2abeaf3610030421364c7e16235207d.png" /> to <img class="tex" alt="\,t" src="http://upload.wikimedia.org/math/8/4/5/845b044c59f7077581612cc0f1e7c53e.png" /> which is a maximum
+<ol>
+<li><img class="tex" alt="f(u,v) \leftarrow 0" src="http://upload.wikimedia.org/math/9/6/a/96a4bf3d18edcd7b08ddcdd8c7a4fc74.png" /> for all edges <img class="tex" alt="\,(u,v)" src="http://upload.wikimedia.org/math/d/c/f/dcf0722367872526055a66987d03d039.png" /></li>
+<li>While there is a path <img class="tex" alt="\,p" src="http://upload.wikimedia.org/math/5/5/2/55259a224ba91e1a7724f54ab1dc3dea.png" /> from <img class="tex" alt="\,s" src="http://upload.wikimedia.org/math/d/2/a/d2abeaf3610030421364c7e16235207d.png" /> to <img class="tex" alt="\,t" src="http://upload.wikimedia.org/math/8/4/5/845b044c59f7077581612cc0f1e7c53e.png" /> in <img class="tex" alt="\,G_f" src="http://upload.wikimedia.org/math/2/d/1/2d189152038428412e6ea93e2df6a1d4.png" />, such that <img class="tex" alt="\,c_f(u,v) &gt; 0" src="http://upload.wikimedia.org/math/0/c/e/0ced5f310a5be3167f23a7678b06aaa1.png" /> for all edges <img class="tex" alt="(u,v) \in p" src="http://upload.wikimedia.org/math/f/4/6/f46936c77083463175c321570a790725.png" />:
+<ol>
+<li>Find <img class="tex" alt="\,c_f(p) = \min\{c_f(u,v) \;|\; (u,v) \in p\}" src="http://upload.wikimedia.org/math/f/4/0/f40aa45ae1ed5b455ba88cc99f6aac24.png" /></li>
+<li>For each edge <img class="tex" alt="(u,v) \in p" src="http://upload.wikimedia.org/math/f/4/6/f46936c77083463175c321570a790725.png" />
+<ol>
+<li><img class="tex" alt="f(u,v) \leftarrow f(u,v) + c_f(p)" src="http://upload.wikimedia.org/math/6/d/0/6d08071b084b5869a901502331904f90.png" /> (<i>Send flow along the path</i>)</li>
+<li><img class="tex" alt="f(v,u) \leftarrow f(v,u) - c_f(p)" src="http://upload.wikimedia.org/math/a/d/7/ad7a986404a5748f84952323bf05e5a2.png" /> (<i>The flow might be "returned" later</i>)</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</dd>
+</dl>
+<p>The path can be found with for example a <a href="/wiki/Breadth-first_search" title="Breadth-first search">breadth-first search</a> or a <a href="/wiki/Depth-first_search" title="Depth-first search">depth-first search</a> in <span class="texhtml"><i>G</i><sub><i>f</i></sub>(<i>V</i>,<i>E</i><sub><i>f</i></sub>)</span>. If you use the former, the algorithm is called <a href="/wiki/Edmonds-Karp_algorithm" title="Edmonds-Karp algorithm">Edmonds-Karp</a>.</p>
+<p><a name="Complexity" id="Complexity"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Ford-Fulkerson_algorithm&amp;action=edit&amp;section=2" title="Edit section: Complexity">edit</a>]</span> <span class="mw-headline">Complexity</span></h2>
+<p>By adding the flow augmenting path to the flow already established in the graph, the maximum flow will be reached when no more flow augmenting paths can be found in the graph. However, there is no certainty that this situation will ever be reached, so the best that can be guaranteed is that the answer will be correct if the algorithm terminates. In the case that the algorithm runs forever, the flow might not even converge towards the maximum flow. However, this situation only occurs with irrational flow values. When the capacities are integers, the runtime of Ford-Fulkerson is bounded by <a href="/wiki/Big_O_notation" title="Big O notation">O</a>(<i>E*f</i>), where <i>E</i> is the number of edges in the graph and <i>f</i> is the maximum flow in the graph. This is because each augmenting path can be found in <a href="/wiki/Big_O_notation" title="Big O notation">O</a>(<i>E</i>) time and increases the flow by an integer amount which is at least 1.</p>
+<p>A variation of the Ford-Fulkerson algorithm with guaranteed termination and a runtime independent of the maximum flow value is the <a href="/wiki/Edmonds-Karp_algorithm" title="Edmonds-Karp algorithm">Edmonds-Karp algorithm</a>, which runs in <a href="/wiki/Big_O_notation" title="Big O notation">O</a>(<i>VE</i><sup>2</sup>) time.</p>
+<p><a name="Example" id="Example"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Ford-Fulkerson_algorithm&amp;action=edit&amp;section=3" title="Edit section: Example">edit</a>]</span> <span class="mw-headline">Example</span></h2>
+<p>The following example show the first steps of Ford-Fulkerson in a flow network with 4 nodes, source <i>A</i> and sink <i>D</i>. The augmenting paths are found with a depth-first-search, where neighbours are visited in alphabetical order. This example shows the worst-case behaviour of the algorithm. In each step, only a flow of 1 is sent across the network. See that if you used a breadth-first-search instead, you would only need two steps.</p>
+<table width="100%">
+<tr>
+<th>Path</th>
+<th>Capacity</th>
+<th>Resulting flow network</th>
+</tr>
+<tr>
+<td></td>
+<td>Initial flow network</td>
+<td><a href="/wiki/Image:Ford-Fulkerson_example_0.svg" class="image" title="Ford-Fulkerson example 0.svg"><img alt="" src="http://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Ford-Fulkerson_example_0.svg/300px-Ford-Fulkerson_example_0.svg.png" width="300" height="214" border="0" /></a></td>
+</tr>
+<tr>
+<td><span class="texhtml"><i>A</i>,<i>B</i>,<i>C</i>,<i>D</i></span></td>
+<td>
+<p><span class="texhtml">min(<i>c</i><sub><i>f</i></sub>(<i>A</i>,<i>B</i>),<i>c</i><sub><i>f</i></sub>(<i>B</i>,<i>C</i>),<i>c</i><sub><i>f</i></sub>(<i>C</i>,<i>D</i>)) =</span><br />
+<span class="texhtml">min(<i>c</i>(<i>A</i>,<i>B</i>) − <i>f</i>(<i>A</i>,<i>B</i>),<i>c</i>(<i>B</i>,<i>C</i>) − <i>f</i>(<i>B</i>,<i>C</i>),<i>c</i>(<i>C</i>,<i>D</i>) − <i>f</i>(<i>C</i>,<i>D</i>)) =</span><br />
+<span class="texhtml">min(1000 − 0,1 − 0,1000 − 0) = 1</span></p>
+</td>
+<td><a href="/wiki/Image:Ford-Fulkerson_example_1.svg" class="image" title="Ford-Fulkerson example 1.svg"><img alt="" src="http://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Ford-Fulkerson_example_1.svg/300px-Ford-Fulkerson_example_1.svg.png" width="300" height="214" border="0" /></a></td>
+</tr>
+<tr>
+<td><span class="texhtml"><i>A</i>,<i>C</i>,<i>B</i>,<i>D</i></span></td>
+<td>
+<p><span class="texhtml">min(<i>c</i><sub><i>f</i></sub>(<i>A</i>,<i>C</i>),<i>c</i><sub><i>f</i></sub>(<i>C</i>,<i>B</i>),<i>c</i><sub><i>f</i></sub>(<i>B</i>,<i>D</i>)) =</span><br />
+<span class="texhtml">min(<i>c</i>(<i>A</i>,<i>C</i>) − <i>f</i>(<i>A</i>,<i>C</i>),<i>c</i>(<i>C</i>,<i>B</i>) − <i>f</i>(<i>C</i>,<i>B</i>),<i>c</i>(<i>B</i>,<i>D</i>) − <i>f</i>(<i>B</i>,<i>D</i>)) =</span><br />
+<span class="texhtml">min(1000 − 0,0 − ( − 1),1000 − 0) = 1</span></p>
+</td>
+<td><a href="/wiki/Image:Ford-Fulkerson_example_2.svg" class="image" title="Ford-Fulkerson example 2.svg"><img alt="" src="http://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Ford-Fulkerson_example_2.svg/300px-Ford-Fulkerson_example_2.svg.png" width="300" height="214" border="0" /></a></td>
+</tr>
+<tr>
+<td></td>
+<td>After 1998 more steps<img class="tex" alt="\dots" src="http://upload.wikimedia.org/math/6/3/9/63975f390397d0e50d9e6152d7f57799.png" /></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Final flow network</td>
+<td><a href="/wiki/Image:Ford-Fulkerson_example_final.svg" class="image" title="Ford-Fulkerson example final.svg"><img alt="" src="http://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Ford-Fulkerson_example_final.svg/300px-Ford-Fulkerson_example_final.svg.png" width="300" height="214" border="0" /></a></td>
+</tr>
+</table>
+<p>Notice how flow is "pushed back" from <i>C</i> to <i>B</i> when finding the path <i>A,C,B,D</i>.</p>
+<p><a name="External_links" id="External_links"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Ford-Fulkerson_algorithm&amp;action=edit&amp;section=4" title="Edit section: External links">edit</a>]</span> <span class="mw-headline">External links</span></h2>
+<ul>
+<li><a href="http://www-b2.is.tokushima-u.ac.jp/~ikeda/suuri/maxflow/Maxflow.shtml.en" class="external text" title="http://www-b2.is.tokushima-u.ac.jp/~ikeda/suuri/maxflow/Maxflow.shtml.en" rel="nofollow">Animation of Ford-Fulkerson algorithm</a></li>
+</ul>
+<p><a name="References" id="References"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Ford-Fulkerson_algorithm&amp;action=edit&amp;section=5" title="Edit section: References">edit</a>]</span> <span class="mw-headline">References</span></h2>
+<ul>
+<li><a href="/wiki/Thomas_H._Cormen" title="Thomas H. Cormen">Thomas H. Cormen</a>, <a href="/wiki/Charles_E._Leiserson" title="Charles E. Leiserson">Charles E. Leiserson</a>, <a href="/wiki/Ronald_L._Rivest" title="Ronald L. Rivest">Ronald L. Rivest</a>, and <a href="/wiki/Clifford_Stein" title="Clifford Stein">Clifford Stein</a>. <i><a href="/wiki/Introduction_to_Algorithms" title="Introduction to Algorithms">Introduction to Algorithms</a></i>, Second Edition. MIT Press and McGraw-Hill, 2001. <a href="/w/index.php?title=Special:Booksources&amp;isbn=0262032937" class="internal">ISBN 0-262-03293-7</a>. Section 26.2: The Ford-Fulkerson method, pp.651–664.</li>
+</ul>
+
+
+<!-- Saved in parser cache with key enwiki:pcache:idhash:53777-0!1!0!default!!en!2 and timestamp 20070914010132 -->
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org/wiki/Ford-Fulkerson_algorithm">http://en.wikipedia.org/wiki/Ford-Fulkerson_algorithm</a>"</div>
+			<div id="catlinks"><p class='catlinks'><a href="/wiki/Special:Categories" title="Special:Categories">Category</a>: <span dir='ltr'><a href="/wiki/Category:Network_flow" title="Category:Network flow">Network flow</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<div class="pBody">
+			<ul>
+					 <li id="ca-nstab-main" class="selected"><a href="/wiki/Ford-Fulkerson_algorithm" title="View the content page [c]" accesskey="c">Article</a></li>
+					 <li id="ca-talk"><a href="/wiki/Talk:Ford-Fulkerson_algorithm" title="Discussion about the content page [t]" accesskey="t">Discussion</a></li>
+					 <li id="ca-edit"><a href="/w/index.php?title=Ford-Fulkerson_algorithm&amp;action=edit" title="You can edit this page. Please use the preview button before saving. [e]" accesskey="e">Edit this page</a></li>
+					 <li id="ca-history"><a href="/w/index.php?title=Ford-Fulkerson_algorithm&amp;action=history" title="Past versions of this page [h]" accesskey="h">History</a></li>
+				</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-personal">
+		<h5>Personal tools</h5>
+		<div class="pBody">
+			<ul>
+				<li id="pt-login"><a href="/w/index.php?title=Special:Userlogin&amp;returnto=Ford-Fulkerson_algorithm" title="You are encouraged to log in, it is not mandatory however. [o]" accesskey="o">Sign in / create account</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-logo">
+		<a style="background-image: url(/images/wiki-en.png);" href="/wiki/Main_Page" title="Visit the Main Page [z]" accesskey="z"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-Main-page"><a href="/wiki/Main_Page">Main page</a></li>
+				<li id="n-Contents"><a href="/wiki/Wikipedia:Contents">Contents</a></li>
+				<li id="n-Featured-content"><a href="/wiki/Wikipedia:Featured_content">Featured content</a></li>
+				<li id="n-currentevents"><a href="/wiki/Portal:Current_events" title="Find background information on current events">Current events</a></li>
+				<li id="n-randompage"><a href="/wiki/Special:Random" title="Load a random page [x]" accesskey="x">Random article</a></li>
+			</ul>
+		</div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+		<h5>interaction</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-About-Wikipedia"><a href="/wiki/Wikipedia:About">About Wikipedia</a></li>
+				<li id="n-portal"><a href="/wiki/Wikipedia:Community_Portal" title="About the project, what you can do, where to find things">Community portal</a></li>
+				<li id="n-recentchanges"><a href="/wiki/Special:Recentchanges" title="The list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li>
+				<li id="n-contact"><a href="/wiki/Wikipedia:Contact_us">Contact Wikipedia</a></li>
+				<li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising" title="Support us">Donate to Wikipedia</a></li>
+				<li id="n-help"><a href="/wiki/Help:Contents" title="Guidance on how to use and edit Wikipedia">Help</a></li>
+			</ul>
+		</div>
+	</div>
+		<div id="p-search" class="portlet">
+		<h5><label for="searchInput">Search</label></h5>
+		<div id="searchBody" class="pBody">
+			<form action="/wiki/Special:Search" id="searchform"><div>
+				<input id="searchInput" name="search" type="text" title="Search Wikipedia [f]" accesskey="f" value="" />
+				<input type='submit' name="go" class="searchButton" id="searchGoButton"	value="Go" />&nbsp;
+				<input type='submit' name="fulltext" class="searchButton" id="mw-searchButton" value="Search" />
+			</div></form>
+		</div>
+	</div>
+	<div class="portlet" id="p-tb">
+		<h5>Toolbox</h5>
+		<div class="pBody">
+			<ul>
+				<li id="t-whatlinkshere"><a href="/wiki/Special:Whatlinkshere/Ford-Fulkerson_algorithm" title="List of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+				<li id="t-recentchangeslinked"><a href="/wiki/Special:Recentchangeslinked/Ford-Fulkerson_algorithm" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+<li id="t-upload"><a href="/wiki/Wikipedia:Upload" title="Upload images or media files [u]" accesskey="u">Upload file</a></li>
+<li id="t-specialpages"><a href="/wiki/Special:Specialpages" title="List of all special pages [q]" accesskey="q">Special pages</a></li>
+				<li id="t-print"><a href="/w/index.php?title=Ford-Fulkerson_algorithm&amp;printable=yes" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>				<li id="t-permalink"><a href="/w/index.php?title=Ford-Fulkerson_algorithm&amp;oldid=147226392" title="Permanent link to this version of the page">Permanent link</a></li><li id="t-cite"><a href="/w/index.php?title=Special:Cite&amp;page=Ford-Fulkerson_algorithm&amp;id=147226392">Cite this article</a></li>			</ul>
+		</div>
+	</div>
+	<div id="p-lang" class="portlet">
+		<h5>In other languages</h5>
+		<div class="pBody">
+			<ul>
+				<li class="interwiki-cs"><a href="http://cs.wikipedia.org/wiki/Ford-Fulkerson%C5%AFv_algoritmus">Česky</a></li>
+				<li class="interwiki-de"><a href="http://de.wikipedia.org/wiki/Algorithmus_von_Ford_und_Fulkerson">Deutsch</a></li>
+				<li class="interwiki-es"><a href="http://es.wikipedia.org/wiki/Algoritmo_de_Ford-Fulkerson">Español</a></li>
+				<li class="interwiki-fr"><a href="http://fr.wikipedia.org/wiki/Algorithme_de_Ford-Fulkerson">Français</a></li>
+				<li class="interwiki-it"><a href="http://it.wikipedia.org/wiki/Algoritmo_di_Ford-Fulkerson">Italiano</a></li>
+				<li class="interwiki-pl"><a href="http://pl.wikipedia.org/wiki/Metoda_Forda-Fulkersona">Polski</a></li>
+				<li class="interwiki-pt"><a href="http://pt.wikipedia.org/wiki/Algoritmo_de_Ford-Fulkerson">Português</a></li>
+				<li class="interwiki-vi"><a href="http://vi.wikipedia.org/wiki/Thu%E1%BA%ADt_to%C3%A1n_Ford-Fulkerson">Tiếng Việt</a></li>
+			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="/skins-1.5/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>
+				<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="/images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>
+			<ul id="f-list">
+				<li id="lastmod"> This page was last modified 13:56, 26 July 2007.</li>
+				<li id="copyright">All text is available under the terms of the <a class='internal' href="/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="/wiki/Wikipedia:Copyrights" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a U.S. registered <a class='internal' href="/wiki/501%28c%29#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="/wiki/Non-profit_organization" title="Non-profit organization">nonprofit</a> <a href="/wiki/Charitable_organization" title="Charitable organization">charity</a>.<br /></li>
+				<li id="privacy"><a href="http://wikimediafoundation.org/wiki/Privacy_policy" title="wikimedia:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="/wiki/Wikipedia:About" title="Wikipedia:About">About Wikipedia</a></li>
+				<li id="disclaimer"><a href="/wiki/Wikipedia:General_disclaimer" title="Wikipedia:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+		
+	
+		<script type="text/javascript">if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by srv181 in 0.059 secs. --></body></html>

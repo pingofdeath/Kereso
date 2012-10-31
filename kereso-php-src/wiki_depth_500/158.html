@@ -1,0 +1,276 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+				<meta name="keywords" content="Interpolation search,Algorithm,Big O notation,Binary search,Collation,Hash table,Java (programming language),Linear search,Search algorithm,Search space,Ternary search" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="http://www.gnu.org/copyleft/fdl.html" />
+		<title>Interpolation search - Wikipedia, the free encyclopedia</title>
+		<style type="text/css" media="screen, projection">/*<![CDATA[*/
+			@import "/skins-1.5/common/shared.css?99";
+			@import "/skins-1.5/monobook/main.css?99";
+		/*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="/skins-1.5/common/commonPrint.css?99" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE50Fixes.css?99";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE55Fixes.css?99";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "/skins-1.5/monobook/IE60Fixes.css?99";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "/skins-1.5/monobook/IE70Fixes.css?99";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="/skins-1.5/common/IEFixes.js?99"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		
+		<script type= "text/javascript">/*<![CDATA[*/
+var skin = "monobook";
+var stylepath = "/skins-1.5";
+var wgArticlePath = "/wiki/$1";
+var wgScriptPath = "/w";
+var wgScript = "/w/index.php";
+var wgServer = "http://en.wikipedia.org";
+var wgCanonicalNamespace = "";
+var wgCanonicalSpecialPageName = false;
+var wgNamespaceNumber = 0;
+var wgPageName = "Interpolation_search";
+var wgTitle = "Interpolation search";
+var wgAction = "view";
+var wgRestrictionEdit = [];
+var wgRestrictionMove = [];
+var wgArticleId = "69895";
+var wgIsArticle = true;
+var wgUserName = null;
+var wgUserGroups = null;
+var wgUserLanguage = "en";
+var wgContentLanguage = "en";
+var wgBreakFrames = false;
+var wgCurRevisionId = "148453741";
+/*]]>*/</script>
+                
+		<script type="text/javascript" src="/skins-1.5/common/wikibits.js?99"><!-- wikibits js --></script>
+		<script type="text/javascript" src="/w/index.php?title=-&amp;action=raw&amp;gen=js&amp;useskin=monobook"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "/w/index.php?title=MediaWiki:Common.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=MediaWiki:Monobook.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=-&action=raw&gen=css&maxage=2678400";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+		<script type="text/javascript" src="/skins-1.5/common/ajax.js?99"></script>
+<style type="text/css">/*<![CDATA[*/
+.source-java {line-height: normal;}
+.source-java li {line-height: normal;}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for java
+ * CSS class: source-Java, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie (http://qbnz.com/highlighter)
+ */
+.source-Java .de1, .source-Java .de2 {font-family: 'Courier New', Courier, monospace; font-weight: normal;}
+.source-Java  {}
+.source-Java .head {}
+.source-Java .foot {}
+.source-Java .imp {font-weight: bold; color: red;}
+.source-Java .ln-xtra {color: #cc0; background-color: #ffc;}
+.source-Java li {font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;}
+.source-Java li.li2 {font-weight: bold;}
+.source-Java .kw1 {color: #b1b100;}
+.source-Java .kw2 {color: #000000; font-weight: bold;}
+.source-Java .kw3 {color: #aaaadd; font-weight: bold;}
+.source-Java .kw4 {color: #993333;}
+.source-Java .co1 {color: #808080; font-style: italic;}
+.source-Java .co2 {color: #a1a100;}
+.source-Java .coMULTI {color: #808080; font-style: italic;}
+.source-Java .es0 {color: #000099; font-weight: bold;}
+.source-Java .br0 {color: #66cc66;}
+.source-Java .st0 {color: #ff0000;}
+.source-Java .nu0 {color: #cc66cc;}
+.source-Java .me1 {color: #006600;}
+.source-Java .me2 {color: #006600;}
+
+/*]]>*/
+</style>
+<style type="text/css">/*<![CDATA[*/
+@import "/w/index.php?title=MediaWiki:Geshi.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+/*]]>*/
+</style>	</head>
+<body  class="mediawiki ns-0 ltr page-Interpolation_search">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">Interpolation search</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<div class="messagebox cleanup metadata plainlinks">
+<table style="width:100%;background:none">
+<tr>
+<td><b>This article or section may need to be <a href="/wiki/Category:Articles_that_need_to_be_wikified" title="Category:Articles that need to be wikified">wikified</a> to meet Wikipedia's <a href="/wiki/Wikipedia:Manual_of_Style" title="Wikipedia:Manual of Style">quality standards</a>.</b><br />
+<small>Please help <a href="http://en.wikipedia.org/w/index.php?title=Interpolation_search&amp;action=edit" class="external text" title="http://en.wikipedia.org/w/index.php?title=Interpolation_search&amp;action=edit" rel="nofollow">improve this article</a>, especially its <a href="/wiki/Wikipedia:Guide_to_layout" title="Wikipedia:Guide to layout">section layout</a>, and <a href="/wiki/Wikipedia:Only_make_links_that_are_relevant_to_the_context" title="Wikipedia:Only make links that are relevant to the context">relevant</a> <a href="/wiki/Wikipedia:Build_the_web" title="Wikipedia:Build the web">internal links</a>. (<a href="/wiki/Wikipedia:How_to_edit_a_page" title="Wikipedia:How to edit a page">help</a>)<br />
+This article has been tagged since <b>August 2007</b>.</small></td>
+</tr>
+</table>
+</div>
+<p><b>Interpolation search</b> is an <a href="/wiki/Algorithm" title="Algorithm">algorithm</a> for <a href="/wiki/Search_algorithm" title="Search algorithm">searching</a> for a given key value in an indexed array that has been <a href="/wiki/Collation" title="Collation">ordered</a> by the values of the key. It parallels how humans search through a telephone book for a particular name, the key value by which the book's entries are ordered. In each search step it calculates where in the remaining <a href="/wiki/Search_space" title="Search space">search space</a> the sought item might be based on the key values at the bounds of the search space and the value of the sought key, usually via a linear interpolation. The key value actually found at this estimated position is then compared to the key value being sought. If it is not equal, then depending on the comparison, the remaining search space is reduced to the part before or after the estimated position. Only if calculations on the size of differences between key values are sensible will this method work. Humans might accept that "Baker" is closer to "Abadeeah" than it is to "Zyteca" and interpolate accordingly but computer representations of text strings do not facilitate such arithmetic.</p>
+<p>By comparison, the <a href="/wiki/Binary_search" title="Binary search">binary search</a> chooses always the middle of the remaining search space, discarding one half or the other, again depending on the comparison between the key value found at the estimated position and the key value sought. The remaining search space is reduced to the part before or after the estimated position. The <a href="/wiki/Linear_search" title="Linear search">linear search</a> uses equality only as it compares elements one-by-one from the start, ignoring any sorting.</p>
+<p>On average the interpolation search makes about log(log(<i>n</i>)) comparisons (if the elements are uniformly distributed), where <i>n</i> is the number of elements to be searched. In the worst case (for instance where the numerical values of the keys increase exponentially) it can make up to <a href="/wiki/Big_O_notation" title="Big O notation">O</a>(<i>n</i>) comparisons.</p>
+<p>In reality, an interpolation search is often no faster than a binary search due to the complexity of the arithmetic calculations for estimating the next probe position. The key may not be easily regarded as a number, as when it is text such as names in a telephone book. Yet it is always possible to regard a bit pattern as a number, and text could be considered a number in base twenty-six (or however many distinct symbols are allowable) that could then be used in the interpolation arithmetic, but each such conversion is more trouble than a few binary chop probes. Nevertheless, a suitable numeric value could be pre-computed for every name and searching would employ those numerical values. Further, it may be easy enough to form a cumulative histogram of those values that follows a shape that can be approximated by a simple function (such as a straight line) or a few such curves over segments of the range. If so, then a suitable inverse interpolation is easily computed and the desired index found with very few probes. The particular advantage of this is that a probe of a particular index's value may involve access to slow storage (on disc, or not in the on-chip memory) whereas the interpolation calculation involves a small local collection of data which with many searches being performed is likely in fast storage. This approach shades into being a special-case <a href="/wiki/Hash_table" title="Hash table">Hash table</a> search.</p>
+<p>Such analysis should also detect the troublesome case of equal key values. If a run of equal key values exists, then the search will not necessarily select the first (or last) element of such a run, and if not carefully written, runs the risk of attempting a divide by zero during its interpolation calculation.</p>
+<p>In the simple case, no analysis of values still less cumulative histogram approximations are prepared. With a sorted list, clearly the minimum value is at index one, and the maximum value is at index <i>n</i>. Assuming a uniform distribution of values amounts to assuming that the cumulative histogram's shape is a straight line from the minimum to the maximum and so linear interpolation will find that index whose associated value should be the sought value.</p>
+<p>The following code example for the <a href="/wiki/Java_%28programming_language%29" title="Java (programming language)">Java programming language</a> is a simple implementation. At each stage it computes a probe position then as with the binary search, moves either the upper or lower bound in to define a smaller interval containing the sought value. Unlike the binary search which guarantees a halving of the interval's size with each stage, a misled interpolation may reduce it by only one, thus the O(<i>n</i>) worst case.</p>
+<div dir="ltr">
+<pre class="source-Java">
+<span class="kw2">public</span> <span class="kw4">int</span> interpolationSearch<span class="br0">(</span><span class="kw4">int</span><span class="br0">[</span><span class="br0">]</span> sortedArray, <span class="kw4">int</span> toFind<span class="br0">)</span><span class="br0">{</span>
+  <span class="co1">// Returns index of toFind in sortedArray, or -1 if not found</span>
+  <span class="kw4">int</span> low = <span class="nu0">0</span>;
+  <span class="kw4">int</span> high = sortedArray.<span class="me1">length</span> - <span class="nu0">1</span>;
+  <span class="kw4">int</span> mid;
+ 
+  <span class="kw1">while</span> <span class="br0">(</span>sortedArray<span class="br0">[</span>low<span class="br0">]</span> &lt; toFind &amp;&amp; sortedArray<span class="br0">[</span>high<span class="br0">]</span> &gt;= toFind<span class="br0">)</span> <span class="br0">{</span>
+   mid = low + <span class="br0">(</span><span class="br0">(</span>toFind - sortedArray<span class="br0">[</span>low<span class="br0">]</span><span class="br0">)</span> * <span class="br0">(</span>high - low<span class="br0">)</span><span class="br0">)</span> / <span class="br0">(</span>sortedArray<span class="br0">[</span>high<span class="br0">]</span> - sortedArray<span class="br0">[</span>low<span class="br0">]</span><span class="br0">)</span>;
+ 
+   <span class="kw1">if</span> <span class="br0">(</span>sortedArray<span class="br0">[</span>mid<span class="br0">]</span> &lt; toFind<span class="br0">)</span>
+    low = mid + <span class="nu0">1</span>;
+   <span class="kw1">else</span> <span class="kw1">if</span> <span class="br0">(</span>sortedArray<span class="br0">[</span>mid<span class="br0">]</span> &gt; toFind<span class="br0">)</span>      <span class="co1">//Repetition of the comparison code is forced by syntax limitations.</span>
+    high = mid - <span class="nu0">1</span>;
+   <span class="kw1">else</span>
+    <span class="kw2">return</span> mid;
+  <span class="br0">}</span>
+ 
+  <span class="kw1">if</span> <span class="br0">(</span>sortedArray<span class="br0">[</span>low<span class="br0">]</span> == toFind<span class="br0">)</span>
+   <span class="kw2">return</span> low;
+  <span class="kw1">else</span>
+   <span class="kw2">return</span> <span class="nu0">-1</span>; <span class="co1">// Not found</span>
+ <span class="br0">}</span>
+</pre></div>
+<p>Notice that having probed the list at index <i>mid</i>, for reasons of loop control administration, this code sets either <i>high</i> or <i>low</i> to be not <i>mid</i> but an adjacent index, which location is then probed during the next iteration. Since an adjacent entry's value will not be much different the interpolation calculation is not much improved by this one step adjustment, at the cost of an additional reference to distant memory such as disc.</p>
+<p>Each iteration of the above code requires between five and six comparisons (the extra is due to the repetitions needed to distinguish the three states of &lt; &gt; and = via binary comparisons in the absence of a <a href="/wiki/Three-way_comparison" title="Three-way comparison">three-way comparison</a>) plus some messy arithmetic, while the binary search algorithm can be written with one comparison per iteration and uses only trivial integer arithmetic. It would thereby search an array of a million elements with no more than twenty comparisons (involving accesses to slow memory where the array elements are stored); to beat that the interpolation search as written above would be allowed no more than three iterations.</p>
+<p><a name="Book-based_searching" id="Book-based_searching"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Interpolation_search&amp;action=edit&amp;section=1" title="Edit section: Book-based searching">edit</a>]</span> <span class="mw-headline">Book-based searching</span></h2>
+<p>The conversion of names in a telephone book to some sort of number clearly will not provide numbers having a uniform distribution (except via immense effort such as sorting the names and calling them name #1, name #2, etc.) and further, it is well-known that some names are much more common than others (Smith, Jones,) Similarly with dictionaries, where there are many more words starting with some letters than others. Some publishers go to the effort of preparing marginal annotations or even cutting into the side of the pages to show markers for each letter so that at a glance a segmented interpolation can be performed.</p>
+<p><a name="See_also" id="See_also"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Interpolation_search&amp;action=edit&amp;section=2" title="Edit section: See also">edit</a>]</span> <span class="mw-headline">See also</span></h2>
+<ul>
+<li><a href="/wiki/Linear_search" title="Linear search">Linear search</a></li>
+<li><a href="/wiki/Binary_search" title="Binary search">Binary search</a></li>
+<li><a href="/wiki/Ternary_search" title="Ternary search">Ternary search</a></li>
+<li><a href="/wiki/Hash_table" title="Hash table">Hash table</a></li>
+</ul>
+<p><a name="External_links" id="External_links"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Interpolation_search&amp;action=edit&amp;section=3" title="Edit section: External links">edit</a>]</span> <span class="mw-headline">External links</span></h2>
+<ul>
+<li><a href="http://www.dcc.uchile.cl/~rbaeza/handbook/algs/3/322.srch.p.html" class="external text" title="http://www.dcc.uchile.cl/~rbaeza/handbook/algs/3/322.srch.p.html" rel="nofollow">Interpolation search</a></li>
+<li><a href="http://www.nist.gov/dads/HTML/interpolationSearch.html" class="external text" title="http://www.nist.gov/dads/HTML/interpolationSearch.html" rel="nofollow">National Institute of Standards and Technology</a></li>
+</ul>
+
+<!-- 
+Pre-expand include size: 1150 bytes
+Post-expand include size: 948 bytes
+Template argument size: 62 bytes
+Maximum: 2048000 bytes
+-->
+
+<!-- Saved in parser cache with key enwiki:pcache:idhash:69895-0!1!0!default!!en!2 and timestamp 20070915033507 -->
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org/wiki/Interpolation_search">http://en.wikipedia.org/wiki/Interpolation_search</a>"</div>
+			<div id="catlinks"><p class='catlinks'><a href="/wiki/Special:Categories" title="Special:Categories">Categories</a>: <span dir='ltr'><a href="/wiki/Category:All_pages_needing_to_be_wikified" title="Category:All pages needing to be wikified">All pages needing to be wikified</a></span> | <span dir='ltr'><a href="/wiki/Category:Wikify_from_August_2007" title="Category:Wikify from August 2007">Wikify from August 2007</a></span> | <span dir='ltr'><a href="/wiki/Category:Search_algorithms" title="Category:Search algorithms">Search algorithms</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<div class="pBody">
+			<ul>
+					 <li id="ca-nstab-main" class="selected"><a href="/wiki/Interpolation_search" title="View the content page [c]" accesskey="c">Article</a></li>
+					 <li id="ca-talk"><a href="/wiki/Talk:Interpolation_search" title="Discussion about the content page [t]" accesskey="t">Discussion</a></li>
+					 <li id="ca-edit"><a href="/w/index.php?title=Interpolation_search&amp;action=edit" title="You can edit this page. Please use the preview button before saving. [e]" accesskey="e">Edit this page</a></li>
+					 <li id="ca-history"><a href="/w/index.php?title=Interpolation_search&amp;action=history" title="Past versions of this page [h]" accesskey="h">History</a></li>
+				</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-personal">
+		<h5>Personal tools</h5>
+		<div class="pBody">
+			<ul>
+				<li id="pt-login"><a href="/w/index.php?title=Special:Userlogin&amp;returnto=Interpolation_search" title="You are encouraged to log in, it is not mandatory however. [o]" accesskey="o">Sign in / create account</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-logo">
+		<a style="background-image: url(/images/wiki-en.png);" href="/wiki/Main_Page" title="Visit the Main Page [z]" accesskey="z"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-Main-page"><a href="/wiki/Main_Page">Main page</a></li>
+				<li id="n-Contents"><a href="/wiki/Wikipedia:Contents">Contents</a></li>
+				<li id="n-Featured-content"><a href="/wiki/Wikipedia:Featured_content">Featured content</a></li>
+				<li id="n-currentevents"><a href="/wiki/Portal:Current_events" title="Find background information on current events">Current events</a></li>
+				<li id="n-randompage"><a href="/wiki/Special:Random" title="Load a random page [x]" accesskey="x">Random article</a></li>
+			</ul>
+		</div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+		<h5>interaction</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-About-Wikipedia"><a href="/wiki/Wikipedia:About">About Wikipedia</a></li>
+				<li id="n-portal"><a href="/wiki/Wikipedia:Community_Portal" title="About the project, what you can do, where to find things">Community portal</a></li>
+				<li id="n-recentchanges"><a href="/wiki/Special:Recentchanges" title="The list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li>
+				<li id="n-contact"><a href="/wiki/Wikipedia:Contact_us">Contact Wikipedia</a></li>
+				<li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising" title="Support us">Donate to Wikipedia</a></li>
+				<li id="n-help"><a href="/wiki/Help:Contents" title="Guidance on how to use and edit Wikipedia">Help</a></li>
+			</ul>
+		</div>
+	</div>
+		<div id="p-search" class="portlet">
+		<h5><label for="searchInput">Search</label></h5>
+		<div id="searchBody" class="pBody">
+			<form action="/wiki/Special:Search" id="searchform"><div>
+				<input id="searchInput" name="search" type="text" title="Search Wikipedia [f]" accesskey="f" value="" />
+				<input type='submit' name="go" class="searchButton" id="searchGoButton"	value="Go" />&nbsp;
+				<input type='submit' name="fulltext" class="searchButton" id="mw-searchButton" value="Search" />
+			</div></form>
+		</div>
+	</div>
+	<div class="portlet" id="p-tb">
+		<h5>Toolbox</h5>
+		<div class="pBody">
+			<ul>
+				<li id="t-whatlinkshere"><a href="/wiki/Special:Whatlinkshere/Interpolation_search" title="List of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+				<li id="t-recentchangeslinked"><a href="/wiki/Special:Recentchangeslinked/Interpolation_search" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+<li id="t-upload"><a href="/wiki/Wikipedia:Upload" title="Upload images or media files [u]" accesskey="u">Upload file</a></li>
+<li id="t-specialpages"><a href="/wiki/Special:Specialpages" title="List of all special pages [q]" accesskey="q">Special pages</a></li>
+				<li id="t-print"><a href="/w/index.php?title=Interpolation_search&amp;printable=yes" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>				<li id="t-permalink"><a href="/w/index.php?title=Interpolation_search&amp;oldid=148453741" title="Permanent link to this version of the page">Permanent link</a></li><li id="t-cite"><a href="/w/index.php?title=Special:Cite&amp;page=Interpolation_search&amp;id=148453741">Cite this article</a></li>			</ul>
+		</div>
+	</div>
+	<div id="p-lang" class="portlet">
+		<h5>In other languages</h5>
+		<div class="pBody">
+			<ul>
+				<li class="interwiki-de"><a href="http://de.wikipedia.org/wiki/Interpolationssuche">Deutsch</a></li>
+				<li class="interwiki-ru"><a href="http://ru.wikipedia.org/wiki/%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%BF%D0%BE%D0%BB%D0%B8%D1%80%D1%83%D1%8E%D1%89%D0%B8%D0%B9_%D0%BF%D0%BE%D0%B8%D1%81%D0%BA">Русский</a></li>
+			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="/skins-1.5/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>
+				<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="/images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>
+			<ul id="f-list">
+				<li id="lastmod"> This page was last modified 07:52, 1 August 2007.</li>
+				<li id="copyright">All text is available under the terms of the <a class='internal' href="/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="/wiki/Wikipedia:Copyrights" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a U.S. registered <a class='internal' href="/wiki/501%28c%29#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="/wiki/Non-profit_organization" title="Non-profit organization">nonprofit</a> <a href="/wiki/Charitable_organization" title="Charitable organization">charity</a>.<br /></li>
+				<li id="privacy"><a href="http://wikimediafoundation.org/wiki/Privacy_policy" title="wikimedia:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="/wiki/Wikipedia:About" title="Wikipedia:About">About Wikipedia</a></li>
+				<li id="disclaimer"><a href="/wiki/Wikipedia:General_disclaimer" title="Wikipedia:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+		
+	
+		<script type="text/javascript">if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by srv171 in 0.167 secs. --></body></html>

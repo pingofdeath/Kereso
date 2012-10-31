@@ -1,0 +1,243 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="id" lang="id" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+				<meta name="keywords" content="Algoritma pencarian,Algoritma Dijkstra,Algoritma Prim,Brute-force,Catur,Evolusi,Heuristik,Ilmu komputer,Kecerdasan buatan,Komputer kuantum,Notasi O besar" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (Bahasa Indonesia)" />
+		<link rel="copyright" href="http://www.gnu.org/copyleft/fdl.html" />
+		<title>Algoritma pencarian - Wikipedia Indonesia, ensiklopedia bebas berbahasa Indonesia</title>
+		<style type="text/css" media="screen, projection">/*<![CDATA[*/
+			@import "/skins-1.5/common/shared.css?99";
+			@import "/skins-1.5/monobook/main.css?99";
+		/*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="/skins-1.5/common/commonPrint.css?99" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE50Fixes.css?99";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE55Fixes.css?99";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "/skins-1.5/monobook/IE60Fixes.css?99";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "/skins-1.5/monobook/IE70Fixes.css?99";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="/skins-1.5/common/IEFixes.js?99"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		
+		<script type= "text/javascript">/*<![CDATA[*/
+var skin = "monobook";
+var stylepath = "/skins-1.5";
+var wgArticlePath = "/wiki/$1";
+var wgScriptPath = "/w";
+var wgScript = "/w/index.php";
+var wgServer = "http://id.wikipedia.org";
+var wgCanonicalNamespace = "";
+var wgCanonicalSpecialPageName = false;
+var wgNamespaceNumber = 0;
+var wgPageName = "Algoritma_pencarian";
+var wgTitle = "Algoritma pencarian";
+var wgAction = "view";
+var wgRestrictionEdit = [];
+var wgRestrictionMove = [];
+var wgArticleId = "61463";
+var wgIsArticle = true;
+var wgUserName = null;
+var wgUserGroups = null;
+var wgUserLanguage = "id";
+var wgContentLanguage = "id";
+var wgBreakFrames = false;
+var wgCurRevisionId = "873663";
+/*]]>*/</script>
+                
+		<script type="text/javascript" src="/skins-1.5/common/wikibits.js?99"><!-- wikibits js --></script>
+		<script type="text/javascript" src="/w/index.php?title=-&amp;action=raw&amp;gen=js&amp;useskin=monobook"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "/w/index.php?title=MediaWiki:Common.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=MediaWiki:Monobook.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=-&action=raw&gen=css&maxage=2678400";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+		<script type="text/javascript" src="/skins-1.5/common/ajax.js?99"></script>
+	</head>
+<body  class="mediawiki ns-0 ltr page-Algoritma_pencarian">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">Algoritma pencarian</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">Dari Wikipedia Indonesia, ensiklopedia bebas berbahasa Indonesia.</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Langsung ke: <a href="#column-one">navigasi</a>, <a href="#searchInput">cari</a></div>			<!-- start content -->
+			<p>Dalam <a href="/wiki/Ilmu_komputer" title="Ilmu komputer">ilmu komputer</a>, sebuah <b>algoritma pencarian</b> dijelaskan secara luas adalah sebuah algoritma yang menerima <a href="/w/index.php?title=Masukan&amp;action=edit" class="new" title="Masukan">masukan</a> berupa sebuah masalah dan menghasilkan sebuah solusi untuk masalah tersebut, yang biasanya didapat dari evaluasi beberapa kemungkinan solusi. Sebagian besar algoritma yang dipelajari oleh ilmuwan komputer adalah algoritma pencarian. Himpunan semua kemungkinan solusi dari sebuah masalah disebut <a href="/w/index.php?title=Ruang_pencarian&amp;action=edit" class="new" title="Ruang pencarian">ruang pencarian</a>. Algortima pencarian <a href="/wiki/Brute-force" title="Brute-force">brute-force</a> atau pencarian naif/<i>uninformed</i> menggunakan metode yang sederhana dan sangat <a href="/w/index.php?title=Intuitif&amp;action=edit" class="new" title="Intuitif">intuitif</a> pada ruang pencarian, sedangkan algoritma pencarian <i>informed</i> menggunakan <a href="/wiki/Heuristik" title="Heuristik">heuristik</a> untuk menerapkan pengetahuan tentang struktur dari ruang pencarian untuk berusaha mengurangi banyaknya waktu yang dipakai dalam pencarian.</p>
+<table id="toc" class="toc" summary="Daftar isi">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Daftar isi</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Pencarian_uninformed"><span class="tocnumber">1</span> <span class="toctext">Pencarian uninformed</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Pencarian_List"><span class="tocnumber">1.1</span> <span class="toctext">Pencarian List</span></a></li>
+<li class="toclevel-2"><a href="#Pencarian_Pohon"><span class="tocnumber">1.2</span> <span class="toctext">Pencarian Pohon</span></a></li>
+<li class="toclevel-2"><a href="#Pencarian_Graf"><span class="tocnumber">1.3</span> <span class="toctext">Pencarian Graf</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Pencarian_Informed"><span class="tocnumber">2</span> <span class="toctext">Pencarian Informed</span></a></li>
+<li class="toclevel-1"><a href="#Pencarian_Adversarial"><span class="tocnumber">3</span> <span class="toctext">Pencarian Adversarial</span></a></li>
+<li class="toclevel-1"><a href="#Pemenuhan_Kendala"><span class="tocnumber">4</span> <span class="toctext">Pemenuhan Kendala</span></a></li>
+<li class="toclevel-1"><a href="#Pencarian_Interpolasi"><span class="tocnumber">5</span> <span class="toctext">Pencarian Interpolasi</span></a></li>
+<li class="toclevel-1"><a href="#Jenis_Lain"><span class="tocnumber">6</span> <span class="toctext">Jenis Lain</span></a></li>
+<li class="toclevel-1"><a href="#Lihat_juga"><span class="tocnumber">7</span> <span class="toctext">Lihat juga</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "tampilkan"; var tocHideText = "sembunyikan"; showTocToggle(); } 
+//]]>
+</script>
+<p><a name="Pencarian_uninformed" id="Pencarian_uninformed"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Algoritma_pencarian&amp;action=edit&amp;section=1" title="Sunting bagian: Pencarian uninformed">sunting</a>]</span> <span class="mw-headline">Pencarian <i>uninformed</i></span></h2>
+<p>Sebuah algoritma pencarian <i>uninformed</i> adalah algoritma yang tidak mempertimbangkan sifat alami dari permasalahan. Oleh karena itu algoritma tersebut dapat diimplementasikan secara umum, sehingga dengan implementasi yang sama dapat digunakan pada lingkup permasalahan yang luas, hal ini berkat <a href="/w/index.php?title=Abstraksi_%28ilmu_komputer%29&amp;action=edit" class="new" title="Abstraksi (ilmu komputer)">abstraksi</a>. Kekurangannya adalah sebagian besar <a href="/w/index.php?title=Ruang_pencarian&amp;action=edit" class="new" title="Ruang pencarian">ruang pencarian</a> adalah sanat besar, dan sebuah pencarian <i>uninformed</i> (khususnya untuk pohon) membutuhkan banyak waktu walaupun hanya untuk contoh yang kecil. Sehingga untuk mempercepat proses, kadang-kadang hanya pencarian <i>informed</i> yang dapat melakukannya.</p>
+<p><a name="Pencarian_List" id="Pencarian_List"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Algoritma_pencarian&amp;action=edit&amp;section=2" title="Sunting bagian: Pencarian List">sunting</a>]</span> <span class="mw-headline">Pencarian List</span></h3>
+<p>Algoritma pencarian list mungkin adalah algoritma pencarian paling dasar. Tujuannya adalah mencari sebuah elemen dari sebuah himpunan dengan suatu kunci (kemungkinan memuat informasi yang terkait dengan kunci). Oleh karena hal ini adalah masalah yang lazim dalam <a href="/wiki/Ilmu_komputer" title="Ilmu komputer">ilmu komputer</a>, <a href="/w/index.php?title=Kompleksitas_komputasi&amp;action=edit" class="new" title="Kompleksitas komputasi">kompleksitas komputasi</a> algoritma-algoritma tersebuh telah dipelajri dengan baik. Algoritma paling sederhana adalah <a href="/wiki/Pencarian_linear" title="Pencarian linear">pencarian linear</a>, yang secara sederhana melihat setiap elemen dari list secara berurutan. <a href="/w/index.php?title=Waktu_pengerjaan&amp;action=edit" class="new" title="Waktu pengerjaan">Waktu pengerjaan</a> algoritma ini adalah <a href="/wiki/Notasi_O_besar" title="Notasi O besar">O</a>(<i>n</i>), dimana <i>n</i> adalah banyaknya elemen dalam list, dan dapat digunakan langsung pada list yang belum diproses. Algoritma pencarian list yang lebih canggih adalah <a href="/wiki/Pencarian_biner" title="Pencarian biner">pencarian biner</a>; waktu pengerjaannya adalah <a href="/wiki/Notasi_O_besar" title="Notasi O besar">O</a>(log <i>n</i>). Waktu pengerjaannya jauh lebih baik daripada <a href="/wiki/Pencarian_linear" title="Pencarian linear">pencarian linear</a> untuk list yang memiliki data banyak, tetapi sebelum dilakukan pencarian list terlebih dahulu harus terurut (lihat <a href="/w/index.php?title=Algoritma_pengurutan&amp;action=edit" class="new" title="Algoritma pengurutan">algoritma pengurutan</a>) dan juga harus dapat diakses secara acak (<a href="/w/index.php?title=Pengaksesan_acak&amp;action=edit" class="new" title="Pengaksesan acak">pengaksesan acak</a>). <a href="/w/index.php?title=Pencarian_interpolasi&amp;action=edit" class="new" title="Pencarian interpolasi">Pencarian interpolasi</a> adalah lebih baik dari pencarian biner untuk list terurut yang sangat besar dan terdistribusi merata. <a href="/w/index.php?title=Algoritma_Grover&amp;action=edit" class="new" title="Algoritma Grover">Algoritma Grover</a> adalah sebuah <a href="/wiki/Komputer_kuantum" title="Komputer kuantum">algoritma kuantum</a> yang menawarkan percepatan kuadrat dibandingkan pencarian linear klasik untuk list tak terurut.</p>
+<p><a href="/w/index.php?title=Tabel_hash&amp;action=edit" class="new" title="Tabel hash">Tabel hash</a> juga digunakan untuk pencarian list, hanya memerlukan waktu yang konstan untuk mencari pada kasus rata-rata, tetapi memiliki <i>overhead</i> ruang yang lebih dan pada kasus terburuk waktu pengerjaannya adalah O(<i>n</i>). Pencarian lain yang berdasarkan struktur data khusus, menggunakan pohon pencarian biner yang <i>self-balancing</i> (<a href="/w/index.php?title=Self-balancing_binary_search_tree&amp;action=edit" class="new" title="Self-balancing binary search tree">self-balancing binary search tree</a>) dan membutuhkan waktu pencarian O(log <i>n</i>); hal ini dapat dipandang sebagai pengembangan dari ide utama pencarian biner untuk memungkinkan penyisipan dan penghapusan yang cepat. Lihat <a href="/w/index.php?title=Array_asosiatif&amp;action=edit" class="new" title="Array asosiatif">array asosiatif</a> untuk diskusi lanjut dari struktur data pencarian list.</p>
+<p>Sebagian besar algoritma pencarian, seperti pencarian linear, pencarian biner dan pohon pencarian biner yang <i>self-balancing</i>, dapat dikembangkan dengan sedikit tambahan <i>cost</i>untuk menemukan semua nilai yang kurang dari atau lebih dari sebuah kunci, operasi ini disebut <i>pencarian jangkauan</i> (<i>range search</i>). Pengecualin ada pada tabel hash, yang tidak dapat melakukan pencarian tersebut secara efisien.</p>
+<p><a name="Pencarian_Pohon" id="Pencarian_Pohon"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Algoritma_pencarian&amp;action=edit&amp;section=3" title="Sunting bagian: Pencarian Pohon">sunting</a>]</span> <span class="mw-headline">Pencarian Pohon</span></h3>
+<p><a href="/w/index.php?title=Algoritma_pencarian_pohon&amp;action=edit" class="new" title="Algoritma pencarian pohon">Algoritma pencarian pohon</a> adalah jantung dari teknik-teknik pencarian. Algoritma tersebut mencari node dari <a href="/w/index.php?title=Pohon_%28teori_graf%29&amp;action=edit" class="new" title="Pohon (teori graf)">pohon</a>, terlepas apakah pohon tersebut eksplisit atau implisit (dibangkitkan saat pengerjaan). Prinsip dasarnya adalah sebuah <a href="/w/index.php?title=Node_%28ilmu_komputer%29&amp;action=edit" class="new" title="Node (ilmu komputer)">node</a> diambil dari sebuah <a href="/wiki/Struktur_data" title="Struktur data">struktur data</a>, suksesornya diperiksa dan ditambahkan pada struktur data. Dengan memanipulasi struktur data, pohon dieksplorasi dalam urutan yang berbeda-beda, dieksplore dari satu tingkat ke tingkat berikutnya (<a href="/w/index.php?title=Pencarian_Breadth-first&amp;action=edit" class="new" title="Pencarian Breadth-first">pencarian Breadth-first</a>) atau mengunjungi <a href="/w/index.php?title=Node_pucuk&amp;action=edit" class="new" title="Node pucuk">node pucuk</a> terlebih dahulu kemudian lacak balik/<i>backtracking</i> (<a href="/w/index.php?title=Pencarian_Depth-first&amp;action=edit" class="new" title="Pencarian Depth-first">pencarian Depth-first</a>). Contoh lain dari pencarian pohon antara lain <a href="/w/index.php?title=Pencarian_iterative_deepening_depth-first&amp;action=edit" class="new" title="Pencarian iterative deepening depth-first">pencarian iterative-deepening</a>, <a href="/w/index.php?title=Pencarian_berbatas_kedalaman&amp;action=edit" class="new" title="Pencarian berbatas kedalaman">pencarian berbatas kedalaman</a>, <a href="/w/index.php?title=Pencarian_dwiarah&amp;action=edit" class="new" title="Pencarian dwiarah">pencarian dwiarah</a> dan <a href="/w/index.php?title=Pencarian_uniform-cost&amp;action=edit" class="new" title="Pencarian uniform-cost">pencarian uniform-cost</a>.</p>
+<p><a name="Pencarian_Graf" id="Pencarian_Graf"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Algoritma_pencarian&amp;action=edit&amp;section=4" title="Sunting bagian: Pencarian Graf">sunting</a>]</span> <span class="mw-headline">Pencarian Graf</span></h3>
+<p>Banyak permasalahan dalam <a href="/wiki/Teori_graf" title="Teori graf">teori graf</a> dapat dipecahkan dengan memanfaatkan algoritma pencarian, seperti <a href="/wiki/Algoritma_Dijkstra" title="Algoritma Dijkstra">algoritma Dijkstra</a>, <a href="/w/index.php?title=Algoritma_Kruskal%27s&amp;action=edit" class="new" title="Algoritma Kruskal's">algoritma Kruskal's</a>, <a href="/w/index.php?title=Algoritma_tetangga_terdekat&amp;action=edit" class="new" title="Algoritma tetangga terdekat">algoritma tetangga terdekat</a>, dan <a href="/wiki/Algoritma_Prim" title="Algoritma Prim">algoritma Prim</a>.</p>
+<p><a name="Pencarian_Informed" id="Pencarian_Informed"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Algoritma_pencarian&amp;action=edit&amp;section=5" title="Sunting bagian: Pencarian Informed">sunting</a>]</span> <span class="mw-headline">Pencarian <i>Informed</i></span></h2>
+<p>Pada pencarian <i>informed</i>, sebuah <a href="/wiki/Heuristik" title="Heuristik">heuristik</a> yang khusus untuk permasalahan tertentu digunakan sebagai pedoman. Sebuah heuristik yang baik dapat membuat sebuah pencarian <i>informed</i> bekerja secara dramatis melebihi pencarian <i>uninformed</i>.</p>
+<p>Terdapat beberapa algoritma pencarian list <i>informed</i> yang dikenali. Salah satu anggota dari algoritma tersebut adalah sebuah hash tabel dengan sebuah fungsi <i>hashing</i>, yaitu algoritma dengan heuristik yang berdasarkan pada permasalahan yang dihadapi. Sebagian besar algoritma <i>informed</i> adalah mengeksplore pohon. Termasuk di dalamnya adalah <a href="/w/index.php?title=Pencarian_Breadth-first&amp;action=edit" class="new" title="Pencarian Breadth-first">pencarian Breadth-first</a>, dan <a href="/w/index.php?title=Algoritma_Pencarian_A_Bintang&amp;action=edit" class="new" title="Algoritma Pencarian A Bintang">A*</a>. Sebagaimana algoritma <i>uninformed</i>, algoritma <i>informed</i> dapat dikembangkan untuk bekerja pada graf.</p>
+<p><a name="Pencarian_Adversarial" id="Pencarian_Adversarial"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Algoritma_pencarian&amp;action=edit&amp;section=6" title="Sunting bagian: Pencarian Adversarial">sunting</a>]</span> <span class="mw-headline">Pencarian Adversarial</span></h2>
+<p>Dalam permainan seperti <a href="/wiki/Catur" title="Catur">catur</a>, terdapat sebuah <a href="/w/index.php?title=Pohon_permainan&amp;action=edit" class="new" title="Pohon permainan">pohon permainan</a> dari semua kemungkinan gerak dari kedua pemain dan konfigurasi hasil dari papan catur, dan kita dapat mencari pada pohon tersebut untuk menemukan strategi permainan yang efektif. Tipe permasalahan ini memiliki karakteristik unik yang mengharuskan kita memperhatikan semua kemungkinan gerak dari lawan yang mungkin terjadi. Untuk melakukannya, program permainan komputer, atau bentuk lain dari <a href="/wiki/Kecerdasan_buatan" title="Kecerdasan buatan">kecerdasan buatan</a> seperti <a href="/w/index.php?title=Perencanaan_mesin&amp;action=edit" class="new" title="Perencanaan mesin">perencanaan mesin</a>, biasanya menggunakan algoritma pencarian seperti <a href="/w/index.php?title=Algoritma_minimaks&amp;action=edit" class="new" title="Algoritma minimaks">algoritma minimaks</a>, <a href="/w/index.php?title=Pemangkasan_pohon_pencarian&amp;action=edit" class="new" title="Pemangkasan pohon pencarian">pemangkasan pohon pencarian</a> dan <a href="/w/index.php?title=Pemangkasan_alpha-beta&amp;action=edit" class="new" title="Pemangkasan alpha-beta">pemangkasan alpha-beta</a>.</p>
+<p><a name="Pemenuhan_Kendala" id="Pemenuhan_Kendala"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Algoritma_pencarian&amp;action=edit&amp;section=7" title="Sunting bagian: Pemenuhan Kendala">sunting</a>]</span> <span class="mw-headline">Pemenuhan Kendala</span></h2>
+<p>Ini adalah satu jenis pencarian yang memecahkan <a href="/w/index.php?title=Permasalahan_pemenuhan_kendala&amp;action=edit" class="new" title="Permasalahan pemenuhan kendala">permasalahan pemenuhan kendala</a> dimana, bukan dengan melihat sebuah jalur, solusinya adalah sebuah himpunan nilai yang diberikan pada sebuah himpunan peubah. Karena peubah-peubah dapat diproses dengan urutan apa saja, algoritma pencarian pohon biasa adalah tidak efisien. Metode pemecahan permasalahan kendala memuat <a href="/w/index.php?title=Pencarian_kombinatorial&amp;action=edit" class="new" title="Pencarian kombinatorial">pencarian kombinatorial</a> dan <a href="/w/index.php?title=Lacak_balik&amp;action=edit" class="new" title="Lacak balik">lacak balik</a>, keduanya mengambil keuntungan dari kebebasan yang diasosiasikan dengan permasalahan kendala.</p>
+<p><a name="Pencarian_Interpolasi" id="Pencarian_Interpolasi"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Algoritma_pencarian&amp;action=edit&amp;section=8" title="Sunting bagian: Pencarian Interpolasi">sunting</a>]</span> <span class="mw-headline">Pencarian Interpolasi</span></h2>
+<p>Bayangkan perihal mencari sebuah kata dalam sebuah kamus. Diberikan sembarang kata, anda memiliki beberapa ide perihal dimana membuka kamus untuk mendapatkan huruf pertama dari kata. Dari sana, anda akan memiliki ide untuk membuka beberapa halaman lagi untuk mendapatkan kota yang hampir mirip denan kata. Dan seterusnya, ini adalah ide dasar dari <a href="/w/index.php?title=Pencarian_interpolasi&amp;action=edit" class="new" title="Pencarian interpolasi">pencarian interpolasi</a>.</p>
+<p><a name="Jenis_Lain" id="Jenis_Lain"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Algoritma_pencarian&amp;action=edit&amp;section=9" title="Sunting bagian: Jenis Lain">sunting</a>]</span> <span class="mw-headline">Jenis Lain</span></h2>
+<ul>
+<li><a href="/w/index.php?title=Algoritma_pencarian_string&amp;action=edit" class="new" title="Algoritma pencarian string">Algoritma pencarian string</a> mencari pola dalam <a href="/w/index.php?title=String_%28ilmu_komputer%29&amp;action=edit" class="new" title="String (ilmu komputer)">string</a>; salah satu struktur data yang populer yang membuat lebih efisien adalah <a href="/wiki/Pohon_sufiks" title="Pohon sufiks">pohon sufiks</a>.</li>
+<li><a href="/w/index.php?title=Algoritma_genetika&amp;action=edit" class="new" title="Algoritma genetika">Algoritma genetika</a> menggunakan ide dari <a href="/wiki/Evolusi" title="Evolusi">evolusi</a> sebagai heuristik untuk mengurangi ruang pencarian.</li>
+<li><a href="/wiki/Simulated_annealing" title="Simulated annealing">Simulated annealing</a> adalah sebuah algoritma pencariaan <a href="/w/index.php?title=Probabilistik&amp;action=edit" class="new" title="Probabilistik">probabilistik</a>.</li>
+<li><a href="/w/index.php?title=Pencarian_Tabu&amp;action=edit" class="new" title="Pencarian Tabu">Pencarian Tabu</a> adalah sebuah teknik untuk mencekah pencarian diskrit menjadi terhenti pada minimum lokal.</li>
+<li><a href="/w/index.php?title=Pencarian_Federated&amp;action=edit" class="new" title="Pencarian Federated">Pencarian Federated</a></li>
+</ul>
+<p><a name="Lihat_juga" id="Lihat_juga"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Algoritma_pencarian&amp;action=edit&amp;section=10" title="Sunting bagian: Lihat juga">sunting</a>]</span> <span class="mw-headline">Lihat juga</span></h2>
+<ul>
+<li><a href="/w/index.php?title=Algoritma_Pemilihan&amp;action=edit" class="new" title="Algoritma Pemilihan">Algoritma Pemilihan</a></li>
+<li><a href="/w/index.php?title=Teorema_No-Free-Lunch&amp;action=edit" class="new" title="Teorema No-Free-Lunch">Teorema No-Free-Lunch</a> berhubungan dengan keumuman dari algoritma pencarian untuk kebutuhan pengetahuan ranah.</li>
+<li><a href="/w/index.php?title=Permasalahan_Sekretaris&amp;action=edit" class="new" title="Permasalahan Sekretaris">Permasalahan Sekretaris</a> adalah sebuah masalah pencarian online (yaitu dipresentasikan secara sekuens) dengan informasi tak lengkap, dan sebuah strategi statistik yang optimal.</li>
+</ul>
+
+
+<!-- Saved in parser cache with key idwiki:pcache:idhash:61463-0!1!0!!id!2 and timestamp 20070913213002 -->
+<div class="printfooter">
+Diperoleh dari "<a href="http://id.wikipedia.org/wiki/Algoritma_pencarian">http://id.wikipedia.org/wiki/Algoritma_pencarian</a>"</div>
+			<div id="catlinks"><p class='catlinks'><a href="/wiki/Istimewa:Categories" title="Istimewa:Categories">Kategori</a>: <span dir='ltr'><a href="/wiki/Kategori:Algoritma" title="Kategori:Algoritma">Algoritma</a></span> | <span dir='ltr'><a href="/wiki/Kategori:Ilmu_komputer" title="Kategori:Ilmu komputer">Ilmu komputer</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Tampilan</h5>
+		<div class="pBody">
+			<ul>
+					 <li id="ca-nstab-main" class="selected"><a href="/wiki/Algoritma_pencarian" title="Lihat halaman artikel [c]" accesskey="c">Artikel</a></li>
+					 <li id="ca-talk" class="new"><a href="/w/index.php?title=Pembicaraan:Algoritma_pencarian&amp;action=edit" title="Pembicaraan halaman isi [t]" accesskey="t">Pembicaraan</a></li>
+					 <li id="ca-edit"><a href="/w/index.php?title=Algoritma_pencarian&amp;action=edit" title="Sunting halaman ini. Gunakan tombol pratayang sebelum menyimpan. [e]" accesskey="e">Sunting</a></li>
+					 <li id="ca-history"><a href="/w/index.php?title=Algoritma_pencarian&amp;action=history" title="Versi-versi sebelumnya dari halaman ini. [h]" accesskey="h">Versi terdahulu</a></li>
+				</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-personal">
+		<h5>Peralatan pribadi</h5>
+		<div class="pBody">
+			<ul>
+				<li id="pt-login"><a href="/w/index.php?title=Istimewa:Masuk_log&amp;returnto=Algoritma_pencarian" title="Anda disarankan untuk masuk log, meskipun hal itu tidak diwajibkan. [o]" accesskey="o">Masuk log / buat akun</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-logo">
+		<a style="background-image: url(http://upload.wikimedia.org/wikipedia/id/b/bc/Wiki.png);" href="/wiki/Halaman_Utama" title="Kunjungi Halaman Utama [z]" accesskey="z"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigasi</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="/wiki/Halaman_Utama" title="Kunjungi Halaman Utama [z]" accesskey="z">Halaman Utama</a></li>
+				<li id="n-portal"><a href="/wiki/Portal:Komunitas" title="Tentang proyek, apa yang dapat anda lakukan, di mana mencari sesuatu">Portal komunitas</a></li>
+				<li id="n-currentevents"><a href="/wiki/Portal:Peristiwa_terkini" title="Temukan informasi tentang peristiwa terkini">Peristiwa terkini</a></li>
+				<li id="n-recentchanges"><a href="/wiki/Istimewa:Perubahan_terbaru" title="Daftar perubahan terbaru dalam wiki. [r]" accesskey="r">Perubahan terbaru</a></li>
+				<li id="n-randompage"><a href="/wiki/Istimewa:Halaman_sembarang" title="Tampilkan sembarang halaman [x]" accesskey="x">Halaman sembarang</a></li>
+				<li id="n-help"><a href="/wiki/Bantuan:Isi" title="Tempat mencari bantuan.">Bantuan</a></li>
+				<li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Penggalangan_dana" title="Dukung kami">Donasi</a></li>
+				<li id="n-Warung-Kopi"><a href="/wiki/Wikipedia:Warung_Kopi">Warung Kopi</a></li>
+			</ul>
+		</div>
+	</div>
+		<div id="p-search" class="portlet">
+		<h5><label for="searchInput">Pencarian</label></h5>
+		<div id="searchBody" class="pBody">
+			<form action="/wiki/Istimewa:Pencarian" id="searchform"><div>
+				<input id="searchInput" name="search" type="text" title="Cari dalam wiki ini [f]" accesskey="f" value="" />
+				<input type='submit' name="go" class="searchButton" id="searchGoButton"	value="Tuju ke" />&nbsp;
+				<input type='submit' name="fulltext" class="searchButton" id="mw-searchButton" value="Cari" />
+			</div></form>
+		</div>
+	</div>
+	<div class="portlet" id="p-tb">
+		<h5>Kotak peralatan</h5>
+		<div class="pBody">
+			<ul>
+				<li id="t-whatlinkshere"><a href="/wiki/Istimewa:Pranala_balik/Algoritma_pencarian" title="Daftar semua halaman wiki yang memiliki pranala ke halaman ini [j]" accesskey="j">Pranala balik</a></li>
+				<li id="t-recentchangeslinked"><a href="/wiki/Istimewa:Perubahan_terkait/Algoritma_pencarian" title="Perubahan terbaru halaman-halaman yang memiliki pranala ke halaman ini [k]" accesskey="k">Perubahan terkait</a></li>
+<li id="t-upload"><a href="/wiki/Istimewa:Pemuatan" title="Muatkan gambar atau berkas media [u]" accesskey="u">Pemuatan</a></li>
+<li id="t-specialpages"><a href="/wiki/Istimewa:Halaman_istimewa" title="Daftar semua halaman istimewa [q]" accesskey="q">Halaman istimewa</a></li>
+				<li id="t-print"><a href="/w/index.php?title=Algoritma_pencarian&amp;printable=yes" title="Versi cetak halaman ini [p]" accesskey="p">Versi cetak</a></li>				<li id="t-permalink"><a href="/w/index.php?title=Algoritma_pencarian&amp;oldid=873663" title="Pranala permanen untuk revisi halaman ini">Pranala permanen</a></li><li id="t-cite"><a href="/w/index.php?title=Istimewa:Cite&amp;page=Algoritma_pencarian&amp;id=873663">Kutip artikel ini</a></li>			</ul>
+		</div>
+	</div>
+	<div id="p-lang" class="portlet">
+		<h5>Bahasa lain</h5>
+		<div class="pBody">
+			<ul>
+				<li class="interwiki-de"><a href="http://de.wikipedia.org/wiki/Suchverfahren">Deutsch</a></li>
+				<li class="interwiki-en"><a href="http://en.wikipedia.org/wiki/Search_algorithm">English</a></li>
+				<li class="interwiki-fi"><a href="http://fi.wikipedia.org/wiki/Hakualgoritmi">Suomi</a></li>
+				<li class="interwiki-fr"><a href="http://fr.wikipedia.org/wiki/Algorithme_de_recherche">Français</a></li>
+				<li class="interwiki-it"><a href="http://it.wikipedia.org/wiki/Algoritmo_di_ricerca">Italiano</a></li>
+				<li class="interwiki-ja"><a href="http://ja.wikipedia.org/wiki/%E6%A4%9C%E7%B4%A2">日本語</a></li>
+				<li class="interwiki-nl"><a href="http://nl.wikipedia.org/wiki/Zoekalgoritme">Nederlands</a></li>
+				<li class="interwiki-pt"><a href="http://pt.wikipedia.org/wiki/Algoritmo_de_busca">Português</a></li>
+				<li class="interwiki-vi"><a href="http://vi.wikipedia.org/wiki/Gi%E1%BA%A3i_thu%E1%BA%ADt_t%C3%ACm_ki%E1%BA%BFm">Tiếng Việt</a></li>
+			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="/skins-1.5/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>
+				<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="/images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>
+			<ul id="f-list">
+				<li id="lastmod"> Halaman ini terakhir diubah pada 12:32, 28 Juli 2007.</li>
+				<li id="copyright">Seluruh teks tersedia sesuai dengan <a href="http://id.wikipedia.org/wiki/Wikipedia:Lisensi_Dokumentasi_Bebas_GNU">Lisensi Dokumentasi Bebas GNU</a><br />Wikipedia&reg; adalah merek dagang terdaftar dari <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>.<br /></li>
+				<li id="privacy"><a href="http://meta.wikimedia.org/wiki/Kebijakan_privasi" title="meta:Kebijakan privasi">Kebijakan privasi</a></li>
+				<li id="about"><a href="/wiki/Wikipedia:Perihal" title="Wikipedia:Perihal">Perihal Wikipedia</a></li>
+				<li id="disclaimer"><a href="/wiki/Wikipedia:Penyangkalan_umum" title="Wikipedia:Penyangkalan umum">Penyangkalan</a></li>
+			</ul>
+		</div>
+		
+	
+		<script type="text/javascript">if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by srv125 in 0.069 secs. --></body></html>

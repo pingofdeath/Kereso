@@ -1,0 +1,279 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+				<meta name="keywords" content="Search algorithm,A Star Search Algorithm,Abstraction (computer science),Algorithm,Alpha-beta pruning,Artificial intelligence,Associative array,Backtracking,Best-first search,Bidirectional search,Big O notation" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="http://www.gnu.org/copyleft/fdl.html" />
+		<title>Search algorithm - Wikipedia, the free encyclopedia</title>
+		<style type="text/css" media="screen, projection">/*<![CDATA[*/
+			@import "/skins-1.5/common/shared.css?99";
+			@import "/skins-1.5/monobook/main.css?99";
+		/*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="/skins-1.5/common/commonPrint.css?99" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE50Fixes.css?99";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE55Fixes.css?99";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "/skins-1.5/monobook/IE60Fixes.css?99";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "/skins-1.5/monobook/IE70Fixes.css?99";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="/skins-1.5/common/IEFixes.js?99"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		
+		<script type= "text/javascript">/*<![CDATA[*/
+var skin = "monobook";
+var stylepath = "/skins-1.5";
+var wgArticlePath = "/wiki/$1";
+var wgScriptPath = "/w";
+var wgScript = "/w/index.php";
+var wgServer = "http://en.wikipedia.org";
+var wgCanonicalNamespace = "";
+var wgCanonicalSpecialPageName = false;
+var wgNamespaceNumber = 0;
+var wgPageName = "Search_algorithm";
+var wgTitle = "Search algorithm";
+var wgAction = "view";
+var wgRestrictionEdit = [];
+var wgRestrictionMove = [];
+var wgArticleId = "28249";
+var wgIsArticle = true;
+var wgUserName = null;
+var wgUserGroups = null;
+var wgUserLanguage = "en";
+var wgContentLanguage = "en";
+var wgBreakFrames = false;
+var wgCurRevisionId = "157226535";
+/*]]>*/</script>
+                
+		<script type="text/javascript" src="/skins-1.5/common/wikibits.js?99"><!-- wikibits js --></script>
+		<script type="text/javascript" src="/w/index.php?title=-&amp;action=raw&amp;gen=js&amp;useskin=monobook"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "/w/index.php?title=MediaWiki:Common.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=MediaWiki:Monobook.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=-&action=raw&gen=css&maxage=2678400";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+		<script type="text/javascript" src="/skins-1.5/common/ajax.js?99"></script>
+	</head>
+<body  class="mediawiki ns-0 ltr page-Search_algorithm">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">Search algorithm</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<table class="metadata plainlinks ambox ambox-content">
+<tr>
+<td class="ambox-image"></td>
+<td><span class="plainlinks"><b>This article does not cite any <a href="/wiki/Wikipedia:Citing_sources" title="Wikipedia:Citing sources">references or sources</a>.</b><br />
+<small>Please help <a href="http://en.wikipedia.org/w/index.php?title=Search_algorithm&amp;action=edit" class="external text" title="http://en.wikipedia.org/w/index.php?title=Search_algorithm&amp;action=edit" rel="nofollow">improve this article</a> by adding citations to <a href="/wiki/Wikipedia:Reliable_sources" title="Wikipedia:Reliable sources">reliable sources</a>. (<a href="/wiki/Help:Contents" title="Help:Contents">help</a>, <a href="/wiki/Wikipedia:WikiProject_Fact_and_Reference_Check" title="Wikipedia:WikiProject Fact and Reference Check">get involved!</a>)<br />
+<a href="/wiki/Wikipedia:Verifiability" title="Wikipedia:Verifiability">Unverifiable</a> material may be challenged and removed.<br />
+This article has been tagged since <b>August 2007</b>.</small></span></td>
+</tr>
+</table>
+<p>In <a href="/wiki/Computer_science" title="Computer science">computer science</a>, a <b>search algorithm</b>, broadly speaking, is an <a href="/wiki/Algorithm" title="Algorithm">algorithm</a> that takes a problem as <a href="/wiki/Input" title="Input">input</a> and returns a solution to the problem, usually after evaluating a number of possible solutions. Most of the algorithms studied by computer scientists that solve problems are kinds of search algorithms. The set of all possible solutions to a problem is called the <a href="/wiki/Search_space" title="Search space">search space</a>. <a href="/wiki/Brute-force_search" title="Brute-force search">Brute-force search</a> or "naïve"/uninformed search algorithms use the simplest, most intuitive method of searching through the search space, whereas informed search algorithms use <a href="/wiki/Heuristics_%28computer_science%29" title="Heuristics (computer science)">heuristics</a> to apply knowledge about the structure of the <a href="/wiki/Search_space" title="Search space">search space</a> to try to reduce the amount of time spent searching.</p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Uninformed_search"><span class="tocnumber">1</span> <span class="toctext">Uninformed search</span></a></li>
+<li class="toclevel-1"><a href="#List_search"><span class="tocnumber">2</span> <span class="toctext">List search</span></a></li>
+<li class="toclevel-1"><a href="#Tree_search"><span class="tocnumber">3</span> <span class="toctext">Tree search</span></a></li>
+<li class="toclevel-1"><a href="#Graph_search"><span class="tocnumber">4</span> <span class="toctext">Graph search</span></a></li>
+<li class="toclevel-1"><a href="#SQL_search"><span class="tocnumber">5</span> <span class="toctext">SQL search</span></a></li>
+<li class="toclevel-1"><a href="#Tradeoff_Based_search"><span class="tocnumber">6</span> <span class="toctext">Tradeoff Based search</span></a></li>
+<li class="toclevel-1"><a href="#Informed_search"><span class="tocnumber">7</span> <span class="toctext">Informed search</span></a></li>
+<li class="toclevel-1"><a href="#Adversarial_search"><span class="tocnumber">8</span> <span class="toctext">Adversarial search</span></a></li>
+<li class="toclevel-1"><a href="#Constraint_satisfaction"><span class="tocnumber">9</span> <span class="toctext">Constraint satisfaction</span></a></li>
+<li class="toclevel-1"><a href="#Other_types"><span class="tocnumber">10</span> <span class="toctext">Other types</span></a></li>
+<li class="toclevel-1"><a href="#See_also"><span class="tocnumber">11</span> <span class="toctext">See also</span></a></li>
+<li class="toclevel-1"><a href="#External_links"><span class="tocnumber">12</span> <span class="toctext">External links</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script>
+<p><a name="Uninformed_search" id="Uninformed_search"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Search_algorithm&amp;action=edit&amp;section=1" title="Edit section: Uninformed search">edit</a>]</span> <span class="mw-headline">Uninformed search</span></h2>
+<p>An uninformed search algorithm is one that does not take into account the specific nature of the problem. As such, they can be implemented in general, and then the same <a href="/wiki/Implementation" title="Implementation">implementation</a> can be used in a wide range of problems thanks to <a href="/wiki/Abstraction_%28computer_science%29" title="Abstraction (computer science)">abstraction</a>. The drawback is that most <a href="/wiki/Search_space" title="Search space">search spaces</a> are extremely large, and an uninformed search (especially of a tree) will take a reasonable amount of time only for small examples. As such, to speed up the process, sometimes only an informed search will do.</p>
+<p><a name="List_search" id="List_search"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Search_algorithm&amp;action=edit&amp;section=2" title="Edit section: List search">edit</a>]</span> <span class="mw-headline">List search</span></h2>
+<p>List search algorithms are perhaps the most basic kind of search algorithm. The goal is to find one element of a set by some key (perhaps containing other information related to the key). As this is a common problem in <a href="/wiki/Computer_science" title="Computer science">computer science</a>, the <a href="/wiki/Computational_complexity" title="Computational complexity">computational complexity</a> of these algorithms has been well studied. The simplest such algorithm is <a href="/wiki/Linear_search" title="Linear search">linear search</a>, which simply examines each element of the list in order. It has expensive <a href="/wiki/Big_O_notation" title="Big O notation">O</a>(n) running time, where <i>n</i> is the number of items in the list, but can be used directly on any unprocessed list. A more sophisticated list search algorithm is <a href="/wiki/Binary_search" title="Binary search">binary search</a>; it runs in <a href="/wiki/Big_O_notation" title="Big O notation">O</a>(log <i>n</i>) time. This is significantly better than <a href="/wiki/Linear_search" title="Linear search">linear search</a> for large lists of data, but it requires that the list be sorted before searching (see <a href="/wiki/Sorting_algorithm" title="Sorting algorithm">sorting algorithm</a>) and also be <a href="/wiki/Random_access" title="Random access">random access</a>. <a href="/wiki/Interpolation_search" title="Interpolation search">Interpolation search</a> is better than binary search for large sorted lists with fairly even distributions, but has a worst-case running time of O(<i>n</i>).</p>
+<p><a href="/wiki/Grover%27s_algorithm" title="Grover's algorithm">Grover's algorithm</a> is a <a href="/wiki/Quantum_computer" title="Quantum computer">quantum algorithm</a> that offers quadratic speedup over the classical linear search for unsorted lists. However, it requires a currently non-existent quantum computer on which to run.</p>
+<p><a href="/wiki/Hash_table" title="Hash table">Hash tables</a> are also used for list search, requiring only constant time for search in the average case, but more space overhead and terrible O(<i>n</i>) worst-case search time. Another search based on specialized data structures uses <a href="/wiki/Self-balancing_binary_search_tree" title="Self-balancing binary search tree">self-balancing binary search trees</a> and requires O(log <i>n</i>) time to search; these can be seen as extending the main ideas of binary search to allow fast insertion and removal. See <a href="/wiki/Associative_array" title="Associative array">associative array</a> for more discussion of list search data structures.</p>
+<p>Most list search algorithms, such as linear search, binary search, and self-balancing binary search trees, can be extended with little additional cost to find all values less than or greater than a given key, an operation called <i>range search</i>. The glaring exception is hash tables, which cannot perform such a search efficiently.</p>
+<p><a name="Tree_search" id="Tree_search"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Search_algorithm&amp;action=edit&amp;section=3" title="Edit section: Tree search">edit</a>]</span> <span class="mw-headline">Tree search</span></h2>
+<p><a href="/wiki/Tree_search_algorithm" title="Tree search algorithm">Tree search algorithms</a> are the heart of searching techniques. These search <a href="/wiki/Tree_%28graph_theory%29" title="Tree (graph theory)">trees</a> of <a href="/wiki/Node_%28computer_science%29" title="Node (computer science)">nodes</a>, whether that tree is explicit or implicit (generated on the go). The basic principle is that a <a href="/wiki/Node_%28computer_science%29" title="Node (computer science)">node</a> is taken from a <a href="/wiki/Data_structure" title="Data structure">data structure</a>, its successors examined and added to the data structure. By manipulating the data structure, the tree is explored in different orders for instance level by level (<a href="/wiki/Breadth-first_search" title="Breadth-first search">Breadth-first search</a>) or reaching a <a href="/wiki/Leaf_node" title="Leaf node">leaf node</a> first and backtracking (<a href="/wiki/Depth-first_search" title="Depth-first search">Depth-first search</a>). Other examples of tree-searches include <a href="/wiki/Iterative_deepening_depth-first_search" title="Iterative deepening depth-first search">Iterative-deepening search</a>, <a href="/wiki/Depth-limited_search" title="Depth-limited search">Depth-limited search</a>, <a href="/wiki/Bidirectional_search" title="Bidirectional search">Bidirectional search</a> and <a href="/wiki/Uniform-cost_search" title="Uniform-cost search">Uniform-cost search</a>.</p>
+<p><a name="Graph_search" id="Graph_search"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Search_algorithm&amp;action=edit&amp;section=4" title="Edit section: Graph search">edit</a>]</span> <span class="mw-headline">Graph search</span></h2>
+<p>Many of the problems in <a href="/wiki/Graph_theory" title="Graph theory">graph theory</a> can be solved using search algorithms, such as <a href="/wiki/Dijkstra%27s_algorithm" title="Dijkstra's algorithm">Dijkstra's algorithm</a>, <a href="/wiki/Kruskal%27s_algorithm" title="Kruskal's algorithm">Kruskal's algorithm</a>, the <a href="/wiki/Nearest_neighbour_algorithm" title="Nearest neighbour algorithm">nearest neighbour algorithm</a>, and <a href="/wiki/Prim%27s_algorithm" title="Prim's algorithm">Prim's algorithm</a>. These can be seen as extensions of the tree-search algorithms.</p>
+<p><a name="SQL_search" id="SQL_search"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Search_algorithm&amp;action=edit&amp;section=5" title="Edit section: SQL search">edit</a>]</span> <span class="mw-headline">SQL search</span></h2>
+<p>Many of the problems in <a href="/wiki/Tree_search" title="Tree search">Tree search</a> can be solved using <a href="/wiki/SQL" title="SQL">SQL</a> type searches. SQL typically works best on Structured data. It offers one advantage over hierarchical type search in that it allows access to the data in many different ways. In a Hierarchical search your path is forced by the branches of the tree (example name by alphabetical order) while with SQL you have the flexibility of accessing the data along multiple directions (name, address, income etc...).</p>
+<p><a name="Tradeoff_Based_search" id="Tradeoff_Based_search"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Search_algorithm&amp;action=edit&amp;section=6" title="Edit section: Tradeoff Based search">edit</a>]</span> <span class="mw-headline">Tradeoff Based search</span></h2>
+<p>While <a href="/wiki/SQL" title="SQL">SQL</a> search offers great flexibility to search the data, it still operates like a computer does: by constraints. In SQL, constraints are used to eliminate the data, while tradeoff based search uses a more "human" metaphor. For example if you are searching for a car in a dataset, your SQL statement looks like: select car from dataset where price &lt; $30,000, and Consumption &gt; 30MPG, and Color = 'RED'. While a tradeoff type query would look like "I like the red car, but I will settle for the blue if it is $2,000 cheaper".</p>
+<p><a name="Informed_search" id="Informed_search"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Search_algorithm&amp;action=edit&amp;section=7" title="Edit section: Informed search">edit</a>]</span> <span class="mw-headline">Informed search</span></h2>
+<p>In an informed search, a <a href="/wiki/Heuristic" title="Heuristic">heuristic</a> that is specific to the problem is used as a guide. A good heuristic will make an informed search dramatically out-perform any uninformed search.</p>
+<p>There are few prominent informed list-search algorithms. A possible member of that category is a hash table with a hashing function that is a heuristic based on the problem at hand. Most informed search algorithms explore trees. These include <a href="/wiki/Best-first_search" title="Best-first search">Best-first search</a>, and <a href="/wiki/A_Star_Search_Algorithm" title="A Star Search Algorithm">A*</a>. Like the uninformed algorithms, they can be extended to work for graphs as well.</p>
+<p><a name="Adversarial_search" id="Adversarial_search"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Search_algorithm&amp;action=edit&amp;section=8" title="Edit section: Adversarial search">edit</a>]</span> <span class="mw-headline">Adversarial search</span></h2>
+<p>In games such as <a href="/wiki/Chess" title="Chess">chess</a>, there is a <a href="/wiki/Game_tree" title="Game tree">game tree</a> of all possible moves by both players and the resulting board configurations, and we can search this tree to find an effective playing strategy. This type of problem has the unique characteristic that we must account for any possible move our opponent might make. To account for this, game-playing computer programs, as well as other forms of <a href="/wiki/Artificial_intelligence" title="Artificial intelligence">artificial intelligence</a> like <a href="/w/index.php?title=Machine_planning&amp;action=edit" class="new" title="Machine planning">machine planning</a>, often use search algorithms like the <a href="/wiki/Minimax_algorithm" title="Minimax algorithm">minimax algorithm</a>, <a href="/wiki/Search_tree_pruning" title="Search tree pruning">search tree pruning</a>, and <a href="/wiki/Alpha-beta_pruning" title="Alpha-beta pruning">alpha-beta pruning</a>.</p>
+<p><a name="Constraint_satisfaction" id="Constraint_satisfaction"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Search_algorithm&amp;action=edit&amp;section=9" title="Edit section: Constraint satisfaction">edit</a>]</span> <span class="mw-headline">Constraint satisfaction</span></h2>
+<p>This is a type of search which solves <a href="/wiki/Constraint_satisfaction_problem" title="Constraint satisfaction problem">constraint satisfaction problems</a> where, rather than looking for a path, the solution is simply a set of values assigned to a set of variables. Because the variables can be processed in any order, the usual tree search algorithms are too inefficient. Methods of solving constraint problems include <a href="/wiki/Combinatorial_search" title="Combinatorial search">combinatorial search</a> and <a href="/wiki/Backtracking" title="Backtracking">backtracking</a>, both of which take advantage of the freedom associated with constraint problems.</p>
+<p><a name="Other_types" id="Other_types"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Search_algorithm&amp;action=edit&amp;section=10" title="Edit section: Other types">edit</a>]</span> <span class="mw-headline">Other types</span></h2>
+<ul>
+<li><a href="/wiki/String_searching_algorithm" title="String searching algorithm">String searching algorithms</a> search for patterns within <a href="/wiki/String_%28computer_science%29" title="String (computer science)">strings</a>; one popular data structure that makes this more efficient is the <a href="/wiki/Suffix_tree" title="Suffix tree">suffix tree</a></li>
+<li><a href="/wiki/Genetic_algorithms" title="Genetic algorithms">Genetic algorithms</a> use ideas from <a href="/wiki/Evolution" title="Evolution">evolution</a> as heuristics for reducing the search space</li>
+<li><a href="/wiki/Sorting_algorithm" title="Sorting algorithm">Sorting algorithms</a> necessary for executing certain search algorithms</li>
+<li><a href="/wiki/Simulated_annealing" title="Simulated annealing">Simulated annealing</a> is a <a href="/wiki/Probabilistic" title="Probabilistic">probabilistic</a> search algorithm</li>
+<li><a href="/wiki/Tabu_search" title="Tabu search">Tabu search</a> is a technique to avoid discrete searches getting stuck in local minima</li>
+<li><a href="/wiki/Federated_search" title="Federated search">Federated search</a></li>
+<li><a href="/wiki/Minimax" title="Minimax">Minimax</a> which can be highly optimized using <a href="/wiki/Alpha-beta_pruning" title="Alpha-beta pruning">alpha-beta pruning</a> is an algorithm to search for good moves in <a href="/wiki/Zero-sum" title="Zero-sum">zero-sum</a> games</li>
+<li><a href="/wiki/Ternary_search" title="Ternary search">Ternary search</a></li>
+</ul>
+<p><a name="See_also" id="See_also"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Search_algorithm&amp;action=edit&amp;section=11" title="Edit section: See also">edit</a>]</span> <span class="mw-headline">See also</span></h2>
+<ul>
+<li><a href="/wiki/Selection_algorithm" title="Selection algorithm">Selection algorithm</a></li>
+<li><a href="/wiki/No_free_lunch_in_search_and_optimization" title="No free lunch in search and optimization">No free lunch in search and optimization</a></li>
+<li><a href="/wiki/Secretary_problem" title="Secretary problem">Secretary problem</a> is an online (ie sequentially presented) search problem with imperfect information, and a statistically optimal strategy.</li>
+</ul>
+<p><a name="External_links" id="External_links"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Search_algorithm&amp;action=edit&amp;section=12" title="Edit section: External links">edit</a>]</span> <span class="mw-headline">External links</span></h2>
+<ul>
+<li><a href="http://en.wikiversity.org/wiki/Uninformed_Search_Project" class="external text" title="http://en.wikiversity.org/wiki/Uninformed_Search_Project" rel="nofollow">Self-Guided Lesson on Uninformed Search</a> Go to the Wikiversity and teach yourself to program an uninformed search solution.</li>
+</ul>
+
+<!-- 
+Pre-expand include size: 2320 bytes
+Post-expand include size: 1802 bytes
+Template argument size: 749 bytes
+Maximum: 2048000 bytes
+-->
+
+<!-- Saved in parser cache with key enwiki:pcache:idhash:28249-0!1!0!default!!en!2 and timestamp 20070915050211 -->
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org/wiki/Search_algorithm">http://en.wikipedia.org/wiki/Search_algorithm</a>"</div>
+			<div id="catlinks"><p class='catlinks'><a href="/wiki/Special:Categories" title="Special:Categories">Categories</a>: <span dir='ltr'><a href="/wiki/Category:Articles_lacking_sources_from_August_2007" title="Category:Articles lacking sources from August 2007">Articles lacking sources from August 2007</a></span> | <span dir='ltr'><a href="/wiki/Category:All_articles_lacking_sources" title="Category:All articles lacking sources">All articles lacking sources</a></span> | <span dir='ltr'><a href="/wiki/Category:Search_algorithms" title="Category:Search algorithms">Search algorithms</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<div class="pBody">
+			<ul>
+					 <li id="ca-nstab-main" class="selected"><a href="/wiki/Search_algorithm" title="View the content page [c]" accesskey="c">Article</a></li>
+					 <li id="ca-talk"><a href="/wiki/Talk:Search_algorithm" title="Discussion about the content page [t]" accesskey="t">Discussion</a></li>
+					 <li id="ca-edit"><a href="/w/index.php?title=Search_algorithm&amp;action=edit" title="You can edit this page. Please use the preview button before saving. [e]" accesskey="e">Edit this page</a></li>
+					 <li id="ca-history"><a href="/w/index.php?title=Search_algorithm&amp;action=history" title="Past versions of this page [h]" accesskey="h">History</a></li>
+				</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-personal">
+		<h5>Personal tools</h5>
+		<div class="pBody">
+			<ul>
+				<li id="pt-login"><a href="/w/index.php?title=Special:Userlogin&amp;returnto=Search_algorithm" title="You are encouraged to log in, it is not mandatory however. [o]" accesskey="o">Sign in / create account</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-logo">
+		<a style="background-image: url(/images/wiki-en.png);" href="/wiki/Main_Page" title="Visit the Main Page [z]" accesskey="z"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-Main-page"><a href="/wiki/Main_Page">Main page</a></li>
+				<li id="n-Contents"><a href="/wiki/Wikipedia:Contents">Contents</a></li>
+				<li id="n-Featured-content"><a href="/wiki/Wikipedia:Featured_content">Featured content</a></li>
+				<li id="n-currentevents"><a href="/wiki/Portal:Current_events" title="Find background information on current events">Current events</a></li>
+				<li id="n-randompage"><a href="/wiki/Special:Random" title="Load a random page [x]" accesskey="x">Random article</a></li>
+			</ul>
+		</div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+		<h5>interaction</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-About-Wikipedia"><a href="/wiki/Wikipedia:About">About Wikipedia</a></li>
+				<li id="n-portal"><a href="/wiki/Wikipedia:Community_Portal" title="About the project, what you can do, where to find things">Community portal</a></li>
+				<li id="n-recentchanges"><a href="/wiki/Special:Recentchanges" title="The list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li>
+				<li id="n-contact"><a href="/wiki/Wikipedia:Contact_us">Contact Wikipedia</a></li>
+				<li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising" title="Support us">Donate to Wikipedia</a></li>
+				<li id="n-help"><a href="/wiki/Help:Contents" title="Guidance on how to use and edit Wikipedia">Help</a></li>
+			</ul>
+		</div>
+	</div>
+		<div id="p-search" class="portlet">
+		<h5><label for="searchInput">Search</label></h5>
+		<div id="searchBody" class="pBody">
+			<form action="/wiki/Special:Search" id="searchform"><div>
+				<input id="searchInput" name="search" type="text" title="Search Wikipedia [f]" accesskey="f" value="" />
+				<input type='submit' name="go" class="searchButton" id="searchGoButton"	value="Go" />&nbsp;
+				<input type='submit' name="fulltext" class="searchButton" id="mw-searchButton" value="Search" />
+			</div></form>
+		</div>
+	</div>
+	<div class="portlet" id="p-tb">
+		<h5>Toolbox</h5>
+		<div class="pBody">
+			<ul>
+				<li id="t-whatlinkshere"><a href="/wiki/Special:Whatlinkshere/Search_algorithm" title="List of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+				<li id="t-recentchangeslinked"><a href="/wiki/Special:Recentchangeslinked/Search_algorithm" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+<li id="t-upload"><a href="/wiki/Wikipedia:Upload" title="Upload images or media files [u]" accesskey="u">Upload file</a></li>
+<li id="t-specialpages"><a href="/wiki/Special:Specialpages" title="List of all special pages [q]" accesskey="q">Special pages</a></li>
+				<li id="t-print"><a href="/w/index.php?title=Search_algorithm&amp;printable=yes" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>				<li id="t-permalink"><a href="/w/index.php?title=Search_algorithm&amp;oldid=157226535" title="Permanent link to this version of the page">Permanent link</a></li><li id="t-cite"><a href="/w/index.php?title=Special:Cite&amp;page=Search_algorithm&amp;id=157226535">Cite this article</a></li>			</ul>
+		</div>
+	</div>
+	<div id="p-lang" class="portlet">
+		<h5>In other languages</h5>
+		<div class="pBody">
+			<ul>
+				<li class="interwiki-de"><a href="http://de.wikipedia.org/wiki/Suchverfahren">Deutsch</a></li>
+				<li class="interwiki-fr"><a href="http://fr.wikipedia.org/wiki/Algorithme_de_recherche">Français</a></li>
+				<li class="interwiki-id"><a href="http://id.wikipedia.org/wiki/Algoritma_pencarian">Bahasa Indonesia</a></li>
+				<li class="interwiki-it"><a href="http://it.wikipedia.org/wiki/Algoritmo_di_ricerca">Italiano</a></li>
+				<li class="interwiki-nl"><a href="http://nl.wikipedia.org/wiki/Zoekalgoritme">Nederlands</a></li>
+				<li class="interwiki-ja"><a href="http://ja.wikipedia.org/wiki/%E6%8E%A2%E7%B4%A2">日本語</a></li>
+				<li class="interwiki-pt"><a href="http://pt.wikipedia.org/wiki/Algoritmo_de_busca">Português</a></li>
+				<li class="interwiki-fi"><a href="http://fi.wikipedia.org/wiki/Hakualgoritmi">Suomi</a></li>
+				<li class="interwiki-vi"><a href="http://vi.wikipedia.org/wiki/Gi%E1%BA%A3i_thu%E1%BA%ADt_t%C3%ACm_ki%E1%BA%BFm">Tiếng Việt</a></li>
+			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="/skins-1.5/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>
+				<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="/images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>
+			<ul id="f-list">
+				<li id="lastmod"> This page was last modified 20:30, 11 September 2007.</li>
+				<li id="copyright">All text is available under the terms of the <a class='internal' href="/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="/wiki/Wikipedia:Copyrights" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a U.S. registered <a class='internal' href="/wiki/501%28c%29#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="/wiki/Non-profit_organization" title="Non-profit organization">nonprofit</a> <a href="/wiki/Charitable_organization" title="Charitable organization">charity</a>.<br /></li>
+				<li id="privacy"><a href="http://wikimediafoundation.org/wiki/Privacy_policy" title="wikimedia:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="/wiki/Wikipedia:About" title="Wikipedia:About">About Wikipedia</a></li>
+				<li id="disclaimer"><a href="/wiki/Wikipedia:General_disclaimer" title="Wikipedia:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+		
+	
+		<script type="text/javascript">if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by srv188 in 0.072 secs. --></body></html>

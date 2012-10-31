@@ -1,0 +1,934 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+<title>JMPInline : C# Dijkstra's algorithm implementation</title>
+<meta name="keywords" content=".NET" />
+<meta name="description" content="I implemented Dijkstra&amp;#39;s algorithm using C# for a Computer Science course. I implemented it in a generalized way, that still allows for optimization by the consuming code. I release the code under the MIT license . Here is the code: (it is not as" />
+<meta name="GENERATOR" content="CommunityServer 2.1 (Build: 60809.935)" />
+<link rel="pingback" href="http://cs.nerdbank.net/blogs/jmpinline/pingback.aspx" />
+<link rel="stylesheet" href="/Themes/Blogs/poisonivyandrew/style/style.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="/Themes/Blogs/poisonivyandrew/style/print.css" type="text/css" media="print" />
+<link rel="stylesheet" href="/Themes/Blogs/poisonivyandrew/style/fire.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="/blogs/jmpinline/customcss.ashx" type="text/css" media="screen" />
+<link rel="shortcut icon" type="image/ico" href="/favicon.ico" />
+<link rel="alternate" type="application/rss+xml" title="JMPInline (RSS 2.0)" href="http://cs.nerdbank.net/blogs/jmpinline/rss.aspx"  />
+<link rel="alternate" type="application/atom+xml" title="JMPInline (Atom 1.0)" href="http://cs.nerdbank.net/blogs/jmpinline/atom.aspx"  />
+<link rel="alternate" type="application/rss+xml" title="C# Dijkstra's algorithm implementation Comment RSS (RSS 2.0)" href="http://cs.nerdbank.net/blogs/jmpinline/commentrss.aspx?PostID=127"  />
+
+	<link rel="openid.server" href="http://www.myopenid.com/server">
+	<link rel="openid.delegate" href="http://andrew.arnott.myopenid.com/">
+	<meta http-equiv="X-XRDS-Location" content="http://andrew.arnott.myopenid.com/xrds" />
+	<script src="/Utility/global.js?Version=2.1.60809.935" type="text/javascript"></script>
+		<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+		</script>
+		<script type="text/javascript">
+		_uacct = "UA-69958-3";
+		urchinTracker();
+		</script>
+</head>
+
+<body>
+<form name="aspnetForm" method="post" action="/blogs/jmpinline/archive/2006/01/27/C_2300_-Dijkstra_2700_s-algorithm-implementation.aspx" id="aspnetForm">
+<div>
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUKLTMyNjg0MDc1MWQYAQUeX19Db250cm9sc1JlcXVpcmVQb3N0QmFja0tleV9fFgEFNGN0bDAwJF8kY3RsMDAkXyRidCRfJFNpbmdsZXdlYmxvZ3NlYXJjaDEkXyRTZWFyY2hCb3jCdH7Z9AWK3+rVHLP8AD76FJOSWw==" />
+</div>
+
+<script language="javascript" type="text/javascript" src="/Utility/telligent_web_ui/1_0_3/Telligent_Modal.js"></script><script language="javascript" type="text/javascript">
+// <![CDATA[
+Telligent_Modal.Configure('/utility/loading.htm',['Modal'],['ModalTitle'],['ModalClose'],['ModalContent'],['ModalFooter'],['ModalResize'],['ModalMask'],100);
+// ]]>
+</script>
+			
+<div id="masthead">
+	
+		<div id="welcome" align="right">
+			
+					Welcome to NerdBank Community
+<a id="ctl00___ctl00___duw1_ac1___Login" href="/login.aspx?ReturnUrl=%2fblogs%2fjmpinline%2farchive%2f2006%2f01%2f27%2fC_2300_-Dijkstra_2700_s-algorithm-implementation.aspx">Sign in</a> | <a id="ctl00___ctl00___duw1_ac1___Register" href="/user/CreateUser.aspx?ReturnUrl=/blogs/jmpinline/archive/2006/01/27/C_2300_-Dijkstra_2700_s-algorithm-implementation.aspx">Join</a>
+
+
+
+				
+			 | 
+			<a id="ctl00___ctl00___duw1_Faq1" href="/languages/en-US/docs/faq.aspx">Help</a>
+		</div>
+	
+</div>
+<div id="wrapper">
+	<div id="container">
+		<div id="header">
+			
+<div id="title">
+	
+<div id = "search">
+	<input name="ctl00$_$ctl00$_$bt$_$Singleweblogsearch1$_$SearchBox" type="text" id="ctl00___ctl00___bt___Singleweblogsearch1___SearchBox" class="searchBox" onkeydown="KeyDownHandlerctl00___ctl00___bt___Singleweblogsearch1___SearchButton(event);" />
+	<a id="ctl00___ctl00___bt___Singleweblogsearch1___SearchButton" href="javascript:__doPostBack('ctl00$_$ctl00$_$bt$_$Singleweblogsearch1$_$SearchButton','')">Search</a>
+</div>	
+	<h1><a id="ctl00___ctl00___bt___BlogTitle" class="headermaintitle" href="/blogs/jmpinline/default.aspx">JMPInline</a></h1>
+	<p id="tagline">Here you will find lessons learned and walls found in the life of a self-taught web programmer, recently turned <a href="http://msdn.microsoft.com/netframework/programming/netcf/default.aspx">Microsoft .NET CF</a> employee.</p>
+</div>
+<div id="nav">
+
+<div id="subscriptions">
+<ul>
+	<li><a id="ctl00___ctl00___bt___s___rss" href="/blogs/jmpinline/rss.aspx">RSS 2.0</a></li>
+	<li><a id="ctl00___ctl00___bt___s___atom" href="/blogs/jmpinline/atom.aspx">Atom 1.0</a></li>
+	
+</ul></div>
+<ul>
+	<li><a id="ctl00___ctl00___bt___home" href="/blogs/jmpinline/default.aspx">Home</a></li>
+	<li><a id="ctl00___ctl00___bt___Aboutlink1" href="/blogs/jmpinline/about.aspx">About</a></li>
+	<li><a id="ctl00___ctl00___bt___Contactlink1" href="/blogs/jmpinline/contact.aspx">Email</a></li>
+</ul></div></div>
+		<div id="contentmargin"></div>
+		<div id="contentwrapper">
+			<div id="sidebar-a">
+				
+
+<div align="center">
+	<a href="/user/Profile.aspx?UserID=2102">
+	<img border="0" src="/themes/blogs/poisonivyandrew/images/mugshot.jpg" width="150" height="150"/><br/>
+	Andrew Arnott</a><br/>
+	<a href="http://cs.nerdbank.net/files/174/download.aspx">Resumé</a>
+</div>
+
+
+
+<h3>Tags</h3>
+<ul>
+<ul class="SidebarTagCloud">
+<li class="Tag1"><a href="/blogs/jmpinline/archive/tags/.NET/default.aspx" rel="tag">.NET</a></li>
+<li class="Tag1"><a href="/blogs/jmpinline/archive/tags/ASP.NET/default.aspx" rel="tag">ASP.NET</a></li>
+<li class="Tag3"><a href="/blogs/jmpinline/archive/tags/Linux/default.aspx" rel="tag">Linux</a></li>
+<li class="Tag6"><a href="/blogs/jmpinline/archive/tags/Mono/default.aspx" rel="tag">Mono</a></li>
+<li class="Tag2"><a href="/blogs/jmpinline/archive/tags/NHibernate/default.aspx" rel="tag">NHibernate</a></li>
+<li class="Tag4"><a href="/blogs/jmpinline/archive/tags/OpenID/default.aspx" rel="tag">OpenID</a></li>
+<li class="Tag4"><a href="/blogs/jmpinline/archive/tags/Ruby/default.aspx" rel="tag">Ruby</a></li>
+<li class="Tag2"><a href="/blogs/jmpinline/archive/tags/Smart+devices/default.aspx" rel="tag">Smart devices</a></li>
+<li class="Tag6"><a href="/blogs/jmpinline/archive/tags/Windows/default.aspx" rel="tag">Windows</a></li>
+<li class="Tag6"><a href="/blogs/jmpinline/archive/tags/Windows.Forms/default.aspx" rel="tag">Windows.Forms</a></li>
+<li class="Tag6"><a href="/blogs/jmpinline/archive/tags/WPF/default.aspx" rel="tag">WPF</a></li>
+</ul>
+
+</ul>
+
+<!-- PayPal donate BEGIN -->
+<div align="center" style="margin: 0; padding: 0;">
+	<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=andrewarnott%40gmail%2ecom&item_name=JMPInline%20blog%20and%20open%20source%20projects&no_shipping=1&no_note=1&tax=0&currency_code=USD&bn=PP%2dDonationsBF&charset=UTF%2d8"><img border="0" src="https://www.paypal.com/en_US/i/btn/x-click-but04.gif" alt="Make a donation with PayPal" title="If you find what I freely publish useful, please consider making a donation to support my efforts."/></a>
+</div>
+<!-- PayPal donate END -->
+
+
+
+<h3>Navigation</h3>
+
+	
+<div id="headertab">
+<ul>
+		
+				 <li><a id="ctl00___ctl00___bs___nm___Menu_ctl00_MenuItem" href="/">Home</a></li>
+			
+				 <li><a id="ctl00___ctl00___bs___nm___Menu_ctl01_MenuItem" href="/blogs/default.aspx">Blogs</a></li>
+			
+				 <li><a id="ctl00___ctl00___bs___nm___Menu_ctl02_MenuItem" href="/forums/default.aspx">Forums</a></li>
+			
+				 <li><a id="ctl00___ctl00___bs___nm___Menu_ctl03_MenuItem" href="/files/default.aspx">Downloads</a></li>
+			
+				 <li><a id="ctl00___ctl00___bs___nm___Menu_ctl04_MenuItem" href="/reader/default.aspx">My Reader</a></li>
+			
+	</ul>
+</div>
+
+	
+
+<!--
+
+<h3>Archives</h3>
+<ul>
+
+	<li><a href="/blogs/jmpinline/archive/2007/09.aspx">September 2007 (1)</a></li>
+
+	<li><a href="/blogs/jmpinline/archive/2007/08.aspx">August 2007 (1)</a></li>
+
+	<li><a href="/blogs/jmpinline/archive/2007/07.aspx">July 2007 (3)</a></li>
+
+	<li><a href="/blogs/jmpinline/archive/2007/03.aspx">March 2007 (2)</a></li>
+
+	<li><a href="/blogs/jmpinline/archive/2007/02.aspx">February 2007 (3)</a></li>
+
+	<li><a href="/blogs/jmpinline/archive/2007/01.aspx">January 2007 (2)</a></li>
+
+	<li><a href="/blogs/jmpinline/archive/2006/12.aspx">December 2006 (1)</a></li>
+
+	<li><a href="/blogs/jmpinline/archive/2006/10.aspx">October 2006 (1)</a></li>
+
+	<li><a href="/blogs/jmpinline/archive/2006/09.aspx">September 2006 (4)</a></li>
+
+	<li><a href="/blogs/jmpinline/archive/2006/08.aspx">August 2006 (1)</a></li>
+
+	<li><a href="/blogs/jmpinline/archive/2006/07.aspx">July 2006 (2)</a></li>
+
+	<li><a href="/blogs/jmpinline/archive/2006/06.aspx">June 2006 (1)</a></li>
+
+	<li><a href="/blogs/jmpinline/archive/2006/05.aspx">May 2006 (1)</a></li>
+
+	<li><a href="/blogs/jmpinline/archive/2006/03.aspx">March 2006 (1)</a></li>
+
+	<li><a href="/blogs/jmpinline/archive/2006/02.aspx">February 2006 (3)</a></li>
+
+	<li><a href="/blogs/jmpinline/archive/2006/01.aspx">January 2006 (7)</a></li>
+
+	<li><a href="/blogs/jmpinline/archive/2005/12.aspx">December 2005 (3)</a></li>
+
+	<li><a href="/blogs/jmpinline/archive/2005/11.aspx">November 2005 (4)</a></li>
+
+	<li><a href="/blogs/jmpinline/archive/2005/10.aspx">October 2005 (4)</a></li>
+
+	<li><a href="/blogs/jmpinline/archive/2005/09.aspx">September 2005 (3)</a></li>
+
+	<li><a href="/blogs/jmpinline/archive/2005/08.aspx">August 2005 (1)</a></li>
+
+	<li><a href="/blogs/jmpinline/archive/2005/07.aspx">July 2005 (1)</a></li>
+
+	<li><a href="/blogs/jmpinline/archive/2005/06.aspx">June 2005 (1)</a></li>
+
+	<li><a href="/blogs/jmpinline/archive/2005/05.aspx">May 2005 (3)</a></li>
+
+	<li><a href="/blogs/jmpinline/archive/2005/01.aspx">January 2005 (1)</a></li>
+
+	<li><a href="/blogs/jmpinline/archive/2004/10.aspx">October 2004 (1)</a></li>
+
+	<li><a href="/blogs/jmpinline/archive/2004/06.aspx">June 2004 (6)</a></li>
+
+	<li><a href="/blogs/jmpinline/archive/2004/05.aspx">May 2004 (2)</a></li>
+
+</ul>-->
+
+    <h3>Web development links</h3>
+    <ul>
+        <li><a id="ctl00___ctl00___bs___lcl___Categories_ctl00_Links_ctl01_Link" href="http://nhibernate.sourceforge.net/forum">NHibernate forum</a></li>
+    
+        <li><a id="ctl00___ctl00___bs___lcl___Categories_ctl00_Links_ctl02_Link" href="http://www.manoli.net/csharpformat/">Code HTML colorizer</a></li>
+    </ul>
+
+
+
+<!-- Google Adsense BEGIN -->
+<div align="center">
+<script type="text/javascript"><!--
+google_ad_client = "pub-6623563961637250";
+google_ad_width = 160;
+google_ad_height = 600;
+google_ad_format = "160x600_as";
+google_ad_type = "text_image";
+//2006-09-30: NerdBank Blogs
+google_ad_channel ="8516832823";
+//--></script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div>
+<!-- Google Adsense END -->
+
+
+
+			</div>
+			<div id="content"><div id="content2">
+				
+			
+<style>
+.DoNotDisplay { display: none; }
+</style>
+
+
+
+<div class = "post">
+	<div class="posthead">
+		<div class="postviewhead">
+			Friday, January 27, 2006 1:06 PM
+			by
+			<a id="ctl00___ctl00___ctl01___Entry___AuthorLink" href="/user/Profile.aspx?UserID=2102">aarnott</a> 
+			
+		</div>
+		<h2>C# Dijkstra's algorithm implementation</h2>
+	</div>
+	<div class="postcontent">
+		I implemented <a href="http://en.wikipedia.org/wiki/Dijkstras_Algorithm">Dijkstra&#39;s algorithm</a> using C# for a Computer Science course. I implemented it in a generalized way, that still allows for optimization by the consuming code. I release the code under the <a href="http://en.wikipedia.org/wiki/X11_license" style="border-bottom-style:groove;">MIT license</a>.&nbsp; <br /><br />Here is the code: (it is not as long as it is well-documented) <pre class="csharpcode"><span class="kwrd">using</span> System;<br /><span class="kwrd">using</span> System.Diagnostics;<br /><span class="kwrd">using</span> System.Collections.Generic;<br /><span class="kwrd">using</span> System.Text;<br /><br /><span class="kwrd">namespace</span> VisualIntelligentScissors<br />{<br />    <span class="rem">/// &lt;summary&gt;</span>
+    <span class="rem">/// Implements a generalized Dijkstra&#39;s algorithm to calculate</span>
+    <span class="rem">/// both minimum distance and minimum path.</span>
+    <span class="rem">/// &lt;/summary&gt;</span>
+    <span class="rem">/// &lt;remarks&gt;</span>
+    <span class="rem">/// For this algorithm, all nodes should be provided, and handled</span>
+    <span class="rem">/// in the delegate methods, including the start and finish nodes.</span>
+    <span class="rem">/// &lt;/remarks&gt;</span>
+    <span class="kwrd">public</span> <span class="kwrd">class</span> Dijkstra<br />    {<br />        <span class="rem">/// &lt;summary&gt;</span>
+        <span class="rem">/// An optional delegate that can help optimize the algorithm</span>
+        <span class="rem">/// by showing it a subset of nodes to consider.  Very useful</span>
+        <span class="rem">/// for limited connectivity graphs.  (like pixels on a screen!)</span>
+        <span class="rem">/// &lt;/summary&gt;</span>
+        <span class="rem">/// &lt;param name=&quot;startingNode&quot;&gt;</span>
+        <span class="rem">/// The node that is being traveled away FROM.</span>
+        <span class="rem">/// &lt;/param&gt;</span>
+        <span class="rem">/// &lt;returns&gt;</span>
+        <span class="rem">/// An array of nodes that might be reached from the </span>
+        <span class="rem">/// &lt;paramref name=&quot;startingNode&quot;/&gt;.</span>
+        <span class="rem">/// &lt;/returns&gt;</span>
+        <span class="kwrd">public</span> <span class="kwrd">delegate</span> IEnumerable&lt;<span class="kwrd">int</span>&gt; NearbyNodesHint(<span class="kwrd">int</span> startingNode);<br />        <span class="rem">/// &lt;summary&gt;</span>
+        <span class="rem">/// Determines the cost of moving from a given node to another given node.</span>
+        <span class="rem">/// &lt;/summary&gt;</span>
+        <span class="rem">/// &lt;param name=&quot;start&quot;&gt;</span>
+        <span class="rem">/// The node being moved away from.</span>
+        <span class="rem">/// &lt;/param&gt;</span>
+        <span class="rem">/// &lt;param name=&quot;finish&quot;&gt;</span>
+        <span class="rem">/// The node that may be moved to.</span>
+        <span class="rem">/// &lt;/param&gt;</span>
+        <span class="rem">/// &lt;returns&gt;</span>
+        <span class="rem">/// The cost of the transition from &lt;paramref name=&quot;start&quot;/&gt; to</span>
+        <span class="rem">/// &lt;paramref name=&quot;finish&quot;/&gt;, or &lt;see cref=&quot;Int32.MaxValue&quot;/&gt;</span>
+        <span class="rem">/// if the transition is impossible (i.e. there is no edge between </span>
+        <span class="rem">/// the two nodes).</span>
+        <span class="rem">/// &lt;/returns&gt;</span>
+        <span class="kwrd">public</span> <span class="kwrd">delegate</span> <span class="kwrd">int</span> InternodeTraversalCost(<span class="kwrd">int</span> start, <span class="kwrd">int</span> finish);<br /><br />        <span class="rem">/// &lt;summary&gt;</span>
+        <span class="rem">/// Creates an instance of the &lt;see cref=&quot;Dijkstra&quot;/&gt; class.</span>
+        <span class="rem">/// &lt;/summary&gt;</span>
+        <span class="rem">/// &lt;param name=&quot;totalNodeCount&quot;&gt;</span>
+        <span class="rem">/// The total number of nodes in the graph.</span>
+        <span class="rem">/// &lt;/param&gt;</span>
+        <span class="rem">/// &lt;param name=&quot;traversalCost&quot;&gt;</span>
+        <span class="rem">/// The delegate that can provide the cost of a transition between</span>
+        <span class="rem">/// any two nodes.</span>
+        <span class="rem">/// &lt;/param&gt;</span>
+        <span class="rem">/// &lt;param name=&quot;hint&quot;&gt;</span>
+        <span class="rem">/// An optional delegate that can provide a small subset of nodes</span>
+        <span class="rem">/// that a given node may be connected to.</span>
+        <span class="rem">/// &lt;/param&gt;</span>
+        <span class="kwrd">public</span> Dijkstra(<span class="kwrd">int</span> totalNodeCount, InternodeTraversalCost traversalCost, NearbyNodesHint hint)<br />        {<br />            <span class="kwrd">if</span> (totalNodeCount &lt; 3) <span class="kwrd">throw</span> <span class="kwrd">new</span> ArgumentOutOfRangeException(<span class="str">&quot;totalNodeCount&quot;</span>, totalNodeCount, <span class="str">&quot;Expected a minimum of 3.&quot;</span>);<br />            <span class="kwrd">if</span> (traversalCost == <span class="kwrd">null</span>) <span class="kwrd">throw</span> <span class="kwrd">new</span> ArgumentNullException(<span class="str">&quot;traversalCost&quot;</span>);<br />            Hint = hint;<br />            TraversalCost = traversalCost;<br />            TotalNodeCount = totalNodeCount;<br />        }<br /><br />        <span class="kwrd">protected</span> <span class="kwrd">readonly</span> NearbyNodesHint Hint;<br />        <span class="kwrd">protected</span> <span class="kwrd">readonly</span> InternodeTraversalCost TraversalCost;<br />        <span class="kwrd">protected</span> <span class="kwrd">readonly</span> <span class="kwrd">int</span> TotalNodeCount;<br /><br />        <span class="rem">/// &lt;summary&gt;</span>
+        <span class="rem">/// The composite product of a Dijkstra algorithm.</span>
+        <span class="rem">/// &lt;/summary&gt;</span>
+        <span class="kwrd">public</span> <span class="kwrd">struct</span> Results<br />        {<br />            <span class="rem">/// &lt;summary&gt;</span>
+            <span class="rem">/// Prepares a Dijkstra results package.</span>
+            <span class="rem">/// &lt;/summary&gt;</span>
+            <span class="rem">/// &lt;param name=&quot;minimumPath&quot;&gt;</span>
+            <span class="rem">/// The minimum path array, where each array element index corresponds </span>
+            <span class="rem">/// to a node designation, and the array element value is a pointer to</span>
+            <span class="rem">/// the node that should be used to travel to this one.</span>
+            <span class="rem">/// &lt;/param&gt;</span>
+            <span class="rem">/// &lt;param name=&quot;minimumDistance&quot;&gt;</span>
+            <span class="rem">/// The minimum distance from the starting node to the given node.</span>
+            <span class="rem">/// &lt;/param&gt;</span>
+            <span class="kwrd">public</span> Results(<span class="kwrd">int</span>[] minimumPath, <span class="kwrd">int</span>[] minimumDistance)<br />            {<br />                MinimumDistance = minimumDistance;<br />                MinimumPath = minimumPath;<br />            }<br /><br />            <span class="rem">/// &lt;summary&gt;</span>
+            <span class="rem">/// The minimum path array, where each array element index corresponds </span>
+            <span class="rem">/// to a node designation, and the array element value is a pointer to</span>
+            <span class="rem">/// the node that should be used to travel to this one.</span>
+            <span class="rem">/// &lt;/summary&gt;</span>
+            <span class="kwrd">public</span> <span class="kwrd">readonly</span> <span class="kwrd">int</span>[] MinimumPath;<br />            <span class="rem">/// &lt;summary&gt;</span>
+            <span class="rem">/// The minimum distance from the starting node to the given node.</span>
+            <span class="rem">/// &lt;/summary&gt;</span>
+            <span class="kwrd">public</span> <span class="kwrd">readonly</span> <span class="kwrd">int</span>[] MinimumDistance;<br />        }<br /><br />        <span class="rem">/// &lt;summary&gt;</span>
+        <span class="rem">/// Performs the Dijkstra algorithm on the data provided when the </span>
+        <span class="rem">/// &lt;see cref=&quot;Dijkstra&quot;/&gt; object was instantiated.</span>
+        <span class="rem">/// &lt;/summary&gt;</span>
+        <span class="rem">/// &lt;param name=&quot;start&quot;&gt;</span>
+        <span class="rem">/// The node to use as a starting location.</span>
+        <span class="rem">/// &lt;/param&gt;</span>
+        <span class="rem">/// &lt;returns&gt;</span>
+        <span class="rem">/// A struct containing both the minimum distance and minimum path</span>
+        <span class="rem">/// to every node from the given &lt;paramref name=&quot;start&quot;/&gt; node.</span>
+        <span class="rem">/// &lt;/returns&gt;</span>
+        <span class="kwrd">public</span> <span class="kwrd">virtual</span> Results Perform(<span class="kwrd">int</span> start)<br />        {<br />            <span class="rem">// Initialize the distance to every node from the starting node.</span>
+            <span class="kwrd">int</span>[] d = GetStartingTraversalCost(start);<br />            <span class="rem">// Initialize best path to every node as from the starting node.</span>
+            <span class="kwrd">int</span>[] p = GetStartingBestPath(start);<br />            ICollection&lt;<span class="kwrd">int</span>&gt; c = GetChoices();<br /><br />            c.Remove(start); <span class="rem">// take starting node out of the list of choices</span>
+
+            <span class="rem">//Debug.WriteLine(&quot;Step    v    C    D    P&quot;);</span>
+            <span class="rem">//Debug.WriteLine(string.Format(&quot;init    -    {{{0}}}    [{1}]    [{2}]&quot;,</span>
+            <span class="rem">//    ArrayToString&lt;int&gt;(&quot;,&quot;, c), ArrayToString&lt;int&gt;(&quot;,&quot;, d), ArrayToString&lt;int&gt;(&quot;,&quot;, p)));</span>
+            <span class="rem">//int step = 0;</span>
+
+            <span class="rem">// begin greedy loop</span>
+            <span class="kwrd">while</span> (c.Count &gt; 1)<br />            {<br />                <span class="rem">// Find element v in c, that minimizes d[v]</span>
+                <span class="kwrd">int</span> v = FindMinimizingDinC(d, c);<br />                c.Remove(v); <span class="rem">// remove v from the list of future solutions</span>
+                <span class="rem">// Consider all unselected nodes and consider their cost from v.</span>
+                <span class="kwrd">foreach</span> (<span class="kwrd">int</span> w <span class="kwrd">in</span> (Hint != <span class="kwrd">null</span> ? Hint(v) : c))<br />                {<br />                    <span class="kwrd">if</span> (!c.Contains(w)) <span class="kwrd">continue</span>; <span class="rem">// discard pixels not in c</span>
+                    <span class="rem">// At this point, relative(Index) points to a candidate pixel, </span>
+                    <span class="rem">// that has not yet been selected, and lies within our area of interest.</span>
+                    <span class="rem">// Consider whether it is now within closer reach.</span>
+                    <span class="kwrd">int</span> cost = TraversalCost(v, w);<br />                    <span class="kwrd">if</span> (cost &lt; <span class="kwrd">int</span>.MaxValue &amp;&amp; d[v] + cost &lt; d[w]) <span class="rem">// don&#39;t let wrap-around negatives slip by</span>
+                    {
+                        <span class="rem">// We have found a better way to get at relative</span>
+                        d[w] = d[v] + cost; <span class="rem">// record new distance</span>
+                        <span class="rem">// Record how we came to this new pixel</span>
+                        p[w] = v;
+                    }
+                }
+                <span class="rem">//Debug.WriteLine(string.Format(&quot;{4}    {3}    {{{0}}}    [{1}]    [{2}]&quot;,</span>
+                <span class="rem">//    ArrayToString&lt;int&gt;(&quot;,&quot;, c), ArrayToString&lt;int&gt;(&quot;,&quot;, d), ArrayToString&lt;int&gt;(&quot;,&quot;, p), v + 1, ++step));</span>
+            }
+
+            <span class="kwrd">return</span> <span class="kwrd">new</span> Results(p, d);<br />        }<br /><br />        <span class="rem">/// &lt;summary&gt;</span>
+        <span class="rem">/// Uses the Dijkstra algorithhm to find the minimum path</span>
+        <span class="rem">/// from one node to another.</span>
+        <span class="rem">/// &lt;/summary&gt;</span>
+        <span class="rem">/// &lt;param name=&quot;start&quot;&gt;</span>
+        <span class="rem">/// The node to use as a starting location.</span>
+        <span class="rem">/// &lt;/param&gt;</span>
+        <span class="rem">/// &lt;param name=&quot;finish&quot;&gt;</span>
+        <span class="rem">/// The node to use as a finishing location.</span>
+        <span class="rem">/// &lt;/param&gt;</span>
+        <span class="rem">/// &lt;returns&gt;</span>
+        <span class="rem">/// A struct containing both the minimum distance and minimum path</span>
+        <span class="rem">/// to every node from the given &lt;paramref name=&quot;start&quot;/&gt; node.</span>
+        <span class="rem">/// &lt;/returns&gt;</span>
+        <span class="kwrd">public</span> <span class="kwrd">virtual</span> <span class="kwrd">int</span>[] GetMinimumPath(<span class="kwrd">int</span> start, <span class="kwrd">int</span> finish)<br />        {<br />            Results results = Perform(start);<br />            <span class="kwrd">return</span> GetMinimumPath(start, finish, results.MinimumPath);<br />        }<br /><br />        <span class="rem">/// &lt;summary&gt;</span>
+        <span class="rem">/// Finds an array of nodes that provide the shortest path</span>
+        <span class="rem">/// from one given node to another.</span>
+        <span class="rem">/// &lt;/summary&gt;</span>
+        <span class="rem">/// &lt;param name=&quot;start&quot;&gt;</span>
+        <span class="rem">/// The starting node.</span>
+        <span class="rem">/// &lt;/param&gt;</span>
+        <span class="rem">/// &lt;param name=&quot;finish&quot;&gt;</span>
+        <span class="rem">/// The finishing node.</span>
+        <span class="rem">/// &lt;/param&gt;</span>
+        <span class="rem">/// &lt;param name=&quot;shortestPath&quot;&gt;</span>
+        <span class="rem">/// The P array of the completed algorithm.</span>
+        <span class="rem">/// &lt;/param&gt;</span>
+        <span class="rem">/// &lt;returns&gt;</span>
+        <span class="rem">/// The list of nodes that provide the one step at a time path </span>
+        <span class="rem">/// from &lt;paramref name=&quot;start&quot;/&gt; to &lt;paramref name=&quot;finish&quot;/&gt; nodes.</span>
+        <span class="rem">/// &lt;/returns&gt;</span>
+        <span class="kwrd">protected</span> <span class="kwrd">virtual</span> <span class="kwrd">int</span>[] GetMinimumPath(<span class="kwrd">int</span> start, <span class="kwrd">int</span> finish, <span class="kwrd">int</span>[] shortestPath)<br />        {<br />            Stack&lt;<span class="kwrd">int</span>&gt; path = <span class="kwrd">new</span> Stack&lt;<span class="kwrd">int</span>&gt;();<br />            <span class="kwrd">do</span>
+            {
+                path.Push(finish);
+                finish = shortestPath[finish]; <span class="rem">// step back one step toward the start point</span>
+            }
+            <span class="kwrd">while</span> (finish != start);<br />            <span class="kwrd">return</span> path.ToArray();<br />        }<br /><br />        <span class="rem">/// &lt;summary&gt;</span>
+        <span class="rem">/// Initializes the P array for the algorithm.</span>
+        <span class="rem">/// &lt;/summary&gt;</span>
+        <span class="rem">/// &lt;param name=&quot;startingNode&quot;&gt;</span>
+        <span class="rem">/// The node that has been designated the starting node for the entire algorithm.</span>
+        <span class="rem">/// &lt;/param&gt;</span>
+        <span class="rem">/// &lt;returns&gt;</span>
+        <span class="rem">/// The new P array.</span>
+        <span class="rem">/// &lt;/returns&gt;</span>
+        <span class="rem">/// &lt;remarks&gt;</span>
+        <span class="rem">/// A fresh P array will set every single node&#39;s source node to be </span>
+        <span class="rem">/// the starting node, including the starting node itself.</span>
+        <span class="rem">/// &lt;/remarks&gt;</span>
+        <span class="kwrd">protected</span> <span class="kwrd">virtual</span> <span class="kwrd">int</span>[] GetStartingBestPath(<span class="kwrd">int</span> startingNode)<br />        {<br />            <span class="kwrd">int</span>[] p = <span class="kwrd">new</span> <span class="kwrd">int</span>[TotalNodeCount];<br />            <span class="kwrd">for</span> (<span class="kwrd">int</span> i = 0; i &lt; p.Length; i++)<br />                p[i] = startingNode;<br />            <span class="kwrd">return</span> p;<br />        }<br /><br />        <span class="rem">/// &lt;summary&gt;</span>
+        <span class="rem">/// Finds the yet-unconsidered node that has the least cost to reach.</span>
+        <span class="rem">/// &lt;/summary&gt;</span>
+        <span class="rem">/// &lt;param name=&quot;d&quot;&gt;</span>
+        <span class="rem">/// The cost of reaching any node.</span>
+        <span class="rem">/// &lt;/param&gt;</span>
+        <span class="rem">/// &lt;param name=&quot;c&quot;&gt;</span>
+        <span class="rem">/// The nodes that are still available for picking.</span>
+        <span class="rem">/// &lt;/param&gt;</span>
+        <span class="rem">/// &lt;returns&gt;</span>
+        <span class="rem">/// The node that is closest (has the shortest special path).</span>
+        <span class="rem">/// &lt;/returns&gt;</span>
+        <span class="kwrd">protected</span> <span class="kwrd">virtual</span> <span class="kwrd">int</span> FindMinimizingDinC(<span class="kwrd">int</span>[] d, ICollection&lt;<span class="kwrd">int</span>&gt; c)<br />        {<br />            <span class="kwrd">int</span> bestIndex = -1;<br />            <span class="kwrd">foreach</span> (<span class="kwrd">int</span> ci <span class="kwrd">in</span> c)<br />                <span class="kwrd">if</span> (bestIndex == -1 || d[ci] &lt; d[bestIndex])<br />                    bestIndex = ci;<br />            <span class="kwrd">return</span> bestIndex;<br />        }<br /><br />        <span class="rem">/// &lt;summary&gt;</span>
+        <span class="rem">/// Initializes an collection of all nodes not yet considered.</span>
+        <span class="rem">/// &lt;/summary&gt;</span>
+        <span class="rem">/// &lt;returns&gt;</span>
+        <span class="rem">/// The initialized collection.</span>
+        <span class="rem">/// &lt;/returns&gt;</span>
+        <span class="kwrd">protected</span> <span class="kwrd">virtual</span> ICollection&lt;<span class="kwrd">int</span>&gt; GetChoices()<br />        {<br />            ICollection&lt;<span class="kwrd">int</span>&gt; choices = <span class="kwrd">new</span> List&lt;<span class="kwrd">int</span>&gt;(TotalNodeCount);<br />            <span class="kwrd">for</span> (<span class="kwrd">int</span> i = 0; i &lt; TotalNodeCount; i++)<br />                choices.Add(i);<br />            <span class="kwrd">return</span> choices;<br />        }<br /><br />        <span class="rem">/// &lt;summary&gt;</span>
+        <span class="rem">/// Initializes the D array for the start of the algorithm.</span>
+        <span class="rem">/// &lt;/summary&gt;</span>
+        <span class="rem">/// &lt;param name=&quot;start&quot;&gt;</span>
+        <span class="rem">/// The starting node.</span>
+        <span class="rem">/// &lt;/param&gt;</span>
+        <span class="rem">/// &lt;returns&gt;</span>
+        <span class="rem">/// The contents of the new D array.</span>
+        <span class="rem">/// &lt;/returns&gt;</span>
+        <span class="rem">/// &lt;remarks&gt;</span>
+        <span class="rem">/// The traversal cost for every node will be set to impossible</span>
+        <span class="rem">/// (int.MaxValue) unless a connecting edge is found between the</span>
+        <span class="rem">/// &lt;paramref name=&quot;start&quot;/&gt;ing node and the node in question.</span>
+        <span class="rem">/// &lt;/remarks&gt;</span>
+        <span class="kwrd">protected</span> <span class="kwrd">virtual</span> <span class="kwrd">int</span>[] GetStartingTraversalCost(<span class="kwrd">int</span> start)<br />        {<br />            <span class="kwrd">int</span>[] subset = <span class="kwrd">new</span> <span class="kwrd">int</span>[TotalNodeCount];<br />            <span class="kwrd">for</span> (<span class="kwrd">int</span> i = 0; i &lt; subset.Length; i++)<br />                subset[i] = <span class="kwrd">int</span>.MaxValue; <span class="rem">// all are unreachable</span>
+            subset[start] = 0; <span class="rem">// zero cost from start to start</span>
+            <span class="kwrd">foreach</span> (<span class="kwrd">int</span> nearby <span class="kwrd">in</span> Hint(start))<br />                subset[nearby] = TraversalCost(start, nearby);<br />            <span class="kwrd">return</span> subset;<br />        }<br /><br />        <span class="rem">/// &lt;summary&gt;</span>
+        <span class="rem">/// Joins the elements of an array into a string, using</span>
+        <span class="rem">/// a given separator.</span>
+        <span class="rem">/// &lt;/summary&gt;</span>
+        <span class="rem">/// &lt;typeparam name=&quot;T&quot;&gt;The type of element in the array.&lt;/typeparam&gt;</span>
+        <span class="rem">/// &lt;param name=&quot;separator&quot;&gt;The seperator to insert between each element.&lt;/param&gt;</span>
+        <span class="rem">/// &lt;param name=&quot;array&quot;&gt;The array.&lt;/param&gt;</span>
+        <span class="rem">/// &lt;returns&gt;The resulting string.&lt;/returns&gt;</span>
+        <span class="rem">/// &lt;remarks&gt;</span>
+        <span class="rem">/// This is very much like &lt;see cref=&quot;string.Join&quot;/&gt;, except</span>
+        <span class="rem">/// that it works on arrays of non-strings.</span>
+        <span class="rem">/// &lt;/remarks&gt;</span>
+        <span class="kwrd">protected</span> <span class="kwrd">string</span> ArrayToString&lt;T&gt;(<span class="kwrd">string</span> separator, IEnumerable&lt;<span class="kwrd">int</span>&gt; array)<br />        {<br />            StringBuilder sb = <span class="kwrd">new</span> StringBuilder();<br />            <span class="kwrd">foreach</span> (<span class="kwrd">int</span> t <span class="kwrd">in</span> array)<br />                sb.AppendFormat(<span class="str">&quot;{0}{1}&quot;</span>, t &lt; <span class="kwrd">int</span>.MaxValue ? t + 1 : t, separator);<br />            sb.Length -= separator.Length;<br />            <span class="kwrd">return</span> sb.ToString();<br />        }<br /><br />    }<br />}<br /></pre>The course I wrote this class for wanted me to add this algorithm to a simple graphics program that would &quot;cut out&quot; shapes using the shortest cost path. Here are the intelligent scissors that I wrote:<br /><br /><pre class="csharpcode"><span class="kwrd">using</span> System;<br /><span class="kwrd">using</span> System.Diagnostics;<br /><span class="kwrd">using</span> System.Collections.Generic;<br /><span class="kwrd">using</span> System.Drawing;<br /><br /><span class="kwrd">namespace</span> VisualIntelligentScissors<br />{<br />    <span class="kwrd">public</span> <span class="kwrd">class</span> DijkstraScissors : Scissors<br />    {<br />        <span class="kwrd">public</span> DijkstraScissors() { }<br />        <span class="kwrd">public</span> DijkstraScissors(GrayBitmap image, Bitmap overlay) : <span class="kwrd">base</span>(image, overlay) { }<br /><br />        <span class="kwrd">int</span>[,] traversalCost;<br />        Rectangle relevantRegion;<br />        <span class="kwrd">protected</span> <span class="kwrd">int</span> relevantPixelsCount<br />        {<br />            get { <span class="kwrd">return</span> relevantRegion.Width * relevantRegion.Height; }<br />        }<br /><br />        <span class="kwrd">public</span> <span class="kwrd">override</span> <span class="kwrd">void</span> Trace(IList&lt;Point&gt; points, Pen pen)<br />        {<br />            <span class="kwrd">if</span> (Image == <span class="kwrd">null</span>) <span class="kwrd">throw</span> <span class="kwrd">new</span> InvalidOperationException(<span class="str">&quot;Set Image property first.&quot;</span>);<br /><br />            <span class="kwrd">using</span> (Graphics g = Graphics.FromImage(Overlay))<br />            {<br />                <span class="kwrd">for</span> (<span class="kwrd">int</span> i = 0; i &lt; points.Count; i++)<br />                {<br />                    <span class="rem">// Our segment travels from start to finish</span>
+                    Point start = points[i];
+                    Point finish = points[(i + 1) % points.Count];
+
+                    <span class="rem">// Consider only some nearby region, to speed up processing.</span>
+                    relevantRegion = GetRelevantRegion(start, finish);
+                    <span class="rem">// Find the cost of moving to any pixel.</span>
+                    traversalCost = GetTraversalCost();
+
+                    <span class="rem">// Calculate what the array indexes are for the two known pixels</span>
+                    <span class="kwrd">int</span> startIndex = GetArrayIndex(start);<br />                    <span class="kwrd">int</span> finishIndex = GetArrayIndex(finish);<br /><br />                    Dijkstra dijkstra = <span class="kwrd">new</span> Dijkstra(<br />                        relevantPixelsCount,<br />                        <span class="kwrd">new</span> Dijkstra.InternodeTraversalCost(getInternodeTraversalCost),<br />                        <span class="kwrd">new</span> Dijkstra.NearbyNodesHint(nearbyNodesHint)<br />                    );<br />                    <span class="kwrd">int</span>[] minimumPath = dijkstra.GetMinimumPath(startIndex, finishIndex);<br /><br />                    <span class="rem">// By now we should have found the best path between start and finish,</span>
+                    <span class="rem">// considering all within the designated relevantRegion.</span>
+                    drawMinimumPath(minimumPath, pen.Color);
+
+                    <span class="rem">//g.DrawRectangle(Pens.Green, relevantRegion);</span>
+                    Program.MainForm.RefreshImage();
+                    System.Windows.Forms.Application.DoEvents();
+                }
+            }
+        }
+
+        <span class="kwrd">private</span> <span class="kwrd">void</span> drawMinimumPath(<span class="kwrd">int</span>[] path, Color color)<br />        {<br />            <span class="rem">// Show user goal point.</span>
+            Point finish = GetPointFromArrayIndex(path[path.Length-1]);
+            Overlay.SetPixel(finish.X, finish.Y, color);
+            
+            <span class="rem">// Draw entire path</span>
+            <span class="kwrd">foreach</span> (<span class="kwrd">int</span> index <span class="kwrd">in</span> path)<br />            {<br />                Point point = GetPointFromArrayIndex(index);<br />                Overlay.SetPixel(point.X, point.Y, color);<br />                <span class="rem">//Program.MainForm.RefreshImage();</span>
+                <span class="rem">//System.Windows.Forms.Application.DoEvents();</span>
+            }
+        }
+
+        <span class="kwrd">private</span> Rectangle GetRelevantRegion(Point start, Point finish)<br />        {<br />            <span class="kwrd">const</span> <span class="kwrd">int</span> minimumSpace = 5;<br />            <span class="kwrd">const</span> <span class="kwrd">float</span> expansion = 0.01F;<br /><br />            Rectangle rect = Rectangle.FromLTRB(<br />                 Math.Min(start.X, finish.X),<br />                 Math.Min(start.Y, finish.Y),<br />                 Math.Max(start.X, finish.X),<br />                 Math.Max(start.Y, finish.Y)<br />            );<br />            rect.Inflate(Math.Max((<span class="kwrd">int</span>)(rect.Width * expansion), minimumSpace), <br />                Math.Max((<span class="kwrd">int</span>)(rect.Height * expansion), minimumSpace));<br />            <span class="rem">// Make sure our relevant region stays within the bounds or calculating a gradient.</span>
+            rect.Intersect(Rectangle.FromLTRB(1, 1, Image.Bitmap.Width - 1, Image.Bitmap.Height - 1));
+            Debug.Assert(rect.Contains(start), <span class="str">&quot;Relevant region does not contain start point.&quot;</span>);<br />            Debug.Assert(rect.Contains(finish), <span class="str">&quot;Relevant region does not contain finish point.&quot;</span>);<br />            <span class="kwrd">return</span> rect;<br />        }<br /><br />        <span class="kwrd">private</span> <span class="kwrd">int</span> GetArrayIndex(Point point)<br />        {<br />            <span class="kwrd">if</span> (!relevantRegion.Contains(point)) <span class="kwrd">return</span> -1;<br />            Point offset = point;<br />            offset.Offset(-relevantRegion.X, -relevantRegion.Y); <span class="rem">// remove effect of offset region</span>
+            <span class="kwrd">return</span> offset.Y * relevantRegion.Width + offset.X;<br />        }<br />        <span class="kwrd">private</span> Point GetPointFromArrayIndex(<span class="kwrd">int</span> index)<br />        {<br />            Point point = <span class="kwrd">new</span> Point(index % relevantRegion.Width, index / relevantRegion.Width);<br />            point.Offset(relevantRegion.Location);<br />            <span class="kwrd">return</span> point;<br />        }<br /><br />        <span class="kwrd">private</span> <span class="kwrd">int</span>[] GetPixelWeights()<br />        {<br />            <span class="kwrd">int</span>[] weights = <span class="kwrd">new</span> <span class="kwrd">int</span>[relevantPixelsCount];<br />            <span class="kwrd">for</span> (<span class="kwrd">int</span> i = 0; i &lt; weights.Length; i++)<br />                weights[i] = GetPixelWeight(GetPointFromArrayIndex(i));<br />            <span class="kwrd">return</span> weights;<br />        }<br />        <span class="kwrd">const</span> <span class="kwrd">int</span> maximumNearbyPositions = 4;<br />        <span class="kwrd">enum</span> NearbyPosition : <span class="kwrd">int</span>
+        {
+            Above = 0,
+            Left,
+            Right,
+            Below
+        }
+        <span class="kwrd">private</span> <span class="kwrd">int</span> GetNearbyPixel(<span class="kwrd">int</span> origin, NearbyPosition relative)<br />        {<br />            <span class="kwrd">return</span> GetArrayIndex(GetNearbyPixel(GetPointFromArrayIndex(origin), relative));<br />        }<br />        <span class="kwrd">private</span> Point GetNearbyPixel(Point origin, NearbyPosition relative)<br />        {<br />            Point offset = origin;<br />            <span class="kwrd">switch</span> (relative)<br />            {<br />                <span class="kwrd">case</span> NearbyPosition.Above:<br />                    offset.Offset(0, -1);<br />                    <span class="kwrd">break</span>;<br />                <span class="kwrd">case</span> NearbyPosition.Below:<br />                    offset.Offset(0, 1);<br />                    <span class="kwrd">break</span>;<br />                <span class="kwrd">case</span> NearbyPosition.Left:<br />                    offset.Offset(-1, 0);<br />                    <span class="kwrd">break</span>;<br />                <span class="kwrd">case</span> NearbyPosition.Right:<br />                    offset.Offset(1, 0);<br />                    <span class="kwrd">break</span>;<br />                <span class="kwrd">default</span>:<br />                    <span class="kwrd">throw</span> <span class="kwrd">new</span> NotSupportedException();<br />            }<br />            <span class="kwrd">return</span> offset;<br />        }<br />        <span class="kwrd">private</span> <span class="kwrd">int</span> GetRelativePosition(<span class="kwrd">int</span> start, <span class="kwrd">int</span> finish)<br />        {<br />            Point startPoint = GetPointFromArrayIndex(start);<br />            Point finishPoint = GetPointFromArrayIndex(finish);<br />            <span class="kwrd">foreach</span> (NearbyPosition position <span class="kwrd">in</span> Enum.GetValues(<span class="kwrd">typeof</span>(NearbyPosition)))<br />                <span class="kwrd">if</span> (GetNearbyPixel(start, position) == finish)<br />                    <span class="kwrd">return</span> (<span class="kwrd">int</span>)position;<br />            <span class="kwrd">return</span> -1;<br />        }<br />        <span class="kwrd">private</span> <span class="kwrd">int</span>[,] GetTraversalCost()<br />        {<br />            <span class="kwrd">int</span>[] weights = GetPixelWeights();<br />            <span class="kwrd">int</span>[,] cost = <span class="kwrd">new</span> <span class="kwrd">int</span>[relevantPixelsCount, maximumNearbyPositions];<br />            <span class="kwrd">for</span> (<span class="kwrd">int</span> i = 0; i &lt; weights.Length; i++)<br />            {<br />                Point origin = GetPointFromArrayIndex(i);<br />                <span class="kwrd">foreach</span> (NearbyPosition relativePosition <span class="kwrd">in</span> Enum.GetValues(<span class="kwrd">typeof</span>(NearbyPosition)))<br />                {<br />                    Point relative = GetNearbyPixel(origin, relativePosition);<br />                    <span class="kwrd">if</span> (relevantRegion.Contains(relative))<br />                    {<br />                        <span class="kwrd">int</span> j = GetArrayIndex(relative);<br />                        cost[i, (<span class="kwrd">int</span>)relativePosition] = weights[j];<br />                    }<br />                }<br />            }<br />            <span class="kwrd">return</span> cost;<br />        }<br /><br />        <span class="kwrd">private</span> IEnumerable&lt;<span class="kwrd">int</span>&gt; nearbyNodesHint(<span class="kwrd">int</span> startingNode)<br />        {<br />            List&lt;<span class="kwrd">int</span>&gt; nearbyNodes = <span class="kwrd">new</span> List&lt;<span class="kwrd">int</span>&gt;(maximumNearbyPositions);<br />            <span class="kwrd">foreach</span> (NearbyPosition position <span class="kwrd">in</span> Enum.GetValues(<span class="kwrd">typeof</span>(NearbyPosition)))<br />                nearbyNodes.Add(GetNearbyPixel(startingNode, position));<br />            <span class="kwrd">return</span> nearbyNodes;<br />        }<br />        <span class="kwrd">private</span> <span class="kwrd">int</span> getInternodeTraversalCost(<span class="kwrd">int</span> start, <span class="kwrd">int</span> finish)<br />        {<br />            <span class="kwrd">int</span> relativePosition = GetRelativePosition(start, finish);<br />            <span class="kwrd">if</span> (relativePosition &lt; 0) <span class="kwrd">return</span> <span class="kwrd">int</span>.MaxValue;<br />            <span class="kwrd">return</span> traversalCost[start, relativePosition];<br />        }<br />    }<br />}</pre><p>There are other dependencies not included here (such as the Scissors base class).&nbsp; My purpose in this blog is to publish a generalized Dijkstra algorithm and give an example of how to use it.&nbsp; <strike>If you would like the full source code, </strike><font color="#fa4520"><strike>contact me</strike></font><strike> to get me to email the code to you.&nbsp; My BYU professor doesn&#39;t want BYU CS students getting the entire solution to their assigned projects.</strike></p><p><strong>[Updated 12/14/06]: </strong>The full source code is useful if you need a sample of how to apply&nbsp;the above algorithm in your own app.&nbsp; Due to large demand for the source code and my limited resources to manually send it out (I can&#39;t just link to it here since my BYU professor doesn&#39;t want BYU CS students getting the entire solution to their assigned projects)&nbsp;<strong>I now charge a small processing fee of $2 </strong>to send you the source code. &nbsp;If you would like the full source code,&nbsp;<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&amp;business=andrewarnott%40gmail%2ecom&amp;item_name=JMPInline%20blog%20and%20open%20source%20projects&amp;no_shipping=1&amp;no_note=1&amp;tax=0&amp;currency_code=USD&amp;bn=PP%2dDonationsBF&amp;charset=UTF%2d8" target="_blank">PayPal $2 to me and include your email address</a>&nbsp;to get me to email the source code to you.&nbsp; [Updated 8/30/07]: Do <em>not</em> use your credit card as the source of the $2 to send me PayPal money as PayPal will happily take half of the money for itself.&nbsp; If you use your credit card, I&#39;ll reject payment and ask you to transfer money to your PayPal account from your bank account first.<br /><br />You can also <a href="http://cs.nerdbank.net/files/13/byu/entry170.aspx">download the compiled assembly</a>&nbsp;for free.</p><p><strong>[Updated 3/16/07]:</strong> Comments now closed, due to people not reading the previous paragraph and still posting comments asking for the full source.</p>
+	</div>
+
+<script src="http://digg.com/tools/diggthis.js" type="text/javascript"></script> 
+
+	<div><span id="ctl00___ctl00___ctl01___Entry___InlineTagEditorPanel">Filed under: <a href="/blogs/jmpinline/archive/tags/.NET/default.aspx" rel="tag">.NET</a></span><input type="hidden" name="ctl00$_$ctl00$_$ctl01$_$Entry$_$InlineTagEditorPanel" id="ctl00___ctl00___ctl01___Entry___InlineTagEditorPanel_State" value="nochange" /></div>
+							
+</div>            
+
+
+
+	<h3>
+	Comments
+</h3>
+	<div id="comments">
+
+	<div class="comment">
+	<h4>
+		<a id="ctl00___ctl00___ctl01___Comments___Comments_ctl01_PermaLink" Title="permalink" href="/blogs/jmpinline/archive/2006/01/27/C_2300_-Dijkstra_2700_s-algorithm-implementation.aspx#157">#</a>
+		re: C# Dijkstra's algorithm implementation<a name="157"></a>
+	</h4>
+	<div class="commentssubhead">
+		Thursday, March 02, 2006 4:42 AM 
+		by <a id="ctl00___ctl00___ctl01___Comments___Comments_ctl01_NameLink" title="tot2ivn" href="/user/Profile.aspx?UserID=2107" target="_blank">tot2ivn</a>
+		<span class="commentspan"></span>
+	</div>
+	<div class="commentsbody">
+		Greeaat, man !!<br>Can I have the .exe file ?<br>I wanna c your interface design.,.<br><br>(I'm having exactly one project for a CS course like ya !:D, coincidence !!)<br><br>Thanks<br><br>I'd appreciate a lot if you can provide the full source code. (just for reference !!)
+	</div>
+	</div>
+
+	<div class="comment">
+	<h4>
+		<a id="ctl00___ctl00___ctl01___Comments___Comments_ctl02_PermaLink" Title="permalink" href="/blogs/jmpinline/archive/2006/01/27/C_2300_-Dijkstra_2700_s-algorithm-implementation.aspx#166">#</a>
+		re: C# Dijkstra's algorithm implementation<a name="166"></a>
+	</h4>
+	<div class="commentssubhead">
+		Tuesday, March 28, 2006 8:27 AM 
+		by <a id="ctl00___ctl00___ctl01___Comments___Comments_ctl02_NameLink" title="moaznagi" href="/user/Profile.aspx?UserID=2109" target="_blank">moaznagi</a>
+		<span class="commentspan"></span>
+	</div>
+	<div class="commentsbody">
+		I am sorry, but I didn't see the Scissors (base class)<br>Could you please put the complete project<br>Regards
+	</div>
+	</div>
+
+	<div class="commentowner">
+	<h4>
+		<a id="ctl00___ctl00___ctl01___Comments___Comments_ctl03_PermaLink" Title="permalink" href="/blogs/jmpinline/archive/2006/01/27/C_2300_-Dijkstra_2700_s-algorithm-implementation.aspx#169">#</a>
+		re: C# Dijkstra's algorithm implementation<a name="169"></a>
+	</h4>
+	<div class="commentssubhead">
+		Tuesday, April 04, 2006 7:23 PM 
+		by <a id="ctl00___ctl00___ctl01___Comments___Comments_ctl03_NameLink" title="aarnott" href="/utility/Redirect.aspx?U=http%3a%2f%2fcs.nerdbank.net%2fblogs%2fjmpinline%2f" target="_blank">aarnott</a>
+		<span class="commentspan"></span>
+	</div>
+	<div class="commentsbody">
+		You're right. &nbsp;I left out the Scissors base class, as it didn't quite fit into the purpose for the blog. &nbsp;But I do want it to be useful. &nbsp;I've appended the blog to include a reference to the source repository where you can download the full source code.<br><br>Thanks for the tip.
+	</div>
+	</div>
+
+	<div class="commentowner">
+	<h4>
+		<a id="ctl00___ctl00___ctl01___Comments___Comments_ctl04_PermaLink" Title="permalink" href="/blogs/jmpinline/archive/2006/01/27/C_2300_-Dijkstra_2700_s-algorithm-implementation.aspx#171">#</a>
+		re: C# Dijkstra's algorithm implementation<a name="171"></a>
+	</h4>
+	<div class="commentssubhead">
+		Tuesday, April 04, 2006 7:28 PM 
+		by <a id="ctl00___ctl00___ctl01___Comments___Comments_ctl04_NameLink" title="aarnott" href="/utility/Redirect.aspx?U=http%3a%2f%2fcs.nerdbank.net%2fblogs%2fjmpinline%2f" target="_blank">aarnott</a>
+		<span class="commentspan"></span>
+	</div>
+	<div class="commentsbody">
+		tot2ivn, I've added a link to this blog with the compiled program.
+	</div>
+	</div>
+
+	<div class="comment">
+	<h4>
+		<a id="ctl00___ctl00___ctl01___Comments___Comments_ctl05_PermaLink" Title="permalink" href="/blogs/jmpinline/archive/2006/01/27/C_2300_-Dijkstra_2700_s-algorithm-implementation.aspx#212">#</a>
+		re: C# Dijkstra's algorithm implementation<a name="212"></a>
+	</h4>
+	<div class="commentssubhead">
+		Wednesday, May 03, 2006 10:44 AM 
+		by <a id="ctl00___ctl00___ctl01___Comments___Comments_ctl05_NameLink" title="Gunni" target="_blank">Gunni</a>
+		<span class="commentspan"></span>
+	</div>
+	<div class="commentsbody">
+		This looks like exactly what I need for my CS project. If I can make this work for me you just saved me a LOT of time :)<br><br>Big thanks and greetings from Iceland.<br><br>p.s.: Yes I know of Bjork but I don't know her personally. No we hardly ever have polarbears over here and no we don't all live in igloos, they have a distressing tendency to melt. I'm not bitter or anything it's just that amazingly many people ask that when you tell them you're from Iceland :)
+	</div>
+	</div>
+
+	<div class="comment">
+	<h4>
+		<a id="ctl00___ctl00___ctl01___Comments___Comments_ctl06_PermaLink" Title="permalink" href="/blogs/jmpinline/archive/2006/01/27/C_2300_-Dijkstra_2700_s-algorithm-implementation.aspx#214">#</a>
+		re: C# Dijkstra's algorithm implementation<a name="214"></a>
+	</h4>
+	<div class="commentssubhead">
+		Thursday, May 04, 2006 2:43 PM 
+		by <a id="ctl00___ctl00___ctl01___Comments___Comments_ctl06_NameLink" title="TopperDEL" target="_blank">TopperDEL</a>
+		<span class="commentspan"></span>
+	</div>
+	<div class="commentsbody">
+		Hi!<br><br>Very nice and working (!) implementation of the Dijkstra-Algorithm. But I got situations where you're implementation runs into errors. It seems that too much nodes will cause the algorithm to fail. I have around 400 nodes and a length of the shortest path of around 100 nodes. Does anybody know where the problem occurs or why?<br><br>Thank you so far!<br>TopperDEL<br><br>P.S.: Greetings from Germany. ;)
+	</div>
+	</div>
+
+	<div class="commentowner">
+	<h4>
+		<a id="ctl00___ctl00___ctl01___Comments___Comments_ctl07_PermaLink" Title="permalink" href="/blogs/jmpinline/archive/2006/01/27/C_2300_-Dijkstra_2700_s-algorithm-implementation.aspx#215">#</a>
+		re: C# Dijkstra's algorithm implementation<a name="215"></a>
+	</h4>
+	<div class="commentssubhead">
+		Thursday, May 04, 2006 4:46 PM 
+		by <a id="ctl00___ctl00___ctl01___Comments___Comments_ctl07_NameLink" title="aarnott" href="/utility/Redirect.aspx?U=http%3a%2f%2fcs.nerdbank.net%2fblogs%2fjmpinline%2f" target="_blank">aarnott</a>
+		<span class="commentspan"></span>
+	</div>
+	<div class="commentsbody">
+		TopperDEL,<br><br>I have used this code for images with over a hundred thousand nodes (though probably only a few thousand returned from the NearbyNodesHint delegate) without a problem. &nbsp;<br><br>When you say the algorithm fails, can you be more specific? &nbsp;Does it throw an exception? run out of memory? return a path that is not the shortest path? &nbsp;<br><br>If your NearbyNodesHint delegate is implemented, keep in mind that only those nodes returned by that delegate are considered when looking for nodes that could be part of the shortest path between two given nodes.
+	</div>
+	</div>
+
+	<div class="comment">
+	<h4>
+		<a id="ctl00___ctl00___ctl01___Comments___Comments_ctl08_PermaLink" Title="permalink" href="/blogs/jmpinline/archive/2006/01/27/C_2300_-Dijkstra_2700_s-algorithm-implementation.aspx#272">#</a>
+		re: C# Dijkstra's algorithm implementation<a name="272"></a>
+	</h4>
+	<div class="commentssubhead">
+		Monday, July 10, 2006 7:01 AM 
+		by <a id="ctl00___ctl00___ctl01___Comments___Comments_ctl08_NameLink" title="Abgary" target="_blank">Abgary</a>
+		<span class="commentspan"></span>
+	</div>
+	<div class="commentsbody">
+		Hi<br>I am student learning C# programming, I love maths very much. I know the theory of Dijkstra's Algorithm some what from my AL. but I am unable to apply it. I want a very simple way to apply and learn it. <br><br>Could u pls guide me on this. <br><br>Thank you
+	</div>
+	</div>
+
+	<div class="commentowner">
+	<h4>
+		<a id="ctl00___ctl00___ctl01___Comments___Comments_ctl09_PermaLink" Title="permalink" href="/blogs/jmpinline/archive/2006/01/27/C_2300_-Dijkstra_2700_s-algorithm-implementation.aspx#273">#</a>
+		re: C# Dijkstra's algorithm implementation<a name="273"></a>
+	</h4>
+	<div class="commentssubhead">
+		Monday, July 10, 2006 7:25 AM 
+		by <a id="ctl00___ctl00___ctl01___Comments___Comments_ctl09_NameLink" title="aarnott" href="/utility/Redirect.aspx?U=http%3a%2f%2fcs.nerdbank.net%2fblogs%2fjmpinline%2f" target="_blank">aarnott</a>
+		<span class="commentspan"></span>
+	</div>
+	<div class="commentsbody">
+		Abgary,<br><br>I learned it in a CS class. &nbsp;This project was the result of it. &nbsp;If you'd like the source code, use the contact form of this web site to send me a private email and I'll give you the link to download it.
+	</div>
+	</div>
+
+	<div class="comment">
+	<h4>
+		<a id="ctl00___ctl00___ctl01___Comments___Comments_ctl10_PermaLink" Title="permalink" href="/blogs/jmpinline/archive/2006/01/27/C_2300_-Dijkstra_2700_s-algorithm-implementation.aspx#274">#</a>
+		re: C# Dijkstra's algorithm implementation<a name="274"></a>
+	</h4>
+	<div class="commentssubhead">
+		Tuesday, July 11, 2006 9:13 PM 
+		by <a id="ctl00___ctl00___ctl01___Comments___Comments_ctl10_NameLink" title="Winnie" target="_blank">Winnie</a>
+		<span class="commentspan"></span>
+	</div>
+	<div class="commentsbody">
+		Hi,<br><br>Your C# Dijkstra's shortest path algorithm implementation will be useful for the algorithm that I'm developing now. <br><br>Could I please get the full source code of the C# Dijkstra's algorithm implementation. &nbsp;I'll reference your work.<br><br>Thanks a lot,
+	</div>
+	</div>
+
+	<div class="commentowner">
+	<h4>
+		<a id="ctl00___ctl00___ctl01___Comments___Comments_ctl11_PermaLink" Title="permalink" href="/blogs/jmpinline/archive/2006/01/27/C_2300_-Dijkstra_2700_s-algorithm-implementation.aspx#275">#</a>
+		re: C# Dijkstra's algorithm implementation<a name="275"></a>
+	</h4>
+	<div class="commentssubhead">
+		Tuesday, July 11, 2006 9:48 PM 
+		by <a id="ctl00___ctl00___ctl01___Comments___Comments_ctl11_NameLink" title="aarnott" href="/utility/Redirect.aspx?U=http%3a%2f%2fcs.nerdbank.net%2fblogs%2fjmpinline%2f" target="_blank">aarnott</a>
+		<span class="commentspan"></span>
+	</div>
+	<div class="commentsbody">
+		Winnie,<br><br>If you'll use the contact form (link is at the top of this blog) to reach me by email, I'll send you a link to download the full source code.
+	</div>
+	</div>
+
+	<div class="comment">
+	<h4>
+		<a id="ctl00___ctl00___ctl01___Comments___Comments_ctl12_PermaLink" Title="permalink" href="/blogs/jmpinline/archive/2006/01/27/C_2300_-Dijkstra_2700_s-algorithm-implementation.aspx#297">#</a>
+		re: C# Dijkstra's algorithm implementation<a name="297"></a>
+	</h4>
+	<div class="commentssubhead">
+		Monday, August 07, 2006 11:34 AM 
+		by <a id="ctl00___ctl00___ctl01___Comments___Comments_ctl12_NameLink" title="Mark Alexander" target="_blank">Mark Alexander</a>
+		<span class="commentspan"></span>
+	</div>
+	<div class="commentsbody">
+		I would like to download the full source code. &nbsp;My email address is mark@goisc.com.<br><br>Thank you.
+	</div>
+	</div>
+
+	<div class="comment">
+	<h4>
+		<a id="ctl00___ctl00___ctl01___Comments___Comments_ctl13_PermaLink" Title="permalink" href="/blogs/jmpinline/archive/2006/01/27/C_2300_-Dijkstra_2700_s-algorithm-implementation.aspx#316">#</a>
+		re: C# Dijkstra's algorithm implementation<a name="316"></a>
+	</h4>
+	<div class="commentssubhead">
+		Friday, August 25, 2006 3:19 AM 
+		by <a id="ctl00___ctl00___ctl01___Comments___Comments_ctl13_NameLink" title="Chona" target="_blank">Chona</a>
+		<span class="commentspan"></span>
+	</div>
+	<div class="commentsbody">
+		please email me the full source code of Dijkstra's algorithm...<br><br>and (if you have) please also email me other graph algorithms..<br><br>my email address is: chona_neo3@yahoo.com<br><br>thanks
+	</div>
+	</div>
+
+	<div class="comment">
+	<h4>
+		<a id="ctl00___ctl00___ctl01___Comments___Comments_ctl14_PermaLink" Title="permalink" href="/blogs/jmpinline/archive/2006/01/27/C_2300_-Dijkstra_2700_s-algorithm-implementation.aspx#438">#</a>
+		re: C# Dijkstra's algorithm implementation<a name="438"></a>
+	</h4>
+	<div class="commentssubhead">
+		Tuesday, October 10, 2006 6:53 PM 
+		by <a id="ctl00___ctl00___ctl01___Comments___Comments_ctl14_NameLink" title="Sarah" target="_blank">Sarah</a>
+		<span class="commentspan"></span>
+	</div>
+	<div class="commentsbody">
+		<p>it's very very good program </p>
+<p>thanks for you</p>
+<p>can you send me the full source code</p>
+<p>my mail is</p>
+<p>engineer_saso@yahoo.co.uk</p>
+<p>thanks for you</p>
+
+	</div>
+	</div>
+
+	<div class="comment">
+	<h4>
+		<a id="ctl00___ctl00___ctl01___Comments___Comments_ctl15_PermaLink" Title="permalink" href="/blogs/jmpinline/archive/2006/01/27/C_2300_-Dijkstra_2700_s-algorithm-implementation.aspx#613">#</a>
+		re: C# Dijkstra's algorithm implementation<a name="613"></a>
+	</h4>
+	<div class="commentssubhead">
+		Sunday, November 05, 2006 6:02 AM 
+		by <a id="ctl00___ctl00___ctl01___Comments___Comments_ctl15_NameLink" title="guava" target="_blank">guava</a>
+		<span class="commentspan"></span>
+	</div>
+	<div class="commentsbody">
+		<p>This is well written! Do you have any other graph algorithms done such as the Bellman - Ford Algorithm? If so my email guava_98_98@yahoo.com</p>
+<p>Thanks!</p>
+
+	</div>
+	</div>
+
+	<div class="comment">
+	<h4>
+		<a id="ctl00___ctl00___ctl01___Comments___Comments_ctl16_PermaLink" Title="permalink" href="/blogs/jmpinline/archive/2006/01/27/C_2300_-Dijkstra_2700_s-algorithm-implementation.aspx#691">#</a>
+		re: C# Dijkstra's algorithm implementation<a name="691"></a>
+	</h4>
+	<div class="commentssubhead">
+		Tuesday, November 14, 2006 11:45 PM 
+		by <a id="ctl00___ctl00___ctl01___Comments___Comments_ctl16_NameLink" title="Shantesh Patil" rel="nofollow" href="/utility/Redirect.aspx?U=http%3a%2f%2fshantesh.wordpress.com" target="_blank">Shantesh Patil</a>
+		<span class="commentspan"></span>
+	</div>
+	<div class="commentsbody">
+		<p>Please mail me the source code at shantesh007@gmail.com</p>
+
+	</div>
+	</div>
+
+	<div class="comment">
+	<h4>
+		<a id="ctl00___ctl00___ctl01___Comments___Comments_ctl17_PermaLink" Title="permalink" href="/blogs/jmpinline/archive/2006/01/27/C_2300_-Dijkstra_2700_s-algorithm-implementation.aspx#928">#</a>
+		re: C# Dijkstra's algorithm implementation<a name="928"></a>
+	</h4>
+	<div class="commentssubhead">
+		Friday, December 08, 2006 12:14 PM 
+		by <a id="ctl00___ctl00___ctl01___Comments___Comments_ctl17_NameLink" title="nosa" target="_blank">nosa</a>
+		<span class="commentspan"></span>
+	</div>
+	<div class="commentsbody">
+		<p>well done &nbsp;</p>
+<p>can i use it in my home work???</p>
+
+	</div>
+	</div>
+
+	<div class="commentowner">
+	<h4>
+		<a id="ctl00___ctl00___ctl01___Comments___Comments_ctl18_PermaLink" Title="permalink" href="/blogs/jmpinline/archive/2006/01/27/C_2300_-Dijkstra_2700_s-algorithm-implementation.aspx#930">#</a>
+		re: C# Dijkstra's algorithm implementation<a name="930"></a>
+	</h4>
+	<div class="commentssubhead">
+		Friday, December 08, 2006 1:14 PM 
+		by <a id="ctl00___ctl00___ctl01___Comments___Comments_ctl18_NameLink" title="aarnott" href="/utility/Redirect.aspx?U=http%3a%2f%2fcs.nerdbank.net%2fblogs%2fjmpinline%2f" target="_blank">aarnott</a>
+		<span class="commentspan"></span>
+	</div>
+	<div class="commentsbody">
+		<p>nosa,</p>
+<p>Can you use it in your homework? &nbsp;That's up to your professor. &nbsp;And if you are at BYU, the answer is that you can't use the full source code that I email out. &nbsp;But you are welcome to be inspired from and/or copy and paste the code on this post, which contains the entire algorithm.</p>
+
+	</div>
+	</div>
+
+	<div class="comment">
+	<h4>
+		<a id="ctl00___ctl00___ctl01___Comments___Comments_ctl19_PermaLink" Title="permalink" href="/blogs/jmpinline/archive/2006/01/27/C_2300_-Dijkstra_2700_s-algorithm-implementation.aspx#4011">#</a>
+		re: C# Dijkstra's algorithm implementation<a name="4011"></a>
+	</h4>
+	<div class="commentssubhead">
+		Wednesday, January 24, 2007 1:46 AM 
+		by <a id="ctl00___ctl00___ctl01___Comments___Comments_ctl19_NameLink" title="fatima" target="_blank">fatima</a>
+		<span class="commentspan"></span>
+	</div>
+	<div class="commentsbody">
+		<p>Hi,</p>
+<p>thank you very much for your intrest can you send me the full source code by email</p>
+<p>my E-Mail is: fatima_2003974030@yahoo.com</p>
+<p>twice tahnk you very very much because I need it in my project.</p>
+
+	</div>
+	</div>
+
+	<div class="comment">
+	<h4>
+		<a id="ctl00___ctl00___ctl01___Comments___Comments_ctl20_PermaLink" Title="permalink" href="/blogs/jmpinline/archive/2006/01/27/C_2300_-Dijkstra_2700_s-algorithm-implementation.aspx#6695">#</a>
+		re: C# Dijkstra's algorithm implementation<a name="6695"></a>
+	</h4>
+	<div class="commentssubhead">
+		Sunday, February 18, 2007 10:08 AM 
+		by <a id="ctl00___ctl00___ctl01___Comments___Comments_ctl20_NameLink" title="harish" target="_blank">harish</a>
+		<span class="commentspan"></span>
+	</div>
+	<div class="commentsbody">
+		<p>HI Aarnott,</p>
+<p>I need the full code in C, if u can help me out by sending the source code..i would be very thankful to you...I have to use it in my project...</p>
+<p>waiting for your reply..</p>
+<p>my mail ID is harish@siu.edu</p>
+<p>Regards,</p>
+<p>Harish</p>
+
+	</div>
+	</div>
+
+	<div class="comment">
+	<h4>
+		<a id="ctl00___ctl00___ctl01___Comments___Comments_ctl21_PermaLink" Title="permalink" href="/blogs/jmpinline/archive/2006/01/27/C_2300_-Dijkstra_2700_s-algorithm-implementation.aspx#8740">#</a>
+		re: C# Dijkstra's algorithm implementation<a name="8740"></a>
+	</h4>
+	<div class="commentssubhead">
+		Monday, March 05, 2007 3:00 PM 
+		by <a id="ctl00___ctl00___ctl01___Comments___Comments_ctl21_NameLink" title="Kevin" target="_blank">Kevin</a>
+		<span class="commentspan"></span>
+	</div>
+	<div class="commentsbody">
+		<p>Greetings Aarnott,</p>
+<p>I am very impressed with how well commented your code is, and would like to request the rest of the code to see the complete project and how it is implemented.</p>
+<p>Not used for any school assignment, just for reference on the algorithm.</p>
+<p>Email: superguiman@gmail.com</p>
+
+	</div>
+	</div>
+
+	<div class="comment">
+	<h4>
+		<a id="ctl00___ctl00___ctl01___Comments___Comments_ctl22_PermaLink" Title="permalink" href="/blogs/jmpinline/archive/2006/01/27/C_2300_-Dijkstra_2700_s-algorithm-implementation.aspx#10198">#</a>
+		re: C# Dijkstra's algorithm implementation<a name="10198"></a>
+	</h4>
+	<div class="commentssubhead">
+		Friday, March 16, 2007 11:24 AM 
+		by <a id="ctl00___ctl00___ctl01___Comments___Comments_ctl22_NameLink" title="Jeya" target="_blank">Jeya</a>
+		<span class="commentspan"></span>
+	</div>
+	<div class="commentsbody">
+		<p>I would like to download the full source code. Could you please send me the link to jeya_seelan@yahoo.com </p>
+
+	</div>
+	</div>
+
+	</div>
+
+
+
+
+
+<em>New Comments to this post are disabled</em>
+
+	
+<h2 class="CommonSubTitle">About aarnott</h2>
+I was home schooled till I went to high school for my junior year.  After a semester at a community college I went to BYU and obtained my BS in Information Technology.  I also got married to a beautiful girl from Colorado.  Now I work for Microsoft on the .NET Compact Framework.
+
+	
+
+   
+    
+			</div></div>
+			<div id="contentfooter">&nbsp;</div>
+		</div>
+		<div id="footer">
+			<div class="Copyright">Copyright &copy; 2006 Andrew Arnott</div>
+<a target="_blank" href="http://communityserver.org/r.ashx?1"><img alt="Powered by Community Server, by Telligent Systems " border="0" src="/utility/EULA.GIF"/></a>
+		</div>
+	</div>
+</div>
+
+<script language="javascript" type="text/javascript">
+<!--
+function KeyDownHandlerctl00___ctl00___bt___Singleweblogsearch1___SearchButton(event)
+{
+	if (event.keyCode == 13)
+	{
+		event.returnValue = false;
+		event.cancel = true;
+     __doPostBack('ctl00$_$ctl00$_$bt$_$Singleweblogsearch1$_$SearchButton','')	}
+}
+
+//-->
+</script>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+xmlns:dc="http://purl.org/dc/elements/1.1/"
+xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/">
+<rdf:Description
+rdf:about="http://cs.nerdbank.net/blogs/jmpinline/archive/2006/01/27/C_2300_-Dijkstra_2700_s-algorithm-implementation.aspx"
+dc:identifier="http://cs.nerdbank.net/blogs/jmpinline/archive/2006/01/27/C_2300_-Dijkstra_2700_s-algorithm-implementation.aspx"
+dc:title="C# Dijkstra's algorithm implementation"
+trackback:ping="http://cs.nerdbank.net/blogs/jmpinline/trackback.aspx?PostID=127" />
+</rdf:RDF>
+-->
+</form>
+</body>
+</html>
+
+

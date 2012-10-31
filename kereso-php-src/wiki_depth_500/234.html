@@ -1,0 +1,386 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh" lang="zh" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+				<meta name="keywords" content="图,AOE网,图论,圖論,广度优先搜索法,數學,有向图,树,深度优先搜索法,邻接矩阵,邻接表" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (中文)" />
+		<link rel="copyright" href="http://www.gnu.org/copyleft/fdl.html" />
+		<title>图 - Wikipedia</title>
+		<style type="text/css" media="screen, projection">/*<![CDATA[*/
+			@import "/skins-1.5/common/shared.css?99";
+			@import "/skins-1.5/monobook/main.css?99";
+		/*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="/skins-1.5/common/commonPrint.css?99" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE50Fixes.css?99";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE55Fixes.css?99";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "/skins-1.5/monobook/IE60Fixes.css?99";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "/skins-1.5/monobook/IE70Fixes.css?99";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="/skins-1.5/common/IEFixes.js?99"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		
+		<script type= "text/javascript">/*<![CDATA[*/
+var skin = "monobook";
+var stylepath = "/skins-1.5";
+var wgArticlePath = "/wiki/$1";
+var wgScriptPath = "/w";
+var wgScript = "/w/index.php";
+var wgServer = "http://zh.wikipedia.org";
+var wgCanonicalNamespace = "";
+var wgCanonicalSpecialPageName = false;
+var wgNamespaceNumber = 0;
+var wgPageName = "图";
+var wgTitle = "图";
+var wgAction = "view";
+var wgRestrictionEdit = [];
+var wgRestrictionMove = [];
+var wgArticleId = "47019";
+var wgIsArticle = true;
+var wgUserName = null;
+var wgUserGroups = null;
+var wgUserLanguage = "zh";
+var wgContentLanguage = "zh";
+var wgBreakFrames = false;
+var wgCurRevisionId = "2759125";
+/*]]>*/</script>
+                
+		<script type="text/javascript" src="/skins-1.5/common/wikibits.js?99"><!-- wikibits js --></script>
+		<script type="text/javascript" src="/w/index.php?title=-&amp;action=raw&amp;gen=js&amp;useskin=monobook"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "/w/index.php?title=MediaWiki:Common.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=MediaWiki:Monobook.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=-&action=raw&gen=css&maxage=2678400";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+		<script type="text/javascript" src="/skins-1.5/common/ajax.js?99"></script>
+	</head>
+<body  class="mediawiki ns-0 ltr page-图">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+		<div id="siteNotice"><script type="text/javascript" language="JavaScript">
+<!--
+document.writeln("\x3cdiv style=\"text-align:right;margin:0 auto;font-size: 90%;\"\x3e\x3ca href=\"/wiki/Wikipedia:%E9%97%9C%E6%96%BC%E7%B6%AD%E5%9F%BA%E7%99%BE%E7%A7%91%E4%BD%A0%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84%E5%8D%81%E4%BB%B6%E4%BA%8B\" title=\"Wikipedia:關於維基百科你不知道的十件事\"\x3e關於維基百科你不知道的十件事...\x3c/a\x3e\x3c/div\x3e\n\x3cdiv style=\"text-align:center;margin:0 auto;\"\x3e若您来自中国大陆，并能顺利浏览维基百科，请\x3ca href=\"/wiki/Special:Userlogin\" title=\"Special:Userlogin\"\x3e登入\x3c/a\x3e后至\x3ca href=\"/wiki/Wikipedia:%E7%8B%80%E6%B3%81%E5%9B%9E%E5%A0%B1\" title=\"Wikipedia:狀況回報\"\x3e狀況回報\x3c/a\x3e。（注意：若未\x3ca href=\"/wiki/Special:Userlogin\" title=\"Special:Userlogin\"\x3e註冊或登入\x3c/a\x3e，您的\x3ca href=\"/wiki/IP%E5%9C%B0%E5%9D%80\" title=\"IP地址\"\x3eIP地址\x3c/a\x3e會被顯露。）\x3c/div\x3e\n");
+-->
+</script></div>		<h1 class="firstHeading">图</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">维基百科，自由的百科全书</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">跳转到： <a href="#column-one">导航</a>, <a href="#searchInput">搜索</a></div>			<!-- start content -->
+			<p>在<a href="/wiki/%E6%95%B8%E5%AD%B8" title="數學">數學</a>上，一个<b>图</b>是表示物件與物件之間的關係的方法，是<a href="/wiki/%E5%9C%96%E8%AB%96" title="圖論">圖論</a>的基本研究對象。</p>
+<table id="toc" class="toc" summary="目录">
+<tr>
+<td>
+<div id="toctitle">
+<h2>目录</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#.E5.AE.9A.E7.BE.A9"><span class="tocnumber">1</span> <span class="toctext">定義</span></a>
+<ul>
+<li class="toclevel-2"><a href="#.E4.BA.8C.E5.85.83.E7.B5.84.E7.9A.84.E5.AE.9A.E7.BE.A9"><span class="tocnumber">1.1</span> <span class="toctext">二元組的定義</span></a></li>
+<li class="toclevel-2"><a href="#.E4.B8.89.E5.85.83.E7.B5.84.E7.9A.84.E5.AE.9A.E7.BE.A9"><span class="tocnumber">1.2</span> <span class="toctext">三元組的定義</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#.E5.9F.BA.E6.9C.AC.E6.9C.AF.E8.AF.AD"><span class="tocnumber">2</span> <span class="toctext">基本术语</span></a>
+<ul>
+<li class="toclevel-2"><a href="#.E8.B7.AF.E5.BE.91"><span class="tocnumber">2.1</span> <span class="toctext">路徑</span></a></li>
+<li class="toclevel-2"><a href="#.E5.85.B6.E4.BB.96"><span class="tocnumber">2.2</span> <span class="toctext">其他</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#.E5.88.86.E9.A1.9E"><span class="tocnumber">3</span> <span class="toctext">分類</span></a>
+<ul>
+<li class="toclevel-2"><a href="#.E6.9C.89.2F.E7.84.A1_.E5.90.91.E5.9B.BE"><span class="tocnumber">3.1</span> <span class="toctext">有/無 向图</span></a></li>
+<li class="toclevel-2"><a href="#.E5.8D.95.E5.9B.BE"><span class="tocnumber">3.2</span> <span class="toctext">单图</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#.E5.9B.BE.E7.9A.84.E5.AD.98.E5.82.A8.E8.A1.A8.E7.A4.BA"><span class="tocnumber">4</span> <span class="toctext">图的存储表示</span></a></li>
+<li class="toclevel-1"><a href="#.E5.9B.BE.E7.9A.84.E9.81.8D.E5.8E.86"><span class="tocnumber">5</span> <span class="toctext">图的遍历</span></a></li>
+<li class="toclevel-1"><a href="#.E9.87.8D.E8.A6.81.E7.9A.84.E5.9B.BE"><span class="tocnumber">6</span> <span class="toctext">重要的图</span></a></li>
+<li class="toclevel-1"><a href="#.E5.8F.83.E8.80.83"><span class="tocnumber">7</span> <span class="toctext">參考</span></a></li>
+<li class="toclevel-1"><a href="#.E5.8F.82.E9.98.85"><span class="tocnumber">8</span> <span class="toctext">参阅</span></a></li>
+<li class="toclevel-1"><a href="#.E5.A4.96.E9.83.A8.E9.80.A3.E7.B5.90"><span class="tocnumber">9</span> <span class="toctext">外部連結</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "显示"; var tocHideText = "隐藏"; showTocToggle(); } 
+//]]>
+</script>
+<p><a name=".E5.AE.9A.E7.BE.A9"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=%E5%9B%BE&amp;action=edit&amp;section=1" title="编辑本节">编辑</a>]</span> <span class="mw-headline">定義</span></h2>
+<p><a name=".E4.BA.8C.E5.85.83.E7.B5.84.E7.9A.84.E5.AE.9A.E7.BE.A9"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=%E5%9B%BE&amp;action=edit&amp;section=2" title="编辑本节">编辑</a>]</span> <span class="mw-headline">二元組的定義</span></h3>
+<p><b>图</b><span class="texhtml"><i>G</i></span>是一個有序二元组<span class="texhtml">(<i>V</i>,<i>E</i>)</span>，其中<span class="texhtml"><i>V</i></span>称为顶集，<span class="texhtml"><i>E</i></span>称为边集。它們亦可寫成<span class="texhtml"><i>V</i>(<i>G</i>)</span>和<span class="texhtml"><i>E</i>(<i>G</i>)</span>。</p>
+<p><span class="texhtml"><i>E</i></span>的元素是一個二元組數對，用(x,y)表示，其中<img class="tex" alt="x,y \in V" src="http://upload.wikimedia.org/math/7/f/b/7fb76f92d83bbdc57cf799129161e977.png" />。</p>
+<p><a name=".E4.B8.89.E5.85.83.E7.B5.84.E7.9A.84.E5.AE.9A.E7.BE.A9"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=%E5%9B%BE&amp;action=edit&amp;section=3" title="编辑本节">编辑</a>]</span> <span class="mw-headline">三元組的定義</span></h3>
+<p>一个<b>图</b>（Graph），是指一个三元组<span class="texhtml">(<i>V</i>,<i>E</i>,<i>I</i>)</span>，其中<span class="texhtml"><i>V</i></span>称为顶集(Vertices Set)，<span class="texhtml"><i>E</i></span>称为边集(Edges set)，<span class="texhtml"><i>E</i></span>与<span class="texhtml"><i>G</i></span>不相交；<span class="texhtml"><i>I</i></span>称为关联函数，<span class="texhtml"><i>I</i></span>将<span class="texhtml"><i>E</i></span>中的每一个元素映射到<img class="tex" alt="G\times G" src="http://upload.wikimedia.org/math/1/a/8/1a8d86918cc212a72edb02102c43f87c.png" />。如果<img class="tex" alt="I(e)=(u,v) (e\in E, u,v \in V)" src="http://upload.wikimedia.org/math/6/e/5/6e52ceb503db96229875b0264fd4e889.png" />那么称边<span class="texhtml"><i>e</i></span>连接顶点<span class="texhtml"><i>u</i>,<i>v</i></span>，而<span class="texhtml"><i>u</i>,<i>v</i></span>则称作<span class="texhtml"><i>e</i></span>的端点，<span class="texhtml"><i>u</i>,<i>v</i></span>此时关于<span class="texhtml"><i>e</i></span>相邻。同时，若两条边<span class="texhtml"><i>i</i>,<i>j</i></span>有一个公共顶点<span class="texhtml"><i>u</i></span>，则称<span class="texhtml"><i>i</i>,<i>j</i></span>关于<span class="texhtml"><i>u</i></span>相邻。</p>
+<p><a name=".E5.9F.BA.E6.9C.AC.E6.9C.AF.E8.AF.AD"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=%E5%9B%BE&amp;action=edit&amp;section=4" title="编辑本节">编辑</a>]</span> <span class="mw-headline">基本术语</span></h2>
+<div class="thumb tright">
+<div class="thumbinner" style="width:377px;"><a href="/wiki/Image:6n-graph2.svg" class="image" title="在頂點1有一個環"><img alt="在頂點1有一個環" src="http://upload.wikimedia.org/wikipedia/commons/thumb/2/28/6n-graph2.svg/375px-6n-graph2.svg.png" width="375" height="410" border="0" class="thumbimage" /></a>
+<div class="thumbcaption">在頂點1有一個環</div>
+</div>
+</div>
+<ul>
+<li><b>阶</b>（Order）：图<span class="texhtml"><i>G</i></span>中顶集<span class="texhtml"><i>V</i></span>的大小称作图<span class="texhtml"><i>G</i></span>的阶。</li>
+<li><b>子图</b>（Sub-Graph）：<span class="texhtml"><i>G</i>'</span>称作图<span class="texhtml"><i>G</i></span>的子图如果<img class="tex" alt="V(G')\subseteq V(G)" src="http://upload.wikimedia.org/math/5/c/1/5c1b076f97239504e0b122d2a42f4ae7.png" />以及 <img class="tex" alt="E(G')\subseteq E(G)" src="http://upload.wikimedia.org/math/3/b/2/3b2da01aa6f4c8b555aa581ef8e011ae.png" />。</li>
+<li><b>生成子图</b>（Spanning Sub-Graph）：指满足条件<span class="texhtml"><i>V</i>(<i>G</i>') = <i>V</i>(<i>G</i>)</span>的<span class="texhtml"><i>G</i></span>的子图<span class="texhtml"><i>G</i></span>。</li>
+</ul>
+<p><a name=".E8.B7.AF.E5.BE.91"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=%E5%9B%BE&amp;action=edit&amp;section=5" title="编辑本节">编辑</a>]</span> <span class="mw-headline">路徑</span></h3>
+<ul>
+<li><b>环</b>(Loop)：若一条边的两个顶点为同一顶，则此边称作环。</li>
+<li><b>路径</b>（Path）：从u到v的一条路径是指一个序列<span class="texhtml"><i>v</i><sub>0</sub>,<i>e</i><sub>1</sub>,<i>v</i><sub>1</sub>,<i>e</i><sub>2</sub>,<i>v</i><sub>2</sub>,...<i>e</i><sub><i>k</i></sub>,<i>v</i><sub><i>k</i></sub></span>，其中<span class="texhtml"><i>e</i><sub><i>i</i></sub></span>的顶点为<span class="texhtml"><i>v</i><sub><i>i</i></sub></span>及<span class="texhtml"><i>v</i><sub><i>i</i> - 1</sub></span>，k称作路径的长度。如果它的起止顶点相同，該路径是「闭」的，反之，則稱為「開」的。一条路径称为一<b>简单路径</b>(simple path)，如果路径中除起始与终止顶点可以重合外，所有顶点两两不等。</li>
+<li><b>行迹</b>（Trace）：如果路径<span class="texhtml"><i>P</i>(<i>u</i>,<i>v</i>)</span>中边各不相同，则该路径称为<span class="texhtml"><i>u</i></span>到<span class="texhtml"><i>v</i></span>的一条行迹。</li>
+<li><b>轨道</b>（Track）：如果路径<span class="texhtml"><i>P</i>(<i>u</i>,<i>v</i>)</span>中顶各不相同，则该路径称为<span class="texhtml"><i>u</i></span>到<span class="texhtml"><i>v</i></span>的一条轨道。</li>
+<li>闭的行迹称作<b>回路</b>（circuit），闭的轨称作<b>圈</b>（Cycle）。</li>
+</ul>
+<p>（另一種定義是：walk對應上述的path，path對應上述的track。Trail對應trace。）</p>
+<p><a name=".E5.85.B6.E4.BB.96"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=%E5%9B%BE&amp;action=edit&amp;section=6" title="编辑本节">编辑</a>]</span> <span class="mw-headline">其他</span></h3>
+<ul>
+<li>橋（bridge）：若去掉一條邊，便會使得整個圖不連通，該邊稱為橋。</li>
+</ul>
+<p><a name=".E5.88.86.E9.A1.9E"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=%E5%9B%BE&amp;action=edit&amp;section=7" title="编辑本节">编辑</a>]</span> <span class="mw-headline">分類</span></h2>
+<p><a name=".E6.9C.89.2F.E7.84.A1_.E5.90.91.E5.9B.BE"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=%E5%9B%BE&amp;action=edit&amp;section=8" title="编辑本节">编辑</a>]</span> <span class="mw-headline">有/無 向图</span></h3>
+<p>如果给图的每条边规定一个方向，那么得到的图称为有向图。在有向图中，与一个节点相关联的边有出边和入边之分。相反，邊沒有方向的圖稱為<b>無向圖</b>。</p>
+<p><b>度</b>（Degree）是一个顶点的度是指与该边相关联的边的条数，顶点<span class="texhtml"><i>v</i></span>的度记作<span class="texhtml"><i>d</i>(<i>v</i>)</span>。显然有：<img class="tex" alt="\sum d(v)=2\left|E\right|" src="http://upload.wikimedia.org/math/6/9/f/69f432027ede7195920c2fd466954dae.png" /></p>
+<p>有向圖的頂點的度可分In degree和out degree。一个顶点的In Degree是指与該边相关联的入边的条数，Out Degree則指与該边相关联的出边的条数。</p>
+<p><a name=".E5.8D.95.E5.9B.BE"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=%E5%9B%BE&amp;action=edit&amp;section=9" title="编辑本节">编辑</a>]</span> <span class="mw-headline">单图</span></h3>
+<p>一个图如果</p>
+<ol>
+<li>任意两顶点之间只有一条边（在<i>有向图</i>中為<i>两顶点之间每個方向只有一条边</i>）；</li>
+<li>边集中不含环</li>
+</ol>
+<dl>
+<dd>则称为单图。</dd>
+</dl>
+<p><br /></p>
+<p><a name=".E5.9B.BE.E7.9A.84.E5.AD.98.E5.82.A8.E8.A1.A8.E7.A4.BA"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=%E5%9B%BE&amp;action=edit&amp;section=10" title="编辑本节">编辑</a>]</span> <span class="mw-headline">图的存储表示</span></h2>
+<ul>
+<li>数组（<a href="/wiki/%E9%82%BB%E6%8E%A5%E7%9F%A9%E9%98%B5" title="邻接矩阵">邻接矩阵</a>）存储表示（有向或无向）</li>
+<li><a href="/wiki/%E9%82%BB%E6%8E%A5%E8%A1%A8" title="邻接表">邻接表</a>存储表示</li>
+<li><a href="/wiki/%E6%9C%89%E5%90%91%E5%9B%BE" title="有向图">有向图</a>的<a href="/w/index.php?title=%E5%8D%81%E5%AD%97%E9%93%BE%E8%A1%A8&amp;action=edit" class="new" title="十字链表">十字链表</a>存储表示</li>
+<li><a href="/w/index.php?title=%E6%97%A0%E5%90%91%E5%9B%BE&amp;action=edit" class="new" title="无向图">无向图</a>的<a href="/w/index.php?title=%E9%82%BB%E6%8E%A5%E5%A4%9A%E9%87%8D%E8%A1%A8&amp;action=edit" class="new" title="邻接多重表">邻接多重表</a>存储表示</li>
+</ul>
+<p>一个不带权图中若两点不相邻，邻接矩阵相应位置为0，对带权图(网)，相应位置为∞。一个图的邻接矩阵表示是唯一的，但其邻接表表示不唯一。在邻接表中，对图中每个顶点建立一个单链表（并按建立的次序编号），第i个单链表中的结点表示依附于顶点vi的边（对于有向图是以顶点vi为尾的弧）。每个结点由两个域组成：邻接点域(adjvex)，用以指示与vi邻接的点在图中的位置，链域(nextarc)用以指向依附于顶点vi的下一条边所对应的结点。如果用邻接表存放网（带权图）的信息，则还需要在结点中增加一个存放权值的域（info）。每个顶点的单链表中结点的个数即为该顶点的出度(与该顶点连接的边的总数)。无论是存储图或网，都需要在每个单链表前设一表头结点，这些表头结点的第一个域data用于存放结点vi的编号i，第二个域firstarc用于指向链表中第一个结点。</p>
+<p><a name=".E5.9B.BE.E7.9A.84.E9.81.8D.E5.8E.86"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=%E5%9B%BE&amp;action=edit&amp;section=11" title="编辑本节">编辑</a>]</span> <span class="mw-headline">图的遍历</span></h2>
+<p>图的遍历方法有<a href="/wiki/%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2%E6%B3%95" title="深度优先搜索法">深度优先搜索法</a>和<a href="/wiki/%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2%E6%B3%95" title="广度优先搜索法">广度(宽度)优先搜索法</a>。</p>
+<p><b>深度优先搜索法</b>是树的先根遍历的推广，它的基本思想是：从图G的某个顶点v0出发，访问v0，然后选择一个与v0相邻且没被访问过的顶点vi访问，再从vi出发选择一个与vi相邻且未被访问的顶点vj进行访问，依次继续。如果当前被访问过的顶点的所有邻接顶点都已被访问，则退回到已被访问的顶点序列中最后一个拥有未被访问的相邻顶点的顶点w，从w出发按同样的方法向前遍历，直到图中所有顶点都被访问。其递归算法如下：</p>
+<pre>
+Boolean visited[MAX_VERTEX_NUM];        //访问标志数组
+Status (*VisitFunc)(int v);     //VisitFunc是访问函数，对图的每个顶点调用该函数
+void DFSTraverse (Graph G, Status(*Visit)(int v)){
+        VisitFunc = Visit;
+        for(v=0; v&lt;G.vexnum; ++v)
+                visited[v] = FALSE;     //访问标志数组初始化
+        for(v=0; v&lt;G.vexnum; ++v)
+                if(!visited[v])
+                        DFS(G, v);      //对尚未访问的顶点调用DFS
+}
+void DFS(Graph G, int v){ //从第v个顶点出发递归地深度优先遍历图G
+visited[v]=TRUE;        VisitFunc(v);   //访问第v个顶点
+for(w=FirstAdjVex(G,v); w&gt;=0; w=NextAdjVex(G,v,w))
+//FirstAdjVex返回v的第一个邻接顶点，若顶点在G中没有邻接顶点，则返回空(0)，//若w是v的邻接顶点，NextAdjVex返回v的（相对于w的）下一个邻接顶点。
+//若w是v的最后一个邻接点，则返回空(0)。
+                if(!visited[w])
+                        DFS(G, w);      //对v的尚未访问的邻接顶点w调用DFS
+}
+</pre>
+<p>图的<b>广度优先搜索</b>是树的按层次遍历的推广，它的基本思想是：首先访问初始点vi，并将其标记为已访问过，接着访问vi的所有未被访问过的邻接点vi1,vi2, …, vi t，并均标记已访问过，然后再按照vi1,vi2, …, vi t的次序，访问每一个顶点的所有未被访问过的邻接点，并均标记为已访问过，依次类推，直到图中所有和初始点vi有路径相通的顶点都被访问过为止。其非递归算法如下：</p>
+<pre>
+Boolean visited[MAX_VERTEX_NUM];        //访问标志数组
+Status (*VisitFunc)(int v);     //VisitFunc是访问函数，对图的每个顶点调用该函数
+void BFSTraverse (Graph G, Status(*Visit)(int v)){
+        VisitFunc = Visit;
+for(v=0; v&lt;G.vexnum, ++v)
+                visited[v] = FALSE;
+                initQueue(Q);   //置空辅助队列Q
+        for(v=0; v&lt;G.vexnum; ++v)
+                if(!visited[v]){
+                        visited[v]=TRUE;        VisitFunc(v);
+                        EnQueue(Q, v);  //v入队列
+                        while(!QueueEmpty(Q)){
+                                DeQueue(Q, u);  //队头元素出队并置为u
+                                for(w=FirstAdjVex(G,u); w&gt;=0; w=NextAdjVex(G,u,w))
+                                        if(!Visited[w]){        //w为u的尚未访问的邻接顶点
+                                                Visited[w]=TRUE;        VisitFunc(w);
+                                                EnQueue(Q, w);
+                                        }
+                        }
+                }
+}
+</pre>
+<p><br /></p>
+<p><a name=".E9.87.8D.E8.A6.81.E7.9A.84.E5.9B.BE"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=%E5%9B%BE&amp;action=edit&amp;section=12" title="编辑本节">编辑</a>]</span> <span class="mw-headline">重要的图</span></h2>
+<ul>
+<li><a href="/wiki/%E6%A0%91" title="树">树</a></li>
+<li><a href="/wiki/%E5%B9%B3%E9%9D%A2%E5%9C%96" title="平面圖">平面图</a></li>
+<li><a href="/w/index.php?title=%E8%BF%9E%E9%80%9A%E5%9B%BE&amp;action=edit" class="new" title="连通图">连通图</a>
+<ul>
+<li><a href="/w/index.php?title=%E5%BC%BA%E8%BF%9E%E9%80%9A%E5%9B%BE&amp;action=edit" class="new" title="强连通图">强连通图</a></li>
+</ul>
+</li>
+<li><a href="/w/index.php?title=%E6%9C%89%E5%90%91%E6%97%A0%E7%8E%AF%E5%9B%BE&amp;action=edit" class="new" title="有向无环图">有向无环图</a>
+<ul>
+<li><a href="/w/index.php?title=AOV%E7%BD%91&amp;action=edit" class="new" title="AOV网">AOV网</a></li>
+<li><a href="/wiki/AOE%E7%BD%91" title="AOE网">AOE网</a></li>
+</ul>
+</li>
+<li><a href="/wiki/%E5%AE%8C%E5%85%A8%E5%9C%96" title="完全圖">完全图</a>：每一对不同顶点间都有边相连的的图，记作<span class="texhtml"><i>K</i><sub><i>n</i></sub></span>。</li>
+<li><a href="/wiki/%E4%BA%8C%E5%88%86%E5%9C%96" title="二分圖">二分图</a>：顶集<img class="tex" alt="V=X\cup Y(X\cap Y=\phi)" src="http://upload.wikimedia.org/math/9/3/7/9376591ad93e65a09d8a4038cc28bb6b.png" />，且每一条边都有一个顶点在<span class="texhtml"><i>X</i></span>中，而另一个顶点在<span class="texhtml"><i>Y</i></span>中。
+<ul>
+<li><a href="/w/index.php?title=%E5%AE%8C%E5%85%A8%E4%BA%8C%E5%88%86%E5%9B%BE&amp;action=edit" class="new" title="完全二分图">完全二分图</a>：二分图<span class="texhtml"><i>G</i></span>中若任意两个<span class="texhtml"><i>X</i></span>和<span class="texhtml"><i>Y</i></span>中的顶点都有边相连。若<img class="tex" alt="\left|X\right|=m,\left|Y\right|=n" src="http://upload.wikimedia.org/math/6/b/7/6b7d9656e946652d68193748249acbeb.png" />，则图<span class="texhtml"><i>G</i></span>记作<span class="texhtml"><i>K</i><sub><i>m</i>,<i>n</i></sub></span>。</li>
+</ul>
+</li>
+<li><a href="/wiki/%E6%AD%A3%E5%89%87%E5%9C%96" title="正則圖">正则图</a>：如果图中所有顶点的度皆相等，则此图称为正则图</li>
+</ul>
+<p><a name=".E5.8F.83.E8.80.83"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=%E5%9B%BE&amp;action=edit&amp;section=13" title="编辑本节">编辑</a>]</span> <span class="mw-headline">參考</span></h2>
+<ol>
+<li>Introduction To Graph Theory, Gary Chartrand and Ping Zhang, McGraw Hill</li>
+</ol>
+<p><a name=".E5.8F.82.E9.98.85"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=%E5%9B%BE&amp;action=edit&amp;section=14" title="编辑本节">编辑</a>]</span> <span class="mw-headline">参阅</span></h2>
+<ul>
+<li><a href="/wiki/%E5%9B%BE%E8%AE%BA" title="图论">图论</a></li>
+<li><a href="/wiki/%E9%82%BB%E6%8E%A5%E7%9F%A9%E9%98%B5" title="邻接矩阵">邻接矩阵</a></li>
+</ul>
+<p><a name=".E5.A4.96.E9.83.A8.E9.80.A3.E7.B5.90"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=%E5%9B%BE&amp;action=edit&amp;section=15" title="编辑本节">编辑</a>]</span> <span class="mw-headline">外部連結</span></h2>
+<ul>
+<li><a href="http://www.math.uni-hamburg.de/home/diestel/books/graph.theory/" class="external text" title="http://www.math.uni-hamburg.de/home/diestel/books/graph.theory/" rel="nofollow">Graph Theory</a>（可下載的書籍，英語）</li>
+</ul>
+
+
+<!-- Saved in parser cache with key zhwiki:pcache:idhash:47019-0!1!0!!zh!2!zh and timestamp 20070915004416 -->
+<div class="printfooter">
+来自“<a href="http://zh.wikipedia.org/wiki/%E5%9B%BE">http://zh.wikipedia.org/wiki/%E5%9B%BE</a>”</div>
+			<div id="catlinks"><p class='catlinks'><a href="/wiki/Special:Categories" title="Special:Categories">2个分类</a>: <span dir='ltr'><a href="/wiki/Category:%E5%9B%BE%E8%AE%BA" title="Category:图论">图论</a></span> | <span dir='ltr'><a href="/wiki/Category:%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84" title="Category:数据结构">数据结构</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>查看</h5>
+		<div class="pBody">
+			<ul>
+					 <li id="ca-nstab-main" class="selected"><a href="/wiki/%E5%9B%BE" title="查看页面内容 [c]" accesskey="c">条目</a></li>
+					 <li id="ca-talk" class="new"><a href="/w/index.php?title=Talk:%E5%9B%BE&amp;action=edit" title="关于条目正文的讨论 [t]" accesskey="t">讨论</a></li>
+					 <li id="ca-edit"><a href="/w/index.php?title=%E5%9B%BE&amp;action=edit" title="你可编辑此页。请在保存前先预览一下。 [e]" accesskey="e">编辑本页</a></li>
+					 <li id="ca-history"><a href="/w/index.php?title=%E5%9B%BE&amp;action=history" title="本页面的早前版本。 [h]" accesskey="h">历史</a></li>
+					 <li id="ca-varlang-0" class="selected"><a href="/w/index.php?title=%E5%9B%BE&amp;variant=zh">不转换</a></li>
+					 <li id="ca-varlang-1"><a href="/w/index.php?title=%E5%9B%BE&amp;variant=zh-cn">大陆简体</a></li>
+					 <li id="ca-varlang-2"><a href="/w/index.php?title=%E5%9B%BE&amp;variant=zh-tw">台灣正體</a></li>
+					 <li id="ca-varlang-3"><a href="/w/index.php?title=%E5%9B%BE&amp;variant=zh-sg">马新简体</a></li>
+					 <li id="ca-varlang-4"><a href="/w/index.php?title=%E5%9B%BE&amp;variant=zh-hk">港澳繁體</a></li>
+				</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-personal">
+		<h5>个人工具</h5>
+		<div class="pBody">
+			<ul>
+				<li id="pt-login"><a href="/w/index.php?title=Special:Userlogin&amp;returnto=%E5%9B%BE" title="建议你登录，尽管并非必须。 [o]" accesskey="o">登录或创建账户</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-logo">
+		<a style="background-image: url(http://upload.wikimedia.org/wikipedia/zh/b/bc/Wiki.png);" href="/wiki/%E9%A6%96%E9%A1%B5" title="访问首页 [z]" accesskey="z"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>导航</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="/wiki/%E9%A6%96%E9%A1%B5" title="访问首页 [z]" accesskey="z">首页</a></li>
+				<li id="n-portal"><a href="/wiki/Wikipedia:%E7%A4%BE%E5%8C%BA%E4%B8%BB%E9%A1%B5" title="关于本计划、你可以做什么、应该如何做">社区主页</a></li>
+				<li id="n-currentevents"><a href="/wiki/Portal:%E6%96%B0%E8%81%9E%E5%8B%95%E6%85%8B" title="提供当前新闻事件的背景资料">新闻动态</a></li>
+				<li id="n-recentchanges"><a href="/wiki/Special:Recentchanges" title="列出维基百科中的最近修改 [r]" accesskey="r">最近更改</a></li>
+				<li id="n-Featured_content"><a href="/wiki/Wikipedia:%E7%89%B9%E8%89%B2%E5%85%A7%E5%AE%B9">特色内容</a></li>
+				<li id="n-randompage"><a href="/wiki/Special:Random" title="随机载入一个页面 [x]" accesskey="x">随机条目</a></li>
+			</ul>
+		</div>
+	</div>
+		<div class='portlet' id='p-help'>
+		<h5>帮助</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-help"><a href="/wiki/Help:%E7%9B%AE%E5%BD%95" title="寻求帮助">帮助</a></li>
+				<li id="n-villagepump"><a href="/wiki/Wikipedia:%E4%BA%92%E5%8A%A9%E5%AE%A2%E6%A0%88">互助客栈</a></li>
+				<li id="n-policy"><a href="/wiki/Wikipedia:%E6%96%B9%E9%87%9D%E8%88%87%E6%8C%87%E5%BC%95">方针与指引</a></li>
+				<li id="n-Information_desk"><a href="/wiki/Wikipedia:%E8%A9%A2%E5%95%8F%E8%99%95">询问处</a></li>
+				<li id="n-conversion"><a href="/wiki/Wikipedia:%E7%B9%81%E7%AE%80%E4%BD%93%E8%BD%AC%E6%8D%A2%E8%AF%B7%E6%B1%82">繁简转换</a></li>
+				<li id="n-allpages"><a href="/wiki/Special:Allpages">所有页面</a></li>
+				<li id="n-contact"><a href="/wiki/Wikipedia:%E8%81%94%E7%B3%BB%E6%88%91%E4%BB%AC">联系我们</a></li>
+				<li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/%E8%B5%84%E5%8A%A9" title="如果您在維基百科受益良多，您可以考慮資助我們">资助维基百科</a></li>
+			</ul>
+		</div>
+	</div>
+		<div id="p-search" class="portlet">
+		<h5><label for="searchInput">搜索</label></h5>
+		<div id="searchBody" class="pBody">
+			<form action="/wiki/Special:Search" id="searchform"><div>
+				<input id="searchInput" name="search" type="text" title="搜索维基百科 [f]" accesskey="f" value="" />
+				<input type='submit' name="go" class="searchButton" id="searchGoButton"	value="进入" />&nbsp;
+				<input type='submit' name="fulltext" class="searchButton" id="mw-searchButton" value="搜索" />
+			</div></form>
+		</div>
+	</div>
+	<div class="portlet" id="p-tb">
+		<h5>工具</h5>
+		<div class="pBody">
+			<ul>
+				<li id="t-whatlinkshere"><a href="/wiki/Special:Whatlinkshere/%E5%9B%BE" title="列出所有与本页相链的页面 [j]" accesskey="j">链入页面</a></li>
+				<li id="t-recentchangeslinked"><a href="/wiki/Special:Recentchangeslinked/%E5%9B%BE" title="页面链出所有页面的更改 [k]" accesskey="k">链出更改</a></li>
+<li id="t-upload"><a href="http://zh.wikipedia.org/wiki/Project:%E4%B8%8A%E4%BC%A0" title="上传图像或多媒体文件 [&nbsp;]" accesskey="&nbsp;">上传文件</a></li>
+<li id="t-specialpages"><a href="/wiki/Special:Specialpages" title="全部特殊页面的列表 [q]" accesskey="q">特殊页面</a></li>
+				<li id="t-print"><a href="/w/index.php?title=%E5%9B%BE&amp;printable=yes" title="这个页面的可打印版本 [p]" accesskey="p">打印页面</a></li>				<li id="t-permalink"><a href="/w/index.php?title=%E5%9B%BE&amp;oldid=2759125" title="这个页面版本的永久链接">永久链接</a></li><li id="t-cite"><a href="/w/index.php?title=Special:Cite&amp;page=%E5%9B%BE&amp;id=2759125">引用此文</a></li>			</ul>
+		</div>
+	</div>
+	<div id="p-lang" class="portlet">
+		<h5>其他语言</h5>
+		<div class="pBody">
+			<ul>
+				<li class="interwiki-bg"><a href="http://bg.wikipedia.org/wiki/%D0%93%D1%80%D0%B0%D1%84_%28%D0%BC%D0%B0%D1%82%D0%B5%D0%BC%D0%B0%D1%82%D0%B8%D0%BA%D0%B0%29">Български</a></li>
+				<li class="interwiki-de"><a href="http://de.wikipedia.org/wiki/Graph_%28Graphentheorie%29">Deutsch</a></li>
+				<li class="interwiki-en"><a href="http://en.wikipedia.org/wiki/Graph_%28mathematics%29">English</a></li>
+				<li class="interwiki-hu"><a href="http://hu.wikipedia.org/wiki/Gr%C3%A1f_%28halmazelm%C3%A9let%29">Magyar</a></li>
+				<li class="interwiki-it"><a href="http://it.wikipedia.org/wiki/Grafo">Italiano</a></li>
+				<li class="interwiki-lt"><a href="http://lt.wikipedia.org/wiki/Grafas_%28matematika%29">Lietuvių</a></li>
+				<li class="interwiki-pl"><a href="http://pl.wikipedia.org/wiki/Graf_%28matematyka%29">Polski</a></li>
+				<li class="interwiki-ru"><a href="http://ru.wikipedia.org/wiki/%D0%93%D1%80%D0%B0%D1%84_%28%D0%BC%D0%B0%D1%82%D0%B5%D0%BC%D0%B0%D1%82%D0%B8%D0%BA%D0%B0%29">Русский</a></li>
+				<li class="interwiki-th"><a href="http://th.wikipedia.org/wiki/%E0%B8%81%E0%B8%A3%E0%B8%B2%E0%B8%9F_%28%E0%B8%84%E0%B8%93%E0%B8%B4%E0%B8%95%E0%B8%A8%E0%B8%B2%E0%B8%AA%E0%B8%95%E0%B8%A3%E0%B9%8C%29">ไทย</a></li>
+			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="/skins-1.5/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>
+				<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="/images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>
+			<ul id="f-list">
+				<li id="lastmod"> 最后更改 2006年10月17日 (星期二) 17:00。</li>
+				<li id="copyright">本站的全部文本内容在<a class="internal" href="/wiki/Wikipedia:GNU%E8%87%AA%E7%94%B1%E6%96%87%E6%A1%A3%E8%AE%B8%E5%8F%AF%E8%AF%81%E6%96%87%E6%9C%AC" title="Wikipedia:GNU自由文档许可证文本">GNU自由文档许可证</a>之条款下提供（<b><a class="internal" href="/wiki/Wikipedia:%E7%89%88%E6%9D%83%E4%BF%A1%E6%81%AF">详情</a></b>）。<br />
+Wikipedia&reg;是<a href="http://www.wikimediafoundation.org">维基媒体基金会</a>的注册商标；維基&trade;是維基媒體基金會的商標。<br />維基媒體基金會是在美國佛羅里達州登記的501(c)(3)<a href="http://wikimediafoundation.org/wiki/%E8%B5%84%E5%8A%A9%E7%9A%84%E5%85%8D%E7%A8%8E%E6%94%BF%E7%AD%96">免稅</a>、非營利、慈善機構。<br /></li>
+				<li id="privacy"><a href="http://wikimediafoundation.org/wiki/%E9%9A%90%E7%A7%81%E6%94%BF%E7%AD%96" title="wikimedia:隐私政策">隐私政策</a></li>
+				<li id="about"><a href="/wiki/Wikipedia:%E5%85%B3%E4%BA%8E" title="Wikipedia:关于">关于维基百科</a></li>
+				<li id="disclaimer"><a href="/wiki/Wikipedia:%E5%85%8D%E8%B4%A3%E5%A3%B0%E6%98%8E" title="Wikipedia:免责声明">免责声明</a></li>
+			</ul>
+		</div>
+		
+	
+		<script type="text/javascript">if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by srv125 in 0.748 secs. --></body></html>

@@ -1,0 +1,236 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de" lang="de" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+				<meta name="keywords" content="Algorithmus von Floyd und Warshall,1956,1962,A*-Algorithmus,Adjazenzmatrix (Graphentheorie),Algorithmus,Algorithmus von Dijkstra,Association for Computing Machinery,Bellman-Ford-Algorithmus,Dynamische Programmierung,Graphentheorie" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (Deutsch)" />
+		<link rel="copyright" href="http://www.gnu.org/copyleft/fdl.html" />
+		<title>Algorithmus von Floyd und Warshall - Wikipedia</title>
+		<style type="text/css" media="screen, projection">/*<![CDATA[*/
+			@import "/skins-1.5/common/shared.css?99";
+			@import "/skins-1.5/monobook/main.css?99";
+		/*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="/skins-1.5/common/commonPrint.css?99" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE50Fixes.css?99";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE55Fixes.css?99";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "/skins-1.5/monobook/IE60Fixes.css?99";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "/skins-1.5/monobook/IE70Fixes.css?99";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="/skins-1.5/common/IEFixes.js?99"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		
+		<script type= "text/javascript">/*<![CDATA[*/
+var skin = "monobook";
+var stylepath = "/skins-1.5";
+var wgArticlePath = "/wiki/$1";
+var wgScriptPath = "/w";
+var wgScript = "/w/index.php";
+var wgServer = "http://de.wikipedia.org";
+var wgCanonicalNamespace = "";
+var wgCanonicalSpecialPageName = false;
+var wgNamespaceNumber = 0;
+var wgPageName = "Algorithmus_von_Floyd_und_Warshall";
+var wgTitle = "Algorithmus von Floyd und Warshall";
+var wgAction = "view";
+var wgRestrictionEdit = [];
+var wgRestrictionMove = [];
+var wgArticleId = "316395";
+var wgIsArticle = true;
+var wgUserName = null;
+var wgUserGroups = null;
+var wgUserLanguage = "de";
+var wgContentLanguage = "de";
+var wgBreakFrames = false;
+var wgCurRevisionId = "36061445";
+/*]]>*/</script>
+                
+		<script type="text/javascript" src="/skins-1.5/common/wikibits.js?99"><!-- wikibits js --></script>
+		<script type="text/javascript" src="/w/index.php?title=-&amp;action=raw&amp;gen=js&amp;useskin=monobook"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "/w/index.php?title=MediaWiki:Common.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=MediaWiki:Monobook.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=-&action=raw&gen=css&maxage=2678400";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+		<script type="text/javascript" src="/skins-1.5/common/ajax.js?99"></script>
+	</head>
+<body  class="mediawiki ns-0 ltr page-Algorithmus_von_Floyd_und_Warshall">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+		<div id="siteNotice"><script type="text/javascript" language="JavaScript">
+<!--
+document.writeln("\x3cdiv style=\"position:absolute; z-index:100; right:5px; top:-20px;\" class=\"metadata\" id=\"donate\"\x3e\n\x3cdiv style=\"text-align:right; font-size:80%\"\x3e\x3ca href=\"http://wikimediafoundation.org/wiki/Spenden\" class=\"extiw\" title=\"wikimedia:Spenden\"\x3eIhre \x3cb\x3eSpenden\x3c/b\x3e\x3c/a\x3e helfen, Wikipedia zu betreiben. \n\x3c/div\x3e\x3c/div\x3e\n");
+-->
+</script></div>		<h1 class="firstHeading">Algorithmus von Floyd und Warshall</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">aus Wikipedia, der freien Enzyklopädie</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Wechseln zu: <a href="#column-one">Navigation</a>, <a href="#searchInput">Suche</a></div>			<!-- start content -->
+			<p>Der <b>Algorithmus von Floyd und Warshall</b> (auch <i>Floyd-Warshall-Algorithmus</i> oder <i>Tripel-Algorithmus</i>), benannt nach <a href="/wiki/Robert_Floyd" title="Robert Floyd">Robert Floyd</a> und <a href="/w/index.php?title=Stephen_Warshall&amp;action=edit" class="new" title="Stephen Warshall">Stephen Warshall</a>, ist ein <a href="/wiki/Algorithmus" title="Algorithmus">Algorithmus</a> der <a href="/wiki/Graphentheorie" title="Graphentheorie">Graphentheorie</a>. Er findet die Länge der kürzesten Wege zwischen allen Paaren von Knoten eines gewichteten Graphen (engl. <i>All Pairs Shortest Path Problem</i> = APSP, oder auch: <i>All Pairs Best Path Problem</i> = APBP) in der Version Floyds oder die <a href="/wiki/Transitive_H%C3%BClle" title="Transitive Hülle">reflexive, transitive Hülle</a> eines Graphen in der Version Warshalls. Beide Versionen wurden im Jahr <a href="/wiki/1962" title="1962">1962</a> vorgestellt und gehen eigentlich zurück auf einen Algorithmus, den <a href="/wiki/Stephen_Kleene" title="Stephen Kleene">Stephen Kleene</a> im Jahr <a href="/wiki/1956" title="1956">1956</a> im Zusammenhang mit <a href="/wiki/Regul%C3%A4rer_Ausdruck" title="Regulärer Ausdruck">regulären Ausdrücken</a> veröffentlicht hat.</p>
+<p>Der Floyd-Warshall-Algorithmus basiert auf dem Prinzip der <a href="/wiki/Dynamische_Programmierung" title="Dynamische Programmierung">dynamischen Programmierung</a>.</p>
+<p>Der Floyd-Algorithmus geht von folgender Beobachtung aus:</p>
+<p>Geht der kürzeste Weg von <i>u</i> nach <i>v</i> durch <i>w</i>, dann sind die enthaltenen Teilpfade von <i>u</i> nach <i>w</i> und von <i>w</i> nach <i>v</i> schon minimal. Nimmt man also an, man kennt schon die kürzesten Wege zwischen allen Knotenpaaren, die nur über Knoten mit Index kleiner als <i>k</i> führen und man sucht alle kürzesten Wege über Knoten mit Index kleiner oder gleich <i>k</i>, dann hat man für einen Pfad von <i>u</i> nach <i>v</i> zwei Möglichkeiten: Entweder er geht über den Knoten <i>k</i>, dann setzt er sich zusammen aus schon bekannten Pfaden von <i>u</i> nach <i>k</i> und von <i>k</i> nach <i>v</i>, oder es ist der schon bekannte Weg von <i>u</i> nach <i>v</i> über Knoten kleiner als <i>k</i>.</p>
+<p>Angenommen der Graph ist gegeben durch seine Gewichtsmatrix <i>w</i>.</p>
+<p><i>w[i,j]</i> ist das Gewicht der Kante von <i>i</i> nach <i>j</i>, falls eine solche Kante existiert. <i>w[i,j]</i> ist unendlich, falls es keine Kante von <i>i</i> nach <i>j</i> gibt.</p>
+<p>Dann kann man die Matrix <i>d</i> der kürzesten Distanzen durch folgendes Verfahren bestimmen:</p>
+<pre>
+<u><b>Algorithmus von Floyd</b></u>
+
+(1) Für alle i,j : d[i,j] = w[i,j]
+(2) Für k = 1 bis <i>n</i>
+(3)    Für alle Paare <i>i,j</i>
+(4)        d[i,j] = min (d[i,j],d[i,k] + d[k,j])
+</pre>
+<p>Will man die transitive Hülle berechnen, ändert man den Algorithmus folgendermaßen ab:</p>
+<p><i>w</i> ist die <a href="/wiki/Adjazenzmatrix_%28Graphentheorie%29" title="Adjazenzmatrix (Graphentheorie)">Adjazenzmatrix</a>, das heißt <i>w[i,j]</i> ist 1 falls eine Kante von <i>i</i> nach <i>j</i> existiert, 0 falls keine Kante existiert.</p>
+<p>Die Matrix <i>d</i> wird so berechnet, dass <i>d[i,j]</i> gleich 1, genau dann, wenn ein Pfad von <i>i</i> nach <i>j</i> existiert:</p>
+<pre>
+<u><b>Algorithmus von Warshall</b></u>
+
+(1) Für k = 1 bis n
+(2)   Für i = 1 bis n
+(3)     Falls d[i,k] = 1
+(4)       Für j = 1 bis n
+(5)         Falls d[k,j] = 1 : d[i,j] = 1
+</pre>
+<p>In Zeile (5) wird <i>d[i,j]</i> auf 1 gesetzt, genau dann, wenn ein Pfad von <i>i</i> nach <i>k</i> und ein Pfad von <i>k</i> nach <i>j</i> über Kanten mit Index kleiner als <i>k</i> existiert.</p>
+<p>Der Floyd-Algorithmus funktioniert auch, wenn die Kanten negatives Gewicht haben können, allerdings werden Zyklen mit negativer Länge (anders als beim <a href="/wiki/Bellman-Ford-Algorithmus" title="Bellman-Ford-Algorithmus">Bellman-Ford-Algorithmus</a>) nicht erkannt und führen zu einem falschen Ergebnis. Erkennbar werden negative Zyklen aber im Nachhinein durch negative Werte auf der Diagonalen der Distanzmatrix.</p>
+<p>Die Laufzeit des Floyd-Warshall-Algorithmus ist <span class="texhtml"><i>O</i>(<i>n</i><sup>3</sup>)</span>, denn die Zeile (4) wird weniger als <span class="texhtml"><i>n</i><sup>3</sup></span> mal ausgeführt, da die Zahl der Paare <span class="texhtml"><i>i</i>,<i>j</i></span> quadratisch beschränkt ist.</p>
+<p><a name="Andere_Verfahren_zur_Berechnung_k.C3.BCrzester_Pfade" id="Andere_Verfahren_zur_Berechnung_k.C3.BCrzester_Pfade"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Algorithmus_von_Floyd_und_Warshall&amp;action=edit&amp;section=1" title="Abschnitt bearbeiten: Andere Verfahren zur Berechnung kürzester Pfade">Bearbeiten</a>]</span> <span class="mw-headline">Andere Verfahren zur Berechnung kürzester Pfade</span></h2>
+<ul>
+<li><a href="/wiki/A%2A-Algorithmus" title="A*-Algorithmus">A*-Algorithmus</a></li>
+<li><a href="/wiki/Algorithmus_von_Dijkstra" title="Algorithmus von Dijkstra">Algorithmus von Dijkstra</a></li>
+<li><a href="/wiki/Bellman-Ford-Algorithmus" title="Bellman-Ford-Algorithmus">Bellman-Ford-Algorithmus</a></li>
+</ul>
+<p><a name="Literatur" id="Literatur"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Algorithmus_von_Floyd_und_Warshall&amp;action=edit&amp;section=2" title="Abschnitt bearbeiten: Literatur">Bearbeiten</a>]</span> <span class="mw-headline">Literatur</span></h2>
+<ul>
+<li>Robert W. Floyd: <i>Algorithm 97 (SHORTEST PATH)</i>, in Communications of the <a href="/wiki/Association_for_Computing_Machinery" title="Association for Computing Machinery">ACM</a>, 5(6), p. 345, 1962.</li>
+<li>Stephen Warshall: <i>A Theorem on Boolean Matrices</i>, in Journal of the <a href="/wiki/Association_for_Computing_Machinery" title="Association for Computing Machinery">ACM</a>, 9(1), pp. 11-12, 1962.</li>
+</ul>
+<p><a name="Weblinks" id="Weblinks"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Algorithmus_von_Floyd_und_Warshall&amp;action=edit&amp;section=3" title="Abschnitt bearbeiten: Weblinks">Bearbeiten</a>]</span> <span class="mw-headline">Weblinks</span></h2>
+<ul>
+<li><a href="http://www.iti.fh-flensburg.de/lang/algorithmen/graph/warshall.htm" class="external free" title="http://www.iti.fh-flensburg.de/lang/algorithmen/graph/warshall.htm" rel="nofollow">http://www.iti.fh-flensburg.de/lang/algorithmen/graph/warshall.htm</a></li>
+<li><a href="http://www-m9.ma.tum.de/java-applets/routenplanung/Algorithmen/FloydWarshall" class="external free" title="http://www-m9.ma.tum.de/java-applets/routenplanung/Algorithmen/FloydWarshall" rel="nofollow">http://www-m9.ma.tum.de/java-applets/routenplanung/Algorithmen/FloydWarshall</a> Java-Applet an der Technischen Universität München</li>
+<li><a href="http://www.pms.ifi.lmu.de/lehre/compgeometry/Gosper/shortest_path/shortest_path.html#visualization" class="external text" title="http://www.pms.ifi.lmu.de/lehre/compgeometry/Gosper/shortest_path/shortest_path.html#visualization" rel="nofollow">Weiteres Java-Applet zur Demonstration</a></li>
+<li><a href="http://portal.acm.org/citation.cfm?id=368168&amp;coll=portal&amp;dl=ACM" class="external free" title="http://portal.acm.org/citation.cfm?id=368168&amp;coll=portal&amp;dl=ACM" rel="nofollow">http://portal.acm.org/citation.cfm?id=368168&amp;coll=portal&amp;dl=ACM</a> Robert W. Floyd: Algorithm 97 (SHORTEST PATH), in Communications of the ACM, 5(6), p. 345, 1962.</li>
+</ul>
+
+
+<!-- Saved in parser cache with key dewiki:pcache:idhash:316395-0!1!0!!de!2 and timestamp 20070914114158 -->
+<div class="printfooter">
+Von „<a href="http://de.wikipedia.org/wiki/Algorithmus_von_Floyd_und_Warshall">http://de.wikipedia.org/wiki/Algorithmus_von_Floyd_und_Warshall</a>“</div>
+			<div id="catlinks"><p class='catlinks'><a href="/wiki/Spezial:Categories" title="Spezial:Categories">Kategorien</a>: <span dir='ltr'><a href="/wiki/Kategorie:Graphentheorie" title="Kategorie:Graphentheorie">Graphentheorie</a></span> | <span dir='ltr'><a href="/wiki/Kategorie:Suchalgorithmus" title="Kategorie:Suchalgorithmus">Suchalgorithmus</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Ansichten</h5>
+		<div class="pBody">
+			<ul>
+					 <li id="ca-nstab-main" class="selected"><a href="/wiki/Algorithmus_von_Floyd_und_Warshall" title="Seiteninhalt anzeigen [c]" accesskey="c">Artikel</a></li>
+					 <li id="ca-talk"><a href="/wiki/Diskussion:Algorithmus_von_Floyd_und_Warshall" title="Diskussion zum Seiteninhalt [t]" accesskey="t">Diskussion</a></li>
+					 <li id="ca-edit"><a href="/w/index.php?title=Algorithmus_von_Floyd_und_Warshall&amp;action=edit" title="Seite bearbeiten. Bitte vor dem Speichern die Vorschaufunktion benutzen. [e]" accesskey="e">Seite bearbeiten</a></li>
+					 <li id="ca-history"><a href="/w/index.php?title=Algorithmus_von_Floyd_und_Warshall&amp;action=history" title="Frühere Versionen dieser Seite [h]" accesskey="h">Versionen/Autoren</a></li>
+				</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-personal">
+		<h5>Persönliche Werkzeuge</h5>
+		<div class="pBody">
+			<ul>
+				<li id="pt-login"><a href="/w/index.php?title=Spezial:Anmelden&amp;returnto=Algorithmus_von_Floyd_und_Warshall" title="Sich einzuloggen wird zwar gerne gesehen, ist aber keine Pflicht. [o]" accesskey="o">Anmelden</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-logo">
+		<a style="background-image: url(http://upload.wikimedia.org/wikipedia/de/b/bc/Wiki.png);" href="/wiki/Hauptseite" title="Hauptseite anzeigen [z]" accesskey="z"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="/wiki/Hauptseite" title="Hauptseite anzeigen [z]" accesskey="z">Hauptseite</a></li>
+				<li id="n-aboutsite"><a href="/wiki/Wikipedia:%C3%9Cber_Wikipedia">Über Wikipedia</a></li>
+				<li id="n-topics"><a href="/wiki/Portal:Wikipedia_nach_Themen">Themenportale</a></li>
+				<li id="n-alphindex"><a href="/wiki/Spezial:Alle_Seiten">Von A bis Z</a></li>
+				<li id="n-randompage"><a href="/wiki/Spezial:Zuf%C3%A4llige_Seite" title="Zufällige Seite [x]" accesskey="x">Zufälliger Artikel</a></li>
+			</ul>
+		</div>
+	</div>
+		<div class='portlet' id='p-Mitmachen'>
+		<h5>Mitmachen</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-help"><a href="/wiki/Wikipedia:Hilfe" title="Hilfeseite anzeigen">Hilfe</a></li>
+				<li id="n-portal"><a href="/wiki/Wikipedia:Autorenportal" title="Über das Portal, was du tun kannst, wo was zu finden ist">Autorenportal</a></li>
+				<li id="n-recentchanges"><a href="/wiki/Spezial:Letzte_%C3%84nderungen" title="Liste der letzten Änderungen in Wikipedia. [r]" accesskey="r">Letzte Änderungen</a></li>
+				<li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Spenden" title="Unterstützen Sie uns">Spenden</a></li>
+			</ul>
+		</div>
+	</div>
+		<div id="p-search" class="portlet">
+		<h5><label for="searchInput">Suche</label></h5>
+		<div id="searchBody" class="pBody">
+			<form action="/wiki/Spezial:Suche" id="searchform"><div>
+				<input id="searchInput" name="search" type="text" title="Durchsuche die Wikipedia [f]" accesskey="f" value="" />
+				<input type='submit' name="go" class="searchButton" id="searchGoButton"	value="Artikel" />&nbsp;
+				<input type='submit' name="fulltext" class="searchButton" id="mw-searchButton" value="Volltext" />
+			</div></form>
+		</div>
+	</div>
+	<div class="portlet" id="p-tb">
+		<h5>Werkzeuge</h5>
+		<div class="pBody">
+			<ul>
+				<li id="t-whatlinkshere"><a href="/wiki/Spezial:Linkliste/Algorithmus_von_Floyd_und_Warshall" title="Liste aller Seiten, die hierher zeigen [j]" accesskey="j">Links auf diese Seite</a></li>
+				<li id="t-recentchangeslinked"><a href="/wiki/Spezial:%C3%84nderungen_an_verlinkten_Seiten/Algorithmus_von_Floyd_und_Warshall" title="Letzte Änderungen an Seiten, die von hier verlinkt sind [k]" accesskey="k">Änderungen an verlinkten Seiten</a></li>
+<li id="t-upload"><a href="/wiki/Spezial:Hochladen" title="Dateien hochladen [u]" accesskey="u">Hochladen</a></li>
+<li id="t-specialpages"><a href="/wiki/Spezial:Spezialseiten" title="Liste aller Spezialseiten [q]" accesskey="q">Spezialseiten</a></li>
+				<li id="t-print"><a href="/w/index.php?title=Algorithmus_von_Floyd_und_Warshall&amp;printable=yes" title="Druckansicht dieser Seite [p]" accesskey="p">Druckversion</a></li>				<li id="t-permalink"><a href="/w/index.php?title=Algorithmus_von_Floyd_und_Warshall&amp;oldid=36061445" title="Dauerhafter Link zu dieser Seitenversion">Permanentlink</a></li><li id="t-cite"><a href="/w/index.php?title=Spezial:Cite&amp;page=Algorithmus_von_Floyd_und_Warshall&amp;id=36061445">Artikel zitieren</a></li>			</ul>
+		</div>
+	</div>
+	<div id="p-lang" class="portlet">
+		<h5>Andere Sprachen</h5>
+		<div class="pBody">
+			<ul>
+				<li class="interwiki-en"><a href="http://en.wikipedia.org/wiki/Floyd-Warshall_algorithm">English</a></li>
+				<li class="interwiki-es"><a href="http://es.wikipedia.org/wiki/Algoritmo_de_Floyd-Warshall">Español</a></li>
+				<li class="interwiki-fr"><a href="http://fr.wikipedia.org/wiki/Algorithme_de_Warshall">Français</a></li>
+				<li class="interwiki-he"><a href="http://he.wikipedia.org/wiki/%D7%90%D7%9C%D7%92%D7%95%D7%A8%D7%99%D7%AA%D7%9D_%D7%A4%D7%9C%D7%95%D7%99%D7%93-%D7%95%D7%95%D7%A8%D7%A9%D7%90%D7%9C">עברית</a></li>
+				<li class="interwiki-id"><a href="http://id.wikipedia.org/wiki/Algoritma_Floyd-Warshall">Bahasa Indonesia</a></li>
+				<li class="interwiki-it"><a href="http://it.wikipedia.org/wiki/Algoritmo_di_Floyd-Warshall">Italiano</a></li>
+				<li class="interwiki-ja"><a href="http://ja.wikipedia.org/wiki/%E3%83%AF%E3%83%BC%E3%82%B7%E3%83%A3%E3%83%AB-%E3%83%95%E3%83%AD%E3%82%A4%E3%83%89%E6%B3%95">日本語</a></li>
+				<li class="interwiki-pl"><a href="http://pl.wikipedia.org/wiki/Algorytm_Floyda-Warshalla">Polski</a></li>
+				<li class="interwiki-pt"><a href="http://pt.wikipedia.org/wiki/Algoritmo_de_Floyd-Warshall">Português</a></li>
+				<li class="interwiki-sr"><a href="http://sr.wikipedia.org/wiki/%D0%A4%D0%BB%D0%BE%D1%98%D0%B4-%D0%92%D0%BE%D1%80%D1%88%D0%B0%D0%BB%D0%BE%D0%B2_%D0%B0%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%B0%D0%BC">Српски / Srpski</a></li>
+				<li class="interwiki-zh"><a href="http://zh.wikipedia.org/wiki/Floyd-Warshall%E7%AE%97%E6%B3%95">中文</a></li>
+			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="/skins-1.5/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>
+				<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="/images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>
+			<ul id="f-list">
+				<li id="lastmod"> Diese Seite wurde zuletzt am 28. August 2007 um 16:39 Uhr geändert.</li>
+				<li id="copyright">Ihr Inhalt steht unter der <a class='internal' href="/wiki/Wikipedia:GNU_Free_Documentation_License">GNU-Lizenz für freie Dokumentation</a>.<br />
+Wikipedia® ist eine eingetragene Marke der Wikimedia Foundation Inc.<br /></li>
+				<li id="privacy"><a href="/wiki/Wikipedia:Datenschutz" title="Wikipedia:Datenschutz">Datenschutz</a></li>
+				<li id="about"><a href="/wiki/Wikipedia:%C3%9Cber_Wikipedia" title="Wikipedia:Über Wikipedia">Über Wikipedia</a></li>
+				<li id="disclaimer"><a href="/wiki/Wikipedia:Impressum" title="Wikipedia:Impressum">Impressum</a></li>
+			</ul>
+		</div>
+		
+	
+		<script type="text/javascript">if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by srv55 in 0.084 secs. --></body></html>

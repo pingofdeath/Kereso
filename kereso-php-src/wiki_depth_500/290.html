@@ -1,0 +1,516 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de" lang="de" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+				<meta name="keywords" content="A*-Algorithmus,Lesenswerte Artikel,Algorithmus,Algorithmus von Dijkstra,Algorithmus von Floyd und Warshall,Ameisenalgorithmus,Association for Computing Machinery,Augsburg,Bellman-Ford-Algorithmus,Computerspiel,Deutschland" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (Deutsch)" />
+		<link rel="copyright" href="http://www.gnu.org/copyleft/fdl.html" />
+		<title>A*-Algorithmus - Wikipedia</title>
+		<style type="text/css" media="screen, projection">/*<![CDATA[*/
+			@import "/skins-1.5/common/shared.css?97";
+			@import "/skins-1.5/monobook/main.css?97";
+		/*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="/skins-1.5/common/commonPrint.css?97" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE50Fixes.css?97";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE55Fixes.css?97";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "/skins-1.5/monobook/IE60Fixes.css?97";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "/skins-1.5/monobook/IE70Fixes.css?97";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="/skins-1.5/common/IEFixes.js?97"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		
+		<script type= "text/javascript">/*<![CDATA[*/
+var skin = "monobook";
+var stylepath = "/skins-1.5";
+var wgArticlePath = "/wiki/$1";
+var wgScriptPath = "/w";
+var wgScript = "/w/index.php";
+var wgServer = "http://de.wikipedia.org";
+var wgCanonicalNamespace = "";
+var wgCanonicalSpecialPageName = false;
+var wgNamespaceNumber = 0;
+var wgPageName = "A*-Algorithmus";
+var wgTitle = "A*-Algorithmus";
+var wgAction = "view";
+var wgRestrictionEdit = [];
+var wgRestrictionMove = [];
+var wgArticleId = "156968";
+var wgIsArticle = true;
+var wgUserName = null;
+var wgUserGroups = null;
+var wgUserLanguage = "de";
+var wgContentLanguage = "de";
+var wgBreakFrames = false;
+var wgCurRevisionId = "34956818";
+/*]]>*/</script>
+                
+		<script type="text/javascript" src="/skins-1.5/common/wikibits.js?97"><!-- wikibits js --></script>
+		<script type="text/javascript" src="/w/index.php?title=-&amp;action=raw&amp;gen=js&amp;useskin=monobook"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "/w/index.php?title=MediaWiki:Common.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=MediaWiki:Monobook.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=-&action=raw&gen=css&maxage=2678400";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+		<script type="text/javascript" src="/skins-1.5/common/ajax.js?97"></script>
+	</head>
+<body  class="mediawiki ns-0 ltr page-A_-Algorithmus">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+		<div id="siteNotice"><script type="text/javascript" language="JavaScript">
+<!--
+document.writeln("\x3cdiv style=\"position:absolute; z-index:100; right:5px; top:-20px;\" class=\"metadata\" id=\"donate\"\x3e\n\x3cdiv style=\"text-align:right; font-size:80%\"\x3e\x3ca href=\"http://wikimediafoundation.org/wiki/Spenden\" class=\"extiw\" title=\"wikimedia:Spenden\"\x3eIhre \x3cb\x3eSpenden\x3c/b\x3e\x3c/a\x3e helfen, Wikipedia zu betreiben. \n\x3c/div\x3e\x3c/div\x3e\n");
+-->
+</script></div>		<h1 class="firstHeading">A*-Algorithmus</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">aus Wikipedia, der freien Enzyklopädie</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Wechseln zu: <a href="#column-one">Navigation</a>, <a href="#searchInput">Suche</a></div>			<!-- start content -->
+			<p>Der <b>A*-Algorithmus</b> („A Stern“ oder <a href="/wiki/Englische_Sprache" title="Englische Sprache">engl.</a> „<i>a star</i>“) dient in der <a href="/wiki/Informatik" title="Informatik">Informatik</a> der Berechnung eines <a href="/wiki/K%C3%BCrzester_Pfad" title="Kürzester Pfad">kürzesten Pfades</a> zwischen zwei <a href="/wiki/Glossar_Graphentheorie#Knoten" title="Glossar Graphentheorie">Knoten</a> in einem <a href="/wiki/Glossar_Graphentheorie#Graph" title="Glossar Graphentheorie">Graphen</a> mit positiven <a href="/wiki/Kantengewicht" title="Kantengewicht">Kantengewichten</a>. Er wurde das erste mal 1968 von <a href="/w/index.php?title=Peter_Hart&amp;action=edit" class="new" title="Peter Hart">Peter Hart</a>, <a href="/w/index.php?title=Nils_Nilsson&amp;action=edit" class="new" title="Nils Nilsson">Nils Nilsson</a> und <a href="/w/index.php?title=Bertram_Raphael&amp;action=edit" class="new" title="Bertram Raphael">Bertram Raphael</a> beschrieben. Beim A*-Algorithmus handelt es sich um eine sogenannte <a href="/wiki/Informierter_Suchalgorithmus" title="Informierter Suchalgorithmus">informierte Suche</a>, was heißt, dass der <a href="/wiki/Algorithmus" title="Algorithmus">Algorithmus</a> auf eine <a href="/wiki/Heuristik" title="Heuristik">Heuristik</a> zurückgreift, um zielgerichtet zu suchen, wodurch er – im Gegensatz zu <a href="/wiki/Uninformierter_Suchalgorithmus" title="Uninformierter Suchalgorithmus">uninformierten Suchalgorithmen</a> – zuerst jene Knoten untersucht, welche am <a href="/wiki/Wahrscheinlichkeit" title="Wahrscheinlichkeit">wahrscheinlichsten</a> zum Ziel führen.</p>
+<table id="toc" class="toc" summary="Inhaltsverzeichnis">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Inhaltsverzeichnis</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Allgemeines"><span class="tocnumber">1</span> <span class="toctext">Allgemeines</span></a></li>
+<li class="toclevel-1"><a href="#Funktionsweise"><span class="tocnumber">2</span> <span class="toctext">Funktionsweise</span></a></li>
+<li class="toclevel-1"><a href="#Algorithmus"><span class="tocnumber">3</span> <span class="toctext">Algorithmus</span></a></li>
+<li class="toclevel-1"><a href="#Beispiel"><span class="tocnumber">4</span> <span class="toctext">Beispiel</span></a></li>
+<li class="toclevel-1"><a href="#Zeitkomplexit.C3.A4t"><span class="tocnumber">5</span> <span class="toctext">Zeitkomplexität</span></a></li>
+<li class="toclevel-1"><a href="#Heuristiken"><span class="tocnumber">6</span> <span class="toctext">Heuristiken</span></a></li>
+<li class="toclevel-1"><a href="#Optimalit.C3.A4tsbeweis"><span class="tocnumber">7</span> <span class="toctext">Optimalitätsbeweis</span></a></li>
+<li class="toclevel-1"><a href="#Anwendungsgebiete"><span class="tocnumber">8</span> <span class="toctext">Anwendungsgebiete</span></a></li>
+<li class="toclevel-1"><a href="#Andere_Verfahren_zur_Berechnung_k.C3.BCrzester_Pfade"><span class="tocnumber">9</span> <span class="toctext">Andere Verfahren zur Berechnung kürzester Pfade</span></a></li>
+<li class="toclevel-1"><a href="#Literatur"><span class="tocnumber">10</span> <span class="toctext">Literatur</span></a></li>
+<li class="toclevel-1"><a href="#Weblinks"><span class="tocnumber">11</span> <span class="toctext">Weblinks</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "Anzeigen"; var tocHideText = "Verbergen"; showTocToggle(); } 
+//]]>
+</script>
+<p><a name="Allgemeines" id="Allgemeines"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=A%2A-Algorithmus&amp;action=edit&amp;section=1" title="Abschnitt bearbeiten: Allgemeines">Bearbeiten</a>]</span> <span class="mw-headline">Allgemeines</span></h2>
+<p>Die Besonderheit des A*-Algorithmus ist, dass er im Gegensatz zu den <i>uninformierten <a href="/wiki/Suchalgorithmen" title="Suchalgorithmen">Suchalgorithmen</a></i> zielgerichtet sucht. Er betrachtet von den vielen möglichen Knoten, die zum Ziel führen könnten, tatsächlich nur sehr wenige, und findet das Ziel daher im allgemeinen sehr schnell.</p>
+<p>Die Abschätzung, welche Knoten am wahrscheinlichsten zum Ziel führen, liefert jedoch erst eine Heuristik, die Annahmen über den Graphen, auf dem der A*-Algorithmus angewendet werden soll, ermöglicht. Der Algorithmus arbeitet hierbei umso effizienter, je genauer die von der Heuristik für einen Knoten geschätzten Kosten bis zum Ziel den tatsächlichen Kosten von diesem Knoten zum Ziel entsprechen.</p>
+<p>Fordert man von der <a href="/wiki/Heuristik" title="Heuristik">Heuristik</a>, dass sie <a href="/wiki/Monotonie_%28Mathematik%29" title="Monotonie (Mathematik)">monoton</a> ist, also den tatsächlichen Weg zwischen zwei Knoten nie überschätzt, so kann man beweisen, dass der A*-Algorithmus tatsächlich immer einen kürzesten Weg findet. Dies bedeutet jedoch im Umkehrschluss auch, dass der Algorithmus nicht mit Sicherheit den kürzesten Weg zum Ziel findet, falls man eine sehr schlechte Heuristik verwendet. Ein formaler Beweis der Optimalität des Algorithmus findet sich im Abschnitt <a href="#Optimalit.C3.A4tsbeweis" title="">Optimalitätsbeweis</a> weiter unten im Artikel.</p>
+<p><b>Anmerkung:</b> Modifiziert man den A*-Algorithmus geringfügig, so reicht es aus, eine <i>zulässige</i> Heuristik – welche die Kosten von einem Knoten bis zum Ziel nie überschätzt – zu verwenden, um immer einen kürzesten Pfad zu finden. Eine genauere Beschreibung der Unterschiede zwischen <i>monotonen</i> und <i>zulässigen</i> Heuristiken findet sich im Abschnitt <a href="#Heuristiken" title="">Heuristiken</a> weiter unten im Artikel.</p>
+<p><a name="Funktionsweise" id="Funktionsweise"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=A%2A-Algorithmus&amp;action=edit&amp;section=2" title="Abschnitt bearbeiten: Funktionsweise">Bearbeiten</a>]</span> <span class="mw-headline">Funktionsweise</span></h2>
+<p>Wendet man den A*-Algorithmus auf einem Knoten <i>u</i> an, so wird für jeden von diesem Knoten aus erreichbaren Nachbarn durch die Heuristik eine Schätzung abgegeben, wie teuer es ist, von diesem aus zum Ziel zu kommen. Für jeden dieser Nachbarknoten <i>v</i> addiert der A*-Algorithmus nun die von der Heuristik geschätzten Kosten bis zum Ziel zu den Kosten, um vom Knoten <i>u</i> zu eben jenem Knoten <i>v</i> zu kommen. Die Vorgehensweise des Algorithmus lässt sich dabei durch folgende Gleichung beschreiben:</p>
+<p>f(<i>v</i>) = g(<i>v</i>) + h(<i>v</i>)</p>
+<p>Hierbei steht <i>g(v)</i> für die bisherigen gesamten Wegkosten vom Start zum Knoten <i>v</i>, <i>h(v)</i> für die von der Heuristik für Knoten <i>v</i> geschätzten Kosten bis zum Ziel, und <i>f(v)</i> steht demnach für die geschätzten Gesamtkosten, um vom Startknoten über <i>v</i> zum Ziel zu gelangen. Im nächsten Schritt wird nun der Knoten weiter untersucht, der den geringsten <i>f</i>-Wert besitzt.</p>
+<p><a name="Algorithmus" id="Algorithmus"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=A%2A-Algorithmus&amp;action=edit&amp;section=3" title="Abschnitt bearbeiten: Algorithmus">Bearbeiten</a>]</span> <span class="mw-headline">Algorithmus</span></h2>
+<p>Der A*-Algorithmus erhält vier Eingaben: Den Graphen (<i>G</i>), auf welchem er laufen soll, den Startknoten (<i>s</i>), von dem aus die Suche gestartet werden soll, der Zielknoten (<i>g</i>), zu dem ein kürzester Pfad gefunden werden soll und die Heuristik (<i>h</i>), welche für jeden Knoten die Entfernung bis zum Ziel abschätzt. Als Datenstruktur braucht er außerdem eine <a href="/wiki/Priorit%C3%A4tswarteschlange" title="Prioritätswarteschlange">Prioritätswarteschlange</a> (<i>Q</i>), in der er die noch nicht besuchten Knoten speichert.</p>
+<p>Im ersten Schritt wird der Graph initialisiert, wobei die Entfernungen zu allen Knoten auf unendlich gesetzt werden, und die Entfernung zum Startknoten auf Null gesetzt wird. Danach werden alle Knoten des Graphen in die Prioritätswarteschlange eingefügt, und eine <a href="/wiki/Schleife_%28Programmierung%29" title="Schleife (Programmierung)">Schleife</a> gestartet, welche solange läuft, bis entweder ein kürzester Pfad zum Ziel gefunden wurde oder jeder Knoten bereits einmal betrachtet wurde. Tritt der zweite Fall ein, so kann man daraus schließen, dass kein Pfad zwischen dem Start- und Zielknoten existiert.</p>
+<p>Innerhalb der Schleife wird zuerst der erste Knoten der Prioritätswarteschlange entfernt, welcher – da es sich um eine Prioritätswarteschlange handelt – auch genau der Knoten mit dem niedrigsten f-Wert ist. Dieser Knoten wird nun in die Liste der besuchten Knoten eingetragen, und es wird überprüft ob man den Algorithmus eventuell schon abbrechen kann. Der Algorithmus kann hier aus zweierlei Gründen abgebrochen werden: Einerseits kann es sein, dass der eben besuchte Knoten schon einmal besucht wurde, was aufgrund der <i>monotonen Heuristik</i> jedoch eigentlich nicht hätte passieren dürfen. Expandiert der A* Algorithmus einen Knoten trotzdem zum zweiten mal, so kann es keinen Weg vom Start zum Ziel geben, da dieser Weg sonst vorher gefunden worden wäre. Eine genauere Begründung findet man unter <a href="#Optimalit.C3.A4tsbeweis" title="">Optimalitätsbeweis</a> weiter unten im Artikel.</p>
+<p>Terminiert der Algorithmus, weil er das Ziel gefunden hat, so wird die Hilfsfunktion <i>reconstruct_shortest_path</i> aufgerufen, welche ihrerseits vom Zielknoten aus rückwärts den Pfad zum Startknoten berechnet. Hierzu bekommt die Funktion den Startknoten, den Zielknoten und den Graph übergeben, und folgt nun Schritt für Schritt vom Zielknoten startend den <i>Vorgängerzeigern</i>. Diese Zeiger wurden, während der Algorithmus Knoten expandiert hat, in den Graph geschrieben, sodass die Funktion <i>reconstruct_shortest_path</i> für einen Knoten <i>v</i> nur noch direkt aus dem Graph ablesen muss von welchem Knoten <i>u</i> aus <i>v</i> besucht wurde. Nachdem nun der Vorgänger bestimmt wurde, wird dieser in einem <a href="/wiki/Stapelspeicher" title="Stapelspeicher">Stack</a> gespeichert. <i>reconstruct_shortest_path</i> berechnet solange <i>rekursiv</i> den Vorgänger dieses Vorgängers, bis die Berechnung beim Startzustand angekommen ist. Sobald dies der Fall ist, kann der Stack – welcher nun den kürzesten Pfad vom Start zum Ziel in der richtigen Reihenfolge enthält – direkt zurückgegeben werden.</p>
+<p>Sollte im A*-Algorithmus das Ziel jedoch noch nicht gefunden worden sein, so werden nun alle vom aktuellen Knoten <i>u</i> aus direkt erreichbaren Knoten bestimmt, und die Kanten zu diesen Knoten <i>relaxiert</i>. Bei diesem Schritt wird für jeden der entdeckten Knoten <i>v</i> geprüft ob der gerade entdeckte Pfad besser ist als der bereits bekannte. Falls dies der Fall ist, wird sowohl gespeichert von welchem Knoten aus <i>v</i> gerade erkundet wurde (<i>Vorgängerzeiger</i>), als auch sein f-Wert nach der Formel f(<i>v</i>) = g(<i>u</i>) + w(<i>u</i>,<i>v</i>) + h(<i>v</i>) angepasst. Den Wert für g(<i>u</i>) kann man hierbei genau wie das Gewicht der Kante zwischen <i>u</i> und <i>v</i> direkt aus dem Graph ablesen. Die Berechnung von h(<i>v</i>) ist einfach, da sie dem A*-Algorithmus direkt mitgeliefert wird.</p>
+<p><b>Anmerkung:</b> Neben der hier vorgestellten Methode den A*-Algorithmus zu implementieren gibt es häufig auch noch Implementierungen welche eine sogenannte <i>Closed List</i> von bereits besuchten Knoten mitführen welche sie in jedem Schritt überprüfen. Dies ist nötig falls eine Heuristik verwendet werden soll welche zwar <i>zulässig</i> aber nicht <i>monoton</i> ist. Da diese Implementierung jedoch davon ausgeht, dass eine <i>monotone</i> Heuristik verwendet wird, ist der erste genutzte Pfad der zu einem beliebigen Knoten welcher expandiert wird führt auf jeden Fall auch der kürzeste Pfad zu diesem Knoten. Somit ist es nicht nötig die Pfadkosten entdeckter Knoten eventuell später ein zweites mal mit den Pfadkosten, welche die Knoten bei ihrer ersten Entdeckung hatten, zu vergleichen, da die Pfadkosten bei der ersten Entdeckung garantiert niedriger waren. Die genauen Unterschiede zwischen einer <i>monotonen</i> Heuristik und einer <i>zulässigen</i> Heuristik findet man weiter unten unter <a href="#Heuristiken" title="">Heuristiken</a> im Artikel.</p>
+<pre>
+/*
+ * Rekonstruktion des kürzesten Pfades
+ * -----------------------------------
+ * p: berechneter kürzester Pfad
+ * n: Zielknoten
+ */
+<b>reconstructShortestPath (n)</b>
+{
+   p := <b>new</b> stack; // leer initialisieren
+   // <i>Prüfe ob schon beim Startknoten angekommen</i>
+   <b>while</b> (π(n) != NIL))
+   {
+      // <i>Füge Knoten dem Pfad hinzu</i>
+      push(n, p);
+      // <i>Mache dasselbe für den Vorgängerknoten</i>
+      n := π(n); 
+   }
+   // <i>Liefere den gefundenen Pfad zurück</i>
+   <b>return</b> p; 
+}
+</pre>
+<pre>
+/*
+ * Initialisieren des Graphen
+ * --------------------------
+ * G: Zu untersuchender Graph
+ * s: Startknoten
+ */
+<b>initialize(G, s)</b>
+{
+   // <i>Setze Entfernung zu allen Knoten auf Unendlich</i>
+   forall v do
+      d[v] := ∞
+   // <i>Setze Entfernung zum Startknoten auf Null</i>
+   d[s] := 0;
+}
+</pre>
+<pre>
+/*
+ * Relaxieren einer Kante
+ * ----------------------
+ * u: Knoten der gerade expandiert wurde
+ * v: Aktuell betrachteter Nachfolger von u
+ * w: Gewichtsfunktion zum Berechnen der Kosten für eine Kante
+ * f: Kombination der Abstandsfunktion d mit der Heuristik h (f[v] = d[v] + h[v])
+ */
+<b>relax(u,v,w,h)</b>
+{
+   // <i>Prüfe ob der Weg über u zu v kürzer ist als der aktuelle</i>
+   <b>if</b> f[v] &gt; d[u] + w(u,v) + h[v] {
+      // <i>Neuer weg kürzer als bisher gefundener Weg</i>
+      // <i>Aktualisiere geschätzte restliche Weglänge</i>
+      f[v] := d[u] + w(u,v) + h[v];
+      // <i>Aktualisiere Vorgänger in kürzestem Pfad</i>
+      π[v] := u;
+      // <i>Aktualisiere Distanz zu v</i>
+      d[v] := d[u] + w(u,v);
+   }
+   <b>else</b>
+      ; // <i>Ändere nichts, da bereits besserer Pfad bekannt</i>
+}
+</pre>
+<pre>
+/*
+ * Der eigentliche A*-Algorithmus
+ * ------------------------------
+ * G: Zu untersuchender Graph
+ * s: Startknoten
+ * g: Der Zielknoten
+ * w: Gewichtsfunktion zum Berechnen der Kosten für eine Kante
+ * f: Kombination der Abstandsfunktion d mit der Heuristik h (f[v] = d[v] + h[v])
+ * Q: <a href="/wiki/Priorit%C3%A4tswarteschlange" title="Prioritätswarteschlange">Prioritätswarteschlange</a> der Knoten, deren f-Wert bereits bekannt ist
+ */
+<b>A-Star</b> (s, g, w, h, G) {
+01      initialize(G, s);
+02      Q := V[G]; // <i>Füge alle Knoten aus dem Graph in die Warteschlage ein</i>
+03      <b>while</b> <b>not</b> isEmpty(Q) {
+04        // <i>Betrachte Knoten mit geringsten Abstand zum Startknoten</i>
+05        u := pop(Q);
+06        <b>if</b> (u == g) <b>then</b>
+07           <b>return</b> reconstructShortestPath(g);
+08        <b>else</b> {
+09            // <i>Betrachte alle vom aktuellen Knoten u aus erreichbaren Knoten (Nachfolger)</i>
+10            <b>forall</b> v := sucessors(u) do {
+11               // <i>relaxiere die Kante zwischen u und seinem Nachfolger</i>
+12               relax(u, v, w, h);
+13            }
+14         }
+15      }
+15      // <i>Es konnte kein Pfad gefunden werden</i>
+16      <b>return</b> fail;
+17 }
+</pre>
+<p><a name="Beispiel" id="Beispiel"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=A%2A-Algorithmus&amp;action=edit&amp;section=4" title="Abschnitt bearbeiten: Beispiel">Bearbeiten</a>]</span> <span class="mw-headline">Beispiel</span></h2>
+<table>
+<tr>
+<td>
+<div class="thumb tright">
+<div class="thumbinner" style="width:277px;"><a href="/wiki/Bild:MapGermanyGraph.svg" class="image" title="Beispiellandkarte von Deutschland mit den Entfernungen zwischen den einzelnen Städten."><img alt="Beispiellandkarte von Deutschland mit den Entfernungen zwischen den einzelnen Städten." src="http://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/MapGermanyGraph.svg/275px-MapGermanyGraph.svg.png" width="275" height="277" border="0" class="thumbimage" /></a>
+<div class="thumbcaption">
+<div class="magnify" style="float:right"><a href="/wiki/Bild:MapGermanyGraph.svg" class="internal" title="vergrößern"><img src="/skins-1.5/common/images/magnify-clip.png" width="15" height="11" alt="" /></a></div>
+Beispiellandkarte von Deutschland mit den Entfernungen zwischen den einzelnen Städten.</div>
+</div>
+</div>
+<p>Ein Beispiel für die Anwendung des A*-Algorithmus ist die Suche nach einem kürzesten Pfad auf einer Landkarte. (Im Beispiel will man in <a href="/wiki/Deutschland" title="Deutschland">Deutschland</a> einen kürzesten Pfad von <a href="/wiki/Frankfurt_am_Main" title="Frankfurt am Main">Frankfurt</a> nach <a href="/wiki/M%C3%BCnchen" title="München">München</a> finden.)</p>
+<p>Zuerst muss man eine für das Problem geeignete Heuristik finden, welche zwar möglichst genau an die tatsächlichen Kosten zwischen zwei Knoten herankommt, aber immer unter den tatsächlichen Kosten bleibt. Da in diesem Beispiel der kürzeste Weg zwischen zwei Städten berechnet werden soll, bietet sich die <a href="/wiki/Luftlinie" title="Luftlinie">Luftlinie</a> zwischen den beiden Städten als <i><a href="/wiki/Sch%C3%A4tzfunktion" title="Schätzfunktion">Schätzfunktion</a></i> an. Jeder Weg zwischen zwei Städten wird immer mindestens genauso lang sein wie die Luftlinie zwischen den beiden Städten und im Allgemeinen werden die Straßen zwischen zwei Städten relativ direkt gebaut sein, so dass der tatsächlich zurückzulegende Weg nicht sehr viel länger sein sollte als die Luftlinie. Schreibt man nun also die geschätzten Kosten für die Entfernungen aller Städte nach <i>München</i> auf, so ergeben sich die folgenden Werte, welche im Beispiel die Kosten für die Funktion h(<i>v</i>) sein werden.</p>
+<pre>
+Augsburg &lt;--&gt; München: 43 km
+Erfurt &lt;--&gt; München: 342 km
+Frankfurt &lt;--&gt; München: 353 km
+Karlsruhe &lt;--&gt; München: 260 km
+Kassel &lt;--&gt; München: 446 km
+Mannheim &lt;--&gt; München: 311 km
+München &lt;--&gt; München: 0 km
+Nürnberg &lt;--&gt; München: 151 km
+Stuttgart &lt;--&gt; München: 199 km
+Würzburg &lt;--&gt; München: 229 km
+</pre>
+<p>Weiterhin braucht man noch die Kosten sämtlicher Pfade zwischen zwei Städten, um sukzessive für eine Stadt <i>u</i> berechnen zu können wie teuer es vom Start aus war, zu dieser Stadt zu kommen. Diese Werte werden später für die Funktion g(<i>u</i>) benötigt und lassen sich am besten aus der oben gegebenen <a href="/wiki/Landkarte" title="Landkarte">Landkarte</a> für dieses Beispiel ableiten.</p>
+<p><b>Anmerkung:</b> Im folgenden Beispiel ist die Zahl in Klammern hinter dem Namen der Stadt bereits der fertig berechnete Wert f(<i>v</i>) für die entsprechende Stadt <i>v</i>, welcher sich aus Wegstrecke von <i>Frankfurt</i> bis zur Stadt <i>v</i> und den geschätzten Kosten von dieser Stadt bis nach <i>München</i> zusammensetzt.</p>
+<table>
+<tr>
+<td>
+<div class="thumb tleft">
+<div class="thumbinner" style="width:277px;"><a href="/wiki/Bild:A-Star2.svg" class="image" title="Erster Schritt: Frankfurt wurde erkundet, als nächstes wird Mannheim untersucht."><img alt="Erster Schritt: Frankfurt wurde erkundet, als nächstes wird Mannheim untersucht." src="http://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/A-Star2.svg/275px-A-Star2.svg.png" width="275" height="233" border="0" class="thumbimage" /></a>
+<div class="thumbcaption">
+<div class="magnify" style="float:right"><a href="/wiki/Bild:A-Star2.svg" class="internal" title="vergrößern"><img src="/skins-1.5/common/images/magnify-clip.png" width="15" height="11" alt="" /></a></div>
+<b>Erster Schritt:</b> <i>Frankfurt</i> wurde erkundet, als nächstes wird <i>Mannheim</i> untersucht.</div>
+</div>
+</div>
+<p>Im ersten Schritt werden nun alle von <i>Frankfurt</i> aus erreichbaren Städte betrachtet, und für jede der Städte wird geschätzt wie weit es von der entsprechenden Stadt bis nach <i>München</i> ist. Auf diese geschätzte Weglänge wird die Weglänge um von <i>Frankfurt</i> in die entsprechende Stadt zu kommen addiert. Somit ist es in der momentanen Situation am vielversprechendsten, von <i>Frankfurt</i> nach <i><a href="/wiki/Mannheim" title="Mannheim">Mannheim</a></i> zu gehen, da der Weg von <i>Frankfurt</i> über <i>Mannheim</i> nach <i>München</i> mit 396 km noch der kürzeste zu sein scheint.</p>
+</td>
+</tr>
+</table>
+<table>
+<tr>
+<td>
+<div class="thumb tright">
+<div class="thumbinner" style="width:277px;"><a href="/wiki/Bild:A-Star3.svg" class="image" title="Zweiter Schritt: Mannheim wurde erkundet, als nächstes wird Karlsruhe untersucht."><img alt="Zweiter Schritt: Mannheim wurde erkundet, als nächstes wird Karlsruhe untersucht." src="http://upload.wikimedia.org/wikipedia/commons/thumb/6/68/A-Star3.svg/275px-A-Star3.svg.png" width="275" height="233" border="0" class="thumbimage" /></a>
+<div class="thumbcaption">
+<div class="magnify" style="float:right"><a href="/wiki/Bild:A-Star3.svg" class="internal" title="vergrößern"><img src="/skins-1.5/common/images/magnify-clip.png" width="15" height="11" alt="" /></a></div>
+<b>Zweiter Schritt:</b> <i>Mannheim</i> wurde erkundet, als nächstes wird <i>Karlsruhe</i> untersucht.</div>
+</div>
+</div>
+<p>Im zweiten Schritt werden nun alle von <i>Mannheim</i> aus erreichbaren Städte genauer betrachtet. Von <i>Mannheim</i> aus gibt es nun zwei Möglichkeiten: Entweder man geht zurück nach <i>Frankfurt</i>, oder man geht weiter nach <i><a href="/wiki/Karlsruhe" title="Karlsruhe">Karlsruhe</a></i>, welches im besten Falle nur 425 km vom <i>München</i> entfernt ist, und somit – wenn man alle bisher bekannten Städte betrachtet – noch das vielversprechenste Ziel für die weitere Erkundung ist, da die Entfernung die man von <i>Frankfurt</i> aus über irgendeine der anderen Städte zurücklegen muss um nach <i>München</i> zu kommen auf jeden Fall größer als 425 km ist. Somit wird im nächsten Schritt <i>Karlsruhe</i> erkundet.</p>
+</td>
+</tr>
+</table>
+<table>
+<tr>
+<td>
+<div class="thumb tleft">
+<div class="thumbinner" style="width:277px;"><a href="/wiki/Bild:A-Star4.svg" class="image" title="Dritter Schritt: Karlsruhe wurde erkundet, als nächstes wird Würzburg untersucht."><img alt="Dritter Schritt: Karlsruhe wurde erkundet, als nächstes wird Würzburg untersucht." src="http://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/A-Star4.svg/275px-A-Star4.svg.png" width="275" height="230" border="0" class="thumbimage" /></a>
+<div class="thumbcaption">
+<div class="magnify" style="float:right"><a href="/wiki/Bild:A-Star4.svg" class="internal" title="vergrößern"><img src="/skins-1.5/common/images/magnify-clip.png" width="15" height="11" alt="" /></a></div>
+<b>Dritter Schritt:</b> <i>Karlsruhe</i> wurde erkundet, als nächstes wird <i>Würzburg</i> untersucht.</div>
+</div>
+</div>
+<p>Im dritten Schritt werden nun alle Städte betrachtet welche man von <i>Karlsruhe</i> aus erreichen kann. Diese Städte sind zum einen <i><a href="/wiki/Augsburg" title="Augsburg">Augsburg</a></i> und zum anderen <i>Mannheim</i>, da man wenn man von <i>Mannheim</i> nach <i>Karlsruhe</i> gekommen ist, diesem Weg auch wieder zurück nach <i>Mannheim</i> folgen kann. Betrachtet man nun jedoch die geschätzten Kosten aller bisher entdeckten Städte, so stellt man fest, dass es nicht unbedingt das beste sein muss die Route nach <i>Augsburg</i> zu nehmen, da die Wegstrecke um von <i>Frankfurt</i> über <i>Mannheim</i> und <i>Karlsruhe</i> nach <i>Augsburg</i> und von dort weiter nach München zu kommen mindestens 458 km beträgt. Versucht man jedoch von <i>Frankfurt</i> aus direkt nach <i><a href="/wiki/W%C3%BCrzburg" title="Würzburg">Würzburg</a></i> zu kommen, so könnte die gesamte Wegstrecke von Frankfurt über <i>Würzburg</i> weiter nach <i>München</i> eventuell nur 446 km lang sein, und wäre somit 12 km kürzer als die Strecke über <i>Augsburg</i>. Somit wird im nächsten Schritt nun <i>Würzburg</i> erkundet.</p>
+</td>
+</tr>
+</table>
+<table>
+<tr>
+<td>
+<div class="thumb tright">
+<div class="thumbinner" style="width:277px;"><a href="/wiki/Bild:A-Star5.svg" class="image" title="Vierter Schritt: Würzburg wurde erkundet, stellte sich aber als eine schlechte Wahl dar, und es wird wieder der ursprüngliche Pfad durch Augsburg verfolgt."><img alt="Vierter Schritt: Würzburg wurde erkundet, stellte sich aber als eine schlechte Wahl dar, und es wird wieder der ursprüngliche Pfad durch Augsburg verfolgt." src="http://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/A-Star5.svg/275px-A-Star5.svg.png" width="275" height="231" border="0" class="thumbimage" /></a>
+<div class="thumbcaption">
+<div class="magnify" style="float:right"><a href="/wiki/Bild:A-Star5.svg" class="internal" title="vergrößern"><img src="/skins-1.5/common/images/magnify-clip.png" width="15" height="11" alt="" /></a></div>
+<b>Vierter Schritt:</b> <i>Würzburg</i> wurde erkundet, stellte sich aber als eine schlechte Wahl dar, und es wird wieder der ursprüngliche Pfad durch <i>Augsburg</i> verfolgt.</div>
+</div>
+</div>
+<p>Im vierten Schritt wird nun <i>Würzburg</i> erkundet und berechnet wohin man von <i>Würzburg</i> ausgehend kommen kann, geschätzt wie weit die neu entdeckten Städte von München entfernt sind, und die Mindestkosten um von <i>Frankfurt</i> via <i>Würzburg</i> über die Nachbarstädte von <i>Würzburg</i> – namentlich <i>Nürnberg</i> und <i>Frankfurt</i> – berechnet. Nach dieser Berechnung muss man feststellen, dass keine der zwei Möglichkeiten die Route durch <i>Würzburg</i> fortzusetzen besser ist als die schon vorher betrachtete Route von <i>Frankfurt</i> über <i>Mannheim</i> und <i>Karlsruhe</i> nach <i>Augsburg</i>, weswegen der A*-Algorithmus als nächstes <i>Augsburg</i> genauer untersucht.</p>
+</td>
+</tr>
+</table>
+<p><br /></p>
+<table>
+<tr>
+<td>
+<div class="thumb tleft">
+<div class="thumbinner" style="width:277px;"><a href="/wiki/Bild:A-Star6.svg" class="image" title="Fünfter Schritt: Augsburg wurde erkundet und es wurde ein Weg nach München gefunden der jedoch eventuell länger als nötig ist."><img alt="Fünfter Schritt: Augsburg wurde erkundet und es wurde ein Weg nach München gefunden der jedoch eventuell länger als nötig ist." src="http://upload.wikimedia.org/wikipedia/commons/thumb/2/22/A-Star6.svg/275px-A-Star6.svg.png" width="275" height="231" border="0" class="thumbimage" /></a>
+<div class="thumbcaption">
+<div class="magnify" style="float:right"><a href="/wiki/Bild:A-Star6.svg" class="internal" title="vergrößern"><img src="/skins-1.5/common/images/magnify-clip.png" width="15" height="11" alt="" /></a></div>
+<b>Fünfter Schritt:</b> <i>Augsburg</i> wurde erkundet und es wurde ein Weg nach <i>München</i> gefunden der jedoch eventuell länger als nötig ist.</div>
+</div>
+</div>
+<p>Im fünften Schritt wird nun <i>Augsburg</i> erkundet, wobei auch die Zielstadt <i>München</i> gefunden wird. Die Wegkosten für einen Pfad von <i>Frankfurt</i> via <i>Mannheim</i>, <i>Karlsruhe</i> und <i>Augsburg</i> nach <i>München</i> sind nun vollständig bekannt, betragen aber 499 km. Vergleicht man dies mit dem Pfad von <i>Frankfurt</i> über <i>Würzburg</i> und <i>Nürnberg</i>, so merkt man, dass man, wenn man bei <i>Würzburg</i> weitersucht, vielleicht einen Weg findet der nur 471 km lang ist. Würde man also schon in diesem Schritt aufhören und sich mit der gefundenen Route zufriedengeben, so hätte man eventuell eine Strecke verwendet welche bis zu 28 km länger ist als nötig, weswegen diese Route erst weiterverfolgt wird, wenn alle anderen Strecken von <i>Frankfurt</i> aus im besten Fall mindestens ebenfalls 499 km lang sind. Erst dann kann man sich sicher sein, dass man auch wirklich keinen kürzeren Weg übersehen hat. Somit wird nun als nächstes <i>Nürnberg</i> genauer betrachtet, da dies aktuell die vielversprechenste Route ist.</p>
+</td>
+</tr>
+</table>
+<table>
+<tr>
+<td>
+<div class="thumb tright">
+<div class="thumbinner" style="width:277px;"><a href="/wiki/Bild:A-Star7.svg" class="image" title="Sechster Schritt: Nürnberg wurde erkundet, und es wurde ein kürzester Pfad nach München gefunden."><img alt="Sechster Schritt: Nürnberg wurde erkundet, und es wurde ein kürzester Pfad nach München gefunden." src="http://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/A-Star7.svg/275px-A-Star7.svg.png" width="275" height="231" border="0" class="thumbimage" /></a>
+<div class="thumbcaption">
+<div class="magnify" style="float:right"><a href="/wiki/Bild:A-Star7.svg" class="internal" title="vergrößern"><img src="/skins-1.5/common/images/magnify-clip.png" width="15" height="11" alt="" /></a></div>
+<b>Sechster Schritt:</b> <i>Nürnberg</i> wurde erkundet, und es wurde ein kürzester Pfad nach <i>München</i> gefunden.</div>
+</div>
+</div>
+<p>Wird nun im sechsten Schritt <i>Nürnberg</i> erkundet, so findet man unter all den möglichen Städten, in die man von <i>Nürnberg</i> aus gehen kann auch die Stadt <i>München</i>. Der Weg von <i>Frankfurt</i> via <i>Würzburg</i> über <i>Nürnberg</i> und schließlich nach <i>München</i> ist nun nur noch 487 km lang. Somit ist dieser Weg insbesondere kürzer als der im fünften Schritt bereits gefundene Weg von 499 km. Da die Stadt <i>München</i> nun die niedrigsten Entfernungskosten hat, wird sie im nächsten Schritt erkundet, wodurch der Algorithmus beendet ist, und die Route <i>Frankfurt</i> - <i>Würzburg</i> - <i>Nürnberg</i> - <i>München</i> erfolgreich als einen kürzesten Pfad von <i>Frankfurt</i> nach <i>München</i> gefunden hat. Neben der Tatsache, dass tatsächlich der kürzeste Pfad gefunden wurde, wurden ebenfalls nur sehr wenige Städte überhaupt betrachtet. Dank der guten Heuristik musste der Algorithmus viele mögliche Wege, um von <i>Frankfurt</i> nach <i>München</i> zu kommen, gar nicht erst betrachten. Weiterhin hat der Algorithmus sehr zielstrebig gearbeitet, sodass die Route von <i>Frankfurt</i> nach <i><a href="/wiki/Kassel" title="Kassel">Kassel</a></i> zum Beispiel gar nicht erst betrachtet wurde.</p>
+<a name="Zeitkomplexit.C3.A4t" id="Zeitkomplexit.C3.A4t"></a>
+<h2><span class="editsection">[<a href="/w/index.php?title=A%2A-Algorithmus&amp;action=edit&amp;section=5" title="Abschnitt bearbeiten: Zeitkomplexität">Bearbeiten</a>]</span> <span class="mw-headline">Zeitkomplexität</span></h2>
+<p>Die Zeitkomplexität des A*-Algorithmus hängt sehr stark von der Datenstruktur ab, welche man verwendet um die noch nicht besuchten Knoten <i>Q</i> zu speichern. Verwendet man hier einen <a href="/wiki/Fibonacci-Heap" title="Fibonacci-Heap">Fibonacci-Heap</a>, so hat der Algorithmus insgesamt eine Laufzeit von <img class="tex" alt="O(\vert V \vert \log \vert V \vert + \vert E \vert)" src="http://upload.wikimedia.org/math/c/1/3/c13e418dbe308168fdf3bdd05ff0b98e.png" />.</p>
+<p>Diese Laufzeit ergibt sich wie folgt:</p>
+<p>In der zweiten Zeile wird die Prioritätswarteschlange mit allen Knoten aus dem Graph gefüllt. Um <img class="tex" alt="\vert V \vert " src="http://upload.wikimedia.org/math/0/e/0/0e023d3ec0c14433b1c9c3303e0ed5d1.png" /> viele Knoten in einer durch einen Fibonacci Heap dargestellten Prioritätswarteschlange zu speichern benötigt man Zeit <img class="tex" alt="O(\vert V \vert)" src="http://upload.wikimedia.org/math/c/e/e/cee5a5701d3dba14d1699a01b757b88f.png" />. In der dritten Zeile wird eine Schleife gestartet, welche im schlimmsten Fall <img class="tex" alt="\vert V \vert " src="http://upload.wikimedia.org/math/0/e/0/0e023d3ec0c14433b1c9c3303e0ed5d1.png" /> mal durchlaufen wird. In Zeile fünf wird das Minimum aus der Prioritätswarteschlange entnommen, wobei das Entfernen des Minimums aus einem Fibonacci Heap Zeit <img class="tex" alt="O(\log \vert V \vert)" src="http://upload.wikimedia.org/math/c/d/9/cd9f591dc80c6f73198ce20cb6f9b18b.png" /> kostet. Die zehnte Zeile kostet Schlussendlich noch einmal Laufzeit <img class="tex" alt="O(\vert E \vert)" src="http://upload.wikimedia.org/math/d/3/0/d30a05af45d0c9a00c4a8397415386ff.png" />, da jeder Knoten nur einmal betrachtet wird, und somit auch jede Kante nur einmal betrachtet werden kann, weswegen <i>relax</i> insgesamt maximal <img class="tex" alt="O(\vert E \vert)" src="http://upload.wikimedia.org/math/d/3/0/d30a05af45d0c9a00c4a8397415386ff.png" /> mal aufgerufen wird. Ein Aufruf von <i>relax</i> selbst verursacht jedoch nur konstante Kosten, da das setzen von Pointern in kostanter Zeit geht, und das eventuell nötige verringern der Entfernung eines Knotens und seine damit verbundene Positionsänderung in der Prioritätswarteschlange Q mittels eines Fibonacci Heaps ebenfalls in Konstanter Zeit möglich ist.</p>
+<p>Insgesamt ergibt sich somit eine Komplexität von <img class="tex" alt="O(\vert V \vert \log \vert V \vert + \vert E \vert)" src="http://upload.wikimedia.org/math/c/1/3/c13e418dbe308168fdf3bdd05ff0b98e.png" />.</p>
+<a name="Heuristiken" id="Heuristiken"></a>
+<h2><span class="editsection">[<a href="/w/index.php?title=A%2A-Algorithmus&amp;action=edit&amp;section=6" title="Abschnitt bearbeiten: Heuristiken">Bearbeiten</a>]</span> <span class="mw-headline">Heuristiken</span></h2>
+<p>Man unterscheidet zwei Arten von Heuristiken für den A*-Algorithmus: <i>Zulässige</i> und <i>monotone</i> Heuristiken. <i>Zulässige</i> Heuristiken dürfen zwar nie die Kosten bis zum Ziel, aber sehr wohl die Kosten von einem Knoten zum nächsten, überschätzen. <i>Monotone</i> Heuristiken dürfen weder die einen noch die anderen Kosten überschätzen; <i>Monotonie</i> ist also eine stärkere Eigenschaft als die der <i>Zulässigkeit</i>. Es ist zwar möglich, Heuristiken zu konstruieren, die <i>zulässig</i> aber nicht <i>monoton</i> sind, jedoch kommen diese Heuristiken in der Praxis sehr selten vor. Die Heuristik zur Abschätzung der Entfernung zweier Städte – die <a href="/wiki/Luftlinie" title="Luftlinie">Luftlinie</a> – ist zum Beispiel <i>monoton</i>: Man kann keinen Weg von der einen Stadt zur anderen finden, der kürzer wäre als die Luftlinie der betrachteten Städte.</p>
+<p>Die wichtigste Konsequenz dieser Unterscheidung beider Heuristiken tritt bei der <a href="/wiki/Implementierung" title="Implementierung">Implementierung</a> des A*-Algorithmus zu Tage: Sollte man nur eine <i>zulässige</i> Heuristik verwenden, so kann es passieren, dass die Entfernung zwischen zwei Knoten <i>u</i> und <i>v</i> überschätzt wird, und der Algorithmus somit den Knoten <i>v</i> auf einem Umweg über den Knoten <i>w</i> erreicht. Dies hat nun aber zur Folge, dass die berechnete Entfernung zwischen <i>u</i> und <i>v</i> nicht optimal ist, da der Weg über <i>w</i> nach Annahme ein Umweg war. Lässt man den Algorithmus noch einige Zeit laufen, so wird er jedoch auch die direkte Verbindung zwischen <i>u</i> und <i>v</i> finden, wodurch nun zwei Pfade gefunden wurden um von <i>u</i> nach <i>v</i> zu kommen. Da die gewählte Heuristik aber nur <i>zulässig</i> und nicht <i>monoton</i> war, kann nicht mehr garantiert werden, dass der erste gefundene Pfad zum Knoten <i>v</i> tatsächlich der kürzeste war. Somit muss man nun die Kosten für die beiden Pfade um von <i>u</i> nach <i>v</i> zu kommen vergleichen, um am Ende den Pfad zu wählen welcher kürzer war. Wählt man jedoch eine <i>monotone</i> Heuristik, so ist dieser Schritt unnötig, da der erste entdeckte Pfad zu einem Knoten <i>v</i> auf jeden Fall auch der kürzestmögliche Pfad ist.</p>
+<p>Die gewählte Heuristik hat ebenfalls große Auswirkungen auf die Laufzeit des A*-Algorithmus. Auf der einen Seite gibt es die perfekte Heuristik, welche in jedem Schritt die tatsächlichen Kosten für einen Knoten bis zum Ziel als Schätzwert abgibt, wodurch der A*-Algorithmus nur die Knoten erkunden wird, welche auch tatsächlich auf dem kürzesten Pfad liegen. Eine solch genaue Heuristik ist aber sinnlos, und in der Berechnung extrem teuer, da man für sie erst einmal für jeden Knoten den kürzesten Pfad bis zum Ziel finden muss, was genau der ursprünglich zu lösenden Problemstellung entspricht. Auf der anderen Seite gibt es extrem schlechte aber dafür sehr einfach zu berechnende Heuristiken. So kann man die Entfernung zwischen zwei Knoten mit Kosten von 0 schätzen, wodurch effektiv gar keine Heuristik mehr verwendet wird, und der A*-Algorithmus alle Knoten blind untersuchen muss, bis er irgendwann auf diese Weise das Ziel findet. Diese Version des Algorithmus ist besser als der <a href="/wiki/Algorithmus_von_Dijkstra" title="Algorithmus von Dijkstra">Algorithmus von Dijkstra</a> bekannt. Eine gute Heuristik stellt somit einen Kompromiss zwischen dem Berechnungsaufwand für die Heuristik und ihrer Genauigkeit dar.</p>
+<a name="Optimalit.C3.A4tsbeweis" id="Optimalit.C3.A4tsbeweis"></a>
+<h2><span class="editsection">[<a href="/w/index.php?title=A%2A-Algorithmus&amp;action=edit&amp;section=7" title="Abschnitt bearbeiten: Optimalitätsbeweis">Bearbeiten</a>]</span> <span class="mw-headline">Optimalitätsbeweis</span></h2>
+<p>Wie bereits erwähnt ist eine gute <i>Heuristik</i> eine der wichtigsten Voraussetzungen damit der A*-Algorithmus effizient arbeiten kann. Setzt man weiterhin voraus, dass die verwendete Heuristik <i>monoton</i> ist – also sowohl die Kosten bis zum Ziel, als auch die Kosten zwischen zwei beliebigen Knoten nie überschätzt – und dass der Graph keine <i>negativen Kantengewichte</i> besitzt, so kann man beweisen dass der A*-Algorithmus immer einen kürzesten Pfad vom Start zum Ziel findet. Betrachtet man die Vorgehensweise des Algorithmus, so sieht man, dass immer erst jene Knoten <i>u</i> betrachtet werden welche die niedrigsten f-Kosten haben. Da die Heuristik, welche zur Berechnung der f-Kosten herangezogen wird, aber nach Voraussetzung die tatsächlichen Kosten nie überschätzt, und die Kosten, um zu dem aktuell zu schätzenden Knoten <i>u</i> zu kommen, bekannt sind (da der Algorithmus schon einen Weg vom Startknoten zu <i>u</i> gefunden hat), ist auch der endgültige f-Wert für <i>u</i> eine optimistische Schätzung, welche garantiert nicht über den tatsächlichen Kosten liegen wird. Gibt es nun einen Knoten <i>a</i> mit f(<i>a</i>) = 450, so wird dieser Knoten erst weiter erkundet wenn alle anderen Knoten <i>x</i> erkundet wurden für die gilt f(<i>x</i>) &lt; 450. Somit kann der Algorithmus keine Knoten auslassen welche schneller zum Ziel führen könnten. Würde man jedoch negative Kantengewichte zulassen, so könnten hinter dem Knoten mit Kosten von 450 durchaus noch weitere Knoten existieren welche – durch negative Kantengewichte – f-Kosten von weniger als 450 haben. Schreibt man diese Überlegungen nun formal auf, so ergibt sich der formale Beweis der Optimalität des A*-Algorithmus:</p>
+<p><b>Zu zeigen:</b> Der A*-Algorithmus findet immer einen kürzesten Pfad</p>
+<p><b>Annahme:</b> Der A*-Algorithmus findet eine suboptimale Lösung G<sub>2</sub>, wobei die optimale Lösung G<sub>1</sub> Kosten von C<sub>1</sub> hat.</p>
+<p>Da für alle Zielknoten gilt dass die geschätzte Entfernung vom Zielknoten bis zum Zielknoten 0 ist, gilt insbesondere:</p>
+<pre>
+h(G<sub>2</sub>) = 0
+</pre>
+<p>Da <span class="texhtml"><i>G</i><sub>2</sub></span> nach Annahme eine suboptimale Lösung ist gilt nun aber folgende Gleichung:</p>
+<pre>
+f(G<sub>2</sub>) = g(G<sub>2</sub>) + h(G<sub>2</sub>) = g(G<sub>2</sub>) &gt; C<sub>1</sub>
+</pre>
+<p>Betrachtet man nun einen beliebigen Knoten <i>n</i> auf dem kürzesten Pfad zum optimalen Ziel G<sub>1</sub> und die Tatsache dass die Heuristik die tatsächlichen Kosten niemals überschätzt, gilt:</p>
+<pre>
+f(n) = g(n) + h(n) ≤ C<sub>1</sub>
+</pre>
+<p>Fasst man nun die beiden Gleichungen zusammen, so erhält man:</p>
+<pre>
+f(n) ≤ C<sub>1</sub> &lt; f(G<sub>2</sub>)
+</pre>
+<p>Dies bedeutet aber nun dass der A*-Algorithmus den Knoten G<sub>2</sub> niemals erkundet bevor er die optimale Lösung (G<sub>1</sub>) findet. Somit findet der Algorithmus zuerst die Lösung <span class="texhtml"><i>G</i><sub>1</sub></span>, und berechnet damit tatsächlich einen kürzesten Pfad.</p>
+<a name="Anwendungsgebiete" id="Anwendungsgebiete"></a>
+<h2><span class="editsection">[<a href="/w/index.php?title=A%2A-Algorithmus&amp;action=edit&amp;section=8" title="Abschnitt bearbeiten: Anwendungsgebiete">Bearbeiten</a>]</span> <span class="mw-headline">Anwendungsgebiete</span></h2>
+<p>Anwendung findet der A*-Algorithmus bei der Berechnung eines kürzesten Pfades zwischen zwei Punkten, wie zum Beispiel bei der Wegberechnung eines <a href="/wiki/Routenplaner" title="Routenplaner">Routenplaners</a> in einem Auto oder via Internet. Auch in <a href="/wiki/Computerspiel" title="Computerspiel">Computerspielen</a> wird der Algorithmus häufig verwendet, zum Beispiel, wenn der Spieler einer Einheit den Befehl gibt zu einem bestimmten Punkt zu gehen, und somit ein Weg für diese Einheit berechnet werden muss. Dieses Beispiel kann man auch auf <a href="/wiki/Roboter" title="Roboter">Roboter</a> oder <a href="/wiki/Software-Agent" title="Software-Agent">Software-Agenten</a>, welche selbstständig einen Weg in einer vorgegebenen Welt finden sollen, verallgemeinern.</p>
+<a name="Andere_Verfahren_zur_Berechnung_k.C3.BCrzester_Pfade" id="Andere_Verfahren_zur_Berechnung_k.C3.BCrzester_Pfade"></a>
+<h2><span class="editsection">[<a href="/w/index.php?title=A%2A-Algorithmus&amp;action=edit&amp;section=9" title="Abschnitt bearbeiten: Andere Verfahren zur Berechnung kürzester Pfade">Bearbeiten</a>]</span> <span class="mw-headline">Andere Verfahren zur Berechnung kürzester Pfade</span></h2>
+<p>Eine Abwandlung des A*-Algorithmusses ist der schnellere <a href="/w/index.php?title=D%2A-Algorithmus&amp;action=edit" class="new" title="D*-Algorithmus">D*-Algorithmus</a>, der besonders in hochdynamischen Umgebungen Anwendung findet. Hat man keine Heuristik, um die Entfernung der Knoten abzuschätzen, kann man statt des A*-Algorithmus den <a href="/wiki/Algorithmus_von_Dijkstra" title="Algorithmus von Dijkstra">Algorithmus von Dijkstra</a> verwenden. Um alle kürzesten Pfade von einem Knoten zu allen anderen Knoten in einem Graph mit negativen Kantengewichten zu berechnen, kann der <a href="/wiki/Bellman-Ford-Algorithmus" title="Bellman-Ford-Algorithmus">Bellman-Ford-Algorithmus</a> verwendet werden. Sucht man nicht nur die kürzesten Pfade eines Knotens zu allen anderen Knoten im Graph, sondern die kürzesten Pfade zwischen allen Knotenpaaren, so kann man den <a href="/wiki/Algorithmus_von_Floyd_und_Warshall" title="Algorithmus von Floyd und Warshall">Algorithmus von Floyd und Warshall</a> verwenden. Ferner sollte hier auch der <a href="/wiki/Ameisenalgorithmus" title="Ameisenalgorithmus">Ameisenalgorithmus</a> erwähnt werden.</p>
+<a name="Literatur" id="Literatur"></a>
+<h2><span class="editsection">[<a href="/w/index.php?title=A%2A-Algorithmus&amp;action=edit&amp;section=10" title="Abschnitt bearbeiten: Literatur">Bearbeiten</a>]</span> <span class="mw-headline">Literatur</span></h2>
+<ul>
+<li><a href="/w/index.php?title=Stuart_Russell&amp;action=edit" class="new" title="Stuart Russell">Stuart Russell</a>, <a href="/w/index.php?title=Peter_Norvig&amp;action=edit" class="new" title="Peter Norvig">Peter Norvig</a>: <i><a href="http://aima.cs.berkeley.edu/" class="external text" title="http://aima.cs.berkeley.edu/" rel="nofollow">Künstliche Intelligenz - Ein moderner Ansatz</a></i>, 2004, Prentice Hall, <a href="/w/index.php?title=Spezial:ISBN-Suche&amp;isbn=3827370892" class="internal">ISBN 3-8273-7089-2</a></li>
+<li>P. E. Hart, N. J. Nilsson, B. Raphael: <i>A Formal Basis for the Heuristic Determination of Minimum Cost Paths</i>, <a href="/wiki/IEEE" title="IEEE">IEEE</a> Transactions on Systems Science and Cybernetics SSC4 (2), pp. 100-107, 1968.</li>
+<li>P. E. Hart, N. J. Nilsson, B. Raphael: <i>Correction to "A Formal Basis for the Heuristic Determination of Minimum Cost Paths"</i>, <a href="/wiki/Association_for_Computing_Machinery" title="Association for Computing Machinery">SIGART</a> Newsletter, 37, pp. 28-29, 1972.</li>
+</ul>
+<a name="Weblinks" id="Weblinks"></a>
+<h2><span class="editsection">[<a href="/w/index.php?title=A%2A-Algorithmus&amp;action=edit&amp;section=11" title="Abschnitt bearbeiten: Weblinks">Bearbeiten</a>]</span> <span class="mw-headline">Weblinks</span></h2>
+<ul>
+<li><a href="http://www.policyalmanac.org/games/aStarTutorial_de.html" class="external text" title="http://www.policyalmanac.org/games/aStarTutorial_de.html" rel="nofollow">Ausführlicher Grundlagenartikel zum Thema A*-Algorithmus</a></li>
+<li><a href="http://theory.stanford.edu/~amitp/GameProgramming/" class="external text" title="http://theory.stanford.edu/~amitp/GameProgramming/" rel="nofollow">Seite über A*-Algorithmus und Wegfindung im allgemeinen (englisch)</a></li>
+<li><a href="http://www.geosimulation.de/methoden/a_stern_algorithmus.htm" class="external text" title="http://www.geosimulation.de/methoden/a_stern_algorithmus.htm" rel="nofollow">Praktische Beschreibung und Java-Applet zum A*-Algorithmus</a></li>
+<li><a href="http://herbert.gandraxa.com/herbert/pfa.asp" class="external text" title="http://herbert.gandraxa.com/herbert/pfa.asp" rel="nofollow">Einzelschrittsimulation in VB 6</a> (englisch), implementiert als DLL, mit GUI</li>
+<li><a href="http://3dpathfinding.homeunix.org" class="external text" title="http://3dpathfinding.homeunix.org" rel="nofollow">Uni-Seminararbeit zum Thema 3D-Pathfinding (Schwerpunkt Spieleentwicklung, deutsch)</a></li>
+<li><a href="http://www.stefan-baur.de/priv.studies.hauptseminar.html" class="external text" title="http://www.stefan-baur.de/priv.studies.hauptseminar.html" rel="nofollow">Visualisierung des A*-Algorithmus (Hauptseminar, deutsch)</a></li>
+</ul>
+<div id="artikelstadium">
+<div style="position: relative;"><a href="/wiki/Wikipedia:Lesenswerte_Artikel" title="Wikipedia:Lesenswerte Artikel"><img alt="" src="http://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Qsicon_lesenswert.svg/15px-Qsicon_lesenswert.svg.png" width="15" height="15" border="0" /></a></div>
+</div>
+<div id="Vorlage_Lesenswert">
+<table cellspacing="8" cellpadding="0" class="hintergrundfarbe1 rahmenfarbe1" style="width: 100%; font-size: 95%; border-top-style: solid; margin-top: 1em; clear: both; position:relative;">
+<tr>
+<td style="width: 24px;">
+<div style="position: relative;"><a href="/wiki/Wikipedia:Lesenswerte_Artikel" title="Wikipedia:Lesenswerte Artikel"><img alt="" src="http://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Qsicon_lesenswert.svg/24px-Qsicon_lesenswert.svg.png" width="24" height="24" border="0" /></a></div>
+</td>
+<td>Dieser Artikel wurde in die Liste der <a href="/wiki/Wikipedia:Lesenswerte_Artikel" title="Wikipedia:Lesenswerte Artikel">lesenswerten Artikel</a> aufgenommen.</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+
+<!-- 
+Pre-expand include size: 1403 bytes
+Post-expand include size: 712 bytes
+Template argument size: 7 bytes
+Maximum: 2048000 bytes
+-->
+
+<!-- Saved in parser cache with key dewiki:pcache:idhash:156968-0!1!0!!de!2 and timestamp 20070908094521 -->
+<div class="printfooter">
+Von „<a href="http://de.wikipedia.org/wiki/A%2A-Algorithmus">http://de.wikipedia.org/wiki/A%2A-Algorithmus</a>“</div>
+			<div id="catlinks"><p class='catlinks'><a href="/wiki/Spezial:Categories" title="Spezial:Categories">Kategorien</a>: <span dir='ltr'><a href="/wiki/Kategorie:Lesenswert" title="Kategorie:Lesenswert">Lesenswert</a></span> | <span dir='ltr'><a href="/wiki/Kategorie:Graphentheorie" title="Kategorie:Graphentheorie">Graphentheorie</a></span> | <span dir='ltr'><a href="/wiki/Kategorie:Suchalgorithmus" title="Kategorie:Suchalgorithmus">Suchalgorithmus</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Ansichten</h5>
+		<div class="pBody">
+			<ul>
+					 <li id="ca-nstab-main" class="selected"><a href="/wiki/A%2A-Algorithmus" title="Seiteninhalt anzeigen [c]" accesskey="c">Artikel</a></li>
+					 <li id="ca-talk"><a href="/wiki/Diskussion:A%2A-Algorithmus" title="Diskussion zum Seiteninhalt [t]" accesskey="t">Diskussion</a></li>
+					 <li id="ca-edit"><a href="/w/index.php?title=A%2A-Algorithmus&amp;action=edit" title="Seite bearbeiten. Bitte vor dem Speichern die Vorschaufunktion benutzen. [e]" accesskey="e">Seite bearbeiten</a></li>
+					 <li id="ca-history"><a href="/w/index.php?title=A%2A-Algorithmus&amp;action=history" title="Frühere Versionen dieser Seite [h]" accesskey="h">Versionen/Autoren</a></li>
+				</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-personal">
+		<h5>Persönliche Werkzeuge</h5>
+		<div class="pBody">
+			<ul>
+				<li id="pt-login"><a href="/w/index.php?title=Spezial:Anmelden&amp;returnto=A%2A-Algorithmus" title="Sich einzuloggen wird zwar gerne gesehen, ist aber keine Pflicht. [o]" accesskey="o">Anmelden</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-logo">
+		<a style="background-image: url(http://upload.wikimedia.org/wikipedia/de/b/bc/Wiki.png);" href="/wiki/Hauptseite" title="Hauptseite anzeigen [z]" accesskey="z"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="/wiki/Hauptseite" title="Hauptseite anzeigen [z]" accesskey="z">Hauptseite</a></li>
+				<li id="n-aboutsite"><a href="/wiki/Wikipedia:%C3%9Cber_Wikipedia">Über Wikipedia</a></li>
+				<li id="n-topics"><a href="/wiki/Portal:Wikipedia_nach_Themen">Themenportale</a></li>
+				<li id="n-alphindex"><a href="/wiki/Spezial:Alle_Seiten">Von A bis Z</a></li>
+				<li id="n-randompage"><a href="/wiki/Spezial:Zuf%C3%A4llige_Seite" title="Zufällige Seite [x]" accesskey="x">Zufälliger Artikel</a></li>
+			</ul>
+		</div>
+	</div>
+		<div class='portlet' id='p-Mitmachen'>
+		<h5>Mitmachen</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-help"><a href="/wiki/Wikipedia:Hilfe" title="Hilfeseite anzeigen">Hilfe</a></li>
+				<li id="n-portal"><a href="/wiki/Wikipedia:Autorenportal" title="Über das Portal, was du tun kannst, wo was zu finden ist">Autorenportal</a></li>
+				<li id="n-recentchanges"><a href="/wiki/Spezial:Letzte_%C3%84nderungen" title="Liste der letzten Änderungen in Wikipedia. [r]" accesskey="r">Letzte Änderungen</a></li>
+				<li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Spenden" title="Unterstützen Sie uns">Spenden</a></li>
+			</ul>
+		</div>
+	</div>
+		<div id="p-search" class="portlet">
+		<h5><label for="searchInput">Suche</label></h5>
+		<div id="searchBody" class="pBody">
+			<form action="/wiki/Spezial:Suche" id="searchform"><div>
+				<input id="searchInput" name="search" type="text" title="Durchsuche die Wikipedia [f]" accesskey="f" value="" />
+				<input type='submit' name="go" class="searchButton" id="searchGoButton"	value="Artikel" />&nbsp;
+				<input type='submit' name="fulltext" class="searchButton" id="mw-searchButton" value="Volltext" />
+			</div></form>
+		</div>
+	</div>
+	<div class="portlet" id="p-tb">
+		<h5>Werkzeuge</h5>
+		<div class="pBody">
+			<ul>
+				<li id="t-whatlinkshere"><a href="/wiki/Spezial:Linkliste/A%2A-Algorithmus" title="Liste aller Seiten, die hierher zeigen [j]" accesskey="j">Links auf diese Seite</a></li>
+				<li id="t-recentchangeslinked"><a href="/wiki/Spezial:%C3%84nderungen_an_verlinkten_Seiten/A%2A-Algorithmus" title="Letzte Änderungen an Seiten, die von hier verlinkt sind [k]" accesskey="k">Änderungen an verlinkten Seiten</a></li>
+<li id="t-upload"><a href="/wiki/Spezial:Hochladen" title="Dateien hochladen [u]" accesskey="u">Hochladen</a></li>
+<li id="t-specialpages"><a href="/wiki/Spezial:Spezialseiten" title="Liste aller Spezialseiten [q]" accesskey="q">Spezialseiten</a></li>
+				<li id="t-print"><a href="/w/index.php?title=A%2A-Algorithmus&amp;printable=yes" title="Druckansicht dieser Seite [p]" accesskey="p">Druckversion</a></li>				<li id="t-permalink"><a href="/w/index.php?title=A%2A-Algorithmus&amp;oldid=34956818" title="Dauerhafter Link zu dieser Seitenversion">Permanentlink</a></li><li id="t-cite"><a href="/w/index.php?title=Spezial:Cite&amp;page=A%2A-Algorithmus&amp;id=34956818">Artikel zitieren</a></li>			</ul>
+		</div>
+	</div>
+	<div id="p-lang" class="portlet">
+		<h5>Andere Sprachen</h5>
+		<div class="pBody">
+			<ul>
+				<li class="interwiki-en"><a href="http://en.wikipedia.org/wiki/A%2A_search_algorithm">English</a></li>
+				<li class="interwiki-es"><a href="http://es.wikipedia.org/wiki/Algoritmo_de_b%C3%BAsqueda_A%2A">Español</a></li>
+				<li class="interwiki-fi"><a href="http://fi.wikipedia.org/wiki/A%2A-algoritmi">Suomi</a></li>
+				<li class="interwiki-fr"><a href="http://fr.wikipedia.org/wiki/Algorithme_A%2A">Français</a></li>
+				<li class="interwiki-it"><a href="http://it.wikipedia.org/wiki/A%2A">Italiano</a></li>
+				<li class="interwiki-ja"><a href="http://ja.wikipedia.org/wiki/A%2A">日本語</a></li>
+				<li class="interwiki-nl"><a href="http://nl.wikipedia.org/wiki/A%2A-algoritme">Nederlands</a></li>
+				<li class="interwiki-pl"><a href="http://pl.wikipedia.org/wiki/Algorytm_A%2A">Polski</a></li>
+				<li class="interwiki-pt"><a href="http://pt.wikipedia.org/wiki/Algoritmo_A%2A">Português</a></li>
+				<li class="interwiki-vi"><a href="http://vi.wikipedia.org/wiki/Gi%E1%BA%A3i_thu%E1%BA%ADt_t%C3%ACm_ki%E1%BA%BFm_A%2A">Tiếng Việt</a></li>
+			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="/skins-1.5/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>
+				<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="/images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>
+			<ul id="f-list">
+				<li id="lastmod"> Diese Seite wurde zuletzt am 29. Juli 2007 um 21:29 Uhr geändert.</li>
+				<li id="copyright">Ihr Inhalt steht unter der <a class='internal' href="/wiki/Wikipedia:GNU_Free_Documentation_License">GNU-Lizenz für freie Dokumentation</a>.<br />
+Wikipedia® ist eine eingetragene Marke der Wikimedia Foundation Inc.<br /></li>
+				<li id="privacy"><a href="/wiki/Wikipedia:Datenschutz" title="Wikipedia:Datenschutz">Datenschutz</a></li>
+				<li id="about"><a href="/wiki/Wikipedia:%C3%9Cber_Wikipedia" title="Wikipedia:Über Wikipedia">Über Wikipedia</a></li>
+				<li id="disclaimer"><a href="/wiki/Wikipedia:Impressum" title="Wikipedia:Impressum">Impressum</a></li>
+			</ul>
+		</div>
+		
+	
+		<script type="text/javascript">if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by srv64 in 0.087 secs. --></body></html>

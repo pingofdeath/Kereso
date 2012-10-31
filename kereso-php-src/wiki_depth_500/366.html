@@ -1,0 +1,169 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<link rev=made href="mailto:ikeda_@_is_._tokushima-u_._ac_._jp">
+
+
+
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=EN">
+
+
+
+
+
+<meta name="description" content="JAVA applet demos of Dijkstra's algorithm
+to solve shortest path problems.">
+<meta name="keyword" content="Dijkstra's algorithm, shortest path problem,
+JAVA applet.">
+<title>Shortest Path Problem: Dijkstra's Algorithm</title>
+</head>
+
+<BODY bgcolor=white text="#000080" link="#008000" vlink="#800080">
+<table border="0" cellspacing="0" cellpadding="4">
+<tbody> 
+<tr><th align="left" bgcolor="#ffcc66" valign="center" width="120">
+
+<a href="../main/index.shtml">Mathematical<br>Programming<br></a>
+
+</th>
+<th align="left" bgcolor="#ffcc66" valign="center">
+
+<big>Dijkstra's Algorithm</big>
+
+</th></tr>
+<tr>
+<td align="left" bgcolor="#ffcc66" valign="top" width="120">
+
+<p>
+
+<a href="../simplex/Simplex.shtml">Simplex</a>
+
+</p>
+
+<p>
+
+<a href="../simplex/Twophase.shtml">Twophase</a>
+
+</p>
+
+<p>
+
+<big>Dijkstra</big>
+
+</p>
+
+<p>
+
+<a href="../dijkstra/Prim.shtml">Prim</a>
+
+</p>
+
+<p>
+
+<a href="../kruskal/Kruskal.shtml">Kruskal</a>
+
+</p>
+
+<p>
+
+<a href="../maxflow/Maxflow.shtml">Ford-Fulkerson</a>
+
+</p>
+<small>
+
+<hr>Dijkstra<br>Java applet demos:<ul>
+<li><a href="DijkstraApp.shtml?demo1">demo1</a>
+<li><a href="DijkstraApp.shtml?demo2">demo2</a>
+<li><a href="DijkstraApp.shtml?demo3">demo3</a>
+<li><a href="DijkstraApp.shtml?demo4">demo4</a>
+<li><a href="DijkstraApp.shtml?demo5">demo5</a>
+<li><a href="DijkstraApp.shtml?demo6">demo6</a>
+<li><a href="DijkstraApp.shtml?demo7">demo7</a>
+<li><a href="DijkstraApp.shtml?demo8">demo8</a>
+<li><a href="DijkstraApp.shtml?demo9">demo9</a>
+<li><a href="DijkstraApp.shtml?demo10">demo10</a>
+</ul>
+
+</small>
+<hr>
+
+<a href="../faq/faq.shtml">FAQ</a>
+
+<hr>
+
+<small>
+
+
+<a href="Dijkstra.shtml.ja">Japanese</a>/English
+
+
+</small>
+
+</td>
+<td bccolor=white valign=top>
+
+
+<p><h3>Shortest Path Problem</h3>
+Given a connected graph G=(V,E), a weight d:E->R+ and a fixed vertex s in V,
+find a shortest path from s to each vertex v in V.<P>
+</p>
+
+<p><h3> Dijkstra's Algorithm</h3>
+Dijkstra's algorithm is known to be a good algorithm to find
+a shortest path.
+<ol>
+<li>Set i=0, S<sub>0</sub>= {u<sub>0</sub>=s},
+L(u<sub>0</sub>)=0, and L(v)=infinity for v &lt&gt u<sub>0</sub>.
+If |V| = 1 then stop, otherwise go to step 2.
+<li>For each v in V\S<sub>i</sub>, replace L(v) by
+min{L(v), L(u<sub>i</sub>)+d<sub>v</sub><sup>u<sub>i</sub></sup>}.
+If L(v) is replaced, put a label (L(v), u<sub>i</sub>) on v.
+<li> Find a vertex v which minimizes {L(v): v in V\S<sub>i</sub>}, say u<sub>i+1</sub>.
+<li> Let S<sub>i+1</sub> = S<sub>i</sub> cup {u<sub>i+1</sub>}.
+<li> Replace i by i+1. If i=|V|-1 then stop, otherwise go to step 2.
+</ol>
+The time required by Dijkstra's algorithm is O(|V|<sup>2</sup>).
+It will be reduced to O(|E|log|V|)
+if heap is used to keep {v in V\S<sub>i</sub> : L(v) &lt infinity}.
+</p>
+
+<p><h3>Java Source File:</h3><UL>
+<LI> <a href="Dijkstra.java">Dijkstra.java</a>
+</UL></p>
+
+<p><h3>Java Applet Demos</h3><UL>
+<LI> <a href="DijkstraApp.shtml?demo1">a (6,10) graph</a>
+<LI> <a href="DijkstraApp.shtml?demo2">a (16,33) graph</a>
+<LI> <a href="DijkstraApp.shtml?demo3">a (12,23) graph</a>
+<LI> <a href="DijkstraApp.shtml?demo4">a (16,33) digraph</a>
+<LI> <a href="DijkstraApp.shtml?demo5">a (9,15) graph</a> From Tokushima city to other major cities in Shikoku Island
+<LI> <a href="DijkstraApp.shtml?demo6">a (48,77) graph</a> In Tokushima prefecture and its neighbor
+<LI> <a href="DijkstraApp.shtml?demo7">a (8,12) graph</a>
+<LI> <a href="DijkstraApp.shtml?demo8">a (6,12) graph</a>
+<LI> <a href="DijkstraApp.shtml?demo9">a (10,19) graph</a>
+<LI> <a href="DijkstraApp.shtml?demo10">a (14,22) graph</a>
+</UL></p>
+
+<p><h3>See Also</h3><UL>
+<LI> Minimum Spanning Tree by <a href="Prim.shtml"> Prim's Algorithm</a>
+<LI> Minimum Spanning Tree by <a href="../kruskal/Kruskal.shtml">
+Kruskal's Algorithm</a>
+<LI> Max Flow by <a href="../maxflow/Maxflow.shtml">
+Ford-Fulkerson's Labeling Algorithm</a>
+<LI> <a href="../simplex/Simplex.shtml">Simplex Method</a>
+</UL></p>
+
+</td></tr>
+<tr><th align="left" bgcolor="#ffcc66" valign="center" width="120">
+<a href="http://www-b2.is.tokushima-u.ac.jp/~ikeda">Kenji Ikeda's<br>Home Page<b
+r></a></th>
+<th align="left" bgcolor="#ffcc66" valign="center">
+Last Modified:
+Wednesday, 07-Jun-2000 16:17:19 JST
+<br>
+</th></tr>
+</tbody></table>
+</body>
+
+</html>

@@ -1,0 +1,381 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+				<meta name="keywords" content="Computational complexity theory,ComplexityClasses,ComplexityClasses,2-EXPTIME,2000,2006,Adi Shamir,Age of the universe,Alexander Razborov,Algorithm,Allan Borodin" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="http://www.gnu.org/copyleft/fdl.html" />
+		<title>Computational complexity theory - Wikipedia, the free encyclopedia</title>
+		<style type="text/css" media="screen, projection">/*<![CDATA[*/
+			@import "/skins-1.5/common/shared.css?99";
+			@import "/skins-1.5/monobook/main.css?99";
+		/*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="/skins-1.5/common/commonPrint.css?99" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE50Fixes.css?99";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE55Fixes.css?99";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "/skins-1.5/monobook/IE60Fixes.css?99";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "/skins-1.5/monobook/IE70Fixes.css?99";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="/skins-1.5/common/IEFixes.js?99"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		
+		<script type= "text/javascript">/*<![CDATA[*/
+var skin = "monobook";
+var stylepath = "/skins-1.5";
+var wgArticlePath = "/wiki/$1";
+var wgScriptPath = "/w";
+var wgScript = "/w/index.php";
+var wgServer = "http://en.wikipedia.org";
+var wgCanonicalNamespace = "";
+var wgCanonicalSpecialPageName = false;
+var wgNamespaceNumber = 0;
+var wgPageName = "Computational_complexity_theory";
+var wgTitle = "Computational complexity theory";
+var wgAction = "view";
+var wgRestrictionEdit = [];
+var wgRestrictionMove = [];
+var wgArticleId = "7543";
+var wgIsArticle = true;
+var wgUserName = null;
+var wgUserGroups = null;
+var wgUserLanguage = "en";
+var wgContentLanguage = "en";
+var wgBreakFrames = false;
+var wgCurRevisionId = "157161612";
+/*]]>*/</script>
+                
+		<script type="text/javascript" src="/skins-1.5/common/wikibits.js?99"><!-- wikibits js --></script>
+		<script type="text/javascript" src="/w/index.php?title=-&amp;action=raw&amp;gen=js&amp;useskin=monobook"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "/w/index.php?title=MediaWiki:Common.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=MediaWiki:Monobook.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=-&action=raw&gen=css&maxage=2678400";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+		<script type="text/javascript" src="/skins-1.5/common/ajax.js?99"></script>
+	</head>
+<body  class="mediawiki ns-0 ltr page-Computational_complexity_theory">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">Computational complexity theory</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+			<div id="contentSub">(Redirected from <a href="/w/index.php?title=Computational_complexity&amp;redirect=no" title="Computational complexity">Computational complexity</a>)</div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<div class="tright" style="border:solid #aaa 1px; background:#f9f9f9; margin:0.5em 0 0.5em 0.5em; font-size:85%;">
+<table style="background:transparent;" width="0">
+<tr>
+<td>
+<div style="position:relative; width:32px; height:28px; overflow:hidden">
+<div style="position:absolute; top:0px; left:0px; z-index:2;"><a href="/wiki/Image:Portal.svg" class="image" title="Portal.svg"><img alt="" src="http://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Portal.svg/28px-Portal.svg.png" width="28" height="28" border="0" /></a></div>
+</div>
+</td>
+<td><i><b><a href="/wiki/Portal:Computer_science" title="Portal:Computer science">Computer science Portal</a></b></i></td>
+</tr>
+</table>
+</div>
+<p>As a branch of the <a href="/wiki/Theory_of_computation" title="Theory of computation">theory of computation</a> in <a href="/wiki/Computer_science" title="Computer science">computer science</a>, <b>computational complexity theory</b> describes the <a href="/wiki/Scalability" title="Scalability">scalability</a> of <a href="/wiki/Algorithm" title="Algorithm">algorithms</a>, and the inherent difficulty in providing scalable algorithms for specific <a href="/wiki/Computational_problem" title="Computational problem">computational problems</a>. That is, the theory answers the question, "As the size of the input to an algorithm increases, how do the running time and memory requirements of the algorithm change and what are the implications and ramifications of that change?" The theory places practical limits on what <a href="/wiki/Computer" title="Computer">computers</a> can accomplish.</p>
+<p>The implications of the theory are important to government and industry. The speed and memory capacity of computers are always increasing, but then so are the sizes of the data sets that need to be analyzed. If algorithms fail to scale well, then even vast improvements in computing technology will result in only marginal increases in practical data size.</p>
+<p>Algorithms and problems are categorized into <a href="/wiki/Complexity_class" title="Complexity class">complexity classes</a>. The most important open question of complexity theory is whether the complexity class <a href="/wiki/P_%28complexity%29" title="P (complexity)"><i>P</i></a> is the same as the complexity class <a href="/wiki/NP_%28complexity%29" title="NP (complexity)"><i>NP</i></a>, or is merely a subset as is generally believed. Far from being an esoteric exercise, shortly after the question was first posed, it was realised that many important industry problems in the field of <a href="/wiki/Operations_research" title="Operations research">operations research</a> are of an <i>NP</i> subclass called <a href="/wiki/NP-complete" title="NP-complete">NP-complete</a>. NP-complete problems have the property that solutions to problems are quick to check, yet current methods to find exact solutions are not scalable. If the <i>NP</i> class is larger than <i>P</i>, then no easily scalable solution exists for these problems; whether this is the case remains an important open question in computational complexity theory.</p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Overview"><span class="tocnumber">1</span> <span class="toctext">Overview</span></a></li>
+<li class="toclevel-1"><a href="#Decision_problems"><span class="tocnumber">2</span> <span class="toctext">Decision problems</span></a></li>
+<li class="toclevel-1"><a href="#Computational_resources"><span class="tocnumber">3</span> <span class="toctext">Computational resources</span></a></li>
+<li class="toclevel-1"><a href="#Complexity_classes"><span class="tocnumber">4</span> <span class="toctext">Complexity classes</span></a></li>
+<li class="toclevel-1"><a href="#Open_questions"><span class="tocnumber">5</span> <span class="toctext">Open questions</span></a>
+<ul>
+<li class="toclevel-2"><a href="#The_P_.3D_NP_question"><span class="tocnumber">5.1</span> <span class="toctext">The P = NP question</span></a></li>
+<li class="toclevel-2"><a href="#Incomplete_problems_in_NP"><span class="tocnumber">5.2</span> <span class="toctext">Incomplete problems in NP</span></a></li>
+<li class="toclevel-2"><a href="#NP_.3D_co-NP"><span class="tocnumber">5.3</span> <span class="toctext">NP = co-NP</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Intractability"><span class="tocnumber">6</span> <span class="toctext">Intractability</span></a></li>
+<li class="toclevel-1"><a href="#Notable_researchers"><span class="tocnumber">7</span> <span class="toctext">Notable researchers</span></a></li>
+<li class="toclevel-1"><a href="#See_also"><span class="tocnumber">8</span> <span class="toctext">See also</span></a></li>
+<li class="toclevel-1"><a href="#References"><span class="tocnumber">9</span> <span class="toctext">References</span></a></li>
+<li class="toclevel-1"><a href="#External_links"><span class="tocnumber">10</span> <span class="toctext">External links</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script>
+<p><a name="Overview" id="Overview"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Computational_complexity_theory&amp;action=edit&amp;section=1" title="Edit section: Overview">edit</a>]</span> <span class="mw-headline">Overview</span></h2>
+<p>Complexity theory deals with the relative computational difficulty of <a href="/wiki/Computable_function" title="Computable function">computable functions</a>. This differs from <a href="/wiki/Computability_theory_%28computation%29" title="Computability theory (computation)">computability theory</a>, which deals with whether a problem can be solved at all, regardless of the resources required.</p>
+<p>A single "problem" is a complete set of related questions, where each question is a finite-length <a href="/wiki/String_%28computer_science%29" title="String (computer science)">string</a>. For example, the problem <a href="/wiki/Integer_factorization" title="Integer factorization"><i>FACTORIZE</i></a> is: given an integer written in <a href="/wiki/Binary_number" title="Binary number">binary</a>, return all of the <a href="/wiki/Prime_number" title="Prime number">prime</a> factors of that number. A particular question is called an <i>instance</i>. For example, "give the factors of the number 15" is one instance of the <i>FACTORIZE</i> problem.</p>
+<p>The <b>time complexity</b> of a problem is the number of steps that it takes to solve an instance of the problem as a function of the <a href="/wiki/Problem_size" title="Problem size">size of the input</a> (usually measured in bits), using the most efficient <a href="/wiki/Algorithm" title="Algorithm">algorithm</a>. To understand this intuitively, consider the example of an instance that is <i>n</i> bits long that can be solved in <i>n</i>² steps. In this example we say the problem has a time complexity of <i>n</i>². Of course, the exact number of steps will depend on exactly what machine or language is being used. To avoid that problem, the <a href="/wiki/Big_O_notation" title="Big O notation">Big O notation</a> is generally used (sometimes described as the "order" of the calculation, as in "on the order of"). If a problem has time complexity O(<i>n</i>²) on one typical computer, then it will also have complexity O(<i>n</i>²) on most other computers, so this notation allows us to generalize away from the details of a particular computer.</p>
+<p><b>Example:</b> Mowing grass has linear time complexity because it takes double the time to mow double the area. However, <a href="/wiki/Binary_search_algorithm" title="Binary search algorithm">looking up something</a> in a dictionary has only logarithmic time complexity because a double sized dictionary only has to be opened one time more (e.g. exactly in the middle - then the problem size is reduced by half).</p>
+<p>The <b>space complexity</b> of a problem is a related concept, that measures the amount of space, or <a href="/wiki/Memory_%28computer%29" title="Memory (computer)">memory</a> required by the algorithm. An informal analogy would be the amount of scratch paper needed while working out a problem with pen and paper. Space complexity is also measured with <a href="/wiki/Big_O_notation" title="Big O notation">Big O notation</a>.</p>
+<p>A different measure of problem complexity, which is useful in some cases, is <b><a href="/wiki/Circuit_complexity" title="Circuit complexity">circuit complexity</a></b>. This is a measure of the size of a <a href="/wiki/Boolean_logic" title="Boolean logic">boolean circuit</a> needed to compute the answer to a problem, in terms of the number of <a href="/wiki/Logic_gates" title="Logic gates">logic gates</a> required to build the circuit. Such a measure is useful, for example, when designing <a href="/wiki/Integrated_circuit" title="Integrated circuit">hardware microchips</a> to compute the function instead of <a href="/wiki/Software" title="Software">software</a>.</p>
+<p><a name="Decision_problems" id="Decision_problems"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Computational_complexity_theory&amp;action=edit&amp;section=2" title="Edit section: Decision problems">edit</a>]</span> <span class="mw-headline">Decision problems</span></h2>
+<p>Much of complexity theory deals with decision problems. A <a href="/wiki/Decision_problem" title="Decision problem">decision problem</a> is a problem where the answer is always <i>yes</i> or <i>no</i>. Complexity theory distinguishes between problems verifying <i>yes</i> and problems verifying <i>no</i> answers. A problem that reverses the <i>yes</i> and <i>no</i> answers of another problem is called a <a href="/wiki/Complement_%28complexity%29" title="Complement (complexity)">complement</a> of that problem.</p>
+<p>For example, a well known decision problem <i>IS-PRIME</i> returns a <i>yes</i> answer when a given input is a <a href="/wiki/Prime_number" title="Prime number">prime</a> and a <i>no</i> otherwise, while the problem <i>IS-COMPOSITE</i> determines whether a given integer is <i>not</i> a prime number (i.e. a <a href="/wiki/Composite_number" title="Composite number">composite number</a>). When <i>IS-PRIME</i> returns a <i>yes</i>, <i>IS-COMPOSITE</i> returns a <i>no</i>, and vice versa. So the <i>IS-COMPOSITE</i> is a complement of <i>IS-PRIME</i>, and similarly <i>IS-PRIME</i> is a complement of <i>IS-COMPOSITE</i>.</p>
+<p>Decision problems are often considered because an arbitrary problem can always be <a href="/wiki/Reduction_%28complexity%29" title="Reduction (complexity)">reduced</a> to some decision problem. For instance, the problem <i>HAS-FACTOR</i> is: given integers <i>n</i> and <i>k</i> written in binary, return whether <i>n</i> has any prime factors less than <i>k</i>. If we can solve <i>HAS-FACTOR</i> with a certain amount of resources, then we can use that solution to solve <i>FACTORIZE</i> without much more resources. This is accomplished by doing a <a href="/wiki/Binary_search" title="Binary search">binary search</a> on <i>k</i> until the smallest factor of <i>n</i> is found, then dividing out that factor and repeating until all the factors are found.</p>
+<p>An important result in complexity theory is the fact that no matter how hard a problem can get (i.e. how much time and space resources it requires), there will always be even harder problems. For time complexity, this is proven by the <a href="/wiki/Time_hierarchy_theorem" title="Time hierarchy theorem">time hierarchy theorem</a>. A similar <a href="/wiki/Space_hierarchy_theorem" title="Space hierarchy theorem">space hierarchy theorem</a> can also be derived.</p>
+<p><a name="Computational_resources" id="Computational_resources"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Computational_complexity_theory&amp;action=edit&amp;section=3" title="Edit section: Computational resources">edit</a>]</span> <span class="mw-headline">Computational resources</span></h2>
+<p>Complexity theory analyzes the difficulty of computational problems in terms of many different <a href="/wiki/Computational_resource" title="Computational resource">computational resources</a>. The same problem can be explained in terms of the necessary amounts of many different computational resources, including time, space, randomness, <a href="/wiki/Alternation" title="Alternation">alternation</a>, and other less-intuitive measures. A <a href="/wiki/Complexity_class" title="Complexity class">complexity class</a> is the set of all of the computational problems which can be solved using a certain amount of a certain computational resource.</p>
+<p>Perhaps the most well-studied computational resources are <b><a href="/wiki/Deterministic_time" title="Deterministic time">deterministic time</a></b> (DTIME) and <b><a href="/wiki/Deterministic_space" title="Deterministic space">deterministic space</a></b> (DSPACE). These resources represent the amount of <i>computation time</i> and <i>memory space</i> needed on a deterministic computer, like the computers that actually exist. These resources are of great practical interest, and are well-studied.</p>
+<p>Some computational problems are easier to analyze in terms of more unusual resources. For example, a <a href="/wiki/Nondeterministic_Turing_machine" title="Nondeterministic Turing machine">nondeterministic Turing machine</a> is a computational model that is allowed to branch out to check many different possibilities at once. The nondeterministic Turing machine has very little to do with how we physically want to compute algorithms, but its branching exactly captures many of the mathematical models we want to analyze, so that <a href="/wiki/Nondeterministic_time" title="Nondeterministic time">nondeterministic time</a> is a very important resource in analyzing computational problems.</p>
+<p>Many more unusual computational resources have been used in complexity theory. Technically, any <a href="/wiki/Complexity_measure" title="Complexity measure">complexity measure</a> can be viewed as a computational resource, and complexity measures are very broadly defined by the <a href="/wiki/Blum_complexity_axioms" title="Blum complexity axioms">Blum complexity axioms</a>.</p>
+<p><a name="Complexity_classes" id="Complexity_classes"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Computational_complexity_theory&amp;action=edit&amp;section=4" title="Edit section: Complexity classes">edit</a>]</span> <span class="mw-headline">Complexity classes</span></h2>
+<p>A <a href="/wiki/Complexity_class" title="Complexity class">complexity class</a> is the set of all of the computational problems which can be solved using a certain amount of a certain computational resource.</p>
+<p>The complexity class <a href="/wiki/P_%28complexity%29" title="P (complexity)"><i>P</i></a> is the set of decision problems that can be solved by a <a href="/wiki/Deterministic_Turing_machine" title="Deterministic Turing machine">deterministic machine</a> in <a href="/wiki/Polynomial_time" title="Polynomial time">polynomial time</a>. This class corresponds to an intuitive idea of the problems which can be effectively solved in the worst cases.<sup id="_ref-Sipser2006_0" class="reference"><a href="#_note-Sipser2006" title="">[1]</a></sup></p>
+<p>The complexity class <a href="/wiki/NP_%28complexity%29" title="NP (complexity)"><i>NP</i></a> is the set of decision problems that can be solved by a <a href="/wiki/Non-deterministic_Turing_machine" title="Non-deterministic Turing machine"><i>non</i>-deterministic machine</a> in polynomial time. This class contains many problems that people would like to be able to solve effectively, including the <a href="/wiki/Boolean_satisfiability_problem" title="Boolean satisfiability problem">Boolean satisfiability problem</a>, the <a href="/wiki/Hamiltonian_path_problem" title="Hamiltonian path problem">Hamiltonian path problem</a> and the <a href="/wiki/Vertex_cover_problem" title="Vertex cover problem">vertex cover problem</a>. All the problems in this class have the property that their solutions can be checked efficiently.<sup id="_ref-Sipser2006_1" class="reference"><a href="#_note-Sipser2006" title="">[1]</a></sup></p>
+<p>Many complexity classes can be characterized in terms of the <a href="/wiki/Mathematical_logic" title="Mathematical logic">mathematical logic</a> needed to express them - this field is called <a href="/wiki/Descriptive_complexity" title="Descriptive complexity">descriptive complexity</a>.</p>
+<p><a name="Open_questions" id="Open_questions"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Computational_complexity_theory&amp;action=edit&amp;section=5" title="Edit section: Open questions">edit</a>]</span> <span class="mw-headline">Open questions</span></h2>
+<p><a name="The_P_.3D_NP_question" id="The_P_.3D_NP_question"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Computational_complexity_theory&amp;action=edit&amp;section=6" title="Edit section: The P = NP question">edit</a>]</span> <span class="mw-headline">The P = NP question</span></h3>
+<dl>
+<dd><span class="boilerplate seealso"><i>See also: <a href="/wiki/Complexity_classes_P_and_NP" title="Complexity classes P and NP">Complexity classes P and NP</a>&#160;and <a href="/wiki/Oracle_machine" title="Oracle machine">Oracle machine</a></i></span></dd>
+</dl>
+<p>The question of whether <i>NP</i> is the same set as <i>P</i> (that is whether problems that can be solved in <i>non-deterministic</i> polynomial time can be solved in <i>deterministic</i> polynomial time) is one of the most important open questions in theoretical computer science due to the wide implications a solution would present.<sup id="_ref-Sipser2006_2" class="reference"><a href="#_note-Sipser2006" title="">[1]</a></sup>. If it were true, many important problems would be shown to have "efficient" solutions. These include various types of <a href="/wiki/Integer_programming" title="Integer programming">integer programming</a> in <a href="/wiki/Operations_research" title="Operations research">operations research</a>, many problems in <a href="/wiki/Logistics" title="Logistics">logistics</a>, <a href="/wiki/Protein_structure_prediction" title="Protein structure prediction">protein structure prediction</a> in <a href="/wiki/Biology" title="Biology">biology</a>, and the ability to find formal proofs of <a href="/wiki/Pure_mathematics" title="Pure mathematics">pure mathematics</a> theorems efficiently using <a href="/wiki/Computer" title="Computer">computers</a>.<sup id="_ref-0" class="reference"><a href="#_note-0" title="">[2]</a></sup><sup id="_ref-1" class="reference"><a href="#_note-1" title="">[3]</a></sup> The <a href="/wiki/Clay_Mathematics_Institute" title="Clay Mathematics Institute">Clay Mathematics Institute</a> announced in the year <a href="/wiki/2000" title="2000">2000</a> that they would pay a <a href="/wiki/United_States_dollar" title="United States dollar">USD$</a>1,000,000 prize for the first person to prove a solution.<sup id="_ref-2" class="reference"><a href="#_note-2" title="">[4]</a></sup></p>
+<p>Questions like this motivate the concepts of <i>hard</i> and <i><a href="/wiki/Complete_%28complexity%29" title="Complete (complexity)">complete</a></i>. A set of problems <i>X</i> is hard for a set of problems <i>Y</i> if every problem in <i>Y</i> can be transformed "easily" into some problem in <i>X</i> that produces the same solution. The definition of "easily" is different in different contexts. In the particular case of <i>P</i> versus <i>NP</i>, the relevant <i>hard</i> set is <a href="/wiki/NP-hard" title="NP-hard">NP-hard</a> - a set of problems, that are not necessarily in <i>NP</i> themselves, but to which any <i>NP</i> problem can be reduced in polynomial time.</p>
+<p>Set <i>X</i> is complete for <i>Y</i> if it is hard for <i>Y</i>, and is also a subset of <i>Y</i>. Thus, the set of <a href="/wiki/NP-complete" title="NP-complete">NP-complete</a> problems contains the most "difficult" problems in NP, in the sense that they are the ones most likely not to be in P. Because the problem of <i>P</i> = <i>NP</i> remains unsolved, being able to reduce a problem to a known NP-complete problem would indicate that there is no known polynomial-time solution for it. Similarly, because all <i>NP</i> problems can be reduced to the set, finding an <i>NP-complete</i> problem that can be solved in polynomial time would mean that <i>P</i> = <i>NP</i>.<sup id="_ref-Sipser2006_3" class="reference"><a href="#_note-Sipser2006" title="">[1]</a></sup></p>
+<p><a name="Incomplete_problems_in_NP" id="Incomplete_problems_in_NP"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Computational_complexity_theory&amp;action=edit&amp;section=7" title="Edit section: Incomplete problems in NP">edit</a>]</span> <span class="mw-headline">Incomplete problems in <i>NP</i></span></h3>
+<div class="thumb tright">
+<div class="thumbinner" style="width:252px;"><a href="/wiki/Image:Complexity_classes.svg" class="image" title="Diagram of complexity classes provided that P ≠ NP. The existence of problems in NP outside both P and NP-complete in this case was established by Ladner."><img alt="Diagram of complexity classes provided that P ≠ NP. The existence of problems in NP outside both P and NP-complete in this case was established by Ladner." src="http://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Complexity_classes.svg/250px-Complexity_classes.svg.png" width="250" height="154" border="0" class="thumbimage" /></a>
+<div class="thumbcaption">
+<div class="magnify" style="float:right"><a href="/wiki/Image:Complexity_classes.svg" class="internal" title="Enlarge"><img src="/skins-1.5/common/images/magnify-clip.png" width="15" height="11" alt="" /></a></div>
+Diagram of complexity classes provided that <b>P</b> ≠ <b>NP</b>. The existence of problems in <b>NP</b> outside both <b>P</b> and <b>NP</b>-complete in this case was established by Ladner.<sup id="_ref-Ladner75_0" class="reference"><a href="#_note-Ladner75" title="">[5]</a></sup></div>
+</div>
+</div>
+<p>Another open question related to the <i>P</i> = <i>NP</i> problem is whether there exist problems that are in NP, but not in P, that are not NP-complete. In other words problems that have to be solved in non-deterministic polynomial time, but cannot be reduced to in polynomial time from other non-deterministic polynomial time problems. One such problem, that is known to be NP but not known to be NP-complete, is the <a href="/wiki/Graph_isomorphism_problem" title="Graph isomorphism problem">graph isomorphism problem</a> - a problem that tries to decide whether two <a href="/wiki/Graph_%28mathematics%29" title="Graph (mathematics)">graphs</a> are <a href="/wiki/Isomorphic" title="Isomorphic">isomorphic</a> (i.e. share the same properties). It has been shown that if <i>P</i> ≠ <i>NP</i> then such problems exist.<sup id="_ref-DuKo2000_0" class="reference"><a href="#_note-DuKo2000" title="">[6]</a></sup></p>
+<p><a name="NP_.3D_co-NP" id="NP_.3D_co-NP"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Computational_complexity_theory&amp;action=edit&amp;section=8" title="Edit section: NP = co-NP">edit</a>]</span> <span class="mw-headline"><i>NP</i> = <i>co-NP</i></span></h3>
+<p>Where <a href="/wiki/Co-NP" title="Co-NP">co-NP</a> is the set containing the <a href="/wiki/Complement_%28complexity%29" title="Complement (complexity)">complement</a> problems (i.e. problems with the <i>yes</i>/<i>no</i> answers reversed) of NP problems. It is believed that the two classes are not equal, however it has not yet been proven. It has been shown that if these two complexity classes are not equal, then it follows that no NP-complete problem can be in co-NP and no <a href="/wiki/Co-NP-complete" title="Co-NP-complete">co-NP-complete</a> problem can be in NP.<sup id="_ref-DuKo2000_1" class="reference"><a href="#_note-DuKo2000" title="">[6]</a></sup></p>
+<p><a name="Intractability" id="Intractability"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Computational_complexity_theory&amp;action=edit&amp;section=9" title="Edit section: Intractability">edit</a>]</span> <span class="mw-headline">Intractability</span></h2>
+<dl>
+<dd><span class="boilerplate seealso"><i>See also: <a href="/wiki/Combinatorial_explosion" title="Combinatorial explosion">Combinatorial explosion</a></i></span></dd>
+</dl>
+<p>Problems that are <a href="/wiki/Decidability" title="Decidability">solvable in theory</a>, but cannot be solved in practice, are called <i>intractable</i>. Naive complexity theory assumes problems that lack polynomial-time solutions are intractable for more than the smallest inputs. Problems that are known to be intractable in this sense include those that are <a href="/wiki/EXPTIME" title="EXPTIME">EXPTIME</a>-complete. If NP is not the same as P, then the NP-complete problems are also intractable in this sense. What this means "in practice" is open to debate.</p>
+<p>To see why exponential-time solutions might be unusable in practice, consider a problem that requires 2<sup>n</sup> operations to solve (n is the size of the input). For a relatively small input size of <i>n</i>=100, and assuming a computer that can perform 10<sup>12</sup> operations per second, a solution would take about 4×10<sup>10</sup> years, much longer than the current <a href="/wiki/Age_of_the_universe" title="Age of the universe">age of the universe</a>. On the other hand, a problem that requires <i>n</i><sup>15</sup> operations would be in P, yet a solution would also take about 4×10<sup>10</sup> years for <i>n</i>=100. And a problem that required 2<sup>0.0000001*n</sup> operations would not be in P, but would be solvable for quite large cases.</p>
+<p>Finally, saying that a problem is not in P does not imply that all large cases of the problem are hard or even that most of them are. For example the decision problem in <a href="/wiki/Presburger_arithmetic" title="Presburger arithmetic">Presburger arithmetic</a> has been shown not to be in P, yet algorithms have been written that solve the problem in reasonable times in most cases.</p>
+<p><a name="Notable_researchers" id="Notable_researchers"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Computational_complexity_theory&amp;action=edit&amp;section=10" title="Edit section: Notable researchers">edit</a>]</span> <span class="mw-headline">Notable researchers</span></h2>
+<div style="-moz-column-count:2; column-count:2;">
+<ul>
+<li><a href="/wiki/Laszlo_Babai" title="Laszlo Babai">Laszlo Babai</a></li>
+<li><a href="/wiki/Manuel_Blum" title="Manuel Blum">Manuel Blum</a>, who developed an axiomatic complexity theory based on his <a href="/wiki/Blum_axioms" title="Blum axioms">Blum axioms</a></li>
+<li><a href="/wiki/Allan_Borodin" title="Allan Borodin">Allan Borodin</a></li>
+<li><a href="/wiki/Stephen_Cook" title="Stephen Cook">Stephen Cook</a></li>
+<li><a href="/w/index.php?title=Uriel_Feige&amp;action=edit" class="new" title="Uriel Feige">Uriel Feige</a></li>
+<li><a href="/wiki/Michael_R._Garey" title="Michael R. Garey">Michael R. Garey</a></li>
+<li><a href="/wiki/Oded_Goldreich" title="Oded Goldreich">Oded Goldreich</a></li>
+<li><a href="/wiki/Juris_Hartmanis" title="Juris Hartmanis">Juris Hartmanis</a></li>
+<li><a href="/wiki/Johan_H%C3%A5stad" title="Johan Håstad">Johan Håstad</a></li>
+<li><a href="/wiki/Russell_Impagliazzo" title="Russell Impagliazzo">Russell Impagliazzo</a></li>
+<li><a href="/wiki/David_S._Johnson" title="David S. Johnson">David S. Johnson</a></li>
+<li><a href="/wiki/Richard_Karp" title="Richard Karp">Richard Karp</a></li>
+<li><a href="/wiki/Marek_Karpinski" title="Marek Karpinski">Marek Karpinski</a></li>
+<li><a href="/wiki/Donald_Knuth" title="Donald Knuth">Donald Knuth</a></li>
+<li><a href="/wiki/Leonid_Levin" title="Leonid Levin">Leonid Levin</a></li>
+<li><a href="/wiki/Jack_Lutz" title="Jack Lutz">Jack Lutz</a></li>
+<li><a href="/wiki/Christos_H._Papadimitriou" title="Christos H. Papadimitriou">Christos H. Papadimitriou</a></li>
+<li><a href="/wiki/Alexander_Razborov" title="Alexander Razborov">Alexander Razborov</a></li>
+<li><a href="/wiki/Steven_Rudich" title="Steven Rudich">Steven Rudich</a></li>
+<li><a href="/wiki/Walter_Savitch" title="Walter Savitch">Walter Savitch</a></li>
+<li><a href="/wiki/Adi_Shamir" title="Adi Shamir">Adi Shamir</a></li>
+<li><a href="/wiki/Michael_Sipser" title="Michael Sipser">Michael Sipser</a></li>
+<li><a href="/wiki/Richard_Stearns_%28computer_scientist%29" title="Richard Stearns (computer scientist)">Richard Stearns</a></li>
+<li><a href="/wiki/Madhu_Sudan" title="Madhu Sudan">Madhu Sudan</a></li>
+<li><a href="/wiki/Leslie_Valiant" title="Leslie Valiant">Leslie Valiant</a></li>
+<li><a href="/wiki/Andrew_Yao" title="Andrew Yao">Andrew Yao</a></li>
+</ul>
+</div>
+<p><a name="See_also" id="See_also"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Computational_complexity_theory&amp;action=edit&amp;section=11" title="Edit section: See also">edit</a>]</span> <span class="mw-headline">See also</span></h2>
+<ul>
+<li><a href="/wiki/Complexity" title="Complexity">Complexity</a></li>
+<li><a href="/wiki/List_of_important_publications_in_computer_science#computational_complexity_theory" title="List of important publications in computer science">List of important publications in computational complexity theory</a></li>
+<li><a href="/wiki/List_of_open_problems_in_computer_science#computational_complexity_theory" title="List of open problems in computer science">List of open problems in computational complexity theory</a></li>
+<li><a href="/wiki/List_of_computability_and_complexity_topics" title="List of computability and complexity topics">List of computability and complexity topics</a></li>
+<li><a href="/wiki/Game_complexity" title="Game complexity">Game complexity</a></li>
+<li><a href="/wiki/The_Complexity_of_Songs" title="The Complexity of Songs">The Complexity of Songs</a></li>
+<li><a href="/wiki/Run-time_analysis" title="Run-time analysis">Run-time analysis</a></li>
+</ul>
+<p><a name="References" id="References"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Computational_complexity_theory&amp;action=edit&amp;section=12" title="Edit section: References">edit</a>]</span> <span class="mw-headline">References</span></h2>
+<ul>
+<li>L. Fortnow, Steve Homer (2002/2003). <a href="http://people.cs.uchicago.edu/~fortnow/papers/history.pdf" class="external text" title="http://people.cs.uchicago.edu/~fortnow/papers/history.pdf" rel="nofollow">A Short History of Computational Complexity</a>. In D. van Dalen, J. Dawson, and A. Kanamori, editors, <i>The History of Mathematical Logic</i>. North-Holland, Amsterdam.</li>
+</ul>
+<ul>
+<li><a href="/w/index.php?title=Jan_van_Leeuwen&amp;action=edit" class="new" title="Jan van Leeuwen">Jan van Leeuwen</a>, ed. <i>Handbook of Theoretical Computer Science, Volume A: Algorithms and Complexity</i>, The MIT Press/Elsevier, 1990. <a href="/w/index.php?title=Special:Booksources&amp;isbn=9780444880710" class="internal">ISBN 978-0-444-88071-0</a> (Volume A). QA 76.H279 1990. Huge compendium of information, 1000s of references in the various articles.</li>
+</ul>
+<ol class="references">
+<li id="_note-Sipser2006">^ <a href="#_ref-Sipser2006_0" title=""><sup><i><b>a</b></i></sup></a> <a href="#_ref-Sipser2006_1" title=""><sup><i><b>b</b></i></sup></a> <a href="#_ref-Sipser2006_2" title=""><sup><i><b>c</b></i></sup></a> <a href="#_ref-Sipser2006_3" title=""><sup><i><b>d</b></i></sup></a> <cite class="book" style="font-style:normal" id="Reference-Sipser-2006"><a href="/wiki/Michael_Sipser" title="Michael Sipser">Sipser, Michael</a> (2006). "Time Complexity", <i>Introduction to the Theory of Computation</i>, 2nd edition, USA: <a href="/wiki/Thomson_Learning" title="Thomson Learning">Thomson Course Technology</a>. <a href="/w/index.php?title=Special:Booksources&amp;isbn=0534950973" class="internal">ISBN 0534950973</a>.</cite><span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Introduction+to+the+Theory+of+Computation&amp;rft.atitle=Time+Complexity&amp;rft.aulast=Sipser&amp;rft.aufirst=Michael&amp;rft.edition=2nd+edition&amp;rft.pub=%5B%5BThomson+Learning%7CThomson+Course+Technology%5D%5D&amp;rft.place=USA">&#160;</span></li>
+<li id="_note-0"><b><a href="#_ref-0" title="">^</a></b> <cite style="font-style:normal">Berger, Bonnie A.; Leighton, Terrance (1998). "Protein folding in the hydrophobic-hydrophilic (HP) model is NP-complete.". <i>Journal of Computational Biology</i> <b>5</b>: p27-40. <a href="http://www.ncbi.nlm.nih.gov/sites/entrez?cmd=retrieve&amp;db=pubmed&amp;list_uids=9541869&amp;dopt=Abstract" class="external text" title="http://www.ncbi.nlm.nih.gov/sites/entrez?cmd=retrieve&amp;db=pubmed&amp;list_uids=9541869&amp;dopt=Abstract" rel="nofollow">PubMed</a>.</cite><span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.atitle=Protein+folding+in+the+hydrophobic-hydrophilic+%28HP%29+model+is+NP-complete.&amp;rft.jtitle=Journal+of+Computational+Biology&amp;rft.date=1998&amp;rft.volume=5&amp;rft.aulast=Berger&amp;rft.aufirst=Bonnie+A.&amp;rft.pages=p27-40">&#160;</span></li>
+<li id="_note-1"><b><a href="#_ref-1" title="">^</a></b> <cite style="font-style:normal"><a href="/wiki/Stephen_Cook" title="Stephen Cook">Cook, Stephen</a> (April 2000). "<a href="http://www.claymath.org/millennium/P_vs_NP/Official_Problem_Description.pdf" class="external text" title="http://www.claymath.org/millennium/P_vs_NP/Official_Problem_Description.pdf" rel="nofollow">The P versus NP Problem</a>". Retrieved on <a href="/wiki/2006" title="2006">2006</a>-<a href="/wiki/October_18" title="October 18">10-18</a>.</cite><span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.atitle=The+P+versus+NP+Problem&amp;rft.date=2000&amp;rft.aulast=Cook&amp;rft.aufirst=Stephen&amp;rft_id=http%3A%2F%2Fwww.claymath.org%2Fmillennium%2FP_vs_NP%2FOfficial_Problem_Description.pdf">&#160;</span></li>
+<li id="_note-2"><b><a href="#_ref-2" title="">^</a></b> <cite style="font-style:normal"><a href="/wiki/Arthur_Jaffe" title="Arthur Jaffe">Jaffe, Arthur M.</a>. "<a href="http://www.ams.org/notices/200606/fea-jaffe.pdf" class="external text" title="http://www.ams.org/notices/200606/fea-jaffe.pdf" rel="nofollow">The Millennium Grand Challenge in Mathematics</a>". <i>Notices of the AMS</i> <b>53</b> (6). Retrieved on <a href="/wiki/2006" title="2006">2006</a>-<a href="/wiki/October_18" title="October 18">10-18</a>.</cite><span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.atitle=The+Millennium+Grand+Challenge+in+Mathematics&amp;rft.jtitle=Notices+of+the+AMS&amp;rft.volume=53&amp;rft.issue=6&amp;rft.aulast=Jaffe&amp;rft.aufirst=Arthur+M.&amp;rft_id=http%3A%2F%2Fwww.ams.org%2Fnotices%2F200606%2Ffea-jaffe.pdf">&#160;</span></li>
+<li id="_note-Ladner75"><b><a href="#_ref-Ladner75_0" title="">^</a></b> <cite style="font-style:normal">Ladner, Richard E. (1975). "<a href="http://portal.acm.org/citation.cfm?id=321877&amp;dl=ACM&amp;coll=&amp;CFID=15151515&amp;CFTOKEN=6184618" class="external text" title="http://portal.acm.org/citation.cfm?id=321877&amp;dl=ACM&amp;coll=&amp;CFID=15151515&amp;CFTOKEN=6184618" rel="nofollow">On the structure of polynomial time reducibility</a>" (PDF). <i><a href="/wiki/Journal_of_the_ACM" title="Journal of the ACM">Journal of the ACM</a> (JACM)</i> <b>22</b>: 151–171. <a href="/wiki/Digital_object_identifier" title="Digital object identifier">DOI</a>:<a href="http://dx.doi.org/10.1145/321864.321877" class="external text" title="http://dx.doi.org/10.1145/321864.321877" rel="nofollow">10.1145/321864.321877</a>.</cite><span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.atitle=On+the+structure+of+polynomial+time+reducibility&amp;rft.jtitle=%5B%5BJournal+of+the+ACM%5D%5D+%28JACM%29&amp;rft.date=1975&amp;rft.volume=22&amp;rft.aulast=Ladner&amp;rft.aufirst=Richard+E.&amp;rft.pages=151%26ndash%3B171&amp;rft_id=info:doi/10.1145%2F321864.321877&amp;rft_id=http%3A%2F%2Fportal.acm.org%2Fcitation.cfm%3Fid%3D321877%26dl%3DACM%26coll%3D%26CFID%3D15151515%26CFTOKEN%3D6184618">&#160;</span></li>
+<li id="_note-DuKo2000">^ <a href="#_ref-DuKo2000_0" title=""><sup><i><b>a</b></i></sup></a> <a href="#_ref-DuKo2000_1" title=""><sup><i><b>b</b></i></sup></a> <cite class="book" style="font-style:normal" id="Reference-Du-2000">Du, Ding-Zhu; Ko, Ker-I (2000). <i>Theory of Computational Complexity</i>. <a href="/wiki/John_Wiley_%26_Sons" title="John Wiley &amp; Sons">John Wiley &amp; Sons</a>. <a href="/w/index.php?title=Special:Booksources&amp;isbn=9780471345060" class="internal">ISBN 978-0-471-34506-0</a>.</cite><span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Theory+of+Computational+Complexity&amp;rft.aulast=Du&amp;rft.aufirst=Ding-Zhu&amp;rft.pub=%5B%5BJohn+Wiley+%26+Sons%5D%5D">&#160;</span></li>
+</ol>
+<p><a name="External_links" id="External_links"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Computational_complexity_theory&amp;action=edit&amp;section=13" title="Edit section: External links">edit</a>]</span> <span class="mw-headline">External links</span></h2>
+<ul>
+<li><a href="http://qwiki.caltech.edu/wiki/Complexity_Zoo" class="external text" title="http://qwiki.caltech.edu/wiki/Complexity_Zoo" rel="nofollow">The Complexity Zoo</a> - a Wiki on complexity classes.</li>
+<li><a href="http://www.cs.princeton.edu/theory/complexity/" class="external text" title="http://www.cs.princeton.edu/theory/complexity/" rel="nofollow">Free (at least for now) book on computational complexity</a></li>
+</ul>
+<table class="navbox collapsible autocollapse nowraplinks" style="margin:auto;">
+<tr>
+<th colspan="1" style="text-align:center;width:100%;">
+<div style="float:left; width:6em; text-align:left;">
+<div class="noprint plainlinksneverexpand" style="background-color:transparent; padding:0; font-weight:normal; font-size:xx-small; color: #000; white-space:nowrap;"><a href="/wiki/Template:ComplexityClasses" title="Template:ComplexityClasses"><span title="View this template">v</span></a>&#160;<span style="font-size:80%;">•</span>&#160;<a href="/wiki/Template_talk:ComplexityClasses" title="Template talk:ComplexityClasses"><span title="Discussion about this template">d</span></a>&#160;<span style="font-size:80%;">•</span>&#160;<a href="http://en.wikipedia.org/w/index.php?title=Template:ComplexityClasses&amp;action=edit" class="external text" title="http://en.wikipedia.org/w/index.php?title=Template:ComplexityClasses&amp;action=edit" rel="nofollow"><span style="color: #002bb8;" title="You can edit this template. Please use the preview button before saving.">e</span></a></div>
+</div>
+<span style="font-size:110%;">Important <a href="/wiki/Complexity_class" title="Complexity class">complexity classes</a> (<a href="/wiki/List_of_complexity_classes" title="List of complexity classes">more</a>)</span></th>
+</tr>
+<tr>
+<td colspan="1" style="text-align:center;width:100%;font-size:95%;"><a href="/wiki/P_%28complexity%29" title="P (complexity)">P</a>&#160;• <a href="/wiki/NP_%28complexity%29" title="NP (complexity)">NP</a>&#160;• <a href="/wiki/Co-NP" title="Co-NP">co-NP</a>&#160;• <a href="/wiki/NP-complete" title="NP-complete">NP-C</a>&#160;• <a href="/wiki/Co-NP-complete" title="Co-NP-complete">co-NP-C</a>&#160;• <a href="/wiki/NP-hard" title="NP-hard">NP-hard</a>&#160;• <a href="/wiki/UP_%28complexity%29" title="UP (complexity)">UP</a>&#160;• <a href="/wiki/Sharp-P" title="Sharp-P">#P</a>&#160;• <a href="/wiki/Sharp-P-complete" title="Sharp-P-complete">#P-C</a>&#160;• <a href="/wiki/L_%28complexity%29" title="L (complexity)">L</a>&#160;• <a href="/wiki/NL_%28complexity%29" title="NL (complexity)">NL</a>&#160;• <a href="/wiki/NC_%28complexity%29" title="NC (complexity)">NC</a>&#160;• <a href="/wiki/P-complete" title="P-complete">P-C</a>&#160;• <a href="/wiki/PSPACE" title="PSPACE">PSPACE</a>&#160;• <a href="/wiki/PSPACE-complete" title="PSPACE-complete">PSPACE-C</a>&#160;• <a href="/wiki/EXPTIME" title="EXPTIME">EXPTIME</a>&#160;• <a href="/wiki/NEXPTIME" title="NEXPTIME">NEXPTIME</a>&#160;• <a href="/wiki/EXPSPACE" title="EXPSPACE">EXPSPACE</a>&#160;• <a href="/wiki/2-EXPTIME" title="2-EXPTIME">2-EXPTIME</a>&#160;• <a href="/wiki/PR_%28complexity%29" title="PR (complexity)">PR</a>&#160;• <a href="/wiki/RE_%28complexity%29" title="RE (complexity)">RE</a>&#160;• <a href="/wiki/Co-RE" title="Co-RE">Co-RE</a>&#160;• <a href="/wiki/RE-complete" title="RE-complete">RE-C</a>&#160;• <a href="/wiki/Co-RE-complete" title="Co-RE-complete">Co-RE-C</a>&#160;• <a href="/wiki/R_%28complexity%29" title="R (complexity)">R</a>&#160;• <a href="/wiki/BQP" title="BQP">BQP</a>&#160;• <a href="/wiki/BPP" title="BPP">BPP</a>&#160;• <a href="/wiki/RP_%28complexity%29" title="RP (complexity)">RP</a>&#160;• <a href="/wiki/ZPP" title="ZPP">ZPP</a>&#160;• <a href="/wiki/PCP_%28complexity%29" title="PCP (complexity)">PCP</a>&#160;• <a href="/wiki/IP_%28complexity%29" title="IP (complexity)">IP</a>&#160;• <a href="/wiki/PH_%28complexity%29" title="PH (complexity)">PH</a></td>
+</tr>
+</table>
+<p><span id="interwiki-de-fa"></span></p>
+<p><span id="interwiki-de-fa"></span></p>
+
+<!-- 
+Pre-expand include size: 59768 bytes
+Post-expand include size: 20679 bytes
+Template argument size: 14300 bytes
+Maximum: 2048000 bytes
+-->
+
+<!-- Saved in parser cache with key enwiki:pcache:idhash:7543-0!1!0!default!!en!2 and timestamp 20070914183713 -->
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org/wiki/Computational_complexity_theory">http://en.wikipedia.org/wiki/Computational_complexity_theory</a>"</div>
+			<div id="catlinks"><p class='catlinks'><a href="/wiki/Special:Categories" title="Special:Categories">Category</a>: <span dir='ltr'><a href="/wiki/Category:Computational_complexity_theory" title="Category:Computational complexity theory">Computational complexity theory</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<div class="pBody">
+			<ul>
+					 <li id="ca-nstab-main" class="selected"><a href="/wiki/Computational_complexity_theory" title="View the content page [c]" accesskey="c">Article</a></li>
+					 <li id="ca-talk"><a href="/wiki/Talk:Computational_complexity_theory" title="Discussion about the content page [t]" accesskey="t">Discussion</a></li>
+					 <li id="ca-edit"><a href="/w/index.php?title=Computational_complexity_theory&amp;action=edit" title="You can edit this page. Please use the preview button before saving. [e]" accesskey="e">Edit this page</a></li>
+					 <li id="ca-history"><a href="/w/index.php?title=Computational_complexity_theory&amp;action=history" title="Past versions of this page [h]" accesskey="h">History</a></li>
+				</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-personal">
+		<h5>Personal tools</h5>
+		<div class="pBody">
+			<ul>
+				<li id="pt-login"><a href="/w/index.php?title=Special:Userlogin&amp;returnto=Computational_complexity_theory" title="You are encouraged to log in, it is not mandatory however. [o]" accesskey="o">Sign in / create account</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-logo">
+		<a style="background-image: url(/images/wiki-en.png);" href="/wiki/Main_Page" title="Visit the Main Page [z]" accesskey="z"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-Main-page"><a href="/wiki/Main_Page">Main page</a></li>
+				<li id="n-Contents"><a href="/wiki/Wikipedia:Contents">Contents</a></li>
+				<li id="n-Featured-content"><a href="/wiki/Wikipedia:Featured_content">Featured content</a></li>
+				<li id="n-currentevents"><a href="/wiki/Portal:Current_events" title="Find background information on current events">Current events</a></li>
+				<li id="n-randompage"><a href="/wiki/Special:Random" title="Load a random page [x]" accesskey="x">Random article</a></li>
+			</ul>
+		</div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+		<h5>interaction</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-About-Wikipedia"><a href="/wiki/Wikipedia:About">About Wikipedia</a></li>
+				<li id="n-portal"><a href="/wiki/Wikipedia:Community_Portal" title="About the project, what you can do, where to find things">Community portal</a></li>
+				<li id="n-recentchanges"><a href="/wiki/Special:Recentchanges" title="The list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li>
+				<li id="n-contact"><a href="/wiki/Wikipedia:Contact_us">Contact Wikipedia</a></li>
+				<li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising" title="Support us">Donate to Wikipedia</a></li>
+				<li id="n-help"><a href="/wiki/Help:Contents" title="Guidance on how to use and edit Wikipedia">Help</a></li>
+			</ul>
+		</div>
+	</div>
+		<div id="p-search" class="portlet">
+		<h5><label for="searchInput">Search</label></h5>
+		<div id="searchBody" class="pBody">
+			<form action="/wiki/Special:Search" id="searchform"><div>
+				<input id="searchInput" name="search" type="text" title="Search Wikipedia [f]" accesskey="f" value="" />
+				<input type='submit' name="go" class="searchButton" id="searchGoButton"	value="Go" />&nbsp;
+				<input type='submit' name="fulltext" class="searchButton" id="mw-searchButton" value="Search" />
+			</div></form>
+		</div>
+	</div>
+	<div class="portlet" id="p-tb">
+		<h5>Toolbox</h5>
+		<div class="pBody">
+			<ul>
+				<li id="t-whatlinkshere"><a href="/wiki/Special:Whatlinkshere/Computational_complexity_theory" title="List of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+				<li id="t-recentchangeslinked"><a href="/wiki/Special:Recentchangeslinked/Computational_complexity_theory" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+<li id="t-upload"><a href="/wiki/Wikipedia:Upload" title="Upload images or media files [u]" accesskey="u">Upload file</a></li>
+<li id="t-specialpages"><a href="/wiki/Special:Specialpages" title="List of all special pages [q]" accesskey="q">Special pages</a></li>
+				<li id="t-print"><a href="/w/index.php?title=Computational_complexity_theory&amp;printable=yes" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>				<li id="t-permalink"><a href="/w/index.php?title=Computational_complexity_theory&amp;oldid=157161612" title="Permanent link to this version of the page">Permanent link</a></li><li id="t-cite"><a href="/w/index.php?title=Special:Cite&amp;page=Computational_complexity_theory&amp;id=157161612">Cite this article</a></li>			</ul>
+		</div>
+	</div>
+	<div id="p-lang" class="portlet">
+		<h5>In other languages</h5>
+		<div class="pBody">
+			<ul>
+				<li class="interwiki-ar"><a href="http://ar.wikipedia.org/wiki/%D9%86%D8%B8%D8%B1%D9%8A%D8%A9_%D8%A7%D9%84%D8%AA%D8%B9%D9%82%D9%8A%D8%AF_%D8%A7%D9%84%D8%AD%D8%B3%D8%A7%D8%A8%D9%8A">العربية</a></li>
+				<li class="interwiki-cs"><a href="http://cs.wikipedia.org/wiki/Teorie_slo%C5%BEitosti">Česky</a></li>
+				<li class="interwiki-de"><a href="http://de.wikipedia.org/wiki/Komplexit%C3%A4tstheorie">Deutsch</a></li>
+				<li class="interwiki-el"><a href="http://el.wikipedia.org/wiki/%CE%98%CE%B5%CF%89%CF%81%CE%AF%CE%B1_%CF%80%CE%BF%CE%BB%CF%85%CF%80%CE%BB%CE%BF%CE%BA%CF%8C%CF%84%CE%B7%CF%84%CE%B1%CF%82">Ελληνικά</a></li>
+				<li class="interwiki-es"><a href="http://es.wikipedia.org/wiki/Complejidad_computacional">Español</a></li>
+				<li class="interwiki-fa"><a href="http://fa.wikipedia.org/wiki/%D9%BE%DB%8C%DA%86%DB%8C%D8%AF%DA%AF%DB%8C_%D9%85%D8%AD%D8%A7%D8%B3%D8%A8%D8%A7%D8%AA%DB%8C">فارسی</a></li>
+				<li class="interwiki-fr"><a href="http://fr.wikipedia.org/wiki/Th%C3%A9orie_de_la_complexit%C3%A9">Français</a></li>
+				<li class="interwiki-ko"><a href="http://ko.wikipedia.org/wiki/%EA%B3%84%EC%82%B0_%EB%B3%B5%EC%9E%A1%EB%8F%84_%EC%9D%B4%EB%A1%A0">한국어</a></li>
+				<li class="interwiki-hr"><a href="http://hr.wikipedia.org/wiki/Ra%C4%8Dunska_teorija_slo%C5%BEenosti">Hrvatski</a></li>
+				<li class="interwiki-it"><a href="http://it.wikipedia.org/wiki/Teoria_della_complessit%C3%A0_computazionale">Italiano</a></li>
+				<li class="interwiki-he"><a href="http://he.wikipedia.org/wiki/%D7%A1%D7%99%D7%91%D7%95%D7%9B%D7%99%D7%95%D7%AA">עברית</a></li>
+				<li class="interwiki-lt"><a href="http://lt.wikipedia.org/wiki/Algoritm%C5%B3_sud%C4%97tingumas">Lietuvių</a></li>
+				<li class="interwiki-nl"><a href="http://nl.wikipedia.org/wiki/Complexiteitstheorie">Nederlands</a></li>
+				<li class="interwiki-ja"><a href="http://ja.wikipedia.org/wiki/%E8%A8%88%E7%AE%97%E8%A4%87%E9%9B%91%E6%80%A7%E7%90%86%E8%AB%96">日本語</a></li>
+				<li class="interwiki-pl"><a href="http://pl.wikipedia.org/wiki/Z%C5%82o%C5%BCono%C5%9B%C4%87_obliczeniowa">Polski</a></li>
+				<li class="interwiki-pt"><a href="http://pt.wikipedia.org/wiki/Complexidade_computacional">Português</a></li>
+				<li class="interwiki-ru"><a href="http://ru.wikipedia.org/wiki/%D0%A2%D0%B5%D0%BE%D1%80%D0%B8%D1%8F_%D1%81%D0%BB%D0%BE%D0%B6%D0%BD%D0%BE%D1%81%D1%82%D0%B8_%D0%B2%D1%8B%D1%87%D0%B8%D1%81%D0%BB%D0%B5%D0%BD%D0%B8%D0%B9">Русский</a></li>
+				<li class="interwiki-sr"><a href="http://sr.wikipedia.org/wiki/%D0%A2%D0%B5%D0%BE%D1%80%D0%B8%D1%98%D0%B0_%D0%BA%D0%BE%D0%BC%D0%BF%D0%BB%D0%B5%D0%BA%D1%81%D0%BD%D0%BE%D1%81%D1%82%D0%B8">Српски / Srpski</a></li>
+				<li class="interwiki-sv"><a href="http://sv.wikipedia.org/wiki/Komplexitetsteori">Svenska</a></li>
+				<li class="interwiki-th"><a href="http://th.wikipedia.org/wiki/%E0%B8%97%E0%B8%A4%E0%B8%A9%E0%B8%8E%E0%B8%B5%E0%B8%84%E0%B8%A7%E0%B8%B2%E0%B8%A1%E0%B8%8B%E0%B8%B1%E0%B8%9A%E0%B8%8B%E0%B9%89%E0%B8%AD%E0%B8%99%E0%B9%83%E0%B8%99%E0%B8%81%E0%B8%B2%E0%B8%A3%E0%B8%84%E0%B8%B3%E0%B8%99%E0%B8%A7%E0%B8%93">ไทย</a></li>
+				<li class="interwiki-zh"><a href="http://zh.wikipedia.org/wiki/%E8%A8%88%E7%AE%97%E8%A4%87%E9%9B%9C%E6%80%A7%E7%90%86%E8%AB%96">中文</a></li>
+			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="/skins-1.5/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>
+				<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="/images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>
+			<ul id="f-list">
+				<li id="lastmod"> This page was last modified 14:50, 11 September 2007.</li>
+				<li id="copyright">All text is available under the terms of the <a class='internal' href="/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="/wiki/Wikipedia:Copyrights" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a U.S. registered <a class='internal' href="/wiki/501%28c%29#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="/wiki/Non-profit_organization" title="Non-profit organization">nonprofit</a> <a href="/wiki/Charitable_organization" title="Charitable organization">charity</a>.<br /></li>
+				<li id="privacy"><a href="http://wikimediafoundation.org/wiki/Privacy_policy" title="wikimedia:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="/wiki/Wikipedia:About" title="Wikipedia:About">About Wikipedia</a></li>
+				<li id="disclaimer"><a href="/wiki/Wikipedia:General_disclaimer" title="Wikipedia:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+		
+	
+		<script type="text/javascript">if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by srv87 in 0.874 secs. --></body></html>

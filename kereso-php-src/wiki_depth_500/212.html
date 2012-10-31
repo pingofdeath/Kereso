@@ -1,0 +1,275 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+				<meta name="keywords" content="Adjacency matrix,Labeled graph,Complete graph,Complete bipartite graph,(0,1)-matrix,Adjacency list,Big O notation,Characteristic polynomial,Charles E. Leiserson,Clifford Stein,Computer science" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="http://www.gnu.org/copyleft/fdl.html" />
+		<title>Adjacency matrix - Wikipedia, the free encyclopedia</title>
+		<style type="text/css" media="screen, projection">/*<![CDATA[*/
+			@import "/skins-1.5/common/shared.css?99";
+			@import "/skins-1.5/monobook/main.css?99";
+		/*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="/skins-1.5/common/commonPrint.css?99" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE50Fixes.css?99";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE55Fixes.css?99";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "/skins-1.5/monobook/IE60Fixes.css?99";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "/skins-1.5/monobook/IE70Fixes.css?99";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="/skins-1.5/common/IEFixes.js?99"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		
+		<script type= "text/javascript">/*<![CDATA[*/
+var skin = "monobook";
+var stylepath = "/skins-1.5";
+var wgArticlePath = "/wiki/$1";
+var wgScriptPath = "/w";
+var wgScript = "/w/index.php";
+var wgServer = "http://en.wikipedia.org";
+var wgCanonicalNamespace = "";
+var wgCanonicalSpecialPageName = false;
+var wgNamespaceNumber = 0;
+var wgPageName = "Adjacency_matrix";
+var wgTitle = "Adjacency matrix";
+var wgAction = "view";
+var wgRestrictionEdit = [];
+var wgRestrictionMove = [];
+var wgArticleId = "244463";
+var wgIsArticle = true;
+var wgUserName = null;
+var wgUserGroups = null;
+var wgUserLanguage = "en";
+var wgContentLanguage = "en";
+var wgBreakFrames = false;
+var wgCurRevisionId = "157482377";
+/*]]>*/</script>
+                
+		<script type="text/javascript" src="/skins-1.5/common/wikibits.js?99"><!-- wikibits js --></script>
+		<script type="text/javascript" src="/w/index.php?title=-&amp;action=raw&amp;gen=js&amp;useskin=monobook"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "/w/index.php?title=MediaWiki:Common.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=MediaWiki:Monobook.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=-&action=raw&gen=css&maxage=2678400";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+		<script type="text/javascript" src="/skins-1.5/common/ajax.js?99"></script>
+	</head>
+<body  class="mediawiki ns-0 ltr page-Adjacency_matrix">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">Adjacency matrix</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<p>In <a href="/wiki/Mathematics" title="Mathematics">mathematics</a> and <a href="/wiki/Computer_science" title="Computer science">computer science</a>, the <b>adjacency matrix</b> of a <a href="/wiki/Finite_set" title="Finite set">finite</a> directed or undirected <a href="/wiki/Graph_%28mathematics%29" title="Graph (mathematics)">graph</a> <b>G</b> on <i>n</i> vertices is the <i>n × n</i> <a href="/wiki/Matrix_%28mathematics%29" title="Matrix (mathematics)">matrix</a> where the nondiagonal entry <span class="texhtml"><i>a</i><sub><i>i</i><i>j</i></sub></span> is the number of edges from vertex <i>i</i> to vertex <i>j</i>, and the diagonal entry <span class="texhtml"><i>a</i><sub><i>i</i><i>i</i></sub></span> is either twice the number of loops at vertex <i>i</i> or just the number of loops (usages differ, depending on the mathematical needs; this article follows the former convention for undirected graphs, though directed graphs always follow the latter). There exists a unique adjacency matrix for each graph (up to permuting rows and columns), and it is not the adjacency matrix of any other graph. In the special case of a finite <a href="/wiki/Simple_graph" title="Simple graph">simple graph</a>, the adjacency matrix is a <a href="/wiki/%280%2C1%29-matrix" title="(0,1)-matrix">(0,1)-matrix</a> with zeros on its diagonal. If the graph is undirected, the adjacency matrix is <a href="/wiki/Symmetric_matrix" title="Symmetric matrix">symmetric</a>.</p>
+<p>For <a href="/wiki/Sparse_graph" title="Sparse graph">sparse graphs</a>, that is, graphs with few edges, an <a href="/wiki/Adjacency_list" title="Adjacency list">adjacency list</a> is often preferred as a representation of the graph because it uses less space.</p>
+<p>Another matrix representation for a graph is the <a href="/wiki/Incidence_matrix" title="Incidence matrix">incidence matrix</a>.</p>
+<p>The relationship between a graph and the <a href="/wiki/Eigenvalue" title="Eigenvalue">eigenvalues</a> and <a href="/wiki/Eigenvector" title="Eigenvector">eigenvectors</a> of its adjacency matrix is studied in <a href="/wiki/Spectral_graph_theory" title="Spectral graph theory">spectral graph theory</a>.</p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Examples"><span class="tocnumber">1</span> <span class="toctext">Examples</span></a></li>
+<li class="toclevel-1"><a href="#Properties"><span class="tocnumber">2</span> <span class="toctext">Properties</span></a></li>
+<li class="toclevel-1"><a href="#Variations"><span class="tocnumber">3</span> <span class="toctext">Variations</span></a></li>
+<li class="toclevel-1"><a href="#Data_structures"><span class="tocnumber">4</span> <span class="toctext">Data structures</span></a></li>
+<li class="toclevel-1"><a href="#References"><span class="tocnumber">5</span> <span class="toctext">References</span></a></li>
+<li class="toclevel-1"><a href="#External_links"><span class="tocnumber">6</span> <span class="toctext">External links</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script>
+<p><a name="Examples" id="Examples"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Adjacency_matrix&amp;action=edit&amp;section=1" title="Edit section: Examples">edit</a>]</span> <span class="mw-headline">Examples</span></h2>
+<ul>
+<li>Here is a simple example of a labeled graph and its adjacency matrix. The convention followed here is that an adjacent edge counts 1 in the matrix for an undirected graph.</li>
+</ul>
+<table class="wikitable">
+<tr>
+<th><a href="/wiki/Labeled_graph" title="Labeled graph">Labeled graph</a></th>
+<th>Adjacency matrix</th>
+</tr>
+<tr>
+<td><a href="/wiki/Image:6n-graph2.svg" class="image" title="6n-graph2.svg"><img alt="" src="http://upload.wikimedia.org/wikipedia/commons/thumb/2/28/6n-graph2.svg/175px-6n-graph2.svg.png" width="175" height="191" border="0" /></a></td>
+<td><img class="tex" alt="\begin{pmatrix}
+1 &amp; 1 &amp; 0 &amp; 0 &amp; 1 &amp; 0\\
+1 &amp; 0 &amp; 1 &amp; 0 &amp; 1 &amp; 0\\
+0 &amp; 1 &amp; 0 &amp; 1 &amp; 0 &amp; 0\\
+0 &amp; 0 &amp; 1 &amp; 0 &amp; 1 &amp; 1\\
+1 &amp; 1 &amp; 0 &amp; 1 &amp; 0 &amp; 0\\
+0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0\\
+\end{pmatrix}" src="http://upload.wikimedia.org/math/5/3/e/53e3bdee8fec62c1002ccb39c461b51e.png" /></td>
+</tr>
+</table>
+<ul>
+<li>The adjacency matrix of a <a href="/wiki/Complete_graph" title="Complete graph">complete graph</a> is all 1's except for 0's on the diagonal.</li>
+</ul>
+<ul>
+<li>The adjacency matrix of a <a href="/wiki/Complete_bipartite_graph" title="Complete bipartite graph">complete bipartite graph</a> <i>K</i><sub><i>r,s</i></sub> has the form</li>
+</ul>
+<dl>
+<dd><img class="tex" alt="\begin{pmatrix} O &amp; J \\ J^T &amp; O \end{pmatrix}," src="http://upload.wikimedia.org/math/8/3/c/83c2758a4dcc65f805211419d76dd61e.png" /></dd>
+</dl>
+<p>where <i>J</i> is an <i>r × s</i> matrix of all ones and <i>O</i> denotes an all-zero matrix.</p>
+<p><a name="Properties" id="Properties"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Adjacency_matrix&amp;action=edit&amp;section=2" title="Edit section: Properties">edit</a>]</span> <span class="mw-headline">Properties</span></h2>
+<p>The adjacency matrix of an undirected graph is <a href="/wiki/Symmetric_matrix" title="Symmetric matrix">symmetric</a>, and therefore has a complete set of <a href="/wiki/Real_number" title="Real number">real</a> <a href="/wiki/Eigenvalue" title="Eigenvalue">eigenvalues</a> and an orthogonal <a href="/wiki/Eigenvector" title="Eigenvector">eigenvector</a> basis. The set of eigenvalues of a graph is the <b>spectrum</b> of the graph.</p>
+<p>Suppose two directed or undirected graphs <span class="texhtml"><i>G</i><sub>1</sub></span> and <span class="texhtml"><i>G</i><sub>2</sub></span> with adjacency matrices <span class="texhtml"><i>A</i><sub>1</sub></span> and <span class="texhtml"><i>A</i><sub>2</sub></span> are given. <span class="texhtml"><i>G</i><sub>1</sub></span> and <span class="texhtml"><i>G</i><sub>2</sub></span> are <a href="/wiki/Graph_isomorphism" title="Graph isomorphism">isomorphic</a> if and only if there exists a <a href="/wiki/Permutation_matrix" title="Permutation matrix">permutation matrix</a> <span class="texhtml"><i>P</i></span> such that</p>
+<dl>
+<dd><span class="texhtml"><i>P</i><i>A</i><sub>1</sub><i>P</i> <sup>− 1</sup> = <i>A</i><sub>2</sub></span>.</dd>
+</dl>
+<p>In particular, <span class="texhtml"><i>A</i><sub>1</sub></span> and <span class="texhtml"><i>A</i><sub>2</sub></span> are <a href="/wiki/Similar_matrix" title="Similar matrix">similar</a> and therefore have the same <a href="/wiki/Minimal_polynomial" title="Minimal polynomial">minimal polynomial</a>, <a href="/wiki/Characteristic_polynomial" title="Characteristic polynomial">characteristic polynomial</a>, <a href="/wiki/Eigenvalue" title="Eigenvalue">eigenvalues</a>, <a href="/wiki/Determinant" title="Determinant">determinant</a> and <a href="/wiki/Trace_%28matrix%29" title="Trace (matrix)">trace</a>. These can therefore serve as isomorphism invariants of graphs. However, two graphs may possess the same set of eigenvalues but not be isomorphic (one cannot 'hear' the shape of a graph).</p>
+<p>If <i>A</i> is the adjacency matrix of the directed or undirected graph <i>G</i>, then the matrix <i>A<sup>n</sup></i> (i.e., the <a href="/wiki/Matrix_multiplication" title="Matrix multiplication">matrix product</a> of <i>n</i> copies of <i>A</i>) has an interesting interpretation: the entry in row <i>i</i> and column <i>j</i> gives the number of (directed or undirected) paths of length <i>n</i> from vertex <i>i</i> to vertex <i>j</i>.</p>
+<p>The matrix <i>I − A</i> (where <i>I</i> denotes the <i>n × n</i> <a href="/wiki/Identity_matrix" title="Identity matrix">identity matrix</a>) is <a href="/wiki/Invertible_matrix" title="Invertible matrix">invertible</a> if and only if there are no <a href="/wiki/Cycle_graph" title="Cycle graph">directed cycles</a> in the graph <i>G</i>. In this case, the inverse <span class="texhtml">(<i>I</i> − <i>A</i>) <sup>− 1</sup></span> has the following interpretation: the entry in row <i>i</i> and column <i>j</i> gives the number of directed paths from vertex <i>i</i> to vertex <i>j</i> (which is always finite if there are no <a href="/wiki/Cycle_graph" title="Cycle graph">directed cycles</a>). This can be understood using the <a href="/wiki/Geometric_series" title="Geometric series">geometric series</a> for matrices:</p>
+<dl>
+<dd><span class="texhtml">(<i>I</i> − <i>A</i>) <sup>− 1</sup> = <i>I</i> + <i>A</i> + <i>A</i><sup>2</sup> + <i>A</i><sup>3</sup> + ...</span></dd>
+</dl>
+<p>corresponding to the fact that the number of paths from <i>i</i> to <i>j</i> equals the number of paths of length 0 plus the number of paths of length 1 plus the number of paths of length 2, etc.</p>
+<p>The main diagonal of every adjacency matrix corresponding to a graph without loops has all zero entries.</p>
+<p><a name="Variations" id="Variations"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Adjacency_matrix&amp;action=edit&amp;section=3" title="Edit section: Variations">edit</a>]</span> <span class="mw-headline">Variations</span></h2>
+<p>The <a href="/wiki/Seidel_adjacency_matrix" title="Seidel adjacency matrix">Seidel adjacency matrix</a> or <b>(0,−1,1)-adjacency matrix</b> of a simple graph has zero on the diagonal and entry <span class="texhtml"><i>a</i><sub><i>i</i><i>j</i></sub> = − 1</span> if <i>ij</i> is an edge and +1 if it is not. This matrix is used in studying <a href="/wiki/Strongly_regular_graph" title="Strongly regular graph">strongly regular graphs</a> and <a href="/wiki/Two-graph" title="Two-graph">two-graphs</a>.</p>
+<p>A <a href="/wiki/Distance_matrix" title="Distance matrix">distance matrix</a> is like a higher-level adjacency matrix. Instead of only providing information about whether or not two vertices are connected, also tells the distances between them. This assumes the length of every edge is 1. A variation is where the length of an edge is not necessarily 1.</p>
+<p><a name="Data_structures" id="Data_structures"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Adjacency_matrix&amp;action=edit&amp;section=4" title="Edit section: Data structures">edit</a>]</span> <span class="mw-headline">Data structures</span></h2>
+<p>When used as a <a href="/wiki/Data_structure" title="Data structure">data structure</a>, the main competitor for the adjacency matrix is the <a href="/wiki/Adjacency_list" title="Adjacency list">adjacency list</a>. Because each entry in the adjacency matrix requires only one bit, they can be represented in a very compact way, occupying only <span class="texhtml"><i>n</i><sup>2</sup> / 8</span> bytes of contiguous space, where <span class="texhtml"><i>n</i></span> is the number of vertices. Besides just avoiding wasted space, this compactness encourages <a href="/wiki/Locality_of_reference" title="Locality of reference">locality of reference</a>.</p>
+<p>On the other hand, for a sparse graph, adjacency lists win out, because they do not use any space to represent edges which are <i>not</i> present. Using a naive <a href="/wiki/Linked_list" title="Linked list">linked list</a> implementation on a 32-bit computer, an adjacency list for an undirected graph requires about <span class="texhtml">16<i>e</i></span> bytes of storage, where <span class="texhtml"><i>e</i></span> is the number of edges.</p>
+<p>Noting that a simple graph can have at most <span class="texhtml"><i>n</i><sup>2</sup></span> edges, allowing loops, we can let <span class="texhtml"><i>d</i> = <i>e</i> / <i>n</i><sup>2</sup></span> denote the <i>density</i> of the graph. Then, <span class="texhtml">16<i>e</i> &gt; <i>n</i><sup>2</sup> / 8</span>, or the adjacency list representation occupies more space, precisely when <span class="texhtml"><i>d</i> &gt; 1 / 128</span>. Thus a graph must be sparse indeed to justify an adjacency list representation.</p>
+<p>Besides the space tradeoff, the different data structures also facilitate different operations. Finding all vertices adjacent to a given vertex in an adjacency list is as simple as reading the list. With an adjacency matrix, an entire row must instead be scanned, which takes <a href="/wiki/Big_O_notation" title="Big O notation">O</a>(n) time. Whether there is an edge between two given vertices can be determined at once with an adjacency matrix, while requiring time proportional to the minimum degree of the two vertices with the adjacency list.</p>
+<p><a name="References" id="References"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Adjacency_matrix&amp;action=edit&amp;section=5" title="Edit section: References">edit</a>]</span> <span class="mw-headline">References</span></h2>
+<ul>
+<li><a href="/wiki/Thomas_H._Cormen" title="Thomas H. Cormen">Thomas H. Cormen</a>, <a href="/wiki/Charles_E._Leiserson" title="Charles E. Leiserson">Charles E. Leiserson</a>, <a href="/wiki/Ronald_L._Rivest" title="Ronald L. Rivest">Ronald L. Rivest</a>, and <a href="/wiki/Clifford_Stein" title="Clifford Stein">Clifford Stein</a> (2001), <i><a href="/wiki/Introduction_to_Algorithms" title="Introduction to Algorithms">Introduction to Algorithms</a></i>, second edition. MIT Press and McGraw-Hill. <a href="/w/index.php?title=Special:Booksources&amp;isbn=0262032937" class="internal">ISBN 0-262-03293-7</a>. Section 22.1: Representations of graphs, pp. 527–531.</li>
+</ul>
+<ul>
+<li>Chris Godsil and Gordon Royle (2004), <cite>Algebraic Graph Theory</cite>. New York: Springer-Verlag. <a href="/w/index.php?title=Special:Booksources&amp;isbn=0387952411" class="internal">ISBN 0-387-95241-1</a></li>
+</ul>
+<p><a name="External_links" id="External_links"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Adjacency_matrix&amp;action=edit&amp;section=6" title="Edit section: External links">edit</a>]</span> <span class="mw-headline">External links</span></h2>
+<ul>
+<li><a href="http://www.x2d.org/java/projects/fluffschack.jnlp" class="external text" title="http://www.x2d.org/java/projects/fluffschack.jnlp" rel="nofollow">Fluffschack</a> — an educational Java web start game demonstrating the relationship between adjacency matrices and graphs.</li>
+</ul>
+
+
+<!-- Saved in parser cache with key enwiki:pcache:idhash:244463-0!1!0!default!!en!2 and timestamp 20070912223641 -->
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org/wiki/Adjacency_matrix">http://en.wikipedia.org/wiki/Adjacency_matrix</a>"</div>
+			<div id="catlinks"><p class='catlinks'><a href="/wiki/Special:Categories" title="Special:Categories">Categories</a>: <span dir='ltr'><a href="/wiki/Category:Algebraic_graph_theory" title="Category:Algebraic graph theory">Algebraic graph theory</a></span> | <span dir='ltr'><a href="/wiki/Category:Matrices" title="Category:Matrices">Matrices</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<div class="pBody">
+			<ul>
+					 <li id="ca-nstab-main" class="selected"><a href="/wiki/Adjacency_matrix" title="View the content page [c]" accesskey="c">Article</a></li>
+					 <li id="ca-talk"><a href="/wiki/Talk:Adjacency_matrix" title="Discussion about the content page [t]" accesskey="t">Discussion</a></li>
+					 <li id="ca-edit"><a href="/w/index.php?title=Adjacency_matrix&amp;action=edit" title="You can edit this page. Please use the preview button before saving. [e]" accesskey="e">Edit this page</a></li>
+					 <li id="ca-history"><a href="/w/index.php?title=Adjacency_matrix&amp;action=history" title="Past versions of this page [h]" accesskey="h">History</a></li>
+				</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-personal">
+		<h5>Personal tools</h5>
+		<div class="pBody">
+			<ul>
+				<li id="pt-login"><a href="/w/index.php?title=Special:Userlogin&amp;returnto=Adjacency_matrix" title="You are encouraged to log in, it is not mandatory however. [o]" accesskey="o">Sign in / create account</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-logo">
+		<a style="background-image: url(/images/wiki-en.png);" href="/wiki/Main_Page" title="Visit the Main Page [z]" accesskey="z"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-Main-page"><a href="/wiki/Main_Page">Main page</a></li>
+				<li id="n-Contents"><a href="/wiki/Wikipedia:Contents">Contents</a></li>
+				<li id="n-Featured-content"><a href="/wiki/Wikipedia:Featured_content">Featured content</a></li>
+				<li id="n-currentevents"><a href="/wiki/Portal:Current_events" title="Find background information on current events">Current events</a></li>
+				<li id="n-randompage"><a href="/wiki/Special:Random" title="Load a random page [x]" accesskey="x">Random article</a></li>
+			</ul>
+		</div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+		<h5>interaction</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-About-Wikipedia"><a href="/wiki/Wikipedia:About">About Wikipedia</a></li>
+				<li id="n-portal"><a href="/wiki/Wikipedia:Community_Portal" title="About the project, what you can do, where to find things">Community portal</a></li>
+				<li id="n-recentchanges"><a href="/wiki/Special:Recentchanges" title="The list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li>
+				<li id="n-contact"><a href="/wiki/Wikipedia:Contact_us">Contact Wikipedia</a></li>
+				<li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising" title="Support us">Donate to Wikipedia</a></li>
+				<li id="n-help"><a href="/wiki/Help:Contents" title="Guidance on how to use and edit Wikipedia">Help</a></li>
+			</ul>
+		</div>
+	</div>
+		<div id="p-search" class="portlet">
+		<h5><label for="searchInput">Search</label></h5>
+		<div id="searchBody" class="pBody">
+			<form action="/wiki/Special:Search" id="searchform"><div>
+				<input id="searchInput" name="search" type="text" title="Search Wikipedia [f]" accesskey="f" value="" />
+				<input type='submit' name="go" class="searchButton" id="searchGoButton"	value="Go" />&nbsp;
+				<input type='submit' name="fulltext" class="searchButton" id="mw-searchButton" value="Search" />
+			</div></form>
+		</div>
+	</div>
+	<div class="portlet" id="p-tb">
+		<h5>Toolbox</h5>
+		<div class="pBody">
+			<ul>
+				<li id="t-whatlinkshere"><a href="/wiki/Special:Whatlinkshere/Adjacency_matrix" title="List of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+				<li id="t-recentchangeslinked"><a href="/wiki/Special:Recentchangeslinked/Adjacency_matrix" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+<li id="t-upload"><a href="/wiki/Wikipedia:Upload" title="Upload images or media files [u]" accesskey="u">Upload file</a></li>
+<li id="t-specialpages"><a href="/wiki/Special:Specialpages" title="List of all special pages [q]" accesskey="q">Special pages</a></li>
+				<li id="t-print"><a href="/w/index.php?title=Adjacency_matrix&amp;printable=yes" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>				<li id="t-permalink"><a href="/w/index.php?title=Adjacency_matrix&amp;oldid=157482377" title="Permanent link to this version of the page">Permanent link</a></li><li id="t-cite"><a href="/w/index.php?title=Special:Cite&amp;page=Adjacency_matrix&amp;id=157482377">Cite this article</a></li>			</ul>
+		</div>
+	</div>
+	<div id="p-lang" class="portlet">
+		<h5>In other languages</h5>
+		<div class="pBody">
+			<ul>
+				<li class="interwiki-de"><a href="http://de.wikipedia.org/wiki/Repr%C3%A4sentation_von_Graphen_im_Computer">Deutsch</a></li>
+				<li class="interwiki-fr"><a href="http://fr.wikipedia.org/wiki/Matrice_d%27adjacence">Français</a></li>
+				<li class="interwiki-it"><a href="http://it.wikipedia.org/wiki/Matrice_delle_adiacenze">Italiano</a></li>
+				<li class="interwiki-ja"><a href="http://ja.wikipedia.org/wiki/%E9%9A%A3%E6%8E%A5%E8%A1%8C%E5%88%97">日本語</a></li>
+				<li class="interwiki-pl"><a href="http://pl.wikipedia.org/wiki/Macierz_s%C4%85siedztwa">Polski</a></li>
+				<li class="interwiki-pt"><a href="http://pt.wikipedia.org/wiki/Matriz_de_adjac%C3%AAncia">Português</a></li>
+				<li class="interwiki-vi"><a href="http://vi.wikipedia.org/wiki/Ma_tr%E1%BA%ADn_k%E1%BB%81">Tiếng Việt</a></li>
+				<li class="interwiki-zh"><a href="http://zh.wikipedia.org/wiki/%E9%82%BB%E6%8E%A5%E7%9F%A9%E9%98%B5">中文</a></li>
+			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="/skins-1.5/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>
+				<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="/images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>
+			<ul id="f-list">
+				<li id="lastmod"> This page was last modified 13:34, 31 July 2007.</li>
+				<li id="copyright">All text is available under the terms of the <a class='internal' href="/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="/wiki/Wikipedia:Copyrights" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a U.S. registered <a class='internal' href="/wiki/501%28c%29#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="/wiki/Non-profit_organization" title="Non-profit organization">nonprofit</a> <a href="/wiki/Charitable_organization" title="Charitable organization">charity</a>.<br /></li>
+				<li id="privacy"><a href="http://wikimediafoundation.org/wiki/Privacy_policy" title="wikimedia:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="/wiki/Wikipedia:About" title="Wikipedia:About">About Wikipedia</a></li>
+				<li id="disclaimer"><a href="/wiki/Wikipedia:General_disclaimer" title="Wikipedia:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+		
+	
+		<script type="text/javascript">if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by srv157 in 0.062 secs. --></body></html>

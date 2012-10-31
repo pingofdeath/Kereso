@@ -1,0 +1,247 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pt" lang="pt" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+				<meta name="keywords" content="Algoritmo de Bellman-Ford,Algoritmo,Algoritmo de Dijkstra,Dígrafo,Problema do caminho mínimo,Programação,Teoria dos grafos,Esboço" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (Português)" />
+		<link rel="copyright" href="http://www.gnu.org/copyleft/fdl.html" />
+		<title>Algoritmo de Bellman-Ford - Wikipédia</title>
+		<style type="text/css" media="screen, projection">/*<![CDATA[*/
+			@import "/skins-1.5/common/shared.css?99";
+			@import "/skins-1.5/monobook/main.css?99";
+		/*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="/skins-1.5/common/commonPrint.css?99" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE50Fixes.css?99";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE55Fixes.css?99";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "/skins-1.5/monobook/IE60Fixes.css?99";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "/skins-1.5/monobook/IE70Fixes.css?99";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="/skins-1.5/common/IEFixes.js?99"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		
+		<script type= "text/javascript">/*<![CDATA[*/
+var skin = "monobook";
+var stylepath = "/skins-1.5";
+var wgArticlePath = "/wiki/$1";
+var wgScriptPath = "/w";
+var wgScript = "/w/index.php";
+var wgServer = "http://pt.wikipedia.org";
+var wgCanonicalNamespace = "";
+var wgCanonicalSpecialPageName = false;
+var wgNamespaceNumber = 0;
+var wgPageName = "Algoritmo_de_Bellman-Ford";
+var wgTitle = "Algoritmo de Bellman-Ford";
+var wgAction = "view";
+var wgRestrictionEdit = [];
+var wgRestrictionMove = [];
+var wgArticleId = "26037";
+var wgIsArticle = true;
+var wgUserName = null;
+var wgUserGroups = null;
+var wgUserLanguage = "pt";
+var wgContentLanguage = "pt";
+var wgBreakFrames = false;
+var wgCurRevisionId = "7457593";
+/*]]>*/</script>
+                
+		<script type="text/javascript" src="/skins-1.5/common/wikibits.js?99"><!-- wikibits js --></script>
+		<script type="text/javascript" src="/w/index.php?title=-&amp;action=raw&amp;gen=js&amp;useskin=monobook"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "/w/index.php?title=MediaWiki:Common.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=MediaWiki:Monobook.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=-&action=raw&gen=css&maxage=2678400";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+		<script type="text/javascript" src="/skins-1.5/common/ajax.js?99"></script>
+	</head>
+<body  class="mediawiki ns-0 ltr page-Algoritmo_de_Bellman-Ford">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">Algoritmo de Bellman-Ford</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">Origem: Wikipédia, a enciclopédia livre.</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Ir para: <a href="#column-one">navegação</a>, <a href="#searchInput">pesquisa</a></div>			<!-- start content -->
+			<p>O <b>Algoritmo de Bellman-Ford</b> é um <a href="/wiki/Algoritmo" title="Algoritmo">algoritmo</a> de busca de <a href="/wiki/Problema_do_caminho_m%C3%ADnimo" title="Problema do caminho mínimo">caminho mínimo</a> em um <a href="/wiki/D%C3%ADgrafo" title="Dígrafo">dígrafo</a> ponderado, ou seja, cujas arestas têm peso, inclusive negativo. O <a href="/wiki/Algoritmo_de_Dijkstra" title="Algoritmo de Dijkstra">Algoritmo de Dijkstra</a> resolve o mesmo problema, em um tempo menor, porém exige que todas as arestas tenham pesos positivos. Portanto, o algoritmo de Bellman-Ford é normalmente usado apenas quando existem arestas de peso negativo.</p>
+<p>O algoritmo de Bellman-Ford executa em tempo <img class="tex" alt="O(v \times a)" src="http://upload.wikimedia.org/math/d/3/e/d3e660a11da50cc8d234351136e683e2.png" /> onde <i>v</i> é o número de vértices e <i>a</i> o número de arestas.</p>
+<p><a name="Pseudoc.C3.B3digo" id="Pseudoc.C3.B3digo"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Algoritmo_de_Bellman-Ford&amp;action=edit&amp;section=1" title="Editar secção: Pseudocódigo">editar</a>]</span> <span class="mw-headline">Pseudocódigo</span></h2>
+<pre>
+<i>// Define os tipos de dados para um grafo</i>
+<b>registro</b> vértice {
+    <i>lista</i> arestas
+    <i>número</i> distância
+    <i>vértice</i> anterior
+}
+<b>registro</b> aresta {
+    <i>vértice</i> origem
+    <i>vértice</i> destino
+    <i>número</i> peso
+}
+
+<b>função</b> BellmanFord(<i>lista</i> vértices, <i>lista</i> arestas, <i>vértice</i> origem)
+   <i>// Esta implementação recebe um grafo representado como uma</i>
+   <i>// lista de vértices e arestas e modifica os vértices para</i>
+   <i>// que que seus atributos <b>distância</b> e <b>anterior</b> armazenem </i>
+   <i>// os caminhos mais curtos.</i>
+
+   <i>// Passo 1: Inicializar o grafo</i>
+   <b>para cada</b> vértice v <b>em</b> vértices <b>faça</b>:
+       <b>se</b> v <b>é</b> origem <b>então</b>:
+           v.distância = 0
+       <b>senão</b>:
+           v.distância := <b>infinito</b>
+       v.anterior := <b>nulo</b>
+   
+   <i>// Passo 2: Ajustar as arestas repetidamente</i>
+   <b>repita</b> tamanho (vértices) <b>vezes</b>:
+       <b>para cada</b> aresta uv <b>em</b> arestas <b>faça</b>:
+           u := uv.origem
+           v := uv.destino     <i>// uv é a aresta de u para v</i>
+           <b>se</b> v.distância &gt; u.distância + uv.peso <b>então</b>:
+               v.distância := u.distância + uv.peso
+               v.anterior := u
+
+   <i>// Passo 3: Verificar a existência de ciclos com peso negativo</i>
+   <b>para cada</b> aresta uv <b>em</b> arestas <b>faça</b>:
+       u := uv.origem
+       v := uv.destino
+       <b>se</b> v.distância &gt; u.distância + uv.peso <b>então</b>:
+           <b>erro</b> "O grafo contém um ciclo de peso negativo."
+</pre>
+<p><a name="Ver_tamb.C3.A9m" id="Ver_tamb.C3.A9m"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Algoritmo_de_Bellman-Ford&amp;action=edit&amp;section=2" title="Editar secção: Ver também">editar</a>]</span> <span class="mw-headline">Ver também</span></h2>
+<ul>
+<li><a href="/wiki/Teoria_dos_grafos" title="Teoria dos grafos">Teoria dos grafos</a></li>
+<li><a href="/wiki/Problema_do_caminho_m%C3%ADnimo" title="Problema do caminho mínimo">Problema do caminho mínimo</a></li>
+<li><a href="/wiki/Algoritmo_de_Dijkstra" title="Algoritmo de Dijkstra">Algoritmo de Dijkstra</a></li>
+</ul>
+<p><br /></p>
+<table align="center" cellpadding="0" cellspacing="0" style="background-color: white; border: 1px solid #ccc; padding: 5px; font-size:85%;" class="noprint">
+<tr>
+<td><a href="/wiki/Imagem:Singleton.png" class="image" title="Singleton.png"><img alt="" src="http://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Singleton.png/50px-Singleton.png" width="50" height="17" border="0" /></a></td>
+<td>&#160; <i>Este artigo é um <a href="/wiki/Wikipedia:Esbo%C3%A7o" title="Wikipedia:Esboço">esboço</a> sobre <b><a href="/wiki/Programa%C3%A7%C3%A3o" title="Programação">Programação</a></b>. Você pode ajudar a Wikipédia <span class="plainlinks"><a href="http://pt.wikipedia.org/w/index.php?title=Algoritmo_de_Bellman-Ford&amp;action=edit" class="external text" title="http://pt.wikipedia.org/w/index.php?title=Algoritmo_de_Bellman-Ford&amp;action=edit" rel="nofollow">expandindo-o</a></span>.</i></td>
+</tr>
+</table>
+
+<!-- 
+Pre-expand include size: 1092 bytes
+Post-expand include size: 1242 bytes
+Template argument size: 34 bytes
+Maximum: 2048000 bytes
+-->
+
+<!-- Saved in parser cache with key ptwiki:pcache:idhash:26037-0!1!0!!pt!2 and timestamp 20070914104217 -->
+<div class="printfooter">
+Obtido em "<a href="http://pt.wikipedia.org/wiki/Algoritmo_de_Bellman-Ford">http://pt.wikipedia.org/wiki/Algoritmo_de_Bellman-Ford</a>"</div>
+			<div id="catlinks"><p class='catlinks'><a href="/wiki/Especial:Categories" title="Especial:Categories">Categorias</a>: <span dir='ltr'><a href="/wiki/Categoria:%21Esbo%C3%A7os_sobre_programa%C3%A7%C3%A3o" title="Categoria:!Esboços sobre programação">!Esboços sobre programação</a></span> | <span dir='ltr'><a href="/wiki/Categoria:Algoritmos_de_grafos" title="Categoria:Algoritmos de grafos">Algoritmos de grafos</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Vistas</h5>
+		<div class="pBody">
+			<ul>
+					 <li id="ca-nstab-main" class="selected"><a href="/wiki/Algoritmo_de_Bellman-Ford" title="Ver a página de conteúdo [c]" accesskey="c">Artigo</a></li>
+					 <li id="ca-talk" class="new"><a href="/w/index.php?title=Discuss%C3%A3o:Algoritmo_de_Bellman-Ford&amp;action=edit" title="Discussão sobre o conteúdo da página [t]" accesskey="t">Discussão</a></li>
+					 <li id="ca-edit"><a href="/w/index.php?title=Algoritmo_de_Bellman-Ford&amp;action=edit" title="Você pode editar esta página. Por favor, utilize o botão Mostrar Previsão antes de salvar. [e]" accesskey="e">Editar</a></li>
+					 <li id="ca-history"><a href="/w/index.php?title=Algoritmo_de_Bellman-Ford&amp;action=history" title="Edições anteriores desta página. [h]" accesskey="h">História</a></li>
+				</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-personal">
+		<h5>Ferramentas pessoais</h5>
+		<div class="pBody">
+			<ul>
+				<li id="pt-login"><a href="/w/index.php?title=Especial:Userlogin&amp;returnto=Algoritmo_de_Bellman-Ford" title="Aconselhamos-lhe a criar uma conta na Wikipédia, embora tal não seja obrigatório. [o]" accesskey="o">Criar conta | Entrar</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-logo">
+		<a style="background-image: url(http://upload.wikimedia.org/wikipedia/pt/b/bc/Wiki.png);" href="/wiki/P%C3%A1gina_principal" title="Visitar a página principal [z]" accesskey="z"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navegação</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="/wiki/P%C3%A1gina_principal" title="Visitar a página principal [z]" accesskey="z">Página principal</a></li>
+				<li id="n-Os-melhores-artigos"><a href="/wiki/Wikipedia:Os_melhores_artigos">Os melhores artigos</a></li>
+				<li id="n-currentevents"><a href="/wiki/Portal:Eventos_atuais" title="Informação temática sobre eventos actuais">Eventos atuais</a></li>
+				<li id="n-randompage"><a href="/wiki/Especial:Random" title="Carregar página aleatória [x]" accesskey="x">Página aleatória</a></li>
+				<li id="n-Portais"><a href="/wiki/Portal:%C3%8Dndice">Portais</a></li>
+			</ul>
+		</div>
+	</div>
+		<div class='portlet' id='p-colabora.C3.A7.C3.A3o'>
+		<h5>colaboração</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-portal"><a href="/wiki/Wikipedia:Portal_comunit%C3%A1rio" title="Sobre o projecto">Portal comunitário</a></li>
+				<li id="n-recentchanges"><a href="/wiki/Especial:Recentchanges" title="A lista de mudanças recentes nesta wiki. [r]" accesskey="r">Mudanças recentes</a></li>
+				<li id="n-help"><a href="/wiki/Ajuda:P%C3%A1gina_principal" title="Um local reservado para auxílio.">Ajuda</a></li>
+				<li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Coleta_de_fundos" title="Ajude-nos">Donativos</a></li>
+			</ul>
+		</div>
+	</div>
+		<div id="p-search" class="portlet">
+		<h5><label for="searchInput">Busca</label></h5>
+		<div id="searchBody" class="pBody">
+			<form action="/wiki/Especial:Search" id="searchform"><div>
+				<input id="searchInput" name="search" type="text" title="Pesquisar na Wikipedia [f]" accesskey="f" value="" />
+				<input type='submit' name="go" class="searchButton" id="searchGoButton"	value="Ir" />&nbsp;
+				<input type='submit' name="fulltext" class="searchButton" id="mw-searchButton" value="Pesquisa" />
+			</div></form>
+		</div>
+	</div>
+	<div class="portlet" id="p-tb">
+		<h5>Ferramentas</h5>
+		<div class="pBody">
+			<ul>
+				<li id="t-whatlinkshere"><a href="/wiki/Especial:Whatlinkshere/Algoritmo_de_Bellman-Ford" title="Lista de todas as páginas que ligam-se a esta [j]" accesskey="j">Artigos afluentes</a></li>
+				<li id="t-recentchangeslinked"><a href="/wiki/Especial:Recentchangeslinked/Algoritmo_de_Bellman-Ford" title="Mudanças recentes em páginas relacionadas a esta [k]" accesskey="k">Novidades relacionadas</a></li>
+<li id="t-upload"><a href="http://pt.wikipedia.org/wiki/Ajuda:Como_carregar_ficheiros_no_Commons" title="Carregar imagens ou ficheiros media [u]" accesskey="u">Carregar arquivo</a></li>
+<li id="t-specialpages"><a href="/wiki/Especial:Specialpages" title="Lista de páginas especiais [q]" accesskey="q">Páginas especiais</a></li>
+				<li id="t-print"><a href="/w/index.php?title=Algoritmo_de_Bellman-Ford&amp;printable=yes" title="Versão para impressão desta página [p]" accesskey="p">Versão para impressão</a></li>				<li id="t-permalink"><a href="/w/index.php?title=Algoritmo_de_Bellman-Ford&amp;oldid=7457593" title="Link permanente para esta versão desta página">Enlace permanente</a></li><li id="t-cite"><a href="/w/index.php?title=Especial:Cite&amp;page=Algoritmo_de_Bellman-Ford&amp;id=7457593">Citar este artigo</a></li>			</ul>
+		</div>
+	</div>
+	<div id="p-lang" class="portlet">
+		<h5>Outras línguas</h5>
+		<div class="pBody">
+			<ul>
+				<li class="interwiki-cs"><a href="http://cs.wikipedia.org/wiki/Bellman-Ford%C5%AFv_algoritmus">Česky</a></li>
+				<li class="interwiki-de"><a href="http://de.wikipedia.org/wiki/Bellman-Ford-Algorithmus">Deutsch</a></li>
+				<li class="interwiki-en"><a href="http://en.wikipedia.org/wiki/Bellman-Ford_algorithm">English</a></li>
+				<li class="interwiki-es"><a href="http://es.wikipedia.org/wiki/Algoritmo_de_Bellman-Ford">Español</a></li>
+				<li class="interwiki-fr"><a href="http://fr.wikipedia.org/wiki/Algorithme_de_Ford-Bellman">Français</a></li>
+				<li class="interwiki-he"><a href="http://he.wikipedia.org/wiki/%D7%90%D7%9C%D7%92%D7%95%D7%A8%D7%99%D7%AA%D7%9D_%D7%91%D7%9C%D7%9E%D7%9F-%D7%A4%D7%95%D7%A8%D7%93">עברית</a></li>
+				<li class="interwiki-ko"><a href="http://ko.wikipedia.org/wiki/%EB%B2%A8%EB%A7%8C-%ED%8F%AC%EB%93%9C_%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98">한국어</a></li>
+				<li class="interwiki-pl"><a href="http://pl.wikipedia.org/wiki/Algorytm_Bellmana-Forda">Polski</a></li>
+				<li class="interwiki-ru"><a href="http://ru.wikipedia.org/wiki/%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC_%D0%91%D0%B5%D0%BB%D0%BB%D0%BC%D0%B0%D0%BD%D0%B0_%E2%80%94%C2%A0%D0%A4%D0%BE%D1%80%D0%B4%D0%B0">Русский</a></li>
+				<li class="interwiki-vi"><a href="http://vi.wikipedia.org/wiki/Thu%E1%BA%ADt_to%C3%A1n_Bellman-Ford">Tiếng Việt</a></li>
+				<li class="interwiki-zh"><a href="http://zh.wikipedia.org/wiki/Bellman-Ford%E7%AE%97%E6%B3%95">中文</a></li>
+			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="/skins-1.5/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>
+				<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="/images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>
+			<ul id="f-list">
+				<li id="lastmod"> Esta página foi modificada pela última vez a 20h30min, 12 de Setembro de 2007.</li>
+				<li id="copyright">O texto desta página está sob a <a class='internal' href="/wiki/Wikipedia:GNU_Free_Documentation_License">GNU Free Documentation License</a>.<br />Os direitos autorais de todas as contribuições para a Wikipédia pertencem aos seus respectivos autores (mais informações em <a class='internal' href="/wiki/Wikipedia:Direitos_de_autor">direitos autorais</a>).</li>
+				<li id="privacy"><a href="/wiki/Wikipedia:Pol%C3%ADtica_de_privacidade" title="Wikipedia:Política de privacidade">Política de privacidade</a></li>
+				<li id="about"><a href="/wiki/Wikipedia:Sobre" title="Wikipedia:Sobre">Sobre a Wikipédia</a></li>
+				<li id="disclaimer"><a href="/wiki/Wikipedia:Aviso_Geral" title="Wikipedia:Aviso Geral">Avisos gerais</a></li>
+			</ul>
+		</div>
+		
+	
+		<script type="text/javascript">if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by srv70 in 0.309 secs. --></body></html>

@@ -1,0 +1,391 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+				<meta name="keywords" content="Minimax,Game theory,Game theory,1928,A Theory of Justice,Algorithm,Alpha-beta pruning,Arrow's theorem,Average,Battle of the sexes (game theory),Bayes estimator" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="http://www.gnu.org/copyleft/fdl.html" />
+		<title>Minimax - Wikipedia, the free encyclopedia</title>
+		<style type="text/css" media="screen, projection">/*<![CDATA[*/
+			@import "/skins-1.5/common/shared.css?99";
+			@import "/skins-1.5/monobook/main.css?99";
+		/*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="/skins-1.5/common/commonPrint.css?99" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE50Fixes.css?99";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE55Fixes.css?99";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "/skins-1.5/monobook/IE60Fixes.css?99";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "/skins-1.5/monobook/IE70Fixes.css?99";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="/skins-1.5/common/IEFixes.js?99"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		
+		<script type= "text/javascript">/*<![CDATA[*/
+var skin = "monobook";
+var stylepath = "/skins-1.5";
+var wgArticlePath = "/wiki/$1";
+var wgScriptPath = "/w";
+var wgScript = "/w/index.php";
+var wgServer = "http://en.wikipedia.org";
+var wgCanonicalNamespace = "";
+var wgCanonicalSpecialPageName = false;
+var wgNamespaceNumber = 0;
+var wgPageName = "Minimax";
+var wgTitle = "Minimax";
+var wgAction = "view";
+var wgRestrictionEdit = [];
+var wgRestrictionMove = [];
+var wgArticleId = "19589";
+var wgIsArticle = true;
+var wgUserName = null;
+var wgUserGroups = null;
+var wgUserLanguage = "en";
+var wgContentLanguage = "en";
+var wgBreakFrames = false;
+var wgCurRevisionId = "153705705";
+/*]]>*/</script>
+                
+		<script type="text/javascript" src="/skins-1.5/common/wikibits.js?99"><!-- wikibits js --></script>
+		<script type="text/javascript" src="/w/index.php?title=-&amp;action=raw&amp;gen=js&amp;useskin=monobook"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "/w/index.php?title=MediaWiki:Common.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=MediaWiki:Monobook.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=-&action=raw&gen=css&maxage=2678400";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+		<script type="text/javascript" src="/skins-1.5/common/ajax.js?99"></script>
+	</head>
+<body  class="mediawiki ns-0 ltr page-Minimax">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">Minimax</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<div class="dablink">“Minmax” redirects here. For the <a href="/wiki/Role-playing_game" title="Role-playing game">role-playing game</a> or <a href="/wiki/Wargame" title="Wargame">wargame</a> strategy, see <a href="/wiki/Min-maxing" title="Min-maxing">Min-maxing</a>.</div>
+<div class="messagebox cleanup metadata plainlinks"><b>This article does not cite any <a href="/wiki/Wikipedia:Citing_sources" title="Wikipedia:Citing sources">references or sources</a>.</b><br />
+<small>Please help <a href="http://en.wikipedia.org/w/index.php?title=Minimax&amp;action=edit" class="external text" title="http://en.wikipedia.org/w/index.php?title=Minimax&amp;action=edit" rel="nofollow">improve this article</a> by adding citations to <a href="/wiki/Wikipedia:Reliable_sources" title="Wikipedia:Reliable sources">reliable sources</a>. (<a href="/wiki/Help:Contents" title="Help:Contents">help</a>, <a href="/wiki/Wikipedia:WikiProject_Fact_and_Reference_Check" title="Wikipedia:WikiProject Fact and Reference Check">get involved!</a>)<br />
+<a href="/wiki/Wikipedia:Verifiability" title="Wikipedia:Verifiability">Unverifiable</a> material may be challenged and removed.<br />
+This article has been tagged since <b>July 2007</b>.</small></div>
+<p><b>Minimax</b> (sometimes <b>minmax</b>) is a method in <a href="/wiki/Decision_theory" title="Decision theory">decision theory</a> for <i>mini</i>mizing the <i>max</i>imum possible <a href="/wiki/Loss_function" title="Loss function">loss</a>. Alternatively, it can be thought of as maximizing the minimum gain (<b>maximin</b>). It started from two player <a href="/wiki/Zero-sum" title="Zero-sum">zero-sum</a> <a href="/wiki/Game_theory" title="Game theory">game theory</a>, covering both the cases where players take alternate moves and those where they make simultaneous moves. It has also been extended to more complex games and to general decision making in the presence of uncertainty.</p>
+<p>A <b>simple</b> version of the algorithm deals with games such as <a href="/wiki/Tic-tac-toe" title="Tic-tac-toe">tic-tac-toe</a>, where each player can win, lose, or draw. If player A <i>can</i> win in one move, his best move is that winning move. If player B knows that one move will lead to the situation where player A <i>can</i> win in one move, while another move will lead to the situation where player A can, at best, draw, then player B's best move is the one leading to a draw. Late in the game, it's easy to see what the "best" move is. The Minimax algorithm helps find the best move, by working backwards from the end of the game. At each step it assumes that player A is trying to <b>maximize</b> the chances of A winning, while on the next turn player B is trying to <b>minimize</b> the chances of A winning (i.e., to maximize B's own chances of winning).</p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Minimax_criterion_in_statistical_decision_theory"><span class="tocnumber">1</span> <span class="toctext">Minimax criterion in statistical decision theory</span></a></li>
+<li class="toclevel-1"><a href="#Minimax_algorithm_with_alternate_moves"><span class="tocnumber">2</span> <span class="toctext">Minimax algorithm with alternate moves</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Pseudocode"><span class="tocnumber">2.1</span> <span class="toctext">Pseudocode</span></a></li>
+<li class="toclevel-2"><a href="#Example"><span class="tocnumber">2.2</span> <span class="toctext">Example</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Minimax_theorem_with_simultaneous_moves"><span class="tocnumber">3</span> <span class="toctext">Minimax theorem with simultaneous moves</span></a></li>
+<li class="toclevel-1"><a href="#Minimax_in_the_face_of_uncertainty"><span class="tocnumber">4</span> <span class="toctext">Minimax in the face of uncertainty</span></a></li>
+<li class="toclevel-1"><a href="#Minimax_in_non-zero-sum_games"><span class="tocnumber">5</span> <span class="toctext">Minimax in non-zero-sum games</span></a></li>
+<li class="toclevel-1"><a href="#Applications"><span class="tocnumber">6</span> <span class="toctext">Applications</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Ethics"><span class="tocnumber">6.1</span> <span class="toctext">Ethics</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#See_also"><span class="tocnumber">7</span> <span class="toctext">See also</span></a></li>
+<li class="toclevel-1"><a href="#External_links"><span class="tocnumber">8</span> <span class="toctext">External links</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script>
+<p><a name="Minimax_criterion_in_statistical_decision_theory" id="Minimax_criterion_in_statistical_decision_theory"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Minimax&amp;action=edit&amp;section=1" title="Edit section: Minimax criterion in statistical decision theory">edit</a>]</span> <span class="mw-headline">Minimax criterion in statistical decision theory</span></h2>
+<p>In classical statistical <a href="/wiki/Decision_theory" title="Decision theory">decision theory</a>, we have an <a href="/wiki/Estimator" title="Estimator">estimator</a> <span class="texhtml">δ</span> that is used to estimate a <a href="/wiki/Parameter" title="Parameter">parameter</a> <img class="tex" alt="\theta \in \Theta" src="http://upload.wikimedia.org/math/3/b/7/3b736679c7ca4c4a9b3031869c008e93.png" />. We also assume a <a href="/wiki/Risk_function" title="Risk function">risk function</a> <span class="texhtml"><i>R</i>(θ,δ)</span>, usually specified as the integral of a <a href="/wiki/Loss_function" title="Loss function">loss function</a>. In this framework, <img class="tex" alt="\tilde{\delta}" src="http://upload.wikimedia.org/math/3/e/8/3e8195e2283e6b799dd7d4af710cadc1.png" /> is called <b>minimax</b> if it satisfies</p>
+<dl>
+<dd><img class="tex" alt="\sup_\theta R(\theta,\tilde{\delta}) = \inf_\delta \sup_\theta R(\theta,\delta)" src="http://upload.wikimedia.org/math/c/5/4/c546134f7faf0a084603926dffef2820.png" />.</dd>
+</dl>
+<p>An alternative criterion in the decision theoretic framework is the <a href="/wiki/Bayes_estimator" title="Bayes estimator">Bayes estimator</a> in the presence of a <a href="/wiki/Prior_distribution" title="Prior distribution">prior distribution</a> <span class="texhtml">Π</span>. An estimator is Bayes if it minimizes the <i><a href="/wiki/Average" title="Average">average</a></i> risk</p>
+<dl>
+<dd><img class="tex" alt="\int_\Theta R(\theta,\delta)\,d\Pi(\theta)" src="http://upload.wikimedia.org/math/5/6/3/563fa46e1d0011d55302da703adb3558.png" /></dd>
+</dl>
+<p><a name="Minimax_algorithm_with_alternate_moves" id="Minimax_algorithm_with_alternate_moves"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Minimax&amp;action=edit&amp;section=2" title="Edit section: Minimax algorithm with alternate moves">edit</a>]</span> <span class="mw-headline">Minimax algorithm with alternate moves</span></h2>
+<p>A <b>minimax algorithm</b> is a recursive <a href="/wiki/Algorithm" title="Algorithm">algorithm</a> for choosing the next move in an n-player <a href="/wiki/Game_theory" title="Game theory">game</a>, usually a two-player game. A value is associated with each position or state of the game. This value is computed by means of a <a href="/wiki/Evaluation_function" title="Evaluation function">position evaluation function</a> and it indicates how good it would be for a player to reach that position. The player then makes the move that maximizes the minimum value of the position resulting from the opponent's possible following moves. If it is <b>A</b>'s turn to move, <b>A</b> gives a value to each of his legal moves.</p>
+<p>A possible allocation method consists in assigning a certain win for <b>A</b> as +1 and for <b>B</b> as −1. This leads to <a href="/wiki/Combinatorial_game_theory" title="Combinatorial game theory">combinatorial game theory</a> as developed by <a href="/wiki/John_Horton_Conway" title="John Horton Conway">John Horton Conway</a>. An alternative is using a rule that if the result of a move is an immediate win for <b>A</b> it is assigned positive infinity and, if it is an immediate win for <b>B</b>, negative infinity. The value to <b>A</b> of any other move is the minimum of the values resulting from each of <b>B</b>'s possible replies. For this reason, <b>A</b> is called the <i>maximizing player</i> and <b>B</b> is called the <i>minimizing player</i>, hence the name <i>minimax algorithm</i>. The above algorithm will assign a value of positive or negative infinity to any position since the value of every position will be the value of some final winning or losing position. Often this is generally only possible at the very end of complicated games such as <a href="/wiki/Chess" title="Chess">chess</a> or <a href="/wiki/Go_%28board_game%29" title="Go (board game)">go</a>, since it is not computationally feasible to look ahead as far as the completion of the game, except towards the end, and instead positions are given finite values as estimates of the degree of belief that they will lead to a win for one player or another.</p>
+<p>This can be extended if we can supply a <a href="/wiki/Heuristic" title="Heuristic">heuristic</a> evaluation function which gives values to non-final game states without considering all possible following complete sequences. We can then limit the minimax algorithm to look only at a certain number of moves ahead. This number is called the "look-ahead", measured in "<a href="/wiki/Ply_%28chess%29" title="Ply (chess)">plies</a>". For example, the chess computer <a href="/wiki/IBM_Deep_Blue" title="IBM Deep Blue">Deep Blue</a> (that beat <a href="/wiki/Garry_Kasparov" title="Garry Kasparov">Garry Kasparov</a>) looked ahead 12 plies, then applied a heuristic evaluation function.</p>
+<p>The algorithm can be thought of as exploring the <a href="/wiki/Node_%28computer_science%29" title="Node (computer science)">nodes</a> of a <i><a href="/wiki/Game_tree" title="Game tree">game tree</a></i>. The <i>effective <a href="/wiki/Branching_factor" title="Branching factor">branching factor</a></i> of the tree is the average number of <a href="/wiki/Child_node" title="Child node">children</a> of each node (i.e., the average number of legal moves in a position). The number of nodes to be explored usually <a href="/wiki/Exponential_growth" title="Exponential growth">increases exponentially</a> with the number of plies (it is less than exponential if evaluating <a href="/w/index.php?title=Forced_move&amp;action=edit" class="new" title="Forced move">forced moves</a> or repeated positions). The number of nodes to be explored for the analysis of a game is therefore approximately the branching factor raised to the power of the number of plies. It is therefore <a href="/wiki/Computational_complexity_theory#Intractability" title="Computational complexity theory">impractical</a> to completely analyze games such as chess using the minimax algorithm.</p>
+<p>The performance of the naïve minimax algorithm may be improved dramatically, without affecting the result, by the use of <a href="/wiki/Alpha-beta_pruning" title="Alpha-beta pruning">alpha-beta pruning</a>. Other heuristic pruning methods can also be used, but not all of them are guaranteed to give the same result as the un-pruned search.</p>
+<p><a name="Pseudocode" id="Pseudocode"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Minimax&amp;action=edit&amp;section=3" title="Edit section: Pseudocode">edit</a>]</span> <span class="mw-headline">Pseudocode</span></h3>
+<p><a href="/wiki/Pseudocode" title="Pseudocode">Pseudocode</a> for the minimax algorithm (using an evaluation heuristic to terminate at a given depth) is given below.</p>
+<pre>
+<b>function</b> minimax(node, depth)
+    <b>if</b> node is a terminal node <b>or</b> depth = 0
+        <b>return</b> the heuristic value of node
+    <b>if</b> the adversary is to play at node
+        <b>let</b> α := +∞
+        <b>foreach</b> child of node
+            α := min(α, minimax(child, depth-1))
+    <b>else</b> {we are to play at node}
+        <b>let</b> α := -∞
+        <b>foreach</b> child of node
+            α := max(α, minimax(child, depth-1))
+    <b>return</b> α
+</pre>
+<p><a name="Example" id="Example"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Minimax&amp;action=edit&amp;section=4" title="Edit section: Example">edit</a>]</span> <span class="mw-headline">Example</span></h3>
+<div class="floatright"><span><a href="/wiki/Image:Minimax.svg" class="image" title="Minimax.svg"><img alt="" src="http://upload.wikimedia.org/wikipedia/en/thumb/6/6f/Minimax.svg/300px-Minimax.svg.png" width="300" height="175" border="0" /></a></span></div>
+<p>Suppose the game being played only has a maximum of two possible moves per player each turn. The algorithm generates the <a href="/wiki/Game_tree" title="Game tree">tree</a> on the right, where the circles represent the moves of the player running the algorithm (<i>maximizing player</i>), and squares represent the moves of the opponent (<i>minimizing player</i>). Because of the limitation of computation resources, as explained above, the tree is limited to a <i>look-ahead</i> of 4 moves.</p>
+<p>The algorithm evaluates each <i><a href="/wiki/Leaf_node" title="Leaf node">leaf node</a></i> using a heuristic evaluation function, obtaining the values shown. The moves where the <i>maximizing player</i> wins are assigned with positive infinity, while the moves that lead to a win of the <i>minimizing player</i> are assigned with negative infinity. At level 3, the algorithm will choose, for each node, the smallest of the <i><a href="/wiki/Child_node" title="Child node">child node</a></i> values, and assign it to that same node (e.g the node on the left will choose the minimum between "10" and "+∞", therefore assigning the value "10" to himself). The next step, in level 2, consists of choosing for each node the largest of the <i>child node</i> values. Once again, the values are assigned to each <i><a href="/wiki/Parent_node" title="Parent node">parent node</a></i>. The algorithm continues evaluating the maximum and minimum values of the child nodes alternatively until it reaches the <i><a href="/wiki/Root_node" title="Root node">root node</a></i>, where it chooses the move with the largest value (represented in the figure with a blue arrow). This is the move that the player should make in order to <i>minimize</i> the <i>maximum</i> possible <a href="/wiki/Loss_function" title="Loss function">loss</a>.</p>
+<p><a name="Minimax_theorem_with_simultaneous_moves" id="Minimax_theorem_with_simultaneous_moves"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Minimax&amp;action=edit&amp;section=5" title="Edit section: Minimax theorem with simultaneous moves">edit</a>]</span> <span class="mw-headline">Minimax theorem with simultaneous moves</span></h2>
+<p>The following example of a zero-sum game, where <b>A</b> and <b>B</b> make simultaneous moves, illustrates the <i>minimax algorithm</i>. If each player has three choices and the <a href="/wiki/Payoff_matrix" title="Payoff matrix">payoff matrix</a> for <b>A</b> is:</p>
+<table class="wikitable" align="left">
+<tr>
+<th></th>
+<th>B chooses B1</th>
+<th>B chooses B2</th>
+<th>B chooses B3</th>
+</tr>
+<tr>
+<th>A chooses A1</th>
+<td>&#160;&#160;&#160;&#160;+3</td>
+<td>&#160;&#160;&#160;&#160;-2</td>
+<td>&#160;&#160;&#160;&#160;+2</td>
+</tr>
+<tr>
+<th>A chooses A2</th>
+<td>&#160;&#160;&#160;&#160;-1</td>
+<td>&#160;&#160;&#160;&#160;&#160;0</td>
+<td>&#160;&#160;&#160;&#160;+4</td>
+</tr>
+<tr>
+<th>A chooses A3</th>
+<td>&#160;&#160;&#160;&#160;-4</td>
+<td>&#160;&#160;&#160;&#160;-3</td>
+<td>&#160;&#160;&#160;&#160;+1</td>
+</tr>
+</table>
+<p>and <b>B</b> has the same payoff matrix with the signs reversed (i.e. if the choices are A1 and B1 then <b>B</b> pays 3 to <b>A</b>) then the simple minimax choice for <b>A</b> is A2 since the worst possible result is then having to pay 1, while the simple minimax choice for <b>B</b> is B2 since the worst possible result is then no payment. However, this solution is not stable, since if <b>B</b> believes <b>A</b> will choose A2 then <b>B</b> will choose B1 to gain 1; then if <b>A</b> believes <b>B</b> will choose B1 then <b>A</b> will choose A1 to gain 3; and then <b>B</b> will choose B2; and eventually both players will realize the difficulty of making a choice. So a more stable strategy is needed.</p>
+<p>Some choices are <i>dominated</i> by others and can be eliminated: <b>A</b> will not choose A3 since either A1 or A2 will produce a better result, no matter what <b>B</b> chooses; <b>B</b> will not choose B3 since B2 will produce a better result, no matter what <b>A</b> chooses.</p>
+<p><b>A</b> can avoid having to make an expected payment of more than 1/3 by choosing A1 with probability 1/6 and A2 with probability 5/6, no matter what <b>B</b> chooses. <b>B</b> can ensure an expected gain of at least 1/3 by using a randomized strategy of choosing B1 with probability 1/3 and B2 with probability 2/3, no matter what <b>A</b> chooses. These <a href="/wiki/Mixed_strategy" title="Mixed strategy">mixed</a> minimax strategies are now stable and cannot be improved.</p>
+<p><a href="/wiki/John_von_Neumann" title="John von Neumann">John von Neumann</a> proved the <b>Minimax theorem</b> in <a href="/wiki/1928" title="1928">1928</a>, stating that such strategies always exist in two-person zero-sum games and can be found by solving a set of simultaneous equations.</p>
+<p><a name="Minimax_in_the_face_of_uncertainty" id="Minimax_in_the_face_of_uncertainty"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Minimax&amp;action=edit&amp;section=6" title="Edit section: Minimax in the face of uncertainty">edit</a>]</span> <span class="mw-headline">Minimax in the face of uncertainty</span></h2>
+<p>Minimax theory has been extended to decisions where there is no other player, but where the consequences of decisions depend on unknown facts. For example, deciding to prospect for minerals entails a cost which will be wasted if the minerals are not present, but will bring major rewards if they are. One approach is to treat this as a game against <i>nature</i>, and using a similar mindset as <a href="/wiki/Murphy%27s_law" title="Murphy's law">Murphy's law</a>, take an approach which minimizes the maximum expected loss, using the same techniques as in the two-person zero-sum games.</p>
+<p>In addition, <a href="/wiki/Expectiminimax_tree" title="Expectiminimax tree">expectiminimax trees</a> have been developed, for two-player games in which chance (for example, dice) is a factor.</p>
+<p><a name="Minimax_in_non-zero-sum_games" id="Minimax_in_non-zero-sum_games"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Minimax&amp;action=edit&amp;section=7" title="Edit section: Minimax in non-zero-sum games">edit</a>]</span> <span class="mw-headline">Minimax in non-zero-sum games</span></h2>
+<p>If games have a <a href="/wiki/Non-zero-sum" title="Non-zero-sum">non-zero-sum</a> in terms of the payoffs between the players, apparently non-optimal strategies may evolve. For example in the <a href="/wiki/Prisoner%27s_dilemma" title="Prisoner's dilemma">prisoner's dilemma</a>, the minimax strategy for each prisoner is to betray the other even though they would each do better if neither confessed their guilt. So, for non-zero-sum games the best strategy is not necessarily minimax.</p>
+<p><a name="Applications" id="Applications"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Minimax&amp;action=edit&amp;section=8" title="Edit section: Applications">edit</a>]</span> <span class="mw-headline">Applications</span></h2>
+<p><a name="Ethics" id="Ethics"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Minimax&amp;action=edit&amp;section=9" title="Edit section: Ethics">edit</a>]</span> <span class="mw-headline">Ethics</span></h3>
+<p>Philosopher <a href="/wiki/John_Rawls" title="John Rawls">John Rawls</a> reasoned in his book, <a href="/wiki/A_Theory_of_Justice" title="A Theory of Justice">A Theory of Justice</a> that if one is put behind a "veil of ignorance", the so-called <a href="/wiki/Original_position" title="Original position">original position</a>, about one's present station in life, one will formulate a concept of a just society using the maximin principle. According to this principle people should pick the one society that offers the least bad alternative, meaning they should pick the society that has its least fortunate individuals in the least unfortunate situation. (However, in realistic scenarios, any social order will have <i>some</i> individual who suffers grave misfortune, leaving the principle with little or no real efficacy; hence, Rawls amends the conclusion so that ostensibly representative members of the least fortunate <i>class</i> should be most fortunate.)</p>
+<p><a name="See_also" id="See_also"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Minimax&amp;action=edit&amp;section=10" title="Edit section: See also">edit</a>]</span> <span class="mw-headline">See also</span></h2>
+<div style="-moz-column-count:2; column-count:2;">
+<ul>
+<li><a href="/wiki/Transposition_table" title="Transposition table">Transposition table</a></li>
+<li><a href="/wiki/Computer_chess" title="Computer chess">Computer chess</a></li>
+<li><a href="/wiki/Horizon_effect" title="Horizon effect">Horizon effect</a></li>
+<li><a href="/wiki/Negamax" title="Negamax">Negamax</a></li>
+<li><a href="/wiki/Expectiminimax" title="Expectiminimax">Expectiminimax</a></li>
+<li><a href="/wiki/Alpha-beta_pruning" title="Alpha-beta pruning">Alpha-beta pruning</a></li>
+<li><a href="/wiki/Minimax_Condorcet" title="Minimax Condorcet">Minimax Condorcet</a></li>
+<li><a href="/wiki/Claude_Elwood_Shannon" title="Claude Elwood Shannon">Claude Elwood Shannon</a></li>
+</ul>
+</div>
+<p><a name="External_links" id="External_links"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Minimax&amp;action=edit&amp;section=11" title="Edit section: External links">edit</a>]</span> <span class="mw-headline">External links</span></h2>
+<ul>
+<li><a href="http://www.cut-the-knot.org/Curriculum/Games/MixedStrategies.shtml" class="external text" title="http://www.cut-the-knot.org/Curriculum/Games/MixedStrategies.shtml" rel="nofollow">The Minimax Theorem</a></li>
+<li><a href="http://www.geocities.com/arufast/a03minimax.html" class="external text" title="http://www.geocities.com/arufast/a03minimax.html" rel="nofollow">Minimax Analysis for Zero Sum Games</a></li>
+<li><a href="http://www.swif.uniba.it/lei/foldop/foldoc.cgi?maximin+principle" class="external text" title="http://www.swif.uniba.it/lei/foldop/foldoc.cgi?maximin+principle" rel="nofollow">"Maximin principle" from A Dictionary of Philosophical Terms and Names.</a></li>
+<li><a href="http://www.bewersdorff-online.de/quaak/rules.htm" class="external text" title="http://www.bewersdorff-online.de/quaak/rules.htm" rel="nofollow">Play a betting-and-bluffing game against a mixed minimax strategy</a></li>
+<li><a href="http://www.nist.gov/dads/HTML/minimax.html" class="external text" title="http://www.nist.gov/dads/HTML/minimax.html" rel="nofollow">The Dictionary of Algorithms and Data Structures entry for minimax</a></li>
+</ul>
+<p><br clear="all" /></p>
+<table style="margin:0em auto; background: #fffdec;" align="center" class="toccolours" cellspacing="0" cellpadding="2">
+<tr>
+<td valign="top" align="right" style="border-bottom: solid red 1px;border-right: solid silver 1px;">&#160;<span class="noprint plainlinksneverexpand" style="white-space:nowrap; font-weight:normal; font-size:xx-small;"><a href="/wiki/Template:Game_theory" title="Template:Game theory"><span title="View this template">view</span></a></span>&#160;</td>
+<td valign="top" align="center" style="border-bottom: solid red 1px;"><b>Topics in <a href="/wiki/Game_theory" title="Game theory">game theory</a></b></td>
+</tr>
+<tr>
+<td valign="top" align="right" style="border-bottom: solid silver 1px;border-right: solid silver 1px;font-size:90%;padding: 0px 4px;">
+<p><b>Definitions</b></p>
+</td>
+<td valign="top" align="left" style="border-bottom: solid silver 1px;font-size:90%;padding: 0px 4px;">
+<p><a href="/wiki/Normal_form_game" title="Normal form game">Normal form game</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Extensive_form_game" title="Extensive form game">Extensive form game</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Cooperative_game" title="Cooperative game">Cooperative game</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Information_set_%28game_theory%29" title="Information set (game theory)">Information set</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Preference" title="Preference">Preference</a></p>
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" style="border-bottom: solid silver 1px;border-right: solid silver 1px;font-size:90%;padding: 0px 4px;">
+<p><b><a href="/wiki/Economic_equilibrium" title="Economic equilibrium">Equilibrium</a>&#160;<a href="/wiki/Solution_concept" title="Solution concept">concepts</a></b></p>
+</td>
+<td style="border-bottom: solid silver 1px;font-size:90%;padding: 0px 4px;">
+<p><a href="/wiki/Nash_equilibrium" title="Nash equilibrium">Nash equilibrium</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Subgame-perfect_Nash_equilibrium" title="Subgame-perfect Nash equilibrium">Subgame perfection</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Bayesian_game" title="Bayesian game">Bayesian-Nash</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Bayesian_game" title="Bayesian game">Perfect Bayesian</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Trembling_hand_perfect_equilibrium" title="Trembling hand perfect equilibrium">Trembling hand</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Proper_equilibrium" title="Proper equilibrium">Proper equilibrium</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Epsilon-equilibrium" title="Epsilon-equilibrium">Epsilon-equilibrium</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Correlated_equilibrium" title="Correlated equilibrium">Correlated equilibrium</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Sequential_equilibrium" title="Sequential equilibrium">Sequential equilibrium</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Quasi-perfect_equilibrium" title="Quasi-perfect equilibrium">Quasi-perfect equilibrium</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Evolutionarily_stable_strategy" title="Evolutionarily stable strategy">Evolutionarily stable strategy</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Risk_dominance" title="Risk dominance">Risk dominance</a></p>
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" style="border-bottom: solid silver 1px;border-right: solid silver 1px;font-size:90%;padding: 0px 4px;">
+<p><b><a href="/wiki/Strategy_%28game_theory%29" title="Strategy (game theory)">Strategies</a></b></p>
+</td>
+<td valign="top" align="left" style="border-bottom: solid silver 1px;font-size:90%;padding: 0px 4px;">
+<p><a href="/wiki/Dominance_%28game_theory%29" title="Dominance (game theory)">Dominant strategies</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Mixed_strategy" title="Mixed strategy">Mixed strategy</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Tit_for_tat" title="Tit for tat">Tit for tat</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Grim_trigger" title="Grim trigger">Grim trigger</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Collusion" title="Collusion">Collusion</a></p>
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" style="border-bottom: solid silver 1px;border-right: solid silver 1px;font-size:90%;padding: 0px 4px;">
+<p><b>Classes of games</b></p>
+</td>
+<td valign="top" align="left" style="border-bottom: solid silver 1px;font-size:90%;padding: 0px 4px;">
+<p><a href="/wiki/Symmetric_game" title="Symmetric game">Symmetric game</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Perfect_information" title="Perfect information">Perfect information</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Dynamic_game" title="Dynamic game">Dynamic game</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Repeated_game" title="Repeated game">Repeated game</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Signaling_game" title="Signaling game">Signaling game</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Cheap_talk" title="Cheap talk">Cheap talk</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Zero-sum" title="Zero-sum">Zero-sum game</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Mechanism_design" title="Mechanism design">Mechanism design</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Stochastic_game" title="Stochastic game">Stochastic game</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Nontransitive_game" title="Nontransitive game">Nontransitive game</a></p>
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" style="border-bottom: solid silver 1px;border-right: solid silver 1px;font-size:90%;padding: 0px 4px;">
+<p><b><a href="/wiki/List_of_games_in_game_theory" title="List of games in game theory">Games</a></b></p>
+</td>
+<td valign="top" align="left" style="border-bottom: solid silver 1px;font-size:90%;padding: 0px 4px;">
+<p><a href="/wiki/Prisoner%27s_dilemma" title="Prisoner's dilemma">Prisoner's dilemma</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Traveler%27s_dilemma" title="Traveler's dilemma">Traveler's dilemma</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Coordination_game" title="Coordination game">Coordination game</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Chicken_%28game%29" title="Chicken (game)">Chicken</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Volunteer%27s_dilemma" title="Volunteer's dilemma">Volunteer's dilemma</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Dollar_auction" title="Dollar auction">Dollar auction</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Battle_of_the_sexes_%28game_theory%29" title="Battle of the sexes (game theory)">Battle of the sexes</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Stag_hunt" title="Stag hunt">Stag hunt</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Matching_pennies" title="Matching pennies">Matching pennies</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Ultimatum_game" title="Ultimatum game">Ultimatum game</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Minority_game" title="Minority game">Minority game</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Rock%2C_Paper%2C_Scissors" title="Rock, Paper, Scissors">Rock, Paper, Scissors</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Pirate_game" title="Pirate game">Pirate game</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Dictator_game" title="Dictator game">Dictator game</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Public_goods_game" title="Public goods game">Public&#160;goods&#160;game</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Nash_bargaining_game" title="Nash bargaining game">Nash&#160;bargaining&#160;game</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Blotto_games" title="Blotto games">Blotto games</a> <span style="font-weight:bold;">&#160;·</span> <a href="/wiki/War_of_attrition_%28game%29" title="War of attrition (game)">War of attrition</a></p>
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" style="border-right: solid silver 1px;font-size:90%;padding: 0px 4px;">
+<p><b>Theorems</b></p>
+</td>
+<td valign="top" align="left" style="font-size:90%;padding: 0px 4px;">
+<p><strong class="selflink">Minimax theorem</strong><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Purification_theorems" title="Purification theorems">Purification theorems</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Folk_theorem_%28game_theory%29" title="Folk theorem (game theory)">Folk theorem</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Revelation_principle" title="Revelation principle">Revelation principle</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Arrow%27s_theorem" title="Arrow's theorem">Arrow's theorem</a></p>
+</td>
+</tr>
+</table>
+
+<!-- 
+Pre-expand include size: 18627 bytes
+Post-expand include size: 9997 bytes
+Template argument size: 521 bytes
+Maximum: 2048000 bytes
+-->
+
+<!-- Saved in parser cache with key enwiki:pcache:idhash:19589-0!1!0!default!!en!2 and timestamp 20070914113804 -->
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org/wiki/Minimax">http://en.wikipedia.org/wiki/Minimax</a>"</div>
+			<div id="catlinks"><p class='catlinks'><a href="/wiki/Special:Categories" title="Special:Categories">Categories</a>: <span dir='ltr'><a href="/wiki/Category:Articles_lacking_sources_from_July_2007" title="Category:Articles lacking sources from July 2007">Articles lacking sources from July 2007</a></span> | <span dir='ltr'><a href="/wiki/Category:All_articles_lacking_sources" title="Category:All articles lacking sources">All articles lacking sources</a></span> | <span dir='ltr'><a href="/wiki/Category:Detection_theory" title="Category:Detection theory">Detection theory</a></span> | <span dir='ltr'><a href="/wiki/Category:Game_artificial_intelligence" title="Category:Game artificial intelligence">Game artificial intelligence</a></span> | <span dir='ltr'><a href="/wiki/Category:Graph_algorithms" title="Category:Graph algorithms">Graph algorithms</a></span> | <span dir='ltr'><a href="/wiki/Category:Optimization_algorithms" title="Category:Optimization algorithms">Optimization algorithms</a></span> | <span dir='ltr'><a href="/wiki/Category:Search_algorithms" title="Category:Search algorithms">Search algorithms</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<div class="pBody">
+			<ul>
+					 <li id="ca-nstab-main" class="selected"><a href="/wiki/Minimax" title="View the content page [c]" accesskey="c">Article</a></li>
+					 <li id="ca-talk"><a href="/wiki/Talk:Minimax" title="Discussion about the content page [t]" accesskey="t">Discussion</a></li>
+					 <li id="ca-edit"><a href="/w/index.php?title=Minimax&amp;action=edit" title="You can edit this page. Please use the preview button before saving. [e]" accesskey="e">Edit this page</a></li>
+					 <li id="ca-history"><a href="/w/index.php?title=Minimax&amp;action=history" title="Past versions of this page [h]" accesskey="h">History</a></li>
+				</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-personal">
+		<h5>Personal tools</h5>
+		<div class="pBody">
+			<ul>
+				<li id="pt-login"><a href="/w/index.php?title=Special:Userlogin&amp;returnto=Minimax" title="You are encouraged to log in, it is not mandatory however. [o]" accesskey="o">Sign in / create account</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-logo">
+		<a style="background-image: url(/images/wiki-en.png);" href="/wiki/Main_Page" title="Visit the Main Page [z]" accesskey="z"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-Main-page"><a href="/wiki/Main_Page">Main page</a></li>
+				<li id="n-Contents"><a href="/wiki/Wikipedia:Contents">Contents</a></li>
+				<li id="n-Featured-content"><a href="/wiki/Wikipedia:Featured_content">Featured content</a></li>
+				<li id="n-currentevents"><a href="/wiki/Portal:Current_events" title="Find background information on current events">Current events</a></li>
+				<li id="n-randompage"><a href="/wiki/Special:Random" title="Load a random page [x]" accesskey="x">Random article</a></li>
+			</ul>
+		</div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+		<h5>interaction</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-About-Wikipedia"><a href="/wiki/Wikipedia:About">About Wikipedia</a></li>
+				<li id="n-portal"><a href="/wiki/Wikipedia:Community_Portal" title="About the project, what you can do, where to find things">Community portal</a></li>
+				<li id="n-recentchanges"><a href="/wiki/Special:Recentchanges" title="The list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li>
+				<li id="n-contact"><a href="/wiki/Wikipedia:Contact_us">Contact Wikipedia</a></li>
+				<li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising" title="Support us">Donate to Wikipedia</a></li>
+				<li id="n-help"><a href="/wiki/Help:Contents" title="Guidance on how to use and edit Wikipedia">Help</a></li>
+			</ul>
+		</div>
+	</div>
+		<div id="p-search" class="portlet">
+		<h5><label for="searchInput">Search</label></h5>
+		<div id="searchBody" class="pBody">
+			<form action="/wiki/Special:Search" id="searchform"><div>
+				<input id="searchInput" name="search" type="text" title="Search Wikipedia [f]" accesskey="f" value="" />
+				<input type='submit' name="go" class="searchButton" id="searchGoButton"	value="Go" />&nbsp;
+				<input type='submit' name="fulltext" class="searchButton" id="mw-searchButton" value="Search" />
+			</div></form>
+		</div>
+	</div>
+	<div class="portlet" id="p-tb">
+		<h5>Toolbox</h5>
+		<div class="pBody">
+			<ul>
+				<li id="t-whatlinkshere"><a href="/wiki/Special:Whatlinkshere/Minimax" title="List of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+				<li id="t-recentchangeslinked"><a href="/wiki/Special:Recentchangeslinked/Minimax" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+<li id="t-upload"><a href="/wiki/Wikipedia:Upload" title="Upload images or media files [u]" accesskey="u">Upload file</a></li>
+<li id="t-specialpages"><a href="/wiki/Special:Specialpages" title="List of all special pages [q]" accesskey="q">Special pages</a></li>
+				<li id="t-print"><a href="/w/index.php?title=Minimax&amp;printable=yes" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>				<li id="t-permalink"><a href="/w/index.php?title=Minimax&amp;oldid=153705705" title="Permanent link to this version of the page">Permanent link</a></li><li id="t-cite"><a href="/w/index.php?title=Special:Cite&amp;page=Minimax&amp;id=153705705">Cite this article</a></li>			</ul>
+		</div>
+	</div>
+	<div id="p-lang" class="portlet">
+		<h5>In other languages</h5>
+		<div class="pBody">
+			<ul>
+				<li class="interwiki-cs"><a href="http://cs.wikipedia.org/wiki/Minimax_%28algoritmus%29">Česky</a></li>
+				<li class="interwiki-de"><a href="http://de.wikipedia.org/wiki/Minimax-Algorithmus">Deutsch</a></li>
+				<li class="interwiki-es"><a href="http://es.wikipedia.org/wiki/Minimax">Español</a></li>
+				<li class="interwiki-fr"><a href="http://fr.wikipedia.org/wiki/Algorithme_MinMax">Français</a></li>
+				<li class="interwiki-it"><a href="http://it.wikipedia.org/wiki/Minimax">Italiano</a></li>
+				<li class="interwiki-he"><a href="http://he.wikipedia.org/wiki/%D7%A2%D7%A5_%D7%9E%D7%99%D7%A0%D7%99%D7%9E%D7%A7%D7%A1">עברית</a></li>
+				<li class="interwiki-nl"><a href="http://nl.wikipedia.org/wiki/Minimax">Nederlands</a></li>
+				<li class="interwiki-ja"><a href="http://ja.wikipedia.org/wiki/%E3%83%9F%E3%83%8B%E3%83%9E%E3%83%83%E3%82%AF%E3%82%B9%E6%B3%95">日本語</a></li>
+				<li class="interwiki-pl"><a href="http://pl.wikipedia.org/wiki/Algorytm_min-max">Polski</a></li>
+				<li class="interwiki-pt"><a href="http://pt.wikipedia.org/wiki/Minimax">Português</a></li>
+				<li class="interwiki-vi"><a href="http://vi.wikipedia.org/wiki/Minimax">Tiếng Việt</a></li>
+				<li class="interwiki-zh"><a href="http://zh.wikipedia.org/wiki/Minimax%E7%AE%97%E6%B3%95">中文</a></li>
+			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="/skins-1.5/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>
+				<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="/images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>
+			<ul id="f-list">
+				<li id="lastmod"> This page was last modified 08:22, 26 August 2007.</li>
+				<li id="copyright">All text is available under the terms of the <a class='internal' href="/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="/wiki/Wikipedia:Copyrights" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a U.S. registered <a class='internal' href="/wiki/501%28c%29#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="/wiki/Non-profit_organization" title="Non-profit organization">nonprofit</a> <a href="/wiki/Charitable_organization" title="Charitable organization">charity</a>.<br /></li>
+				<li id="privacy"><a href="http://wikimediafoundation.org/wiki/Privacy_policy" title="wikimedia:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="/wiki/Wikipedia:About" title="Wikipedia:About">About Wikipedia</a></li>
+				<li id="disclaimer"><a href="/wiki/Wikipedia:General_disclaimer" title="Wikipedia:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+		
+	
+		<script type="text/javascript">if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by srv153 in 0.319 secs. --></body></html>

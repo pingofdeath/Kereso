@@ -1,0 +1,245 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="GENERATOR" content="Mozilla/4.5 [en] (WinNT; I) [Netscape]">
+   <title>Floyd-Warshall All-Pairs Shortest Pairs Algorithm</title>
+</head>
+<body>
+
+<h1>
+Floyd-Warshall All-Pairs Shortest Pairs Algorithm</h1>
+
+<h2>
+<a NAME="introduction"></a>A (Very) Brief Introduction to Graphs</h2>
+Graphs are a very important data structure in computer science. Many otherwise
+very difficult problems can be expressed in terms of a graph and solved
+using standard graph searching/manipulation algorithms. Graphs can be simply
+viewed as a set of <b>vertices</b>/nodes and <b>edges</b> connecting these
+vertices. Mathematically G = (V,E), if u and v are elements of V, then
+an edge can be denoted as (u,v).
+<p>Graphs can be basically classified as either being <b>undirected</b>
+or <b>directed</b>. In the former, the edges do not have a direction i.e.
+(u,v) and (v,u) denote the same edge. In the latter the edges have a direction.
+Another important aspect of graphs is the identification of cycles. A cycle
+is a path such that the first vertex and the last vertex are the same.
+The following illustrates a directed graph that contains cycles and negatively
+weighted edges (see below). The graph consists of 5 vertices and 9 edges.
+<p><img SRC="graph.gif" BORDER=0 height=278 width=298 align=BOTTOM>
+<p>The adjacency matrix that represents the above graph is:
+<table BORDER >
+<tr>
+<td>Node</td>
+
+<td>1</td>
+
+<td>2&nbsp;</td>
+
+<td>3&nbsp;</td>
+
+<td>4</td>
+
+<td>5&nbsp;</td>
+</tr>
+
+<tr>
+<td>1</td>
+
+<td>0</td>
+
+<td>3</td>
+
+<td>8</td>
+
+<td>inf.</td>
+
+<td>-4</td>
+</tr>
+
+<tr>
+<td>2&nbsp;</td>
+
+<td>inf.</td>
+
+<td>0&nbsp;</td>
+
+<td>inf.&nbsp;</td>
+
+<td>1&nbsp;</td>
+
+<td>7&nbsp;</td>
+</tr>
+
+<tr>
+<td>3&nbsp;</td>
+
+<td>inf.</td>
+
+<td>4&nbsp;</td>
+
+<td>0&nbsp;</td>
+
+<td>inf.&nbsp;</td>
+
+<td>inf.&nbsp;</td>
+</tr>
+
+<tr>
+<td>4</td>
+
+<td>2</td>
+
+<td>inf.&nbsp;</td>
+
+<td>-5&nbsp;</td>
+
+<td>0&nbsp;</td>
+
+<td>inf.&nbsp;</td>
+</tr>
+
+<tr>
+<td>5&nbsp;&nbsp;&nbsp;&nbsp;</td>
+
+<td>inf.</td>
+
+<td>inf.&nbsp;</td>
+
+<td>inf.&nbsp;</td>
+
+<td>6&nbsp;</td>
+
+<td>0&nbsp;</td>
+</tr>
+</table>
+NB: inf. Represents a distance of infinity, i.e. no (direct) connection
+<h2>
+<a NAME="shortest_path"></a>Shortest Paths</h2>
+It is also possible that the edges in a graph may bear weights, these may
+be positive, negative, or zero. If these weights correspond to a distance
+than a question can be asked as to what is the distance between two points
+on a graph. It is possible to approach this from a number of different
+perspectives. It may be that the shortest path between two specified nodes
+is required, or the distance between a single point and all other nodes,
+or more completely, what is the shortest distance between all nodes and
+all other nodes within a graph. The later question is known as the 'all-pair-shortest-path'
+problem and is discussed below.
+<h3>
+<a NAME="all_pairs"></a>All-Pairs-Shortest-Path Algorithms</h3>
+The problem of finding the shortest path between all pairs of vertices
+on a graph is akin to making a table of all of the distances between all
+pairs of cities on a road map. Additionally, the route that gives rise
+to this shortest path also needs to be established. This is one of many
+interesting problems that can be solved using graph algorithms.
+<p>There are a variety of solutions to this problem and the algorithms
+that can be applied often depend on whether negative weighs are present
+in the graph. For example, if no negative weights exists than it is possible
+to run Dijkstra's single-source shortest-path algorithm |V| times which
+has a run time of O(|V|<sup>3</sup>) (although enhancements can be made).
+Where negative weights are present the Bellman-Ford algorithm could be
+run from each vertex.&nbsp; [<a href="../references.html#Corman">Corman</a>]
+For a dense graph (one with many connections) this has a run time of O(|V|<sup>4</sup>).
+Another solution for graphs containing negative weights is known as the
+'Slow-All-Pairs-Shortest-Path algorithm, however this again has a run time
+of O(|V|<sup>4</sup>).&nbsp; [<a href="../references.html#Corman">Corman</a>]
+It is possible to do this using the Floyd-Warshall All-Pairs-Shortest-Path
+algorithm. This is discussed in the next section.
+<h4>
+<a NAME="Floyd-Warshall"></a>Floyd-Warshall All-Pairs-Shortest-Path algorithm</h4>
+The Floyd-Warshall All-Pairs-Shortest-Path algorithm uses a dynamic-programming
+methodology to solve the All-Pairs-Shortest-Path problem. The algorithm
+runs in O(|V|<sup>3</sup>) time and negatively weighed edges may be present,
+however negatively weighted cycles cause problems with the algorithm.
+<p>For a detailed description of the dynamic approach used in the Floyd-Warshall
+algorithm see Corman's textbook. [<a href="../references.html#Corman">Corman</a>]
+<p>The main recursive definition of the algorithm is given by:
+<br>&nbsp;
+<p><img SRC="floyd_al.gif" BORDER=0 height=128 width=548 align=BOTTOM>
+<br>&nbsp;
+<p>This leads to the following bottom-up procedure to compute the all-pairs-shortest-path
+table.
+<p><img SRC="floyd_ps.gif" BORDER=0 height=271 width=433 align=BOTTOM>
+<h4>
+<a NAME="constructing"></a>Constructing The Shortest Path</h4>
+The algorithm and pseudo-code outlined above provide the shortest distance
+between all of the vertices in terms of a table (new adjacency matrix).
+However, using the above procedure provides no information on the specific
+pathway that gives rise to these values. In order to construct the shortest
+pathway a predecessor matrix (<font face="Symbol">P</font>) is required
+to be calculated at each major cycle (corresponding to k in the above pseudo-code).
+This method can be implemented in O(|V|<sup>3</sup>) time so not to alter
+the order of the algorithm.
+<p>A recursive formulation of the problem can be specified as:
+<p><img SRC="floyd_pa.gif" BORDER=0 height=212 width=492 align=BOTTOM>
+<p>where <font face="Symbol">P</font> is the parent matrix, d is the distance
+matrix, and W is the weighs matrix.
+<h4>
+<a NAME="visualization"></a>Visualization of The Floyd-Warshall All-Pairs-Shortest-Path
+Algorithm</h4>
+The following Java (using JDK 1.1) applet has been developed to enable
+the processing performed, and the result obtained from the Floyd-Warshall
+All-Pairs-Shortest-Path algorithm to be visualized. Both the distance corresponding
+to the shortest paths as well as the path itself is calculated.
+<p>The applet consists essentially of two sections. The left portion of
+the applet shows a pictorial representation of the graph that is specified
+in an adjacency matrix that appears to its right. (Note: To simplify the
+coding I have used dots rather than arrow heads to indicate the direction
+of a particular edge. Also two colours, black and red, have been used to
+distinguish forward and back edges (based purely on node number).
+<p>The adjacency matrix has been preloaded with the values that give rise
+to the graph depicted above. The weights appearing in the adjacency matrix
+can be altered by the user. In order to update the graph such that it corresponds
+to an altered matrix simple click on the 'Update' button. You can return
+to the default values by clicking on the 'Reset' button.
+<p>The calculation of the shortest paths is initiated by selecting the
+'Floyd-Warshall' button. During this calculation the adjancy matrix is
+replaced by the shortest path matrix and the values are upadted (and highlighted)
+as the algorithm progresses. If the 'single step' checkbox has been marked
+than the applet should pause at the end of each cycle (Note: at least that
+was the intention, however I have noted some problems with the pausing
+in some browsers). Once the full Floyd-Warshall calculation is complete,
+each entry in the matrix provides the shortest distance each pair of nodes.
+For example if a value of 1 lies at the intersection of the 5th row with
+the 3rd column than this is the shortest distance from vertex 5 to vertex
+3. After the calculation is complete the actual shortest path between any
+two vertices is displayed by being superimposed on the graph itself. The
+'choice box' enables the path between any two vertices to be chosen.
+<p><b>Please note:</b> that as the applet has been written in Java (JDK
+1.1) you will need to use a browser capable of displaying such applets.
+One example of such a browser is Netscape 4.5.
+<br>&nbsp;
+<p><applet CODE="shortest_path.class" ARCHIVE="shortest_path.jar" WIDTH="570" HEIGHT="340" ALIGN="BOTTOM"></applet>
+<br>&nbsp;
+<br>&nbsp;
+<h2>
+The Floyd-Warshall Applet Code</h2>
+
+<p><br>The code for the applet consists of two classes, and associated
+inner classes that handle user interface events and the drawing of the
+graphical representation of the graph. The main class is <a href="javaCode/shortest_path.java">shortest_path.java</a>
+contains most of the code (abour 600 lines including comments) whilst a
+simple <a href="javaCode.java">Msgbox.java</a> class contains the code
+for the modal 'pop-up' window used during the single step operation of
+the simulation to pause the operation of the code between each iteration.
+<p>It is not the intention of this thesis to detail the operation of the
+shortest_path code but merely present the result of the code development
+in this field. The code itself contains comments that should enable the
+function of each section to be evident.
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<h2>
+Conclusion</h2>
+
+<p><br>As with many algorithms it is the dynamic nature of the operation
+of the code that leads to the observed property. The applet developed in
+this section of the project has targeted the simulation of the Floyd-Warshall
+all-pairs-shortest-path problem. It is easy to understand the simple three
+nested <tt>FOR</tt> loops of the pseudocode. However, it is much more difficult
+to envisage the whole process and understand how the actual shortest-paths
+are computed. It is my hope that this applet will bridge that gap and aid
+in the understand of this particular process.
+<br>&nbsp;
+<br>&nbsp;
+</body>
+</html>

@@ -1,0 +1,523 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+				<meta name="keywords" content="Mathematical induction,A priori (philosophy),Addition of natural numbers,Al-Karaji,All horses are the same color (paradox),Andrey Kolmogorov,Arity,Associativity,Axiom,Bhaskara II,Binomial theorem" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="http://www.gnu.org/copyleft/fdl.html" />
+		<title>Mathematical induction - Wikipedia, the free encyclopedia</title>
+		<style type="text/css" media="screen, projection">/*<![CDATA[*/
+			@import "/skins-1.5/common/shared.css?99";
+			@import "/skins-1.5/monobook/main.css?99";
+		/*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="/skins-1.5/common/commonPrint.css?99" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE50Fixes.css?99";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE55Fixes.css?99";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "/skins-1.5/monobook/IE60Fixes.css?99";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "/skins-1.5/monobook/IE70Fixes.css?99";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="/skins-1.5/common/IEFixes.js?99"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		
+		<script type= "text/javascript">/*<![CDATA[*/
+var skin = "monobook";
+var stylepath = "/skins-1.5";
+var wgArticlePath = "/wiki/$1";
+var wgScriptPath = "/w";
+var wgScript = "/w/index.php";
+var wgServer = "http://en.wikipedia.org";
+var wgCanonicalNamespace = "";
+var wgCanonicalSpecialPageName = false;
+var wgNamespaceNumber = 0;
+var wgPageName = "Mathematical_induction";
+var wgTitle = "Mathematical induction";
+var wgAction = "view";
+var wgRestrictionEdit = [];
+var wgRestrictionMove = [];
+var wgArticleId = "18881";
+var wgIsArticle = true;
+var wgUserName = null;
+var wgUserGroups = null;
+var wgUserLanguage = "en";
+var wgContentLanguage = "en";
+var wgBreakFrames = false;
+var wgCurRevisionId = "157511781";
+/*]]>*/</script>
+                
+		<script type="text/javascript" src="/skins-1.5/common/wikibits.js?99"><!-- wikibits js --></script>
+		<script type="text/javascript" src="/w/index.php?title=-&amp;action=raw&amp;gen=js&amp;useskin=monobook"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "/w/index.php?title=MediaWiki:Common.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=MediaWiki:Monobook.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=-&action=raw&gen=css&maxage=2678400";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+		<script type="text/javascript" src="/skins-1.5/common/ajax.js?99"></script>
+	</head>
+<body  class="mediawiki ns-0 ltr page-Mathematical_induction">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">Mathematical induction</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<p><b>Mathematical induction</b> is a method of <a href="/wiki/Mathematical_proof" title="Mathematical proof">mathematical proof</a> typically used to establish that a given statement is true of all <a href="/wiki/Natural_number" title="Natural number">natural numbers</a>. It is done by</p>
+<ul>
+<li>proving that the <b>first</b> statement in the infinite sequence of statements is true, and then</li>
+<li>proving that if any <b>one</b> statement in the infinite sequence of statements is true, then so is the <b>next</b> one</li>
+</ul>
+<p>The method can be extended to prove statements about more general <a href="/wiki/Well-founded" title="Well-founded">well-founded</a> structures, such as <a href="/wiki/Tree_%28set_theory%29" title="Tree (set theory)">trees</a>; this generalization, known as <a href="/wiki/Structural_induction" title="Structural induction">structural induction</a>, is used in <a href="/wiki/Mathematical_logic" title="Mathematical logic">mathematical logic</a> and <a href="/wiki/Computer_science" title="Computer science">computer science</a>. Indeed, the validity of mathematical induction is <a href="/wiki/Logical_equivalence" title="Logical equivalence">logically equivalent</a> to the <a href="/wiki/Well-ordering_principle" title="Well-ordering principle">well-ordering principle</a>.</p>
+<p>Mathematical induction should not be misconstrued as a form of <a href="/wiki/Inductive_reasoning" title="Inductive reasoning">inductive reasoning</a>, which is considered non-<a href="/wiki/Rigor" title="Rigor">rigorous</a> in mathematics. (See <a href="/wiki/Problem_of_induction" title="Problem of induction">Problem of induction</a>.) In fact, mathematical induction is a form of <a href="/wiki/Deductive_reasoning" title="Deductive reasoning">deductive reasoning</a> and is fully rigorous.</p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#History"><span class="tocnumber">1</span> <span class="toctext">History</span></a></li>
+<li class="toclevel-1"><a href="#Description"><span class="tocnumber">2</span> <span class="toctext">Description</span></a></li>
+<li class="toclevel-1"><a href="#Axiom_of_Induction"><span class="tocnumber">3</span> <span class="toctext">Axiom of Induction</span></a></li>
+<li class="toclevel-1"><a href="#Example"><span class="tocnumber">4</span> <span class="toctext">Example</span></a></li>
+<li class="toclevel-1"><a href="#Variants"><span class="tocnumber">5</span> <span class="toctext">Variants</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Starting_at_some_other_number"><span class="tocnumber">5.1</span> <span class="toctext">Starting at some other number</span></a></li>
+<li class="toclevel-2"><a href="#Building_on_n_.3D_2"><span class="tocnumber">5.2</span> <span class="toctext">Building on n = 2</span></a>
+<ul>
+<li class="toclevel-3"><a href="#Example:_product_rule_for_the_derivative"><span class="tocnumber">5.2.1</span> <span class="toctext">Example: product rule for the derivative</span></a></li>
+<li class="toclevel-3"><a href="#Example:_P.C3.B3lya.27s_proof_that_there_is_no_.22horse_of_a_different_color.22"><span class="tocnumber">5.2.2</span> <span class="toctext">Example: Pólya's proof that there is no "horse of a different color"</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2"><a href="#Induction_on_more_than_one_counter"><span class="tocnumber">5.3</span> <span class="toctext">Induction on more than one counter</span></a></li>
+<li class="toclevel-2"><a href="#Infinite_descent"><span class="tocnumber">5.4</span> <span class="toctext">Infinite descent</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Complete_induction"><span class="tocnumber">6</span> <span class="toctext">Complete induction</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Transfinite_induction"><span class="tocnumber">6.1</span> <span class="toctext">Transfinite induction</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Proof_or_reformulation_of_mathematical_induction"><span class="tocnumber">7</span> <span class="toctext">Proof or reformulation of mathematical induction</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Generalization"><span class="tocnumber">7.1</span> <span class="toctext">Generalization</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#See_also"><span class="tocnumber">8</span> <span class="toctext">See also</span></a></li>
+<li class="toclevel-1"><a href="#Notes"><span class="tocnumber">9</span> <span class="toctext">Notes</span></a></li>
+<li class="toclevel-1"><a href="#References"><span class="tocnumber">10</span> <span class="toctext">References</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script>
+<p><a name="History" id="History"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Mathematical_induction&amp;action=edit&amp;section=1" title="Edit section: History">edit</a>]</span> <span class="mw-headline">History</span></h2>
+<p>The earliest traces of mathematical induction can be found in <a href="/wiki/Euclid" title="Euclid">Euclid</a>'s proof that the number of primes is infinite and in <a href="/wiki/Bhaskara_II" title="Bhaskara II">Bhaskara II</a>'s "cyclic method".<sup id="_ref-Induction_Bussey_0" class="reference"><a href="#_note-Induction_Bussey" title="">[1]</a></sup> A form of <a href="/wiki/Proof" title="Proof">proof</a> by mathematical induction appears in a book written by <a href="/wiki/Al-Karaji" title="Al-Karaji">Al-Karaji</a> around 1000AD, who used it to prove the <a href="/wiki/Binomial_theorem" title="Binomial theorem">binomial theorem</a>, <a href="/wiki/Pascal%27s_triangle" title="Pascal's triangle">Pascal's triangle</a>, and the sum of <a href="/wiki/Integral" title="Integral">integral</a> <a href="/wiki/Cube_%28algebra%29" title="Cube (algebra)">cubes</a>.<sup id="_ref-0" class="reference"><a href="#_note-0" title="">[2]</a></sup><sup id="_ref-1" class="reference"><a href="#_note-1" title="">[3]</a></sup> Shortly afterwards, <a href="/wiki/Ibn_al-Haytham" title="Ibn al-Haytham">Ibn al-Haytham</a> (Alhazen) used the inductive method to prove the sum of <a href="/wiki/Fourth_power" title="Fourth power">fourth powers</a>, and by extension, the sum of any integral <a href="/wiki/Exponentiation" title="Exponentiation">powers</a>, which was an important result in <a href="/wiki/Integral" title="Integral">integral</a> <a href="/wiki/Calculus" title="Calculus">calculus</a>.<sup id="_ref-induction_Katz_0" class="reference"><a href="#_note-induction_Katz" title="">[4]</a></sup><sup id="_ref-2" class="reference"><a href="#_note-2" title="">[5]</a></sup> He only stated it for particular integers, but his proof for those integers was by induction and generalizable.<sup id="_ref-induction_Katz_1" class="reference"><a href="#_note-induction_Katz" title="">[4]</a></sup></p>
+<p>None of these ancient mathematicians explicitly gave the inductive hypothesis. The first rigorous exposition of the principle of induction was given by <a href="/wiki/Francesco_Maurolico" title="Francesco Maurolico">Francesco Maurolico</a>, in his <i>Arithmeticorum libri duo</i> (1575), who used the technique to prove that the sum of the first <i>n</i> odd integers is <i>n</i><sup>2</sup>. Induction was also discovered independently by the Swiss <a href="/wiki/Jakob_Bernoulli" title="Jakob Bernoulli">Jakob Bernoulli</a>, and the Frenchmen <a href="/wiki/Blaise_Pascal" title="Blaise Pascal">Pascal</a> and <a href="/wiki/Fermat" title="Fermat">Fermat</a>.<sup id="_ref-Induction_Bussey_1" class="reference"><a href="#_note-Induction_Bussey" title="">[1]</a></sup></p>
+<p><a name="Description" id="Description"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Mathematical_induction&amp;action=edit&amp;section=2" title="Edit section: Description">edit</a>]</span> <span class="mw-headline">Description</span></h2>
+<p>The simplest and most common form of mathematical induction proves that a statement holds for all natural numbers <i>n</i> and consists of two steps:</p>
+<ol>
+<li>The <b>basis</b>: showing that the statement holds when <i>n</i> = 0.</li>
+<li>The <b>inductive step</b>: showing that <i><b>if</b></i> the statement holds for <i>n</i>&#160;=&#160;<i>m</i>, <i><b>then</b></i> the same statement also holds for <i>n</i>&#160;=&#160;<i>m</i>&#160;+&#160;1.</li>
+</ol>
+<p>The proposition following the word "if" in the inductive step is called the <b>induction hypothesis</b> (or <b>inductive hypothesis</b>). To perform the inductive step, one assumes the induction hypothesis (that the statement is true for <i>n</i> = <i>m</i>) and then uses this assumption to prove the statement for <i>n</i>&#160;=&#160;<i>m</i>&#160;+&#160;1.</p>
+<div class="thumb tright">
+<div class="thumbinner" style="width:302px;"><a href="/wiki/Image:Dominoeffect.png" class="image" title="A formal description of mathematical induction can be illustrated by reference to the sequential effect of falling dominoes."><img alt="A formal description of mathematical induction can be illustrated by reference to the sequential effect of falling dominoes." src="http://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Dominoeffect.png/300px-Dominoeffect.png" width="300" height="225" border="0" class="thumbimage" /></a>
+<div class="thumbcaption">
+<div class="magnify" style="float:right"><a href="/wiki/Image:Dominoeffect.png" class="internal" title="Enlarge"><img src="/skins-1.5/common/images/magnify-clip.png" width="15" height="11" alt="" /></a></div>
+A formal description of mathematical induction can be illustrated by reference to the sequential effect of falling <a href="/wiki/Domino_effect" title="Domino effect">dominoes</a>.</div>
+</div>
+</div>
+<p>This method works by first proving the statement is true for a starting value, and then proving that the <a href="/wiki/Process_%28general%29" title="Process (general)">process</a> used to go from one value to the next is <a href="/wiki/Valid" title="Valid">valid</a>. If these are both proven, then any value can be obtained by performing the process repeatedly. It may be helpful to think of the <a href="/wiki/Domino_effect" title="Domino effect">domino effect</a>; if you have a long row of dominoes standing on end, and you can be sure that:</p>
+<ol>
+<li>The first domino will fall</li>
+<li>Whenever a domino falls, its next neighbor will also fall,</li>
+</ol>
+<p>then you can conclude that <i>all</i> of the dominoes will fall, and this fact is inevitable.</p>
+<p>Another analogy can be to consider an infinite set of identical lily pads, all equally spaced on a pond. If a frog wishes to traverse the pond, he must:</p>
+<ol>
+<li>Determine if the first lily pad will hold his weight.</li>
+<li>Prove that he can jump from one lily pad to another.</li>
+</ol>
+<p>Thus, he can conclude that he can jump to all of the lily pads.</p>
+<p><a name="Axiom_of_Induction" id="Axiom_of_Induction"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Mathematical_induction&amp;action=edit&amp;section=3" title="Edit section: Axiom of Induction">edit</a>]</span> <span class="mw-headline">Axiom of Induction</span></h2>
+<p>The basic assumption or <i>axiom of induction</i> (accepted not proved) is, in <a href="/wiki/Table_of_logic_symbols" title="Table of logic symbols">logical symbols</a>,</p>
+<dl>
+<dd><img class="tex" alt="\forall \mbox{ predicates }P,\, (P(0) \land \forall k [P(k) \Rightarrow P(k+1)]) \Rightarrow \forall n P(n) " src="http://upload.wikimedia.org/math/c/f/d/cfd21e8b7f28d9d7dfaa127583141dfd.png" /></dd>
+</dl>
+<p>where <i>P</i> is the proposition in question and <i>n</i> is a natural number.</p>
+<p>Step 1: prove <i>P</i>(0) – that the formula holds for integer <i>0</i>.</p>
+<p>Step 2: prove that for all (or any) natural number <i>k</i>, <i>P</i>(<i>k</i>) implies <i>P</i>(<i>k</i>&#160;+&#160;1). To do this one assumes <i>P</i>(<i>k</i>) and shows that it implies <i>P</i>(<i>k</i> + 1). This does <i>not</i> mean substituting (<i>k</i>&#160;+&#160;1) into <i>P</i>(<i>k</i>) - this is a very common mistake, which consists in assuming what is to be proved. Together 1 and 2 imply that <i>P</i>(<i>n</i>) holds for all <i>n</i> greater than or equal to <i>0</i>.</p>
+<p><a name="Example" id="Example"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Mathematical_induction&amp;action=edit&amp;section=4" title="Edit section: Example">edit</a>]</span> <span class="mw-headline">Example</span></h2>
+<p>Suppose we wish to prove the statement:</p>
+<dl>
+<dd><img class="tex" alt="1 + 2 + 3 + \cdots + n = \frac{n(n + 1)}{2}" src="http://upload.wikimedia.org/math/5/6/4/5643bc131df5cdd3be011f4cfe17c613.png" /></dd>
+</dl>
+<p>for all natural numbers <i>n</i>; call this statement <i>P</i>(<i>n</i>). (This is a special case of <a href="/wiki/Faulhaber%27s_formula" title="Faulhaber's formula">Faulhaber's formula</a>.) This is a simple formula for the sum of the positive <a href="/wiki/Natural_number" title="Natural number">natural numbers</a> less than or equal to number <i>n</i>. The proof that the statement is true for all natural numbers <i>n</i> proceeds as follows.</p>
+<p>Check if it is true for <i>n</i> = 1. The sum of 1 and no other number is simply 1. And 1(1 + 1) / 2 = 1. So the statement is true for <i>n</i> = 1. Thus we have that <i>P</i>(1) holds.</p>
+<p>Now we have to show that if the statement holds when <i>n</i> = <i>m</i>, then it also holds when <i>n</i> = <i>m</i> + 1. This can be done as follows.</p>
+<p>Assume the statement is true for <i>n</i> = <i>m</i>, i.e.,</p>
+<dl>
+<dd><img class="tex" alt="1 + 2 + \cdots + m = \frac{m(m + 1)}{2}." src="http://upload.wikimedia.org/math/6/1/0/6107a79f2beecc3a23f505cc98398c28.png" /></dd>
+</dl>
+<p>Adding <i>m</i> + 1 (which is clearly the left-hand side's next term) to both sides does not change the equality:</p>
+<p><img class="tex" alt="1 + 2 + \cdots + m + (m + 1) = \frac{m(m + 1)}{2} + (m+ 1)" src="http://upload.wikimedia.org/math/4/8/b/48ba04091f49ba39b947999e497aa9e8.png" /></p>
+<p>By algebraic manipulation we have for the <a href="/wiki/Left-hand_side_and_right-hand_side_of_an_equation" title="Left-hand side and right-hand side of an equation">right-hand side</a></p>
+<dl>
+<dd><img class="tex" alt="
+= \frac{m(m + 1)}{2} + \frac{2(m + 1)}{2}
+= \frac{(m + 2)(m + 1)}{2}
+= \frac{(m + 1)(m + 2)}{2}
+= \frac{(m + 1)((m + 1) + 1)}{2}.
+" src="http://upload.wikimedia.org/math/6/f/2/6f2c258d73ff64be33d87a5214981cbf.png" /></dd>
+</dl>
+<p>Thus we have</p>
+<dl>
+<dd><img class="tex" alt="1 + 2 + \cdots + (m + 1) = \frac{(m + 1)((m + 1) + 1)}{2} " src="http://upload.wikimedia.org/math/1/9/3/193c1b4b97eeccb51db9d03c5dfa3aef.png" /></dd>
+</dl>
+<p>Notice that this is equivalent to the assertion made by P(<i>m</i> + 1). This proof is conditional: we made the assumption that P(<i>m</i>) is true, and from that we derived <i>P</i>(<i>m</i> + 1). Thus, if P(<i>m</i>) is true, <i>P</i>(<i>m</i> + 1) must also be true. Symbolically, we have shown that</p>
+<dl>
+<dd><img class="tex" alt="P(m) \Rightarrow P(m + 1).\," src="http://upload.wikimedia.org/math/d/4/6/d46919bbda568faae97024e6340c86ea.png" /></dd>
+</dl>
+<p>Now, to finish, we use the process of mathematical induction:</p>
+<ol>
+<li>We know <i>P</i>(1) is true by substituting in 1 for <i>n</i>.</li>
+<li>Since <i>P</i>(1) implies <i>P</i>(1 + 1), we get <i>P</i>(2).</li>
+<li>Similarly, since <i>P</i>(2) implies <i>P</i>(2 + 1), we get <i>P</i>(3).</li>
+<li>With <i>P</i>(3), <i>P</i>(4) follows.</li>
+<li>From <i>P</i>(4), we get <i>P</i>(5).</li>
+<li>Etc. (Here is where the axiom of mathematical induction comes in.)</li>
+<li>We may conclude that P(<i>n</i>) holds for any natural number <i>n</i>. <a href="/wiki/Q.E.D." title="Q.E.D.">Q.E.D.</a></li>
+</ol>
+<p><a name="Variants" id="Variants"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Mathematical_induction&amp;action=edit&amp;section=5" title="Edit section: Variants">edit</a>]</span> <span class="mw-headline">Variants</span></h2>
+<p>In practice, proofs by induction are often structured differently, depending on the exact nature of the property to be proved.</p>
+<p><a name="Starting_at_some_other_number" id="Starting_at_some_other_number"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Mathematical_induction&amp;action=edit&amp;section=6" title="Edit section: Starting at some other number">edit</a>]</span> <span class="mw-headline">Starting at some other number</span></h3>
+<p>If we want to prove a statement not for all natural numbers but only for all numbers greater than or equal to a certain number <i>b</i> then:</p>
+<ol>
+<li>Showing that the statement holds when <i>n</i> = <i>b</i>.</li>
+<li>Showing that if the statement holds for <i>n</i> = <i>m</i> ≥ <i>b</i> then the same statement also holds for <i>n</i> = <i>m</i> + 1.</li>
+</ol>
+<p>This can be used, for example, to show that <i>n</i><sup>2</sup> &gt; 2<i>n</i> for <i>n</i> ≥ 3. A more substantial example is a proof that</p>
+<dl>
+<dd><img class="tex" alt="{n^n \over 3^n} &lt; n! &lt; {n^n \over 2^n}\mbox{ for }n\ge 6." src="http://upload.wikimedia.org/math/6/a/5/6a503487775217e6c1ea504e6bf3099d.png" /></dd>
+</dl>
+<p>In this way we can prove also claims <i>P</i>(<i>n</i>) that hold for all <i>n</i> ≥1, or even <i>n</i> ≥−5. This form of mathematical induction is actually a special case of the previous form because if the statement that we intend to prove is <i>P</i>(<i>n</i>) then proving it with these two rules is equivalent with proving <i>P</i>(<i>n</i> + <i>b</i>) for all natural numbers <i>n</i> with the first two steps.</p>
+<p><a name="Building_on_n_.3D_2" id="Building_on_n_.3D_2"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Mathematical_induction&amp;action=edit&amp;section=7" title="Edit section: Building on n = 2">edit</a>]</span> <span class="mw-headline">Building on <i>n</i> = 2</span></h3>
+<p>In mathematics, many standard functions, including operations such as "+" and relations such as "=", are binary, meaning that they take two arguments. Often these functions possess properties that implicitly extend them to more than two arguments. For example, once addition <i>a</i> + <i>b</i> is defined and is known to satisfy the <a href="/wiki/Associativity" title="Associativity">associativity</a> property (<i>a</i> + <i>b</i>) + <i>c</i> = <i>a</i> + (<i>b</i> + <i>c</i>), then the trinary addition <i>a</i> + <i>b</i> + <i>c</i> makes sense, either as (<i>a</i> + <i>b</i>) + <i>c</i> or as <i>a</i> + (<i>b</i> + <i>c</i>). Similarly, many axioms and theorems in mathematics are stated only for the binary versions of mathematical operations and relations, and implicitly extend to higher-<a href="/wiki/Arity" title="Arity">arity</a> versions.</p>
+<p>Suppose that we wish to prove a statement about an <i>n</i>-ary operation implicitly defined from a binary operation, using mathematical induction on <i>n</i>. Then it should come as no surprise that the <i>n</i> = 2 case carries special weight. Here are some examples.</p>
+<p><a name="Example:_product_rule_for_the_derivative" id="Example:_product_rule_for_the_derivative"></a></p>
+<h4><span class="editsection">[<a href="/w/index.php?title=Mathematical_induction&amp;action=edit&amp;section=8" title="Edit section: Example: product rule for the derivative">edit</a>]</span> <span class="mw-headline">Example: product rule for the derivative</span></h4>
+<p>In this example, the binary operation in question is multiplication (of functions). The usual <a href="/wiki/Product_rule" title="Product rule">product rule</a> for the <a href="/wiki/Derivative" title="Derivative">derivative</a> taught in <a href="/wiki/Calculus" title="Calculus">calculus</a> states:</p>
+<dl>
+<dd><img class="tex" alt="(fg)' = f'g + g'f. \!" src="http://upload.wikimedia.org/math/4/4/8/4486b8320233e4762d9dece681c575d3.png" /></dd>
+</dl>
+<p>This can be generalized to a product of <i>n</i> functions. One has</p>
+<dl>
+<dd><img class="tex" alt="(f_1 f_2 f_3 \cdots f_n)' \!" src="http://upload.wikimedia.org/math/5/0/1/501d778b7d8763898be89b29cd501a59.png" /></dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd><img class="tex" alt="= (f_1' f_2 f_3 \cdots f_n)
++ (f_1 f_2' f_3 \cdots  f_n)
++ (f_1 f_2 f_3'\cdots  f_n)+\cdots +(f_1 f_2 \cdots f_{n-1} f_n')." src="http://upload.wikimedia.org/math/f/f/4/ff4af68c2cb66e7b3b16e5b89d70ad75.png" /></dd>
+</dl>
+</dd>
+</dl>
+<p>In each of the <i>n</i> terms, just one of the factors is a derivative; the others are not.</p>
+<p>When this general fact is proved by mathematical induction, the <i>n</i> = 0 case is trivial,<img class="tex" alt="(1)' = 0 \!" src="http://upload.wikimedia.org/math/b/4/f/b4f37eca8165c5da05bb72569b07fb2a.png" /> (since the <a href="/wiki/Empty_product" title="Empty product">empty product</a> is 1, and the <a href="/wiki/Empty_sum" title="Empty sum">empty sum</a> is 0). The <i>n</i> = 1 case is also trivial, <img class="tex" alt="f_1' = f_1' \!." src="http://upload.wikimedia.org/math/3/2/6/32629a295cc7cd5bcd7c51b8d4e84c31.png" /> And for each <i>n</i> ≥ 3, the case is easy to prove from the preceding <i>n</i> − 1 case. The real difficulty lies in the <i>n</i> = 2 case, which is why that is the one stated in the standard product rule.</p>
+<p><a name="Example:_P.C3.B3lya.27s_proof_that_there_is_no_.22horse_of_a_different_color.22" id="Example:_P.C3.B3lya.27s_proof_that_there_is_no_.22horse_of_a_different_color.22"></a></p>
+<h4><span class="editsection">[<a href="/w/index.php?title=Mathematical_induction&amp;action=edit&amp;section=9" title="Edit section: Example: Pólya's proof that there is no &quot;horse of a different color&quot;">edit</a>]</span> <span class="mw-headline">Example: Pólya's proof that there is no "horse of a different color"</span></h4>
+<dl>
+<dd>
+<div class="noprint"><i>Main article: <a href="/wiki/All_horses_are_the_same_color_%28paradox%29" title="All horses are the same color (paradox)">All horses are the same color (paradox)</a></i></div>
+</dd>
+</dl>
+<p>In this example, the binary relation in question is equality, =, applied to color of horses. The argument is essentially identical to the one above, but the crucial <i>n</i> = 2 case fails, causing the entire argument to be invalid.</p>
+<p>In the middle of the 20th century, a commonplace colloquial locution to express the idea that something is unexpectedly different from the usual was "<i>That's</i> a horse of a different color!". <a href="/wiki/George_P%C3%B3lya" title="George Pólya">George Pólya</a> posed the following exercise: Find the error in the following argument, which purports to prove by mathematical induction that all horses are of the same color:</p>
+<dl>
+<dd>If there's only <i>one</i> horse, there's only one color.</dd>
+<dd>Suppose within any set of <i>n</i> horses, there is only one color. Now look at any set of <i>n</i>&#160;+&#160;1 horses. Number them: 1, 2, 3, ..., <i>n</i>, <i>n</i>&#160;+&#160;1. Consider the sets {1, 2, 3, ..., <i>n</i>} and {2, 3, 4, ..., <i>n</i>&#160;+&#160;1}. Each is a set of only <i>n</i> horses, therefore within each there is only one color. But the two sets overlap, so there must be only one color among all <i>n</i>&#160;+&#160;1 horses.</dd>
+</dl>
+<p>Beginning the induction at 1, the <i>n</i> = 1 case is trivial (any horse is the same color as itself), and the inductive step is correct in all cases <i>n</i> ≥ 3. However, the logic of the inductive step is incorrect when <i>n</i> = 2, because the statement that "the two sets overlap" is false. Indeed, the <i>n</i> = 2 case is clearly the crux of the matter; if one could prove the <i>n</i> = 2 case, then all higher cases would follow from the <a href="/wiki/Transitive_relation" title="Transitive relation">transitive</a> property of equality.</p>
+<p><a name="Induction_on_more_than_one_counter" id="Induction_on_more_than_one_counter"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Mathematical_induction&amp;action=edit&amp;section=10" title="Edit section: Induction on more than one counter">edit</a>]</span> <span class="mw-headline">Induction on more than one counter</span></h3>
+<p>It is sometimes desirable to prove a statement involving two natural numbers, <i>n</i> and <i>m</i>, by iterating the induction process. That is, one performs a basis step and an inductive step for <i>n</i>, and in each of those performs a basis step and an inductive step for <i>m</i>. See, for example, the proof of commutativity at <i><a href="/wiki/Addition_of_natural_numbers" title="Addition of natural numbers">addition of natural numbers</a></i>. More complicated arguments involving three or more counters are also possible.</p>
+<p><a name="Infinite_descent" id="Infinite_descent"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Mathematical_induction&amp;action=edit&amp;section=11" title="Edit section: Infinite descent">edit</a>]</span> <span class="mw-headline">Infinite descent</span></h3>
+<dl>
+<dd>
+<div class="noprint"><i>Main article: <a href="/wiki/Infinite_descent" title="Infinite descent">Infinite descent</a></i></div>
+</dd>
+</dl>
+<p>Another variant of mathematical induction – the method of infinite descent – was one of <a href="/wiki/Pierre_de_Fermat" title="Pierre de Fermat">Pierre de Fermat</a>'s favorites. This method of proof works in reverse, and can assume several slightly different forms. For example, it might begin by showing that if a statement is true for a natural number <i>n</i> it must also be true for some smaller natural number <i>m</i> (<i>m</i> &lt; <i>n</i>). Using mathematical induction (implicitly) with the inductive hypothesis being that the statement is false for all natural numbers less than or equal to <i>m</i>, we can conclude that the statement cannot be true for any natural number <i>n</i>.</p>
+<p><a name="Complete_induction" id="Complete_induction"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Mathematical_induction&amp;action=edit&amp;section=12" title="Edit section: Complete induction">edit</a>]</span> <span class="mw-headline">Complete induction</span></h2>
+<p>Another generalization, called <b>complete induction</b> (or <b>strong induction</b> or <b>course of values induction</b>), says that in the second step we may assume not only that the statement holds for <i>n</i> = <i>m</i> but also that it is true for <i>n</i> less than or equal to <i>m</i>.</p>
+<p>In complete induction it is not necessary to list the basis case as a separate assumption. When considering the first case, it is vacuously true that the statement holds for all previous cases; the inductive step of complete induction in this situation corresponds to the basis case in ordinary induction. Thus the proof then of the inductive step in complete induction needs to be able to work with an empty antecedent; the first proof above is not of this kind (but can be converted).</p>
+<p>Complete induction is most useful when several instances of the inductive hypothesis are required for each inductive step. For example, complete induction can be used to show that</p>
+<dl>
+<dd><img class="tex" alt="\operatorname{fib}(n) = \frac{ \varphi^n - (-1/\varphi)^n }{\sqrt{5}}" src="http://upload.wikimedia.org/math/8/b/e/8be443ae9f90ddff381442aa8c65eb21.png" /></dd>
+</dl>
+<p>where fib(<i>n</i>) is the <i>n</i><sup>th</sup> <a href="/wiki/Fibonacci_number" title="Fibonacci number">Fibonacci number</a> and φ = (1 + √5)/2 is the <a href="/wiki/Golden_ratio" title="Golden ratio">golden ratio</a>. By using the definition fib(<i>m</i> + 1) = fib(<i>m</i>) + fib(<i>m</i> − 1), the identity above can be verified by direct calculation for fib(<i>m</i> + 1) if we assume that it already holds for both fib(<i>m</i>) and fib(<i>m</i> − 1). To complete the proof, the identity must be verified in the two basis cases <i>n</i> = 0 and <i>n</i> = 1.</p>
+<p>Another proof by complete induction uses the hypothesis that the statement holds for <i>all</i> smaller <i>n</i> more thoroughly. Consider the statement that "every <a href="/wiki/Natural_number" title="Natural number">natural number</a> greater than 1 is a product of <a href="/wiki/Prime_number" title="Prime number">prime numbers</a>", and assume that for a given <i>m</i> &gt; 1 it holds for all smaller <i>n</i> &gt; 1. If <i>m</i> is prime then it is certainly a product of primes, and if not, then by definition it is a product: <i>m</i> = <i>n</i><sub>1</sub> <i>n</i><sub>2</sub>, where neither of the factors is equal to 1; hence neither is equal to <i>m</i>, and so both are smaller than <i>m</i>. The induction hypothesis now applies to <i>n</i><sub>1</sub> and <i>n</i><sub>2</sub>, so each one is a product of primes. Then <i>m</i> is a product of products of primes; i.e. a product of primes. Note both that the base case (<i>m</i> equal to 2) was never explicitly considered, and that the hypothesis that <i>all</i> smaller numbers than <i>m</i> are products of primes was used, since the factors of <i>m</i> are <i><a href="/wiki/A_priori_%28philosophy%29" title="A priori (philosophy)">a priori</a></i> unknown.</p>
+<p>This generalization, complete induction, can be derived from the ordinary mathematical induction described above. Suppose P(<i>n</i>) is the statement that we intend to prove by complete induction. Let Q(<i>n</i>) mean P(<i>m</i>) holds for all <i>m</i> such that 0 ≤ <i>m</i> ≤ <i>n</i>. Apply mathematical induction to Q(<i>n</i>). Since Q(0) is just P(0), we have the base case. Now suppose Q(<i>n</i>) is given and we wish to show Q(<i>n</i>+1). Notice that<br />
+Q(<i>n</i>) is the same as P(0) and P(1) and ... and P(<i>n</i>). The hypothesis of complete induction tell us that this implies P(<i>n</i>+1). If we add P(<i>n</i>+1) to Q(<i>n</i>), we get P(0) and P(1) and ... and P(<i>n</i>) and P(<i>n</i>+1) which is just Q(<i>n</i>+1). So using mathematical induction, we get that Q(<i>n</i>) holds for all natural numbers <i>n</i>. But Q(<i>n</i>) implies P(<i>n</i>), so we have the conclusion of strong induction, namely that P(<i>n</i>) holds for all natural numbers <i>n</i>.</p>
+<p><a name="Transfinite_induction" id="Transfinite_induction"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Mathematical_induction&amp;action=edit&amp;section=13" title="Edit section: Transfinite induction">edit</a>]</span> <span class="mw-headline">Transfinite induction</span></h3>
+<dl>
+<dd>
+<div class="noprint"><i>Main article: <a href="/wiki/Transfinite_induction" title="Transfinite induction">Transfinite induction</a></i></div>
+</dd>
+</dl>
+<p>The last two steps can be reformulated as one step:</p>
+<ol>
+<li>Showing that if the statement holds for all <i>n</i> &lt; <i>m</i> then the same statement also holds for <i>n</i> = <i>m</i>.</li>
+</ol>
+<p>This is in fact the most general form of mathematical induction and it can be shown that it is not only valid for statements about natural numbers, but for statements about elements of any <a href="/wiki/Well-founded_set" title="Well-founded set">well-founded set</a>, that is, a set with a <a href="/wiki/Partial_order" title="Partial order">partial order</a> that contains no <a href="/wiki/Infinite_descending_chain" title="Infinite descending chain">infinite descending chains</a> (where &lt; is defined such that <i>a</i> &lt; <i>b</i> means that <i>a</i> ≤ <i>b</i> and <i>a</i> ≠ <i>b</i>).</p>
+<p>This form of induction, when applied to <a href="/wiki/Ordinal" title="Ordinal">ordinals</a> (which form a <a href="/wiki/Well-order" title="Well-order">well-ordered</a> and hence well-founded class), is called <i><a href="/wiki/Transfinite_induction" title="Transfinite induction">transfinite induction</a></i>. It is an important proof technique in <a href="/wiki/Set_theory" title="Set theory">set theory</a>, <a href="/wiki/Topology" title="Topology">topology</a> and other fields.</p>
+<p>Proofs by transfinite induction typically distinguish three cases:</p>
+<ol>
+<li>when <i>m</i> is a minimal element, i.e. there is no element smaller than <i>m</i></li>
+<li>when <i>m</i> has a direct predecessor, i.e. the set of elements which are smaller than <i>m</i> has a largest element</li>
+<li>when <i>m</i> has no direct predecessor, i.e. <i>m</i> is a so-called limit-ordinal</li>
+</ol>
+<p>Strictly speaking, it is not necessary in transfinite induction to prove the basis, because it is a <a href="/wiki/Vacuous_truth" title="Vacuous truth">vacuous</a> special case of the proposition that if <i>P</i> is true of all <i>n</i> &lt; <i>m</i>, then <i>P</i> is true of <i>m</i>. It is vacuously true precisely because there are no values of <i>n</i> &lt; <i>m</i> that could serve as counterexamples.</p>
+<p><a name="Proof_or_reformulation_of_mathematical_induction" id="Proof_or_reformulation_of_mathematical_induction"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Mathematical_induction&amp;action=edit&amp;section=14" title="Edit section: Proof or reformulation of mathematical induction">edit</a>]</span> <span class="mw-headline">Proof or reformulation of mathematical induction</span></h2>
+<p>The principle of mathematical induction is usually stated as an <a href="/wiki/Axiom" title="Axiom">axiom</a> of the natural numbers; see <a href="/wiki/Peano_axioms" title="Peano axioms">Peano axioms</a>. However, it can be proved in some logical systems. For instance, it can be proved if one assumes:</p>
+<ul>
+<li>The set of natural numbers is <a href="/wiki/Well-ordered" title="Well-ordered">well-ordered</a>.</li>
+<li>Every natural number is either zero, or <i>n</i>+1 for some natural number <i>n</i>.</li>
+<li>For any natural number <i>n</i>, <i>n</i>+1 is greater than <i>n</i>.</li>
+</ul>
+<p>To derive simple induction from these axioms, we must show that if P(<i>n</i>) is some proposition predicated of <i>n</i>, and if:</p>
+<ul>
+<li>P(0) holds and</li>
+<li>whenever P(<i>k</i>) is true then P(<i>k</i>+1) is also true</li>
+</ul>
+<p>then P(<i>n</i>) holds for all <i>n</i>.</p>
+<p>We first show that if P(<i>k</i>) is true for all <i>k</i> &lt; <i>m</i>, then P(<i>m</i>) is also true. If <i>m</i> is zero, then P(<i>m</i>) is true. If <i>m</i> = <i>k</i> + 1, then P(<i>k</i>) is true because <i>k</i> &lt; <i>m</i> and so P(<i>k</i>+1) is true which means that P(<i>m</i>) is true. The rest follows from applying the principle transfinite induction (see below).</p>
+<p><a name="Generalization" id="Generalization"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Mathematical_induction&amp;action=edit&amp;section=15" title="Edit section: Generalization">edit</a>]</span> <span class="mw-headline">Generalization</span></h3>
+<p><a href="/wiki/Transfinite_induction" title="Transfinite induction">Transfinite induction</a>: Given a <a href="/wiki/Well-ordered" title="Well-ordered">well-ordered</a> set, W, and a proposition, P, such that whenever <i>m</i> is such that P(<i>k</i>) is true for all <i>k</i> &lt; <i>m</i>, then P(<i>m</i>) is also true. We can show that P(<i>n</i>) is true for all <i>n</i>. Let S be the subset of W for which P(<i>n</i>) is false. We first show that S has no minimal element. Consider any element <i>m</i>. Either P(<i>k</i>) is true for every <i>k</i> &lt; <i>m</i> or there is a <i>k</i> &lt; <i>m</i> such that P(<i>k</i>) is false. In the first case, P(<i>m</i>) must be true and <i>m</i> does not belong to S and so <i>m</i> is not the least element of S. In the second case, P(<i>k</i>) is false for some <i>k</i> &lt; <i>m</i> and so <i>k</i> is in S and smaller than <i>m</i>. Thus, <i>m</i> cannot be the least element of S. Now if S has no minimal element and is a subset of a <a href="/wiki/Well-ordered" title="Well-ordered">well-ordered</a> set, then S must be empty and so P(<i>n</i>) must be true for all <i>n</i>.</p>
+<p><a name="See_also" id="See_also"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Mathematical_induction&amp;action=edit&amp;section=16" title="Edit section: See also">edit</a>]</span> <span class="mw-headline">See also</span></h2>
+<ul>
+<li><a href="/wiki/Combinatorial_proof" title="Combinatorial proof">Combinatorial proof</a></li>
+<li><a href="/wiki/Recursion" title="Recursion">Recursion</a></li>
+<li><a href="/wiki/Structural_induction" title="Structural induction">Structural induction</a></li>
+</ul>
+<p><a name="Notes" id="Notes"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Mathematical_induction&amp;action=edit&amp;section=17" title="Edit section: Notes">edit</a>]</span> <span class="mw-headline">Notes</span></h2>
+<div class="references-small">
+<ol class="references">
+<li id="_note-Induction_Bussey">^ <a href="#_ref-Induction_Bussey_0" title=""><sup><i><b>a</b></i></sup></a> <a href="#_ref-Induction_Bussey_1" title=""><sup><i><b>b</b></i></sup></a> Cajori (1918), p. 197
+<blockquote>
+<p>The process of reasoning called "Mathematicla Induction" has had several independent origins. It has been traced back to the Swiss Jakob (James) Bernoulli, the Frenchman B. Pascal and P. Fermat, and the Italian F. Maurolycus. [...] By reading a little between the lines one can find traces of mathematical induction still earlier, in the writings of the Hindus and the Greeks, as, for instance, in the "cyclic method" of Bhaskara, and in Euclid's proof that the number of primes is infinite.</p>
+</blockquote>
+</li>
+<li id="_note-0"><b><a href="#_ref-0" title="">^</a></b> Katz (1998), p. 255-259.
+<blockquote class="templatequote">
+<div>
+<p>"Another important idea introduced by <a href="/wiki/Al-Karaji" title="Al-Karaji">al-Karaji</a> and continued by <a href="/wiki/Ibn_Yahy%C4%81_al-Maghrib%C4%AB_al-Samaw%27al" title="Ibn Yahyā al-Maghribī al-Samaw'al">al-Samaw'al</a> and others was that of an inductive argument for dealing with certain arithmetic sequences."</p>
+</div>
+</blockquote>
+</li>
+<li id="_note-1"><b><a href="#_ref-1" title="">^</a></b> <cite style="font-style:normal">O'Connor, John J; Edmund F. Robertson "<a href="http://www-history.mcs.st-andrews.ac.uk/Biographies/Al-Karaji.html" class="external text" title="http://www-history.mcs.st-andrews.ac.uk/Biographies/Al-Karaji.html" rel="nofollow">Abu Bekr ibn Muhammad ibn al-Husayn Al-Karaji</a>". <i><a href="/wiki/MacTutor_History_of_Mathematics_archive" title="MacTutor History of Mathematics archive">MacTutor History of Mathematics archive</a></i>.</cite> <span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Adc&amp;rft.type=encyclopediaArticle&amp;rft.aufirst=John+J&amp;rft.aulast=O%27Connor&amp;rft.title=Abu+Bekr+ibn+Muhammad+ibn+al-Husayn+Al-Karaji&amp;rft.identifier=http%3A%2F%2Fwww-history.mcs.st-andrews.ac.uk%2FBiographies%2FAl-Karaji.html&amp;rft.source=%5B%5BMacTutor+History+of+Mathematics+archive%5D%5D">&#160;</span>
+<blockquote class="templatequote">
+<div>
+<p>"Al-Karaji also uses a form of mathematical induction in his arguments, although he certainly does not give a rigorous exposition of the principle."</p>
+</div>
+</blockquote>
+</li>
+<li id="_note-induction_Katz">^ <a href="#_ref-induction_Katz_0" title=""><sup><i><b>a</b></i></sup></a> <a href="#_ref-induction_Katz_1" title=""><sup><i><b>b</b></i></sup></a> Victor J. Katz (1995), p. 165-169.
+<blockquote class="templatequote">
+<div>
+<p>"The central idea in <a href="/wiki/Ibn_al-Haytham" title="Ibn al-Haytham">ibn al-Haytham</a>'s proof of the sum formulas was the derivation of the equation [...] Naturally, he did not state this result in general form. He only stated it for particular integers, [...] but his proof for each of those <i>k</i> is by induction on <i>n</i> and is immediately generalizable to any value of <i>k</i>."</p>
+</div>
+</blockquote>
+</li>
+<li id="_note-2"><b><a href="#_ref-2" title="">^</a></b> Katz (1998), p. 255-259.</li>
+</ol>
+</div>
+<p><a name="References" id="References"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Mathematical_induction&amp;action=edit&amp;section=18" title="Edit section: References">edit</a>]</span> <span class="mw-headline">References</span></h2>
+<div class="references-2column">
+<dl>
+<dt>Introduction</dt>
+</dl>
+<ul>
+<li><cite class="book" style="font-style:normal" id="Reference-Knuth-1997"><a href="/wiki/Donald_Knuth" title="Donald Knuth">Knuth, Donald E.</a> (1997). <i>The Art of Computer Programming, Volume 1: Fundamental Algorithms</i>, 3rd, Addison-Wesley. <a href="/w/index.php?title=Special:Booksources&amp;isbn=0201896834" class="internal">ISBN 0-201-89683-4</a>.</cite><span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=The+Art+of+Computer+Programming%2C+Volume+1%3A+Fundamental+Algorithms&amp;rft.aulast=Knuth&amp;rft.aufirst=Donald+E.&amp;rft.edition=3rd&amp;rft.pub=Addison-Wesley">&#160;</span> (Section 1.2.1: Mathematical Induction, pp. 11-21.)</li>
+<li><cite class="book" style="font-style:normal" id="Reference-Kolmogorov-1975"><a href="/wiki/Andrey_Kolmogorov" title="Andrey Kolmogorov">Kolmogorov, Andrey N.</a> (1975). <i>Introductory Real Analysis</i>, Silverman, R. A. (trans., ed.), New York: Dover. <a href="/w/index.php?title=Special:Booksources&amp;isbn=0486612260" class="internal">ISBN 0-486-61226-0</a>.</cite><span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Introductory+Real+Analysis&amp;rft.aulast=Kolmogorov&amp;rft.aufirst=Andrey+N.&amp;rft.pub=Dover&amp;rft.place=New+York">&#160;</span> (Section 1.3.8: Transfinite induction, pp. 28-29.)</li>
+</ul>
+<dl>
+<dt>History</dt>
+</dl>
+<ul>
+<li><cite style="font-style:normal">Acerbi, F. (2000). "Plato: <i>Parmenides</i> 149a7-c3. A Proof by Complete Induction?". <i>Archive for History of Exact Sciences</i> <b>55</b>: 57-76. <a href="/wiki/Digital_object_identifier" title="Digital object identifier">DOI</a>:<a href="http://dx.doi.org/10.1007/s004070000020" class="external text" title="http://dx.doi.org/10.1007/s004070000020" rel="nofollow">10.1007/s004070000020</a>.</cite><span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.atitle=Plato%3A+%27%27Parmenides%27%27+149a7-c3.+A+Proof+by+Complete+Induction%3F&amp;rft.jtitle=Archive+for+History+of+Exact+Sciences&amp;rft.date=2000&amp;rft.volume=55&amp;rft.aulast=Acerbi&amp;rft.aufirst=F.&amp;rft.pages=57-76&amp;rft_id=info:doi/10.1007%2Fs004070000020">&#160;</span></li>
+<li><cite style="font-style:normal">Bussey, W. H. (1917). "<a href="http://links.jstor.org/sici?sici=0002-9890%28191705%2924%3A5%3C199%3ATOOMI%3E2.0.CO%3B2-Y" class="external text" title="http://links.jstor.org/sici?sici=0002-9890%28191705%2924%3A5%3C199%3ATOOMI%3E2.0.CO%3B2-Y" rel="nofollow">The Origin of Mathematical Induction</a>". <i>The American Mathematical Monthly</i> <b>24</b> (5): 199-207.</cite><span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.atitle=The+Origin+of+Mathematical+Induction&amp;rft.jtitle=The+American+Mathematical+Monthly&amp;rft.date=1917&amp;rft.volume=24&amp;rft.issue=5&amp;rft.aulast=Bussey&amp;rft.aufirst=W.+H.&amp;rft.pages=199-207&amp;rft_id=http%3A%2F%2Flinks.jstor.org%2Fsici%3Fsici%3D0002-9890%2528191705%252924%253A5%253C199%253ATOOMI%253E2.0.CO%253B2-Y">&#160;</span></li>
+<li><cite style="font-style:normal"><a href="/wiki/Florian_Cajori" title="Florian Cajori">Cajori, Florian</a> (1918). "<a href="http://links.jstor.org/sici?sici=0002-9890%28191805%2925%3A5%3C197%3AOOTN%22I%3E2.0.CO%3B2-2" class="external text" title="http://links.jstor.org/sici?sici=0002-9890%28191805%2925%3A5%3C197%3AOOTN%22I%3E2.0.CO%3B2-2" rel="nofollow">Origin of the Name "Mathematical Induction"</a>" <b>25</b> (5): 197-201.</cite><span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.atitle=Origin+of+the+Name+%22Mathematical+Induction%22&amp;rft.date=1918&amp;rft.volume=25&amp;rft.issue=5&amp;rft.aulast=Cajori&amp;rft.aufirst=Florian&amp;rft.pages=197-201&amp;rft_id=http%3A%2F%2Flinks.jstor.org%2Fsici%3Fsici%3D0002-9890%2528191805%252925%253A5%253C197%253AOOTN%2522I%253E2.0.CO%253B2-2">&#160;</span></li>
+<li><cite style="font-style:normal">(1994) "Could the Greeks Have Used Mathematical Induction? Did They Use It?". <i>Physis</i> <b>XXXI</b>: 253-265.</cite><span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.atitle=Could+the+Greeks+Have+Used+Mathematical+Induction%3F+Did+They+Use+It%3F&amp;rft.jtitle=Physis&amp;rft.date=1994&amp;rft.volume=XXXI&amp;rft.aufirst=Fowler+D.&amp;rft.pages=253-265">&#160;</span></li>
+<li><cite style="font-style:normal"><a href="/wiki/Hans_Freudenthal" title="Hans Freudenthal">Freudenthal, Hans</a> (1953). "Zur Geschichte der vollständigen Induction". <i>Archives Internationales d'Histiore des Sciences</i> <b>6</b>: 17-37.</cite><span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.atitle=Zur+Geschichte+der+vollst%C3%A4ndigen+Induction&amp;rft.jtitle=Archives+Internationales+d%27Histiore+des+Sciences&amp;rft.date=1953&amp;rft.volume=6&amp;rft.aulast=Freudenthal&amp;rft.aufirst=Hans&amp;rft.pages=17-37">&#160;</span></li>
+<li><cite style="font-style:normal">Rabinovitch, Nachum L. (1970). "Rabi Levi Ben Gershon and the Origins of Mathematical Induction". <i>Archive for the History of Exact Science</i> <b>6</b>: 237-248. <a href="/wiki/Digital_object_identifier" title="Digital object identifier">DOI</a>:<a href="http://dx.doi.org/10.1007/BF00327237" class="external text" title="http://dx.doi.org/10.1007/BF00327237" rel="nofollow">10.1007/BF00327237</a>.</cite><span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.atitle=Rabi+Levi+Ben+Gershon+and+the+Origins+of+Mathematical+Induction&amp;rft.jtitle=Archive+for+the+History+of+Exact+Science&amp;rft.date=1970&amp;rft.volume=6&amp;rft.aulast=Rabinovitch&amp;rft.aufirst=Nachum+L.&amp;rft.pages=237-248&amp;rft_id=info:doi/10.1007%2FBF00327237">&#160;</span></li>
+<li><cite style="font-style:normal">Rashed, Roshdi (1972). "L'induction mathématique: al-Karajī, as-Samaw'al". <i>Archive for History of Exact Sciences</i> <b>9</b>: 1-12. <a href="/wiki/Digital_object_identifier" title="Digital object identifier">DOI</a>:<a href="http://dx.doi.org/10.1007/BF00348537" class="external text" title="http://dx.doi.org/10.1007/BF00348537" rel="nofollow">10.1007/BF00348537</a>.</cite><span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.atitle=L%27induction+math%C3%A9matique%3A+al-Karaj%C4%AB%2C+as-Samaw%27al&amp;rft.jtitle=Archive+for+History+of+Exact+Sciences&amp;rft.date=1972&amp;rft.volume=9&amp;rft.aulast=Rashed&amp;rft.aufirst=Roshdi&amp;rft.pages=1-12&amp;rft_id=info:doi/10.1007%2FBF00348537">&#160;</span></li>
+<li><cite style="font-style:normal">Ungure, S. (1991). "Greek Mathematics and Mathematical Induction". <i>Physis</i> <b>XXVIII</b>: 273-289.</cite><span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.atitle=Greek+Mathematics+and+Mathematical+Induction&amp;rft.jtitle=Physis&amp;rft.date=1991&amp;rft.volume=XXVIII&amp;rft.aulast=Ungure&amp;rft.aufirst=S.&amp;rft.pages=273-289">&#160;</span></li>
+<li><cite style="font-style:normal">Ungure, S. (1994). "Fowling after Induction". <i>Physis</i> <b>XXXI</b>: 267-272.</cite><span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.atitle=Fowling+after+Induction&amp;rft.jtitle=Physis&amp;rft.date=1994&amp;rft.volume=XXXI&amp;rft.aulast=Ungure&amp;rft.aufirst=S.&amp;rft.pages=267-272">&#160;</span></li>
+<li><cite style="font-style:normal">Vacca, G. (1909). "Maurolycus, the First Discoverer of the Principle of Mathematical Induction". <i>Bulletin of the American Mathematical Society</i> <b>16</b>: 70-73.</cite><span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.atitle=Maurolycus%2C+the+First+Discoverer+of+the+Principle+of+Mathematical+Induction&amp;rft.jtitle=Bulletin+of+the+American+Mathematical+Society&amp;rft.date=1909&amp;rft.volume=16&amp;rft.aulast=Vacca&amp;rft.aufirst=G.&amp;rft.pages=70-73">&#160;</span></li>
+<li><cite style="font-style:normal">Yadegari, Mohammad (1978). "<a href="http://links.jstor.org/sici?sici=0021-1753%28197806%2969%3A2%3C259%3ATUOMIB%3E2.0.CO%3B2-B" class="external text" title="http://links.jstor.org/sici?sici=0021-1753%28197806%2969%3A2%3C259%3ATUOMIB%3E2.0.CO%3B2-B" rel="nofollow">The Use of Mathematical Induction by Abū Kāmil Shujā' Ibn Aslam (850-930)</a>". <i>Isis</i> <b>69</b> (2): 259-262.</cite><span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.atitle=The+Use+of+Mathematical+Induction+by+Ab%C5%AB+K%C4%81mil+Shuj%C4%81%27+Ibn+Aslam+%28850-930%29&amp;rft.jtitle=Isis&amp;rft.date=1978&amp;rft.volume=69&amp;rft.issue=2&amp;rft.aulast=Yadegari&amp;rft.aufirst=Mohammad&amp;rft.pages=259-262&amp;rft_id=http%3A%2F%2Flinks.jstor.org%2Fsici%3Fsici%3D0021-1753%2528197806%252969%253A2%253C259%253ATUOMIB%253E2.0.CO%253B2-B">&#160;</span></li>
+</ul>
+</div>
+
+<!-- 
+Pre-expand include size: 89018 bytes
+Post-expand include size: 24354 bytes
+Template argument size: 15857 bytes
+Maximum: 2048000 bytes
+-->
+
+<!-- Saved in parser cache with key enwiki:pcache:idhash:18881-0!1!0!default!!en!2 and timestamp 20070916055051 -->
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org/wiki/Mathematical_induction">http://en.wikipedia.org/wiki/Mathematical_induction</a>"</div>
+			<div id="catlinks"><p class='catlinks'><a href="/wiki/Special:Categories" title="Special:Categories">Categories</a>: <span dir='ltr'><a href="/wiki/Category:Mathematical_logic" title="Category:Mathematical logic">Mathematical logic</a></span> | <span dir='ltr'><a href="/wiki/Category:Proof_theory" title="Category:Proof theory">Proof theory</a></span> | <span dir='ltr'><a href="/wiki/Category:Proofs" title="Category:Proofs">Proofs</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<div class="pBody">
+			<ul>
+					 <li id="ca-nstab-main" class="selected"><a href="/wiki/Mathematical_induction" title="View the content page [c]" accesskey="c">Article</a></li>
+					 <li id="ca-talk"><a href="/wiki/Talk:Mathematical_induction" title="Discussion about the content page [t]" accesskey="t">Discussion</a></li>
+					 <li id="ca-edit"><a href="/w/index.php?title=Mathematical_induction&amp;action=edit" title="You can edit this page. Please use the preview button before saving. [e]" accesskey="e">Edit this page</a></li>
+					 <li id="ca-history"><a href="/w/index.php?title=Mathematical_induction&amp;action=history" title="Past versions of this page [h]" accesskey="h">History</a></li>
+				</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-personal">
+		<h5>Personal tools</h5>
+		<div class="pBody">
+			<ul>
+				<li id="pt-login"><a href="/w/index.php?title=Special:Userlogin&amp;returnto=Mathematical_induction" title="You are encouraged to log in, it is not mandatory however. [o]" accesskey="o">Sign in / create account</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-logo">
+		<a style="background-image: url(/images/wiki-en.png);" href="/wiki/Main_Page" title="Visit the Main Page [z]" accesskey="z"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-Main-page"><a href="/wiki/Main_Page">Main page</a></li>
+				<li id="n-Contents"><a href="/wiki/Wikipedia:Contents">Contents</a></li>
+				<li id="n-Featured-content"><a href="/wiki/Wikipedia:Featured_content">Featured content</a></li>
+				<li id="n-currentevents"><a href="/wiki/Portal:Current_events" title="Find background information on current events">Current events</a></li>
+				<li id="n-randompage"><a href="/wiki/Special:Random" title="Load a random page [x]" accesskey="x">Random article</a></li>
+			</ul>
+		</div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+		<h5>interaction</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-About-Wikipedia"><a href="/wiki/Wikipedia:About">About Wikipedia</a></li>
+				<li id="n-portal"><a href="/wiki/Wikipedia:Community_Portal" title="About the project, what you can do, where to find things">Community portal</a></li>
+				<li id="n-recentchanges"><a href="/wiki/Special:Recentchanges" title="The list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li>
+				<li id="n-contact"><a href="/wiki/Wikipedia:Contact_us">Contact Wikipedia</a></li>
+				<li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising" title="Support us">Donate to Wikipedia</a></li>
+				<li id="n-help"><a href="/wiki/Help:Contents" title="Guidance on how to use and edit Wikipedia">Help</a></li>
+			</ul>
+		</div>
+	</div>
+		<div id="p-search" class="portlet">
+		<h5><label for="searchInput">Search</label></h5>
+		<div id="searchBody" class="pBody">
+			<form action="/wiki/Special:Search" id="searchform"><div>
+				<input id="searchInput" name="search" type="text" title="Search Wikipedia [f]" accesskey="f" value="" />
+				<input type='submit' name="go" class="searchButton" id="searchGoButton"	value="Go" />&nbsp;
+				<input type='submit' name="fulltext" class="searchButton" id="mw-searchButton" value="Search" />
+			</div></form>
+		</div>
+	</div>
+	<div class="portlet" id="p-tb">
+		<h5>Toolbox</h5>
+		<div class="pBody">
+			<ul>
+				<li id="t-whatlinkshere"><a href="/wiki/Special:Whatlinkshere/Mathematical_induction" title="List of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+				<li id="t-recentchangeslinked"><a href="/wiki/Special:Recentchangeslinked/Mathematical_induction" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+<li id="t-upload"><a href="/wiki/Wikipedia:Upload" title="Upload images or media files [u]" accesskey="u">Upload file</a></li>
+<li id="t-specialpages"><a href="/wiki/Special:Specialpages" title="List of all special pages [q]" accesskey="q">Special pages</a></li>
+				<li id="t-print"><a href="/w/index.php?title=Mathematical_induction&amp;printable=yes" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>				<li id="t-permalink"><a href="/w/index.php?title=Mathematical_induction&amp;oldid=157511781" title="Permanent link to this version of the page">Permanent link</a></li><li id="t-cite"><a href="/w/index.php?title=Special:Cite&amp;page=Mathematical_induction&amp;id=157511781">Cite this article</a></li>			</ul>
+		</div>
+	</div>
+	<div id="p-lang" class="portlet">
+		<h5>In other languages</h5>
+		<div class="pBody">
+			<ul>
+				<li class="interwiki-ar"><a href="http://ar.wikipedia.org/wiki/%D8%A7%D8%B3%D8%AA%D9%82%D8%B1%D8%A7%D8%A1_%D8%B1%D9%8A%D8%A7%D8%B6%D9%8A">العربية</a></li>
+				<li class="interwiki-zh-min-nan"><a href="http://zh-min-nan.wikipedia.org/wiki/S%C3%B2%CD%98-ha%CC%8Dk_kui-la%CC%8Dp-hoat">Bân-lâm-gú</a></li>
+				<li class="interwiki-bg"><a href="http://bg.wikipedia.org/wiki/%D0%9C%D0%B0%D1%82%D0%B5%D0%BC%D0%B0%D1%82%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B0_%D0%B8%D0%BD%D0%B4%D1%83%D0%BA%D1%86%D0%B8%D1%8F">Български</a></li>
+				<li class="interwiki-ca"><a href="http://ca.wikipedia.org/wiki/Prova_per_inducci%C3%B3">Català</a></li>
+				<li class="interwiki-cs"><a href="http://cs.wikipedia.org/wiki/Matematick%C3%A1_indukce">Česky</a></li>
+				<li class="interwiki-da"><a href="http://da.wikipedia.org/wiki/Induktion_%28matematik%29">Dansk</a></li>
+				<li class="interwiki-de"><a href="http://de.wikipedia.org/wiki/Vollst%C3%A4ndige_Induktion">Deutsch</a></li>
+				<li class="interwiki-el"><a href="http://el.wikipedia.org/wiki/%CE%9C%CE%B1%CE%B8%CE%B7%CE%BC%CE%B1%CF%84%CE%B9%CE%BA%CE%AE_%CE%B5%CF%80%CE%B1%CE%B3%CF%89%CE%B3%CE%AE">Ελληνικά</a></li>
+				<li class="interwiki-es"><a href="http://es.wikipedia.org/wiki/Inducci%C3%B3n_matem%C3%A1tica">Español</a></li>
+				<li class="interwiki-fr"><a href="http://fr.wikipedia.org/wiki/Raisonnement_par_r%C3%A9currence">Français</a></li>
+				<li class="interwiki-ko"><a href="http://ko.wikipedia.org/wiki/%EC%88%98%ED%95%99%EC%A0%81_%EA%B7%80%EB%82%A9%EB%B2%95">한국어</a></li>
+				<li class="interwiki-is"><a href="http://is.wikipedia.org/wiki/%C3%9Erepun">Íslenska</a></li>
+				<li class="interwiki-it"><a href="http://it.wikipedia.org/wiki/Principio_d%27induzione">Italiano</a></li>
+				<li class="interwiki-he"><a href="http://he.wikipedia.org/wiki/%D7%90%D7%99%D7%A0%D7%93%D7%95%D7%A7%D7%A6%D7%99%D7%94_%D7%9E%D7%AA%D7%9E%D7%98%D7%99%D7%AA">עברית</a></li>
+				<li class="interwiki-hu"><a href="http://hu.wikipedia.org/wiki/Teljes_indukci%C3%B3">Magyar</a></li>
+				<li class="interwiki-mk"><a href="http://mk.wikipedia.org/wiki/%D0%98%D0%BD%D0%B4%D1%83%D0%BA%D1%86%D0%B8%D1%98%D0%B0">Македонски</a></li>
+				<li class="interwiki-nl"><a href="http://nl.wikipedia.org/wiki/Inductie_%28wiskunde%29">Nederlands</a></li>
+				<li class="interwiki-ja"><a href="http://ja.wikipedia.org/wiki/%E6%95%B0%E5%AD%A6%E7%9A%84%E5%B8%B0%E7%B4%8D%E6%B3%95">日本語</a></li>
+				<li class="interwiki-no"><a href="http://no.wikipedia.org/wiki/Matematisk_induksjon">‪Norsk (bokmål)‬</a></li>
+				<li class="interwiki-pl"><a href="http://pl.wikipedia.org/wiki/Indukcja_matematyczna">Polski</a></li>
+				<li class="interwiki-pt"><a href="http://pt.wikipedia.org/wiki/Indu%C3%A7%C3%A3o_matem%C3%A1tica">Português</a></li>
+				<li class="interwiki-ru"><a href="http://ru.wikipedia.org/wiki/%D0%9C%D0%B0%D1%82%D0%B5%D0%BC%D0%B0%D1%82%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B0%D1%8F_%D0%B8%D0%BD%D0%B4%D1%83%D0%BA%D1%86%D0%B8%D1%8F">Русский</a></li>
+				<li class="interwiki-sk"><a href="http://sk.wikipedia.org/wiki/Matematick%C3%A1_indukcia">Slovenčina</a></li>
+				<li class="interwiki-sl"><a href="http://sl.wikipedia.org/wiki/Matemati%C4%8Dna_indukcija">Slovenščina</a></li>
+				<li class="interwiki-sr"><a href="http://sr.wikipedia.org/wiki/%D0%9C%D0%B0%D1%82%D0%B5%D0%BC%D0%B0%D1%82%D0%B8%D1%87%D0%BA%D0%B0_%D0%B8%D0%BD%D0%B4%D1%83%D0%BA%D1%86%D0%B8%D1%98%D0%B0">Српски / Srpski</a></li>
+				<li class="interwiki-fi"><a href="http://fi.wikipedia.org/wiki/Matemaattinen_induktio">Suomi</a></li>
+				<li class="interwiki-sv"><a href="http://sv.wikipedia.org/wiki/Induktion_%28matematik%29">Svenska</a></li>
+				<li class="interwiki-tr"><a href="http://tr.wikipedia.org/wiki/Matematiksel_t%C3%BCmevar%C4%B1m">Türkçe</a></li>
+				<li class="interwiki-zh"><a href="http://zh.wikipedia.org/wiki/%E6%95%B0%E5%AD%A6%E5%BD%92%E7%BA%B3%E6%B3%95">中文</a></li>
+			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="/skins-1.5/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>
+				<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="/images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>
+			<ul id="f-list">
+				<li id="lastmod"> This page was last modified 01:14, 13 September 2007.</li>
+				<li id="copyright">All text is available under the terms of the <a class='internal' href="/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="/wiki/Wikipedia:Copyrights" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a U.S. registered <a class='internal' href="/wiki/501%28c%29#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="/wiki/Non-profit_organization" title="Non-profit organization">nonprofit</a> <a href="/wiki/Charitable_organization" title="Charitable organization">charity</a>.<br /></li>
+				<li id="privacy"><a href="http://wikimediafoundation.org/wiki/Privacy_policy" title="wikimedia:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="/wiki/Wikipedia:About" title="Wikipedia:About">About Wikipedia</a></li>
+				<li id="disclaimer"><a href="/wiki/Wikipedia:General_disclaimer" title="Wikipedia:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+		
+	
+		<script type="text/javascript">if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by srv36 in 0.075 secs. --></body></html>

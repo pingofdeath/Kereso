@@ -1,0 +1,338 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+				<meta name="keywords" content="Alpha-beta pruning,Game theory,Game theory,Arrow's theorem,Artificial Intelligence: A Modern Approach,Battle of the sexes (game theory),Bayesian game,Best first search,Big O notation,Blotto games,Branch and bound" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="http://www.gnu.org/copyleft/fdl.html" />
+		<title>Alpha-beta pruning - Wikipedia, the free encyclopedia</title>
+		<style type="text/css" media="screen, projection">/*<![CDATA[*/
+			@import "/skins-1.5/common/shared.css?99";
+			@import "/skins-1.5/monobook/main.css?99";
+		/*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="/skins-1.5/common/commonPrint.css?99" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE50Fixes.css?99";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE55Fixes.css?99";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "/skins-1.5/monobook/IE60Fixes.css?99";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "/skins-1.5/monobook/IE70Fixes.css?99";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="/skins-1.5/common/IEFixes.js?99"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		
+		<script type= "text/javascript">/*<![CDATA[*/
+var skin = "monobook";
+var stylepath = "/skins-1.5";
+var wgArticlePath = "/wiki/$1";
+var wgScriptPath = "/w";
+var wgScript = "/w/index.php";
+var wgServer = "http://en.wikipedia.org";
+var wgCanonicalNamespace = "";
+var wgCanonicalSpecialPageName = false;
+var wgNamespaceNumber = 0;
+var wgPageName = "Alpha-beta_pruning";
+var wgTitle = "Alpha-beta pruning";
+var wgAction = "view";
+var wgRestrictionEdit = [];
+var wgRestrictionMove = [];
+var wgArticleId = "159501";
+var wgIsArticle = true;
+var wgUserName = null;
+var wgUserGroups = null;
+var wgUserLanguage = "en";
+var wgContentLanguage = "en";
+var wgBreakFrames = false;
+var wgCurRevisionId = "152680188";
+/*]]>*/</script>
+                
+		<script type="text/javascript" src="/skins-1.5/common/wikibits.js?99"><!-- wikibits js --></script>
+		<script type="text/javascript" src="/w/index.php?title=-&amp;action=raw&amp;gen=js&amp;useskin=monobook"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "/w/index.php?title=MediaWiki:Common.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=MediaWiki:Monobook.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=-&action=raw&gen=css&maxage=2678400";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+		<script type="text/javascript" src="/skins-1.5/common/ajax.js?99"></script>
+	</head>
+<body  class="mediawiki ns-0 ltr page-Alpha-beta_pruning">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">Alpha-beta pruning</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<div class="thumb tright">
+<div class="thumbinner" style="width:402px;"><a href="/wiki/Image:AB_pruning.svg" class="image" title="An illustration of alpha-beta pruning. The greyed-out subtrees need not be explored, since we know the group of subtrees as a whole yields the value of an equivalent subtree or worse, and as such cannot influence the final result."><img alt="An illustration of alpha-beta pruning. The greyed-out subtrees need not be explored, since we know the group of subtrees as a whole yields the value of an equivalent subtree or worse, and as such cannot influence the final result." src="http://upload.wikimedia.org/wikipedia/en/thumb/9/91/AB_pruning.svg/400px-AB_pruning.svg.png" width="400" height="203" border="0" class="thumbimage" /></a>
+<div class="thumbcaption">
+<div class="magnify" style="float:right"><a href="/wiki/Image:AB_pruning.svg" class="internal" title="Enlarge"><img src="/skins-1.5/common/images/magnify-clip.png" width="15" height="11" alt="" /></a></div>
+An illustration of alpha-beta pruning. The greyed-out subtrees need not be explored, since we know the group of subtrees as a whole yields the value of an equivalent subtree or worse, and as such cannot influence the final result.</div>
+</div>
+</div>
+<p><b>Alpha-beta pruning</b> is a <a href="/wiki/Search_algorithm" title="Search algorithm">search algorithm</a> that reduces the number of nodes that need to be evaluated in the <a href="/wiki/Game_tree" title="Game tree">search tree</a> by the <a href="/wiki/Minimax#Minimax_algorithm_with_alternate_moves" title="Minimax">minimax algorithm</a>. It is a search with adversary algorithm used commonly for machine playing of two-player games (<a href="/wiki/Tic-tac-toe" title="Tic-tac-toe">Tic-tac-toe</a>, <a href="/wiki/Chess" title="Chess">Chess</a>, <a href="/wiki/Go_%28board_game%29" title="Go (board game)">Go</a> ...). It stops completely evaluating a move when at least one possibility has been found that proves the move to be worse than a previously examined move. Such moves need not be evaluated further. Alpha-beta pruning is a sound optimization in that it preserves the result of the algorithm it optimizes.</p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Improvements_over_naive_minimax"><span class="tocnumber">1</span> <span class="toctext">Improvements over naive minimax</span></a></li>
+<li class="toclevel-1"><a href="#Heuristic_improvements"><span class="tocnumber">2</span> <span class="toctext">Heuristic improvements</span></a></li>
+<li class="toclevel-1"><a href="#Other_algorithms"><span class="tocnumber">3</span> <span class="toctext">Other algorithms</span></a></li>
+<li class="toclevel-1"><a href="#Pseudocode"><span class="tocnumber">4</span> <span class="toctext">Pseudocode</span></a></li>
+<li class="toclevel-1"><a href="#See_also"><span class="tocnumber">5</span> <span class="toctext">See also</span></a></li>
+<li class="toclevel-1"><a href="#References"><span class="tocnumber">6</span> <span class="toctext">References</span></a></li>
+<li class="toclevel-1"><a href="#External_links"><span class="tocnumber">7</span> <span class="toctext">External links</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script>
+<p><a name="Improvements_over_naive_minimax" id="Improvements_over_naive_minimax"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Alpha-beta_pruning&amp;action=edit&amp;section=1" title="Edit section: Improvements over naive minimax">edit</a>]</span> <span class="mw-headline">Improvements over naive minimax</span></h2>
+<p>The benefit of alpha-beta pruning lies in the fact that branches of the search tree can be eliminated. The search time can in this way be limited to the 'more promising' subtree, and a deeper search can be performed in the same time. Like its predecessor, it belongs to the <a href="/wiki/Branch_and_bound" title="Branch and bound">branch and bound</a> class of algorithms. The optimisation reduces the effective depth to slightly more than half that of simple minimax if the nodes are evaluated in an optimal or near optimal order (best choice for side on move ordered first at each node).</p>
+<p>With an (average or constant) <a href="/wiki/Branching_factor" title="Branching factor">branching factor</a> of <i>b</i>, and a search depth of <i>d</i> <a href="/wiki/Ply_%28chess%29" title="Ply (chess)">ply</a>, the maximum number of leaf node positions evaluated (when the move ordering is pessimal) is <a href="/wiki/Big_O_notation" title="Big O notation"><i>O</i></a>(<i>b</i>*<i>b</i>*...*<i>b</i>) = <i>O</i>(<i>b</i><sup><i>d</i></sup>) – the same as a simple minimax search. If the move ordering for the search is optimal (meaning the best moves always searched first), the number of positions searched is about <i>O</i>(<i>b</i>*1*<i>b</i>*1*...*<i>b</i>) for odd depth and <i>O</i>(<i>b</i>*1*<i>b</i>*1*...*1) for even depth, or <img class="tex" alt="O(b^{d/2}) = O(\sqrt{b^d})" src="http://upload.wikimedia.org/math/d/6/5/d65c65f2496e7546c295c75ad15d9717.png" />. In the latter case, the effective branching factor is reduced to its <a href="/wiki/Square_root" title="Square root">square root</a>, or, equivalently, the search can go twice as deep with the same amount of computation.<sup id="_ref-0" class="reference"><a href="#_note-0" title="">[1]</a></sup> The explanation of <i>b</i>*1*<i>b</i>*1*... is that all the first player's moves must be studied to find the best one, but for each, only the best second player's move is needed to refute all but the first (and best) first player move – alpha-beta ensures no other second player moves need be considered. If <i>b</i>=40 (as in chess), and the search depth is 12 ply, the ratio between optimal and pessimal sorting is a factor of nearly 40<sup>6</sup> or about 4 billion times.</p>
+<p>Normally during alpha-beta, the subtrees are temporarily dominated by either a first player advantage (when many first player moves are good, and at each search depth the first move checked by the first player is adequate, but all second player responses are required to try and find a refutation), or vice versa. This advantage can switch sides many times during the search if the move ordering is incorrect, each time leading to inefficiency. As the number of positions searched decreases exponentially each move nearer the current position, it is worth spending considerable effort on sorting early moves. An improved sort at any depth will exponentially reduce the total number of positions searched, but sorting all positions at depths near the root node is relatively cheap as there are so few of them. In practice, the move ordering is often determined by the results of earlier, smaller searches, such as through <a href="/wiki/Iterative_deepening_depth-first_search" title="Iterative deepening depth-first search">iterative deepening</a>.</p>
+<p>The algorithm maintains two values, alpha and beta, which represent the minimum score that the maximizing player is assured of and the maximum score that the minimizing player is assured of respectively. Initially alpha is negative infinity and beta is positive infinity. As the recursion progresses the "window" becomes smaller. When beta becomes less than alpha, it means that the current position cannot be the result of best play by both players and hence need not be explored further.</p>
+<p><a name="Heuristic_improvements" id="Heuristic_improvements"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Alpha-beta_pruning&amp;action=edit&amp;section=2" title="Edit section: Heuristic improvements">edit</a>]</span> <span class="mw-headline">Heuristic improvements</span></h2>
+<p>Further improvement can be achieved without sacrificing accuracy, by using ordering <a href="/wiki/Heuristic" title="Heuristic">heuristics</a> to search parts of the tree that are likely to force alpha-beta cutoffs early. For example, in chess, moves that take pieces may be examined before moves that do not, or moves that have scored highly in <a href="/wiki/Iterative_deepening_depth-first_search" title="Iterative deepening depth-first search">earlier passes</a> through the game-tree analysis may be evaluated before others. Another common, and very cheap, heuristic is the <a href="/wiki/Killer_heuristic" title="Killer heuristic">killer heuristic</a>, where the last move that caused a beta-cutoff at the same level in the tree search is always examined first. This idea can be generalised into a set of <a href="/w/index.php?title=Refutation_table&amp;action=edit" class="new" title="Refutation table">refutation tables</a>.</p>
+<p>Alpha-beta search can be made even faster by considering only a narrow search window (generally determined by guesswork based on experience). This is known as <i>aspiration search</i>. In the extreme case, the search is performed with alpha and beta equal; a technique known as <i>zero-window search</i>, <i>null-window search</i>, or <i>scout search</i>. This is particularly useful for win/loss searches near the end of a game where the extra depth gained from the narrow window and a simple win/loss evaluation function may lead to a conclusive result. If an aspiration search fails, it is straightforward to detect whether it failed <i>high</i> (high edge of window was too low) or <i>low</i> (lower edge of window was too high). This gives information about what window values might be useful in a re-search of the position.</p>
+<p><a name="Other_algorithms" id="Other_algorithms"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Alpha-beta_pruning&amp;action=edit&amp;section=3" title="Edit section: Other algorithms">edit</a>]</span> <span class="mw-headline">Other algorithms</span></h2>
+<p>More advanced algorithms that are even faster while still being able to compute the exact minimax value are known, such as <a href="/wiki/Negascout" title="Negascout">Negascout</a> and <a href="/wiki/MTD-f" title="MTD-f">MTD-f</a>.</p>
+<p>Since the minimax algorithm and its variants are inherently <a href="/wiki/Depth-first_search" title="Depth-first search">depth-first</a>, a strategy such as <a href="/wiki/Iterative_deepening_depth-first_search" title="Iterative deepening depth-first search">iterative deepening</a> is usually used in conjunction with alpha-beta so that a reasonably good move can be returned even if the algorithm is interrupted before it has finished execution. Another advantage of using iterative deepening is that searches at shallower depths give move-ordering hints that can help produce cutoffs for higher depth searches much earlier than would otherwise be possible.</p>
+<p>Algorithms like <a href="/w/index.php?title=SSS%2A&amp;action=edit" class="new" title="SSS*">SSS*</a>, on the other hand, use the <a href="/wiki/Best_first_search" title="Best first search">best-first</a> strategy. This can potentially make them more time-efficient, but typically at a heavy cost in space-efficiency. <sup class="noprint Template-Fact"><span title="This claim needs references to reliable sources&#160;since February 2007" style="white-space: nowrap;">[<i><a href="/wiki/Wikipedia:Citing_sources" title="Wikipedia:Citing sources">citation needed</a></i>]</span></sup></p>
+<p><a name="Pseudocode" id="Pseudocode"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Alpha-beta_pruning&amp;action=edit&amp;section=4" title="Edit section: Pseudocode">edit</a>]</span> <span class="mw-headline">Pseudocode</span></h2>
+<p><a href="/wiki/Pseudocode" title="Pseudocode">Pseudocode</a> for the alpha-beta algorithm is given below.</p>
+<pre>
+<b>function</b> minimax(node, depth)
+    <b>return</b> alphabeta(node, depth, -∞, +∞)
+
+<b>function</b> alphabeta(node, depth, α, β)
+    <b>if</b> node <i>is</i> a terminal node <b>or</b> depth = 0
+        <b>return</b> the heuristic value <i>of</i> node
+    <b>foreach</b> child <i>of</i> node
+        α := max(α, -alphabeta(child, depth-1, -β, -α))
+        <b>if</b> α ≥ β
+            <b>return</b> β
+    <b>return</b> α
+</pre>
+<p><a href="/wiki/Pseudocode" title="Pseudocode">Pseudocode</a> for normal <a href="/wiki/Minimax_algorithm" title="Minimax algorithm">minimax algorithm</a> is given below for contrast.</p>
+<pre>
+<b>function</b> minimax(node, depth)
+    <b>if</b> node <i>is</i> a terminal node <b>or</b> depth = 0
+        <b>return</b> the heuristic value <i>of</i> node
+    m := -∞
+    <b>foreach</b> child <i>of</i> node
+        m := max(m, -minimax(child, depth-1))
+    <b>return</b> m
+</pre>
+<p><a name="See_also" id="See_also"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Alpha-beta_pruning&amp;action=edit&amp;section=5" title="Edit section: See also">edit</a>]</span> <span class="mw-headline">See also</span></h2>
+<ul>
+<li><a href="/wiki/Pruning_%28algorithm%29" title="Pruning (algorithm)">Pruning (algorithm)</a></li>
+<li><a href="/wiki/Branch_and_bound" title="Branch and bound">Branch and bound</a></li>
+<li><a href="/wiki/Minimax" title="Minimax">Minimax</a></li>
+<li><a href="/wiki/Combinatorial_optimization" title="Combinatorial optimization">Combinatorial optimization</a></li>
+<li><a href="/wiki/Negamax" title="Negamax">Negamax</a></li>
+<li><a href="/wiki/Transposition_table" title="Transposition table">Transposition table</a></li>
+<li><a href="/wiki/MTD%28f%29" title="MTD(f)">MTD(f)</a></li>
+<li><a href="/wiki/Negascout" title="Negascout">Negascout</a></li>
+<li><a href="/wiki/Killer_heuristic" title="Killer heuristic">Killer heuristic</a></li>
+</ul>
+<p><a name="References" id="References"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Alpha-beta_pruning&amp;action=edit&amp;section=6" title="Edit section: References">edit</a>]</span> <span class="mw-headline">References</span></h2>
+<ol class="references">
+<li id="_note-0"><b><a href="#_ref-0" title="">^</a></b> S.J. Russell and P. Norvig (2003). <i><a href="/wiki/Artificial_Intelligence:_A_Modern_Approach" title="Artificial Intelligence: A Modern Approach">Artificial Intelligence: A Modern Approach</a></i>. Second Edition, Prentice Hall.</li>
+</ol>
+<p><a name="External_links" id="External_links"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Alpha-beta_pruning&amp;action=edit&amp;section=7" title="Edit section: External links">edit</a>]</span> <span class="mw-headline">External links</span></h2>
+<ul>
+<li><a href="http://www.emunix.emich.edu/~evett/AI/AlphaBeta_movie/sld001.htm" class="external free" title="http://www.emunix.emich.edu/~evett/AI/AlphaBeta_movie/sld001.htm" rel="nofollow">http://www.emunix.emich.edu/~evett/AI/AlphaBeta_movie/sld001.htm</a></li>
+<li><a href="http://sern.ucalgary.ca/courses/CPSC/533/W99/presentations/L1_5B_McCullough_Melnyk/" class="external free" title="http://sern.ucalgary.ca/courses/CPSC/533/W99/presentations/L1_5B_McCullough_Melnyk/" rel="nofollow">http://sern.ucalgary.ca/courses/CPSC/533/W99/presentations/L1_5B_McCullough_Melnyk/</a></li>
+<li><a href="http://sern.ucalgary.ca/courses/CPSC/533/W99/presentations/L2_5B_Lima_Neitz/search.html" class="external free" title="http://sern.ucalgary.ca/courses/CPSC/533/W99/presentations/L2_5B_Lima_Neitz/search.html" rel="nofollow">http://sern.ucalgary.ca/courses/CPSC/533/W99/presentations/L2_5B_Lima_Neitz/search.html</a></li>
+<li><a href="http://www.maths.nott.ac.uk/personal/anw/G13GAM/alphabet.html" class="external free" title="http://www.maths.nott.ac.uk/personal/anw/G13GAM/alphabet.html" rel="nofollow">http://www.maths.nott.ac.uk/personal/anw/G13GAM/alphabet.html</a></li>
+<li><a href="http://chess.verhelst.org/search.html" class="external free" title="http://chess.verhelst.org/search.html" rel="nofollow">http://chess.verhelst.org/search.html</a></li>
+<li><a href="http://www.frayn.net/beowulf/index.html" class="external free" title="http://www.frayn.net/beowulf/index.html" rel="nofollow">http://www.frayn.net/beowulf/index.html</a></li>
+<li><a href="http://www.brucemo.com/compchess/programming/alphabeta.htm" class="external free" title="http://www.brucemo.com/compchess/programming/alphabeta.htm" rel="nofollow">http://www.brucemo.com/compchess/programming/alphabeta.htm</a></li>
+</ul>
+<p><br clear="all" /></p>
+<table style="margin:0em auto; background: #fffdec;" align="center" class="toccolours" cellspacing="0" cellpadding="2">
+<tr>
+<td valign="top" align="right" style="border-bottom: solid red 1px;border-right: solid silver 1px;">&#160;<span class="noprint plainlinksneverexpand" style="white-space:nowrap; font-weight:normal; font-size:xx-small;"><a href="/wiki/Template:Game_theory" title="Template:Game theory"><span title="View this template">view</span></a></span>&#160;</td>
+<td valign="top" align="center" style="border-bottom: solid red 1px;"><b>Topics in <a href="/wiki/Game_theory" title="Game theory">game theory</a></b></td>
+</tr>
+<tr>
+<td valign="top" align="right" style="border-bottom: solid silver 1px;border-right: solid silver 1px;font-size:90%;padding: 0px 4px;">
+<p><b>Definitions</b></p>
+</td>
+<td valign="top" align="left" style="border-bottom: solid silver 1px;font-size:90%;padding: 0px 4px;">
+<p><a href="/wiki/Normal_form_game" title="Normal form game">Normal form game</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Extensive_form_game" title="Extensive form game">Extensive form game</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Cooperative_game" title="Cooperative game">Cooperative game</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Information_set_%28game_theory%29" title="Information set (game theory)">Information set</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Preference" title="Preference">Preference</a></p>
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" style="border-bottom: solid silver 1px;border-right: solid silver 1px;font-size:90%;padding: 0px 4px;">
+<p><b><a href="/wiki/Economic_equilibrium" title="Economic equilibrium">Equilibrium</a>&#160;<a href="/wiki/Solution_concept" title="Solution concept">concepts</a></b></p>
+</td>
+<td style="border-bottom: solid silver 1px;font-size:90%;padding: 0px 4px;">
+<p><a href="/wiki/Nash_equilibrium" title="Nash equilibrium">Nash equilibrium</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Subgame-perfect_Nash_equilibrium" title="Subgame-perfect Nash equilibrium">Subgame perfection</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Bayesian_game" title="Bayesian game">Bayesian-Nash</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Bayesian_game" title="Bayesian game">Perfect Bayesian</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Trembling_hand_perfect_equilibrium" title="Trembling hand perfect equilibrium">Trembling hand</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Proper_equilibrium" title="Proper equilibrium">Proper equilibrium</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Epsilon-equilibrium" title="Epsilon-equilibrium">Epsilon-equilibrium</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Correlated_equilibrium" title="Correlated equilibrium">Correlated equilibrium</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Sequential_equilibrium" title="Sequential equilibrium">Sequential equilibrium</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Quasi-perfect_equilibrium" title="Quasi-perfect equilibrium">Quasi-perfect equilibrium</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Evolutionarily_stable_strategy" title="Evolutionarily stable strategy">Evolutionarily stable strategy</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Risk_dominance" title="Risk dominance">Risk dominance</a></p>
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" style="border-bottom: solid silver 1px;border-right: solid silver 1px;font-size:90%;padding: 0px 4px;">
+<p><b><a href="/wiki/Strategy_%28game_theory%29" title="Strategy (game theory)">Strategies</a></b></p>
+</td>
+<td valign="top" align="left" style="border-bottom: solid silver 1px;font-size:90%;padding: 0px 4px;">
+<p><a href="/wiki/Dominance_%28game_theory%29" title="Dominance (game theory)">Dominant strategies</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Mixed_strategy" title="Mixed strategy">Mixed strategy</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Tit_for_tat" title="Tit for tat">Tit for tat</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Grim_trigger" title="Grim trigger">Grim trigger</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Collusion" title="Collusion">Collusion</a></p>
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" style="border-bottom: solid silver 1px;border-right: solid silver 1px;font-size:90%;padding: 0px 4px;">
+<p><b>Classes of games</b></p>
+</td>
+<td valign="top" align="left" style="border-bottom: solid silver 1px;font-size:90%;padding: 0px 4px;">
+<p><a href="/wiki/Symmetric_game" title="Symmetric game">Symmetric game</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Perfect_information" title="Perfect information">Perfect information</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Dynamic_game" title="Dynamic game">Dynamic game</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Repeated_game" title="Repeated game">Repeated game</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Signaling_game" title="Signaling game">Signaling game</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Cheap_talk" title="Cheap talk">Cheap talk</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Zero-sum" title="Zero-sum">Zero-sum game</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Mechanism_design" title="Mechanism design">Mechanism design</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Stochastic_game" title="Stochastic game">Stochastic game</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Nontransitive_game" title="Nontransitive game">Nontransitive game</a></p>
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" style="border-bottom: solid silver 1px;border-right: solid silver 1px;font-size:90%;padding: 0px 4px;">
+<p><b><a href="/wiki/List_of_games_in_game_theory" title="List of games in game theory">Games</a></b></p>
+</td>
+<td valign="top" align="left" style="border-bottom: solid silver 1px;font-size:90%;padding: 0px 4px;">
+<p><a href="/wiki/Prisoner%27s_dilemma" title="Prisoner's dilemma">Prisoner's dilemma</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Traveler%27s_dilemma" title="Traveler's dilemma">Traveler's dilemma</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Coordination_game" title="Coordination game">Coordination game</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Chicken_%28game%29" title="Chicken (game)">Chicken</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Volunteer%27s_dilemma" title="Volunteer's dilemma">Volunteer's dilemma</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Dollar_auction" title="Dollar auction">Dollar auction</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Battle_of_the_sexes_%28game_theory%29" title="Battle of the sexes (game theory)">Battle of the sexes</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Stag_hunt" title="Stag hunt">Stag hunt</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Matching_pennies" title="Matching pennies">Matching pennies</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Ultimatum_game" title="Ultimatum game">Ultimatum game</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Minority_game" title="Minority game">Minority game</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Rock%2C_Paper%2C_Scissors" title="Rock, Paper, Scissors">Rock, Paper, Scissors</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Pirate_game" title="Pirate game">Pirate game</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Dictator_game" title="Dictator game">Dictator game</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Public_goods_game" title="Public goods game">Public&#160;goods&#160;game</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Nash_bargaining_game" title="Nash bargaining game">Nash&#160;bargaining&#160;game</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Blotto_games" title="Blotto games">Blotto games</a> <span style="font-weight:bold;">&#160;·</span> <a href="/wiki/War_of_attrition_%28game%29" title="War of attrition (game)">War of attrition</a></p>
+</td>
+</tr>
+<tr>
+<td valign="top" align="right" style="border-right: solid silver 1px;font-size:90%;padding: 0px 4px;">
+<p><b>Theorems</b></p>
+</td>
+<td valign="top" align="left" style="font-size:90%;padding: 0px 4px;">
+<p><a href="/wiki/Minimax" title="Minimax">Minimax theorem</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Purification_theorems" title="Purification theorems">Purification theorems</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Folk_theorem_%28game_theory%29" title="Folk theorem (game theory)">Folk theorem</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Revelation_principle" title="Revelation principle">Revelation principle</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Arrow%27s_theorem" title="Arrow's theorem">Arrow's theorem</a></p>
+</td>
+</tr>
+</table>
+
+<!-- 
+Pre-expand include size: 19558 bytes
+Post-expand include size: 10517 bytes
+Template argument size: 967 bytes
+Maximum: 2048000 bytes
+-->
+
+<!-- Saved in parser cache with key enwiki:pcache:idhash:159501-0!1!0!default!!en!2 and timestamp 20070913053002 -->
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org/wiki/Alpha-beta_pruning">http://en.wikipedia.org/wiki/Alpha-beta_pruning</a>"</div>
+			<div id="catlinks"><p class='catlinks'><a href="/wiki/Special:Categories" title="Special:Categories">Categories</a>: <span dir='ltr'><a href="/wiki/Category:All_articles_with_unsourced_statements" title="Category:All articles with unsourced statements">All articles with unsourced statements</a></span> | <span dir='ltr'><a href="/wiki/Category:Articles_with_unsourced_statements_since_February_2007" title="Category:Articles with unsourced statements since February 2007">Articles with unsourced statements since February 2007</a></span> | <span dir='ltr'><a href="/wiki/Category:Detection_theory" title="Category:Detection theory">Detection theory</a></span> | <span dir='ltr'><a href="/wiki/Category:Game_artificial_intelligence" title="Category:Game artificial intelligence">Game artificial intelligence</a></span> | <span dir='ltr'><a href="/wiki/Category:Graph_algorithms" title="Category:Graph algorithms">Graph algorithms</a></span> | <span dir='ltr'><a href="/wiki/Category:Optimization_algorithms" title="Category:Optimization algorithms">Optimization algorithms</a></span> | <span dir='ltr'><a href="/wiki/Category:Search_algorithms" title="Category:Search algorithms">Search algorithms</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<div class="pBody">
+			<ul>
+					 <li id="ca-nstab-main" class="selected"><a href="/wiki/Alpha-beta_pruning" title="View the content page [c]" accesskey="c">Article</a></li>
+					 <li id="ca-talk"><a href="/wiki/Talk:Alpha-beta_pruning" title="Discussion about the content page [t]" accesskey="t">Discussion</a></li>
+					 <li id="ca-edit"><a href="/w/index.php?title=Alpha-beta_pruning&amp;action=edit" title="You can edit this page. Please use the preview button before saving. [e]" accesskey="e">Edit this page</a></li>
+					 <li id="ca-history"><a href="/w/index.php?title=Alpha-beta_pruning&amp;action=history" title="Past versions of this page [h]" accesskey="h">History</a></li>
+				</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-personal">
+		<h5>Personal tools</h5>
+		<div class="pBody">
+			<ul>
+				<li id="pt-login"><a href="/w/index.php?title=Special:Userlogin&amp;returnto=Alpha-beta_pruning" title="You are encouraged to log in, it is not mandatory however. [o]" accesskey="o">Sign in / create account</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-logo">
+		<a style="background-image: url(/images/wiki-en.png);" href="/wiki/Main_Page" title="Visit the Main Page [z]" accesskey="z"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-Main-page"><a href="/wiki/Main_Page">Main page</a></li>
+				<li id="n-Contents"><a href="/wiki/Wikipedia:Contents">Contents</a></li>
+				<li id="n-Featured-content"><a href="/wiki/Wikipedia:Featured_content">Featured content</a></li>
+				<li id="n-currentevents"><a href="/wiki/Portal:Current_events" title="Find background information on current events">Current events</a></li>
+				<li id="n-randompage"><a href="/wiki/Special:Random" title="Load a random page [x]" accesskey="x">Random article</a></li>
+			</ul>
+		</div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+		<h5>interaction</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-About-Wikipedia"><a href="/wiki/Wikipedia:About">About Wikipedia</a></li>
+				<li id="n-portal"><a href="/wiki/Wikipedia:Community_Portal" title="About the project, what you can do, where to find things">Community portal</a></li>
+				<li id="n-recentchanges"><a href="/wiki/Special:Recentchanges" title="The list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li>
+				<li id="n-contact"><a href="/wiki/Wikipedia:Contact_us">Contact Wikipedia</a></li>
+				<li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising" title="Support us">Donate to Wikipedia</a></li>
+				<li id="n-help"><a href="/wiki/Help:Contents" title="Guidance on how to use and edit Wikipedia">Help</a></li>
+			</ul>
+		</div>
+	</div>
+		<div id="p-search" class="portlet">
+		<h5><label for="searchInput">Search</label></h5>
+		<div id="searchBody" class="pBody">
+			<form action="/wiki/Special:Search" id="searchform"><div>
+				<input id="searchInput" name="search" type="text" title="Search Wikipedia [f]" accesskey="f" value="" />
+				<input type='submit' name="go" class="searchButton" id="searchGoButton"	value="Go" />&nbsp;
+				<input type='submit' name="fulltext" class="searchButton" id="mw-searchButton" value="Search" />
+			</div></form>
+		</div>
+	</div>
+	<div class="portlet" id="p-tb">
+		<h5>Toolbox</h5>
+		<div class="pBody">
+			<ul>
+				<li id="t-whatlinkshere"><a href="/wiki/Special:Whatlinkshere/Alpha-beta_pruning" title="List of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+				<li id="t-recentchangeslinked"><a href="/wiki/Special:Recentchangeslinked/Alpha-beta_pruning" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+<li id="t-upload"><a href="/wiki/Wikipedia:Upload" title="Upload images or media files [u]" accesskey="u">Upload file</a></li>
+<li id="t-specialpages"><a href="/wiki/Special:Specialpages" title="List of all special pages [q]" accesskey="q">Special pages</a></li>
+				<li id="t-print"><a href="/w/index.php?title=Alpha-beta_pruning&amp;printable=yes" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>				<li id="t-permalink"><a href="/w/index.php?title=Alpha-beta_pruning&amp;oldid=152680188" title="Permanent link to this version of the page">Permanent link</a></li><li id="t-cite"><a href="/w/index.php?title=Special:Cite&amp;page=Alpha-beta_pruning&amp;id=152680188">Cite this article</a></li>			</ul>
+		</div>
+	</div>
+	<div id="p-lang" class="portlet">
+		<h5>In other languages</h5>
+		<div class="pBody">
+			<ul>
+				<li class="interwiki-de"><a href="http://de.wikipedia.org/wiki/Alpha-Beta-Suche">Deutsch</a></li>
+				<li class="interwiki-fr"><a href="http://fr.wikipedia.org/wiki/%C3%89lagage_alpha-beta">Français</a></li>
+				<li class="interwiki-ja"><a href="http://ja.wikipedia.org/wiki/%E3%82%A2%E3%83%AB%E3%83%95%E3%82%A1%E3%83%BB%E3%83%99%E3%83%BC%E3%82%BF%E6%B3%95">日本語</a></li>
+				<li class="interwiki-pl"><a href="http://pl.wikipedia.org/wiki/Algorytm_alpha-beta">Polski</a></li>
+				<li class="interwiki-it"><a href="http://it.wikipedia.org/wiki/Potatura_alfa-beta">Italiano</a></li>
+			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="/skins-1.5/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>
+				<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="/images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>
+			<ul id="f-list">
+				<li id="lastmod"> This page was last modified 12:41, 21 August 2007.</li>
+				<li id="copyright">All text is available under the terms of the <a class='internal' href="/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="/wiki/Wikipedia:Copyrights" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a U.S. registered <a class='internal' href="/wiki/501%28c%29#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="/wiki/Non-profit_organization" title="Non-profit organization">nonprofit</a> <a href="/wiki/Charitable_organization" title="Charitable organization">charity</a>.<br /></li>
+				<li id="privacy"><a href="http://wikimediafoundation.org/wiki/Privacy_policy" title="wikimedia:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="/wiki/Wikipedia:About" title="Wikipedia:About">About Wikipedia</a></li>
+				<li id="disclaimer"><a href="/wiki/Wikipedia:General_disclaimer" title="Wikipedia:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+		
+	
+		<script type="text/javascript">if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by srv125 in 0.065 secs. --></body></html>

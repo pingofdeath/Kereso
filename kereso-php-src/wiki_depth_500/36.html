@@ -1,0 +1,298 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+				<meta name="keywords" content="Topological sorting,Sorting,Sorting,Big-O notation,Big O notation,Bubble sort,Bucket sort,Charles E. Leiserson,Clifford Stein,Cocktail sort,Comb sort" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="http://www.gnu.org/copyleft/fdl.html" />
+		<title>Topological sorting - Wikipedia, the free encyclopedia</title>
+		<style type="text/css" media="screen, projection">/*<![CDATA[*/
+			@import "/skins-1.5/common/shared.css?99";
+			@import "/skins-1.5/monobook/main.css?99";
+		/*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="/skins-1.5/common/commonPrint.css?99" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE50Fixes.css?99";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE55Fixes.css?99";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "/skins-1.5/monobook/IE60Fixes.css?99";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "/skins-1.5/monobook/IE70Fixes.css?99";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="/skins-1.5/common/IEFixes.js?99"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		
+		<script type= "text/javascript">/*<![CDATA[*/
+var skin = "monobook";
+var stylepath = "/skins-1.5";
+var wgArticlePath = "/wiki/$1";
+var wgScriptPath = "/w";
+var wgScript = "/w/index.php";
+var wgServer = "http://en.wikipedia.org";
+var wgCanonicalNamespace = "";
+var wgCanonicalSpecialPageName = false;
+var wgNamespaceNumber = 0;
+var wgPageName = "Topological_sorting";
+var wgTitle = "Topological sorting";
+var wgAction = "view";
+var wgRestrictionEdit = [];
+var wgRestrictionMove = [];
+var wgArticleId = "897064";
+var wgIsArticle = true;
+var wgUserName = null;
+var wgUserGroups = null;
+var wgUserLanguage = "en";
+var wgContentLanguage = "en";
+var wgBreakFrames = false;
+var wgCurRevisionId = "156302039";
+/*]]>*/</script>
+                
+		<script type="text/javascript" src="/skins-1.5/common/wikibits.js?99"><!-- wikibits js --></script>
+		<script type="text/javascript" src="/w/index.php?title=-&amp;action=raw&amp;gen=js&amp;useskin=monobook"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "/w/index.php?title=MediaWiki:Common.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=MediaWiki:Monobook.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=-&action=raw&gen=css&maxage=2678400";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+		<script type="text/javascript" src="/skins-1.5/common/ajax.js?99"></script>
+	</head>
+<body  class="mediawiki ns-0 ltr page-Topological_sorting">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">Topological sorting</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<p>In <a href="/wiki/Graph_theory" title="Graph theory">graph theory</a>, a <b>topological sort</b> of a <a href="/wiki/Directed_acyclic_graph" title="Directed acyclic graph">directed acyclic graph</a> (DAG) is a <a href="/wiki/Total_order" title="Total order">linear ordering</a> of its nodes which is compatible with the <a href="/wiki/Partial_order" title="Partial order">partial order</a> R <a href="/wiki/Induced_topology" title="Induced topology">induced</a> on the nodes where <i>x</i> comes before <i>y</i> (xRy) if there's a directed path from <i>x</i> to <i>y</i> in the DAG. An equivalent definition is that each node comes before all nodes to which it has edges. Every DAG has one or more topological sorts.</p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Examples"><span class="tocnumber">1</span> <span class="toctext">Examples</span></a></li>
+<li class="toclevel-1"><a href="#Algorithms"><span class="tocnumber">2</span> <span class="toctext">Algorithms</span></a></li>
+<li class="toclevel-1"><a href="#References"><span class="tocnumber">3</span> <span class="toctext">References</span></a></li>
+<li class="toclevel-1"><a href="#External_links"><span class="tocnumber">4</span> <span class="toctext">External links</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script>
+<p><a name="Examples" id="Examples"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Topological_sorting&amp;action=edit&amp;section=1" title="Edit section: Examples">edit</a>]</span> <span class="mw-headline">Examples</span></h2>
+<p>The canonical application of topological sorting is in scheduling a sequence of jobs. The jobs are represented by vertices, and there is an edge from <i>x</i> to <i>y</i> if job <i>x</i> must be completed before job <i>y</i> can be done (for example, washing machine must finish before we put the clothes to dry). Then, a topological sort gives an order in which to perform the jobs. This has applications in computer science, such as in <a href="/wiki/Instruction_scheduling" title="Instruction scheduling">instruction scheduling</a>, ordering of formula cell evaluation in <a href="/wiki/Spreadsheet" title="Spreadsheet">spreadsheets</a>, dependencies in <a href="/wiki/Makefile" title="Makefile">makefiles</a>, and symbol dependencies in <a href="/wiki/Linker" title="Linker">linkers</a>.</p>
+<table>
+<tr>
+<td>
+<div class="floatleft"><span><a href="/wiki/Image:Directed_acyclic_graph.png" class="image" title="Directed acyclic graph.png"><img alt="" src="http://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Directed_acyclic_graph.png/180px-Directed_acyclic_graph.png" width="180" height="159" border="0" /></a></span></div>
+</td>
+<td>The graph shown to the left has many valid topological sorts, including:
+<ul>
+<li>7,5,3,11,8,2,10,9</li>
+<li>7,5,11,2,3,10,8,9</li>
+<li>3,7,8,5,11,10,9,2</li>
+<li>3,5,7,11,10,2,8,9</li>
+</ul>
+</td>
+</tr>
+</table>
+<p><a name="Algorithms" id="Algorithms"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Topological_sorting&amp;action=edit&amp;section=2" title="Edit section: Algorithms">edit</a>]</span> <span class="mw-headline">Algorithms</span></h2>
+<p>The usual algorithms for topological sorting have running time linear in the number of nodes plus the number of edges (<a href="/wiki/Big-O_notation" title="Big-O notation">Θ</a>(|V|+|E|)).</p>
+<p>One of these algorithms works by choosing vertices in the same order as the eventual topological sort. First, find a list of "start nodes" which have no incoming edges and insert them into a <a href="/wiki/Queue_%28data_structure%29" title="Queue (data structure)">queue</a> Q (at least one such node must exist if graph is acyclic). Then,</p>
+<pre>
+Q ← Set of all nodes with no incoming edges
+<b>while</b> Q is non-empty <b>do</b>
+    remove a node n from Q
+    output n
+    <b>for each</b> node m with an edge <i>e</i> from n to m <b>do</b>
+        remove edge e from the graph
+        <b>if</b> m has no other incoming edges <b>then</b>
+            insert m into Q
+<b>if</b> graph has edges <b>then</b>
+    output error message (graph has a cycle)
+
+</pre>
+<p>If this algorithm terminates without outputing all the nodes of the graph, it means the graph has at least one cycle and therefore is not a <a href="/wiki/Directed_acyclic_graph" title="Directed acyclic graph">DAG</a>, so a topological sort is impossible. Note that, reflecting the non-uniqueness of the resulting sort, the structure Q need not be a queue; it may be a stack or simply a set.</p>
+<p>An alternative algorithm for topological sorting is based on depth-first search. Loop through the vertices of the graph, in any order, initiating a <a href="/wiki/Depth_first_search" title="Depth first search">depth first search</a> for any vertex that has not already been visited by a previous search. The desired topological sorting is the reverse postorder of these searches. That is, we can construct the ordering as a list of vertices, by adding each vertex to the start of the list at the time when the depth first search is processing that vertex and has returned from processing all children of that vertex. Since each edge and vertex is visited once, the algorithm runs in linear time.</p>
+<p><a name="References" id="References"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Topological_sorting&amp;action=edit&amp;section=3" title="Edit section: References">edit</a>]</span> <span class="mw-headline">References</span></h2>
+<ul>
+<li><a href="/wiki/Thomas_H._Cormen" title="Thomas H. Cormen">Thomas H. Cormen</a>, <a href="/wiki/Charles_E._Leiserson" title="Charles E. Leiserson">Charles E. Leiserson</a>, <a href="/wiki/Ronald_L._Rivest" title="Ronald L. Rivest">Ronald L. Rivest</a>, and <a href="/wiki/Clifford_Stein" title="Clifford Stein">Clifford Stein</a>. <i><a href="/wiki/Introduction_to_Algorithms" title="Introduction to Algorithms">Introduction to Algorithms</a></i>. MIT Press and McGraw-Hill.
+<ul>
+<li>First Edition, 1990. <a href="/w/index.php?title=Special:Booksources&amp;isbn=0070131430" class="internal">ISBN 0-07-013143-0</a>. Section 23.4: Topological sort, pp.485–488.</li>
+<li>Second Edition, 2001. <a href="/w/index.php?title=Special:Booksources&amp;isbn=0262032937" class="internal">ISBN 0-262-03293-7</a>. 2001. Section 22.4: Topological sort, pp.549–552.</li>
+</ul>
+</li>
+</ul>
+<p><a name="External_links" id="External_links"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Topological_sorting&amp;action=edit&amp;section=4" title="Edit section: External links">edit</a>]</span> <span class="mw-headline">External links</span></h2>
+<ul>
+<li><a href="http://www.nist.gov/dads/HTML/topologcsort.html" class="external text" title="http://www.nist.gov/dads/HTML/topologcsort.html" rel="nofollow">NIST Dictionary of Algorithms and Data Structures: topological sort</a></li>
+<li><a href="http://everything2.com/?node_id=556079" class="external text" title="http://everything2.com/?node_id=556079" rel="nofollow">topological sort on everything2</a></li>
+<li><cite id="Reference-Mathworld-TopologicalSort"><a href="/wiki/Eric_W._Weisstein" title="Eric W. Weisstein">Eric W. Weisstein</a>, <i><a href="http://mathworld.wolfram.com/TopologicalSort.html" class="external text" title="http://mathworld.wolfram.com/TopologicalSort.html" rel="nofollow">TopologicalSort</a></i> at <a href="/wiki/MathWorld" title="MathWorld">MathWorld</a>.</cite></li>
+</ul>
+<table class="navbox collapsible autocollapse nowraplinks" style="margin:auto; background:white;background:white;">
+<tr>
+<th colspan="3" style="text-align:center;width:100%;">
+<div style="float:left; width:6em; text-align:left;">
+<div class="noprint plainlinksneverexpand" style="background-color:transparent; padding:0; font-weight:normal; font-size:xx-small; color: #000; white-space:nowrap;"><a href="/wiki/Template:Sorting" title="Template:Sorting"><span title="View this template">v</span></a>&#160;<span style="font-size:80%;">•</span>&#160;<a href="/w/index.php?title=Template_talk:Sorting&amp;action=edit" class="new" title="Template talk:Sorting"><span style="color: #002bb8;" title="Discussion about this template">d</span></a>&#160;<span style="font-size:80%;">•</span>&#160;<a href="http://en.wikipedia.org/w/index.php?title=Template:Sorting&amp;action=edit" class="external text" title="http://en.wikipedia.org/w/index.php?title=Template:Sorting&amp;action=edit" rel="nofollow"><span style="color: #002bb8;" title="You can edit this template. Please use the preview button before saving.">e</span></a></div>
+</div>
+<span style="font-size:110%;"><a href="/wiki/Sorting_algorithm" title="Sorting algorithm">Sorting algorithms</a></span></th>
+</tr>
+<tr>
+<th style="white-space:nowrap;background:#ddddff;text-align:right;">Theory</th>
+<td colspan="1" style="text-align:left;width:100%;font-size:95%;"><a href="/wiki/Computational_complexity_theory" title="Computational complexity theory">Computational complexity theory</a> | <a href="/wiki/Big_O_notation" title="Big O notation">Big O notation</a> | <a href="/wiki/Total_order" title="Total order">Total order</a> | <a href="/wiki/List_%28computing%29" title="List (computing)">Lists</a> | <a href="/wiki/Sorting_algorithm#Stability" title="Sorting algorithm">Stability</a> | <a href="/wiki/Comparison_sort" title="Comparison sort">Comparison sort</a></td>
+<td rowspan="7" style="vertical-align:middle; padding-left:7px; width:0%;"><a href="/wiki/Image:SimpleSortingNetwork.svg" class="image" title="SimpleSortingNetwork.svg"><img alt="" src="http://upload.wikimedia.org/wikipedia/en/thumb/4/47/SimpleSortingNetwork.svg/300px-SimpleSortingNetwork.svg.png" width="300" height="146" border="0" /></a></td>
+</tr>
+<tr>
+<th style="white-space:nowrap;background:#ddddff;text-align:right;">Exchange sorts</th>
+<td colspan="1" style="text-align:left;width:100%;font-size:95%;background:#f7f7f7;"><a href="/wiki/Bubble_sort" title="Bubble sort">Bubble sort</a> | <a href="/wiki/Cocktail_sort" title="Cocktail sort">Cocktail sort</a> | <a href="/wiki/Comb_sort" title="Comb sort">Comb sort</a> | <a href="/wiki/Gnome_sort" title="Gnome sort">Gnome sort</a> | <a href="/wiki/Quicksort" title="Quicksort">Quicksort</a></td>
+</tr>
+<tr>
+<th style="white-space:nowrap;background:#ddddff;text-align:right;">Selection sorts</th>
+<td colspan="1" style="text-align:left;width:100%;font-size:95%;"><a href="/wiki/Selection_sort" title="Selection sort">Selection sort</a> | <a href="/wiki/Heapsort" title="Heapsort">Heapsort</a> | <a href="/wiki/Smoothsort" title="Smoothsort">Smoothsort</a></td>
+</tr>
+<tr>
+<th style="white-space:nowrap;background:#ddddff;text-align:right;">Insertion sorts</th>
+<td colspan="1" style="text-align:left;width:100%;font-size:95%;background:#f7f7f7;"><a href="/wiki/Insertion_sort" title="Insertion sort">Insertion sort</a> | <a href="/wiki/Shell_sort" title="Shell sort">Shell sort</a> | <a href="/wiki/Tree_sort" title="Tree sort">Tree sort</a> | <a href="/wiki/Library_sort" title="Library sort">Library sort</a> | <a href="/wiki/Patience_sorting" title="Patience sorting">Patience sorting</a></td>
+</tr>
+<tr>
+<th style="white-space:nowrap;background:#ddddff;text-align:right;">Merge sorts</th>
+<td colspan="1" style="text-align:left;width:100%;font-size:95%;"><a href="/wiki/Merge_sort" title="Merge sort">Merge sort</a></td>
+</tr>
+<tr>
+<th style="white-space:nowrap;background:#ddddff;text-align:right;">Non-comparison sorts</th>
+<td colspan="1" style="text-align:left;width:100%;font-size:95%;background:#f7f7f7;"><a href="/wiki/Radix_sort" title="Radix sort">Radix sort</a> | <a href="/wiki/Bucket_sort" title="Bucket sort">Bucket sort</a> | <a href="/wiki/Counting_sort" title="Counting sort">Counting sort</a> | <a href="/wiki/Pigeonhole_sort" title="Pigeonhole sort">Pigeonhole sort</a></td>
+</tr>
+<tr>
+<th style="white-space:nowrap;background:#ddddff;text-align:right;">Others</th>
+<td colspan="1" style="text-align:left;width:100%;font-size:95%;"><strong class="selflink">Topological sorting</strong> | <a href="/wiki/Sorting_network" title="Sorting network">Sorting network</a></td>
+</tr>
+</table>
+<p><span id="interwiki-de-fa"></span></p>
+
+<!-- 
+Pre-expand include size: 19445 bytes
+Post-expand include size: 13571 bytes
+Template argument size: 5496 bytes
+Maximum: 2048000 bytes
+-->
+
+<!-- Saved in parser cache with key enwiki:pcache:idhash:897064-0!1!0!default!!en!2 and timestamp 20070914074653 -->
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org/wiki/Topological_sorting">http://en.wikipedia.org/wiki/Topological_sorting</a>"</div>
+			<div id="catlinks"><p class='catlinks'><a href="/wiki/Special:Categories" title="Special:Categories">Categories</a>: <span dir='ltr'><a href="/wiki/Category:Graph_algorithms" title="Category:Graph algorithms">Graph algorithms</a></span> | <span dir='ltr'><a href="/wiki/Category:Sorting_algorithms" title="Category:Sorting algorithms">Sorting algorithms</a></span> | <span dir='ltr'><a href="/wiki/Category:Graph_theory" title="Category:Graph theory">Graph theory</a></span> | <span dir='ltr'><a href="/wiki/Category:Articles_with_example_pseudocode" title="Category:Articles with example pseudocode">Articles with example pseudocode</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<div class="pBody">
+			<ul>
+					 <li id="ca-nstab-main" class="selected"><a href="/wiki/Topological_sorting" title="View the content page [c]" accesskey="c">Article</a></li>
+					 <li id="ca-talk"><a href="/wiki/Talk:Topological_sorting" title="Discussion about the content page [t]" accesskey="t">Discussion</a></li>
+					 <li id="ca-edit"><a href="/w/index.php?title=Topological_sorting&amp;action=edit" title="You can edit this page. Please use the preview button before saving. [e]" accesskey="e">Edit this page</a></li>
+					 <li id="ca-history"><a href="/w/index.php?title=Topological_sorting&amp;action=history" title="Past versions of this page [h]" accesskey="h">History</a></li>
+				</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-personal">
+		<h5>Personal tools</h5>
+		<div class="pBody">
+			<ul>
+				<li id="pt-login"><a href="/w/index.php?title=Special:Userlogin&amp;returnto=Topological_sorting" title="You are encouraged to log in, it is not mandatory however. [o]" accesskey="o">Sign in / create account</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-logo">
+		<a style="background-image: url(/images/wiki-en.png);" href="/wiki/Main_Page" title="Visit the Main Page [z]" accesskey="z"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-Main-page"><a href="/wiki/Main_Page">Main page</a></li>
+				<li id="n-Contents"><a href="/wiki/Wikipedia:Contents">Contents</a></li>
+				<li id="n-Featured-content"><a href="/wiki/Wikipedia:Featured_content">Featured content</a></li>
+				<li id="n-currentevents"><a href="/wiki/Portal:Current_events" title="Find background information on current events">Current events</a></li>
+				<li id="n-randompage"><a href="/wiki/Special:Random" title="Load a random page [x]" accesskey="x">Random article</a></li>
+			</ul>
+		</div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+		<h5>interaction</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-About-Wikipedia"><a href="/wiki/Wikipedia:About">About Wikipedia</a></li>
+				<li id="n-portal"><a href="/wiki/Wikipedia:Community_Portal" title="About the project, what you can do, where to find things">Community portal</a></li>
+				<li id="n-recentchanges"><a href="/wiki/Special:Recentchanges" title="The list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li>
+				<li id="n-contact"><a href="/wiki/Wikipedia:Contact_us">Contact Wikipedia</a></li>
+				<li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising" title="Support us">Donate to Wikipedia</a></li>
+				<li id="n-help"><a href="/wiki/Help:Contents" title="Guidance on how to use and edit Wikipedia">Help</a></li>
+			</ul>
+		</div>
+	</div>
+		<div id="p-search" class="portlet">
+		<h5><label for="searchInput">Search</label></h5>
+		<div id="searchBody" class="pBody">
+			<form action="/wiki/Special:Search" id="searchform"><div>
+				<input id="searchInput" name="search" type="text" title="Search Wikipedia [f]" accesskey="f" value="" />
+				<input type='submit' name="go" class="searchButton" id="searchGoButton"	value="Go" />&nbsp;
+				<input type='submit' name="fulltext" class="searchButton" id="mw-searchButton" value="Search" />
+			</div></form>
+		</div>
+	</div>
+	<div class="portlet" id="p-tb">
+		<h5>Toolbox</h5>
+		<div class="pBody">
+			<ul>
+				<li id="t-whatlinkshere"><a href="/wiki/Special:Whatlinkshere/Topological_sorting" title="List of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+				<li id="t-recentchangeslinked"><a href="/wiki/Special:Recentchangeslinked/Topological_sorting" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+<li id="t-upload"><a href="/wiki/Wikipedia:Upload" title="Upload images or media files [u]" accesskey="u">Upload file</a></li>
+<li id="t-specialpages"><a href="/wiki/Special:Specialpages" title="List of all special pages [q]" accesskey="q">Special pages</a></li>
+				<li id="t-print"><a href="/w/index.php?title=Topological_sorting&amp;printable=yes" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>				<li id="t-permalink"><a href="/w/index.php?title=Topological_sorting&amp;oldid=156302039" title="Permanent link to this version of the page">Permanent link</a></li><li id="t-cite"><a href="/w/index.php?title=Special:Cite&amp;page=Topological_sorting&amp;id=156302039">Cite this article</a></li>			</ul>
+		</div>
+	</div>
+	<div id="p-lang" class="portlet">
+		<h5>In other languages</h5>
+		<div class="pBody">
+			<ul>
+				<li class="interwiki-de"><a href="http://de.wikipedia.org/wiki/Topologische_Sortierung">Deutsch</a></li>
+				<li class="interwiki-he"><a href="http://he.wikipedia.org/wiki/%D7%9E%D7%99%D7%95%D7%9F_%D7%98%D7%95%D7%A4%D7%95%D7%9C%D7%95%D7%92%D7%99">עברית</a></li>
+				<li class="interwiki-no"><a href="http://no.wikipedia.org/wiki/Topologisk_sortering">‪Norsk (bokmål)‬</a></li>
+				<li class="interwiki-pl"><a href="http://pl.wikipedia.org/wiki/Sortowanie_topologiczne">Polski</a></li>
+				<li class="interwiki-sr"><a href="http://sr.wikipedia.org/wiki/%D0%A2%D0%BE%D0%BF%D0%BE%D0%BB%D0%BE%D1%88%D0%BA%D0%BE_%D1%81%D0%BE%D1%80%D1%82%D0%B8%D1%80%D0%B0%D1%9A%D0%B5">Српски / Srpski</a></li>
+				<li class="interwiki-fi"><a href="http://fi.wikipedia.org/wiki/Topologinen_lajittelu">Suomi</a></li>
+				<li class="interwiki-ru"><a href="http://ru.wikipedia.org/wiki/%D0%A2%D0%BE%D0%BF%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B0%D1%8F_%D1%81%D0%BE%D1%80%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%BA%D0%B0">Русский</a></li>
+			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="/skins-1.5/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>
+				<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="/images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>
+			<ul id="f-list">
+				<li id="lastmod"> This page was last modified 16:50, 7 September 2007.</li>
+				<li id="copyright">All text is available under the terms of the <a class='internal' href="/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="/wiki/Wikipedia:Copyrights" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a U.S. registered <a class='internal' href="/wiki/501%28c%29#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="/wiki/Non-profit_organization" title="Non-profit organization">nonprofit</a> <a href="/wiki/Charitable_organization" title="Charitable organization">charity</a>.<br /></li>
+				<li id="privacy"><a href="http://wikimediafoundation.org/wiki/Privacy_policy" title="wikimedia:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="/wiki/Wikipedia:About" title="Wikipedia:About">About Wikipedia</a></li>
+				<li id="disclaimer"><a href="/wiki/Wikipedia:General_disclaimer" title="Wikipedia:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+		
+	
+		<script type="text/javascript">if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by srv67 in 0.187 secs. --></body></html>

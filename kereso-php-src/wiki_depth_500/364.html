@@ -1,0 +1,71 @@
+<HTML>
+ <HEAD>
+  <TITLE>Dijkstra's Algorithm Animated</TITLE>
+ </HEAD>
+ <BODY>
+  <TABLE WIDTH=800>
+   <TR>
+    <TD ALIGN=CENTER COLSPAN=3>
+     <H2>Dijkstra's Algorithm</H2>
+    </TD>
+   </TR>
+   <TR>
+    <TD>
+Dijkstra's Algorithm solves the single-source shortest path problem in weighted graphs.
+Here we show it running on a planar graph whose edge weights are proportional to the distance
+between the vertices in the drawing -- thus the weight of an edge is equal to its visible
+length.
+<p>
+Dijkstra's algorithm starts from a source node, and in each iteration adds another vertex
+to the shortest-path spanning tree.
+This vertex is the point closest to the root which is still outside the tree.
+Watch as the tree grows by radiating out from the root.
+Note that it is not a breadth-first search; we do not care about the number of
+edges on the tree path, only the sum of their weights.
+
+    </TD>
+   </TR>
+   <TR>
+    <TD COLSPAN=3 ALIGN=CENTER>
+     <IMG SRC="anim/dijkstra.gif">
+    </TD>
+   </TR>
+   <TR>
+    <TD COLSPAN=3>
+     <B>Download</B>:
+     <BR><BR>
+     &nbsp;&nbsp;<A HREF="anim/dijkstra.gif">dijkstra.gif</A> - The Animation.<BR>
+     &nbsp;&nbsp;<A HREF="dijkstra.nb">dijkstra.nb</A> - Notebook file.<BR>
+    </TD>
+   </TR>
+<TR>
+<TD COLSPAN=3>
+
+<p>
+These animations were produced using
+<i>Combinatorica</i> -- see
+<a HREF="http://www.combinatorica.com">www.combinatorica.com</a>
+and our book
+<a href="http://www.amazon.com/exec/obidos/ASIN/0521806860/ref=nosim/thealgorithmrepo/">
+Computational Discrete Mathematics: Combinatorics and Graph Theory with
+Mathematica</a> for more information.
+
+
+
+<p>
+Check out our
+<A HREF="search.html">dfs/bfs</A>, 
+<A HREF="concomp.html">connected components</A>,
+<A HREF="ham.html">Hamiltonian cycle</A>,
+<A HREF="euler.html">Eulerian cycle</A>,
+<A HREF="dijkstra.html">shortest path</A>,
+<A HREF="graphpower.html">transitive closure</A>,
+and
+<A HREF="mst.html">minimum spanning tree</A> animations!
+
+</TD>
+</TR>
+
+  </TABLE>
+ </BODY>
+</HTML>

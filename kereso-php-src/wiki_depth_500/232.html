@@ -1,0 +1,648 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="hu" lang="hu" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+				<meta name="keywords" content="Gráf,Gráf (halmazelmélet),DAG,Erdő (gráfelmélet),Euler kör,Fa (gráfelmélet),Grafikus matroid,Gráf (egyértelműsítő lap),Gráfelmélet,Gráfelméleti fogalomtár,Halmaz" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipédia (Magyar)" />
+		<link rel="copyright" href="http://www.gnu.org/copyleft/fdl.html" />
+		<title>Gráf - Wikipédia</title>
+		<style type="text/css" media="screen, projection">/*<![CDATA[*/
+			@import "/skins-1.5/common/shared.css?99";
+			@import "/skins-1.5/monobook/main.css?99";
+		/*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="/skins-1.5/common/commonPrint.css?99" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE50Fixes.css?99";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE55Fixes.css?99";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "/skins-1.5/monobook/IE60Fixes.css?99";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "/skins-1.5/monobook/IE70Fixes.css?99";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="/skins-1.5/common/IEFixes.js?99"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		
+		<script type= "text/javascript">/*<![CDATA[*/
+var skin = "monobook";
+var stylepath = "/skins-1.5";
+var wgArticlePath = "/wiki/$1";
+var wgScriptPath = "/w";
+var wgScript = "/w/index.php";
+var wgServer = "http://hu.wikipedia.org";
+var wgCanonicalNamespace = "";
+var wgCanonicalSpecialPageName = false;
+var wgNamespaceNumber = 0;
+var wgPageName = "Gráf";
+var wgTitle = "Gráf";
+var wgAction = "view";
+var wgRestrictionEdit = [];
+var wgRestrictionMove = [];
+var wgArticleId = "79919";
+var wgIsArticle = true;
+var wgUserName = null;
+var wgUserGroups = null;
+var wgUserLanguage = "hu";
+var wgContentLanguage = "hu";
+var wgBreakFrames = false;
+var wgCurRevisionId = "1916924";
+/*]]>*/</script>
+                
+		<script type="text/javascript" src="/skins-1.5/common/wikibits.js?99"><!-- wikibits js --></script>
+		<script type="text/javascript" src="/w/index.php?title=-&amp;action=raw&amp;gen=js&amp;useskin=monobook"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "/w/index.php?title=MediaWiki:Common.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=MediaWiki:Monobook.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=-&action=raw&gen=css&maxage=2678400";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+		<script type="text/javascript" src="/skins-1.5/common/ajax.js?99"></script>
+	</head>
+<body  class="mediawiki ns-0 ltr page-Gráf">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+		<div id="siteNotice"><script type="text/javascript" language="JavaScript">
+<!--
+document.writeln("\x3cp\x3e\x3ci\x3eÚjabb magyar \x3ca href=\"/wiki/WP:TALI\" title=\"WP:TALI\"\x3ewikitali\x3c/a\x3e (azaz szerkesztői találkozó) készül szeptember 29-én, a helyszín Pécs, részletek → \x3ca href=\"/wiki/Wikip%C3%A9dia:Magyar_wikip%C3%A9dista-tal%C3%A1lkoz%C3%B3k/P%C3%A9cs%2C_2007.09.29.\" title=\"Wikipédia:Magyar wikipédista-találkozók/Pécs, 2007.09.29.\"\x3e\x3cb\x3eitt\x3c/b\x3e\x3c/a\x3e!\x3c/i\x3e\n\x3c/p\x3e");
+-->
+</script></div>		<h1 class="firstHeading">Gráf</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">A Wikipédiából, a szabad lexikonból.</h3>
+			<div id="contentSub">(<a href="/w/index.php?title=Gr%C3%A1f_%28halmazelm%C3%A9let%29&amp;redirect=no" title="Gráf (halmazelmélet)">Gráf (halmazelmélet)</a> szócikkből átirányítva)</div>
+									<div id="jump-to-nav">Ugrás: <a href="#column-one">navigáció</a>, <a href="#searchInput">keresés</a></div>			<!-- start content -->
+			<dl>
+<dd><i>A további jelentéseket lásd a(z) <a href="/wiki/Gr%C3%A1f_%28egy%C3%A9rtelm%C5%B1s%C3%ADt%C5%91_lap%29" title="Gráf (egyértelműsítő lap)">Gráf (egyértelműsítő lap)</a> oldalon.</i></dd>
+</dl>
+<div class="thumb tright">
+<div class="thumbinner" style="width:182px;"><a href="/wiki/K%C3%A9p:6n-graf.svg" class="image" title="Címkézett gráf 6 csúccsal és 7 éllel"><img alt="Címkézett gráf 6 csúccsal és 7 éllel" src="http://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/6n-graf.svg/180px-6n-graf.svg.png" width="180" height="119" border="0" class="thumbimage" /></a>
+<div class="thumbcaption">
+<div class="magnify" style="float:right"><a href="/wiki/K%C3%A9p:6n-graf.svg" class="internal" title="Nagyít"><img src="/skins-1.5/common/images/magnify-clip.png" width="15" height="11" alt="" /></a></div>
+Címkézett gráf 6 csúccsal és 7 éllel</div>
+</div>
+</div>
+<div class="thumb tright">
+<div class="thumbinner" style="width:182px;"><a href="/wiki/K%C3%A9p:Directed_graph.svg" class="image" title="Irányított gráf"><img alt="Irányított gráf" src="http://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Directed_graph.svg/180px-Directed_graph.svg.png" width="180" height="119" border="0" class="thumbimage" /></a>
+<div class="thumbcaption">
+<div class="magnify" style="float:right"><a href="/wiki/K%C3%A9p:Directed_graph.svg" class="internal" title="Nagyít"><img src="/skins-1.5/common/images/magnify-clip.png" width="15" height="11" alt="" /></a></div>
+Irányított gráf</div>
+</div>
+</div>
+<p>A <b>gráf</b> a <a href="/wiki/Matematika" title="Matematika">matematikai</a> <a href="/wiki/Gr%C3%A1felm%C3%A9let" title="Gráfelmélet">gráfelmélet</a> és a <a href="/wiki/Sz%C3%A1m%C3%ADt%C3%B3g%C3%A9ptudom%C3%A1ny" title="Számítógéptudomány">számítógéptudomány</a> egyik alapvető fogalma. A gráf dolgok (<i>csomópontok</i>, <i>csúcsok</i>) és rajtuk értelmezett összeköttetések (<i>élek</i>) halmaza. Egy gráfot megadhatunk csúcsainak és éleinek felsorolásával, vagy szemléletesebben egy diagram formájában, ahol a pontok felelnek meg a gráf csúcsainak, az őket összekötő ívek pedig az éleknek. A két megadási mód ekvivalens, azaz a gráf pusztán egy struktúra, semmilyen megjelenítési információt nem tartalmaz, így különböző diagramok is tartozhatnak ugyanahhoz a gráfhoz.</p>
+<p>Alapértelmezésben a gráf <i>irányítatlan</i>, azaz nem teszünk különbséget „A-ból B-be”, illetve „B-ből A-ba” menő élek között. Ezzel szemben az <i>irányított gráf</i>okban (angolosan: digráf) a két iránynak <i>irányított él</i>ek felelnek meg.</p>
+<p>Szintén alapértelmezésben, a gráf csúcsai <b>címkézettek</b>, azaz meg lehet különböztetni őket. Bizonyos problémák azonban könnyebben kezelhetők, ha nem különböztetjük meg a csúcspontokat. Persze egy-egy csúcspont így is megkülönböztethető maradhat egyéb jellemzőik alapján, mint pl. a vele szomszédos csúcsok száma. Hasonlóan, a gráf élei alapértelmezésben címkézettek, de előfordulhat hogy ezt nem követeljük meg. Az olyan gráfok amikben sem a csúcspontok, sem az élek nem címkézettek, <b>címkézetlen</b> gráfok. Megjegyzés: a „címkézés” szó más kontextusban is elfordul a gráfoknál, itt most az élek-csúcsok megkülönböztetésére szolgáló címkékkel foglalkoztunk.</p>
+<table id="toc" class="toc" summary="Tartalomjegyzék">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Tartalomjegyzék</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Defin.C3.ADci.C3.B3"><span class="tocnumber">1</span> <span class="toctext">Definíció</span></a></li>
+<li class="toclevel-1"><a href="#Motiv.C3.A1ci.C3.B3"><span class="tocnumber">2</span> <span class="toctext">Motiváció</span></a></li>
+<li class="toclevel-1"><a href="#Alapfogalmak"><span class="tocnumber">3</span> <span class="toctext">Alapfogalmak</span></a></li>
+<li class="toclevel-1"><a href="#P.C3.A9ld.C3.A1k_gr.C3.A1fok_alkalmaz.C3.A1s.C3.A1ra"><span class="tocnumber">4</span> <span class="toctext">Példák gráfok alkalmazására</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Nevezetes_s.C3.A9t.C3.A1k"><span class="tocnumber">4.1</span> <span class="toctext">Nevezetes séták</span></a></li>
+<li class="toclevel-2"><a href="#Legr.C3.B6videbb_utak"><span class="tocnumber">4.2</span> <span class="toctext">Legrövidebb utak</span></a></li>
+<li class="toclevel-2"><a href="#Minim.C3.A1lis_fesz.C3.ADt.C5.91_fa"><span class="tocnumber">4.3</span> <span class="toctext">Minimális feszítő fa</span></a></li>
+<li class="toclevel-2"><a href="#Feladat.C3.BCtemez.C3.A9s"><span class="tocnumber">4.4</span> <span class="toctext">Feladatütemezés</span></a></li>
+<li class="toclevel-2"><a href="#P.C3.A1ros.C3.ADt.C3.A1sok"><span class="tocnumber">4.5</span> <span class="toctext">Párosítások</span></a></li>
+<li class="toclevel-2"><a href="#Sz.C3.ADnez.C3.A9sek"><span class="tocnumber">4.6</span> <span class="toctext">Színezések</span></a></li>
+<li class="toclevel-2"><a href="#Tov.C3.A1bbi_probl.C3.A9m.C3.A1k"><span class="tocnumber">4.7</span> <span class="toctext">További problémák</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Defin.C3.ADci.C3.B3k"><span class="tocnumber">5</span> <span class="toctext">Definíciók</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Ir.C3.A1ny.C3.ADtatlan_gr.C3.A1f"><span class="tocnumber">5.1</span> <span class="toctext">Irányítatlan gráf</span></a></li>
+<li class="toclevel-2"><a href="#Ir.C3.A1ny.C3.ADtott_gr.C3.A1f"><span class="tocnumber">5.2</span> <span class="toctext">Irányított gráf</span></a></li>
+<li class="toclevel-2"><a href="#Vegyes_gr.C3.A1f"><span class="tocnumber">5.3</span> <span class="toctext">Vegyes gráf</span></a></li>
+<li class="toclevel-2"><a href="#.C3.81ltal.C3.A1nos.C3.ADt.C3.A1sok"><span class="tocnumber">5.4</span> <span class="toctext">Általánosítások</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#L.C3.A9nyeges_gr.C3.A1fok"><span class="tocnumber">6</span> <span class="toctext">Lényeges gráfok</span></a></li>
+<li class="toclevel-1"><a href="#Gr.C3.A1fokon_.C3.A9rtelmezett_m.C5.B1veletek"><span class="tocnumber">7</span> <span class="toctext">Gráfokon értelmezett műveletek</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Un.C3.A1ris_m.C5.B1veletek"><span class="tocnumber">7.1</span> <span class="toctext">Unáris műveletek</span></a></li>
+<li class="toclevel-2"><a href="#Bin.C3.A1ris_m.C5.B1veletek"><span class="tocnumber">7.2</span> <span class="toctext">Bináris műveletek</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Gr.C3.A1ftopol.C3.B3giai_fogalmak"><span class="tocnumber">8</span> <span class="toctext">Gráftopológiai fogalmak</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Sz.C3.BCl.C5.91.2C_ut.C3.B3d.2C_fok"><span class="tocnumber">8.1</span> <span class="toctext">Szülő, utód, fok</span></a></li>
+<li class="toclevel-2"><a href="#Hurok.2C_el.C3.A1gaz.C3.A1s"><span class="tocnumber">8.2</span> <span class="toctext">Hurok, elágazás</span></a></li>
+<li class="toclevel-2"><a href="#Egy.C3.A9b_speci.C3.A1lis_r.C3.A9szgr.C3.A1fok"><span class="tocnumber">8.3</span> <span class="toctext">Egyéb speciális részgráfok</span></a></li>
+</ul>
+</li>
+</ul>
+</td>
+</tr>
+</table>
+<script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "mutat"; var tocHideText = "elrejt"; showTocToggle(); } 
+//]]>
+</script>
+<p><a name="Defin.C3.ADci.C3.B3" id="Defin.C3.ADci.C3.B3"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Gr%C3%A1f&amp;action=edit&amp;section=1" title="Szakasz szerkesztése: Definíció">szerkesztés</a>]</span> <span class="mw-headline">Definíció</span></h2>
+<p><u>Definíció</u>: Adott egy <big>A</big> <a href="/wiki/Halmaz" title="Halmaz">halmaz</a>, és egy rajta értelmezett <img class="tex" alt="\rho\subseteq A\times A " src="http://upload.wikimedia.org/math/e/7/6/e76e20037f32223904fb639f9037e2aa.png" /> bináris (kétváltozós) <a href="/wiki/Rel%C3%A1ci%C3%B3" title="Reláció">reláció</a>. Ekkor a <img class="tex" alt=" G=\left( A, \rho \right) " src="http://upload.wikimedia.org/math/a/b/e/abe9c47ec6ddcd40e962197abe66d93a.png" /> párt, vagyis az A halmaz feletti egy<a href="/w/index.php?title=Rel%C3%A1ci%C3%B3s_strukt%C3%BAra&amp;action=edit" class="new" title="Relációs struktúra">relációs struktúrát</a> az A halmaz feletti <b>gráf</b>nak nevezzük.</p>
+<p>Megjegyezzük, hogy e definíció szerint a ρ reláció rendezett elempárokból áll, azaz a gráf <b>irányított</b>, viszont „többszörös” éleket nem tartalmaz, azaz <b>egyszerű</b>.</p>
+<p><small>Ezen értelmezésen belül az irányítatlan gráf fogalma úgy értelmezhető, hogy megköveteljük a ρ reláció szimmetriáját, azaz hogy érvényes legyen <img class="tex" alt="\forall x,y \in A: (x,y)\in\rho \Leftrightarrow (y,x)\in\rho  " src="http://upload.wikimedia.org/math/9/a/0/9a09882e279c41c259afc53659758444.png" />, és ekkor az irányítatlan gráf az irányított gráf speciális esete.</small> <small>Más, filozófiailag kevésbé problematikusnak látszó, de kényelmetlenebb lehetőség is van. Ld. még <a href="/w/index.php?title=Ir%C3%A1ny%C3%ADtatlan_gr%C3%A1f&amp;action=edit" class="new" title="Irányítatlan gráf">irányítatlan gráf</a>.</small></p>
+<p><u>Definíció</u>: Az <span class="texhtml"><i>A</i></span> halmazt a <img class="tex" alt=" G=\left( A, \rho \right) " src="http://upload.wikimedia.org/math/a/b/e/abe9c47ec6ddcd40e962197abe66d93a.png" /> gráf <i>tartóhalmaz</i>ának vagy <i>csúcshalmaz</i>ának mondjuk, és (az angol „vertex”=csúcs szó rövidítéseként) <img class="tex" alt="V\left( G\right)" src="http://upload.wikimedia.org/math/a/c/9/ac9d3eb8d5ab162907d03c4f0607a924.png" />-vel jelöljük.</p>
+<p>A gráf itt megadott fogalmának rengeteg, nemcsak a <a href="/wiki/Matematika" title="Matematika">matematika</a>, hanem a <a href="/wiki/Szociol%C3%B3gia" title="Szociológia">szociológia</a>, <a href="/wiki/Sz%C3%A1m%C3%ADt%C3%A1stechnika" title="Számítástechnika">számítástechnika</a> stb. fejlődése által egyenesen kikényszerített általánosítása vagy változata létezik, lásd <a href="/wiki/Gr%C3%A1f_%28halmazelm%C3%A9let%29#.C3.81ltal.C3.A1nos.C3.ADt.C3.A1sok.2C_speci.C3.A1lis_esetek_.C3.A9s_v.C3.A1ltozatok" title="Gráf (halmazelmélet)">általánosítások, speciális esetek és változatok</a>.</p>
+<p><a name="Motiv.C3.A1ci.C3.B3" id="Motiv.C3.A1ci.C3.B3"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Gr%C3%A1f&amp;action=edit&amp;section=2" title="Szakasz szerkesztése: Motiváció">szerkesztés</a>]</span> <span class="mw-headline">Motiváció</span></h2>
+<p>A gráf általános definíciója megengedi, hogy tetszőleges szándékolt jelentést tulajdonítsunk a csúcsoknak és éleknek, ez lehetővé tette elterjedését a matematikán kívül is (<a href="/wiki/Sz%C3%A1m%C3%ADt%C3%B3g%C3%A9ptudom%C3%A1ny" title="Számítógéptudomány">számítógéptudomány</a>, <a href="/wiki/Szociol%C3%B3gia" title="Szociológia">szociológia</a> stb.). Rengeteg érdekes és szép gráfelméleti tétel és algoritmus született egy-egy valós életbeli problémára adott válaszként. Általában absztrakt gráfokkal foglalkozunk, azaz megfeledkezünk a hozzá társított jelentésről, ezt tükrözi a szóhasználat is.</p>
+<p><a name="Alapfogalmak" id="Alapfogalmak"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Gr%C3%A1f&amp;action=edit&amp;section=3" title="Szakasz szerkesztése: Alapfogalmak">szerkesztés</a>]</span> <span class="mw-headline">Alapfogalmak</span></h2>
+<div style="margin-bottom:0.7em;margin-left:2em;margin-right:2em;padding:2px;font-size:95%;text-align:left"><a href="/wiki/K%C3%A9p:Searchtool_right.svg" class="image" title="Searchtool right.svg"><img alt="" src="http://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Searchtool_right.svg/14px-Searchtool_right.svg.png" width="14" height="14" border="0" /></a> <i>Fő szócikk: <a href="/wiki/Gr%C3%A1felm%C3%A9leti_fogalomt%C3%A1r" title="Gráfelméleti fogalomtár">Gráfelméleti fogalomtár</a></i></div>
+<p>A gráf két élét <b>szomszédos</b>nak nevezzük, ha van egy közös csúcspontjuk. Hasonlóan, két csúcspont <b>szomszédos</b>, ha van egy közös élük, másként fogalmazva egy éllel vannak összekötve. Egy <b>séta</b> szomszédos csúcsok és élek váltakozó sorozata. Az önmagát nem metsző sétát <b>út</b>nak hívunk, ha első és utolsó csúcsa különbözik, illetve <b>kör</b>nek, ha ez a két csúcs megegyezik. Egy gráf <b>összefüggő</b>, ha (élei esetleges irányításáról megfeledkezve) bármely két csúcs között van út.</p>
+<p>Az ún. <b>súlyozott</b> gráfban (ami lehet irányított gráf is), minden élhez hozzárendelünk egy értéket, ami az él költsége, súlya vagy hossza az alkalmazástól függően. Az ilyen gráfok sok helyen előfordulnak, például optimalizálási feladatokban, mint az <a href="/w/index.php?title=Utaz%C3%B3_%C3%BCgyn%C3%B6k_probl%C3%A9ma&amp;action=edit" class="new" title="Utazó ügynök probléma">utazó ügynök probléma</a>.</p>
+<p><br /></p>
+<p><a name="P.C3.A9ld.C3.A1k_gr.C3.A1fok_alkalmaz.C3.A1s.C3.A1ra" id="P.C3.A9ld.C3.A1k_gr.C3.A1fok_alkalmaz.C3.A1s.C3.A1ra"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Gr%C3%A1f&amp;action=edit&amp;section=4" title="Szakasz szerkesztése: Példák gráfok alkalmazására">szerkesztés</a>]</span> <span class="mw-headline">Példák gráfok alkalmazására</span></h2>
+<p><a name="Nevezetes_s.C3.A9t.C3.A1k" id="Nevezetes_s.C3.A9t.C3.A1k"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Gr%C3%A1f&amp;action=edit&amp;section=5" title="Szakasz szerkesztése: Nevezetes séták">szerkesztés</a>]</span> <span class="mw-headline">Nevezetes séták</span></h3>
+<dl>
+<dd><i>Tudunk-e olyan sétát tenni a gráf élein, hogy</i>
+<ul>
+<li><i>minden élen pontosan egyszer megyünk végig?</i> (lásd: <a href="/wiki/K%C3%B6nigsbergi_hidak" title="Königsbergi hidak">Königsbergi hidak</a>, <a href="/wiki/Euler_k%C3%B6r" title="Euler kör">Euler kör</a>)</li>
+<li><i>minden csúcsot pontosan egyszer érintünk?</i> (lásd: <a href="/w/index.php?title=Hamilton_%C3%BAt&amp;action=edit" class="new" title="Hamilton út">Hamilton út</a>)</li>
+</ul>
+</dd>
+</dl>
+<p><small>Bár a két kérdés hasonlónak tűnik, az első megválaszolására van gyors (lineáris idejű) algoritmus (néha a diagram alapján ránézésre is eldönthető), míg a második az egyik ismert legnehezebb probléma (<a href="/w/index.php?title=NP-teljes&amp;action=edit" class="new" title="NP-teljes">NP-teljes</a>).</small></p>
+<p><a name="Legr.C3.B6videbb_utak" id="Legr.C3.B6videbb_utak"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Gr%C3%A1f&amp;action=edit&amp;section=6" title="Szakasz szerkesztése: Legrövidebb utak">szerkesztés</a>]</span> <span class="mw-headline"><a href="/w/index.php?title=Legr%C3%B6videbb_utak&amp;action=edit" class="new" title="Legrövidebb utak">Legrövidebb utak</a></span></h3>
+<p>Súlyozott gráfban:</p>
+<dl>
+<dd><i>Melyik a legrövidebb (legkisebb összsúlyú) út</i> A<i>-ból</i> B<i>-be?</i></dd>
+</dl>
+<p><small>Például, ha egy valódi úthálózatban, ahol a csúcsok a csomópontok, az élek az útszakaszok, és <i>A</i>-ból <i>B</i>-be szeretnénk eljutni, de a különböző lehetséges utak nem egyformán kedvezőek, van rövidebb (gyorsabb, olcsóbb), akkor az élekhez az éleknek megfelelő hosszt (időtartamot, árat) rendelve, a válasz a számunkra legkedvezőbb út.</small></p>
+<div class="thumb tright">
+<div class="thumbinner" style="width:182px;"><a href="/wiki/K%C3%A9p:7n_graph_with_minimal_spanning_tree2.svg" class="image" title="Súlyozott gráf a minimális feszítő fájával (piros)"><img alt="Súlyozott gráf a minimális feszítő fájával (piros)" src="http://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/7n_graph_with_minimal_spanning_tree2.svg/180px-7n_graph_with_minimal_spanning_tree2.svg.png" width="180" height="128" border="0" class="thumbimage" /></a>
+<div class="thumbcaption">
+<div class="magnify" style="float:right"><a href="/wiki/K%C3%A9p:7n_graph_with_minimal_spanning_tree2.svg" class="internal" title="Nagyít"><img src="/skins-1.5/common/images/magnify-clip.png" width="15" height="11" alt="" /></a></div>
+Súlyozott gráf a minimális feszítő fájával (piros)</div>
+</div>
+</div>
+<p><a name="Minim.C3.A1lis_fesz.C3.ADt.C5.91_fa" id="Minim.C3.A1lis_fesz.C3.ADt.C5.91_fa"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Gr%C3%A1f&amp;action=edit&amp;section=7" title="Szakasz szerkesztése: Minimális feszítő fa">szerkesztés</a>]</span> <span class="mw-headline"><a href="/w/index.php?title=Minim%C3%A1lis_fesz%C3%ADt%C5%91_fa&amp;action=edit" class="new" title="Minimális feszítő fa">Minimális feszítő fa</a></span></h3>
+<p>Súlyozott gráfban:</p>
+<dl>
+<dd><i>Válasszunk ki néhány élet úgy, hogy a gráf még összefüggő maradjon, de az élek összsúlya minimális legyen!</i></dd>
+</dl>
+<p><small>Egy létesítendő (víz-, csatorna-, számítógép-) hálózattal szemben az az elvárás, hogy ha nem is közvetlenül, de minden csomópontot kössön össze és olcsó legyen kiépíteni. A feladatot leírhatjuk egy súlyozott gráffal, melynek csúcsai a csomópontok, egy él felel meg egy lehetséges hálózati szakasznak, a kiépítési költségével súlyozva. Könnyen belátható, hogy ha a szakaszok nincsenek ingyen, akkor az így kapott legolcsóbb hálózat(ok)ban nem lesz kör (hiszen a kör egyik élét büntetlenül elhagyhatnánk). Az ilyen (összefüggő, körmentes) gráfokat hívják <a href="/wiki/Fa_%28gr%C3%A1felm%C3%A9let%29" title="Fa (gráfelmélet)">fáknak</a>.</small></p>
+<div class="thumb tright">
+<div class="thumbinner" style="width:182px;"><a href="/wiki/K%C3%A9p:5n_PERT_graph_with_critical_path2.svg" class="image" title="Egy legalább 7 egység végrehajtási idejű terv a kritikus úttal (piros)"><img alt="Egy legalább 7 egység végrehajtási idejű terv a kritikus úttal (piros)" src="http://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/5n_PERT_graph_with_critical_path2.svg/180px-5n_PERT_graph_with_critical_path2.svg.png" width="180" height="101" border="0" class="thumbimage" /></a>
+<div class="thumbcaption">
+<div class="magnify" style="float:right"><a href="/wiki/K%C3%A9p:5n_PERT_graph_with_critical_path2.svg" class="internal" title="Nagyít"><img src="/skins-1.5/common/images/magnify-clip.png" width="15" height="11" alt="" /></a></div>
+Egy legalább 7 egység végrehajtási idejű terv a kritikus úttal (piros)</div>
+</div>
+</div>
+<div class="thumb tright">
+<div class="thumbinner" style="width:182px;"><a href="/wiki/K%C3%A9p:4n_digraph_with_cycle.svg" class="image" title="Irányított gráf, benne irányított kör (piros)"><img alt="Irányított gráf, benne irányított kör (piros)" src="http://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/4n_digraph_with_cycle.svg/180px-4n_digraph_with_cycle.svg.png" width="180" height="115" border="0" class="thumbimage" /></a>
+<div class="thumbcaption">
+<div class="magnify" style="float:right"><a href="/wiki/K%C3%A9p:4n_digraph_with_cycle.svg" class="internal" title="Nagyít"><img src="/skins-1.5/common/images/magnify-clip.png" width="15" height="11" alt="" /></a></div>
+Irányított gráf, benne irányított kör (piros)</div>
+</div>
+</div>
+<p><a name="Feladat.C3.BCtemez.C3.A9s" id="Feladat.C3.BCtemez.C3.A9s"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Gr%C3%A1f&amp;action=edit&amp;section=8" title="Szakasz szerkesztése: Feladatütemezés">szerkesztés</a>]</span> <span class="mw-headline"><a href="/w/index.php?title=PERT_m%C3%B3dszer&amp;action=edit" class="new" title="PERT módszer">Feladatütemezés</a></span></h3>
+<p>Nemnegatív értékekkel súlyozott irányított gráfban:</p>
+<dl>
+<dd><i>Milyen hosszú a leghosszabb út</i> A<i>-ból</i> B<i>-be?</i></dd>
+</dl>
+<p><small>Egy projekt megszervezésénél, a különböző munkafázisokat általában nem lehet egymástól függetelenül végrehajtani. Tegyük fel, hogy a betartandó szabályok csak arra vonatkoznak, hogy egyes munkafázisok meg kell előzzenek másokat adott idővel. Természetesen adódik a kérdés, hogy lehetséges-e egyáltalán az összes szabály betartása, és ha igen mikor ér leghamarabb véget a projekt? A problémához készíthetünk egy súlyozott, <a href="/w/index.php?title=Ir%C3%A1ny%C3%ADtott_gr%C3%A1f&amp;action=edit" class="new" title="Irányított gráf">irányított gráfot</a>, melyben a csúcsok a munkafázisoknak, az irányított élek a betartandó szabályoknak felelnek meg. (Például egy építkezési szabálynak megfelelő él a gráfban: {alap betonozás}&#160;–(8)→&#160;{falazás}, azaz a két esemény között legalább 8 napnak kell eltelnie.) Ha ebben a gráfban van <a href="/w/index.php?title=Ir%C3%A1ny%C3%ADtott_k%C3%B6r&amp;action=edit" class="new" title="Irányított kör">irányított kör</a> az biztosan <a href="/w/index.php?title=Holtpont&amp;action=edit" class="new" title="Holtpont">patthelyzethez</a> vezet, hiszen ekkor néhány munkafázis közvetve a saját befejeződésére várna, ekkor nincs olyan <a href="/w/index.php?title=Topologikus_sorrend&amp;action=edit" class="new" title="Topologikus sorrend">végrehajtási sorrend</a>, mely a szabályoknak eleget tenne. Megmutatható, hogy ha a gráf <a href="/wiki/DAG" title="DAG">körmentes</a>, akkor a feladat mindig megoldható. Hogy legkorábban mikorra készül el a projekt, azt egy leghosszabb út(ak) hossza árulja el, amelyeket hívnak <i><b>kritikus ut</b></i>aknak is. A leggyorsabb befejezéshez tartozó ütemezés megtalálására van gyors (polinom idejű) algoritmus, melynek általánosabb szabályokra is felkészített változatait sok üzleti szoftver (<a href="/wiki/Projektmenedzsment" title="Projektmenedzsment">projektmenedzsment</a>) is tartalmazza. (lásd: <a href="/w/index.php?title=PERT_m%C3%B3dszer&amp;action=edit" class="new" title="PERT módszer">PERT módszer</a>)</small></p>
+<div class="thumb tright">
+<div class="thumbinner" style="width:182px;"><a href="/wiki/K%C3%A9p:Bipartite_graph_with_matching.svg" class="image" title="Párosítás (piros) páros gráfban"><img alt="Párosítás (piros) páros gráfban" src="http://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Bipartite_graph_with_matching.svg/180px-Bipartite_graph_with_matching.svg.png" width="180" height="138" border="0" class="thumbimage" /></a>
+<div class="thumbcaption">
+<div class="magnify" style="float:right"><a href="/wiki/K%C3%A9p:Bipartite_graph_with_matching.svg" class="internal" title="Nagyít"><img src="/skins-1.5/common/images/magnify-clip.png" width="15" height="11" alt="" /></a></div>
+Párosítás (piros) páros gráfban</div>
+</div>
+</div>
+<p><a name="P.C3.A1ros.C3.ADt.C3.A1sok" id="P.C3.A1ros.C3.ADt.C3.A1sok"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Gr%C3%A1f&amp;action=edit&amp;section=9" title="Szakasz szerkesztése: Párosítások">szerkesztés</a>]</span> <span class="mw-headline"><a href="/w/index.php?title=P%C3%A1ros%C3%ADt%C3%A1s_%28gr%C3%A1felm%C3%A9let%29&amp;action=edit" class="new" title="Párosítás (gráfelmélet)">Párosítások</a></span></h3>
+<p>Irányítatlan gráfban egy él két csúcsot állít párba.</p>
+<dl>
+<dd><i>Legfeljebb hány csúcsot tudunk egyszerre párba állítani, ha minden csúcs legfeljebb egy párhoz tartozhat?</i></dd>
+</dl>
+<p><small>Ez a kérdés például akkor is, ha egy csapat tagjainak akarunk egy-egy önálló feladatot kiosztani, úgy hogy a lehető legtöbb feladat legyen kiosztva. A gráf csúcsai a feladatok és az emberek, és egy élet akkor húzunk be, ha az illető el tudja végezni a feladatot. Vegyük észre, hogy a gráf csúcsai két olyan tartományra oszlanak (emberek és feladatok), amelyeken belül nem megy él. Az ilyen gráfokat <a href="/wiki/P%C3%A1ros_gr%C3%A1f" title="Páros gráf">páros gráfnak</a> hívjuk. (lásd: Párosítás páros gráfban)</small></p>
+<div class="thumb tright">
+<div class="thumbinner" style="width:162px;"><a href="/wiki/K%C3%A9p:3-coloringEx.svg" class="image" title="3 színnel színezett egyszerű gráf, kevesebb szín használata már azonos színű szomszédokat eredményezne"><img alt="3 színnel színezett egyszerű gráf, kevesebb szín használata már azonos színű szomszédokat eredményezne" src="http://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/3-coloringEx.svg/160px-3-coloringEx.svg.png" width="160" height="142" border="0" class="thumbimage" /></a>
+<div class="thumbcaption">
+<div class="magnify" style="float:right"><a href="/wiki/K%C3%A9p:3-coloringEx.svg" class="internal" title="Nagyít"><img src="/skins-1.5/common/images/magnify-clip.png" width="15" height="11" alt="" /></a></div>
+3 színnel színezett egyszerű gráf, kevesebb szín használata már azonos színű szomszédokat eredményezne</div>
+</div>
+</div>
+<p><a name="Sz.C3.ADnez.C3.A9sek" id="Sz.C3.ADnez.C3.A9sek"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Gr%C3%A1f&amp;action=edit&amp;section=10" title="Szakasz szerkesztése: Színezések">szerkesztés</a>]</span> <span class="mw-headline"><a href="/w/index.php?title=Sz%C3%ADnez%C3%A9s_%28gr%C3%A1felm%C3%A9let%29&amp;action=edit" class="new" title="Színezés (gráfelmélet)">Színezések</a></span></h3>
+<p>Egyszerű gráfban:</p>
+<dl>
+<dd><i>Legkevesebb hány szín kell a csúcsok kiszínezéséshez, ha a szomszédosak nem lehetnek egyszínűek?</i></dd>
+</dl>
+<p><small>Ezzel a feladattal szembesülünk például egy politikai térkép színezésénél. A csúcsok az országok, az élek a közös határral rendelkező országok között futnak. A természetes térképekből ilyen módon kapott gráfoknak megvan az a szép tulajdonságuk, hogy lerajzolhatóak élkeresztezések nélkül a <a href="/w/index.php?title=S%C3%ADk&amp;action=edit" class="new" title="Sík">síkba</a>. (<i>→<a href="/wiki/S%C3%ADkgr%C3%A1f" title="Síkgráf">síkgráf</a></i>) Egy diák figyelt fel rá, hogy akármilyen bonyolult térképet is választ, négy szín mindig elegendő volt a megfelelő színezéshez. Nagyon sokáig nyitott probléma volt, hogy ez mindig lehetséges-e, de végül megszületett a <a href="/wiki/N%C3%A9gysz%C3%ADn-t%C3%A9tel" title="Négyszín-tétel">négyszín-tétel</a>. A csúcsok minél kevesebb színnel színezése általános gráfokban továbbra is nehéz feladat.</small></p>
+<p><a name="Tov.C3.A1bbi_probl.C3.A9m.C3.A1k" id="Tov.C3.A1bbi_probl.C3.A9m.C3.A1k"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Gr%C3%A1f&amp;action=edit&amp;section=11" title="Szakasz szerkesztése: További problémák">szerkesztés</a>]</span> <span class="mw-headline">További problémák</span></h3>
+<ul>
+<li><a href="/w/index.php?title=H%C3%A1l%C3%B3zati_folyamok&amp;action=edit" class="new" title="Hálózati folyamok">Hálózati folyamok</a></li>
+</ul>
+<p><a name="Defin.C3.ADci.C3.B3k" id="Defin.C3.ADci.C3.B3k"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Gr%C3%A1f&amp;action=edit&amp;section=12" title="Szakasz szerkesztése: Definíciók">szerkesztés</a>]</span> <span class="mw-headline">Definíciók</span></h2>
+<p><a name="Ir.C3.A1ny.C3.ADtatlan_gr.C3.A1f" id="Ir.C3.A1ny.C3.ADtatlan_gr.C3.A1f"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Gr%C3%A1f&amp;action=edit&amp;section=13" title="Szakasz szerkesztése: Irányítatlan gráf">szerkesztés</a>]</span> <span class="mw-headline">Irányítatlan gráf</span></h3>
+<p>A <i>G</i> irányítatlan gráfot a <i>G</i>=(<i>V</i>, <i>E</i>) rendezett párral jellemezzük, ahol</p>
+<ul>
+<li><i>V</i> a csúcsok halmaza (melyről általában feltesszük, hogy véges) és</li>
+<li><i>E</i> az irányítatlan éleknek megfelelő csúcsok rendezetlen párjainak halmaza.</li>
+</ul>
+<p>Az <i>e</i>={<i>u, v</i>} élről azt mondjuk, hogy <i>u</i> és <i>v</i> <i><b>között fut</b></i>, <i><b>összeköti</b></i> <i>u</i>-t és <i>v</i>-t.</p>
+<p><a name="Ir.C3.A1ny.C3.ADtott_gr.C3.A1f" id="Ir.C3.A1ny.C3.ADtott_gr.C3.A1f"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Gr%C3%A1f&amp;action=edit&amp;section=14" title="Szakasz szerkesztése: Irányított gráf">szerkesztés</a>]</span> <span class="mw-headline">Irányított gráf</span></h3>
+<p>A <img class="tex" alt="\overrightarrow{G} = (V, \overrightarrow{E})" src="http://upload.wikimedia.org/math/f/4/0/f40c835bc5c6145b3fbeb66c229ecc36.png" /> irányított gráf:</p>
+<ul>
+<li><img class="tex" alt="\overrightarrow{E}" src="http://upload.wikimedia.org/math/6/a/f/6af495e1779e5ac9f7f1ac3ad0654299.png" /> az irányított élek végpontjai rendezett párjának halmaza</li>
+</ul>
+<p>Az <i>e</i>=(<i>u, v</i>) élről azt mondjuk, hogy <i>u</i>-ból és <i>v</i>-be <i><b>megy</b></i>, <i>v</i> az <i>u</i> <i><b>közvetlen leszármazott</b></i>ja (<i><b>gyereke</b></i>), <i>u</i> a <i>v</i> <i><b>közvetlen őse</b></i> (<i><b>szülője</b></i>).</p>
+<p>Ha egy irányított gráf nem tartalmaz <a href="/w/index.php?title=Ir%C3%A1ny%C3%ADtott_k%C3%B6r&amp;action=edit" class="new" title="Irányított kör">irányított kört</a>, akkor <a href="/wiki/DAG" title="DAG">DAG</a>-nak ('directed acyclic graph' = irányított körmentes gráf) hívjuk.</p>
+<p><a name="Vegyes_gr.C3.A1f" id="Vegyes_gr.C3.A1f"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Gr%C3%A1f&amp;action=edit&amp;section=15" title="Szakasz szerkesztése: Vegyes gráf">szerkesztés</a>]</span> <span class="mw-headline">Vegyes gráf</span></h3>
+<p>A <b>vegyes gráf</b>ot a <i>G</i>:= (<i>V</i>,<i>E</i>,<i>A</i>) hármassal lehet meghatározni, ahol <i>V</i> a csúcsok halmaza, <i>E</i> és <i>A</i> pedig az irányított éleknek megfelelő csúcsok rendezett, illetve az irányítatlan éleknek megfelelő csúcsok rendezetlen párjainak halmazai.</p>
+<p><br /></p>
+<p><a name=".C3.81ltal.C3.A1nos.C3.ADt.C3.A1sok"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Gr%C3%A1f&amp;action=edit&amp;section=16" title="Szakasz szerkesztése: Általánosítások">szerkesztés</a>]</span> <span class="mw-headline">Általánosítások</span></h3>
+<div class="thumb tright">
+<div class="thumbinner" style="width:182px;"><a href="/wiki/K%C3%A9p:3n_multigraph_unlabeled.svg" class="image" title="Multigráf, benne hurokél (kék) és többszörös élek (piros)"><img alt="Multigráf, benne hurokél (kék) és többszörös élek (piros)" src="http://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/3n_multigraph_unlabeled.svg/180px-3n_multigraph_unlabeled.svg.png" width="180" height="41" border="0" class="thumbimage" /></a>
+<div class="thumbcaption">
+<div class="magnify" style="float:right"><a href="/wiki/K%C3%A9p:3n_multigraph_unlabeled.svg" class="internal" title="Nagyít"><img src="/skins-1.5/common/images/magnify-clip.png" width="15" height="11" alt="" /></a></div>
+Multigráf, benne hurokél (kék) és többszörös élek (piros)</div>
+</div>
+</div>
+<ul>
+<li>A <i><b>hurokél</b></i> olyan él, amelynek mindkét végpontja megegyezik.</li>
+<li>A gráfokban megengedhetünk <i><b>többszörös-</b></i> vagy <i><b>párhuzamos él</b></i>eket, melyek végpontjai megegyeznek. Ehhez az élek halmazát <a href="/w/index.php?title=Multihalmaz&amp;action=edit" class="new" title="Multihalmaz">multihalmazra</a>, vagy más többszöri előfordulást lehetővé tevő struktúrára kell cserélnünk. Az olyan gráfot, amiben a többszörös élek (és esetleg a hurokélek) megengedettek, <b>multigráf</b>nak vagy <b>pszeudográf</b>nak hívjuk.</li>
+<li>Az olyan gráfokat amelyekben sem többszörös élek, sem hurokélek nincsenek <i><b>egyszerű gráf</b></i>nak hívjuk. Ekkor <i>E</i> valódi halmaz és <img class="tex" alt="E \subset {V \choose 2}" src="http://upload.wikimedia.org/math/2/8/4/2849b1391515e7e047d6ac02198166bd.png" />.</li>
+<li>Néha olyan gráfokat is megengednek, amiben olyan élek is vannak, amiknek csak egy végük van „fél-él”, vagy egy csúcshoz sem kapcsolódnak „szabad él”, pl. az <a href="/w/index.php?title=El%C5%91jeles_gr%C3%A1f&amp;action=edit" class="new" title="Előjeles gráf">előjeles gráfoknál</a>.</li>
+</ul>
+<ul>
+<li><a href="/wiki/Hipergr%C3%A1f" title="Hipergráf">Hipergráf</a> – a hipergráfban egy él kettőnél több csúcspontot is összeköthet.</li>
+<li><a href="/w/index.php?title=V%C3%A9gtelen_gr%C3%A1f&amp;action=edit" class="new" title="Végtelen gráf">Végtelen gráf</a></li>
+</ul>
+<ul>
+<li>Egy irányítatlan gráf felfogható <a href="/w/index.php?title=Simplicial_complex&amp;action=edit" class="new" title="Simplicial complex">simplicial complexnek</a> (szimpliciális komplexus), ami 1-<a href="/w/index.php?title=Simplex&amp;action=edit" class="new" title="Simplex">simplexekből</a> (élekből) és 0-simplexekből (csúcspontokból) áll. Ilyen értelemben ezek a complexek a gráfok általánosításai, mert magasabb dimenziójú simplexeket is tartalmazhatnak.</li>
+<li>Minden gráfból felírható egy <a href="/wiki/Matroid" title="Matroid">matroid</a> (pontosabban: <a href="/wiki/Grafikus_matroid" title="Grafikus matroid">grafikus matroid</a>), de általában a gráfot nem lehet visszaállítani a matroidjából, ezért a matroidok nem valódi általánosításai a gráfoknak.</li>
+</ul>
+<p><br /></p>
+<p><a name="L.C3.A9nyeges_gr.C3.A1fok" id="L.C3.A9nyeges_gr.C3.A1fok"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Gr%C3%A1f&amp;action=edit&amp;section=17" title="Szakasz szerkesztése: Lényeges gráfok">szerkesztés</a>]</span> <span class="mw-headline">Lényeges gráfok</span></h2>
+<p>Teljes gráfok</p>
+<table>
+<tr>
+<td><a href="/wiki/K%C3%A9p:Complete_graph_K1.svg" class="image" title="Complete graph K1.svg"><img alt="" src="http://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Complete_graph_K1.svg/100px-Complete_graph_K1.svg.png" width="100" height="100" border="0" /></a></td>
+<td><a href="/wiki/K%C3%A9p:Complete_graph_K2.svg" class="image" title="Complete graph K2.svg"><img alt="" src="http://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Complete_graph_K2.svg/100px-Complete_graph_K2.svg.png" width="100" height="100" border="0" /></a></td>
+<td><a href="/wiki/K%C3%A9p:Complete_graph_K3.svg" class="image" title="Complete graph K3.svg"><img alt="" src="http://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Complete_graph_K3.svg/100px-Complete_graph_K3.svg.png" width="100" height="100" border="0" /></a></td>
+<td><a href="/wiki/K%C3%A9p:Complete_graph_K4.svg" class="image" title="Complete graph K4.svg"><img alt="" src="http://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Complete_graph_K4.svg/100px-Complete_graph_K4.svg.png" width="100" height="100" border="0" /></a></td>
+<td><a href="/wiki/K%C3%A9p:Complete_graph_K5.svg" class="image" title="Complete graph K5.svg"><img alt="" src="http://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Complete_graph_K5.svg/100px-Complete_graph_K5.svg.png" width="100" height="100" border="0" /></a></td>
+<td>
+<center>&#160;&#160;...</center>
+</td>
+</tr>
+<tr>
+<td>
+<center><i>K</i><sub>1</sub></center>
+</td>
+<td>
+<center><i>K</i><sub>2</sub></center>
+</td>
+<td>
+<center><i>K</i><sub>3</sub></center>
+</td>
+<td>
+<center><i>K</i><sub>4</sub></center>
+</td>
+<td>
+<center><i>K</i><sub>5</sub></center>
+</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="/wiki/K%C3%A9p:Complete_graph_K2.svg" class="image" title="Complete graph K2.svg"><img alt="" src="http://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Complete_graph_K2.svg/100px-Complete_graph_K2.svg.png" width="100" height="100" border="0" /></a></td>
+<td><a href="/wiki/K%C3%A9p:Complete_bipartite_graph_K2%2C1.svg" class="image" title="Complete bipartite graph K2,1.svg"><img alt="" src="http://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Complete_bipartite_graph_K2%2C1.svg/100px-Complete_bipartite_graph_K2%2C1.svg.png" width="100" height="76" border="0" /></a></td>
+<td><a href="/wiki/K%C3%A9p:Path_graph_P4.svg" class="image" title="Path graph P4.svg"><img alt="" src="http://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Path_graph_P4.svg/100px-Path_graph_P4.svg.png" width="100" height="76" border="0" /></a></td>
+<td><a href="/wiki/K%C3%A9p:Path_graph_P5.svg" class="image" title="Path graph P5.svg"><img alt="" src="http://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Path_graph_P5.svg/100px-Path_graph_P5.svg.png" width="100" height="76" border="0" /></a></td>
+<td>
+<center>&#160;&#160;...</center>
+</td>
+</tr>
+<tr>
+<td></td>
+<td>
+<center><i>P</i><sub>2</sub></center>
+</td>
+<td>
+<center><i>P</i><sub>3</sub></center>
+</td>
+<td>
+<center><i>P</i><sub>4</sub></center>
+</td>
+<td>
+<center><i>P</i><sub>5</sub></center>
+</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td><a href="/wiki/K%C3%A9p:Complete_graph_K3.svg" class="image" title="Complete graph K3.svg"><img alt="" src="http://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Complete_graph_K3.svg/100px-Complete_graph_K3.svg.png" width="100" height="100" border="0" /></a></td>
+<td><a href="/wiki/K%C3%A9p:Circle_graph_C4.svg" class="image" title="Circle graph C4.svg"><img alt="" src="http://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Circle_graph_C4.svg/100px-Circle_graph_C4.svg.png" width="100" height="76" border="0" /></a></td>
+<td><a href="/wiki/K%C3%A9p:Circle_graph_C5.svg" class="image" title="Circle graph C5.svg"><img alt="" src="http://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Circle_graph_C5.svg/100px-Circle_graph_C5.svg.png" width="100" height="76" border="0" /></a></td>
+<td>
+<center>&#160;&#160;...</center>
+</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>
+<center><i>C</i><sub>3</sub></center>
+</td>
+<td>
+<center><i>C</i><sub>4</sub></center>
+</td>
+<td>
+<center><i>C</i><sub>5</sub></center>
+</td>
+</tr>
+</table>
+<p>Teljes páros gráfok</p>
+<table>
+<tr>
+<td><a href="/wiki/K%C3%A9p:Complete_bipartite_graph_K1%2C1.svg" class="image" title="Complete bipartite graph K1,1.svg"><img alt="" src="http://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Complete_bipartite_graph_K1%2C1.svg/100px-Complete_bipartite_graph_K1%2C1.svg.png" width="100" height="76" border="0" /></a></td>
+<td><a href="/wiki/K%C3%A9p:Complete_bipartite_graph_K2%2C1.svg" class="image" title="Complete bipartite graph K2,1.svg"><img alt="" src="http://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Complete_bipartite_graph_K2%2C1.svg/100px-Complete_bipartite_graph_K2%2C1.svg.png" width="100" height="76" border="0" /></a></td>
+<td><a href="/wiki/K%C3%A9p:Complete_bipartite_graph_K3%2C1.svg" class="image" title="Complete bipartite graph K3,1.svg"><img alt="" src="http://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Complete_bipartite_graph_K3%2C1.svg/100px-Complete_bipartite_graph_K3%2C1.svg.png" width="100" height="76" border="0" /></a></td>
+<td>
+<center>&#160;&#160;...</center>
+</td>
+</tr>
+<tr>
+<td>
+<center><i>K</i><sub>1,1</sub></center>
+</td>
+<td>
+<center><i>K</i><sub>1,2</sub></center>
+</td>
+<td>
+<center><i>K</i><sub>1,3</sub></center>
+</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="/wiki/K%C3%A9p:Complete_bipartite_graph_K2%2C2.svg" class="image" title="Complete bipartite graph K2,2.svg"><img alt="" src="http://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Complete_bipartite_graph_K2%2C2.svg/100px-Complete_bipartite_graph_K2%2C2.svg.png" width="100" height="76" border="0" /></a></td>
+<td><a href="/wiki/K%C3%A9p:Complete_bipartite_graph_K3%2C2.svg" class="image" title="Complete bipartite graph K3,2.svg"><img alt="" src="http://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Complete_bipartite_graph_K3%2C2.svg/100px-Complete_bipartite_graph_K3%2C2.svg.png" width="100" height="76" border="0" /></a></td>
+<td>
+<center>&#160;&#160;...</center>
+</td>
+</tr>
+<tr>
+<td>
+<center><i>K</i><sub>2,1</sub></center>
+</td>
+<td>
+<center><i>K</i><sub>2,2</sub></center>
+</td>
+<td>
+<center><i>K</i><sub>2,3</sub></center>
+</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td><a href="/wiki/K%C3%A9p:Complete_bipartite_graph_K3%2C3.svg" class="image" title="Complete bipartite graph K3,3.svg"><img alt="" src="http://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Complete_bipartite_graph_K3%2C3.svg/100px-Complete_bipartite_graph_K3%2C3.svg.png" width="100" height="76" border="0" /></a></td>
+<td>
+<center>&#160;&#160;...</center>
+</td>
+</tr>
+<tr>
+<td>
+<center><i>K</i><sub>3,1</sub></center>
+</td>
+<td>
+<center><i>K</i><sub>3,2</sub></center>
+</td>
+<td>
+<center><i>K</i><sub>3,3</sub></center>
+</td>
+</tr>
+</table>
+<p><br />
+Alapvető gráfok:</p>
+<ul>
+<li><a href="/wiki/Teljes_gr%C3%A1f" title="Teljes gráf">Teljes gráfok</a> (<span class="texhtml"><i>K</i><sub><i>n</i></sub></span>)</li>
+<li><a href="/w/index.php?title=%C3%9At_%28gr%C3%A1felm%C3%A9let%29&amp;action=edit" class="new" title="Út (gráfelmélet)">Utak</a> (<span class="texhtml"><i>P</i><sub><i>n</i></sub></span>)</li>
+<li><a href="/w/index.php?title=K%C3%B6r_%28gr%C3%A1felm%C3%A9let%29&amp;action=edit" class="new" title="Kör (gráfelmélet)">Körök</a> (<span class="texhtml"><i>C</i><sub><i>n</i></sub></span>)</li>
+<li><a href="/wiki/P%C3%A1ros_gr%C3%A1f" title="Páros gráf">Páros gráfok</a> (<span class="texhtml"><i>G</i> = (<i>A</i>,<i>B</i>;<i>E</i>)</span>)</li>
+<li><a href="/wiki/Teljes_p%C3%A1ros_gr%C3%A1f" title="Teljes páros gráf">Teljes páros gráfok</a> (<span class="texhtml"><i>K</i><sub><i>n</i>,<i>m</i></sub></span>)</li>
+<li><a href="/wiki/Fa_%28gr%C3%A1felm%C3%A9let%29" title="Fa (gráfelmélet)">Fák</a></li>
+<li><a href="/wiki/Erd%C5%91_%28gr%C3%A1felm%C3%A9let%29" title="Erdő (gráfelmélet)">Erdők</a></li>
+</ul>
+<p>Bonyolultabb gráfosztályok:</p>
+<ul>
+<li><a href="/wiki/S%C3%ADkgr%C3%A1f" title="Síkgráf">Síkgráfok</a></li>
+<li><a href="/wiki/Perfekt_gr%C3%A1f" title="Perfekt gráf">Perfekt gráfok</a></li>
+<li><a href="/wiki/Regul%C3%A1ris_gr%C3%A1f" title="Reguláris gráf">Reguláris gráfok</a></li>
+</ul>
+<p>Híres gráfok:</p>
+<ul>
+<li><a href="/wiki/Petersen-gr%C3%A1f" title="Petersen-gráf">Petersen-gráf</a></li>
+<li><a href="/w/index.php?title=Gr%C3%B6tzsch-gr%C3%A1f&amp;action=edit" class="new" title="Grötzsch-gráf">Grötzsch-gráf</a></li>
+<li><a href="/w/index.php?title=Kuratowski-gr%C3%A1fok&amp;action=edit" class="new" title="Kuratowski-gráfok">Kuratowski-gráfok</a></li>
+<li><a href="/wiki/Mycielski-konstrukci%C3%B3" title="Mycielski-konstrukció">Mycielski-gráfok</a></li>
+<li><a href="/w/index.php?title=Fibonacci_fa&amp;action=edit" class="new" title="Fibonacci fa">Fibonacci fák</a></li>
+</ul>
+<p><a name="Gr.C3.A1fokon_.C3.A9rtelmezett_m.C5.B1veletek" id="Gr.C3.A1fokon_.C3.A9rtelmezett_m.C5.B1veletek"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Gr%C3%A1f&amp;action=edit&amp;section=18" title="Szakasz szerkesztése: Gráfokon értelmezett műveletek">szerkesztés</a>]</span> <span class="mw-headline">Gráfokon értelmezett műveletek</span></h2>
+<p>Több olyan művelet ismert, ami gráfokon értelmezett és gráfokat eredményez.</p>
+<p><a name="Un.C3.A1ris_m.C5.B1veletek" id="Un.C3.A1ris_m.C5.B1veletek"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Gr%C3%A1f&amp;action=edit&amp;section=19" title="Szakasz szerkesztése: Unáris műveletek">szerkesztés</a>]</span> <span class="mw-headline">Unáris műveletek</span></h3>
+<ul>
+<li><a href="/w/index.php?title=%C3%89lgr%C3%A1f&amp;action=edit" class="new" title="Élgráf">Élgráf</a> (az a gráf, amiben a csúcspontok az eredeti gráf élei, és viszont)</li>
+<li><a href="/w/index.php?title=Du%C3%A1lis_gr%C3%A1f&amp;action=edit" class="new" title="Duális gráf">Duális gráf</a></li>
+<li><a href="/wiki/Komplementer_gr%C3%A1f" title="Komplementer gráf">Komplementer gráf</a></li>
+</ul>
+<p><a name="Bin.C3.A1ris_m.C5.B1veletek" id="Bin.C3.A1ris_m.C5.B1veletek"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Gr%C3%A1f&amp;action=edit&amp;section=20" title="Szakasz szerkesztése: Bináris műveletek">szerkesztés</a>]</span> <span class="mw-headline">Bináris műveletek</span></h3>
+<ul>
+<li><a href="/w/index.php?title=Gr%C3%A1fok_Descartes-szorzata&amp;action=edit" class="new" title="Gráfok Descartes-szorzata">Gráfok Descartes-szorzata</a></li>
+<li><a href="/w/index.php?title=Gr%C3%A1fok_tenzorszorzata&amp;action=edit" class="new" title="Gráfok tenzorszorzata">Gráfok tenzorszorzata</a></li>
+<li>Gráfok erős szorzata</li>
+<li>Gráfok lexikografikus szorzata</li>
+<li>Gráfok zig-zag szorzata</li>
+</ul>
+<p><a name="Gr.C3.A1ftopol.C3.B3giai_fogalmak" id="Gr.C3.A1ftopol.C3.B3giai_fogalmak"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Gr%C3%A1f&amp;action=edit&amp;section=21" title="Szakasz szerkesztése: Gráftopológiai fogalmak">szerkesztés</a>]</span> <span class="mw-headline">Gráftopológiai fogalmak</span></h2>
+<p><a name="Sz.C3.BCl.C5.91.2C_ut.C3.B3d.2C_fok" id="Sz.C3.BCl.C5.91.2C_ut.C3.B3d.2C_fok"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Gr%C3%A1f&amp;action=edit&amp;section=22" title="Szakasz szerkesztése: Szülő, utód, fok">szerkesztés</a>]</span> <span class="mw-headline">Szülő, utód, fok</span></h3>
+<p><u>Definíció</u>: Az <img class="tex" alt="x \in V \left( G \right) " src="http://upload.wikimedia.org/math/1/a/3/1a36d63668b049f81ce451b4f27eaca7.png" /> csúcsot az <img class="tex" alt="y \in V \left( G \right) " src="http://upload.wikimedia.org/math/b/e/2/be254d56ad792e4e0896f81a9c138306.png" /> csúcs <b>szülő</b>jének, míg <span class="texhtml"><i>y</i></span>-t az <span class="texhtml"><i>x</i></span> <b>utód</b>ának vagy gyermekének nevezzük a G irányított gráfban, ha <img class="tex" alt="\left( x,y \right) \in \rho" src="http://upload.wikimedia.org/math/6/2/0/620a532f256f88152dbe92ad701a6358.png" />.</p>
+<p>Az x csúcs utódainak halmazát <img class="tex" alt=" \Gamma \left( x \right) " src="http://upload.wikimedia.org/math/d/a/8/da876bdb84c95a2e25e42e2fcaac34e7.png" /> szokta jelölni:<br /></p>
+<center><img class="tex" alt=" \Gamma \left( x \right)&#160;:= \left \{ y \in V \left( G \right)&#160;: \left( x,y \right) \in \rho \right \} " src="http://upload.wikimedia.org/math/b/e/c/bec37688f36795db76b402a7f8bd3056.png" /></center>
+<p>Az x csúcs szülőinek halmazát mi úgy jelöljük majd, <img class="tex" alt=" \mbox{L} \left( x \right) " src="http://upload.wikimedia.org/math/1/5/f/15f5ed8898743e921f8aa4fc2ea6158d.png" />:<br /></p>
+<center><img class="tex" alt=" \mbox{L} \left( x \right)&#160;:= \left \{ y \in V \left( G \right)&#160;: \left( y,x \right) \in \rho \right \} " src="http://upload.wikimedia.org/math/0/1/2/012f1753c33ed27eefac5311d9e51449.png" /></center>
+<p>Az utódok számát <b>külfok</b>nak (vagy talán még rosszabbul hangzó kifejezéssel <i>kifok</i>nak) nevezik;<br />
+<br /></p>
+<center><img class="tex" alt=" od\!g(x)= \underline{dg}(x)&#160;:= \left| \Gamma \left(x \right) \right| " src="http://upload.wikimedia.org/math/a/4/8/a48596e3c003cfd196a077f42755aa21.png" /> (külfok)</center>
+<p><br /></p>
+<p>míg a szülők számát <b>belfok</b>nak (<i>befok</i>):<br /></p>
+<center><img class="tex" alt=" id\!g(x)= \overline{dg}(x)&#160;:= \left| \mbox{L} \left(x \right) \right| " src="http://upload.wikimedia.org/math/4/8/5/48583c7b99aaf7c0a05be602ac21d522.png" /> (belfok)</center>
+<p><br /></p>
+<p><u>Definíció</u>: Egy irányított gráf valamely csúcsát <b>alulról izolált</b>nak nevezzük, ha a gráf egyik nem hurkolt élének sem kezdőpontja, azaz belőle egy másik csúcshoz sem vezet él. Azaz: <img class="tex" alt="x\in\rho " src="http://upload.wikimedia.org/math/1/c/8/1c81ad255be7fe04699c308e6fbf8613.png" /> izolált, ha <img class="tex" alt="\forall y  \in V \left( G \right) - \left \{ x \right \}&#160;: \left( x,y \right) \not \in \rho " src="http://upload.wikimedia.org/math/3/4/f/34fc21735d609becc052086e5132bba0.png" />.</p>
+<p><u>Definíció</u>: Egy gráf valamely csúcsát <b>felülről izolált</b>nak nevezzük, ha a gráf egyik nem hurkolt élének sem végpontja, azaz hozzá egyik másik csúcsból sem vezet él. Azaz: <img class="tex" alt=" y \in\rho " src="http://upload.wikimedia.org/math/f/d/1/fd16d7390da6d8438238d9c2f191829d.png" /> izolált, ha <img class="tex" alt="\forall x  \in V \left( G \right) - \left \{ y \right \}&#160;: \left( x,y \right) \not \in \rho " src="http://upload.wikimedia.org/math/2/d/8/2d8d37e161c245664034d12f3cb83933.png" />.</p>
+<p><a name="Hurok.2C_el.C3.A1gaz.C3.A1s" id="Hurok.2C_el.C3.A1gaz.C3.A1s"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Gr%C3%A1f&amp;action=edit&amp;section=23" title="Szakasz szerkesztése: Hurok, elágazás">szerkesztés</a>]</span> <span class="mw-headline">Hurok, elágazás</span></h3>
+<p><u>Definíció</u>: Az <img class="tex" alt=" \left( x,x \right) " src="http://upload.wikimedia.org/math/5/1/2/512dcf186c0e49ba77185525320fdcd8.png" /> alakú éleket, azaz melyek kezdő- és végpontja egybeesik, <b>hurok</b>nak nevezzük. Ezt az <img class="tex" alt="x\in V(G)" src="http://upload.wikimedia.org/math/4/8/9/4899981040571187bbff7447bc6ba24a.png" /> pontbeli huroknak mondjuk.</p>
+<p>Ha a ρ reláció <a href="/wiki/Reflex%C3%ADv" title="Reflexív">reflexív</a>, akkor minden pontban van hurok is.</p>
+<p><u>Definíció</u>: Azt mondjuk, az <img class="tex" alt=" x\in V\left( G\right) " src="http://upload.wikimedia.org/math/1/a/3/1a36d63668b049f81ce451b4f27eaca7.png" /> csúcsban a gráf <b>elágazik</b>, ha található két (különböző) él, melyek kezdőpontja épp x. Ekkor az x pontot <b>elágazás</b>nak nevezzük. Ez pontosan akkor teljesül, ha<br />
+<img class="tex" alt="\exists y,z \in V \left( G \right)&#160;: \left( y \ne z \wedge \left( x,y \right) , \left( x,z\right) \in \rho \right) " src="http://upload.wikimedia.org/math/7/2/7/7273ddbdbe6af14ae62e88c1fb8b3d0a.png" /><br />
+Az elágazás <i>valódi</i>, ha egyik él sem hurok.</p>
+<p><u>Definíció</u>: Azt mondjuk, az <img class="tex" alt=" x\in V\left( G\right) " src="http://upload.wikimedia.org/math/1/a/3/1a36d63668b049f81ce451b4f27eaca7.png" /> csúcsban a gráf néhány éle <b>összefut</b>, ha található két (különböző) él, melyek végpontja épp x. Ekkor az x pontot <b>csomó</b>nak nevezzük. Ez pontosan akkor teljesül, ha<br />
+<img class="tex" alt="\exists y,z \in V \left( G \right)&#160;: \left( y \ne z \wedge \left( y,x \right) , \left( z,x \right) \in \rho \right) " src="http://upload.wikimedia.org/math/1/f/6/1f6f5391daf9ed17814d38565fad7bf2.png" /><br />
+A csomó elágazás <i>valódi</i>, ha egyik él sem hurok.</p>
+<p>Az incidenciamátrixból jól leolvashatóak a gráf egyes topológiai jellemzői. Pl. ha a <a href="/w/index.php?title=F%C5%91%C3%A1tl%C3%B3&amp;action=edit" class="new" title="Főátló">főátló</a> egyik cellájában 1-es van, akkor a megfelelő elem hurkolt. Általában az a-adik sor b-edik eleme az (a,b) élnek felel meg (és nem megfordítva, az a-adik oszlop b-edik sorának eleme); e megállapodással egy sorban két egyes azt jelenti, hogy a megfelelő elem egy elágazás; míg egy oszlopban két egyes azt, hogy az oszlop megfelelő eleme csomó. Az összes él száma az incidenciamátrix elemeinek összege, egy adott sor(ban lévő 1-esek) összege a sor elemének külfoka, az oszlopokban álló egyesek összege a megfelelő elem belfoka stb.</p>
+<p><a name="Egy.C3.A9b_speci.C3.A1lis_r.C3.A9szgr.C3.A1fok" id="Egy.C3.A9b_speci.C3.A1lis_r.C3.A9szgr.C3.A1fok"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Gr%C3%A1f&amp;action=edit&amp;section=24" title="Szakasz szerkesztése: Egyéb speciális részgráfok">szerkesztés</a>]</span> <span class="mw-headline">Egyéb speciális részgráfok</span></h3>
+<p><u>Definíció</u>: <b>Sétá</b>nak nevezzük a <img class="tex" alt="G = \left( A, \rho \right) " src="http://upload.wikimedia.org/math/a/b/e/abe9c47ec6ddcd40e962197abe66d93a.png" /> gráf éleinek olyan sorozatát, melyben minden él végpontja megegyezik a következő él kezdőpontjával – feltéve hogy létezik következő él (véges út esetén persze van utolsó él, nincs minden élre következő él).</p>
+<p>Azaz séta egy <img class="tex" alt="\left( x_{i},y_{i} \right) _{i\in I= \left\{ 1,2,...,n \right\} } " src="http://upload.wikimedia.org/math/9/6/4/9644ec4f10e979b200eb11b21537e5dc.png" /> sorozat, ahol <img class="tex" alt=" \forall i\in I: \left( (x_{i} , y_{i} ) \in A \wedge y_{i} = x_{i+1} \right) " src="http://upload.wikimedia.org/math/c/1/9/c1966473123599299bd8dab20483b446.png" /><br />
+<br />
+A séta tartalmazhat elágazásokat és csomókat is. A legegyszerűbb példa egy ilyen sétára valamely a <img class="tex" alt="G = \left( \left \{ a,b,c, \right\} , \left\{ \left( a,b \right) , \left( a,c \right) , \left( b,a \right) \right\} \right) " src="http://upload.wikimedia.org/math/e/e/7/ee7ffce97052c9f2851898e3ff955444.png" /> gráf 3 hosszúságú <img class="tex" alt="\left(a,b\right) ,\left( b,a\right) ,\left( a,c \right) " src="http://upload.wikimedia.org/math/7/8/2/78258ab4c1ff806a6846db2dad76f687.png" /> sétája.</p>
+<p><u>Definíció</u>: <b>Vonal</b>nak nevezünk egy csomókat és elágazásokat nem tartalmazó sétát.</p>
+<p><u>Definíció</u>: <b>Út</b>nak nevezünk egy önmagát nem metsző vonalat, azaz olyan vonalat, melyben ha két él metszi egymást, akkor azok a vonalban mint élsorozatban szomszédosak (ti. a sorozatban egymás után következnek).</p>
+<p><u>Definíció</u>: <b>Kör</b>nek nevezünk egy olyan véges vonalat, melynek kezdő-és végpontja egybeesik.<br /></p>
+<p><u>Definíció</u>: Egy gráfot <b>összefüggő</b>nek nevezünk, ha tetszőleges két pontja közt találunk utat.</p>
+<p><u>Definíció</u>: Egy gráfot <b>erdő</b>nek nevezünk, ha nem tartalmaz kört.</p>
+<p><u>Definíció</u>: Egy összefüggő gráfot <b>fá</b>nak nevezünk, ha erdő (nem tartalmaz kört).</p>
+<p><br /></p>
+<div class="boilerplate metadata" id="stub" style="clear:both; border:solid #A8A8A8; border-width: 1px 0; background:#ffffff; margin:0 auto; padding:0.2em 0 0.6em 0.6em;">
+<center>
+<table>
+<tr>
+<td style="border:0; text-align:center;"><a href="/wiki/K%C3%A9p:P_math.png" class="image" title="P math.png"><img alt="" src="http://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/P_math.png/60px-P_math.png" width="60" height="53" border="0" /></a></td>
+<td style="border:0; text-align:center; padding:0 5px;"><i>Ez a <a href="/wiki/Matematika" title="Matematika">matematikai</a> tárgyú lap még csak <a href="/wiki/Seg%C3%ADts%C3%A9g:Csonk" title="Segítség:Csonk">csonk</a> (azaz erősen hiányos). <span class="plainlinks"><a href="http://hu.wikipedia.org/w/index.php?title=Gr%C3%A1f&amp;action=edit" class="external text" title="http://hu.wikipedia.org/w/index.php?title=Gr%C3%A1f&amp;action=edit" rel="nofollow">Segíts</a> te is, hogy igazi szócikk lehessen belőle!</span></i></td>
+</tr>
+</table>
+</center>
+</div>
+
+<!-- 
+Pre-expand include size: 2668 bytes
+Post-expand include size: 2297 bytes
+Template argument size: 232 bytes
+Maximum: 2048000 bytes
+-->
+
+<!-- Saved in parser cache with key huwiki:pcache:idhash:79919-0!1!0!!hu!2 and timestamp 20070914223539 -->
+<div class="printfooter">
+A lap eredeti címe "<a href="http://hu.wikipedia.org/wiki/Gr%C3%A1f">http://hu.wikipedia.org/wiki/Gr%C3%A1f</a>"</div>
+			<div id="catlinks"><p class='catlinks'><a href="/wiki/Wikip%C3%A9dia:Hogyan_haszn%C3%A1ld_a_kateg%C3%B3ri%C3%A1kat" title="Wikipédia:Hogyan használd a kategóriákat">Kategóriák</a>: <span dir='ltr'><a href="/wiki/Kateg%C3%B3ria:Csonkok_%28matematika%29" title="Kategória:Csonkok (matematika)">Csonkok (matematika)</a></span> | <span dir='ltr'><a href="/wiki/Kateg%C3%B3ria:Csonkok_2006_j%C3%BAnius%C3%A1b%C3%B3l" title="Kategória:Csonkok 2006 júniusából">Csonkok 2006 júniusából</a></span> | <span dir='ltr'><a href="/wiki/Kateg%C3%B3ria:Gr%C3%A1felm%C3%A9let" title="Kategória:Gráfelmélet">Gráfelmélet</a></span> | <span dir='ltr'><a href="/wiki/Kateg%C3%B3ria:Halmazelm%C3%A9let" title="Kategória:Halmazelmélet">Halmazelmélet</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Nézetek</h5>
+		<div class="pBody">
+			<ul>
+					 <li id="ca-nstab-main" class="selected"><a href="/wiki/Gr%C3%A1f" title="Lap megtekintése [c]" accesskey="c">Szócikk</a></li>
+					 <li id="ca-talk"><a href="/wiki/Vita:Gr%C3%A1f" title="Az oldal tartalmának megvitatása [t]" accesskey="t">Vitalap</a></li>
+					 <li id="ca-edit"><a href="/w/index.php?title=Gr%C3%A1f&amp;action=edit" title="Te is szerkesztheted ezt az oldalt. Mielőtt elmentenéd, használd az előnézetet. [e]" accesskey="e">Szerkesztés</a></li>
+					 <li id="ca-history"><a href="/w/index.php?title=Gr%C3%A1f&amp;action=history" title="A lap korábbi változatai [h]" accesskey="h">Laptörténet</a></li>
+				</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-personal">
+		<h5>Személyes eszközök</h5>
+		<div class="pBody">
+			<ul>
+				<li id="pt-login"><a href="/w/index.php?title=Speci%C3%A1lis:Bel%C3%A9p%C3%A9s&amp;returnto=Gr%C3%A1f" title="Bejelentkezni javasolt, de nem kötelező. [o]" accesskey="o">Belépés</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-logo">
+		<a style="background-image: url(http://upload.wikimedia.org/wikipedia/hu/b/bc/Wiki.png);" href="/wiki/Kezd%C5%91lap" title="Kezdőlap megtekintése [z]" accesskey="z"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigáció</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="/wiki/Kezd%C5%91lap" title="Kezdőlap megtekintése [z]" accesskey="z">Kezdőlap</a></li>
+				<li id="n-portal"><a href="/wiki/Wikip%C3%A9dia:K%C3%B6z%C3%B6ss%C3%A9gi_port%C3%A1l" title="A közösségről, miben segíthetsz, mit hol találsz meg">Közösségi portál</a></li>
+				<li id="n-Kiemelt-sz.C3.B3cikkek"><a href="/wiki/Wikip%C3%A9dia:Kiemelt_sz%C3%B3cikkek">Kiemelt szócikkek</a></li>
+				<li id="n-recentchanges"><a href="/wiki/Speci%C3%A1lis:Friss_v%C3%A1ltoztat%C3%A1sok" title="A wikin történt legutóbbi változtatások listája [r]" accesskey="r">Friss változtatások</a></li>
+				<li id="n-randompage"><a href="/wiki/Speci%C3%A1lis:Lap_tal%C3%A1lomra" title="Egy véletlenszerűen kiválasztott lap betöltése [x]" accesskey="x">Lap találomra</a></li>
+				<li id="n-help"><a href="/wiki/Seg%C3%ADts%C3%A9g:Tartalom" title="Ha bármi problémád van...">Segítség</a></li>
+				<li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Gy%C5%B1jt%C5%91kamp%C3%A1ny" title="Támogass minket!">Adományok</a></li>
+			</ul>
+		</div>
+	</div>
+		<div id="p-search" class="portlet">
+		<h5><label for="searchInput">Keresés</label></h5>
+		<div id="searchBody" class="pBody">
+			<form action="/wiki/Speci%C3%A1lis:Search" id="searchform"><div>
+				<input id="searchInput" name="search" type="text" title="Keresés a Wikipédián [f]" accesskey="f" value="" />
+				<input type='submit' name="go" class="searchButton" id="searchGoButton"	value="Menj" />&nbsp;
+				<input type='submit' name="fulltext" class="searchButton" id="mw-searchButton" value="Keresés" />
+			</div></form>
+		</div>
+	</div>
+	<div class="portlet" id="p-tb">
+		<h5>Eszközök</h5>
+		<div class="pBody">
+			<ul>
+				<li id="t-whatlinkshere"><a href="/wiki/Speci%C3%A1lis:Mi_hivatkozik_erre/Gr%C3%A1f" title="Az erre a lapra hivatkozó más lapok listája [j]" accesskey="j">Mi hivatkozik erre</a></li>
+				<li id="t-recentchangeslinked"><a href="/wiki/Speci%C3%A1lis:Kapcsol%C3%B3d%C3%B3_v%C3%A1ltoztat%C3%A1sok/Gr%C3%A1f" title="Az erről a lapról hivatkozott lapok utolsó változtatásai [k]" accesskey="k">Kapcsolódó változtatások</a></li>
+<li id="t-upload"><a href="/wiki/Speci%C3%A1lis:Felt%C3%B6lt%C3%A9s" title="Képek vagy egyéb fájlok feltöltése [u]" accesskey="u">Fájl feltöltése</a></li>
+<li id="t-specialpages"><a href="/wiki/Speci%C3%A1lis:Speci%C3%A1lis_lapok" title="Az összes speciális lap listája [q]" accesskey="q">Speciális lapok</a></li>
+				<li id="t-print"><a href="/w/index.php?title=Gr%C3%A1f&amp;printable=yes" title="Printable version of this page [p]" accesskey="p">Nyomtatható változat</a></li>				<li id="t-permalink"><a href="/w/index.php?title=Gr%C3%A1f&amp;oldid=1916924" title="Permanent link to this version of the page">Link erre a változatra</a></li><li id="t-cite"><a href="/w/index.php?title=Speci%C3%A1lis:Cite&amp;page=Gr%C3%A1f&amp;id=1916924">Irodalomjegyzékbe</a></li>			</ul>
+		</div>
+	</div>
+	<div id="p-lang" class="portlet">
+		<h5>Más nyelveken</h5>
+		<div class="pBody">
+			<ul>
+				<li class="interwiki-en"><a href="http://en.wikipedia.org/wiki/Graph_%28mathematics%29">English</a></li>
+				<li class="interwiki-bg"><a href="http://bg.wikipedia.org/wiki/%D0%93%D1%80%D0%B0%D1%84_%28%D0%BC%D0%B0%D1%82%D0%B5%D0%BC%D0%B0%D1%82%D0%B8%D0%BA%D0%B0%29">Български</a></li>
+				<li class="interwiki-ca"><a href="http://ca.wikipedia.org/wiki/Graf">Català</a></li>
+				<li class="interwiki-cs"><a href="http://cs.wikipedia.org/wiki/Graf_%28teorie_graf%C5%AF%29">Česky</a></li>
+				<li class="interwiki-de"><a href="http://de.wikipedia.org/wiki/Graph_%28Graphentheorie%29">Deutsch</a></li>
+				<li class="interwiki-es"><a href="http://es.wikipedia.org/wiki/Grafo">Español</a></li>
+				<li class="interwiki-fr"><a href="http://fr.wikipedia.org/wiki/Graphe_%28th%C3%A9orie_des_graphes%29">Français</a></li>
+				<li class="interwiki-ko"><a href="http://ko.wikipedia.org/wiki/%EA%B7%B8%EB%9E%98%ED%94%84">한국어</a></li>
+				<li class="interwiki-it"><a href="http://it.wikipedia.org/wiki/Grafo">Italiano</a></li>
+				<li class="interwiki-lt"><a href="http://lt.wikipedia.org/wiki/Grafas_%28matematika%29">Lietuvių</a></li>
+				<li class="interwiki-nl"><a href="http://nl.wikipedia.org/wiki/Graaf_%28wiskunde%29">Nederlands</a></li>
+				<li class="interwiki-pl"><a href="http://pl.wikipedia.org/wiki/Graf_%28matematyka%29">Polski</a></li>
+				<li class="interwiki-ru"><a href="http://ru.wikipedia.org/wiki/%D0%93%D1%80%D0%B0%D1%84_%28%D0%BC%D0%B0%D1%82%D0%B5%D0%BC%D0%B0%D1%82%D0%B8%D0%BA%D0%B0%29">Русский</a></li>
+				<li class="interwiki-sk"><a href="http://sk.wikipedia.org/wiki/Graf_%28matematika%29">Slovenčina</a></li>
+				<li class="interwiki-sv"><a href="http://sv.wikipedia.org/wiki/Graf">Svenska</a></li>
+				<li class="interwiki-th"><a href="http://th.wikipedia.org/wiki/%E0%B8%81%E0%B8%A3%E0%B8%B2%E0%B8%9F_%28%E0%B8%84%E0%B8%93%E0%B8%B4%E0%B8%95%E0%B8%A8%E0%B8%B2%E0%B8%AA%E0%B8%95%E0%B8%A3%E0%B9%8C%29">ไทย</a></li>
+				<li class="interwiki-uk"><a href="http://uk.wikipedia.org/wiki/%D0%93%D1%80%D0%B0%D1%84_%28%D0%BC%D0%B0%D1%82%D0%B5%D0%BC%D0%B0%D1%82%D0%B8%D0%BA%D0%B0%29">Українська</a></li>
+				<li class="interwiki-zh"><a href="http://zh.wikipedia.org/wiki/%E5%9B%BE">中文</a></li>
+			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="/skins-1.5/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>
+				<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="/images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>
+			<ul id="f-list">
+				<li id="lastmod"> A lap utolsó módosítása 14:52, 2007. július 20.<img src="http://stats.wikipedia.hu/huwp_counter.png-Wikipédia-:Gráf" alt="." /></li>
+				<li id="copyright">A lap szövege a <a class='internal' href="/wiki/Wikip%C3%A9dia:A_GNU_Free_Documentation_License_sz%C3%B6vege" title="Wikipédia:A GNU Free Documentation License szövege">GNU Free Documentation License</a> feltételei szerint használható fel (lásd a <b><a class='internal' href="/wiki/Wikip%C3%A9dia:Felhaszn%C3%A1l%C3%A1si_felt%C3%A9telek" title="Wikipédia:Felhasználási feltételek">Wikipédia:Felhasználási feltételek</a></b> lapot).
+<br />
+A Wikipedia&reg; a <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc.</a> bejegyzett védjegye.</li>
+				<li id="privacy"><a href="/wiki/Wikip%C3%A9dia:Adatv%C3%A9delmi_ir%C3%A1nyelvek" title="Wikipédia:Adatvédelmi irányelvek">Adatvédelmi irányelvek</a></li>
+				<li id="about"><a href="/wiki/Wikip%C3%A9dia:A_Wikip%C3%A9di%C3%A1r%C3%B3l" title="Wikipédia:A Wikipédiáról">A Wikipédiáról</a></li>
+				<li id="disclaimer"><a href="/wiki/Wikip%C3%A9dia:Jogi_nyilatkozat" title="Wikipédia:Jogi nyilatkozat">Jogi nyilatkozat</a></li>
+			</ul>
+		</div>
+		
+	
+		<script type="text/javascript">if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by humboldt in 1.341 secs. --></body></html>

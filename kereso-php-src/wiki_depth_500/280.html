@@ -1,0 +1,220 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en"><!--
+
+
+
+
+
+      DO NOT EDIT
+
+
+      
+        
+        
+        
+        
+        
+
+
+
+
+
+
+
+        
+      --><!--
+	filename: GameProgramming/index.html--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><base target="_top" href="http://theory.stanford.edu/~amitp/GameProgramming/"><title>Amit's A* Pages</title><link rel="shortcut icon" href="http://www-cs-students.stanford.edu/~amitp/favicon.ico"><meta name="verify-v1" content="82b+h1+tgwLrcTqTiJrqquMvoFVBwMwY11dx63m01zk="><meta name="robots" content="noodp"><link rel="stylesheet" href="/~amitp/main.css" type="text/css"><style type="text/css"><!--
+  ol li { list-style-type: decimal; }
+  ol ol li { list-style-type: lower-alpha; }
+  ol ol ol li { list-style-type: lower-roman; }
+  div.figure { margin-left: 0em; text-align: center; }
+--></style></head><body class="gameprog"><h1>Amit's A* Pages</h1><div class="nav"><ul><li><a href="http://www-cs-students.stanford.edu/~amitp/">Amit's Home</a></li><li><a href="http://amitp.blogspot.com/">Amit's Blog</a></li><li><strong><a href="http://www-cs-students.stanford.edu/~amitp/gameprog.html">Game Programming</a></strong></li><li><a href="http://simblob.blogspot.com/">Game Programming Blog</a></li></ul><script src="http://images.del.icio.us/static/js/blogbadge.js"></script><form id="searchbox_015053491556836196840:0hqisdtq4p0" action="http://google.com/coop/cse"><div style="text-align:center"><label for="query">Search site:</label><input type="hidden" name="cx" value="015053491556836196840:0hqisdtq4p0"><input id="query" name="q" type="text" size="15"><input type="hidden" name="cof" value="FORID:0"></div></form></div><div class="main"><div class="main1"><div class="main2"><div class="main3">
+
+
+
+<div class="topic">
+<p>The problem we're trying to solve is to get a game object from the
+starting point to a goal.  <em>Pathfinding</em> addresses the problem of
+finding a good path from the starting point to the goal―avoiding
+obstacles, avoiding enemies, and minimizing costs (fuel, time,
+distance, equipment, money, etc.).  <em>Movement</em> addresses the
+problem of taking a path and moving along it.  It's possible to spend
+your efforts on only one of these.  At one extreme, a sophisticated
+pathfinder coupled with a trivial movement algorithm would find a path
+when the object begins to move and the object would follow that path,
+oblivious to everything else.  At the other extreme, a movement-only
+system would not look ahead to find a path (instead, the initial
+"path" would be a straight line), but instead take one step at a time,
+considering the local environment at every point.  Best results are
+achieved by using both pathfinding and movement algorithms.</p>
+
+</div>
+<h2 id="S1">Pathfinding</h2><div class="topic">
+<ol class="xoxo">
+<li><a rel="section" href="AStarComparison.html">Introduction</a></li>
+<ol>
+<li><a rel="section" href="AStarComparison.html#S1">Algorithms</a></li>
+<li><a rel="section" href="AStarComparison.html#S2">Dijkstra's Algorithm and Best-First-Search</a></li>
+<li><a rel="section" href="AStarComparison.html#S3">The A* Algorithm</a></li>
+</ol>
+<li><a rel="section" href="Heuristics.html">Heuristics</a></li>
+<ol>
+<li><a rel="section" href="Heuristics.html#S1">A*'s Use of the Heuristic</a></li>
+<li><a rel="section" href="Heuristics.html#S2">Speed or accuracy?</a></li>
+<li><a rel="section" href="Heuristics.html#S3">Scale</a></li>
+<li><a rel="section" href="Heuristics.html#S4">Exact heuristics</a></li>
+<ol>
+<li><a rel="section" href="Heuristics.html#S5">Precomputed exact heuristic</a></li>
+<li><a rel="section" href="Heuristics.html#S6">Linear exact heuristic</a></li>
+</ol>
+<li><a rel="section" href="Heuristics.html#S7">Heuristics for grid maps</a></li>
+<ol>
+<li><a rel="section" href="Heuristics.html#S8">Manhattan distance</a></li>
+<li><a rel="section" href="Heuristics.html#S9">Diagonal distance</a></li>
+<li><a rel="section" href="Heuristics.html#S10">Euclidean distance</a></li>
+<li><a rel="section" href="Heuristics.html#S11">Euclidean distance, squared</a></li>
+<li><a rel="section" href="Heuristics.html#S12">Breaking ties</a></li>
+<li><a rel="section" href="Heuristics.html#S13">Searching for an area</a></li>
+</ol>
+</ol>
+<li><a rel="section" href="ImplementationNotes.html">Implementation notes</a></li>
+<ol>
+<li><a rel="section" href="ImplementationNotes.html#S1">Sketch</a></li>
+<li><a rel="section" href="ImplementationNotes.html#S2">Source code</a></li>
+<li><a rel="section" href="ImplementationNotes.html#S3">Set representation</a></li>
+<ol>
+<li><a rel="section" href="ImplementationNotes.html#S4">Unsorted arrays or linked lists</a></li>
+<li><a rel="section" href="ImplementationNotes.html#S5">Sorted arrays</a></li>
+<li><a rel="section" href="ImplementationNotes.html#S6">Sorted linked lists</a></li>
+<li><a rel="section" href="ImplementationNotes.html#S7">Sorted skip lists</a></li>
+<li><a rel="section" href="ImplementationNotes.html#S8">Indexed arrays</a></li>
+<li><a rel="section" href="ImplementationNotes.html#S9">Hash tables</a></li>
+<li><a rel="section" href="ImplementationNotes.html#S10">Binary heaps</a></li>
+<li><a rel="section" href="ImplementationNotes.html#S11">Splay trees</a></li>
+<li><a rel="section" href="ImplementationNotes.html#S12">HOT queues</a></li>
+<li><a rel="section" href="ImplementationNotes.html#S13">Comparison</a></li>
+<li><a rel="section" href="ImplementationNotes.html#S14">Hybrid representations</a></li>
+</ol>
+<li><a rel="section" href="ImplementationNotes.html#S15">Interaction with the game loop</a></li>
+<ol>
+<li><a rel="section" href="ImplementationNotes.html#S16">Early exit</a></li>
+<li><a rel="section" href="ImplementationNotes.html#S17">Interruptible algorithm</a></li>
+<li><a rel="section" href="ImplementationNotes.html#S18">Group movement</a></li>
+<li><a rel="section" href="ImplementationNotes.html#S19">Refinement</a></li>
+</ol>
+</ol>
+<li><a rel="section" href="Variations.html">Variations of A*</a></li>
+<ol>
+<li><a rel="section" href="Variations.html#S1">Beam search</a></li>
+<li><a rel="section" href="Variations.html#S2">Iterative deepening</a></li>
+<li><a rel="section" href="Variations.html#S3">Dynamic weighting</a></li>
+<li><a rel="section" href="Variations.html#S4">Bandwidth search</a></li>
+<li><a rel="section" href="Variations.html#S5">Bidirectional search</a></li>
+<li><a rel="section" href="Variations.html#S6">Dynamic A* and Lifelong Planning A*</a></li>
+</ol>
+<li><a rel="section" href="MovingObstacles.html">Dealing with moving obstacles</a></li>
+<ol>
+<li><a rel="section" href="MovingObstacles.html#S1">Recalculating paths</a></li>
+<li><a rel="section" href="MovingObstacles.html#S2">Path splicing</a></li>
+<li><a rel="section" href="MovingObstacles.html#S3">Watching for map changes</a></li>
+<li><a rel="section" href="MovingObstacles.html#S4">Predicting obstacle movement</a></li>
+</ol>
+<li><a rel="section" href="SpaceUsage.html">Space used by precalculated paths</a></li>
+<ol>
+<li><a rel="section" href="SpaceUsage.html#S1">Locations vs. directions</a></li>
+<li><a rel="section" href="SpaceUsage.html#S2">Path compression</a></li>
+<ol>
+<li><a rel="section" href="SpaceUsage.html#S3">Location storage</a></li>
+<li><a rel="section" href="SpaceUsage.html#S4">Direction storage</a></li>
+</ol>
+<li><a rel="section" href="SpaceUsage.html#S5">Computed waypoints</a></li>
+<li><a rel="section" href="SpaceUsage.html#S6">Limited path length</a></li>
+<li><a rel="section" href="SpaceUsage.html#S7">Summary</a></li>
+</ol>
+</ol>
+</div>
+<h2 id="S2">Other topics</h2><div class="topic">
+<p>There are many other topics related to pathfinding.</p>
+
+<ol class="xoxo">
+<li><a rel="section" href="MapRepresentations.html">Map representations</a></li>
+<ol>
+<li><a rel="section" href="MapRepresentations.html#S1">Grid</a></li>
+<li><a rel="section" href="MapRepresentations.html#S2">Polygonal maps</a></li>
+<li><a rel="section" href="MapRepresentations.html#S3">Flat</a></li>
+<li><a rel="section" href="MapRepresentations.html#S4">Hierarchical</a></li>
+<li><a rel="section" href="MapRepresentations.html#S5">Wraparound maps</a></li>
+<li><a rel="section" href="MapRepresentations.html#S6">Road maps</a></li>
+<li><a rel="section" href="MapRepresentations.html#S7">Duals</a></li>
+<li><a rel="section" href="MapRepresentations.html#S8">Skip links</a></li>
+<li><a rel="section" href="MapRepresentations.html#S9">Waypoints</a></li>
+</ol>
+<li><a rel="section" href="Goals.html">Long and short term goals</a></li>
+<ol>
+<li><a rel="section" href="Goals.html#S1">Unit movement</a></li>
+<li><a rel="section" href="Goals.html#S2">Behavior flags or stacks</a></li>
+<li><a rel="section" href="Goals.html#S3">Waiting for movement</a></li>
+<li><a rel="section" href="Goals.html#S4">Coordinated movement</a></li>
+</ol>
+<li><a rel="section" href="MovementCosts.html">Movement costs for pathfinders</a></li>
+<ol>
+<li><a rel="section" href="MovementCosts.html#S1">Altitude</a></li>
+<ol>
+<li><a rel="section" href="MovementCosts.html#S2">Moving uphill</a></li>
+<li><a rel="section" href="MovementCosts.html#S3">Moving up- or downhill</a></li>
+</ol>
+<li><a rel="section" href="MovementCosts.html#S4">Terrain</a></li>
+<ol>
+<li><a rel="section" href="MovementCosts.html#S5">Forests, mountains, and hills</a></li>
+<li><a rel="section" href="MovementCosts.html#S6">Roads</a></li>
+<li><a rel="section" href="MovementCosts.html#S7">Walls or other barriers</a></li>
+<li><a rel="section" href="MovementCosts.html#S8">Sloped Land</a></li>
+</ol>
+<li><a rel="section" href="MovementCosts.html#S9">Enemies and friendly units</a></li>
+<li><a rel="section" href="MovementCosts.html#S10">Marked beacons</a></li>
+<li><a rel="section" href="MovementCosts.html#S11">Fuel consumption</a></li>
+</ol>
+<li><a rel="section" href="UserExperience.html">User experience with shortest paths</a></li>
+<ol>
+<li><a rel="section" href="UserExperience.html#S1">Dumb movement</a></li>
+<li><a rel="section" href="UserExperience.html#S2">Smart movement</a></li>
+<li><a rel="section" href="UserExperience.html#S3">Multithreading</a></li>
+<li><a rel="section" href="UserExperience.html#S4">Multiple units</a></li>
+<li><a rel="section" href="UserExperience.html#S5">Multiple waypoints</a></li>
+</ol>
+<li><a rel="section" href="Applications.html">Applications</a></li>
+<ol>
+<li><a rel="section" href="Applications.html#S1">Exploration</a></li>
+<li><a rel="section" href="Applications.html#S2">Spying</a></li>
+<li><a rel="section" href="Applications.html#S3">Road building</a></li>
+<li><a rel="section" href="Applications.html#S4">Terrain analysis</a></li>
+<li><a rel="section" href="Applications.html#S5">City building</a></li>
+</ol>
+<li><a rel="section" href="AITechniques.html">AI techniques</a></li>
+<ol>
+<li><a rel="section" href="AITechniques.html#S1">Neural Networks</a></li>
+<li><a rel="section" href="AITechniques.html#S2">Genetic Algorithms</a></li>
+<li><a rel="section" href="AITechniques.html#S3">Reinforcement Learning</a></li>
+</ol>
+<li><a rel="section" href="References.html">References</a></li>
+</ol>
+</div>
+
+
+
+<table class="nav" width="100%" cellpadding="3" cellspacing="0" border="0">
+<tr><td align="left" width="33%"></td><td align="center" width="34%"></td><td align="right" width="33%">Next: <a rel="next" href="AStarComparison.html">Introduction</a></td></tr>
+</table>
+
+
+</div></div></div></div><div class="footer"><div style="float:left;width:30em"><address>
+		  Copyright © 2007 
+		  <span class="vcard"><a rel="copyright" class="url fn n" href="http://www-cs-students.stanford.edu/~amitp/"><span class="given-name"> Amit </span><span class="additional-name"> J </span><span class="family-name"> Patel</span></a>,
+		    <a class="email" href="mailto:amitp@cs.stanford.edu">amitp@cs.stanford.edu</a></span></address></div><div style="text-align:right">
+From <a href="http://www-cs-students.stanford.edu/~amitp/gameprog.html">Amit's Game Programming Site</a><br>Last modified: Tue Jul 31 09:37:19 2007</div></div><!-- Start of counters --><script type="text/javascript"><!--
+var sc_project=417499; 
+var sc_partition=2; 
+//--></script><script type="text/javascript" src="http://www.statcounter.com/counter/counter_xhtml.js"></script><noscript><div class="statcounter"><a class="statcounter" href="http://www.statcounter.com/"><img class="statcounter" src="http://c3.statcounter.com/counter.php?sc_project=417499&amp;java=0" alt="free hit counter"></a></div></noscript><script src="http://www.google-analytics.com/urchin.js" type="text/javascript"></script><script type="text/javascript">
+_uacct = "UA-79181-1";
+urchinTracker();
+</script><!-- End of counters --></body></html>

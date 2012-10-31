@@ -1,0 +1,258 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+				<meta name="keywords" content="Decidability (logic),Logic,Logic,Abductive reasoning,Alan Turing,Alfred North Whitehead,Alfred Tarski,Algebraically closed field,Algorithm,Alonzo Church,Antinomy" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="http://www.gnu.org/copyleft/fdl.html" />
+		<title>Decidability (logic) - Wikipedia, the free encyclopedia</title>
+		<style type="text/css" media="screen, projection">/*<![CDATA[*/
+			@import "/skins-1.5/common/shared.css?99";
+			@import "/skins-1.5/monobook/main.css?99";
+		/*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="/skins-1.5/common/commonPrint.css?99" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE50Fixes.css?99";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE55Fixes.css?99";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "/skins-1.5/monobook/IE60Fixes.css?99";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "/skins-1.5/monobook/IE70Fixes.css?99";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="/skins-1.5/common/IEFixes.js?99"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		
+		<script type= "text/javascript">/*<![CDATA[*/
+var skin = "monobook";
+var stylepath = "/skins-1.5";
+var wgArticlePath = "/wiki/$1";
+var wgScriptPath = "/w";
+var wgScript = "/w/index.php";
+var wgServer = "http://en.wikipedia.org";
+var wgCanonicalNamespace = "";
+var wgCanonicalSpecialPageName = false;
+var wgNamespaceNumber = 0;
+var wgPageName = "Decidability_(logic)";
+var wgTitle = "Decidability (logic)";
+var wgAction = "view";
+var wgRestrictionEdit = [];
+var wgRestrictionMove = [];
+var wgArticleId = "913118";
+var wgIsArticle = true;
+var wgUserName = null;
+var wgUserGroups = null;
+var wgUserLanguage = "en";
+var wgContentLanguage = "en";
+var wgBreakFrames = false;
+var wgCurRevisionId = "154068463";
+/*]]>*/</script>
+                
+		<script type="text/javascript" src="/skins-1.5/common/wikibits.js?99"><!-- wikibits js --></script>
+		<script type="text/javascript" src="/w/index.php?title=-&amp;action=raw&amp;gen=js&amp;useskin=monobook"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "/w/index.php?title=MediaWiki:Common.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=MediaWiki:Monobook.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=-&action=raw&gen=css&maxage=2678400";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+		<script type="text/javascript" src="/skins-1.5/common/ajax.js?99"></script>
+	</head>
+<body  class="mediawiki ns-0 ltr page-Decidability_logic">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">Decidability (logic)</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<p>A <a href="/wiki/Logical_system" title="Logical system">logical system</a> or <a href="/wiki/Theory" title="Theory">theory</a> is <b>decidable</b> if the set of all well-formed formulas valid in the system is <a href="/wiki/Decidable_set" title="Decidable set">decidable</a>. That is, there exists an <a href="/wiki/Effective_method" title="Effective method">effective method</a> such that for every formula in the system the method is capable of deciding whether the formula is <a href="/wiki/Validity" title="Validity">valid</a> (is a <a href="/wiki/Theorem" title="Theorem">theorem</a>) in the system or not.</p>
+<p><i>Example:</i> <a href="/wiki/Propositional_logic" title="Propositional logic">Propositional logic</a> is decidable, because there exists for it an <a href="/wiki/Algorithm" title="Algorithm">algorithm</a>—<a href="/wiki/Truth_table" title="Truth table">truth-table</a> construction—such that for every formula which combines <i>M</i> atomic formulas there is a maximum number <i>N = 2<sup>M</sup></i> of steps such that after completing those <i>N</i> steps the algorithm will always decide whether the formula is valid or not. Here, a "step" of the algorithm has been (arbitrarily) defined as completion of a row of the truth-table.</p>
+<p><a href="/wiki/First-order_logic" title="First-order logic">First-order logic</a> is decidable if confined to predicates with only one argument (see <a href="/wiki/Monadic_predicate_calculus" title="Monadic predicate calculus">monadic predicate calculus</a>). If it includes predicates with two or more arguments, then it is not decidable. Famous examples of decidable first-order theories include the theory of <a href="/wiki/Real_closed_field" title="Real closed field">real closed fields</a>, and <a href="/wiki/Presburger_arithmetic" title="Presburger arithmetic">Presburger arithmetic</a>.</p>
+<p>Every <a href="/wiki/Complete_theory" title="Complete theory">complete</a> <a href="/wiki/Recursively_enumerable" title="Recursively enumerable">recursively enumerable</a> theory is decidable. On the other hand, every consistent theory which includes some basic arithmetic is undecidable.</p>
+<p>Decidability should not be confused with <a href="/wiki/Complete_theory" title="Complete theory">completeness</a>. For example, the theory of <a href="/wiki/Algebraically_closed_field" title="Algebraically closed field">algebraically closed fields</a> is decidable but incomplete, whereas <a href="/w/index.php?title=True_arithmetic&amp;action=edit" class="new" title="True arithmetic">true arithmetic</a> (the set of all true first-order statements about nonnegative integers in the language with + and ×) is complete but undecidable. Unfortunately, as a terminological ambiguity, the term "undecidable statement" is sometimes used as a synonym for <a href="/wiki/Independence_%28mathematical_logic%29" title="Independence (mathematical logic)">independent statement</a>.</p>
+<p><a name="See_also" id="See_also"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Decidability_%28logic%29&amp;action=edit&amp;section=1" title="Edit section: See also">edit</a>]</span> <span class="mw-headline">See also</span></h2>
+<ul>
+<li><a href="/wiki/Effective_method" title="Effective method">effective method</a></li>
+<li><a href="/wiki/Completeness" title="Completeness">completeness</a></li>
+<li><a href="/wiki/L%C3%A1szl%C3%B3_Kalm%C3%A1r" title="László Kalmár">László Kalmár</a> (1936)</li>
+<li><a href="/wiki/Leopold_L%C3%B6wenheim" title="Leopold Löwenheim">Leopold Löwenheim</a> (1915)</li>
+<li><a href="/wiki/Alonzo_Church" title="Alonzo Church">Alonzo Church</a> (1956)</li>
+<li><a href="/wiki/W.V.O._Quine" title="W.V.O. Quine">W.V.O. Quine</a> (1953)</li>
+<li><a href="/wiki/Meyer" title="Meyer">Meyer</a> and <a href="/wiki/Lambert" title="Lambert">Lambert</a> (1967)</li>
+</ul>
+<p><br /></p>
+<p><br /></p>
+<div class="tright" style="border:solid #aaa 1px; background:#f9f9f9; margin:0.5em 0 0.5em 0.5em; font-size:85%;">
+<table style="background:transparent;" width="0">
+<tr>
+<td>
+<div style="position:relative; width:32px; height:28px; overflow:hidden">
+<div style="position:absolute; top:0px; left:0px; z-index:2;"><a href="/wiki/Image:Portal.svg" class="image" title="Portal.svg"><img alt="" src="http://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Portal.svg/28px-Portal.svg.png" width="28" height="28" border="0" /></a></div>
+</div>
+</td>
+<td><i><b><a href="/wiki/Portal:Logic" title="Portal:Logic">Logic Portal</a></b></i></td>
+</tr>
+</table>
+</div>
+<table class="navbox collapsible collapsed nowraplinks" style="margin:auto; background:white;background:white;">
+<tr>
+<th colspan="2" style="text-align:center;width:100%;">
+<div style="float:left; width:6em; text-align:left;">
+<div class="noprint plainlinksneverexpand" style="background-color:transparent; padding:0; font-weight:normal; font-size:xx-small; color: #000; white-space:nowrap;"><a href="/wiki/Template:Logic" title="Template:Logic"><span title="View this template">v</span></a>&#160;<span style="font-size:80%;">•</span>&#160;<a href="/wiki/Template_talk:Logic" title="Template talk:Logic"><span title="Discussion about this template">d</span></a>&#160;<span style="font-size:80%;">•</span>&#160;<a href="http://en.wikipedia.org/w/index.php?title=Template:Logic&amp;action=edit" class="external text" title="http://en.wikipedia.org/w/index.php?title=Template:Logic&amp;action=edit" rel="nofollow"><span style="color: #002bb8;" title="You can edit this template. Please use the preview button before saving.">e</span></a></div>
+</div>
+<span style="font-size:110%;"><a href="/wiki/Logic" title="Logic">Logic</a></span></th>
+</tr>
+<tr>
+<th style="white-space:nowrap;background:#ddddff;text-align:right;">Navigation:</th>
+<td colspan="1" style="text-align:left;width:100%;font-size:95%;"><a href="/wiki/Portal:Logic" title="Portal:Logic">Portal</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Category:Logic" title="Category:Logic">Category</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Wikipedia:WikiProject_Logic" title="Wikipedia:WikiProject Logic">WikiProject</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Category:Logic_stubs" title="Category:Logic stubs">Logic Stubs</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Category:Mathematical_logic_stubs" title="Category:Mathematical logic stubs">Mathlogic Stubs</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Wikipedia:Pages_needing_attention/Logic" title="Wikipedia:Pages needing attention/Logic">Cleanup</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Wikipedia:Logic" title="Wikipedia:Logic">Noticeboard</a></td>
+</tr>
+<tr>
+<th style="white-space:nowrap;background:#ddddff;text-align:right;">Main Articles:</th>
+<td colspan="1" style="text-align:left;width:100%;font-size:95%;background:#f7f7f7;"><a href="/wiki/Reason" title="Reason">Reason</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/History_of_logic" title="History of logic">History of Logic</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Philosophical_logic" title="Philosophical logic">Philosophical Logic</a> <span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Philosophy_of_logic" title="Philosophy of logic">Philosophy of logic</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Mathematical_logic" title="Mathematical logic">Mathematical Logic</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Metalogic" title="Metalogic">Metalogic</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Logic_in_computer_science" title="Logic in computer science">Logic in computer science</a></td>
+</tr>
+<tr>
+<th style="white-space:nowrap;background:#ddddff;text-align:right;">Key Concepts</th>
+<td colspan="1" style="text-align:left;width:100%;font-size:95%;">
+<div>
+<ul>
+<li><b><a href="/wiki/Reasoning" title="Reasoning">Reasoning</a>:</b> <a href="/wiki/Deductive_reasoning" title="Deductive reasoning">Deduction</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Inductive_reasoning" title="Inductive reasoning">Induction</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Abductive_reasoning" title="Abductive reasoning">Abduction</a></li>
+<li><b><a href="/wiki/Informal_logic" title="Informal logic">Informal Logic</a>:</b> <a href="/wiki/Proposition" title="Proposition">Proposition</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Inference" title="Inference">Inference</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Logical_argument" title="Logical argument">Argument</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Validity" title="Validity">Validity</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Cogency" title="Cogency">Cogency</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Term_logic" title="Term logic">Term logic</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Critical_thinking" title="Critical thinking">Critical Thinking</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Fallacy" title="Fallacy">Fallacies</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Syllogism" title="Syllogism">Syllogism</a></li>
+<li><b><a href="/wiki/Mathematical_logic" title="Mathematical logic">Mathematical logic</a>:</b> <a href="/wiki/Set" title="Set">Set</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Syntax_%28logic%29" title="Syntax (logic)">Syntax</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Semantics_of_logic" title="Semantics of logic">Semantics</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Well-formed_formula" title="Well-formed formula">Wff</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Axiom" title="Axiom">Axiom</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Theorem" title="Theorem">Theorem</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Consistency_proof" title="Consistency proof">Consistency</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Soundness" title="Soundness">Soundness</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Complete_theory" title="Complete theory">Completeness</a><span style="font-weight:bold;">&#160;·</span> <strong class="selflink">Decidability</strong><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Formal_system" title="Formal system">Formal system</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Set_theory" title="Set theory">Set theory</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Proof_theory" title="Proof theory">Proof theory</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Model_theory" title="Model theory">Model theory</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Recursion_theory" title="Recursion theory">Recursion theory</a></li>
+<li><b><a href="/wiki/Zeroth-order_logic" title="Zeroth-order logic">Zeroth-Order Logic</a>:</b> <a href="/wiki/Boolean_function" title="Boolean function">Boolean functions</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Monadic_predicate_calculus" title="Monadic predicate calculus">Monadic predicate calculus</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Propositional_calculus" title="Propositional calculus">Propositional calculus</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Logical_connective" title="Logical connective">Logical connectives</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Truth_table" title="Truth table">Truth Tables</a></li>
+<li><b><a href="/wiki/Predicate_logic" title="Predicate logic">Predicate Logic</a>:</b> <a href="/wiki/First-order_logic" title="First-order logic">First-Order Logic</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Quantification" title="Quantification">Quantifiers</a> <span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Second-order_logic" title="Second-order logic">Second-order logic</a></li>
+<li><b><a href="/wiki/Modal_logic" title="Modal logic">Modal Logic</a>:</b> <a href="/wiki/Deontic_logic" title="Deontic logic">Deontic logic</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Epistemic_logic" title="Epistemic logic">Epistemic logic</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Temporal_logic" title="Temporal logic">Temporal logic</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Doxastic_logic" title="Doxastic logic">Doxastic logic</a></li>
+<li><b><a href="/wiki/Classical_logic" title="Classical logic">Other non-classical logics</a>:</b> <a href="/wiki/Computability_logic" title="Computability logic">Computability logic</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Fuzzy_logic" title="Fuzzy logic">Fuzzy logic</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Linear_logic" title="Linear logic">Linear logic</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Relevance_logic" title="Relevance logic">Relevance logic</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Non-monotonic_logic" title="Non-monotonic logic">Non-monotonic logic</a></li>
+</ul>
+</div>
+</td>
+</tr>
+<tr>
+<th style="white-space:nowrap;background:#ddddff;text-align:right;">Controversies</th>
+<td colspan="1" style="text-align:left;width:100%;font-size:95%;background:#f7f7f7;"><a href="/wiki/Paraconsistent_logic" title="Paraconsistent logic">Paraconsistent Logic</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Dialetheism" title="Dialetheism">Dialetheism</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Intuitionistic_logic" title="Intuitionistic logic">Intuitionistic logic</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Paradox" title="Paradox">Paradoxes</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Antinomy" title="Antinomy">Antinomies</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Is_logic_empirical%3F" title="Is logic empirical?">Is logic empirical?</a></td>
+</tr>
+<tr>
+<th style="white-space:nowrap;background:#ddddff;text-align:right;">Key Figures</th>
+<td colspan="1" style="text-align:left;width:100%;font-size:95%;"><a href="/wiki/Aristotle" title="Aristotle">Aristotle</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/George_Boole" title="George Boole">Boole</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Georg_Cantor" title="Georg Cantor">Cantor</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Rudolf_Carnap" title="Rudolf Carnap">Carnap</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Alonzo_Church" title="Alonzo Church">Church</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Gottlob_Frege" title="Gottlob Frege">Frege</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Gerhard_Gentzen" title="Gerhard Gentzen">Gentzen</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Kurt_G%C3%B6del" title="Kurt Gödel">Gödel</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/David_Hilbert" title="David Hilbert">Hilbert</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Saul_Kripke" title="Saul Kripke">Kripke</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Giuseppe_Peano" title="Giuseppe Peano">Peano</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Charles_Peirce" title="Charles Peirce">Peirce</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Hilary_Putnam" title="Hilary Putnam">Putnam</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Willard_Van_Orman_Quine" title="Willard Van Orman Quine">Quine</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Bertrand_Russell" title="Bertrand Russell">Russell</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Thoralf_Skolem" title="Thoralf Skolem">Skolem</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Alfred_Tarski" title="Alfred Tarski">Tarski</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Alan_Turing" title="Alan Turing">Turing</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Alfred_North_Whitehead" title="Alfred North Whitehead">Whitehead</a></td>
+</tr>
+<tr>
+<th style="white-space:nowrap;background:#ddddff;text-align:right;">Lists</th>
+<td colspan="1" style="text-align:left;width:100%;font-size:95%;background:#f7f7f7;"><a href="/wiki/List_of_basic_topics_in_logic" title="List of basic topics in logic">Basic Topics in Logic</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/List_of_topics_in_logic" title="List of topics in logic">Topics in Logic</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/List_of_logicians" title="List of logicians">Logicians</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/List_of_rules_of_inference" title="List of rules of inference">Rules of Inference</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/List_of_mathematical_logic_topics" title="List of mathematical logic topics">Mathematical Logic Topics</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/List_of_basic_discrete_mathematics_topics" title="List of basic discrete mathematics topics">Basic Discrete Mathematics Topics</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/List_of_set_theory_topics" title="List of set theory topics">Set theory topics</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/List_of_paradoxes" title="List of paradoxes">Paradoxes</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/List_of_fallacies" title="List of fallacies">Fallacies</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Table_of_logic_symbols" title="Table of logic symbols">Logical Symbols</a></td>
+</tr>
+</table>
+
+<!-- 
+Pre-expand include size: 43528 bytes
+Post-expand include size: 41154 bytes
+Template argument size: 31038 bytes
+Maximum: 2048000 bytes
+-->
+
+<!-- Saved in parser cache with key enwiki:pcache:idhash:913118-0!1!0!default!!en!2 and timestamp 20070915052848 -->
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org/wiki/Decidability_%28logic%29">http://en.wikipedia.org/wiki/Decidability_%28logic%29</a>"</div>
+			<div id="catlinks"><p class='catlinks'><a href="/wiki/Special:Categories" title="Special:Categories">Category</a>: <span dir='ltr'><a href="/wiki/Category:Logic" title="Category:Logic">Logic</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<div class="pBody">
+			<ul>
+					 <li id="ca-nstab-main" class="selected"><a href="/wiki/Decidability_%28logic%29" title="View the content page [c]" accesskey="c">Article</a></li>
+					 <li id="ca-talk"><a href="/wiki/Talk:Decidability_%28logic%29" title="Discussion about the content page [t]" accesskey="t">Discussion</a></li>
+					 <li id="ca-edit"><a href="/w/index.php?title=Decidability_%28logic%29&amp;action=edit" title="You can edit this page. Please use the preview button before saving. [e]" accesskey="e">Edit this page</a></li>
+					 <li id="ca-history"><a href="/w/index.php?title=Decidability_%28logic%29&amp;action=history" title="Past versions of this page [h]" accesskey="h">History</a></li>
+				</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-personal">
+		<h5>Personal tools</h5>
+		<div class="pBody">
+			<ul>
+				<li id="pt-login"><a href="/w/index.php?title=Special:Userlogin&amp;returnto=Decidability_(logic)" title="You are encouraged to log in, it is not mandatory however. [o]" accesskey="o">Sign in / create account</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-logo">
+		<a style="background-image: url(/images/wiki-en.png);" href="/wiki/Main_Page" title="Visit the Main Page [z]" accesskey="z"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-Main-page"><a href="/wiki/Main_Page">Main page</a></li>
+				<li id="n-Contents"><a href="/wiki/Wikipedia:Contents">Contents</a></li>
+				<li id="n-Featured-content"><a href="/wiki/Wikipedia:Featured_content">Featured content</a></li>
+				<li id="n-currentevents"><a href="/wiki/Portal:Current_events" title="Find background information on current events">Current events</a></li>
+				<li id="n-randompage"><a href="/wiki/Special:Random" title="Load a random page [x]" accesskey="x">Random article</a></li>
+			</ul>
+		</div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+		<h5>interaction</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-About-Wikipedia"><a href="/wiki/Wikipedia:About">About Wikipedia</a></li>
+				<li id="n-portal"><a href="/wiki/Wikipedia:Community_Portal" title="About the project, what you can do, where to find things">Community portal</a></li>
+				<li id="n-recentchanges"><a href="/wiki/Special:Recentchanges" title="The list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li>
+				<li id="n-contact"><a href="/wiki/Wikipedia:Contact_us">Contact Wikipedia</a></li>
+				<li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising" title="Support us">Donate to Wikipedia</a></li>
+				<li id="n-help"><a href="/wiki/Help:Contents" title="Guidance on how to use and edit Wikipedia">Help</a></li>
+			</ul>
+		</div>
+	</div>
+		<div id="p-search" class="portlet">
+		<h5><label for="searchInput">Search</label></h5>
+		<div id="searchBody" class="pBody">
+			<form action="/wiki/Special:Search" id="searchform"><div>
+				<input id="searchInput" name="search" type="text" title="Search Wikipedia [f]" accesskey="f" value="" />
+				<input type='submit' name="go" class="searchButton" id="searchGoButton"	value="Go" />&nbsp;
+				<input type='submit' name="fulltext" class="searchButton" id="mw-searchButton" value="Search" />
+			</div></form>
+		</div>
+	</div>
+	<div class="portlet" id="p-tb">
+		<h5>Toolbox</h5>
+		<div class="pBody">
+			<ul>
+				<li id="t-whatlinkshere"><a href="/wiki/Special:Whatlinkshere/Decidability_%28logic%29" title="List of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+				<li id="t-recentchangeslinked"><a href="/wiki/Special:Recentchangeslinked/Decidability_%28logic%29" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+<li id="t-upload"><a href="/wiki/Wikipedia:Upload" title="Upload images or media files [u]" accesskey="u">Upload file</a></li>
+<li id="t-specialpages"><a href="/wiki/Special:Specialpages" title="List of all special pages [q]" accesskey="q">Special pages</a></li>
+				<li id="t-print"><a href="/w/index.php?title=Decidability_%28logic%29&amp;printable=yes" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>				<li id="t-permalink"><a href="/w/index.php?title=Decidability_%28logic%29&amp;oldid=154068463" title="Permanent link to this version of the page">Permanent link</a></li><li id="t-cite"><a href="/w/index.php?title=Special:Cite&amp;page=Decidability_%28logic%29&amp;id=154068463">Cite this article</a></li>			</ul>
+		</div>
+	</div>
+	<div id="p-lang" class="portlet">
+		<h5>In other languages</h5>
+		<div class="pBody">
+			<ul>
+				<li class="interwiki-cs"><a href="http://cs.wikipedia.org/wiki/Rozhodnutelnost">Česky</a></li>
+				<li class="interwiki-fr"><a href="http://fr.wikipedia.org/wiki/d%C3%A9cidabilit%C3%A9">Français</a></li>
+				<li class="interwiki-he"><a href="http://he.wikipedia.org/wiki/%D7%9B%D7%A8%D7%99%D7%A2%D7%95%D7%AA">עברית</a></li>
+				<li class="interwiki-pl"><a href="http://pl.wikipedia.org/wiki/Rozstrzygalno%C5%9B%C4%87">Polski</a></li>
+				<li class="interwiki-sl"><a href="http://sl.wikipedia.org/wiki/Odlo%C4%8Dljivost">Slovenščina</a></li>
+				<li class="interwiki-es"><a href="http://es.wikipedia.org/wiki/Decibilidad">Español</a></li>
+			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="/skins-1.5/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>
+				<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="/images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>
+			<ul id="f-list">
+				<li id="lastmod"> This page was last modified 00:37, 28 August 2007.</li>
+				<li id="copyright">All text is available under the terms of the <a class='internal' href="/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="/wiki/Wikipedia:Copyrights" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a U.S. registered <a class='internal' href="/wiki/501%28c%29#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="/wiki/Non-profit_organization" title="Non-profit organization">nonprofit</a> <a href="/wiki/Charitable_organization" title="Charitable organization">charity</a>.<br /></li>
+				<li id="privacy"><a href="http://wikimediafoundation.org/wiki/Privacy_policy" title="wikimedia:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="/wiki/Wikipedia:About" title="Wikipedia:About">About Wikipedia</a></li>
+				<li id="disclaimer"><a href="/wiki/Wikipedia:General_disclaimer" title="Wikipedia:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+		
+	
+		<script type="text/javascript">if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by srv92 in 0.089 secs. --></body></html>

@@ -1,0 +1,314 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+				<meta name="keywords" content="Algorithme A*,A*,Algorithme de Dijkstra,Graphe (théorie des graphes),Heuristique,Intelligence artificielle,Labyrinthe,Nœud,Path-finding,Planification (intelligence artificielle),Homonymie" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipédia (Français)" />
+		<link rel="copyright" href="http://www.gnu.org/copyleft/fdl.html" />
+		<title>Algorithme A* - Wikipédia</title>
+		<style type="text/css" media="screen, projection">/*<![CDATA[*/
+			@import "/skins-1.5/common/shared.css?99";
+			@import "/skins-1.5/monobook/main.css?99";
+		/*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="/skins-1.5/common/commonPrint.css?99" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE50Fixes.css?99";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE55Fixes.css?99";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "/skins-1.5/monobook/IE60Fixes.css?99";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "/skins-1.5/monobook/IE70Fixes.css?99";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="/skins-1.5/common/IEFixes.js?99"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		
+		<script type= "text/javascript">/*<![CDATA[*/
+var skin = "monobook";
+var stylepath = "/skins-1.5";
+var wgArticlePath = "/wiki/$1";
+var wgScriptPath = "/w";
+var wgScript = "/w/index.php";
+var wgServer = "http://fr.wikipedia.org";
+var wgCanonicalNamespace = "";
+var wgCanonicalSpecialPageName = false;
+var wgNamespaceNumber = 0;
+var wgPageName = "Algorithme_A*";
+var wgTitle = "Algorithme A*";
+var wgAction = "view";
+var wgRestrictionEdit = [];
+var wgRestrictionMove = [];
+var wgArticleId = "285564";
+var wgIsArticle = true;
+var wgUserName = null;
+var wgUserGroups = null;
+var wgUserLanguage = "fr";
+var wgContentLanguage = "fr";
+var wgBreakFrames = false;
+var wgCurRevisionId = "20188763";
+/*]]>*/</script>
+                
+		<script type="text/javascript" src="/skins-1.5/common/wikibits.js?99"><!-- wikibits js --></script>
+		<script type="text/javascript" src="/w/index.php?title=-&amp;action=raw&amp;gen=js&amp;useskin=monobook"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "/w/index.php?title=MediaWiki:Common.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=MediaWiki:Monobook.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=-&action=raw&gen=css&maxage=2678400";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+		<script type="text/javascript" src="/skins-1.5/common/ajax.js?99"></script>
+	</head>
+<body  class="mediawiki ns-0 ltr page-Algorithme_A">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+		<div id="siteNotice"><script type="text/javascript" language="JavaScript">
+<!--
+document.writeln("\x3cdiv style=\"text-align:right; font-size:80%\"\x3eVos dons permettent à Wikipédia de continuer à exister\x26nbsp;! Merci de \x3ca href=\"http://wikimediafoundation.org/wiki/Faire_un_don\" class=\"extiw\" title=\"wikimedia:Faire_un_don\"\x3evotre soutien\x3c/a\x3e.\x26nbsp;\x26nbsp;\x26nbsp;\x26nbsp;\x3c/div\x3e\n");
+-->
+</script></div>		<h1 class="firstHeading">Algorithme A*</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">Un article de Wikipédia, l'encyclopédie libre.</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Aller à : <a href="#column-one">Navigation</a>, <a href="#searchInput">Rechercher</a></div>			<!-- start content -->
+			<div class="homonymie">Pour les articles homonymes<sup><a href="/wiki/Aide:Homonymie" title="Aide:Homonymie">?</a></sup>, voir <a href="/wiki/A%2A" title="A*">A*</a>. <a href="/wiki/Image:Disambig.svg" class="image" title="Disambig.svg"><img alt="" src="http://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Disambig.svg/20px-Disambig.svg.png" width="20" height="16" border="0" /></a></div>
+<p>L'algorithme de recherche <b>A*</b> (qui se prononce <b>A étoile</b>, ou <i><b>A star</b></i> à l'anglaise) est un algorithme de <a href="/wiki/Path-finding" title="Path-finding">recherche de chemin</a> dans un <a href="/wiki/Graphe_%28th%C3%A9orie_des_graphes%29" title="Graphe (théorie des graphes)">graphe</a> entre un <a href="/wiki/N%C5%93ud" title="Nœud">nœud</a> initial et un nœud final tous deux donnés. De par sa simplicité il est souvent exhibé comme un exemple typique d'algorithme de <a href="/wiki/Planification_%28intelligence_artificielle%29" title="Planification (intelligence artificielle)">planification</a>, un domaine de l'<a href="/wiki/Intelligence_artificielle" title="Intelligence artificielle">intelligence artificielle</a>. L'algorithme A* a été créé pour que la première solution trouvée soit l'une des meilleures, c'est pourquoi il est célèbre dans des applications comme les jeux vidéo privilégiant le temps de calcul à l'exactitude des résultats.</p>
+<table id="toc" class="toc" summary="Sommaire">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Sommaire</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Pr.C3.A9sentation"><span class="tocnumber">1</span> <span class="toctext">Présentation</span></a></li>
+<li class="toclevel-1"><a href="#Intuition"><span class="tocnumber">2</span> <span class="toctext">Intuition</span></a></li>
+<li class="toclevel-1"><a href="#Propri.C3.A9t.C3.A9"><span class="tocnumber">3</span> <span class="toctext">Propriété</span></a></li>
+<li class="toclevel-1"><a href="#Description"><span class="tocnumber">4</span> <span class="toctext">Description</span></a></li>
+<li class="toclevel-1"><a href="#Pseudocode"><span class="tocnumber">5</span> <span class="toctext">Pseudocode</span></a></li>
+<li class="toclevel-1"><a href="#Exemples"><span class="tocnumber">6</span> <span class="toctext">Exemples</span></a></li>
+<li class="toclevel-1"><a href="#Voir_aussi"><span class="tocnumber">7</span> <span class="toctext">Voir aussi</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<p><script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "afficher"; var tocHideText = "masquer"; showTocToggle(); } 
+//]]>
+</script><a name="Pr.C3.A9sentation" id="Pr.C3.A9sentation"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Algorithme_A%2A&amp;action=edit&amp;section=1" title="Modifier la section&#160;: Présentation">modifier</a>]</span> <span class="mw-headline">Présentation</span></h2>
+<p>L'algorithme A* est un algorithme de recherche de chemin dans un <a href="/wiki/Graphe_%28th%C3%A9orie_des_graphes%29" title="Graphe (théorie des graphes)">graphe</a> entre un <a href="/wiki/N%C5%93ud" title="Nœud">nœud</a> initial et un nœud final. Il utilise une évaluation <a href="/wiki/Heuristique" title="Heuristique">heuristique</a> sur chaque nœud pour estimer le meilleur chemin y passant, et visite ensuite les nœuds par ordre de cette évaluation heuristique. C'est un algorithme simple, ne nécessitant pas de prétraitement, et ne consommant que peu de mémoire.</p>
+<p><a name="Intuition" id="Intuition"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Algorithme_A%2A&amp;action=edit&amp;section=2" title="Modifier la section&#160;: Intuition">modifier</a>]</span> <span class="mw-headline">Intuition</span></h2>
+<p>Commençons par un exemple de motivation. On se trouve à l'intersection A et on veut se rendre à l'intersection B dont on sait qu'elle se trouve au nord de notre position actuelle. Pour ce cas classique, le <a href="/wiki/Graphe_%28th%C3%A9orie_des_graphes%29" title="Graphe (théorie des graphes)">graphe</a> sur lequel l'algorithme va travailler représente la carte, où ses arcs représentent les chemins et ses <a href="/wiki/N%C5%93ud" title="Nœud">nœuds</a> les intersections des chemins.</p>
+<p>Si on faisait une recherche en largeur comme le réalise l'<a href="/wiki/Algorithme_de_Dijkstra" title="Algorithme de Dijkstra">algorithme de Dijkstra</a>, on rechercherait tous les points dans un rayon circulaire fixe, augmentant graduellement ce cercle pour rechercher des intersections de plus en plus loin de notre point de départ. Ceci pourrait être une stratégie efficace si on ne savait pas où se trouve notre destination, comme la police recherchant un criminel en planque.</p>
+<p>Cependant, c'est une perte de temps si on connaît plus d'informations sur notre destination. Une meilleure stratégie est d'explorer à chaque intersection la première directement qui va vers le nord, car le chemin le plus court est la ligne droite. Tant que la route le permet, on continue à avancer en prenant les chemins se rapprochant le plus de l'intersection B. Certainement devra-t-on revenir en arrière de temps en temps, mais sur les cartes typiques c'est une stratégie beaucoup plus rapide. D'ailleurs, souvent cette stratégie trouvera le meilleur itinéraire, comme la recherche en largeur le ferait. C'est l'essence de la recherche de chemin A*.</p>
+<div class="thumb tright">
+<div class="thumbinner" style="width:262px;"><a href="/wiki/Image:Schema_Astar_labyrinthe.png" class="image" title="Un labyrinthe simple, où l'algorithme A* ne sera pas très efficace"><img alt="Un labyrinthe simple, où l'algorithme A* ne sera pas très efficace" src="http://upload.wikimedia.org/wikipedia/fr/thumb/5/56/Schema_Astar_labyrinthe.png/260px-Schema_Astar_labyrinthe.png" width="260" height="91" border="0" class="thumbimage" /></a>
+<div class="thumbcaption">
+<div class="magnify" style="float:right"><a href="/wiki/Image:Schema_Astar_labyrinthe.png" class="internal" title="Agrandir"><img src="/skins-1.5/common/images/magnify-clip.png" width="15" height="11" alt="" /></a></div>
+Un labyrinthe simple, où l'algorithme A* ne sera pas très efficace</div>
+</div>
+</div>
+<p>Toutefois, comme pour tous les algorithmes de recherche de chemin, leur efficacité dépend fortement du problème que l'on souhaite résoudre (c'est-à-dire&#160;: du graphe). Ainsi l'algorithme A* ne garantit pas de trouver un itinéraire plus rapidement qu'un autre algorithme, et dans un <a href="/wiki/Labyrinthe" title="Labyrinthe">labyrinthe</a>, la seule manière d'atteindre la destination pourrait être à l'opposé de la position de la destination, et les nœuds les plus proches de cette destination pourraient ne pas être sur le chemin le plus court, ce qui peut coûter beaucoup de temps de calcul.<br clear="all" /></p>
+<p><a name="Propri.C3.A9t.C3.A9" id="Propri.C3.A9t.C3.A9"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Algorithme_A%2A&amp;action=edit&amp;section=3" title="Modifier la section&#160;: Propriété">modifier</a>]</span> <span class="mw-headline">Propriété</span></h2>
+<p>Un algorithme de recherche qui garantit de toujours trouver le chemin le plus court à un but s'appelle «&#160;algorithme admissible&#160;». Si A* utilise une heuristique qui ne surestime jamais la distance (ou plus généralement le coût) du but, A* peut être avéré admissible. Une heuristique qui rend A* admissible est elle-même appelée «&#160;heuristique admissible&#160;».</p>
+<p>Si l'évaluation renvoie simplement toujours zéro, qui n'est jamais une surestimation, alors, A* exécutera une implémentation possible de l'algorithme de Dijkstra et trouvera toujours la solution optimale. La meilleure heuristique, bien qu'habituellement impraticable pour calculer, est la distance minimale réelle (ou plus généralement le coût réel) au but. Un exemple d'une heuristique admissible pratique est la distance de la ligne directe au but sur la carte.</p>
+<p>On peut démontrer que A* ne considère pas plus de nœuds que tous les autres algorithmes admissibles de recherche, à condition que l'algorithme alternatif n'ait pas une évaluation heuristique plus précise. Dans ce cas, A* est l'algorithme informatique le plus efficace garantissant de trouver le chemin le plus court.</p>
+<p><a name="Description" id="Description"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Algorithme_A%2A&amp;action=edit&amp;section=4" title="Modifier la section&#160;: Description">modifier</a>]</span> <span class="mw-headline">Description</span></h2>
+<p>A* commence à un nœud choisi. Il applique à ce nœud un «&#160;coût&#160;» (habituellement zéro pour le nœud initial). A* estime ensuite la distance qui sépare ce nœud du but à atteindre. La somme du coût et de l'évaluation représente l'<a href="/wiki/Heuristique" title="Heuristique">heuristique</a> assignée au chemin menant à ce nœud. Le nœud est alors ajouté à une file d'attente prioritaire, couramment appelée <i>open list</i>.</p>
+<p>L'algorithme retire le premier nœud de la file d'attente prioritaire (dû au fonctionnement d'une file d'attente, le nœud à l'heuristique la plus basse est retiré en premier). Si la file d'attente est vide, il n'y a aucun chemin du nœud initial au nœud d'arrivée, ce qui interrompt l'algorithme. Si le nœud retenu est le nœud d'arrivée, A* reconstruit le chemin complet et s'arrête. Pour cette reconstruction on se sert d'une partie des informations sauvées dans la liste communément appelé <i>closed list</i> décrite plus bas.</p>
+<p>Si le nœud n'est pas le nœud d'arrivée, de nouveaux nœuds sont créés pour tous les nœuds contigus admissibles&#160;; la manière exacte de faire cela dépend du problème à traiter. Pour chaque nœud successif, A* calcule son coût et le stocke avec le nœud. Ce coût est calculé à partir de la somme du coût de son ancêtre et du coût de l'opération pour atteindre ce nouveau nœud.</p>
+<p>L'algorithme maintient également la liste de nœuds qui ont été vérifiés, couramment appelée <i>closed list</i>. Si un nœud nouvellement produit est déjà dans cette liste avec un coût égal ou inférieur, aucune opération n'est faite sur ce nœud ni sur son homologue se trouvant dans la liste.</p>
+<p>Après, l'évaluation de la distance du nouveau nœud au nœud d'arrivée est ajoutée au coût pour former l'heuristique du nœud. Ce nœud est alors ajouté à la liste d'attente prioritaire, à moins qu'un nœud identique dans cette liste ne possède déjà une heuristique inférieure ou égale.</p>
+<p>Une fois les trois étapes ci-dessus réalisées pour chaque nouveau nœud contigu, le nœud original pris de la file d'attente prioritaire est ajouté à la liste des nœuds vérifiés. Le prochain nœud est alors retiré de la file d'attente prioritaire et le processus recommence.</p>
+<p>Les deux structures <i>open list</i> et <i>closed list</i> ne sont pas nécessaires si on peut garantir que le premier chemin produit à n'importe quel nœud est le plus court. Cette situation surgit si l'heuristique est non seulement admissible mais aussi «&#160;monotone&#160;», signifiant que la différence entre l'heuristique de deux nœuds quelconques reliés ne surestime pas la distance réelle entre ces nœuds. Ce n'est possible que dans de très rares cas.</p>
+<p><a name="Pseudocode" id="Pseudocode"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Algorithme_A%2A&amp;action=edit&amp;section=5" title="Modifier la section&#160;: Pseudocode">modifier</a>]</span> <span class="mw-headline">Pseudocode</span></h2>
+<div class="thumb tright">
+<div class="thumbinner" style="width:252px;"><a href="/wiki/Image:Schema_Astar.png" class="image" title="Exemple d'un traitement mettant en évidence les coûts g et h"><img alt="Exemple d'un traitement mettant en évidence les coûts g et h" src="http://upload.wikimedia.org/wikipedia/fr/thumb/4/48/Schema_Astar.png/250px-Schema_Astar.png" width="250" height="174" border="0" class="thumbimage" /></a>
+<div class="thumbcaption">
+<div class="magnify" style="float:right"><a href="/wiki/Image:Schema_Astar.png" class="internal" title="Agrandir"><img src="/skins-1.5/common/images/magnify-clip.png" width="15" height="11" alt="" /></a></div>
+Exemple d'un traitement mettant en évidence les coûts <i>g</i> et <i>h</i></div>
+</div>
+</div>
+<div style="font-size:100%">
+<p><u>Paramètres</u>&#160;:</p>
+<dl>
+<dd><i>START</i>&#160;: nœud de départ</dd>
+<dd><i>GOAL</i>&#160;: nœud d'arrivée</dd>
+<dd><i>OPEN</i>&#160;: liste des nœuds à traiter (en général&#160;: représenté comme une file de priorité)</dd>
+<dd><i>CLOSED</i>&#160;: liste des nœuds traités</dd>
+<dd><i>N</i>&#160;: nombre de nœuds</dd>
+<dd><i>h(i)</i>&#160;: distance estimée d'un nœud <i>i</i> au nœud d'arrivée (<i>i</i> ∈ {1, 2, ..., N})</dd>
+<dd><i>g(i)</i>&#160;: distance réelle d'un nœud <i>i</i> au nœud de départ (<i>i</i> ∈ {1, 2, ..., N})</dd>
+<dd><i>f(i)</i>&#160;: somme des distances h(i) et g(i)</dd>
+<dd><i>parent()</i>&#160;: parent d'un nœud <i>i</i> (<i>parent(x)</i> donne la position dans <i>parent()</i> du nœud précédant <i>x</i>))</dd>
+</dl>
+<p><br /></p>
+<ul>
+<li>Initialiser la liste <i>OPEN</i> à vide</li>
+<li>Initialiser la liste <i>CLOSED</i> à vide</li>
+</ul>
+<p><br /></p>
+<ul>
+<li>Ajouter <i>START</i> à la liste <i>OPEN</i></li>
+<li>Tant que la liste <i>OPEN</i> n'est pas vide</li>
+</ul>
+<div style="border-left:5px solid #E0E0E0; margin-left:6px; padding-left:20px;">
+<ul>
+<li>Retirer le nœud <i>n</i> de la liste <i>OPEN</i> tel que <i>f(n)</i> soit le plus petit</li>
+<li>Si <i>n</i> est le <i>GOAL</i> retourner la solution&#160;;</li>
+<li>Sinon ajouter <i>n</i> à <i>CLOSED</i></li>
+<li>Pour chaque successeur <i>n´</i> du nœud <i>n</i></li>
+</ul>
+<div style="border-left:5px solid #E0E0E0; margin-left:6px; padding-left:20px;">
+<ul>
+<li>Heuristique H = estimation du coût de <i>n´</i> au <i>GOAL</i></li>
+<li>Stocker dans G_tmp <i>g(n´)</i>, le coût <i>g(n)</i> + le coût pour aller de <i>n</i> à <i>n´</i></li>
+<li>Stocker dans F_tmp <i>f(n´)</i>, <i>g(n´)</i> + H&#160;; c'est l'heuristique</li>
+</ul>
+<ul>
+<li>Si <i>n´</i> se trouve déjà dans <i>OPEN</i> avec un <i>f(n´)</i> meilleur on passe au point <i>n´</i> suivant</li>
+<li>Si <i>n´</i> se trouve déjà dans <i>CLOSED</i> avec un <i>f(n´)</i> meilleur on passe au point <i>n´</i> suivant</li>
+<li>Mettre <i>n</i> dans <i>parent(n')</i></li>
+<li>Mettre G_tmp dans <i>g(n')</i></li>
+<li>Mettre F_tmp dans <i>f(n´)</i></li>
+<li>Retirer <i>n´</i> des deux listes <i>OPEN</i> et <i>CLOSED</i></li>
+<li>Ajouter <i>n´</i> à la liste <i>OPEN</i></li>
+</ul>
+</div>
+</div>
+</div>
+<p><a name="Exemples" id="Exemples"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Algorithme_A%2A&amp;action=edit&amp;section=6" title="Modifier la section&#160;: Exemples">modifier</a>]</span> <span class="mw-headline">Exemples</span></h2>
+<ul>
+<li><a href="http://giik.net/algorithme_cheminlepluscourt/a_star_algorithm.html" class="external text" title="http://giik.net/algorithme_cheminlepluscourt/a_star_algorithm.html" rel="nofollow">Exemple d'un programme simple de recherche de plus court chemin par l'algorithme A*</a></li>
+</ul>
+<p><a name="Voir_aussi" id="Voir_aussi"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Algorithme_A%2A&amp;action=edit&amp;section=7" title="Modifier la section&#160;: Voir aussi">modifier</a>]</span> <span class="mw-headline">Voir aussi</span></h2>
+<ul>
+<li><span style="cursor:help;font-family:monospace;font-weight:bold;font-size:small" title="Langue&#160;: anglais">(en)</span> <a href="http://www.gamedev.net/reference/articles/article2003.asp" class="external text" title="http://www.gamedev.net/reference/articles/article2003.asp" rel="nofollow">Un article sur <i>gamedev.net</i> pour comprendre le fonctionnement de l'algorithme A*</a></li>
+<li><span style="cursor:help;font-family:monospace;font-weight:bold;font-size:small" title="Langue&#160;: français">(fr)</span> <a href="http://blog.lalex.com/post/2003/09/15/Traduction-:-article-sur-le-pathfinding-A" class="external text" title="http://blog.lalex.com/post/2003/09/15/Traduction-:-article-sur-le-pathfinding-A" rel="nofollow">Le même article traduit en français</a></li>
+<li><span style="cursor:help;font-family:monospace;font-weight:bold;font-size:small" title="Langue&#160;: anglais">(en)</span> <a href="http://www.cs.ualberta.ca/~mmueller/ps/hpastar.pdf" class="external text" title="http://www.cs.ualberta.ca/~mmueller/ps/hpastar.pdf" rel="nofollow">Un article décrivant l'algorithme HPA* qui permet d'optimiser la recherche dans les graphes de grande taille</a><span class="BA" id="BA-interwiki-de" style="display:none;"></span></li>
+</ul>
+
+<!-- 
+Pre-expand include size: 2252 bytes
+Post-expand include size: 939 bytes
+Template argument size: 143 bytes
+Maximum: 2048000 bytes
+-->
+
+<!-- Saved in parser cache with key frwiki:pcache:idhash:285564-0!1!0!!fr!2 and timestamp 20070914131310 -->
+<div class="printfooter">
+Récupérée de « <a href="http://fr.wikipedia.org/wiki/Algorithme_A%2A">http://fr.wikipedia.org/wiki/Algorithme_A%2A</a> »</div>
+			<div id="catlinks"><p class='catlinks'><a href="/wiki/Cat%C3%A9gorie:Accueil" title="Catégorie:Accueil">Catégories </a>: <span dir='ltr'><a href="/wiki/Cat%C3%A9gorie:Algorithme_de_la_th%C3%A9orie_des_graphes" title="Catégorie:Algorithme de la théorie des graphes">Algorithme de la théorie des graphes</a></span> • <span dir='ltr'><a href="/wiki/Cat%C3%A9gorie:Algorithme_de_recherche" title="Catégorie:Algorithme de recherche">Algorithme de recherche</a></span> • <span dir='ltr'><a href="/wiki/Cat%C3%A9gorie:Intelligence_artificielle" title="Catégorie:Intelligence artificielle">Intelligence artificielle</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Affichages</h5>
+		<div class="pBody">
+			<ul>
+					 <li id="ca-nstab-main" class="selected"><a href="/wiki/Algorithme_A%2A" title="Voir l’article [c]" accesskey="c">Article</a></li>
+					 <li id="ca-talk"><a href="/wiki/Discuter:Algorithme_A%2A" title="Discussion à propos de cette page [t]" accesskey="t">Discussion</a></li>
+					 <li id="ca-edit"><a href="/w/index.php?title=Algorithme_A%2A&amp;action=edit" title="Vous pouvez modifier cette page. Merci de prévisualiser avant d’enregistrer. [e]" accesskey="e">Modifier</a></li>
+					 <li id="ca-history"><a href="/w/index.php?title=Algorithme_A%2A&amp;action=history" title="Les auteurs et versions précédentes de cette page. [h]" accesskey="h">Historique</a></li>
+				</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-personal">
+		<h5>Outils personnels</h5>
+		<div class="pBody">
+			<ul>
+				<li id="pt-login"><a href="/w/index.php?title=Special:Userlogin&amp;returnto=Algorithme_A%2A" title="Vous êtes invité à vous identifier, mais ce n’est pas obligatoire. [o]" accesskey="o">Créer un compte ou se connecter</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-logo">
+		<a style="background-image: url(http://upload.wikimedia.org/wikipedia/fr/b/bc/Wiki.png);" href="/wiki/Accueil" title="Visitez la page principale [z]" accesskey="z"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="/wiki/Accueil" title="Visitez la page principale [z]" accesskey="z">Accueil</a></li>
+				<li id="n-thema"><a href="/wiki/Portail:Accueil">Portails thématiques</a></li>
+				<li id="n-alphindex"><a href="/wiki/Special:Allpages">Index alphabétique</a></li>
+				<li id="n-randompage"><a href="/wiki/Special:Random" title="Afficher une page au hasard [x]" accesskey="x">Une page au hasard</a></li>
+				<li id="n-contact"><a href="/wiki/Wikip%C3%A9dia:Contact">Contacter Wikipédia</a></li>
+			</ul>
+		</div>
+	</div>
+		<div class='portlet' id='p-Contribuer'>
+		<h5>Contribuer</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-help"><a href="/wiki/Aide:Sommaire" title="Aide">Aide</a></li>
+				<li id="n-portal"><a href="/wiki/Wikip%C3%A9dia:Accueil" title="À propos du projet">Communauté</a></li>
+				<li id="n-recentchanges"><a href="/wiki/Special:Recentchanges" title="Liste des modifications récentes sur le wiki [r]" accesskey="r">Modifications récentes</a></li>
+				<li id="n-aboutwp"><a href="/wiki/Wikip%C3%A9dia:Accueil_des_nouveaux_arrivants">Accueil des nouveaux arrivants</a></li>
+				<li id="n-sitesupport"><a href="http://meta.wikimedia.org/wiki/Faire_un_don:_explication" title="Soutenez le projet">Faire un don</a></li>
+			</ul>
+		</div>
+	</div>
+		<div id="p-search" class="portlet">
+		<h5><label for="searchInput">Rechercher</label></h5>
+		<div id="searchBody" class="pBody">
+			<form action="/wiki/Special:Search" id="searchform"><div>
+				<input id="searchInput" name="search" type="text" title="Rechercher dans Wikipédia [C]" accesskey="C" value="" />
+				<input type='submit' name="go" class="searchButton" id="searchGoButton"	value="Consulter" />&nbsp;
+				<input type='submit' name="fulltext" class="searchButton" id="mw-searchButton" value="Rechercher" />
+			</div></form>
+		</div>
+	</div>
+	<div class="portlet" id="p-tb">
+		<h5>Boîte à outils</h5>
+		<div class="pBody">
+			<ul>
+				<li id="t-whatlinkshere"><a href="/wiki/Special:Whatlinkshere/Algorithme_A%2A" title="Liste des pages liées à celle-ci [j]" accesskey="j">Pages liées</a></li>
+				<li id="t-recentchangeslinked"><a href="/wiki/Special:Recentchangeslinked/Algorithme_A%2A" title="Liste des modifications récentes des pages liées à celle-ci [k]" accesskey="k">Suivi des liens</a></li>
+<li id="t-upload"><a href="http://fr.wikipedia.org/wiki/Aide:Importer_un_fichier" title="Importer une image ou fichier média sur le serveur [u]" accesskey="u">Importer une image ou un son</a></li>
+<li id="t-specialpages"><a href="/wiki/Special:Specialpages" title="Liste de toutes les pages spéciales [q]" accesskey="q">Pages spéciales</a></li>
+				<li id="t-print"><a href="/w/index.php?title=Algorithme_A%2A&amp;printable=yes" title="Version imprimable de cette page [p]" accesskey="p">Version imprimable</a></li>				<li id="t-permalink"><a href="/w/index.php?title=Algorithme_A%2A&amp;oldid=20188763" title="Lien permanent vers cette version de la page">Adresse de cette version</a></li><li id="t-cite"><a href="/w/index.php?title=Special:Cite&amp;page=Algorithme_A%2A&amp;id=20188763">Citer cet article</a></li>			</ul>
+		</div>
+	</div>
+	<div id="p-lang" class="portlet">
+		<h5>Autres langues</h5>
+		<div class="pBody">
+			<ul>
+				<li class="interwiki-de"><a href="http://de.wikipedia.org/wiki/A%2A-Algorithmus">Deutsch</a></li>
+				<li class="interwiki-en"><a href="http://en.wikipedia.org/wiki/A%2A_search_algorithm">English</a></li>
+				<li class="interwiki-es"><a href="http://es.wikipedia.org/wiki/Algoritmo_de_b%C3%BAsqueda_A%2A">Español</a></li>
+				<li class="interwiki-fi"><a href="http://fi.wikipedia.org/wiki/A%2A-algoritmi">Suomi</a></li>
+				<li class="interwiki-it"><a href="http://it.wikipedia.org/wiki/A%2A">Italiano</a></li>
+				<li class="interwiki-ja"><a href="http://ja.wikipedia.org/wiki/A%2A">日本語</a></li>
+				<li class="interwiki-nl"><a href="http://nl.wikipedia.org/wiki/A%2A-algoritme">Nederlands</a></li>
+				<li class="interwiki-pl"><a href="http://pl.wikipedia.org/wiki/Algorytm_A%2A">Polski</a></li>
+				<li class="interwiki-pt"><a href="http://pt.wikipedia.org/wiki/Algoritmo_A%2A">Português</a></li>
+				<li class="interwiki-vi"><a href="http://vi.wikipedia.org/wiki/Gi%E1%BA%A3i_thu%E1%BA%ADt_t%C3%ACm_ki%E1%BA%BFm_A%2A">Tiếng Việt</a></li>
+			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="/skins-1.5/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>
+				<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="/images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>
+			<ul id="f-list">
+				<li id="lastmod"> Dernière modification de cette page le 29 août 2007 à 13:39.<br /></li>
+				<li id="copyright"><span style="white-space:normal"><a class="internal" href="http://fr.wikipedia.org/wiki/Wikip%C3%A9dia:Copyright" title="Copyright">Copyright</a> : Tous les textes sont disponibles sous les termes de la <a class="internal" href="http://fr.wikipedia.org/wiki/Wikip%C3%A9dia:Licence_de_documentation_libre_GNU" title="GFDL">licence de documentation libre GNU</a> (GFDL).<br/>
+Wikipedia® est une marque déposée de la <a href="http://www.wikimediafoundation.org" title="Fondation Wikimedia">Wikimedia Foundation, Inc.</a>, association de bienfaisance régie par le paragraphe <a class="internal" href="http://en.wikipedia.org/wiki/501(c)" title="501(c)">501(c)(3)</a> du code fiscal des États-Unis.</span><br/></li>
+				<li id="privacy"><a href="http://wikimediafoundation.org/wiki/Politique_de_confidentialit%C3%A9" title="wikimedia:Politique de confidentialité">Politique de confidentialité</a></li>
+				<li id="about"><a href="/wiki/Wikip%C3%A9dia:%C3%80_propos" title="Wikipédia:À propos">À propos de Wikipédia</a></li>
+				<li id="disclaimer"><a href="/wiki/Wikip%C3%A9dia:Avertissements_g%C3%A9n%C3%A9raux" title="Wikipédia:Avertissements généraux">Avertissements</a></li>
+			</ul>
+		</div>
+		
+	
+		<script type="text/javascript">if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by srv171 in 0.067 secs. --></body></html>

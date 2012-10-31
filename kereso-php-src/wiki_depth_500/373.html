@@ -1,0 +1,558 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es" lang="es" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+				<meta name="keywords" content="Algoritmo de Dijkstra,Algoritmo,Arista (Teoría de grafos),C más más,Cola (programación),Conjunto,Edsger Dijkstra,Grafo,Lenguaje de programación C,Montículo (programación),Python" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (Español)" />
+		<link rel="copyright" href="http://www.gnu.org/copyleft/fdl.html" />
+		<title>Algoritmo de Dijkstra - Wikipedia, la enciclopedia libre</title>
+		<style type="text/css" media="screen, projection">/*<![CDATA[*/
+			@import "/skins-1.5/common/shared.css?99";
+			@import "/skins-1.5/monobook/main.css?99";
+		/*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="/skins-1.5/common/commonPrint.css?99" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE50Fixes.css?99";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE55Fixes.css?99";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "/skins-1.5/monobook/IE60Fixes.css?99";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "/skins-1.5/monobook/IE70Fixes.css?99";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="/skins-1.5/common/IEFixes.js?99"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		
+		<script type= "text/javascript">/*<![CDATA[*/
+var skin = "monobook";
+var stylepath = "/skins-1.5";
+var wgArticlePath = "/wiki/$1";
+var wgScriptPath = "/w";
+var wgScript = "/w/index.php";
+var wgServer = "http://es.wikipedia.org";
+var wgCanonicalNamespace = "";
+var wgCanonicalSpecialPageName = false;
+var wgNamespaceNumber = 0;
+var wgPageName = "Algoritmo_de_Dijkstra";
+var wgTitle = "Algoritmo de Dijkstra";
+var wgAction = "view";
+var wgRestrictionEdit = [];
+var wgRestrictionMove = [];
+var wgArticleId = "74260";
+var wgIsArticle = true;
+var wgUserName = null;
+var wgUserGroups = null;
+var wgUserLanguage = "es";
+var wgContentLanguage = "es";
+var wgBreakFrames = false;
+var wgCurRevisionId = "11351544";
+/*]]>*/</script>
+                
+		<script type="text/javascript" src="/skins-1.5/common/wikibits.js?99"><!-- wikibits js --></script>
+		<script type="text/javascript" src="/w/index.php?title=-&amp;action=raw&amp;gen=js&amp;useskin=monobook"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "/w/index.php?title=MediaWiki:Common.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=MediaWiki:Monobook.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=-&action=raw&gen=css&maxage=2678400";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+		<script type="text/javascript" src="/skins-1.5/common/ajax.js?99"></script>
+<style type="text/css">/*<![CDATA[*/
+.source-c {line-height: normal;}
+.source-c li {line-height: normal;}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for c
+ * CSS class: source-c, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie (http://qbnz.com/highlighter)
+ */
+.source-c .de1, .source-c .de2 {font-family: 'Courier New', Courier, monospace; font-weight: normal;}
+.source-c  {}
+.source-c .head {}
+.source-c .foot {}
+.source-c .imp {font-weight: bold; color: red;}
+.source-c .ln-xtra {color: #cc0; background-color: #ffc;}
+.source-c li {font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;}
+.source-c li.li2 {font-weight: bold;}
+.source-c .kw1 {color: #b1b100;}
+.source-c .kw2 {color: #000000; font-weight: bold;}
+.source-c .kw3 {color: #000066;}
+.source-c .kw4 {color: #993333;}
+.source-c .co1 {color: #808080; font-style: italic;}
+.source-c .co2 {color: #339933;}
+.source-c .coMULTI {color: #808080; font-style: italic;}
+.source-c .es0 {color: #000099; font-weight: bold;}
+.source-c .br0 {color: #66cc66;}
+.source-c .st0 {color: #ff0000;}
+.source-c .nu0 {color: #cc66cc;}
+.source-c .me1 {color: #202020;}
+.source-c .me2 {color: #202020;}
+
+/*]]>*/
+</style>
+<style type="text/css">/*<![CDATA[*/
+@import "/w/index.php?title=MediaWiki:Geshi.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+/*]]>*/
+</style><style type="text/css">/*<![CDATA[*/
+.source-cpp {line-height: normal;}
+.source-cpp li {line-height: normal;}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for cpp
+ * CSS class: source-cpp, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie (http://qbnz.com/highlighter)
+ */
+.source-cpp .de1, .source-cpp .de2 {font-family: 'Courier New', Courier, monospace; font-weight: normal;}
+.source-cpp  {}
+.source-cpp .head {}
+.source-cpp .foot {}
+.source-cpp .imp {font-weight: bold; color: red;}
+.source-cpp .ln-xtra {color: #cc0; background-color: #ffc;}
+.source-cpp li {font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;}
+.source-cpp li.li2 {font-weight: bold;}
+.source-cpp .kw1 {color: #0000ff;}
+.source-cpp .kw2 {color: #0000ff;}
+.source-cpp .kw3 {color: #0000dd;}
+.source-cpp .kw4 {color: #0000ff;}
+.source-cpp .co1 {color: #ff0000;}
+.source-cpp .co2 {color: #339900;}
+.source-cpp .coMULTI {color: #ff0000; font-style: italic;}
+.source-cpp .es0 {color: #666666; font-weight: bold;}
+.source-cpp .br0 {color: #000000;}
+.source-cpp .st0 {color: #666666;}
+.source-cpp .nu0 {color: #0000dd;}
+.source-cpp .me1 {color: #00eeff;}
+.source-cpp .me2 {color: #00eeff;}
+
+/*]]>*/
+</style>
+<style type="text/css">/*<![CDATA[*/
+@import "/w/index.php?title=MediaWiki:Geshi.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+/*]]>*/
+</style><style type="text/css">/*<![CDATA[*/
+.source-python {line-height: normal;}
+.source-python li {line-height: normal;}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for python
+ * CSS class: source-python, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie (http://qbnz.com/highlighter)
+ */
+.source-python .de1, .source-python .de2 {font-family: 'Courier New', Courier, monospace; font-weight: normal;}
+.source-python  {}
+.source-python .head {}
+.source-python .foot {}
+.source-python .imp {font-weight: bold; color: red;}
+.source-python .ln-xtra {color: #cc0; background-color: #ffc;}
+.source-python li {font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;}
+.source-python li.li2 {font-weight: bold;}
+.source-python .kw1 {color: #ff7700;font-weight:bold;}
+.source-python .kw2 {color: #008000;}
+.source-python .kw3 {color: #dc143c;}
+.source-python .kw4 {color: #0000cd;}
+.source-python .co1 {color: #808080; font-style: italic;}
+.source-python .coMULTI {color: #808080; font-style: italic;}
+.source-python .es0 {color: #000099; font-weight: bold;}
+.source-python .br0 {color: #66cc66;}
+.source-python .st0 {color: #483d8b;}
+.source-python .nu0 {color: #ff4500;}
+.source-python .me1 {color: black;}
+
+/*]]>*/
+</style>
+<style type="text/css">/*<![CDATA[*/
+@import "/w/index.php?title=MediaWiki:Geshi.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+/*]]>*/
+</style>	</head>
+<body  class="mediawiki ns-0 ltr page-Algoritmo_de_Dijkstra">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">Algoritmo de Dijkstra</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">De Wikipedia, la enciclopedia libre</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Saltar a <a href="#column-one">navegación</a>, <a href="#searchInput">búsqueda</a></div>			<!-- start content -->
+			<p>El <b>algoritmo de Dijkstra</b>, también llamado <b>algoritmo de caminos mínimos</b>, es un <a href="/wiki/Algoritmo" title="Algoritmo">algoritmo</a> para la determinación del camino más corto dado un <a href="/wiki/V%C3%A9rtice_%28Teor%C3%ADa_de_grafos%29" title="Vértice (Teoría de grafos)">vértice</a> origen al resto de vértices en un <a href="/wiki/Grafo" title="Grafo">grafo</a> dirigido y con pesos en cada <a href="/wiki/Arista_%28Teor%C3%ADa_de_grafos%29" title="Arista (Teoría de grafos)">arista</a>. Su nombre se refiere a <a href="/wiki/Edsger_Dijkstra" title="Edsger Dijkstra">Edsger Dijkstra</a>, quien lo describió por primera vez en 1959.</p>
+<p>La idea subyacente en este algoritmo consiste en ir explorando todos los caminos más cortos que parten del vértice origen y que llevan a todos los demás vértices; cuando se obtiene el camino más corto desde el vértice origen, al resto de vértices que componen el grafo, el algoritmo se detiene. El algoritmo es una especialización de la búsqueda de costo uniforme, y como tal, no funciona en grafos con aristas de costo negativo (al elegir siempre el nodo con distancia menor, pueden quedar excluidos de la búsqueda nodos que en próximas iteraciones bajarían el costo general del camino al pasar por una arista con costo negativo).</p>
+<table id="toc" class="toc" summary="Tabla de contenidos">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Tabla de contenidos</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Descripci.C3.B3n_detallada"><span class="tocnumber">1</span> <span class="toctext">Descripción detallada</span></a></li>
+<li class="toclevel-1"><a href="#Pseudoc.C3.B3digo_del_algoritmo"><span class="tocnumber">2</span> <span class="toctext">Pseudocódigo del algoritmo</span></a></li>
+<li class="toclevel-1"><a href="#Implementaci.C3.B3n"><span class="tocnumber">3</span> <span class="toctext">Implementación</span></a>
+<ul>
+<li class="toclevel-2"><a href="#C"><span class="tocnumber">3.1</span> <span class="toctext">C</span></a></li>
+<li class="toclevel-2"><a href="#C.2B.2B"><span class="tocnumber">3.2</span> <span class="toctext">C++</span></a></li>
+<li class="toclevel-2"><a href="#Python"><span class="tocnumber">3.3</span> <span class="toctext">Python</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Enlaces_externos"><span class="tocnumber">4</span> <span class="toctext">Enlaces externos</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "mostrar"; var tocHideText = "ocultar"; showTocToggle(); } 
+//]]>
+</script>
+<p><a name="Descripci.C3.B3n_detallada" id="Descripci.C3.B3n_detallada"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Algoritmo_de_Dijkstra&amp;action=edit&amp;section=1" title="Editar sección: Descripción detallada">editar</a>]</span> <span class="mw-headline">Descripción detallada</span></h2>
+<ul>
+<li>Sea G=(V,A) un grafo dirigido y etiquetado.</li>
+<li>Sean los vértices <i>a</i> ∈ V y <i>z</i> ∈ V; <i>a</i> es el vértice de origen y <i>z</i> el vértice de destino.</li>
+<li>Sea un <a href="/wiki/Conjunto" title="Conjunto">conjunto</a> C ⊂ V, que contiene los vértices de V cuyo camino más corto desde <i>a</i> todavía no se conoce.</li>
+<li>Sea un <a href="/wiki/Vector" title="Vector">vector</a> D, con tantas dimensiones como elementos tiene V, y que “guarda” las distancias entre <i>a</i> y cada uno de los vértices de V.</li>
+<li>Sea, finalmente, otro vector, P, con las mismas dimensiones que D, y que conserva la información sobre qué vértice precede a cada uno de los vértices en el camino.</li>
+</ul>
+<p>El algoritmo para determinar el camino de longitud mínima entre los vértices <i>a</i> y <i>z</i> es:</p>
+<ol>
+<li>C ← V</li>
+<li>Para todo vértice <i>i</i> ∈ C, <i>i</i> ≠ <i>a</i>, se establece D<sub><i>i</i></sub> ← ∞&#160;; D<sub><i>a</i></sub> ← 0</li>
+<li>Para todo vértice <i>i</i> ∈ C se establece P<sub><i>i</i></sub> = <i>a</i></li>
+<li>Se obtiene el vértice <i>s</i> ∈ C tal que no existe otro vértice <i>w</i> ∈ C tal que D<sub><i>w</i></sub> &lt; D<sub><i>s</i></sub>
+<ul>
+<li>Si <i>s</i> = <i>z</i> entonces se ha terminado el algoritmo.</li>
+</ul>
+</li>
+<li>Se elimina de C el vértice <i>s</i>: C ← C−{<i>s</i>}</li>
+<li>Para cada arista <i>e</i> ∈ A de longitud <i>l</i>, que une el vértice <i>s</i> con algún otro vértice <i>t</i> ∈ C,
+<ul>
+<li>Si <i>l</i>+D<sub><i>s</i></sub> &lt; D<sub><i>t</i></sub>, entonces:
+<ol>
+<li>Se establece D<sub><i>t</i></sub> ← <i>l</i>+D<sub><i>s</i></sub></li>
+<li>Se establece P<sub><i>t</i></sub> ← <i>s</i></li>
+</ol>
+</li>
+</ul>
+</li>
+<li>Se regresa al paso 4</li>
+</ol>
+<p>Al terminar este algoritmo, en D<sub><i>z</i></sub> estará guardada la distancia mínima entre <i>a</i> y <i>z</i>. Por otro lado, mediante el vector P se puede obtener el camino mínimo: en P<sub><i>z</i></sub> estará <i>y</i>, el vértice que precede a <i>z</i> en el camino mínimo; en P<sub><i>y</i></sub> estará el que precede a <i>y</i>, y así sucesivamente, hasta llegar a <i>a</i>.</p>
+<p><a name="Pseudoc.C3.B3digo_del_algoritmo" id="Pseudoc.C3.B3digo_del_algoritmo"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Algoritmo_de_Dijkstra&amp;action=edit&amp;section=2" title="Editar sección: Pseudocódigo del algoritmo">editar</a>]</span> <span class="mw-headline">Pseudocódigo del algoritmo</span></h2>
+<ul>
+<li>Estructura de datos auxiliar: Q = Estructura de datos <a href="/wiki/Cola_%28programaci%C3%B3n%29" title="Cola (programación)">Cola de prioridad</a> (se puede implementar con un <a href="/wiki/Mont%C3%ADculo_%28programaci%C3%B3n%29" title="Montículo (programación)">heap</a>)</li>
+</ul>
+<pre>
+   <b>DIJKSTRA</b> (Grafo <i>G</i>, nodo_fuente <i>s</i>)
+       <i>// inicializamos todos los nodos del grafo. La distancia de cada nodo es infinita</i>
+       <i>// y los padres son NULL</i>
+       <b>for</b> <i>u</i> ∈ <i>V[G]</i> <b>do</b>
+           distancia[<i>u</i>] = INFINITO
+           padre[<i>u</i>] = NULL
+       distancia[<i>s</i>] = 0
+       <i>//encolamos todos los nodos del grafo</i>
+       Encolar (cola, <i>V[G]</i>)
+       <b>mientras</b> cola != 0 <b>do</b>
+          <i>// OJO: Se extrae el nodo que tiene distancia mínima y se conserva la condición</i>
+          <i>// de Cola de prioridad</i>
+           <i>u</i> = extraer_minimo(cola)
+           <b>for</b> <i>v</i> ∈ adyacencia[<i>u</i>] <b>do</b>
+               <b>if</b> distancia[<i>v</i>] &gt; distancia[<i>u</i>] + peso(u,v) <b>do</b>
+                   distancia[<i>v</i>] = distancia[<i>u</i>] + peso(u,v)
+                   padre[<i>v</i>] = <i>u</i>
+</pre>
+<ul>
+<li>Complejidad del algoritmo O((V+E)(log V))</li>
+</ul>
+<p><a name="Implementaci.C3.B3n" id="Implementaci.C3.B3n"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Algoritmo_de_Dijkstra&amp;action=edit&amp;section=3" title="Editar sección: Implementación">editar</a>]</span> <span class="mw-headline">Implementación</span></h2>
+<p><a name="C" id="C"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Algoritmo_de_Dijkstra&amp;action=edit&amp;section=4" title="Editar sección: C">editar</a>]</span> <span class="mw-headline"><a href="/wiki/Lenguaje_de_programaci%C3%B3n_C" title="Lenguaje de programación C">C</a></span></h3>
+<div dir="ltr">
+<pre class="source-c">
+<span class="co2">#define INFINITY    (MAX_INT - 1)</span>
+ 
+<span class="kw4">typedef</span> <span class="kw4">struct</span> <span class="br0">{</span>
+   <span class="kw4">int</span> weight;
+   <span class="kw4">int</span> dest;
+<span class="br0">}</span> DijkEdge;
+ 
+<span class="kw4">typedef</span> <span class="kw4">struct</span> <span class="br0">{</span>
+   DijkEdge* connections; <span class="coMULTI">/* Un array de arcos */</span>
+   <span class="kw4">int</span> numconnect;
+   <span class="kw4">int</span> distance;
+   <span class="kw4">int</span> isDead;
+<span class="br0">}</span> Vertex;
+ 
+<span class="kw4">void</span> Dijkstra<span class="br0">(</span>Vertex* graph, <span class="kw4">int</span> nodecount, <span class="kw4">int</span> source<span class="br0">)</span> <span class="br0">{</span>
+   <span class="kw1">for</span><span class="br0">(</span><span class="kw4">int</span> i = <span class="nu0">0</span>; i &lt; nodecount; i++<span class="br0">)</span> <span class="br0">{</span>
+       <span class="kw1">if</span><span class="br0">(</span>i == source<span class="br0">)</span> <span class="br0">{</span>
+           graph<span class="br0">[</span>i<span class="br0">]</span>.<span class="me1">distance</span> = <span class="nu0">0</span>;
+           graph<span class="br0">[</span>i<span class="br0">]</span>.<span class="me1">isDead</span> = <span class="nu0">0</span>;
+ 
+       <span class="br0">}</span> <span class="kw1">else</span> <span class="br0">{</span>
+           graph<span class="br0">[</span>i<span class="br0">]</span>.<span class="me1">distance</span> = INFINITY;
+           graph<span class="br0">[</span>i<span class="br0">]</span>.<span class="me1">isDead</span> = <span class="nu0">0</span>;
+        <span class="br0">}</span>
+   <span class="br0">}</span>
+   <span class="kw1">for</span><span class="br0">(</span><span class="kw4">int</span> i = <span class="nu0">0</span>; i &lt; nodecount; i++<span class="br0">)</span> <span class="br0">{</span>
+       <span class="kw4">int</span> next;
+       <span class="kw4">int</span> min = INFINITY<span class="nu0">+1</span>;
+ 
+       <span class="kw1">for</span><span class="br0">(</span><span class="kw4">int</span> j = <span class="nu0">0</span>; j &lt; nodecount; j++<span class="br0">)</span> <span class="br0">{</span>
+           <span class="kw1">if</span><span class="br0">(</span>!graph<span class="br0">[</span>j<span class="br0">]</span>.<span class="me1">isDead</span> &amp;&amp; graph<span class="br0">[</span>j<span class="br0">]</span>.<span class="me1">distance</span> &lt; min<span class="br0">)</span> <span class="br0">{</span>
+               next = j;
+               min = graph<span class="br0">[</span>j<span class="br0">]</span>.<span class="me1">distance</span>;
+           <span class="br0">}</span>
+ 
+       <span class="br0">}</span>
+       <span class="kw1">for</span><span class="br0">(</span><span class="kw4">int</span> j = <span class="nu0">0</span>; j &lt; graph<span class="br0">[</span>next<span class="br0">]</span>.<span class="me1">numconnect</span>; j++<span class="br0">)</span> <span class="br0">{</span>
+           <span class="kw1">if</span><span class="br0">(</span>graph<span class="br0">[</span>graph<span class="br0">[</span>next<span class="br0">]</span>.<span class="me1">connections</span><span class="br0">[</span>j<span class="br0">]</span>.<span class="me1">dest</span><span class="br0">]</span>.<span class="me1">distance</span> &gt;
+              graph<span class="br0">[</span>next<span class="br0">]</span>.<span class="me1">distance</span> + graph<span class="br0">[</span>next<span class="br0">]</span>.<span class="me1">connections</span><span class="br0">[</span>j<span class="br0">]</span>.<span class="me1">weight</span><span class="br0">)</span>
+ 
+           <span class="br0">{</span>
+               graph<span class="br0">[</span>graph<span class="br0">[</span>next<span class="br0">]</span>.<span class="me1">connections</span><span class="br0">[</span>j<span class="br0">]</span>.<span class="me1">dest</span><span class="br0">]</span>.<span class="me1">distance</span> =
+                   graph<span class="br0">[</span>next<span class="br0">]</span>.<span class="me1">distance</span> + graph<span class="br0">[</span>next<span class="br0">]</span>.<span class="me1">connections</span><span class="br0">[</span>j<span class="br0">]</span>.<span class="me1">weight</span>;
+           <span class="br0">}</span>
+       <span class="br0">}</span>
+       graph<span class="br0">[</span>next<span class="br0">]</span>.<span class="me1">isDead</span> = <span class="nu0">1</span>;
+ 
+   <span class="br0">}</span>
+   <span class="kw1">for</span><span class="br0">(</span><span class="kw4">int</span> i = <span class="nu0">0</span>; i &lt; nodecount; i++<span class="br0">)</span> <span class="br0">{</span>
+       <span class="kw3">printf</span><span class="br0">(</span><span class="st0">"The distance between nodes %i and %i is %i"</span>,
+           source, i, graph<span class="br0">[</span>i<span class="br0">]</span>.<span class="me1">distance</span><span class="br0">)</span>;
+   <span class="br0">}</span>
+<span class="br0">}</span>
+</pre></div>
+<p><a name="C.2B.2B" id="C.2B.2B"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Algoritmo_de_Dijkstra&amp;action=edit&amp;section=5" title="Editar sección: C++">editar</a>]</span> <span class="mw-headline"><a href="/wiki/C_m%C3%A1s_m%C3%A1s" title="C más más">C++</a></span></h3>
+<div dir="ltr">
+<pre class="source-cpp">
+<span class="co2">#include &lt;map&gt;</span>
+<span class="co2">#include &lt;queue&gt;</span>
+<span class="kw2">using</span> <span class="kw2">namespace</span> std;
+ 
+<span class="co2">#define X first</span>
+<span class="co2">#define Y second</span>
+ 
+<span class="kw2">template</span> &lt;class Node, <span class="kw2">class</span> Edge=int&gt; <span class="kw2">class</span> Dijkstra <span class="br0">{</span>
+   <span class="kw2">public</span>:
+   Dijkstra<span class="br0">(</span><span class="br0">)</span> <span class="br0">{</span><span class="br0">}</span>
+   Dijkstra<span class="br0">(</span><span class="kw4">const</span> Node &amp;n, <span class="kw4">const</span> Edge &amp;e=<span class="nu0">0</span><span class="br0">)</span> <span class="br0">{</span> push<span class="br0">(</span>n, e<span class="br0">)</span>; <span class="br0">}</span>
+   <span class="kw4">bool</span> empty<span class="br0">(</span><span class="br0">)</span> <span class="kw4">const</span> <span class="br0">{</span> <span class="kw1">return</span> q.<span class="me1">empty</span><span class="br0">(</span><span class="br0">)</span>; <span class="br0">}</span>
+   <span class="kw4">void</span> push<span class="br0">(</span><span class="kw4">const</span> Node &amp;n, <span class="kw4">const</span> Edge &amp;e=<span class="nu0">0</span><span class="br0">)</span> <span class="br0">{</span>
+      Iter it = m.<span class="me1">find</span><span class="br0">(</span>n<span class="br0">)</span>;
+      <span class="kw1">if</span> <span class="br0">(</span>it == m.<span class="me1">end</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span> it = m.<span class="me1">insert</span><span class="br0">(</span>make_pair<span class="br0">(</span>n, e<span class="br0">)</span><span class="br0">)</span>.<span class="me1">X</span>;
+      <span class="kw1">else</span> <span class="kw1">if</span> <span class="br0">(</span>it-&gt;Y &gt; e<span class="br0">)</span> it-&gt;Y = e;
+      <span class="kw1">else</span> <span class="kw1">return</span>;
+      q.<span class="me1">push</span><span class="br0">(</span>make_pair<span class="br0">(</span>e, it<span class="br0">)</span><span class="br0">)</span>;
+   <span class="br0">}</span>
+   <span class="kw4">const</span> Node &amp;pop<span class="br0">(</span><span class="br0">)</span> <span class="br0">{</span>
+      cur = q.<span class="me1">top</span><span class="br0">(</span><span class="br0">)</span>.<span class="me1">Y</span>;
+      <span class="kw1">do</span> q.<span class="me1">pop</span><span class="br0">(</span><span class="br0">)</span>;
+      <span class="kw1">while</span> <span class="br0">(</span>!q.<span class="me1">empty</span><span class="br0">(</span><span class="br0">)</span> &amp;&amp; q.<span class="me1">top</span><span class="br0">(</span><span class="br0">)</span>.<span class="me1">Y</span>-&gt;Y &lt; q.<span class="me1">top</span><span class="br0">(</span><span class="br0">)</span>.<span class="me1">X</span><span class="br0">)</span>;
+      <span class="kw1">return</span> cur-&gt;X;
+   <span class="br0">}</span>
+   <span class="kw4">const</span> Edge &amp;dist<span class="br0">(</span><span class="br0">)</span> <span class="kw4">const</span> <span class="br0">{</span> <span class="kw1">return</span> cur-&gt;Y; <span class="br0">}</span>
+   <span class="kw4">void</span> link<span class="br0">(</span><span class="kw4">const</span> Node &amp;n, <span class="kw4">const</span> Edge &amp;e=<span class="nu0">1</span><span class="br0">)</span> <span class="br0">{</span> push<span class="br0">(</span>n, cur-&gt;Y + e<span class="br0">)</span>; <span class="br0">}</span>
+ 
+   <span class="kw2">private</span>:
+   <span class="kw4">typedef</span> <span class="kw2">typename</span> map&lt;Node, Edge&gt;::<span class="me2">iterator</span> Iter;
+   <span class="kw4">typedef</span> pair&lt;Edge, Iter&gt; Value;
+   <span class="kw4">struct</span> Rank : <span class="kw2">public</span> binary_function&lt;Value, Value, bool&gt; <span class="br0">{</span>
+      <span class="kw4">bool</span> operator<span class="br0">(</span><span class="br0">)</span><span class="br0">(</span><span class="kw4">const</span> Value&amp; x, <span class="kw4">const</span> Value&amp; y<span class="br0">)</span> <span class="kw4">const</span> <span class="br0">{</span>
+         <span class="kw1">return</span> x.<span class="me1">X</span> &gt; y.<span class="me1">X</span>;
+      <span class="br0">}</span>
+   <span class="br0">}</span>;
+   map&lt;Node, Edge&gt; m;
+   priority_queue&lt;Value, vector&lt;Value&gt;, Rank&gt; q;
+   Iter cur;
+<span class="br0">}</span>;
+ 
+<span class="co1">// Ejemplo de uso (nodos y arcos están representados con enteros)</span>
+<span class="kw4">int</span> shortestDistance<span class="br0">(</span><span class="kw4">int</span> nodes, <span class="kw4">int</span> startNode, <span class="kw4">int</span> endNode, <span class="kw4">int</span> **dists<span class="br0">)</span> <span class="br0">{</span>
+   Dijkstra&lt;int&gt; dijkstra<span class="br0">(</span>startNode<span class="br0">)</span>;
+   <span class="kw1">while</span> <span class="br0">(</span>!dijkstra.<span class="me1">empty</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span> <span class="br0">{</span>
+      <span class="kw4">int</span> curNode = dijkstra.<span class="me1">pop</span><span class="br0">(</span><span class="br0">)</span>;
+      <span class="kw1">if</span> <span class="br0">(</span>curNode == endNode<span class="br0">)</span>
+         <span class="kw1">return</span> dijkstra.<span class="me1">dist</span><span class="br0">(</span><span class="br0">)</span>;
+      <span class="kw1">for</span> <span class="br0">(</span><span class="kw4">int</span> i = <span class="nu0">0</span>; i &lt; nodes; i++<span class="br0">)</span>
+         <span class="kw1">if</span> <span class="br0">(</span>dists<span class="br0">[</span>curNode<span class="br0">]</span><span class="br0">[</span>i<span class="br0">]</span> &gt;= <span class="nu0">0</span><span class="br0">)</span> <span class="co1">// "i" es un vecino de curNode</span>
+            dijkstra.<span class="me1">link</span><span class="br0">(</span>i, dists<span class="br0">[</span>curNode<span class="br0">]</span><span class="br0">[</span>i<span class="br0">]</span><span class="br0">)</span>; <span class="co1">// añade arco con peso </span>
+   <span class="br0">}</span>
+  <span class="kw1">return</span> <span class="nu0">-1</span>; <span class="co1">// Ningún camino encontrado</span>
+<span class="br0">}</span>
+</pre></div>
+<p><a name="Python" id="Python"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Algoritmo_de_Dijkstra&amp;action=edit&amp;section=6" title="Editar sección: Python">editar</a>]</span> <span class="mw-headline"><a href="/wiki/Python" title="Python">Python</a></span></h3>
+<div dir="ltr">
+<pre class="source-python">
+<span class="kw1">import</span> <span class="kw3">sys</span>
+infinity = <span class="kw3">sys</span>.<span class="me1">maxint</span> - <span class="nu0">1</span>
+ 
+<span class="kw1">class</span> Vertex<span class="br0">(</span><span class="kw2">object</span><span class="br0">)</span>:
+    <span class="st0">""</span><span class="st0">"Un vértice es un grafo, usando una lista de adyacencia.
+ 
+    'edges' o 'arcos' es una secuencia o colección de tuplas (arcos), el primer elemento es el
+nombre de un vértice y el segundo elemento es la distancia a ese vértice.
+    'name' o nombre es un identificador único para cada vértice, como el nombre de una ciudad,
+un entero, una tupla de coordenadas, etc. "</span><span class="st0">""</span>
+ 
+    <span class="kw1">def</span> <span class="kw4">__init__</span><span class="br0">(</span><span class="kw2">self</span>, name, edges<span class="br0">)</span>:
+        <span class="kw2">self</span>.<span class="me1">name</span> = name
+        <span class="kw2">self</span>.<span class="me1">edges</span> = edges
+ 
+<span class="kw1">def</span> ShortestPath<span class="br0">(</span>graph, source, dest<span class="br0">)</span>:
+    <span class="st0">""</span><span class="st0">"Devuelve la distancia más corta desde el vértice inicial a un destino, usando el algoritmo
+de Dijkstra. 
+    Asume que el grafo está conectado."</span><span class="st0">""</span>
+ 
+    distances = <span class="br0">{</span><span class="br0">}</span>
+    names = <span class="br0">{</span><span class="br0">}</span>
+    <span class="kw1">for</span> v <span class="kw1">in</span> graph:
+        distances<span class="br0">[</span>v.<span class="me1">name</span><span class="br0">]</span> = infinity <span class="co1"># Inicializa las distancias</span>
+        names<span class="br0">[</span>v.<span class="me1">name</span><span class="br0">]</span> = v <span class="co1"># Mapea los nombres a los vértices que representa</span>
+    distances<span class="br0">[</span>source.<span class="me1">name</span><span class="br0">]</span> = <span class="nu0">0</span> <span class="co1"># La distancia desde el vértice inicial a sí mismo es 0</span>
+    dist_to_unknown = distances.<span class="kw3">copy</span><span class="br0">(</span><span class="br0">)</span> <span class="co1"># Escoge el siguiente vértice a explorar </span>
+    last = source
+    <span class="kw1">while</span> last.<span class="me1">name</span> != dest.<span class="me1">name</span>:
+        <span class="co1"># Escoge el siguiente vértice a explorar, que no está todavía completamente explorado</span>
+        <span class="co1"># y minimiza las distancias ya conocidas </span>
+        next = names<span class="br0">[</span> <span class="kw2">min</span><span class="br0">(</span> <span class="br0">[</span><span class="br0">(</span>v, k<span class="br0">)</span> <span class="kw1">for</span> <span class="br0">(</span>k, v<span class="br0">)</span> <span class="kw1">in</span> dist_to_unknown.<span class="me1">iteritems</span><span class="br0">(</span><span class="br0">)</span><span class="br0">]</span> <span class="br0">)</span><span class="br0">[</span><span class="nu0">1</span><span class="br0">]</span> <span class="br0">]</span>
+        <span class="kw1">for</span> n, d <span class="kw1">in</span> next.<span class="me1">edges</span>: <span class="co1"># n es el nombre del vértice adyacente, d es la distancia a él</span>
+            distances<span class="br0">[</span>n<span class="br0">]</span> = <span class="kw2">min</span><span class="br0">(</span>distances<span class="br0">[</span>n<span class="br0">]</span>, distances<span class="br0">[</span>next.<span class="me1">name</span><span class="br0">]</span> + d<span class="br0">)</span>
+            <span class="kw1">if</span> n <span class="kw1">in</span> dist_to_unknown:
+                dist_to_unknown<span class="br0">[</span>n<span class="br0">]</span> = distances<span class="br0">[</span>n<span class="br0">]</span>
+        last = next
+        <span class="kw1">if</span> last.<span class="me1">name</span> <span class="kw1">in</span> dist_to_unknown: <span class="co1"># Borra el vértice explorado completamente </span>
+        <span class="kw1">del</span> dist_to_unknown<span class="br0">[</span>next.<span class="me1">name</span><span class="br0">]</span>
+</pre></div>
+<p><a name="Enlaces_externos" id="Enlaces_externos"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Algoritmo_de_Dijkstra&amp;action=edit&amp;section=7" title="Editar sección: Enlaces externos">editar</a>]</span> <span class="mw-headline">Enlaces externos</span></h2>
+<ul>
+<li><a href="/wiki/Imagen:Commons-logo.svg" class="image" title="Colabora en Commons"><img alt="Colabora en Commons" src="http://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Commons-logo.svg/15px-Commons-logo.svg.png" width="15" height="20" border="0" /></a> <a href="/wiki/Wikimedia_Commons" title="Wikimedia Commons">Commons</a> alberga contenido multimedia sobre <b><a href="http://commons.wikimedia.org/wiki/Dijkstra%27s_algorithm" class="extiw" title="commons:Dijkstra's_algorithm">Algoritmo de Dijkstra</a></b>.<span class="interProject"><a href="http://commons.wikimedia.org/wiki/Dijkstra%27s_algorithm" class="extiw" title="commons:Dijkstra's_algorithm">Commons</a></span></li>
+<li><a href="http://javascript.ide.googlepages.com/home?s=Dijkstra" class="external text" title="http://javascript.ide.googlepages.com/home?s=Dijkstra" rel="nofollow">Analiza Algoritmo de Dijkstra en JavaScript</a></li>
+<li><a href="http://www-b2.is.tokushima-u.ac.jp/~ikeda/suuri/dijkstra/Dijkstra.shtml" class="external text" title="http://www-b2.is.tokushima-u.ac.jp/~ikeda/suuri/dijkstra/Dijkstra.shtml" rel="nofollow">Applets en Java para probar el algoritmo de Dijkstra (Inglés)</a></li>
+</ul>
+
+<!-- 
+Pre-expand include size: 2375 bytes
+Post-expand include size: 316 bytes
+Template argument size: 149 bytes
+Maximum: 2048000 bytes
+-->
+
+<!-- Saved in parser cache with key eswiki:pcache:idhash:74260-0!1!0!!es!2 and timestamp 20070915204851 -->
+<div class="printfooter">
+Obtenido de "<a href="http://es.wikipedia.org/wiki/Algoritmo_de_Dijkstra">http://es.wikipedia.org/wiki/Algoritmo_de_Dijkstra</a>"</div>
+			<div id="catlinks"><p class='catlinks'><a href="/wiki/Especial:Categories" title="Especial:Categories">Categorías</a>: <span dir='ltr'><a href="/wiki/Categor%C3%ADa:Algoritmos" title="Categoría:Algoritmos">Algoritmos</a></span> | <span dir='ltr'><a href="/wiki/Categor%C3%ADa:Teor%C3%ADa_de_grafos" title="Categoría:Teoría de grafos">Teoría de grafos</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Vistas</h5>
+		<div class="pBody">
+			<ul>
+					 <li id="ca-nstab-main" class="selected"><a href="/wiki/Algoritmo_de_Dijkstra" title="Ver el artículo [c]" accesskey="c">Artículo</a></li>
+					 <li id="ca-talk"><a href="/wiki/Discusi%C3%B3n:Algoritmo_de_Dijkstra" title="Discusión acerca del artículo [t]" accesskey="t">Discusión</a></li>
+					 <li id="ca-edit"><a href="/w/index.php?title=Algoritmo_de_Dijkstra&amp;action=edit" title="Puede editar esta página. Por favor, use el botón de previsualización antes de grabar. [e]" accesskey="e">Editar</a></li>
+					 <li id="ca-history"><a href="/w/index.php?title=Algoritmo_de_Dijkstra&amp;action=history" title="Versiones anteriores de esta página y sus autores [h]" accesskey="h">Historial</a></li>
+				</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-personal">
+		<h5>Herramientas personales</h5>
+		<div class="pBody">
+			<ul>
+				<li id="pt-login"><a href="/w/index.php?title=Especial:Userlogin&amp;returnto=Algoritmo_de_Dijkstra" title="Le animamos a registrarse, aunque no es obligatorio [o]" accesskey="o">Registrarse/Entrar</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-logo">
+		<a style="background-image: url(http://upload.wikimedia.org/wikipedia/commons/7/74/Wikipedia-logo-es.png);" href="/wiki/Portada" title="Visitar la Portada [z]" accesskey="z"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navegación</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="/wiki/Portada" title="Visitar la Portada [z]" accesskey="z">Portada</a></li>
+				<li id="n-portal"><a href="/wiki/Portal:Comunidad" title="Acerca del proyecto, qué puede hacer, dónde encontrar información">Portal de la comunidad</a></li>
+				<li id="n-currentevents"><a href="/wiki/Portal:Actualidad" title="Información de contexto sobre acontecimientos actuales">Actualidad</a></li>
+				<li id="n-recentchanges"><a href="/wiki/Especial:Recentchanges" title="La lista de cambios recientes en el wiki [r]" accesskey="r">Cambios recientes</a></li>
+				<li id="n-randompage"><a href="/wiki/Especial:Random" title="Cargar una página aleatoriamente [x]" accesskey="x">Página aleatoria</a></li>
+				<li id="n-help"><a href="/wiki/Ayuda:Contenidos" title="El lugar para aprender">Ayuda</a></li>
+				<li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Donaciones" title="Respáldenos">Donativos</a></li>
+			</ul>
+		</div>
+	</div>
+		<div id="p-search" class="portlet">
+		<h5><label for="searchInput">Buscar</label></h5>
+		<div id="searchBody" class="pBody">
+			<form action="/wiki/Especial:Search" id="searchform"><div>
+				<input id="searchInput" name="search" type="text" title="Buscar en este wiki [f]" accesskey="f" value="" />
+				<input type='submit' name="go" class="searchButton" id="searchGoButton"	value="Ir" />&nbsp;
+				<input type='submit' name="fulltext" class="searchButton" id="mw-searchButton" value="Buscar" />
+			</div></form>
+		</div>
+	</div>
+	<div class="portlet" id="p-tb">
+		<h5>Herramientas</h5>
+		<div class="pBody">
+			<ul>
+				<li id="t-whatlinkshere"><a href="/wiki/Especial:Whatlinkshere/Algoritmo_de_Dijkstra" title="Lista de todas las páginas del wiki que enlazan con ésta [j]" accesskey="j">Lo que enlaza aquí</a></li>
+				<li id="t-recentchangeslinked"><a href="/wiki/Especial:Recentchangeslinked/Algoritmo_de_Dijkstra" title="Cambios recientes en las páginas que enlazan con ésta [k]" accesskey="k">Cambios en enlazadas</a></li>
+<li id="t-upload"><a href="http://commons.wikimedia.org/wiki/Special:Upload?uselang=es" title="Subir imágenes o archivos multimedia [u]" accesskey="u">Subir archivo</a></li>
+<li id="t-specialpages"><a href="/wiki/Especial:Specialpages" title="Lista de todas las páginas especiales [q]" accesskey="q">Páginas especiales</a></li>
+				<li id="t-print"><a href="/w/index.php?title=Algoritmo_de_Dijkstra&amp;printable=yes" title="Versión para imprimir de esta página [p]" accesskey="p">Versión para imprimir</a></li>				<li id="t-permalink"><a href="/w/index.php?title=Algoritmo_de_Dijkstra&amp;oldid=11351544" title="Enlace permanente a la versión imprimible de esta página">Enlace permanente</a></li><li id="t-cite"><a href="/w/index.php?title=Especial:Cite&amp;page=Algoritmo_de_Dijkstra&amp;id=11351544">Citar este artículo</a></li>			</ul>
+		</div>
+	</div>
+	<div id="p-lang" class="portlet">
+		<h5>Otros idiomas</h5>
+		<div class="pBody">
+			<ul>
+				<li class="interwiki-bg"><a href="http://bg.wikipedia.org/wiki/%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D1%8A%D0%BC_%D0%BD%D0%B0_%D0%94%D0%B5%D0%B9%D0%BA%D1%81%D1%82%D1%80%D0%B0">Български</a></li>
+				<li class="interwiki-cs"><a href="http://cs.wikipedia.org/wiki/Dijkstr%C5%AFv_algoritmus">Česky</a></li>
+				<li class="interwiki-de"><a href="http://de.wikipedia.org/wiki/Dijkstra-Algorithmus">Deutsch</a></li>
+				<li class="interwiki-en"><a href="http://en.wikipedia.org/wiki/Dijkstra%27s_algorithm">English</a></li>
+				<li class="interwiki-fi"><a href="http://fi.wikipedia.org/wiki/Dijkstran_algoritmi">Suomi</a></li>
+				<li class="interwiki-fr"><a href="http://fr.wikipedia.org/wiki/Algorithme_de_Dijkstra">Français</a></li>
+				<li class="interwiki-he"><a href="http://he.wikipedia.org/wiki/%D7%90%D7%9C%D7%92%D7%95%D7%A8%D7%99%D7%AA%D7%9D_%D7%93%D7%99%D7%99%D7%A7%D7%A1%D7%98%D7%A8%D7%94">עברית</a></li>
+				<li class="interwiki-id"><a href="http://id.wikipedia.org/wiki/Algoritma_Dijkstra">Bahasa Indonesia</a></li>
+				<li class="interwiki-it"><a href="http://it.wikipedia.org/wiki/Algoritmo_di_Dijkstra">Italiano</a></li>
+				<li class="interwiki-ja"><a href="http://ja.wikipedia.org/wiki/%E3%83%80%E3%82%A4%E3%82%AF%E3%82%B9%E3%83%88%E3%83%A9%E6%B3%95">日本語</a></li>
+				<li class="interwiki-ko"><a href="http://ko.wikipedia.org/wiki/%EB%8D%B0%EC%9D%B4%ED%81%AC%EC%8A%A4%ED%8A%B8%EB%9D%BC_%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98">한국어</a></li>
+				<li class="interwiki-lt"><a href="http://lt.wikipedia.org/wiki/Dijkstros_algoritmas">Lietuvių</a></li>
+				<li class="interwiki-nl"><a href="http://nl.wikipedia.org/wiki/Kortstepadalgoritme">Nederlands</a></li>
+				<li class="interwiki-no"><a href="http://no.wikipedia.org/wiki/Dijkstras_algoritme">‪Norsk (bokmål)‬</a></li>
+				<li class="interwiki-pl"><a href="http://pl.wikipedia.org/wiki/Algorytm_Dijkstry">Polski</a></li>
+				<li class="interwiki-pt"><a href="http://pt.wikipedia.org/wiki/Algoritmo_de_Dijkstra">Português</a></li>
+				<li class="interwiki-ru"><a href="http://ru.wikipedia.org/wiki/%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC_%D0%94%D0%B5%D0%B9%D0%BA%D1%81%D1%82%D1%80%D1%8B">Русский</a></li>
+				<li class="interwiki-sk"><a href="http://sk.wikipedia.org/wiki/Dijkstrov_algoritmus">Slovenčina</a></li>
+				<li class="interwiki-sl"><a href="http://sl.wikipedia.org/wiki/Dijkstrov_algoritem">Slovenščina</a></li>
+				<li class="interwiki-sr"><a href="http://sr.wikipedia.org/wiki/%D0%94%D0%B8%D1%98%D0%BA%D1%81%D1%82%D1%80%D0%B8%D0%BD_%D0%B0%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%B0%D0%BC">Српски / Srpski</a></li>
+				<li class="interwiki-sv"><a href="http://sv.wikipedia.org/wiki/Dijkstras_algoritm">Svenska</a></li>
+				<li class="interwiki-uk"><a href="http://uk.wikipedia.org/wiki/%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC_%D0%94%D0%B5%D0%B9%D0%BA%D1%81%D1%82%D1%80%D0%B8">Українська</a></li>
+				<li class="interwiki-vi"><a href="http://vi.wikipedia.org/wiki/Thu%E1%BA%ADt_to%C3%A1n_Dijkstra">Tiếng Việt</a></li>
+				<li class="interwiki-zh"><a href="http://zh.wikipedia.org/wiki/%E8%BF%AA%E7%A7%91%E6%96%AF%E5%BD%BB%E7%AE%97%E6%B3%95">中文</a></li>
+			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="/skins-1.5/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>
+				<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="/images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>
+			<ul id="f-list">
+				<li id="lastmod"> Esta página fue modificada por última vez el 17:01, 15 sep 2007.</li>
+				<li id="copyright">Contenido disponible bajo los términos de la <a class="internal" href="/wiki/Wikipedia:Texto_de_la_Licencia_de_documentación_libre_de_GNU">Licencia de documentación libre de GNU</a> (véase <b><a class="internal" href="/wiki/Wikipedia:Derechos_de_autor">Derechos de autor</a></b>).<br />
+Wikipedia® es una marca registrada de la organización sin ánimo de lucro <a class="internal" href="http://wikimediafoundation.org/wiki/Portada">Wikimedia Foundation, Inc.</a><br /></li>
+				<li id="privacy"><a href="http://wikimediafoundation.org/wiki/Pol%C3%ADtica_de_privacidad" title="wikimedia:Política de privacidad">Política de privacidad</a></li>
+				<li id="about"><a href="/wiki/Wikipedia:Acerca_de" title="Wikipedia:Acerca de">Acerca de Wikipedia</a></li>
+				<li id="disclaimer"><a href="/wiki/Wikipedia:Limitaci%C3%B3n_general_de_responsabilidad" title="Wikipedia:Limitación general de responsabilidad">Aviso legal</a></li>
+			</ul>
+		</div>
+		
+	
+		<script type="text/javascript">if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by srv143 in 0.082 secs. --></body></html>

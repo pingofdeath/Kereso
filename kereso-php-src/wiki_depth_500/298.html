@@ -1,0 +1,892 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+				<meta name="keywords" content="Distance-vector routing protocol,BGP,Bellman-Ford algorithm,Computational complexity,Computer communication,Exterior Gateway Protocol,Interior Gateway Routing Protocol,Link-state protocol,Packet-switched network,RIP,Route poisoning" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="http://www.gnu.org/copyleft/fdl.html" />
+		<title>Distance-vector routing protocol - Wikipedia, the free encyclopedia</title>
+		<style type="text/css" media="screen, projection">/*<![CDATA[*/
+			@import "/skins-1.5/common/shared.css?97";
+			@import "/skins-1.5/monobook/main.css?97";
+		/*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="/skins-1.5/common/commonPrint.css?97" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE50Fixes.css?97";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE55Fixes.css?97";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "/skins-1.5/monobook/IE60Fixes.css?97";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "/skins-1.5/monobook/IE70Fixes.css?97";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="/skins-1.5/common/IEFixes.js?97"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		
+		<script type= "text/javascript">/*<![CDATA[*/
+var skin = "monobook";
+var stylepath = "/skins-1.5";
+var wgArticlePath = "/wiki/$1";
+var wgScriptPath = "/w";
+var wgScript = "/w/index.php";
+var wgServer = "http://en.wikipedia.org";
+var wgCanonicalNamespace = "";
+var wgCanonicalSpecialPageName = false;
+var wgNamespaceNumber = 0;
+var wgPageName = "Distance-vector_routing_protocol";
+var wgTitle = "Distance-vector routing protocol";
+var wgAction = "view";
+var wgRestrictionEdit = [];
+var wgRestrictionMove = [];
+var wgArticleId = "159228";
+var wgIsArticle = true;
+var wgUserName = null;
+var wgUserGroups = null;
+var wgUserLanguage = "en";
+var wgContentLanguage = "en";
+var wgBreakFrames = false;
+var wgCurRevisionId = "147007862";
+/*]]>*/</script>
+                
+		<script type="text/javascript" src="/skins-1.5/common/wikibits.js?97"><!-- wikibits js --></script>
+		<script type="text/javascript" src="/w/index.php?title=-&amp;action=raw&amp;gen=js&amp;useskin=monobook"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "/w/index.php?title=MediaWiki:Common.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=MediaWiki:Monobook.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=-&action=raw&gen=css&maxage=2678400";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+		<script type="text/javascript" src="/skins-1.5/common/ajax.js?97"></script>
+	</head>
+<body  class="mediawiki ns-0 ltr page-Distance-vector_routing_protocol">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">Distance-vector routing protocol</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<div class="messagebox cleanup metadata plainlinks"><b>This article does not cite any <a href="/wiki/Wikipedia:Citing_sources" title="Wikipedia:Citing sources">references or sources</a>.</b><br />
+<small>Please help <a href="http://en.wikipedia.org/w/index.php?title=Distance-vector_routing_protocol&amp;action=edit" class="external text" title="http://en.wikipedia.org/w/index.php?title=Distance-vector_routing_protocol&amp;action=edit" rel="nofollow">improve this article</a> by adding citations to <a href="/wiki/Wikipedia:Reliable_sources" title="Wikipedia:Reliable sources">reliable sources</a>. (<a href="/wiki/Help:Contents" title="Help:Contents">help</a>, <a href="/wiki/Wikipedia:WikiProject_Fact_and_Reference_Check" title="Wikipedia:WikiProject Fact and Reference Check">get involved!</a>)<br />
+<a href="/wiki/Wikipedia:Verifiability" title="Wikipedia:Verifiability">Unverifiable</a> material may be challenged and removed.<br />
+This article has been tagged since <b>February 2007</b>.</small></div>
+<p>A <b>distance-vector routing protocol</b> is one of the two major classes of <a href="/wiki/Routing_protocol" title="Routing protocol">routing protocols</a> used in <a href="/wiki/Packet-switched_network" title="Packet-switched network">packet-switched networks</a> for <a href="/wiki/Computer_communication" title="Computer communication">computer communications</a>, the other major class being the <a href="/wiki/Link-state_protocol" title="Link-state protocol">link-state protocol</a>. A distance-vector routing protocol uses the <a href="/wiki/Bellman-Ford_algorithm" title="Bellman-Ford algorithm">Bellman-Ford algorithm</a> to calculate paths.</p>
+<p>Examples of distance-vector routing protocols include <a href="/wiki/Routing_Information_Protocol" title="Routing Information Protocol">RIPv1 or 2</a> and <a href="/wiki/Interior_Gateway_Routing_Protocol" title="Interior Gateway Routing Protocol">IGRP</a>. <a href="/wiki/Exterior_Gateway_Protocol" title="Exterior Gateway Protocol">EGP</a> and <a href="/wiki/BGP" title="BGP">BGP</a> are not pure distance-vector routing protocols but their concepts are the same. In many cases, EGP and BGP are considered <b>DV</b> (distance-vector) routing protocols.</p>
+<p>A distance-vector routing protocol requires that a router informs its neighbors of topology changes periodically and, in some cases, when a change is detected in the topology of a network. Compared to <a href="/wiki/Link-state_protocol" title="Link-state protocol">link-state protocols</a>, which requires a router to inform all the nodes in a network of topology changes, distance-vector routing protocols have less <a href="/wiki/Computational_complexity" title="Computational complexity">computational complexity</a> and <a href="/w/index.php?title=Message_overhead&amp;action=edit" class="new" title="Message overhead">message overhead</a>.</p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Method"><span class="tocnumber">1</span> <span class="toctext">Method</span></a></li>
+<li class="toclevel-1"><a href="#Limitations"><span class="tocnumber">2</span> <span class="toctext">Limitations</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Partial_solutions"><span class="tocnumber">2.1</span> <span class="toctext">Partial solutions</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Example"><span class="tocnumber">3</span> <span class="toctext">Example</span></a></li>
+<li class="toclevel-1"><a href="#External_links"><span class="tocnumber">4</span> <span class="toctext">External links</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script>
+<p><a name="Method" id="Method"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Distance-vector_routing_protocol&amp;action=edit&amp;section=1" title="Edit section: Method">edit</a>]</span> <span class="mw-headline">Method</span></h2>
+<p>The actual figures which are used to calculate the best path for a network differ between different routing protocols but the fundamental features of distance-vector algorithms are the same across all DV based protocols.</p>
+<p>As the name suggests the DV protocol is based on calculating the direction and distance to any link in a network. The cost of reaching a destination is performed by using mathematical calculations such as the metrics of the route. RIP uses the hop count of the destination whereas IGRP has other information such as delay and bandwidth which it can use to calculate the desirability of a particular route.</p>
+<p>Updates are performed periodically in a distance-vector protocol where all or part of a router's routing table is sent to all its neighbors that are configured to use the same routing protocol. Once a router has this information it is able to amend its own routing table to reflect the changes and then inform its neighbors of the changes. This process has been described as ‘routing by rumor’ because routers are relying on the information it receives from other routers and cannot determine if the information is actually valid and true. There are a number of features which can be used to help with instability and inaccurate routing information.</p>
+<p><a name="Limitations" id="Limitations"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Distance-vector_routing_protocol&amp;action=edit&amp;section=2" title="Edit section: Limitations">edit</a>]</span> <span class="mw-headline">Limitations</span></h2>
+<p>The <a href="/wiki/Bellman-Ford_algorithm" title="Bellman-Ford algorithm">Bellman-Ford algorithm</a> does not prevent <a href="/wiki/Routing_loop" title="Routing loop">routing loops</a> from happening and suffers from the count-to-infinity problem. The core of the count-to-infinity problem is that if A tells B that it has a path somewhere, there is no way for B to know if it is on the path. To see the problem clearly, imagine a subnet connected like A-B-C-D-E-F, and let the metric between the routers be "number of jumps". Now suppose that A goes down. In the vector-update-process B notices that its once very short route of 1 to A is down - B does not receive the vector update from A. The problem is, B also gets an update from C, and C is still not aware of the fact that A is down - so it tells B that A is only two jumps from it, which is false. This slowly propagates through the network until it reaches infinity (in which case the algorithm corrects itself, due to the "Relax property" of Bellman Ford).</p>
+<p><a name="Partial_solutions" id="Partial_solutions"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Distance-vector_routing_protocol&amp;action=edit&amp;section=3" title="Edit section: Partial solutions">edit</a>]</span> <span class="mw-headline">Partial solutions</span></h3>
+<p><a href="/wiki/RIP" title="RIP">RIP</a> uses <a href="/wiki/Split_Horizon" title="Split Horizon">Split Horizon</a> with <a href="/wiki/Route_poisoning" title="Route poisoning">Poison Reverse</a> technique to reduce the chance of forming loops and use a maximum number of hops to counter the count-to-infinity problem. However, these measures can only mitigate the problems but not solve them, and has turned out to be of mere theoretical value. In practice this has led to the development of more complex but more scalable distance-vector routing protocols. Distance vector protocol is updating all information to its neighbor router.</p>
+<p><a name="Example" id="Example"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Distance-vector_routing_protocol&amp;action=edit&amp;section=4" title="Edit section: Example">edit</a>]</span> <span class="mw-headline">Example</span></h2>
+<p>In this network we have 4 routers A, B, C, and D: <a href="/wiki/Image:Networkabcd.svg" class="image" title="image:networkabcd.svg"><img alt="image:networkabcd.svg" src="http://upload.wikimedia.org/wikipedia/en/thumb/4/46/Networkabcd.svg/400px-Networkabcd.svg.png" width="400" height="200" border="0" /></a></p>
+<p>We shall mark the current time (or iteration) in the algorithm with T, and shall begin (at time 0, or T=0) by creating distance matrices for each router to its immediate neighbors. As we build the routing tables below, the shortest path is highlighted with the color green, a new shortest path is highlighted with the color yellow.</p>
+<table>
+<tr>
+<td>T=0</td>
+<td>
+<table class="wikitable">
+<tr>
+<th bgcolor="#C0C0C0">from A</th>
+<th>via A</th>
+<th>via B</th>
+<th>via C</th>
+<th>via D</th>
+</tr>
+<tr>
+<th>to A</th>
+<td bgcolor="#C0C0C0"></td>
+<td bgcolor="#C0C0C0"></td>
+<td bgcolor="#C0C0C0"></td>
+<td bgcolor="#C0C0C0"></td>
+</tr>
+<tr>
+<th>to B</th>
+<td bgcolor="#C0C0C0"></td>
+<td bgcolor="#D0FF00">3</td>
+<td></td>
+<td bgcolor="#C0C0C0"></td>
+</tr>
+<tr>
+<th>to C</th>
+<td bgcolor="#C0C0C0"></td>
+<td></td>
+<td bgcolor="#D0FF00">23</td>
+<td bgcolor="#C0C0C0"></td>
+</tr>
+<tr>
+<th>to D</th>
+<td bgcolor="#C0C0C0"></td>
+<td></td>
+<td></td>
+<td bgcolor="#C0C0C0"></td>
+</tr>
+</table>
+</td>
+<td>
+<table class="wikitable">
+<tr>
+<th bgcolor="#C0C0C0">from B</th>
+<th>via A</th>
+<th>via B</th>
+<th>via C</th>
+<th>via D</th>
+</tr>
+<tr>
+<th>to A</th>
+<td bgcolor="#D0FF00">3</td>
+<td bgcolor="#C0C0C0"></td>
+<td></td>
+<td bgcolor="#C0C0C0"></td>
+</tr>
+<tr>
+<th>to B</th>
+<td bgcolor="#C0C0C0"></td>
+<td bgcolor="#C0C0C0"></td>
+<td bgcolor="#C0C0C0"></td>
+<td bgcolor="#C0C0C0"></td>
+</tr>
+<tr>
+<th>to C</th>
+<td></td>
+<td bgcolor="#C0C0C0"></td>
+<td bgcolor="#D0FF00">2</td>
+<td bgcolor="#C0C0C0"></td>
+</tr>
+<tr>
+<th>to D</th>
+<td></td>
+<td bgcolor="#C0C0C0"></td>
+<td></td>
+<td bgcolor="#C0C0C0"></td>
+</tr>
+</table>
+</td>
+<td>
+<table class="wikitable">
+<tr>
+<th bgcolor="#C0C0C0">from C</th>
+<th>via A</th>
+<th>via B</th>
+<th>via C</th>
+<th>via D</th>
+</tr>
+<tr>
+<th>to A</th>
+<td bgcolor="#D0FF00">23</td>
+<td></td>
+<td bgcolor="#C0C0C0"></td>
+<td></td>
+</tr>
+<tr>
+<th>to B</th>
+<td></td>
+<td bgcolor="#D0FF00">2</td>
+<td bgcolor="#C0C0C0"></td>
+<td></td>
+</tr>
+<tr>
+<th>to C</th>
+<td bgcolor="#C0C0C0"></td>
+<td bgcolor="#C0C0C0"></td>
+<td bgcolor="#C0C0C0"></td>
+<td bgcolor="#C0C0C0"></td>
+</tr>
+<tr>
+<th>to D</th>
+<td></td>
+<td></td>
+<td bgcolor="#C0C0C0"></td>
+<td bgcolor="#D0FF00">5</td>
+</tr>
+</table>
+</td>
+<td>
+<table class="wikitable">
+<tr>
+<th bgcolor="#C0C0C0">from D</th>
+<th>via A</th>
+<th>via B</th>
+<th>via C</th>
+<th>via D</th>
+</tr>
+<tr>
+<th>to A</th>
+<td bgcolor="#C0C0C0"></td>
+<td bgcolor="#C0C0C0"></td>
+<td></td>
+<td bgcolor="#C0C0C0"></td>
+</tr>
+<tr>
+<th>to B</th>
+<td bgcolor="#C0C0C0"></td>
+<td bgcolor="#C0C0C0"></td>
+<td></td>
+<td bgcolor="#C0C0C0"></td>
+</tr>
+<tr>
+<th>to C</th>
+<td bgcolor="#C0C0C0"></td>
+<td bgcolor="#C0C0C0"></td>
+<td bgcolor="#D0FF00">5</td>
+<td bgcolor="#C0C0C0"></td>
+</tr>
+<tr>
+<th>to D</th>
+<td bgcolor="#C0C0C0"></td>
+<td bgcolor="#C0C0C0"></td>
+<td bgcolor="#C0C0C0"></td>
+<td bgcolor="#C0C0C0"></td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td colspan="5">At this point, all the routers (A,B,C,D) have new "shortest-paths" for their DV (the list of distances that are from them to another router via a neighbor). They each broadcast this new DV to all their neighbors: A to B and C, B to C and A, C to A, B, and D, and D to C. As each of these neighbors receives this information, they now recalculate the shortest path using it.
+<p>For example: A receives a DV from C that tells A there is a path via C to D, with a distance (or cost) of 5. Since the current "shortest-path" to C is 23, then A knows it has a path to D that costs 23+5=28. As there are no other shorter paths that A knows about, it puts this as its current estimate for the shortest-path from itself (A) to D, via C.</p>
+</td>
+<td></td>
+</tr>
+<tr>
+<td>T=1</td>
+<td>
+<table class="wikitable">
+<tr>
+<th bgcolor="#C0C0C0">from A</th>
+<th>via A</th>
+<th>via B</th>
+<th>via C</th>
+<th>via D</th>
+</tr>
+<tr>
+<th>to A</th>
+<td bgcolor="#C0C0C0"></td>
+<td bgcolor="#C0C0C0"></td>
+<td bgcolor="#C0C0C0"></td>
+<td bgcolor="#C0C0C0"></td>
+</tr>
+<tr>
+<th>to B</th>
+<td bgcolor="#C0C0C0"></td>
+<td bgcolor="#80FF80">3</td>
+<td>25</td>
+<td bgcolor="#C0C0C0"></td>
+</tr>
+<tr>
+<th>to C</th>
+<td bgcolor="#C0C0C0"></td>
+<td bgcolor="#D0FF00">5</td>
+<td>23</td>
+<td bgcolor="#C0C0C0"></td>
+</tr>
+<tr>
+<th>to D</th>
+<td bgcolor="#C0C0C0"></td>
+<td></td>
+<td bgcolor="#D0FF00">28</td>
+<td bgcolor="#C0C0C0"></td>
+</tr>
+</table>
+</td>
+<td>
+<table class="wikitable">
+<tr>
+<th bgcolor="#C0C0C0">from B</th>
+<th>via A</th>
+<th>via B</th>
+<th>via C</th>
+<th>via D</th>
+</tr>
+<tr>
+<th>to A</th>
+<td bgcolor="#80FF80">3</td>
+<td bgcolor="#C0C0C0"></td>
+<td>25</td>
+<td bgcolor="#C0C0C0"></td>
+</tr>
+<tr>
+<th>to B</th>
+<td bgcolor="#C0C0C0"></td>
+<td bgcolor="#C0C0C0"></td>
+<td bgcolor="#C0C0C0"></td>
+<td bgcolor="#C0C0C0"></td>
+</tr>
+<tr>
+<th>to C</th>
+<td>26</td>
+<td bgcolor="#C0C0C0"></td>
+<td bgcolor="#80FF80">2</td>
+<td bgcolor="#C0C0C0"></td>
+</tr>
+<tr>
+<th>to D</th>
+<td></td>
+<td bgcolor="#C0C0C0"></td>
+<td bgcolor="#D0FF00">7</td>
+<td bgcolor="#C0C0C0"></td>
+</tr>
+</table>
+</td>
+<td>
+<table class="wikitable">
+<tr>
+<th bgcolor="#C0C0C0">from C</th>
+<th>via A</th>
+<th>via B</th>
+<th>via C</th>
+<th>via D</th>
+</tr>
+<tr>
+<th>to A</th>
+<td>23</td>
+<td bgcolor="#D0FF00">5</td>
+<td bgcolor="#C0C0C0"></td>
+<td></td>
+</tr>
+<tr>
+<th>to B</th>
+<td>26</td>
+<td bgcolor="#80FF80">2</td>
+<td bgcolor="#C0C0C0"></td>
+<td></td>
+</tr>
+<tr>
+<th>to C</th>
+<td bgcolor="#C0C0C0"></td>
+<td bgcolor="#C0C0C0"></td>
+<td bgcolor="#C0C0C0"></td>
+<td bgcolor="#C0C0C0"></td>
+</tr>
+<tr>
+<th>to D</th>
+<td></td>
+<td></td>
+<td bgcolor="#C0C0C0"></td>
+<td bgcolor="#80FF80">5</td>
+</tr>
+</table>
+</td>
+<td>
+<table class="wikitable">
+<tr>
+<th bgcolor="#C0C0C0">from D</th>
+<th>via A</th>
+<th>via B</th>
+<th>via C</th>
+<th>via D</th>
+</tr>
+<tr>
+<th>to A</th>
+<td bgcolor="#C0C0C0"></td>
+<td bgcolor="#C0C0C0"></td>
+<td bgcolor="#D0FF00">28</td>
+<td bgcolor="#C0C0C0"></td>
+</tr>
+<tr>
+<th>to B</th>
+<td bgcolor="#C0C0C0"></td>
+<td bgcolor="#C0C0C0"></td>
+<td bgcolor="#D0FF00">7</td>
+<td bgcolor="#C0C0C0"></td>
+</tr>
+<tr>
+<th>to C</th>
+<td bgcolor="#C0C0C0"></td>
+<td bgcolor="#C0C0C0"></td>
+<td bgcolor="#80FF80">5</td>
+<td bgcolor="#C0C0C0"></td>
+</tr>
+<tr>
+<th>to D</th>
+<td bgcolor="#C0C0C0"></td>
+<td bgcolor="#C0C0C0"></td>
+<td bgcolor="#C0C0C0"></td>
+<td bgcolor="#C0C0C0"></td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td colspan="5">Again, all the routers have gained in the last iteration (at T=1) new "shortest-paths", so they all their DVs broadcast to their neighbors; This prompts each neighbor to re-calculate their shortest distances again.
+<p>For instance: A receives a DV from B that tells A there is a path via B to D, with a distance (or cost) of 7. Since the current "shortest-path" to B is 3, then A knows it has a path to D that costs 7+3=10. This path to D of length 10 (via B) is shorter than the existing "shortest-path" to D of length 28 (via C), so it becomes the new "shortest-path" to D.</p>
+</td>
+<td></td>
+</tr>
+<tr>
+<td>T=2</td>
+<td>
+<table class="wikitable">
+<tr>
+<th bgcolor="#C0C0C0">from A</th>
+<th>via A</th>
+<th>via B</th>
+<th>via C</th>
+<th>via D</th>
+</tr>
+<tr>
+<th>to A</th>
+<td bgcolor="#C0C0C0"></td>
+<td bgcolor="#C0C0C0"></td>
+<td bgcolor="#C0C0C0"></td>
+<td bgcolor="#C0C0C0"></td>
+</tr>
+<tr>
+<th>to B</th>
+<td bgcolor="#C0C0C0"></td>
+<td bgcolor="#80FF80">3</td>
+<td>25</td>
+<td bgcolor="#C0C0C0"></td>
+</tr>
+<tr>
+<th>to C</th>
+<td bgcolor="#C0C0C0"></td>
+<td bgcolor="#80FF80">5</td>
+<td>23</td>
+<td bgcolor="#C0C0C0"></td>
+</tr>
+<tr>
+<th>to D</th>
+<td bgcolor="#C0C0C0"></td>
+<td bgcolor="#D0FF00">10</td>
+<td>28</td>
+<td bgcolor="#C0C0C0"></td>
+</tr>
+</table>
+</td>
+<td>
+<table class="wikitable">
+<tr>
+<th bgcolor="#C0C0C0">from B</th>
+<th>via A</th>
+<th>via B</th>
+<th>via C</th>
+<th>via D</th>
+</tr>
+<tr>
+<th>to A</th>
+<td bgcolor="#80FF80">3</td>
+<td bgcolor="#C0C0C0"></td>
+<td>7</td>
+<td bgcolor="#C0C0C0"></td>
+</tr>
+<tr>
+<th>to B</th>
+<td bgcolor="#C0C0C0"></td>
+<td bgcolor="#C0C0C0"></td>
+<td bgcolor="#C0C0C0"></td>
+<td bgcolor="#C0C0C0"></td>
+</tr>
+<tr>
+<th>to C</th>
+<td>8</td>
+<td bgcolor="#C0C0C0"></td>
+<td bgcolor="#80FF80">2</td>
+<td bgcolor="#C0C0C0"></td>
+</tr>
+<tr>
+<th>to D</th>
+<td>31</td>
+<td bgcolor="#C0C0C0"></td>
+<td bgcolor="#80FF80">7</td>
+<td bgcolor="#C0C0C0"></td>
+</tr>
+</table>
+</td>
+<td>
+<table class="wikitable">
+<tr>
+<th bgcolor="#C0C0C0">from C</th>
+<th>via A</th>
+<th>via B</th>
+<th>via C</th>
+<th>via D</th>
+</tr>
+<tr>
+<th>to A</th>
+<td>23</td>
+<td bgcolor="#80FF80">5</td>
+<td bgcolor="#C0C0C0"></td>
+<td>33</td>
+</tr>
+<tr>
+<th>to B</th>
+<td>26</td>
+<td bgcolor="#80FF80">2</td>
+<td bgcolor="#C0C0C0"></td>
+<td>12</td>
+</tr>
+<tr>
+<th>to C</th>
+<td bgcolor="#C0C0C0"></td>
+<td bgcolor="#C0C0C0"></td>
+<td bgcolor="#C0C0C0"></td>
+<td bgcolor="#C0C0C0"></td>
+</tr>
+<tr>
+<th>to D</th>
+<td>51</td>
+<td>9</td>
+<td bgcolor="#C0C0C0"></td>
+<td bgcolor="#80FF80">5</td>
+</tr>
+</table>
+</td>
+<td>
+<table class="wikitable">
+<tr>
+<th bgcolor="#C0C0C0">from D</th>
+<th>via A</th>
+<th>via B</th>
+<th>via C</th>
+<th>via D</th>
+</tr>
+<tr>
+<th>to A</th>
+<td bgcolor="#C0C0C0"></td>
+<td bgcolor="#C0C0C0"></td>
+<td bgcolor="#D0FF00">10</td>
+<td bgcolor="#C0C0C0"></td>
+</tr>
+<tr>
+<th>to B</th>
+<td bgcolor="#C0C0C0"></td>
+<td bgcolor="#C0C0C0"></td>
+<td bgcolor="#80FF80">7</td>
+<td bgcolor="#C0C0C0"></td>
+</tr>
+<tr>
+<th>to C</th>
+<td bgcolor="#C0C0C0"></td>
+<td bgcolor="#C0C0C0"></td>
+<td bgcolor="#80FF80">5</td>
+<td bgcolor="#C0C0C0"></td>
+</tr>
+<tr>
+<th>to D</th>
+<td bgcolor="#C0C0C0"></td>
+<td bgcolor="#C0C0C0"></td>
+<td bgcolor="#C0C0C0"></td>
+<td bgcolor="#C0C0C0"></td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td colspan="5">This time, only routers A and D have new shortest-paths for their DVs. So they broadcast their new DVs to their neighbors: A broadcasts to B and C, and D broadcasts to C. This causes each of the neighbors receiving the new DVs to re-calculate their shortest paths. However, since the information from the DVs doesn't yield any shorter paths than they already have in their routing tables, then there are no changes to the routing tables.</td>
+<td>
+<p><br /></p>
+</td>
+</tr>
+<tr>
+<td>T=3</td>
+<td>
+<table class="wikitable">
+<tr>
+<th bgcolor="#C0C0C0">from A</th>
+<th>via A</th>
+<th>via B</th>
+<th>via C</th>
+<th>via D</th>
+</tr>
+<tr>
+<th>to A</th>
+<td bgcolor="#C0C0C0"></td>
+<td bgcolor="#C0C0C0"></td>
+<td bgcolor="#C0C0C0"></td>
+<td bgcolor="#C0C0C0"></td>
+</tr>
+<tr>
+<th>to B</th>
+<td bgcolor="#C0C0C0"></td>
+<td bgcolor="#80FF80">3</td>
+<td>25</td>
+<td bgcolor="#C0C0C0"></td>
+</tr>
+<tr>
+<th>to C</th>
+<td bgcolor="#C0C0C0"></td>
+<td bgcolor="#80FF80">5</td>
+<td>23</td>
+<td bgcolor="#C0C0C0"></td>
+</tr>
+<tr>
+<th>to D</th>
+<td bgcolor="#C0C0C0"></td>
+<td bgcolor="#80FF80">10</td>
+<td>28</td>
+<td bgcolor="#C0C0C0"></td>
+</tr>
+</table>
+</td>
+<td>
+<table class="wikitable">
+<tr>
+<th bgcolor="#C0C0C0">from B</th>
+<th>via A</th>
+<th>via B</th>
+<th>via C</th>
+<th>via D</th>
+</tr>
+<tr>
+<th>to A</th>
+<td bgcolor="#80FF80">3</td>
+<td bgcolor="#C0C0C0"></td>
+<td>7</td>
+<td bgcolor="#C0C0C0"></td>
+</tr>
+<tr>
+<th>to B</th>
+<td bgcolor="#C0C0C0"></td>
+<td bgcolor="#C0C0C0"></td>
+<td bgcolor="#C0C0C0"></td>
+<td bgcolor="#C0C0C0"></td>
+</tr>
+<tr>
+<th>to C</th>
+<td>8</td>
+<td bgcolor="#C0C0C0"></td>
+<td bgcolor="#80FF80">2</td>
+<td bgcolor="#C0C0C0"></td>
+</tr>
+<tr>
+<th>to D</th>
+<td>13</td>
+<td bgcolor="#C0C0C0"></td>
+<td bgcolor="#80FF80">7</td>
+<td bgcolor="#C0C0C0"></td>
+</tr>
+</table>
+</td>
+<td>
+<table class="wikitable">
+<tr>
+<th bgcolor="#C0C0C0">from C</th>
+<th>via A</th>
+<th>via B</th>
+<th>via C</th>
+<th>via D</th>
+</tr>
+<tr>
+<th>to A</th>
+<td>23</td>
+<td bgcolor="#80FF80">5</td>
+<td bgcolor="#C0C0C0"></td>
+<td>15</td>
+</tr>
+<tr>
+<th>to B</th>
+<td>26</td>
+<td bgcolor="#80FF80">2</td>
+<td bgcolor="#C0C0C0"></td>
+<td>12</td>
+</tr>
+<tr>
+<th>to C</th>
+<td bgcolor="#C0C0C0"></td>
+<td bgcolor="#C0C0C0"></td>
+<td bgcolor="#C0C0C0"></td>
+<td bgcolor="#C0C0C0"></td>
+</tr>
+<tr>
+<th>to D</th>
+<td>33</td>
+<td>9</td>
+<td bgcolor="#C0C0C0"></td>
+<td bgcolor="#80FF80">5</td>
+</tr>
+</table>
+</td>
+<td>
+<table class="wikitable">
+<tr>
+<th bgcolor="#C0C0C0">from D</th>
+<th>via A</th>
+<th>via B</th>
+<th>via C</th>
+<th>via D</th>
+</tr>
+<tr>
+<th>to A</th>
+<td bgcolor="#C0C0C0"></td>
+<td bgcolor="#C0C0C0"></td>
+<td bgcolor="#80FF80">10</td>
+<td bgcolor="#C0C0C0"></td>
+</tr>
+<tr>
+<th>to B</th>
+<td bgcolor="#C0C0C0"></td>
+<td bgcolor="#C0C0C0"></td>
+<td bgcolor="#80FF80">7</td>
+<td bgcolor="#C0C0C0"></td>
+</tr>
+<tr>
+<th>to C</th>
+<td bgcolor="#C0C0C0"></td>
+<td bgcolor="#C0C0C0"></td>
+<td bgcolor="#80FF80">5</td>
+<td bgcolor="#C0C0C0"></td>
+</tr>
+<tr>
+<th>to D</th>
+<td bgcolor="#C0C0C0"></td>
+<td bgcolor="#C0C0C0"></td>
+<td bgcolor="#C0C0C0"></td>
+<td bgcolor="#C0C0C0"></td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td colspan="5">None of the routers have any new shortest-paths to broadcast. Therefore, none of the routers <i>receive</i> any new information that might change their routing tables. So the algorithm comes to a stop.</td>
+<td></td>
+</tr>
+</table>
+<p><a name="External_links" id="External_links"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Distance-vector_routing_protocol&amp;action=edit&amp;section=5" title="Edit section: External links">edit</a>]</span> <span class="mw-headline">External links</span></h2>
+<ul>
+<li><a href="http://www.mathiaz.com/routage/" class="external text" title="http://www.mathiaz.com/routage/" rel="nofollow">A Java applet implementing Distance Vector algorithm for pedagogical purposes</a></li>
+</ul>
+
+<!-- 
+Pre-expand include size: 1116 bytes
+Post-expand include size: 922 bytes
+Template argument size: 59 bytes
+Maximum: 2048000 bytes
+-->
+
+<!-- Saved in parser cache with key enwiki:pcache:idhash:159228-0!1!0!default!!en!2 and timestamp 20070908092446 -->
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org/wiki/Distance-vector_routing_protocol">http://en.wikipedia.org/wiki/Distance-vector_routing_protocol</a>"</div>
+			<div id="catlinks"><p class='catlinks'><a href="/wiki/Special:Categories" title="Special:Categories">Categories</a>: <span dir='ltr'><a href="/wiki/Category:Articles_lacking_sources_from_February_2007" title="Category:Articles lacking sources from February 2007">Articles lacking sources from February 2007</a></span> | <span dir='ltr'><a href="/wiki/Category:All_articles_lacking_sources" title="Category:All articles lacking sources">All articles lacking sources</a></span> | <span dir='ltr'><a href="/wiki/Category:Routing_protocols" title="Category:Routing protocols">Routing protocols</a></span> | <span dir='ltr'><a href="/wiki/Category:Routing_algorithms" title="Category:Routing algorithms">Routing algorithms</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<div class="pBody">
+			<ul>
+					 <li id="ca-nstab-main" class="selected"><a href="/wiki/Distance-vector_routing_protocol" title="View the content page [c]" accesskey="c">Article</a></li>
+					 <li id="ca-talk"><a href="/wiki/Talk:Distance-vector_routing_protocol" title="Discussion about the content page [t]" accesskey="t">Discussion</a></li>
+					 <li id="ca-edit"><a href="/w/index.php?title=Distance-vector_routing_protocol&amp;action=edit" title="You can edit this page. Please use the preview button before saving. [e]" accesskey="e">Edit this page</a></li>
+					 <li id="ca-history"><a href="/w/index.php?title=Distance-vector_routing_protocol&amp;action=history" title="Past versions of this page [h]" accesskey="h">History</a></li>
+				</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-personal">
+		<h5>Personal tools</h5>
+		<div class="pBody">
+			<ul>
+				<li id="pt-login"><a href="/w/index.php?title=Special:Userlogin&amp;returnto=Distance-vector_routing_protocol" title="You are encouraged to log in, it is not mandatory however. [o]" accesskey="o">Sign in / create account</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-logo">
+		<a style="background-image: url(/images/wiki-en.png);" href="/wiki/Main_Page" title="Visit the Main Page [z]" accesskey="z"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-Main-page"><a href="/wiki/Main_Page">Main page</a></li>
+				<li id="n-Contents"><a href="/wiki/Wikipedia:Contents">Contents</a></li>
+				<li id="n-Featured-content"><a href="/wiki/Wikipedia:Featured_content">Featured content</a></li>
+				<li id="n-currentevents"><a href="/wiki/Portal:Current_events" title="Find background information on current events">Current events</a></li>
+				<li id="n-randompage"><a href="/wiki/Special:Random" title="Load a random page [x]" accesskey="x">Random article</a></li>
+			</ul>
+		</div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+		<h5>interaction</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-About-Wikipedia"><a href="/wiki/Wikipedia:About">About Wikipedia</a></li>
+				<li id="n-portal"><a href="/wiki/Wikipedia:Community_Portal" title="About the project, what you can do, where to find things">Community portal</a></li>
+				<li id="n-recentchanges"><a href="/wiki/Special:Recentchanges" title="The list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li>
+				<li id="n-contact"><a href="/wiki/Wikipedia:Contact_us">Contact Wikipedia</a></li>
+				<li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising" title="Support us">Donate to Wikipedia</a></li>
+				<li id="n-help"><a href="/wiki/Help:Contents" title="Guidance on how to use and edit Wikipedia">Help</a></li>
+			</ul>
+		</div>
+	</div>
+		<div id="p-search" class="portlet">
+		<h5><label for="searchInput">Search</label></h5>
+		<div id="searchBody" class="pBody">
+			<form action="/wiki/Special:Search" id="searchform"><div>
+				<input id="searchInput" name="search" type="text" title="Search Wikipedia [f]" accesskey="f" value="" />
+				<input type='submit' name="go" class="searchButton" id="searchGoButton"	value="Go" />&nbsp;
+				<input type='submit' name="fulltext" class="searchButton" id="mw-searchButton" value="Search" />
+			</div></form>
+		</div>
+	</div>
+	<div class="portlet" id="p-tb">
+		<h5>Toolbox</h5>
+		<div class="pBody">
+			<ul>
+				<li id="t-whatlinkshere"><a href="/wiki/Special:Whatlinkshere/Distance-vector_routing_protocol" title="List of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+				<li id="t-recentchangeslinked"><a href="/wiki/Special:Recentchangeslinked/Distance-vector_routing_protocol" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+<li id="t-upload"><a href="/wiki/Wikipedia:Upload" title="Upload images or media files [u]" accesskey="u">Upload file</a></li>
+<li id="t-specialpages"><a href="/wiki/Special:Specialpages" title="List of all special pages [q]" accesskey="q">Special pages</a></li>
+				<li id="t-print"><a href="/w/index.php?title=Distance-vector_routing_protocol&amp;printable=yes" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>				<li id="t-permalink"><a href="/w/index.php?title=Distance-vector_routing_protocol&amp;oldid=147007862" title="Permanent link to this version of the page">Permanent link</a></li><li id="t-cite"><a href="/w/index.php?title=Special:Cite&amp;page=Distance-vector_routing_protocol&amp;id=147007862">Cite this article</a></li>			</ul>
+		</div>
+	</div>
+	<div id="p-lang" class="portlet">
+		<h5>In other languages</h5>
+		<div class="pBody">
+			<ul>
+				<li class="interwiki-de"><a href="http://de.wikipedia.org/wiki/Distanzvektoralgorithmus">Deutsch</a></li>
+				<li class="interwiki-es"><a href="http://es.wikipedia.org/wiki/Vector_de_distancias">Español</a></li>
+				<li class="interwiki-fr"><a href="http://fr.wikipedia.org/wiki/Vector_Distance">Français</a></li>
+				<li class="interwiki-it"><a href="http://it.wikipedia.org/wiki/Distance_Vector">Italiano</a></li>
+			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="/skins-1.5/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>
+				<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="/images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>
+			<ul id="f-list">
+				<li id="lastmod"> This page was last modified 15:24, 25 July 2007.</li>
+				<li id="copyright">All text is available under the terms of the <a class='internal' href="/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="/wiki/Wikipedia:Copyrights" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a U.S. registered <a class='internal' href="/wiki/501%28c%29#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="/wiki/Non-profit_organization" title="Non-profit organization">nonprofit</a> <a href="/wiki/Charitable_organization" title="Charitable organization">charity</a>.<br /></li>
+				<li id="privacy"><a href="http://wikimediafoundation.org/wiki/Privacy_policy" title="wikimedia:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="/wiki/Wikipedia:About" title="Wikipedia:About">About Wikipedia</a></li>
+				<li id="disclaimer"><a href="/wiki/Wikipedia:General_disclaimer" title="Wikipedia:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+		
+	
+		<script type="text/javascript">if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by srv82 in 0.085 secs. --></body></html>

@@ -1,0 +1,225 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pt" lang="pt" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+				<meta name="keywords" content="Algoritmo A*,Algoritmo de Dijkstra,Best-first Search,Língua inglesa,Língua portuguesa,Esboço,Namespace predefinição/Avisos e alertas/Esboços" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (Português)" />
+		<link rel="copyright" href="http://www.gnu.org/copyleft/fdl.html" />
+		<title>Algoritmo A* - Wikipédia</title>
+		<style type="text/css" media="screen, projection">/*<![CDATA[*/
+			@import "/skins-1.5/common/shared.css?99";
+			@import "/skins-1.5/monobook/main.css?99";
+		/*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="/skins-1.5/common/commonPrint.css?99" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE50Fixes.css?99";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE55Fixes.css?99";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "/skins-1.5/monobook/IE60Fixes.css?99";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "/skins-1.5/monobook/IE70Fixes.css?99";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="/skins-1.5/common/IEFixes.js?99"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		
+		<script type= "text/javascript">/*<![CDATA[*/
+var skin = "monobook";
+var stylepath = "/skins-1.5";
+var wgArticlePath = "/wiki/$1";
+var wgScriptPath = "/w";
+var wgScript = "/w/index.php";
+var wgServer = "http://pt.wikipedia.org";
+var wgCanonicalNamespace = "";
+var wgCanonicalSpecialPageName = false;
+var wgNamespaceNumber = 0;
+var wgPageName = "Algoritmo_A*";
+var wgTitle = "Algoritmo A*";
+var wgAction = "view";
+var wgRestrictionEdit = [];
+var wgRestrictionMove = [];
+var wgArticleId = "618853";
+var wgIsArticle = true;
+var wgUserName = null;
+var wgUserGroups = null;
+var wgUserLanguage = "pt";
+var wgContentLanguage = "pt";
+var wgBreakFrames = false;
+var wgCurRevisionId = "7112344";
+/*]]>*/</script>
+                
+		<script type="text/javascript" src="/skins-1.5/common/wikibits.js?99"><!-- wikibits js --></script>
+		<script type="text/javascript" src="/w/index.php?title=-&amp;action=raw&amp;gen=js&amp;useskin=monobook"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "/w/index.php?title=MediaWiki:Common.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=MediaWiki:Monobook.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=-&action=raw&gen=css&maxage=2678400";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+		<script type="text/javascript" src="/skins-1.5/common/ajax.js?99"></script>
+	</head>
+<body  class="mediawiki ns-0 ltr page-Algoritmo_A">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">Algoritmo A*</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">Origem: Wikipédia, a enciclopédia livre.</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Ir para: <a href="#column-one">navegação</a>, <a href="#searchInput">pesquisa</a></div>			<!-- start content -->
+			<p><b>Algoritmo A*</b> (Lê-se: A estrela) é um algoritmo para <b>Busca de Caminho</b>. Ele busca o caminho em um grafo de um vértice inicial até um vértice final. Ele é a combinação de aproximações heurísticas como do algoritmo <a href="/wiki/Best-first_Search" title="Best-first Search">Best-first Search</a> e da formalidade do <a href="/wiki/Algoritmo_de_Dijkstra" title="Algoritmo de Dijkstra">Algoritmo de Dijkstra</a>.</p>
+<p>O algoritmo foi descrito pela primeira vez em 1968 por Peter Hart, Nils Nilsson, e Bertram Raphael. Na publicação deles, ele foi chamado de algoritmo A; usando este algoritmo com uma heurística apropriada atinge-se um comportamento ótimo, e passou a ser conhecido por A*.</p>
+<p>Sua aplicação vai desde aplicativos para encontrar rotas de deslocamento entre localidades a resolução de problemas, como a resolução de um quebra-cabeças. Ele é muito usado em jogos.</p>
+<p><br /></p>
+<p><a name="Algoritmo" id="Algoritmo"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Algoritmo_A%2A&amp;action=edit&amp;section=1" title="Editar secção: Algoritmo">editar</a>]</span> <span class="mw-headline"><b>Algoritmo</b></span></h2>
+<p>1 - Inicialize <b>Q</b> com o nó de busca <b>(S)</b> como única entrada;</p>
+<p>2 - Se <b>Q</b> está vazio, interrompa. Se não, escolha o melhor elemento de <b>Q</b>;</p>
+<p>3 - Se o estado <b>(n)</b> é um objetivo, retorne <b>n</b>;</p>
+<p>4 - (De outro modo) Remova <b>n</b> de <b>Q</b>;</p>
+<p>5 - Encontre os descendentes do estado <b>(n)</b> que não estão em visitados e crie todas as extensoões de <b>n</b> para cada descendente;</p>
+<p>6 - Adicione os caminos extendidos a <b>Q</b> e vapara o passo <b>2</b>;</p>
+<p><br /></p>
+<pre>
+Função heuristica <b>f = h+g</b>;
+<b>h(n)</b> eh é uma estimativa da distância de um estado até o objetivo;
+<b>g</b> é o comprimento;
+ja a estimativa do comprimento total é fornecido por <b>f</b>;
+<b>Q</b> é uma lista dos caminhos expandidos;
+</pre>
+<p>Uma estimativa que sempre substima o comprimetno real do caminho ate o objetivo é chamada de admissivel. O uso de uma estimativa admissilve garante que a busca de custo-uniforme ainda encontrará o menor caminho.</p>
+<p><a name="Liga.C3.A7.C3.B5es_externas" id="Liga.C3.A7.C3.B5es_externas"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Algoritmo_A%2A&amp;action=edit&amp;section=2" title="Editar secção: Ligações externas">editar</a>]</span> <span class="mw-headline">Ligações externas</span></h2>
+<ul>
+<li><span style="font-family: sans-serif; cursor: default; color: #0000CD; font-size: 1.2em; font-weight: bold;">(<span style="color: Navy; font-size: 0.7em; position: relative; bottom: 0.1em;">(<tt><a href="/wiki/L%C3%ADngua_portuguesa" title="Língua portuguesa">pt</a></tt>)</span>)</span> <a href="http://www.policyalmanac.org/games/aStarTutorial_port.htm" class="external text" title="http://www.policyalmanac.org/games/aStarTutorial_port.htm" rel="nofollow">A* Pathfinding para Iniciantes</a></li>
+<li><span style="font-family: sans-serif; cursor: default; color: #0000CD; font-size: 1.2em; font-weight: bold;">(<span style="color: Navy; font-size: 0.7em; position: relative; bottom: 0.1em;">(<tt><a href="/wiki/L%C3%ADngua_portuguesa" title="Língua portuguesa">pt</a></tt>)</span>)</span> <a href="http://www.dc.uel.br/~rarosa/pixel/path.html" class="external text" title="http://www.dc.uel.br/~rarosa/pixel/path.html" rel="nofollow">Projeto de Pesquisa de Algoritmos de Busca</a></li>
+<li><span style="font-family: sans-serif; cursor: default; color: #0000CD; font-size: 1.2em; font-weight: bold;">(<span style="color: Navy; font-size: 0.7em; position: relative; bottom: 0.1em;">(<tt><a href="/wiki/L%C3%ADngua_inglesa" title="Língua inglesa">en</a></tt>)</span>)</span> <a href="http://theory.stanford.edu/~amitp/GameProgramming/" class="external text" title="http://theory.stanford.edu/~amitp/GameProgramming/" rel="nofollow">Amit's A* Pages -- Path finding</a> Texto bastante completo sobre busca de caminhos (Path finding) usando o Algoritmo A*</li>
+</ul>
+<div style="position:absolute; z-index:100; right:10px; top:10px;" class="metadata">
+<div style="position:relative; width:20px; height:20px; overflow:hidden;">
+<div style="position:absolute; font-size:20px; overflow:hidden; line-height:20px; letter-spacing:20px;"><span class="plainlinks"><a href="http://tools.wikimedia.de/~magnus/missing_images.php?lang=pt&amp;depth=3&amp;skipgood=1&amp;skipempty=1&amp;donoevil=1&amp;check_exists=1&amp;commonsonly=1&amp;use_png=1&amp;use_gif=1&amp;use_jpg=1&amp;use_tif=1&amp;use_svg=1&amp;titlelist=Algoritmo+A%2A" class="external text" title="http://tools.wikimedia.de/~magnus/missing_images.php?lang=pt&amp;depth=3&amp;skipgood=1&amp;skipempty=1&amp;donoevil=1&amp;check_exists=1&amp;commonsonly=1&amp;use_png=1&amp;use_gif=1&amp;use_jpg=1&amp;use_tif=1&amp;use_svg=1&amp;titlelist=Algoritmo+A%2A" rel="nofollow"><span title="Procurar imagem disponivel" style="text-decoration:none;">&#160; &#160;</span></a></span></div>
+<a href="/wiki/Imagem:Praktica.jpg" class="image" title="Procurar imagem disponivels"><img alt="Procurar imagem disponivels" src="http://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Praktica.jpg/25px-Praktica.jpg" width="25" height="19" border="0" /></a></div>
+</div>
+<table align="center" cellpadding="0" cellspacing="0" style="background-color: white; border: 1px solid #ccc; padding: 5px; font-size:85%;" class="noprint">
+<tr>
+<td><a href="/wiki/Imagem:Nuvola_apps_ksig.png" class="image" title="Nuvola apps ksig.png"><img alt="" src="http://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Nuvola_apps_ksig.png/32px-Nuvola_apps_ksig.png" width="32" height="32" border="0" /></a></td>
+<td><i>Este artigo é somente um <a href="/wiki/Wikipedia:Esbo%C3%A7o" title="Wikipedia:Esboço">esboço</a>. Você pode ajudar a Wikipédia <a href="http://pt.wikipedia.org/w/index.php?title=Algoritmo_A%2A&amp;action=edit" class="external text" title="http://pt.wikipedia.org/w/index.php?title=Algoritmo_A%2A&amp;action=edit" rel="nofollow">expandindo-o</a>.</i><br />
+<font color="#BBBBBB"><i>Editor: considere marcar com um <a href="/wiki/Wikipedia:Namespace_predefini%C3%A7%C3%A3o/Avisos_e_alertas/Esbo%C3%A7os" title="Wikipedia:Namespace predefinição/Avisos e alertas/Esboços"><font color="#999999">esboço mais específico</font></a>.</i></font></td>
+</tr>
+</table>
+
+<!-- 
+Pre-expand include size: 6435 bytes
+Post-expand include size: 3035 bytes
+Template argument size: 72 bytes
+Maximum: 2048000 bytes
+-->
+
+<!-- Saved in parser cache with key ptwiki:pcache:idhash:618853-0!1!0!!pt!2 and timestamp 20070913204315 -->
+<div class="printfooter">
+Obtido em "<a href="http://pt.wikipedia.org/wiki/Algoritmo_A%2A">http://pt.wikipedia.org/wiki/Algoritmo_A%2A</a>"</div>
+			<div id="catlinks"><p class='catlinks'><a href="/wiki/Especial:Categories" title="Especial:Categories">Categorias</a>: <span dir='ltr'><a href="/wiki/Categoria:%21Artigos_sem_imagens" title="Categoria:!Artigos sem imagens">!Artigos sem imagens</a></span> | <span dir='ltr'><a href="/wiki/Categoria:%21Esbo%C3%A7os" title="Categoria:!Esboços">!Esboços</a></span> | <span dir='ltr'><a href="/wiki/Categoria:Algoritmos_de_busca" title="Categoria:Algoritmos de busca">Algoritmos de busca</a></span> | <span dir='ltr'><a href="/wiki/Categoria:Algoritmos_de_grafos" title="Categoria:Algoritmos de grafos">Algoritmos de grafos</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Vistas</h5>
+		<div class="pBody">
+			<ul>
+					 <li id="ca-nstab-main" class="selected"><a href="/wiki/Algoritmo_A%2A" title="Ver a página de conteúdo [c]" accesskey="c">Artigo</a></li>
+					 <li id="ca-talk" class="new"><a href="/w/index.php?title=Discuss%C3%A3o:Algoritmo_A%2A&amp;action=edit" title="Discussão sobre o conteúdo da página [t]" accesskey="t">Discussão</a></li>
+					 <li id="ca-edit"><a href="/w/index.php?title=Algoritmo_A%2A&amp;action=edit" title="Você pode editar esta página. Por favor, utilize o botão Mostrar Previsão antes de salvar. [e]" accesskey="e">Editar</a></li>
+					 <li id="ca-history"><a href="/w/index.php?title=Algoritmo_A%2A&amp;action=history" title="Edições anteriores desta página. [h]" accesskey="h">História</a></li>
+				</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-personal">
+		<h5>Ferramentas pessoais</h5>
+		<div class="pBody">
+			<ul>
+				<li id="pt-login"><a href="/w/index.php?title=Especial:Userlogin&amp;returnto=Algoritmo_A%2A" title="Aconselhamos-lhe a criar uma conta na Wikipédia, embora tal não seja obrigatório. [o]" accesskey="o">Criar conta | Entrar</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-logo">
+		<a style="background-image: url(http://upload.wikimedia.org/wikipedia/pt/b/bc/Wiki.png);" href="/wiki/P%C3%A1gina_principal" title="Visitar a página principal [z]" accesskey="z"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navegação</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="/wiki/P%C3%A1gina_principal" title="Visitar a página principal [z]" accesskey="z">Página principal</a></li>
+				<li id="n-Os-melhores-artigos"><a href="/wiki/Wikipedia:Os_melhores_artigos">Os melhores artigos</a></li>
+				<li id="n-currentevents"><a href="/wiki/Portal:Eventos_atuais" title="Informação temática sobre eventos actuais">Eventos atuais</a></li>
+				<li id="n-randompage"><a href="/wiki/Especial:Random" title="Carregar página aleatória [x]" accesskey="x">Página aleatória</a></li>
+				<li id="n-Portais"><a href="/wiki/Portal:%C3%8Dndice">Portais</a></li>
+			</ul>
+		</div>
+	</div>
+		<div class='portlet' id='p-colabora.C3.A7.C3.A3o'>
+		<h5>colaboração</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-portal"><a href="/wiki/Wikipedia:Portal_comunit%C3%A1rio" title="Sobre o projecto">Portal comunitário</a></li>
+				<li id="n-recentchanges"><a href="/wiki/Especial:Recentchanges" title="A lista de mudanças recentes nesta wiki. [r]" accesskey="r">Mudanças recentes</a></li>
+				<li id="n-help"><a href="/wiki/Ajuda:P%C3%A1gina_principal" title="Um local reservado para auxílio.">Ajuda</a></li>
+				<li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Coleta_de_fundos" title="Ajude-nos">Donativos</a></li>
+			</ul>
+		</div>
+	</div>
+		<div id="p-search" class="portlet">
+		<h5><label for="searchInput">Busca</label></h5>
+		<div id="searchBody" class="pBody">
+			<form action="/wiki/Especial:Search" id="searchform"><div>
+				<input id="searchInput" name="search" type="text" title="Pesquisar na Wikipedia [f]" accesskey="f" value="" />
+				<input type='submit' name="go" class="searchButton" id="searchGoButton"	value="Ir" />&nbsp;
+				<input type='submit' name="fulltext" class="searchButton" id="mw-searchButton" value="Pesquisa" />
+			</div></form>
+		</div>
+	</div>
+	<div class="portlet" id="p-tb">
+		<h5>Ferramentas</h5>
+		<div class="pBody">
+			<ul>
+				<li id="t-whatlinkshere"><a href="/wiki/Especial:Whatlinkshere/Algoritmo_A%2A" title="Lista de todas as páginas que ligam-se a esta [j]" accesskey="j">Artigos afluentes</a></li>
+				<li id="t-recentchangeslinked"><a href="/wiki/Especial:Recentchangeslinked/Algoritmo_A%2A" title="Mudanças recentes em páginas relacionadas a esta [k]" accesskey="k">Novidades relacionadas</a></li>
+<li id="t-upload"><a href="http://pt.wikipedia.org/wiki/Ajuda:Como_carregar_ficheiros_no_Commons" title="Carregar imagens ou ficheiros media [u]" accesskey="u">Carregar arquivo</a></li>
+<li id="t-specialpages"><a href="/wiki/Especial:Specialpages" title="Lista de páginas especiais [q]" accesskey="q">Páginas especiais</a></li>
+				<li id="t-print"><a href="/w/index.php?title=Algoritmo_A%2A&amp;printable=yes" title="Versão para impressão desta página [p]" accesskey="p">Versão para impressão</a></li>				<li id="t-permalink"><a href="/w/index.php?title=Algoritmo_A%2A&amp;oldid=7112344" title="Link permanente para esta versão desta página">Enlace permanente</a></li><li id="t-cite"><a href="/w/index.php?title=Especial:Cite&amp;page=Algoritmo_A%2A&amp;id=7112344">Citar este artigo</a></li>			</ul>
+		</div>
+	</div>
+	<div id="p-lang" class="portlet">
+		<h5>Outras línguas</h5>
+		<div class="pBody">
+			<ul>
+				<li class="interwiki-de"><a href="http://de.wikipedia.org/wiki/A%2A-Algorithmus">Deutsch</a></li>
+				<li class="interwiki-en"><a href="http://en.wikipedia.org/wiki/A%2A_search_algorithm">English</a></li>
+				<li class="interwiki-es"><a href="http://es.wikipedia.org/wiki/Algoritmo_de_b%C3%BAsqueda_A%2A">Español</a></li>
+				<li class="interwiki-fi"><a href="http://fi.wikipedia.org/wiki/A%2A-algoritmi">Suomi</a></li>
+				<li class="interwiki-fr"><a href="http://fr.wikipedia.org/wiki/Algorithme_A%2A">Français</a></li>
+				<li class="interwiki-it"><a href="http://it.wikipedia.org/wiki/A%2A">Italiano</a></li>
+				<li class="interwiki-ja"><a href="http://ja.wikipedia.org/wiki/A%2A">日本語</a></li>
+				<li class="interwiki-nl"><a href="http://nl.wikipedia.org/wiki/A%2A-algoritme">Nederlands</a></li>
+				<li class="interwiki-pl"><a href="http://pl.wikipedia.org/wiki/Algorytm_A%2A">Polski</a></li>
+				<li class="interwiki-vi"><a href="http://vi.wikipedia.org/wiki/Gi%E1%BA%A3i_thu%E1%BA%ADt_t%C3%ACm_ki%E1%BA%BFm_A%2A">Tiếng Việt</a></li>
+			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="/skins-1.5/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>
+				<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="/images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>
+			<ul id="f-list">
+				<li id="lastmod"> Esta página foi modificada pela última vez a 19h01min, 12 de Agosto de 2007.</li>
+				<li id="copyright">O texto desta página está sob a <a class='internal' href="/wiki/Wikipedia:GNU_Free_Documentation_License">GNU Free Documentation License</a>.<br />Os direitos autorais de todas as contribuições para a Wikipédia pertencem aos seus respectivos autores (mais informações em <a class='internal' href="/wiki/Wikipedia:Direitos_de_autor">direitos autorais</a>).</li>
+				<li id="privacy"><a href="/wiki/Wikipedia:Pol%C3%ADtica_de_privacidade" title="Wikipedia:Política de privacidade">Política de privacidade</a></li>
+				<li id="about"><a href="/wiki/Wikipedia:Sobre" title="Wikipedia:Sobre">Sobre a Wikipédia</a></li>
+				<li id="disclaimer"><a href="/wiki/Wikipedia:Aviso_Geral" title="Wikipedia:Aviso Geral">Avisos gerais</a></li>
+			</ul>
+		</div>
+		
+	
+		<script type="text/javascript">if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by srv117 in 0.195 secs. --></body></html>

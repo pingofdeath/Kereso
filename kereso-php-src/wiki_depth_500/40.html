@@ -1,0 +1,227 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+				<meta name="keywords" content="Strongly connected component,Breadth-first search,Charles E. Leiserson,Clifford Stein,Computer science,Connected component (graph theory),Depth-first search,Directed graph,Gabow's algorithm,Graph (mathematics),Introduction to Algorithms" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="http://www.gnu.org/copyleft/fdl.html" />
+		<title>Strongly connected component - Wikipedia, the free encyclopedia</title>
+		<style type="text/css" media="screen, projection">/*<![CDATA[*/
+			@import "/skins-1.5/common/shared.css?99";
+			@import "/skins-1.5/monobook/main.css?99";
+		/*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="/skins-1.5/common/commonPrint.css?99" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE50Fixes.css?99";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE55Fixes.css?99";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "/skins-1.5/monobook/IE60Fixes.css?99";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "/skins-1.5/monobook/IE70Fixes.css?99";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="/skins-1.5/common/IEFixes.js?99"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		
+		<script type= "text/javascript">/*<![CDATA[*/
+var skin = "monobook";
+var stylepath = "/skins-1.5";
+var wgArticlePath = "/wiki/$1";
+var wgScriptPath = "/w";
+var wgScript = "/w/index.php";
+var wgServer = "http://en.wikipedia.org";
+var wgCanonicalNamespace = "";
+var wgCanonicalSpecialPageName = false;
+var wgNamespaceNumber = 0;
+var wgPageName = "Strongly_connected_component";
+var wgTitle = "Strongly connected component";
+var wgAction = "view";
+var wgRestrictionEdit = [];
+var wgRestrictionMove = [];
+var wgArticleId = "684680";
+var wgIsArticle = true;
+var wgUserName = null;
+var wgUserGroups = null;
+var wgUserLanguage = "en";
+var wgContentLanguage = "en";
+var wgBreakFrames = false;
+var wgCurRevisionId = "155581540";
+/*]]>*/</script>
+                
+		<script type="text/javascript" src="/skins-1.5/common/wikibits.js?99"><!-- wikibits js --></script>
+		<script type="text/javascript" src="/w/index.php?title=-&amp;action=raw&amp;gen=js&amp;useskin=monobook"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "/w/index.php?title=MediaWiki:Common.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=MediaWiki:Monobook.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=-&action=raw&gen=css&maxage=2678400";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+		<script type="text/javascript" src="/skins-1.5/common/ajax.js?99"></script>
+	</head>
+<body  class="mediawiki ns-0 ltr page-Strongly_connected_component">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">Strongly connected component</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+			<div id="contentSub">(Redirected from <a href="/w/index.php?title=Strongly_connected_components&amp;redirect=no" title="Strongly connected components">Strongly connected components</a>)</div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<div class="thumb tright">
+<div class="thumbinner" style="width:182px;"><a href="/wiki/Image:Scc.png" class="image" title="Graph with SCC marked"><img alt="Graph with SCC marked" src="http://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Scc.png/180px-Scc.png" width="180" height="83" border="0" class="thumbimage" /></a>
+<div class="thumbcaption">
+<div class="magnify" style="float:right"><a href="/wiki/Image:Scc.png" class="internal" title="Enlarge"><img src="/skins-1.5/common/images/magnify-clip.png" width="15" height="11" alt="" /></a></div>
+Graph with <b>SCC</b> marked</div>
+</div>
+</div>
+<p>A directed <a href="/wiki/Graph_%28mathematics%29" title="Graph (mathematics)">graph</a> is called <i>strongly connected</i> if for every pair of <a href="/wiki/Vertex_%28graph_theory%29" title="Vertex (graph theory)">vertices</a> <i>u</i> and <i>v</i> there is a <a href="/wiki/Path_%28graph_theory%29" title="Path (graph theory)">path</a> from <i>u</i> to <i>v</i> and a path from <i>v</i> to <i>u</i>. The <b>strongly connected components</b> (<b>SCC</b>) of a <a href="/wiki/Directed_graph" title="Directed graph">directed graph</a> are its maximal strongly connected subgraphs. These form a <a href="/wiki/Partition_of_a_set" title="Partition of a set">partition</a> of the graph.</p>
+<p><a href="/wiki/Kosaraju%27s_algorithm" title="Kosaraju's algorithm">Kosaraju's algorithm</a>, <a href="/wiki/Tarjan%27s_strongly_connected_components_algorithm" title="Tarjan's strongly connected components algorithm">Tarjan's algorithm</a> and <a href="/wiki/Gabow%27s_algorithm" title="Gabow's algorithm">Gabow's algorithm</a> all efficiently compute the strongly connected components of a directed graph, but Tarjan's and Gabow's are favoured in practice since they require only one <a href="/wiki/Depth-first_search" title="Depth-first search">depth-first search</a> rather than two.</p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Time_execution"><span class="tocnumber">1</span> <span class="toctext">Time execution</span></a></li>
+<li class="toclevel-1"><a href="#Kosaraju.27s_algorithm"><span class="tocnumber">2</span> <span class="toctext">Kosaraju's algorithm</span></a></li>
+<li class="toclevel-1"><a href="#See_also"><span class="tocnumber">3</span> <span class="toctext">See also</span></a></li>
+<li class="toclevel-1"><a href="#References"><span class="tocnumber">4</span> <span class="toctext">References</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script>
+<p><a name="Time_execution" id="Time_execution"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Strongly_connected_component&amp;action=edit&amp;section=1" title="Edit section: Time execution">edit</a>]</span> <span class="mw-headline">Time execution</span></h2>
+<p>A linear-time <i>Θ<span class="texhtml">(<i>V</i> + <i>E</i>)</span></i> algorithm, if the graph is represented as an adjacency list, as a matrix it is an <i>Ο<span class="texhtml">(<i>V</i><sup>2</sup>)</span></i> algorithm, computes the strongly connected components of a directed graph <i>G=(V,E)</i> using two <a href="/wiki/Depth-first_search" title="Depth-first search">Depth-first searches</a> (DFSs), one on <i>G</i>, and one on <span class="texhtml"><i>G</i><sup><i>T</i></sup></span>, the <a href="/wiki/Transpose_graph" title="Transpose graph">transpose graph</a>. Equivalently, <a href="/wiki/Breadth-first_search" title="Breadth-first search">Breadth-first search</a> (BFS) can be used instead of DFS.</p>
+<p><a name="Kosaraju.27s_algorithm" id="Kosaraju.27s_algorithm"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Strongly_connected_component&amp;action=edit&amp;section=2" title="Edit section: Kosaraju's algorithm">edit</a>]</span> <span class="mw-headline">Kosaraju's algorithm</span></h2>
+<p>Strongly-connected components (<i>G</i>)</p>
+<ol>
+<li>call DFS(<i>G</i>) to compute finishing times <i>f</i>[<i>u</i>] for each vertex <i>u</i></li>
+<li>compute <i>G<sup>T</sup></i></li>
+<li>call DFS(<i>G<sup>T</sup></i>), but in the main loop of DFS, consider the vertices in order of decreasing <i>f</i>[<i>u</i>]</li>
+<li>produce as output the vertices of each tree in the DFS forest formed in point 3 as a separate SCC.</li>
+</ol>
+<p><a name="See_also" id="See_also"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Strongly_connected_component&amp;action=edit&amp;section=3" title="Edit section: See also">edit</a>]</span> <span class="mw-headline">See also</span></h2>
+<ul>
+<li><a href="/wiki/Connected_component_%28graph_theory%29" title="Connected component (graph theory)">Connected component</a></li>
+</ul>
+<p><a name="References" id="References"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Strongly_connected_component&amp;action=edit&amp;section=4" title="Edit section: References">edit</a>]</span> <span class="mw-headline">References</span></h2>
+<ul>
+<li><a href="/wiki/Thomas_H._Cormen" title="Thomas H. Cormen">Thomas H. Cormen</a>, <a href="/wiki/Charles_E._Leiserson" title="Charles E. Leiserson">Charles E. Leiserson</a>, <a href="/wiki/Ronald_L._Rivest" title="Ronald L. Rivest">Ronald L. Rivest</a>, and <a href="/wiki/Clifford_Stein" title="Clifford Stein">Clifford Stein</a>. <i><a href="/wiki/Introduction_to_Algorithms" title="Introduction to Algorithms">Introduction to Algorithms</a></i>, Second Edition. MIT Press and McGraw-Hill, 2001. <a href="/w/index.php?title=Special:Booksources&amp;isbn=0262032937" class="internal">ISBN 0-262-03293-7</a>. Section 22.5, pp.552–557.</li>
+</ul>
+<div class="boilerplate metadata" id="stub"><a href="/wiki/Image:LampFlowchart.svg" class="image" title="Comp Sci logo"><img alt="Comp Sci logo" src="http://upload.wikimedia.org/wikipedia/commons/thumb/9/91/LampFlowchart.svg/20px-LampFlowchart.svg.png" width="20" height="27" border="0" /></a>&#160;<i>This <a href="/wiki/Computer_science" title="Computer science">computer science</a>-related article is a <a href="/wiki/Wikipedia:Perfect_stub_article" title="Wikipedia:Perfect stub article">stub</a>. You can <a href="/wiki/Wikipedia:Find_or_fix_a_stub" title="Wikipedia:Find or fix a stub">help</a> Wikipedia by <a href="http://en.wikipedia.org/w/index.php?title=Strongly_connected_component&amp;action=edit" class="external text" title="http://en.wikipedia.org/w/index.php?title=Strongly_connected_component&amp;action=edit" rel="nofollow">expanding it</a></i>.</div>
+
+
+<!-- Saved in parser cache with key enwiki:pcache:idhash:684680-0!1!0!default!!en!2 and timestamp 20070916063211 -->
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org/wiki/Strongly_connected_component">http://en.wikipedia.org/wiki/Strongly_connected_component</a>"</div>
+			<div id="catlinks"><p class='catlinks'><a href="/wiki/Special:Categories" title="Special:Categories">Categories</a>: <span dir='ltr'><a href="/wiki/Category:Algorithms" title="Category:Algorithms">Algorithms</a></span> | <span dir='ltr'><a href="/wiki/Category:Graph_theory" title="Category:Graph theory">Graph theory</a></span> | <span dir='ltr'><a href="/wiki/Category:Mathematical_components" title="Category:Mathematical components">Mathematical components</a></span> | <span dir='ltr'><a href="/wiki/Category:Computer_science_stubs" title="Category:Computer science stubs">Computer science stubs</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<div class="pBody">
+			<ul>
+					 <li id="ca-nstab-main" class="selected"><a href="/wiki/Strongly_connected_component" title="View the content page [c]" accesskey="c">Article</a></li>
+					 <li id="ca-talk"><a href="/wiki/Talk:Strongly_connected_component" title="Discussion about the content page [t]" accesskey="t">Discussion</a></li>
+					 <li id="ca-edit"><a href="/w/index.php?title=Strongly_connected_component&amp;action=edit" title="You can edit this page. Please use the preview button before saving. [e]" accesskey="e">Edit this page</a></li>
+					 <li id="ca-history"><a href="/w/index.php?title=Strongly_connected_component&amp;action=history" title="Past versions of this page [h]" accesskey="h">History</a></li>
+				</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-personal">
+		<h5>Personal tools</h5>
+		<div class="pBody">
+			<ul>
+				<li id="pt-login"><a href="/w/index.php?title=Special:Userlogin&amp;returnto=Strongly_connected_component" title="You are encouraged to log in, it is not mandatory however. [o]" accesskey="o">Sign in / create account</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-logo">
+		<a style="background-image: url(/images/wiki-en.png);" href="/wiki/Main_Page" title="Visit the Main Page [z]" accesskey="z"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-Main-page"><a href="/wiki/Main_Page">Main page</a></li>
+				<li id="n-Contents"><a href="/wiki/Wikipedia:Contents">Contents</a></li>
+				<li id="n-Featured-content"><a href="/wiki/Wikipedia:Featured_content">Featured content</a></li>
+				<li id="n-currentevents"><a href="/wiki/Portal:Current_events" title="Find background information on current events">Current events</a></li>
+				<li id="n-randompage"><a href="/wiki/Special:Random" title="Load a random page [x]" accesskey="x">Random article</a></li>
+			</ul>
+		</div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+		<h5>interaction</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-About-Wikipedia"><a href="/wiki/Wikipedia:About">About Wikipedia</a></li>
+				<li id="n-portal"><a href="/wiki/Wikipedia:Community_Portal" title="About the project, what you can do, where to find things">Community portal</a></li>
+				<li id="n-recentchanges"><a href="/wiki/Special:Recentchanges" title="The list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li>
+				<li id="n-contact"><a href="/wiki/Wikipedia:Contact_us">Contact Wikipedia</a></li>
+				<li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising" title="Support us">Donate to Wikipedia</a></li>
+				<li id="n-help"><a href="/wiki/Help:Contents" title="Guidance on how to use and edit Wikipedia">Help</a></li>
+			</ul>
+		</div>
+	</div>
+		<div id="p-search" class="portlet">
+		<h5><label for="searchInput">Search</label></h5>
+		<div id="searchBody" class="pBody">
+			<form action="/wiki/Special:Search" id="searchform"><div>
+				<input id="searchInput" name="search" type="text" title="Search Wikipedia [f]" accesskey="f" value="" />
+				<input type='submit' name="go" class="searchButton" id="searchGoButton"	value="Go" />&nbsp;
+				<input type='submit' name="fulltext" class="searchButton" id="mw-searchButton" value="Search" />
+			</div></form>
+		</div>
+	</div>
+	<div class="portlet" id="p-tb">
+		<h5>Toolbox</h5>
+		<div class="pBody">
+			<ul>
+				<li id="t-whatlinkshere"><a href="/wiki/Special:Whatlinkshere/Strongly_connected_component" title="List of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+				<li id="t-recentchangeslinked"><a href="/wiki/Special:Recentchangeslinked/Strongly_connected_component" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+<li id="t-upload"><a href="/wiki/Wikipedia:Upload" title="Upload images or media files [u]" accesskey="u">Upload file</a></li>
+<li id="t-specialpages"><a href="/wiki/Special:Specialpages" title="List of all special pages [q]" accesskey="q">Special pages</a></li>
+				<li id="t-print"><a href="/w/index.php?title=Strongly_connected_component&amp;printable=yes" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>				<li id="t-permalink"><a href="/w/index.php?title=Strongly_connected_component&amp;oldid=155581540" title="Permanent link to this version of the page">Permanent link</a></li><li id="t-cite"><a href="/w/index.php?title=Special:Cite&amp;page=Strongly_connected_component&amp;id=155581540">Cite this article</a></li>			</ul>
+		</div>
+	</div>
+	<div id="p-lang" class="portlet">
+		<h5>In other languages</h5>
+		<div class="pBody">
+			<ul>
+				<li class="interwiki-cs"><a href="http://cs.wikipedia.org/wiki/Siln%C4%9B_souvisl%C3%A1_komponenta">Česky</a></li>
+				<li class="interwiki-de"><a href="http://de.wikipedia.org/wiki/Starke_Zusammenhangskomponente">Deutsch</a></li>
+				<li class="interwiki-es"><a href="http://es.wikipedia.org/wiki/Componente_fuertemente_conexo">Español</a></li>
+				<li class="interwiki-he"><a href="http://he.wikipedia.org/wiki/%D7%A8%D7%9B%D7%99%D7%91_%D7%A7%D7%A9%D7%99%D7%A8_%D7%94%D7%99%D7%98%D7%91">עברית</a></li>
+			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="/skins-1.5/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>
+				<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="/images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>
+			<ul id="f-list">
+				<li id="lastmod"> This page was last modified 07:23, 4 September 2007.</li>
+				<li id="copyright">All text is available under the terms of the <a class='internal' href="/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="/wiki/Wikipedia:Copyrights" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a U.S. registered <a class='internal' href="/wiki/501%28c%29#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="/wiki/Non-profit_organization" title="Non-profit organization">nonprofit</a> <a href="/wiki/Charitable_organization" title="Charitable organization">charity</a>.<br /></li>
+				<li id="privacy"><a href="http://wikimediafoundation.org/wiki/Privacy_policy" title="wikimedia:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="/wiki/Wikipedia:About" title="Wikipedia:About">About Wikipedia</a></li>
+				<li id="disclaimer"><a href="/wiki/Wikipedia:General_disclaimer" title="Wikipedia:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+		
+	
+		<script type="text/javascript">if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by srv159 in 0.356 secs. --></body></html>

@@ -1,0 +1,443 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+	<head>
+		<title>Pathfinder A Star</title>
+		<link rel="stylesheet" type="text/css" href="hsa.css" />
+		<link rel="shortcut icon" href="/favicon.ico" type="image/vnd.microsoft.icon" />
+		<link rel="alternate" type="application/rss+xml" href="http://herbert.gandraxa.com/herbert/feed.xml" title="herbert.gandraxa.com" />
+		<link rel="meta" href="http://herbert.gandraxa.com/herbert/labels.xml" type="application/rdf+xml" title="ICRA labels" />
+		<meta http-equiv="pics-Label" content='(pics-1.1 "http://www.icra.org/pics/vocabularyv03/" l gen true for "http://herbert.gandraxa.com/herbert" r (n 0 s 0 v 0 l 0 oa 0 ob 0 oc 0 od 0 oe 0 of 0 og 0 oh 0 c 0) gen true for "http://www.herbert.gandraxa.com/herbert" r (n 0 s 0 v 0 l 0 oa 0 ob 0 oc 0 od 0 oe 0 of 0 og 0 oh 0 c 0))' />		
+	
+	</head>
+
+	<body>
+		<div id="rightcolumn">
+			<div class="content" style="margin-top:0px;">
+				<p class="pagetitle">Pathfinder A Star</p>
+<p class="novertspace">URL: http://herbert.gandraxa.com/herbert/pfa.asp
+</p>
+
+<p style="margin-bottom: 0px;">
+Legend to links: 
+<img src="../img/updown.gif" alt="Local Link" />Current page
+<img src="../img/doc.gif" alt="Document" />This site
+<img src="../img/ext.gif" alt="External Page" />External site 
+<img src="../img/wiki.gif" alt="Wikipedia" />Wikipedia article 
+<img src="../img/zip.gif" alt="Compressed Archive" />ZIP archive 
+<img src="../img/pdf.gif" alt="PDF document" />PDF
+<img src="../img/mail.gif" alt="E-Mail" />E-Mail 
+</p>
+
+	
+			</div>
+			
+			<div class="content">
+				<div class="toc">
+					<p><b>Table of Contents</b></p>
+<p class="toc1"><a href="#toc0">Article</a></p>
+<p class="toc2"><a href="#toc1">Organization</a></p>
+<p class="toc2"><a href="#toc2">Scope</a></p>
+<p class="toc2"><a href="#toc3">Author</a></p>
+<p class="toc2"><a href="#toc5">External Pages</a></p>
+
+<p class="toc1"><a href="#toc7">Download A*</a></p>
+<p class="toc1"><a href="#toc71">Screenshot</a></p>
+<p class="toc1"><a href="#toc8">Test</a></p>
+<p class="toc1"><a href="#toc9">Some Feedback</a></p>
+	
+				</div>
+<script type="text/javascript"><!--
+google_ad_client = "pub-8373663483620583";
+google_ad_width = 234;
+google_ad_height = 60;
+google_ad_format = "234x60_as";
+google_ad_type = "text_image";
+//2007-03-08: GandraxaTop
+google_ad_channel = "6064628056";
+google_color_border = "FFFFFF";
+google_color_bg = "FFFFFF";
+google_color_link = "0000FF";
+google_color_text = "000000";
+google_color_url = "0000FF";
+//--></script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+<hr />
+<!-- google_ad_section_start -->
+<!-- content -->
+<h1 id="toc0">Article</h1>
+
+
+<h2 id="toc1">Organization</h2>
+<p>
+<img src="../img/doc.gif" alt="Document" /><a href="index.asp">Home</a> &raquo; 
+<img src="../img/doc.gif" alt="Document" /><a href="vbs.asp">VB Source Code</a> &raquo; 
+<b>Pathfinder A Star</b>
+</p>
+<ul>
+<li><img src="../img/doc.gif" alt="Document" /><a href="pfa_ss.asp">Screenshot</a> (in original size)</li>
+</ul>
+
+<p><em>Download as a WinZip file see below.</em></p>
+
+
+<h2 id="toc2">Scope</h2>
+<p>Implements the pathfinding algorithm A* in Visual Basic 6.0. A GUI is provided as a test environment, featuring single step evaluation on user-defined grids, along with explanations.</p>
+
+<p>Quote from the Wikipedia article: "In computer science, A* (pronounced "A star") is a graph search algorithm that finds a path from a given initial node to a given goal node (or one passing a given goal test). It employs a "heuristic estimate" that ranks each node by an estimate of the best route that goes through that node. It visits the nodes in order of this heuristic estimate. The A* algorithm is therefore an example of best-first search."</p>
+
+
+
+<h2 id="toc3">Author</h2>
+<p><img src="../img/mail.gif" alt="E-Mail" /><a href="mailto:herbert.glarner@bluewin.ch" rel="nofollow">Herbert Glarner</a>. Feedback appreciated.</p>
+<p>Please mention your source if you make use of this work.</p>
+
+
+
+<h2 id="toc5">External Pages</h2>
+<ul>
+    <li><img src="../img/ext.gif" alt="External Page" /><a href="http://en.wikipedia.org/wiki/A%2A" rel="nofollow">A Star</a> on Wikipedia</li>
+</ul>
+
+
+<hr />
+<h1 id="toc7">Download A*</h1>
+
+<p>The following ZIP file contains all neccessary files to build the GUI in VB 6.0.</p>
+<p><img src="../img/zip.gif" alt="Zipped Archive" /><a href="astar.zip" rel="nofollow">AStar.zip</a></p>
+
+
+<hr />
+<h1 id="toc71">Screenshot</h1>
+
+<a href="pfa_ss.asp"><img src="../img/pfa_fig1.jpg" alt="Minimized screenshot of the Pathfinder's GUI" /></a>
+<p class="fig">Fig. 1: Minimized screenshot of the Pathfinder's GUI<br />(Click for larger image)</p>
+
+
+<hr />
+<h1 id="toc8">Test</h1>
+<p>Impossible to test systematically. However, a GUI is provided as a test environment, featuring single step evaluation and explanations.</p>
+
+
+<hr />
+<h1 id="toc9">Some Feedback</h1>
+
+<p>Thank you very much for your vb6 code A* pathfinding, it has benefited to me.<br />
+--Thanapong Phanthong, Graduate Student, PSU, Songkla, Thailand.</p>
+
+<p>Hi, I'm a student at Ho Chi Minh City University of Technology, Vietnam. I'm doing a little lesson about A Star Algorithm and I have found your program and source while searching references on Internet. It's very useful. So I write this letter to say thanks to you. And I have modified the source code to make it more suitable for illustration with some features.<br />
+--Hanh, Ha Minh Tran</p><!-- /content -->
+<!-- google_ad_section_end -->
+<hr />
+
+<script type="text/javascript"><!--
+google_ad_client = "pub-8373663483620583";
+google_ad_width = 468;
+google_ad_height = 60;
+google_ad_format = "468x60_as";
+google_ad_type = "text_image";
+//2007-03-07: GandraxaBottom
+google_ad_channel = "3143208947";
+google_color_border = "FFFFFF";
+google_color_bg = "FFFFFF";
+google_color_link = "0000FF";
+google_color_text = "000000";
+google_color_url = "0000FF";
+//--></script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+			</div>
+			
+			<div class="content">
+			
+<p style="margin-top:1px;margin-bottom:1px;">
+	If this site was of any use to you, a nice way to say <em>Thank You</em> is with a small donation via PayPal or any major credit card. All donations are used to ensure ongoing site development and maintenance. <img src="../img/doc.gif" alt="Document" /><a href="sup.asp">Read more...</a>
+</p>
+	
+			</div>
+		</div>
+
+		<div id="leftcolumn">
+
+
+
+<div class="menubox" style="margin-top:0px;">
+	<div style="text-align:center;">
+		<!-- Google ad start -->
+		<script type="text/javascript"><!--
+		google_ad_client = "pub-8373663483620583";
+		google_alternate_ad_url = "http://herbert.gandraxa.com/herbert/google_adsense_script.html";
+		google_ad_width = 200;
+		google_ad_height = 200;
+		google_ad_format = "200x200_as";
+		google_ad_type = "image";
+		//2007-05-01: GandraxaMenu
+		google_ad_channel = "6747922032";
+		//-->
+		</script>
+		<script type="text/javascript"
+		  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+		</script>
+		<!-- Google ad end -->
+	</div>
+	
+	<p class="smallprint" style="margin-top:2px;margin-bottom:2px;text-align:center;">
+		<img src="../img/doc.gif" alt="Document" /><a href="ads.asp">About advertising</a>
+	</p>
+</div>
+
+
+<div class="menubox" >
+<p><b>Sidebar Content</b></p>
+	<p class="novertspace"><a href="#nav0">Search</a></p>
+	<p class="novertspace"><a href="#nav1">Site Navigation</a></p>
+	<p class="novertspace"><a href="#nav11">Newsfeed</a></p>
+	<p class="novertspace"><a href="#nav2">Copyright and Licence</a></p>
+	<p class="novertspace"><a href="#isp">Your ISP</a></p>
+	<p class="novertspace"><a href="#lv">Recent Visitors</a></p>
+	<p class="novertspace"><a href="#nav3">Recent Edu Visitors</a></p>
+	<p class="novertspace"><a href="#nav4">Validations and Labels</a></p>	
+</div>
+
+
+<div id="nav0" class="menubox">
+<p><b>Search</b></p>
+<p class="smallprint" style="margin-top:0px;">Enter the terms you look for, e.g. "Avatars". Choose between this site or the Web.</p>
+<!-- SiteSearch Google -->
+<form method="get" action="http://herbert.gandraxa.com/herbert/search.asp">
+	<table>
+		<tr>
+			<td valign="top" align="left">	
+				<input type="hidden" name="domains" value="herbert.gandraxa.com"></input>
+				<label for="sbi" style="display: none">Enter your search terms</label>
+				<input type="text" name="q" size="29" maxlength="255" value="" id="sbi"></input>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<table>
+					<tr>
+						<td>
+							<input type="radio" name="sitesearch" value="" id="ss0"></input>
+							<label for="ss0" title="Search the Web">Web</label>
+						</td>
+						<td>
+							<input type="radio" name="sitesearch" value="herbert.gandraxa.com" checked="checked" id="ss1"></input>
+							<label for="ss1" title="Search herbert.gandraxa.com">herbert.gandraxa.com</label>
+						</td>
+					</tr>
+				</table>
+				<label for="sbb" style="display: none">Submit search form</label>
+				<input type="submit" name="sa" value="Google Search" id="sbb"></input>
+				<input type="hidden" name="client" value="pub-8373663483620583"></input>
+				<input type="hidden" name="forid" value="1"></input>
+				<input type="hidden" name="channel" value="5783500127"></input>
+				<input type="hidden" name="ie" value="UTF-8"></input>
+				<input type="hidden" name="oe" value="UTF-8"></input>
+				<input type="hidden" name="cof" value="GALT:#008000;GL:1;DIV:#336699;VLC:663399;AH:center;BGC:FFFFFF;LBGC:336699;ALC:0000FF;LC:0000FF;T:000000;GFNT:0000FF;GIMP:0000FF;FORID:11"></input>
+				<input type="hidden" name="hl" value="en"></input>
+			</td>
+		</tr>
+	</table>
+</form>
+<!-- SiteSearch Google -->
+</div>
+
+
+<div id="nav1" class="menubox">
+<p><b>Site Navigation</b></p>
+
+<p><b><a href="index.asp">Home</a></b></p>
+	<p class="smallvertspace"><a href="smp.asp">Sitemap</a>: Lists all publicly available documents in hierarchical order</p>
+
+<p><b><a href="art.asp">Articles</a></b></p>
+	<p class="smallvertspace"><a href="dta.asp">Digital Terrain Analysis</a>: Obtain and render digital elevation models</p>
+	<p class="smallvertspace"><a href="dia.asp">Designing Isometric Avatars</a>: Designing avatars in isometric worlds</p>
+	<p class="smallvertspace"><a href="tlv.asp">Tracking Last Visitors</a>: Approach in designing a server-side web tool</p>
+	<p class="smallvertspace"><a href="dop.asp">Draw Orthogonal Polygons</a>: Convert a list of vertices into a shape</p>	
+	<p class="smallvertspace"><a href="dor.asp">Detect Overlapping Rectangles</a>: Analysis, theorem, and algorithm</p>
+	<p class="smallvertspace"><a href="lod.asp">Length of Day and Twilight</a>: Deriving formulae, includes graphs</p>
+
+
+<p><b><a href="lsc.asp">Linoleum Source Code</a></b></p>
+	<p class="smallvertspace"><a href="dic.asp">DIC</a>: Dictionary with radix tree</p>
+	<p class="smallvertspace"><a href="hsh.asp">HSH</a>: Hash function HSH 11/13</p>
+	<p class="smallvertspace"><a href="bst.asp">BST</a>: Bitstream generator</p>
+	<p class="smallvertspace"><a href="dsa.asp">DSA</a>: Dynamic storage allocation</p>
+	<p class="smallvertspace"><a href="avl.asp">AVL</a>: Full-featured AVL tree</p>
+	<p class="smallvertspace"><a href="rng.asp">RNG</a>: Pseudo random number generator (Mersenne Twister)</p>
+	<p class="smallvertspace"><a href="lsh.asp">LSH</a>: Linoleum syntax highlighter</p>
+
+<p><b><a href="vbs.asp">VB Source Code</a></b></p>
+	<p class="smallvertspace"><a href="pfa.asp">A Star</a>: Pathfinder &laquo;A Star&raquo; (DLL)</p>
+
+</div>
+
+
+
+<div id="nav11" class="menubox">
+	<p><b>Newsfeed</b></p>
+
+	<p class="smallprint">
+		<a type="application/RSS+xml" href="feed.xml" rel="nofollow">
+			<img class="float" style="width:14px; height:14px;" src="../img/rss.gif" alt="Newsfeed" title="Newsfeed" />
+		</a>
+		If you want to stay up-to-date, add the 
+		<a type="application/RSS+xml" href="feed.xml" rel="nofollow">
+			RSS 2.0 newsfeed 
+		</a>
+		for this site. This assumes you have an RSS reader or a browser capable of reading newsfeeds.
+	</p>
+</div>
+
+
+
+
+<div id="nav2" class="menubox">
+	<p><b>Copyright and License</b></p>
+
+	<p class="smallprint">
+		<a href="http://creativecommons.org/licenses/by/3.0/" rel="nofollow">
+			<img class="float" style="width:88px; height:31px;" src="../img/cc30.png" alt="CC.jpg" title="cc30.png" width="88" height="31" />
+		</a>
+		Except where otherwise noted, content on this site is not public domain, but licensed under a 
+		<img src="../img/ext.gif" alt="External Site" />
+		<a href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 License</a>.
+	</p>
+	
+	<!--
+	<p class="smallprint">
+		<a href="http://www.copyscape.com/" rel="nofollow">
+			<img class="float" style="width:88px; height:31px;" src="../img/copyscape.gif" alt="Page copy protected against web site content infringement by Copyscape" title="Page copy protected against web site content infringement by Copyscape" width="88" height="31" />
+		</a>
+		Please do not copy excessive parts (i.e. whole pages) from this site's articles. Quotes are no problem, but please refer to the source. Published source code can be copied as a whole, if the source is mentioned.
+	</p>
+	-->
+			
+</div>
+
+
+
+<div id="isp" class="menubox"><p><b>Your Internet Services Provider</b></p><table border="0" cellpadding="0" cellspacing="0">
+<tr><td><p class="novertspace">IP:</p></td><td><p class="novertspace">80.98.146.186</p></td></tr>
+<tr valign="top"><td><p class="novertspace">ISP:&nbsp;</p></td><td><p class="novertspace" title="UPC Magyarorszag Kft">UPC Magyarorszag Kft</p></td></tr>
+<tr><td><p class="novertspace">Loc:&nbsp;</p></td><td><p class="novertspace">Budapest (HU)</p></td></tr>
+</table>
+</div><div id="lv" class="menubox"><p><b>Recent Visitors</b><br /><span class="smallprint">Displays the recent 16 visitors, including web robots (grey). Links go to Wikipedia.</span></p>
+<table border="0" cellpadding="0" cellspacing="0">
+<tr><td><p></p></td><td align="right"><p></p></td></tr>
+<tr><td><p class="novertspace" style="width:130px;height:16px;overflow:hidden;"><a href="http://en.wikipedia.org/wiki/Hungary" rel="nofollow"><img src="../img/flags/hu.gif" width="18" height="12" alt="Hungary" title="Hungary" /></a>&nbsp;<a href="http://en.wikipedia.org/wiki/Budapest" title="Budapest" rel="nofollow">Budapest</a></p></td><td style="width:70px;" align="right"><p class="novertspace">13"</p></td></tr>
+<tr><td><p class="novertspace" style="width:130px;height:16px;overflow:hidden;"><a href="http://en.wikipedia.org/wiki/Germany" rel="nofollow"><img src="../img/flags/de.gif" width="18" height="12" alt="Germany" title="Germany" /></a>&nbsp;<a href="http://en.wikipedia.org/wiki/Nürnberg" title="Nürnberg" rel="nofollow">Nürnberg</a></p></td><td style="width:70px;" align="right"><p class="novertspace">10' 09"</p></td></tr>
+<tr><td><p class="novertspace" style="width:130px;height:16px;overflow:hidden;"><a href="http://en.wikipedia.org/wiki/Google" rel="nofollow"><img src="../img/flags/gg.gif" width="18" height="12" alt="Google" title="Google" /></a>&nbsp;<a class="grey" href="http://en.wikipedia.org/wiki/Mediabot" title="Mediabot" rel="nofollow">Mediabot</a></p></td><td style="width:70px;" align="right"><p class="novertspace">16' 06"</p></td></tr>
+<tr><td><p class="novertspace" style="width:130px;height:16px;overflow:hidden;"><a href="http://en.wikipedia.org/wiki/Indonesia" rel="nofollow"><img src="../img/flags/id.gif" width="18" height="12" alt="Indonesia" title="Indonesia" /></a>&nbsp;<a href="http://en.wikipedia.org/wiki/Jakarta" title="Jakarta" rel="nofollow">Jakarta</a></p></td><td style="width:70px;" align="right"><p class="novertspace">16' 40"</p></td></tr>
+<tr><td><p class="novertspace" style="width:130px;height:16px;overflow:hidden;"><a href="http://en.wikipedia.org/wiki/Microsoft" rel="nofollow"><img src="../img/flags/mi.gif" width="18" height="12" alt="Microsoft" title="Microsoft" /></a>&nbsp;<a class="grey" href="http://en.wikipedia.org/wiki/Windows_Live_Search" title="Windows Live Search" rel="nofollow">MS Live Search</a></p></td><td style="width:70px;" align="right"><p class="novertspace">22' 29"</p></td></tr>
+<tr><td><p class="novertspace" style="width:130px;height:16px;overflow:hidden;"><a href="http://en.wikipedia.org/wiki/Australia" rel="nofollow"><img src="../img/flags/au.gif" width="18" height="12" alt="Australia" title="Australia" /></a>&nbsp;<a href="http://en.wikipedia.org/wiki/Sydney" title="Sydney" rel="nofollow">Sydney</a></p></td><td style="width:70px;" align="right"><p class="novertspace">29' 02"</p></td></tr>
+<tr><td><p class="novertspace" style="width:130px;height:16px;overflow:hidden;"><a href="http://en.wikipedia.org/wiki/Germany" rel="nofollow"><img src="../img/flags/de.gif" width="18" height="12" alt="Germany" title="Germany" /></a>&nbsp;<a href="http://en.wikipedia.org/wiki/Nürnberg" title="Nürnberg" rel="nofollow">Nürnberg</a></p></td><td style="width:70px;" align="right"><p class="novertspace">44' 48"</p></td></tr>
+<tr><td><p class="novertspace" style="width:130px;height:16px;overflow:hidden;"><a href="http://en.wikipedia.org/wiki/Italy" rel="nofollow"><img src="../img/flags/it.gif" width="18" height="12" alt="Italy" title="Italy" /></a>&nbsp;<a href="http://en.wikipedia.org/wiki/Milano" title="Milano" rel="nofollow">Milano</a></p></td><td style="width:70px;" align="right"><p class="novertspace">48' 46"</p></td></tr>
+<tr><td><p class="novertspace" style="width:130px;height:16px;overflow:hidden;"><a href="http://en.wikipedia.org/wiki/United Kingdom" rel="nofollow"><img src="../img/flags/uk.gif" width="18" height="12" alt="United Kingdom" title="United Kingdom" /></a>&nbsp;<a href="http://en.wikipedia.org/wiki/London" title="London" rel="nofollow">London</a></p></td><td style="width:70px;" align="right"><p class="novertspace">58' 45"</p></td></tr>
+<tr><td><p class="novertspace" style="width:130px;height:16px;overflow:hidden;"><a href="http://en.wikipedia.org/wiki/Slovenia" rel="nofollow"><img src="../img/flags/si.gif" width="18" height="12" alt="Slovenia" title="Slovenia" /></a>&nbsp;<a href="http://en.wikipedia.org/wiki/Maribor" title="Maribor" rel="nofollow">Maribor</a></p></td><td style="width:70px;" align="right"><p class="novertspace">1h 01' 52"</p></td></tr>
+<tr><td><p class="novertspace" style="width:130px;height:16px;overflow:hidden;"><a href="http://en.wikipedia.org/wiki/Germany" rel="nofollow"><img src="../img/flags/de.gif" width="18" height="12" alt="Germany" title="Germany" /></a>&nbsp;<a href="http://en.wikipedia.org/wiki/Köln" title="Köln" rel="nofollow">Köln</a></p></td><td style="width:70px;" align="right"><p class="novertspace">1h 02' 11"</p></td></tr>
+<tr><td><p class="novertspace" style="width:130px;height:16px;overflow:hidden;"><a href="http://en.wikipedia.org/wiki/Australia" rel="nofollow"><img src="../img/flags/au.gif" width="18" height="12" alt="Australia" title="Australia" /></a>&nbsp;<a href="http://en.wikipedia.org/wiki/Sydney" title="Sydney" rel="nofollow">Sydney</a></p></td><td style="width:70px;" align="right"><p class="novertspace">1h 24' 15"</p></td></tr>
+<tr><td><p class="novertspace" style="width:130px;height:16px;overflow:hidden;"><a href="http://en.wikipedia.org/wiki/Singapore" rel="nofollow"><img src="../img/flags/sg.gif" width="18" height="12" alt="Singapore" title="Singapore" /></a>&nbsp;<a href="http://en.wikipedia.org/wiki/Singapore" title="Singapore" rel="nofollow">Singapore</a></p></td><td style="width:70px;" align="right"><p class="novertspace">1h 46' 59"</p></td></tr>
+<tr><td><p class="novertspace" style="width:130px;height:16px;overflow:hidden;"><a href="http://en.wikipedia.org/wiki/United States" rel="nofollow"><img src="../img/flags/us.gif" width="18" height="12" alt="United States" title="United States" /></a>&nbsp;<a href="http://en.wikipedia.org/wiki/Washington, DC" title="Washington, DC" rel="nofollow">Washington, DC</a></p></td><td style="width:70px;" align="right"><p class="novertspace">2h 18' 02"</p></td></tr>
+<tr><td><p class="novertspace" style="width:130px;height:16px;overflow:hidden;"><a href="http://en.wikipedia.org/wiki/Yahoo!" rel="nofollow"><img src="../img/flags/ya.gif" width="18" height="12" alt="Yahoo!" title="Yahoo!" /></a>&nbsp;<a class="grey" href="http://en.wikipedia.org/wiki/Yahoo%21_Search" title="Yahoo Search" rel="nofollow">Yahoo Search</a></p></td><td style="width:70px;" align="right"><p class="novertspace">2h 46' 00"</p></td></tr>
+<tr><td><p class="novertspace" style="width:130px;height:16px;overflow:hidden;"><a href="http://en.wikipedia.org/wiki/Canada" rel="nofollow"><img src="../img/flags/ca.gif" width="18" height="12" alt="Canada" title="Canada" /></a>&nbsp;<a href="http://en.wikipedia.org/wiki/Burnaby, BC" title="Burnaby, BC" rel="nofollow">Burnaby, BC</a></p></td><td style="width:70px;" align="right"><p class="novertspace">2h 48' 58"</p></td></tr>
+</table>
+<p style="font-size:8pt;">&copy; 2007 by Herbert Glarner</p>
+</div>	
+
+
+
+<div id="nav3" class="menubox">
+<p><b>Recent Edu Visitors</b><br /><span class="smallprint">Displays up to 16 visitors (if within 24 hours). Links go to Wikipedia.</span></p>
+<table border="0" cellpadding="0" cellspacing="0">
+<tr><td><p class="novertspace">Within the recent 24 hours:</p></td></tr>
+<tr><td><p class="novertspace" style="width:200px;height:16px;overflow:hidden;"><a href="http://en.wikipedia.org/wiki/New Zealand" rel="nofollow"><img src="../img/flags/nz.gif" width="18" height="12" alt="New Zealand" title="New Zealand"/></a>&nbsp;<a href="http://en.wikipedia.org/wiki/Auckland University" title="Auckland University" rel="nofollow">Auckland University</a></p></td></tr>
+<tr><td><p class="novertspace" style="width:200px;height:16px;overflow:hidden;"><a href="http://en.wikipedia.org/wiki/United States" rel="nofollow"><img src="../img/flags/us.gif" width="18" height="12" alt="United States" title="United States"/></a>&nbsp;<a href="http://en.wikipedia.org/wiki/Baylor College of Medicine" title="Baylor College of Medicine" rel="nofollow">Baylor College of Medicine</a></p></td></tr>
+<tr><td><p class="novertspace" style="width:200px;height:16px;overflow:hidden;"><a href="http://en.wikipedia.org/wiki/United States" rel="nofollow"><img src="../img/flags/us.gif" width="18" height="12" alt="United States" title="United States"/></a>&nbsp;<a href="http://en.wikipedia.org/wiki/University of Oklahoma" title="University of Oklahoma" rel="nofollow">University of Oklahoma</a></p></td></tr>
+<tr><td><p class="novertspace" style="width:200px;height:16px;overflow:hidden;"><a href="http://en.wikipedia.org/wiki/United States" rel="nofollow"><img src="../img/flags/us.gif" width="18" height="12" alt="United States" title="United States"/></a>&nbsp;<a href="http://en.wikipedia.org/wiki/University of Pennsylvania" title="University of Pennsylvania" rel="nofollow">University of Pennsylvania</a></p></td></tr>
+<tr><td><p class="novertspace" style="width:200px;height:16px;overflow:hidden;"><a href="http://en.wikipedia.org/wiki/Germany" rel="nofollow"><img src="../img/flags/de.gif" width="18" height="12" alt="Germany" title="Germany"/></a>&nbsp;<a href="http://en.wikipedia.org/wiki/Technische Universität Dresden" title="Technische Universität Dresden" rel="nofollow">Technische Universität Dresden</a></p></td></tr>
+<tr><td><p class="novertspace" style="width:200px;height:16px;overflow:hidden;"><a href="http://en.wikipedia.org/wiki/United States" rel="nofollow"><img src="../img/flags/us.gif" width="18" height="12" alt="United States" title="United States"/></a>&nbsp;<a href="http://en.wikipedia.org/wiki/Massachusetts Institute of Technology" title="Massachusetts Institute of Technology" rel="nofollow">Massachusetts Institute of Technology</a></p></td></tr>
+<tr><td><p class="novertspace">&nbsp;</p></td></tr><tr><td><p class="novertspace">In the 24 hours before:</p></td></tr><tr><td><p class="novertspace" style="width:200px;height:16px;overflow:hidden;"><a href="http://en.wikipedia.org/wiki/Thailand" rel="nofollow"><img src="../img/flags/th.gif" width="18" height="12" alt="Thailand" title="Thailand"/></a>&nbsp;<a href="http://en.wikipedia.org/wiki/Asian Institute of Technology" title="Asian Institute of Technology" rel="nofollow">Asian Institute of Technology</a></p></td></tr>
+<tr><td><p class="novertspace" style="width:200px;height:16px;overflow:hidden;"><a href="http://en.wikipedia.org/wiki/Thailand" rel="nofollow"><img src="../img/flags/th.gif" width="18" height="12" alt="Thailand" title="Thailand"/></a>&nbsp;<a href="http://en.wikipedia.org/wiki/Silpakorn University" title="Silpakorn University" rel="nofollow">Silpakorn University</a></p></td></tr>
+<tr><td><p class="novertspace" style="width:200px;height:16px;overflow:hidden;"><a href="http://en.wikipedia.org/wiki/United States" rel="nofollow"><img src="../img/flags/us.gif" width="18" height="12" alt="United States" title="United States"/></a>&nbsp;<a href="http://en.wikipedia.org/wiki/Humboldt State University" title="Humboldt State University" rel="nofollow">Humboldt State University</a></p></td></tr>
+<tr><td><p class="novertspace" style="width:200px;height:16px;overflow:hidden;"><a href="http://en.wikipedia.org/wiki/United States" rel="nofollow"><img src="../img/flags/us.gif" width="18" height="12" alt="United States" title="United States"/></a>&nbsp;<a href="http://en.wikipedia.org/wiki/Texas A&amp;M University - Kingsville" title="Texas A&amp;M University - Kingsville" rel="nofollow">Texas A&amp;M University - Kingsville</a></p></td></tr>
+<tr><td><p class="novertspace" style="width:200px;height:16px;overflow:hidden;"><a href="http://en.wikipedia.org/wiki/Canada" rel="nofollow"><img src="../img/flags/ca.gif" width="18" height="12" alt="Canada" title="Canada"/></a>&nbsp;<a href="http://en.wikipedia.org/wiki/George Brown College of Applied Arts and Technology" title="George Brown College of Applied Arts and Technology" rel="nofollow">George Brown College of Applied Arts and Technology</a></p></td></tr>
+<tr><td><p class="novertspace" style="width:200px;height:16px;overflow:hidden;"><a href="http://en.wikipedia.org/wiki/China" rel="nofollow"><img src="../img/flags/cn.gif" width="18" height="12" alt="China" title="China"/></a>&nbsp;<a href="http://en.wikipedia.org/wiki/Harbin Engineering University" title="Harbin Engineering University" rel="nofollow">Harbin Engineering University</a></p></td></tr>
+<tr><td><p class="novertspace" style="width:200px;height:16px;overflow:hidden;"><a href="http://en.wikipedia.org/wiki/United Kingdom" rel="nofollow"><img src="../img/flags/uk.gif" width="18" height="12" alt="United Kingdom" title="United Kingdom"/></a>&nbsp;<a href="http://en.wikipedia.org/wiki/Oxford University" title="Oxford University" rel="nofollow">Oxford University</a></p></td></tr>
+<tr><td><p class="novertspace" style="width:200px;height:16px;overflow:hidden;"><a href="http://en.wikipedia.org/wiki/Germany" rel="nofollow"><img src="../img/flags/de.gif" width="18" height="12" alt="Germany" title="Germany"/></a>&nbsp;<a href="http://en.wikipedia.org/wiki/RWTH Aachen" title="RWTH Aachen" rel="nofollow">RWTH Aachen</a></p></td></tr>
+</table>
+<p style="font-size:8pt;">&copy; 2007 by Herbert Glarner</p>
+	
+</div>
+
+
+
+<div id="nav4" class="menubox">
+	<p>
+		<b>Validations and Labels</b><br />
+		<span class="smallprint">The labels link to the according validators on external sites.</span>
+	</p>
+
+	<p class="smallprint">
+		<a href="http://validator.w3.org/check?uri=http://herbert.gandraxa.com/herbert/pfa.asp" rel="nofollow">
+			<img class="float" src="../img/valid-xhtml11.png" alt="Valid XHTML 1.1" title="Valid XHTML 1.1" width="88" height="31" />
+		</a>
+		This document was checked and found to be valid XHTML 1.1. As such it belongs to an interoperable web page.
+	</p>
+
+	<p class="smallprint">
+		<a href="http://jigsaw.w3.org/css-validator/validator?uri=http://herbert.gandraxa.com/herbert/pfa.asp" rel="nofollow">
+			<img class="float" src="../img/vcss.png" alt="Valid CSS" title="Valid CSS" width="88" height="31" />
+		</a>
+		This document validates as CSS. As such it belongs to an interoperable web page.
+	</p>
+
+	<p class="smallprint">
+		<a href="http://feedvalidator.org/check.cgi?url=http%3A//herbert.gandraxa.com/herbert/feed.xml" rel="nofollow">
+			<img class="float" src="../img/valid-rss.png" alt="Valid RSS feed" title="Valid RSS feed" width="88" height="31" />
+		</a>
+		This site has a valid RSS feed. As such it enables you to stay up-to-date with its content.
+	</p>
+
+	<p class="smallprint">
+		<a href="http://csant.info/lynx">
+			<img class="float" src="../img/lynx.gif" alt="Lynx inspected" title="Lynx inspected" width="88" height="31" />
+		</a>
+		This document was inspected with Lynx, a text-only web browser for character-oriented terminals.
+	</p>
+
+	<p class="smallprint">
+		<a href="http://www.icra.org/sitelabel/" rel="nofollow">
+			<img class="float" src="../img/icra.gif" alt="Internet Content Rating Association" title="Internet Content Rating Association" />
+		</a>
+		The ICRA is a non-profit organization working to develop a safer internet. This label was issued on 2007-Mar-11.
+	</p>
+
+	<!-- Start Quantcast tag -->
+	<script type="text/javascript" src="http://edge.quantserve.com/quant.js"></script>
+	<script type="text/javascript">
+	_qacct="p-9e5cU7IHpP9bc";quantserve();</script>
+	<!-- End Quantcast tag -->
+	
+	<p class="smallprint">
+		<a href="http://www.quantcast.com/herbert.gandraxa.com" rel="nofollow">
+			<img class="float" src="../img/quantcast.png" alt="Quantified Publisher" title="Quantified Publisher" />
+		</a>
+		Quantcast is an open internet ratings service. This site is represented accurately by tagging it for measurement.
+	</p>
+</div>
+
+
+<br />	
+		</div>
+	</body>
+</html>
+
+

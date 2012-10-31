@@ -1,0 +1,257 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+				<meta name="keywords" content="Gauss–Jordan elimination,Applied mathematics,Augmented matrix,Carl Friedrich Gauss,Elementary row operations,Gaussian elimination,Identity matrix,Iff,Inverse matrix,Linear algebra,Matrix inverse" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="http://www.gnu.org/copyleft/fdl.html" />
+		<title>Gauss–Jordan elimination - Wikipedia, the free encyclopedia</title>
+		<style type="text/css" media="screen, projection">/*<![CDATA[*/
+			@import "/skins-1.5/common/shared.css?99";
+			@import "/skins-1.5/monobook/main.css?99";
+		/*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="/skins-1.5/common/commonPrint.css?99" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE50Fixes.css?99";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE55Fixes.css?99";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "/skins-1.5/monobook/IE60Fixes.css?99";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "/skins-1.5/monobook/IE70Fixes.css?99";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="/skins-1.5/common/IEFixes.js?99"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		
+		<script type= "text/javascript">/*<![CDATA[*/
+var skin = "monobook";
+var stylepath = "/skins-1.5";
+var wgArticlePath = "/wiki/$1";
+var wgScriptPath = "/w";
+var wgScript = "/w/index.php";
+var wgServer = "http://en.wikipedia.org";
+var wgCanonicalNamespace = "";
+var wgCanonicalSpecialPageName = false;
+var wgNamespaceNumber = 0;
+var wgPageName = "Gauss–Jordan_elimination";
+var wgTitle = "Gauss–Jordan elimination";
+var wgAction = "view";
+var wgRestrictionEdit = [];
+var wgRestrictionMove = [];
+var wgArticleId = "5134689";
+var wgIsArticle = true;
+var wgUserName = null;
+var wgUserGroups = null;
+var wgUserLanguage = "en";
+var wgContentLanguage = "en";
+var wgBreakFrames = false;
+var wgCurRevisionId = "155347026";
+/*]]>*/</script>
+                
+		<script type="text/javascript" src="/skins-1.5/common/wikibits.js?99"><!-- wikibits js --></script>
+		<script type="text/javascript" src="/w/index.php?title=-&amp;action=raw&amp;gen=js&amp;useskin=monobook"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "/w/index.php?title=MediaWiki:Common.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=MediaWiki:Monobook.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=-&action=raw&gen=css&maxage=2678400";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+		<script type="text/javascript" src="/skins-1.5/common/ajax.js?99"></script>
+	</head>
+<body  class="mediawiki ns-0 ltr page-Gauss–Jordan_elimination">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">Gauss–Jordan elimination</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+			<div id="contentSub">(Redirected from <a href="/w/index.php?title=Gauss-Jordan_elimination&amp;redirect=no" title="Gauss-Jordan elimination">Gauss-Jordan elimination</a>)</div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<p>In <a href="/wiki/Linear_algebra" title="Linear algebra">linear algebra</a>, <b>Gauss–Jordan elimination</b> is a version of <a href="/wiki/Gaussian_elimination" title="Gaussian elimination">Gaussian elimination</a> that puts zeros both above and below each <a href="/wiki/Pivot_element" title="Pivot element">pivot element</a> as it goes from the top row of the given matrix to the bottom. In other words, Gauss-Jordan elimination brings a matrix to <a href="/wiki/Reduced_row_echelon_form" title="Reduced row echelon form">reduced row echelon form</a>, whereas Gaussian elimination takes it only as far as <a href="/wiki/Row_echelon_form" title="Row echelon form">row echelon form</a>. Every matrix has a reduced row echelon form, and this algorithm is guaranteed to produce it.</p>
+<p>Gauss–Jordan elimination is considerably less efficient than Gaussian elimination with backsubstitution when solving a <a href="/wiki/System_of_linear_equations" title="System of linear equations">system of linear equations</a>. However, it is well suited for calculating the <a href="/wiki/Matrix_inverse" title="Matrix inverse">matrix inverse</a>.</p>
+<p>It is named in honor of <a href="/wiki/Carl_Friedrich_Gauss" title="Carl Friedrich Gauss">Carl Friedrich Gauss</a> and <a href="/wiki/Wilhelm_Jordan" title="Wilhelm Jordan">Wilhelm Jordan</a>.</p>
+<p><a name="Application_to_finding_inverses" id="Application_to_finding_inverses"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Gauss%E2%80%93Jordan_elimination&amp;action=edit&amp;section=1" title="Edit section: Application to finding inverses">edit</a>]</span> <span class="mw-headline">Application to finding inverses</span></h2>
+<p>If Gauss–Jordan elimination is applied on a <a href="/wiki/Square_matrix" title="Square matrix">square matrix</a>, it can be used to calculate the matrix's <a href="/wiki/Inverse_matrix" title="Inverse matrix">inverse</a>. This can be done by <a href="/wiki/Augmented_matrix" title="Augmented matrix">augmenting</a> the square matrix with the <a href="/wiki/Identity_matrix" title="Identity matrix">identity matrix</a> of the same dimensions, and through the following matrix operations:</p>
+<dl>
+<dd><img class="tex" alt="[ A I ] \Longrightarrow
+A^{-1} [ A I ] \Longrightarrow
+[ I A^{-1} ]
+" src="http://upload.wikimedia.org/math/a/2/b/a2b1ac443d427ac80697b98919d2deec.png" /></dd>
+</dl>
+<p>If the original square matrix, <span class="texhtml"><i>A</i></span>, is given by the following expression:</p>
+<dl>
+<dd><img class="tex" alt=" A =
+\begin{bmatrix}
+2 &amp; -1 &amp; 0 \\
+-1 &amp; 2 &amp; -1 \\
+0 &amp; -1 &amp; 2
+\end{bmatrix}
+" src="http://upload.wikimedia.org/math/5/1/6/516f0af625ab16bd1f586be0d5f20271.png" /></dd>
+</dl>
+<p>Then, after augmenting by the identity, the following is obtained:</p>
+<dl>
+<dd><img class="tex" alt=" [ A I ] = 
+\begin{bmatrix}
+2 &amp; -1 &amp; 0 &amp; 1 &amp; 0 &amp; 0\\
+-1 &amp; 2 &amp; -1 &amp; 0 &amp; 1 &amp; 0\\
+0 &amp; -1 &amp; 2 &amp; 0 &amp; 0 &amp; 1
+\end{bmatrix}
+" src="http://upload.wikimedia.org/math/e/f/8/ef85035781d231c8a9e223d87f8049ae.png" /></dd>
+</dl>
+<p>By performing <a href="/wiki/Elementary_row_operations" title="Elementary row operations">elementary row operations</a> on the <span class="texhtml">[<i>A</i><i>I</i>]</span> matrix until <span class="texhtml"><i>A</i></span> reaches <a href="/wiki/Reduced_row_echelon_form" title="Reduced row echelon form">reduced row echelon form</a>, the following is the final result:</p>
+<dl>
+<dd><img class="tex" alt=" [ I A^{-1} ] = 
+\begin{bmatrix}
+1 &amp; 0 &amp; 0 &amp; \frac{3}{4} &amp; \frac{1}{2} &amp; \frac{1}{4}\\
+0 &amp; 1 &amp; 0 &amp; \frac{1}{2} &amp; 1 &amp; \frac{1}{2}\\
+0 &amp; 0 &amp; 1 &amp; \frac{1}{4} &amp; \frac{1}{2} &amp; \frac{3}{4}
+\end{bmatrix}
+" src="http://upload.wikimedia.org/math/8/4/3/8438f9bb94f3644fb17a8aa1bb708952.png" /></dd>
+</dl>
+<p>The matrix augmentation can now be undone, which gives the following:</p>
+<dl>
+<dd><img class="tex" alt=" I =
+\begin{bmatrix}
+1 &amp; 0 &amp; 0 \\
+0 &amp; 1 &amp; 0 \\
+0 &amp; 0 &amp; 1
+\end{bmatrix}\qquad
+ A^{-1} =
+\begin{bmatrix}
+\frac{3}{4} &amp; \frac{1}{2} &amp; \frac{1}{4}\\
+\frac{1}{2} &amp; 1 &amp; \frac{1}{2}\\
+\frac{1}{4} &amp; \frac{1}{2} &amp; \frac{3}{4}
+\end{bmatrix}
+" src="http://upload.wikimedia.org/math/4/a/d/4ad854457d48b6cd1ab96a8b62a69b5c.png" /></dd>
+</dl>
+<p>A matrix is <a href="/wiki/Non-singular_matrix" title="Non-singular matrix">non-singular</a> (meaning that it has an inverse matrix) <a href="/wiki/Iff" title="Iff">iff</a> the identity matrix can be obtained using only elementary row operations.</p>
+<p><a name="References" id="References"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Gauss%E2%80%93Jordan_elimination&amp;action=edit&amp;section=2" title="Edit section: References">edit</a>]</span> <span class="mw-headline">References</span></h2>
+<ul>
+<li>Lipschutz, Seymour, and Lipson, Mark. "Schaum's Outlines: Linear Algebra". Tata McGraw-hill edition. Delhi 2001. pp. 69-80.</li>
+<li><cite class="book" style="font-style:normal">Strang, Gilbert (2003). <i>Introduction to Linear Algebra</i>, 3rd edition, <a href="/wiki/Wellesley%2C_Massachusetts" title="Wellesley, Massachusetts">Wellesley, Massachusetts</a>: Wellesley-Cambridge Press, 74-76.</cite><span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Introduction+to+Linear+Algebra&amp;rft.au=Strang%2C+Gilbert&amp;rft.edition=3rd+edition&amp;rft.pub=Wellesley-Cambridge+Press&amp;rft.place=%5B%5BWellesley%2C+Massachusetts%5D%5D&amp;rft.pages=74-76">&#160;</span></li>
+</ul>
+<p><a name="External_links" id="External_links"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Gauss%E2%80%93Jordan_elimination&amp;action=edit&amp;section=3" title="Edit section: External links">edit</a>]</span> <span class="mw-headline">External links</span></h2>
+<ul>
+<li><a href="http://users.powernet.co.uk/kienzle/octave/matcompat/scripts/linear-algebra/rref.m" class="external text" title="http://users.powernet.co.uk/kienzle/octave/matcompat/scripts/linear-algebra/rref.m" rel="nofollow">Algorithm for Gauss-Jordan elimination in Matlab</a></li>
+<li><a href="http://elonen.iki.fi/code/misc-notes/python-gaussj/index.html" class="external text" title="http://elonen.iki.fi/code/misc-notes/python-gaussj/index.html" rel="nofollow">Algorithm for Gauss-Jordan elimination in Python</a></li>
+<li><a href="http://www.cs.berkeley.edu/~wkahan/MathH110/gji.pdf" class="external text" title="http://www.cs.berkeley.edu/~wkahan/MathH110/gji.pdf" rel="nofollow">Algorithm for Gauss-Jordan elimination in Basic</a></li>
+<li><a href="http://math.fullerton.edu/mathews/n2003/GaussianJordanMod.html" class="external text" title="http://math.fullerton.edu/mathews/n2003/GaussianJordanMod.html" rel="nofollow">Module for Gauss-Jordan Elimination</a></li>
+</ul>
+<div class="boilerplate" id="stub"><a href="/wiki/Image:Arithmetic_symbols.svg" class="image" title="Arithmetic symbols.svg"><img alt="" src="http://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Arithmetic_symbols.svg/21px-Arithmetic_symbols.svg.png" width="21" height="21" border="0" /></a> <i>This <a href="/wiki/Applied_mathematics" title="Applied mathematics">applied mathematics</a>-related article is a <a href="/wiki/Wikipedia:Stub" title="Wikipedia:Stub">stub</a>. You can <a href="/wiki/Wikipedia:Find_or_fix_a_stub" title="Wikipedia:Find or fix a stub">help</a> Wikipedia by <a href="http://en.wikipedia.org/w/index.php?title=Gauss%E2%80%93Jordan_elimination&amp;action=edit" class="external text" title="http://en.wikipedia.org/w/index.php?title=Gauss%E2%80%93Jordan_elimination&amp;action=edit" rel="nofollow">expanding it</a></i>.</div>
+
+<!-- 
+Pre-expand include size: 7035 bytes
+Post-expand include size: 1932 bytes
+Template argument size: 1081 bytes
+Maximum: 2048000 bytes
+-->
+
+<!-- Saved in parser cache with key enwiki:pcache:idhash:5134689-0!1!0!default!!en!2 and timestamp 20070912145018 -->
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org/wiki/Gauss%E2%80%93Jordan_elimination">http://en.wikipedia.org/wiki/Gauss%E2%80%93Jordan_elimination</a>"</div>
+			<div id="catlinks"><p class='catlinks'><a href="/wiki/Special:Categories" title="Special:Categories">Categories</a>: <span dir='ltr'><a href="/wiki/Category:Applied_mathematics_stubs" title="Category:Applied mathematics stubs">Applied mathematics stubs</a></span> | <span dir='ltr'><a href="/wiki/Category:Numerical_linear_algebra" title="Category:Numerical linear algebra">Numerical linear algebra</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<div class="pBody">
+			<ul>
+					 <li id="ca-nstab-main" class="selected"><a href="/wiki/Gauss%E2%80%93Jordan_elimination" title="View the content page [c]" accesskey="c">Article</a></li>
+					 <li id="ca-talk"><a href="/wiki/Talk:Gauss%E2%80%93Jordan_elimination" title="Discussion about the content page [t]" accesskey="t">Discussion</a></li>
+					 <li id="ca-edit"><a href="/w/index.php?title=Gauss%E2%80%93Jordan_elimination&amp;action=edit" title="You can edit this page. Please use the preview button before saving. [e]" accesskey="e">Edit this page</a></li>
+					 <li id="ca-history"><a href="/w/index.php?title=Gauss%E2%80%93Jordan_elimination&amp;action=history" title="Past versions of this page [h]" accesskey="h">History</a></li>
+				</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-personal">
+		<h5>Personal tools</h5>
+		<div class="pBody">
+			<ul>
+				<li id="pt-login"><a href="/w/index.php?title=Special:Userlogin&amp;returnto=Gauss%E2%80%93Jordan_elimination" title="You are encouraged to log in, it is not mandatory however. [o]" accesskey="o">Sign in / create account</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-logo">
+		<a style="background-image: url(/images/wiki-en.png);" href="/wiki/Main_Page" title="Visit the Main Page [z]" accesskey="z"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-Main-page"><a href="/wiki/Main_Page">Main page</a></li>
+				<li id="n-Contents"><a href="/wiki/Wikipedia:Contents">Contents</a></li>
+				<li id="n-Featured-content"><a href="/wiki/Wikipedia:Featured_content">Featured content</a></li>
+				<li id="n-currentevents"><a href="/wiki/Portal:Current_events" title="Find background information on current events">Current events</a></li>
+				<li id="n-randompage"><a href="/wiki/Special:Random" title="Load a random page [x]" accesskey="x">Random article</a></li>
+			</ul>
+		</div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+		<h5>interaction</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-About-Wikipedia"><a href="/wiki/Wikipedia:About">About Wikipedia</a></li>
+				<li id="n-portal"><a href="/wiki/Wikipedia:Community_Portal" title="About the project, what you can do, where to find things">Community portal</a></li>
+				<li id="n-recentchanges"><a href="/wiki/Special:Recentchanges" title="The list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li>
+				<li id="n-contact"><a href="/wiki/Wikipedia:Contact_us">Contact Wikipedia</a></li>
+				<li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising" title="Support us">Donate to Wikipedia</a></li>
+				<li id="n-help"><a href="/wiki/Help:Contents" title="Guidance on how to use and edit Wikipedia">Help</a></li>
+			</ul>
+		</div>
+	</div>
+		<div id="p-search" class="portlet">
+		<h5><label for="searchInput">Search</label></h5>
+		<div id="searchBody" class="pBody">
+			<form action="/wiki/Special:Search" id="searchform"><div>
+				<input id="searchInput" name="search" type="text" title="Search Wikipedia [f]" accesskey="f" value="" />
+				<input type='submit' name="go" class="searchButton" id="searchGoButton"	value="Go" />&nbsp;
+				<input type='submit' name="fulltext" class="searchButton" id="mw-searchButton" value="Search" />
+			</div></form>
+		</div>
+	</div>
+	<div class="portlet" id="p-tb">
+		<h5>Toolbox</h5>
+		<div class="pBody">
+			<ul>
+				<li id="t-whatlinkshere"><a href="/wiki/Special:Whatlinkshere/Gauss%E2%80%93Jordan_elimination" title="List of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+				<li id="t-recentchangeslinked"><a href="/wiki/Special:Recentchangeslinked/Gauss%E2%80%93Jordan_elimination" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+<li id="t-upload"><a href="/wiki/Wikipedia:Upload" title="Upload images or media files [u]" accesskey="u">Upload file</a></li>
+<li id="t-specialpages"><a href="/wiki/Special:Specialpages" title="List of all special pages [q]" accesskey="q">Special pages</a></li>
+				<li id="t-print"><a href="/w/index.php?title=Gauss%E2%80%93Jordan_elimination&amp;printable=yes" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>				<li id="t-permalink"><a href="/w/index.php?title=Gauss%E2%80%93Jordan_elimination&amp;oldid=155347026" title="Permanent link to this version of the page">Permanent link</a></li><li id="t-cite"><a href="/w/index.php?title=Special:Cite&amp;page=Gauss%E2%80%93Jordan_elimination&amp;id=155347026">Cite this article</a></li>			</ul>
+		</div>
+	</div>
+	<div id="p-lang" class="portlet">
+		<h5>In other languages</h5>
+		<div class="pBody">
+			<ul>
+				<li class="interwiki-de"><a href="http://de.wikipedia.org/wiki/Gau%C3%9F-Jordan-Algorithmus">Deutsch</a></li>
+				<li class="interwiki-he"><a href="http://he.wikipedia.org/wiki/%D7%90%D7%9C%D7%99%D7%9E%D7%99%D7%A0%D7%A6%D7%99%D7%99%D7%AA_%D7%92%D7%90%D7%95%D7%A1-%D7%92%27%D7%95%D7%A8%D7%93%D7%9F">עברית</a></li>
+				<li class="interwiki-nl"><a href="http://nl.wikipedia.org/wiki/Gauss-Jordaneliminatie">Nederlands</a></li>
+				<li class="interwiki-pt"><a href="http://pt.wikipedia.org/wiki/Elimina%C3%A7%C3%A3o_de_Gauss-Jordan">Português</a></li>
+				<li class="interwiki-ru"><a href="http://ru.wikipedia.org/wiki/%D0%9C%D0%B5%D1%82%D0%BE%D0%B4_%D0%93%D0%B0%D1%83%D1%81%D1%81%D0%B0_%E2%80%94_%D0%96%D0%BE%D1%80%D0%B4%D0%B0%D0%BD%D0%B0">Русский</a></li>
+				<li class="interwiki-zh"><a href="http://zh.wikipedia.org/wiki/%E9%AB%98%E6%96%AF%EF%BC%8D%E7%B4%84%E7%95%B6%E6%B6%88%E5%8E%BB%E6%B3%95">中文</a></li>
+			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="/skins-1.5/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>
+				<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="/images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>
+			<ul id="f-list">
+				<li id="lastmod"> This page was last modified 04:34, 3 September 2007.</li>
+				<li id="copyright">All text is available under the terms of the <a class='internal' href="/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="/wiki/Wikipedia:Copyrights" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a U.S. registered <a class='internal' href="/wiki/501%28c%29#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="/wiki/Non-profit_organization" title="Non-profit organization">nonprofit</a> <a href="/wiki/Charitable_organization" title="Charitable organization">charity</a>.<br /></li>
+				<li id="privacy"><a href="http://wikimediafoundation.org/wiki/Privacy_policy" title="wikimedia:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="/wiki/Wikipedia:About" title="Wikipedia:About">About Wikipedia</a></li>
+				<li id="disclaimer"><a href="/wiki/Wikipedia:General_disclaimer" title="Wikipedia:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+		
+	
+		<script type="text/javascript">if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by srv171 in 0.080 secs. --></body></html>

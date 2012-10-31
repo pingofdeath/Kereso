@@ -1,0 +1,226 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="it" lang="it" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+				<meta name="keywords" content="Algoritmo di ricerca,Stub informatica.png,Informatica,Informatica,Stub informatica,Stub,Algoritmo,Informatica,Ricerca binaria,Ricerca dicotomica,Ricerca sequenziale" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (Italiano)" />
+		<link rel="copyright" href="http://www.gnu.org/copyleft/fdl.html" />
+		<title>Algoritmo di ricerca - Wikipedia</title>
+		<style type="text/css" media="screen, projection">/*<![CDATA[*/
+			@import "/skins-1.5/common/shared.css?99";
+			@import "/skins-1.5/monobook/main.css?99";
+		/*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="/skins-1.5/common/commonPrint.css?99" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE50Fixes.css?99";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE55Fixes.css?99";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "/skins-1.5/monobook/IE60Fixes.css?99";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "/skins-1.5/monobook/IE70Fixes.css?99";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="/skins-1.5/common/IEFixes.js?99"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		
+		<script type= "text/javascript">/*<![CDATA[*/
+var skin = "monobook";
+var stylepath = "/skins-1.5";
+var wgArticlePath = "/wiki/$1";
+var wgScriptPath = "/w";
+var wgScript = "/w/index.php";
+var wgServer = "http://it.wikipedia.org";
+var wgCanonicalNamespace = "";
+var wgCanonicalSpecialPageName = false;
+var wgNamespaceNumber = 0;
+var wgPageName = "Algoritmo_di_ricerca";
+var wgTitle = "Algoritmo di ricerca";
+var wgAction = "view";
+var wgRestrictionEdit = [];
+var wgRestrictionMove = [];
+var wgArticleId = "10295";
+var wgIsArticle = true;
+var wgUserName = null;
+var wgUserGroups = null;
+var wgUserLanguage = "it";
+var wgContentLanguage = "it";
+var wgBreakFrames = false;
+var wgCurRevisionId = "6280387";
+/*]]>*/</script>
+                
+		<script type="text/javascript" src="/skins-1.5/common/wikibits.js?99"><!-- wikibits js --></script>
+		<script type="text/javascript" src="/w/index.php?title=-&amp;action=raw&amp;gen=js&amp;useskin=monobook"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "/w/index.php?title=MediaWiki:Common.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=MediaWiki:Monobook.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=-&action=raw&gen=css&maxage=2678400";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+		<script type="text/javascript" src="/skins-1.5/common/ajax.js?99"></script>
+	</head>
+<body  class="mediawiki ns-0 ltr page-Algoritmo_di_ricerca">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+		<div id="siteNotice"><script type="text/javascript" language="JavaScript">
+<!--
+document.writeln("\x3cdiv class=\"noprint\" style=\"text-align:center; font-size:90%; line-height:1.4;\"\x3e\n\x3cdiv class=\"floatleft\"\x3e\x3cspan\x3e\x3ca href=\"/wiki/Immagine:Wikimedia-logo.svg\" class=\"image\" title=\"Il logo di Wikimedia\"\x3e\x3cimg alt=\"Il logo di Wikimedia\" src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Wikimedia-logo.svg/16px-Wikimedia-logo.svg.png\" width=\"16\" height=\"16\" border=\"0\" /\x3e\x3c/a\x3e\x3c/span\x3e\x3c/div\x3e\n\x3cp\x3e\x3ca href=\"/wiki/Wikipedia:Wikimedia_Italia\" title=\"Wikipedia:Wikimedia Italia\"\x3eAssociazione Wikimedia Italia\x3c/a\x3e - per informazioni, iscrizioni, donazioni o acquisto gadget visita il sito \x3ca href=\"http://www.wikimedia.it\" class=\"external text\" title=\"http://www.wikimedia.it\" rel=\"nofollow\"\x3ewww.wikimedia.it\x3c/a\x3e\n\x3c/p\x3e\n\x3c/div\x3e\n");
+-->
+</script></div>		<h1 class="firstHeading">Algoritmo di ricerca</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">Da Wikipedia, l'enciclopedia libera.</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Vai a: <a href="#column-one">Navigazione</a>, <a href="#searchInput">cerca</a></div>			<!-- start content -->
+			<div class="toccolours itwiki_template_avviso rad noprint" style="margin-bottom:.5em">
+<div style="align:left; margin:-3px 0 -4px"><a href="/wiki/Immagine:Stub_informatica.png" class="image" title="Stub"><img alt="Stub" src="http://upload.wikimedia.org/wikipedia/it/thumb/b/b5/Stub_informatica.png/30px-Stub_informatica.png" width="30" height="30" border="0" /></a>&#160;Questa voce&#160;di <a href="/wiki/Progetto:Informatica" title="Progetto:Informatica">informatica</a> è solo un <a href="/wiki/Aiuto:Abbozzo" title="Aiuto:Abbozzo">abbozzo</a>: <b><a href="http://it.wikipedia.org/w/index.php?title=Algoritmo_di_ricerca&amp;action=edit" class="external text" title="http://it.wikipedia.org/w/index.php?title=Algoritmo_di_ricerca&amp;action=edit" rel="nofollow">contribuisci</a></b> a migliorarla secondo le <a href="/wiki/Aiuto:Manuale_di_stile" title="Aiuto:Manuale di stile">convenzioni di Wikipedia</a>.</div>
+</div>
+<p>Un <b>algoritmo di ricerca</b> è un <a href="/wiki/Algoritmo" title="Algoritmo">algoritmo</a> che permette di trovare un elemento avente determinate caratteristiche all'interno di un insieme di elementi.</p>
+<p>Gli elementi dell'insieme sono caratterizzati da una <i>chiave</i> e da un gruppo di <i>dati satellite</i>. Nella descrizione degli algoritmi di ricerca, i dati satellite vengono tipicamente ignorati perché non sono utilizzati nella ricerca.</p>
+<p>La chiave è quell'insieme di valori che identifica un elemento dell'insieme. Ha un ruolo fondamentale perché un algoritmo ricerca quell'elemento che possiede una certa chiave.</p>
+<p>La chiave può avere un qualsiasi tipo di dato e può anche essere formata da un insieme di valori: dipende dal tipo di insieme che si vuole rappresentare. La chiave può essere <i>univoca</i> in tutto l'insieme di elementi, oppure <i>multipla</i> qualora sia consentito di condividerla tra più elementi distinti. In questo secondo caso è fondamentale specificare il corretto comportamento di un algoritmo di ricerca. Bisogna infatti decidere se sarà restituito il primo elemento dotato di una certa chiave, l'ultimo, uno qualsiasi o anche tutti.</p>
+<p><a name="Tabella_di_simboli" id="Tabella_di_simboli"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Algoritmo_di_ricerca&amp;action=edit&amp;section=1" title="Modifica della sezione: Tabella di simboli">modifica</a>]</span> <span class="mw-headline">Tabella di simboli</span></h2>
+<p>Una tabella di simboli è una struttura dati formata da un record con chiave che supporta due operazioni di base: inserimento di un nuovo record e ricerca di un record avente una data chiave. La tabella di simboli viene spesso chiamata <b>dizionario</b> per l'analogia che ha con esso. Questo tipo di struttura permette di avere molta dinamicità sui dati con possibilità di modifiche elastiche nel tempo. Molti metodi di ricerca costruiscono strutture dati che consentono efficienti operazion di ricerca basate proprio su questo concetto di tabella di simboli.</p>
+<p>L'ottimizzazione di algoritmi di ricerca è molto importante in ambito <a href="/wiki/Informatica" title="Informatica">informatico</a>.</p>
+<p><a name="Tipologie_di_algoritmi" id="Tipologie_di_algoritmi"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Algoritmo_di_ricerca&amp;action=edit&amp;section=2" title="Modifica della sezione: Tipologie di algoritmi">modifica</a>]</span> <span class="mw-headline">Tipologie di algoritmi</span></h2>
+<p>Il problema della ricerca appena descrito è un problema appartenente alla classe <i>P</i>, per cui esistono algoritmi risolutivi di <a href="/wiki/Teoria_della_complessit%C3%A0_algoritmica" title="Teoria della complessità algoritmica">complessità polinomiale</a>.</p>
+<p><br /></p>
+<ul>
+<li><a href="/wiki/Ricerca_sequenziale" title="Ricerca sequenziale">Ricerca sequenziale</a>
+<ul>
+<li>Ricerca con il metodo di Insert (InsertSort)</li>
+</ul>
+</li>
+<li><a href="/wiki/Ricerca_sequenziale_con_sentinella" title="Ricerca sequenziale con sentinella">Ricerca sequenziale con sentinella</a></li>
+<li><a href="/w/index.php?title=Ricerca_su_array_ordinato&amp;action=edit" class="new" title="Ricerca su array ordinato">Ricerca su array ordinato</a></li>
+<li><a href="/w/index.php?title=Ricerca_Hash&amp;action=edit" class="new" title="Ricerca Hash">Ricerca Hash</a></li>
+<li><a href="/w/index.php?title=Ricerca_Ricorsiva&amp;action=edit" class="new" title="Ricerca Ricorsiva">Ricerca Ricorsiva</a>
+<ul>
+<li><a href="/wiki/Ricerca_binaria" title="Ricerca binaria">Ricerca binaria</a> o <a href="/wiki/Ricerca_dicotomica" title="Ricerca dicotomica">dicotomica</a></li>
+<li><a href="/w/index.php?title=Ricerca_su_alberi_B-Tree&amp;action=edit" class="new" title="Ricerca su alberi B-Tree">Ricerca su alberi B-Tree</a></li>
+</ul>
+</li>
+</ul>
+<p><a name="Collegamenti_esterni" id="Collegamenti_esterni"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Algoritmo_di_ricerca&amp;action=edit&amp;section=3" title="Modifica della sezione: Collegamenti esterni">modifica</a>]</span> <span class="mw-headline">Collegamenti esterni</span></h2>
+<ul>
+<li>Una breve guida agli algoritmi di ordinamento e ricerca: <a href="http://epaperpress.com/sortsearchItalian/index.html" class="external free" title="http://epaperpress.com/sortsearchItalian/index.html" rel="nofollow">http://epaperpress.com/sortsearchItalian/index.html</a> <i>(in italiano)</i></li>
+<li>C - esempi di programmazione: <a href="http://www.to.infn.it/groups/group4/mirror/linux/AppuntiLinux/AL-9.27.131.html" class="external free" title="http://www.to.infn.it/groups/group4/mirror/linux/AppuntiLinux/AL-9.27.131.html" rel="nofollow">http://www.to.infn.it/groups/group4/mirror/linux/AppuntiLinux/AL-9.27.131.html</a></li>
+</ul>
+
+<!-- 
+Pre-expand include size: 6451 bytes
+Post-expand include size: 989 bytes
+Template argument size: 187 bytes
+Maximum: 2048000 bytes
+-->
+
+<!-- Saved in parser cache with key itwiki:pcache:idhash:10295-0!1!0!!it!2 and timestamp 20070914203127 -->
+<div class="printfooter">
+Estratto da "<a href="http://it.wikipedia.org/wiki/Algoritmo_di_ricerca">http://it.wikipedia.org/wiki/Algoritmo_di_ricerca</a>"</div>
+			<div id="catlinks"><p class='catlinks'><a href="/wiki/Speciale:Categories" title="Speciale:Categories">Categorie</a>: <span dir='ltr'><a href="/wiki/Categoria:Stub_informatica" title="Categoria:Stub informatica">Stub informatica</a></span> | <span dir='ltr'><a href="/wiki/Categoria:Algoritmi" title="Categoria:Algoritmi">Algoritmi</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Visite</h5>
+		<div class="pBody">
+			<ul>
+					 <li id="ca-nstab-main" class="selected"><a href="/wiki/Algoritmo_di_ricerca" title="Vedi la voce [c]" accesskey="c">Voce</a></li>
+					 <li id="ca-talk" class="new"><a href="/w/index.php?title=Discussione:Algoritmo_di_ricerca&amp;action=edit" title="Vedi le discussioni relative a questa pagina [t]" accesskey="t">Discussione</a></li>
+					 <li id="ca-edit"><a href="/w/index.php?title=Algoritmo_di_ricerca&amp;action=edit" title="Puoi modificare questa pagina. Per favore usa il pulsante di anteprima prima di salvare [e]" accesskey="e">Modifica</a></li>
+					 <li id="ca-history"><a href="/w/index.php?title=Algoritmo_di_ricerca&amp;action=history" title="Versioni precedenti di questa pagina [h]" accesskey="h">Cronologia</a></li>
+				</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-personal">
+		<h5>Strumenti personali</h5>
+		<div class="pBody">
+			<ul>
+				<li id="pt-login"><a href="/w/index.php?title=Speciale:Entra&amp;returnto=Algoritmo_di_ricerca" title="La registrazione è consigliata, anche se non obbligatoria [o]" accesskey="o">Entra / Registrati</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-logo">
+		<a style="background-image: url(http://upload.wikimedia.org/wikipedia/it/b/bc/Wiki.png);" href="/wiki/Pagina_principale" title="Visita la pagina principale [z]" accesskey="z"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigazione</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="/wiki/Pagina_principale" title="Visita la pagina principale [z]" accesskey="z">Pagina principale</a></li>
+				<li id="n-recentchanges"><a href="/wiki/Speciale:UltimeModifiche" title="Elenco delle ultime modifiche del sito [r]" accesskey="r">Ultime modifiche</a></li>
+				<li id="n-randompage"><a href="/wiki/Speciale:PaginaCasuale" title="Mostra una pagina a caso [x]" accesskey="x">Una voce a caso</a></li>
+				<li id="n-vetrina"><a href="/wiki/Wikipedia:Vetrina">Vetrina</a></li>
+				<li id="n-help"><a href="/wiki/Aiuto:Aiuto" title="Pagine di aiuto">Aiuto</a></li>
+			</ul>
+		</div>
+	</div>
+		<div class='portlet' id='p-comunit.C3.A0'>
+		<h5>comunità</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-portal"><a href="/wiki/Portale:Comunit%C3%A0" title="Descrizione del progetto, cosa puoi fare, dove trovare le cose">Portale comunità</a></li>
+				<li id="n-villagepump"><a href="/wiki/Wikipedia:Bar">Bar</a></li>
+				<li id="n-wikipediano"><a href="/wiki/Wikipedia:Wikipediano">il Wikipediano</a></li>
+				<li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Donazioni" title="Aiutaci">Donazioni</a></li>
+				<li id="n-contact"><a href="/wiki/Wikipedia:Contatti">Contatti</a></li>
+			</ul>
+		</div>
+	</div>
+		<div id="p-search" class="portlet">
+		<h5><label for="searchInput">Ricerca</label></h5>
+		<div id="searchBody" class="pBody">
+			<form action="/wiki/Speciale:Ricerca" id="searchform"><div>
+				<input id="searchInput" name="search" type="text" title="Cerca all'interno di Wikipedia [f]" accesskey="f" value="" />
+				<input type='submit' name="go" class="searchButton" id="searchGoButton"	value="Vai" />&nbsp;
+				<input type='submit' name="fulltext" class="searchButton" id="mw-searchButton" value="Ricerca" />
+			</div></form>
+		</div>
+	</div>
+	<div class="portlet" id="p-tb">
+		<h5>Strumenti</h5>
+		<div class="pBody">
+			<ul>
+				<li id="t-whatlinkshere"><a href="/wiki/Speciale:PuntanoQui/Algoritmo_di_ricerca" title="Elenco di tutte le pagine che sono collegate a questa [j]" accesskey="j">Puntano qui</a></li>
+				<li id="t-recentchangeslinked"><a href="/wiki/Speciale:ModificheCorrelate/Algoritmo_di_ricerca" title="Elenco delle ultime modifiche alle pagine collegate a questa [k]" accesskey="k">Modifiche correlate</a></li>
+<li id="t-upload"><a href="/wiki/Speciale:Carica" title="Carica immagini o file multimediali [u]" accesskey="u">Carica un file</a></li>
+<li id="t-specialpages"><a href="/wiki/Speciale:PagineSpeciali" title="Lista di tutte le pagine speciali [q]" accesskey="q">Pagine speciali</a></li>
+				<li id="t-print"><a href="/w/index.php?title=Algoritmo_di_ricerca&amp;printable=yes" title="Versione stampabile di questa pagina [p]" accesskey="p">Versione stampabile</a></li>				<li id="t-permalink"><a href="/w/index.php?title=Algoritmo_di_ricerca&amp;oldid=6280387" title="Collegamento permanente a questa versione della pagina">Link permanente</a></li><li id="t-cite"><a href="/w/index.php?title=Speciale:Cite&amp;page=Algoritmo_di_ricerca&amp;id=6280387">Cita questa voce</a></li>			</ul>
+		</div>
+	</div>
+	<div id="p-lang" class="portlet">
+		<h5>Altre lingue</h5>
+		<div class="pBody">
+			<ul>
+				<li class="interwiki-de"><a href="http://de.wikipedia.org/wiki/Suchverfahren">Deutsch</a></li>
+				<li class="interwiki-en"><a href="http://en.wikipedia.org/wiki/Search_algorithm">English</a></li>
+				<li class="interwiki-fi"><a href="http://fi.wikipedia.org/wiki/Hakualgoritmi">Suomi</a></li>
+				<li class="interwiki-fr"><a href="http://fr.wikipedia.org/wiki/Algorithme_de_recherche">Français</a></li>
+				<li class="interwiki-id"><a href="http://id.wikipedia.org/wiki/Algoritma_pencarian">Bahasa Indonesia</a></li>
+				<li class="interwiki-ja"><a href="http://ja.wikipedia.org/wiki/%E6%A4%9C%E7%B4%A2">日本語</a></li>
+				<li class="interwiki-nl"><a href="http://nl.wikipedia.org/wiki/Zoekalgoritme">Nederlands</a></li>
+				<li class="interwiki-pt"><a href="http://pt.wikipedia.org/wiki/Algoritmo_de_busca">Português</a></li>
+				<li class="interwiki-vi"><a href="http://vi.wikipedia.org/wiki/Gi%E1%BA%A3i_thu%E1%BA%ADt_t%C3%ACm_ki%E1%BA%BFm">Tiếng Việt</a></li>
+			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="/skins-1.5/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>
+				<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="/images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>
+			<ul id="f-list">
+				<li id="lastmod"> Ultima modifica per la pagina: 22:41, 9 gen 2007.</li>
+				<li id="copyright">Tutti i testi sono disponibili nel rispetto dei termini della <a href="http://www.gnu.org/copyleft/fdl.html" class="external " title="http://www.gnu.org/copyleft/fdl.html" rel="nofollow">GNU Free Documentation License</a>.</li>
+				<li id="privacy"><a href="/wiki/Wikipedia:Politica_relativa_alla_privacy" title="Wikipedia:Politica relativa alla privacy">Politica sulla privacy</a></li>
+				<li id="about"><a href="/wiki/Wikipedia:A_proposito_di_Wikipedia" title="Wikipedia:A proposito di Wikipedia">Informazioni su Wikipedia</a></li>
+				<li id="disclaimer"><a href="/wiki/Wikipedia:General_disclaimer" title="Wikipedia:General disclaimer">Avvertenze</a></li>
+			</ul>
+		</div>
+		
+	
+		<script type="text/javascript">if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by srv163 in 0.185 secs. --></body></html>

@@ -1,0 +1,286 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+				<meta name="keywords" content="Maxima and minima,Compact space,Continuous function,Critical point (mathematics),Differentiable,Domain (mathematics),Extreme value,Extreme value theorem,Fermat's theorem (stationary points),First derivative test,Function (mathematics)" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="http://www.gnu.org/copyleft/fdl.html" />
+		<title>Maxima and minima - Wikipedia, the free encyclopedia</title>
+		<style type="text/css" media="screen, projection">/*<![CDATA[*/
+			@import "/skins-1.5/common/shared.css?99";
+			@import "/skins-1.5/monobook/main.css?99";
+		/*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="/skins-1.5/common/commonPrint.css?99" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE50Fixes.css?99";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE55Fixes.css?99";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "/skins-1.5/monobook/IE60Fixes.css?99";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "/skins-1.5/monobook/IE70Fixes.css?99";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="/skins-1.5/common/IEFixes.js?99"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		
+		<script type= "text/javascript">/*<![CDATA[*/
+var skin = "monobook";
+var stylepath = "/skins-1.5";
+var wgArticlePath = "/wiki/$1";
+var wgScriptPath = "/w";
+var wgScript = "/w/index.php";
+var wgServer = "http://en.wikipedia.org";
+var wgCanonicalNamespace = "";
+var wgCanonicalSpecialPageName = false;
+var wgNamespaceNumber = 0;
+var wgPageName = "Maxima_and_minima";
+var wgTitle = "Maxima and minima";
+var wgAction = "view";
+var wgRestrictionEdit = [];
+var wgRestrictionMove = [];
+var wgArticleId = "298420";
+var wgIsArticle = true;
+var wgUserName = null;
+var wgUserGroups = null;
+var wgUserLanguage = "en";
+var wgContentLanguage = "en";
+var wgBreakFrames = false;
+var wgCurRevisionId = "154316707";
+/*]]>*/</script>
+                
+		<script type="text/javascript" src="/skins-1.5/common/wikibits.js?99"><!-- wikibits js --></script>
+		<script type="text/javascript" src="/w/index.php?title=-&amp;action=raw&amp;gen=js&amp;useskin=monobook"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "/w/index.php?title=MediaWiki:Common.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=MediaWiki:Monobook.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=-&action=raw&gen=css&maxage=2678400";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+		<script type="text/javascript" src="/skins-1.5/common/ajax.js?99"></script>
+	</head>
+<body  class="mediawiki ns-0 ltr page-Maxima_and_minima">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">Maxima and minima</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<div class="thumb tright">
+<div class="thumbinner" style="width:282px;"><a href="/wiki/Image:Extrema_example.svg" class="image" title="Local and global maxima and minima for cos(3πx)/x, 0.1≤x≤1.1"><img alt="Local and global maxima and minima for cos(3πx)/x, 0.1≤x≤1.1" src="http://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Extrema_example.svg/280px-Extrema_example.svg.png" width="280" height="224" border="0" class="thumbimage" /></a>
+<div class="thumbcaption">
+<div class="magnify" style="float:right"><a href="/wiki/Image:Extrema_example.svg" class="internal" title="Enlarge"><img src="/skins-1.5/common/images/magnify-clip.png" width="15" height="11" alt="" /></a></div>
+Local and global maxima and minima for cos(3π<i>x</i>)/<i>x</i>, 0.1≤<i>x</i>≤1.1</div>
+</div>
+</div>
+<p>In <a href="/wiki/Mathematics" title="Mathematics">mathematics</a>, <b>maxima</b> and <b>minima</b>, known collectively as <b>extrema</b>, are the <i>largest value</i> (maximum) or <i>smallest value</i> (minimum), that a <a href="/wiki/Function_%28mathematics%29" title="Function (mathematics)">function</a> takes in a point either within a given neighbourhood (local extremum) or on the function <a href="/wiki/Domain_%28mathematics%29" title="Domain (mathematics)">domain</a> in its entirety (global extremum).</p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Definitions"><span class="tocnumber">1</span> <span class="toctext">Definitions</span></a></li>
+<li class="toclevel-1"><a href="#Finding_maxima_and_minima"><span class="tocnumber">2</span> <span class="toctext">Finding maxima and minima</span></a></li>
+<li class="toclevel-1"><a href="#Examples"><span class="tocnumber">3</span> <span class="toctext">Examples</span></a></li>
+<li class="toclevel-1"><a href="#Functions_of_more_variables"><span class="tocnumber">4</span> <span class="toctext">Functions of more variables</span></a></li>
+<li class="toclevel-1"><a href="#See_also"><span class="tocnumber">5</span> <span class="toctext">See also</span></a></li>
+<li class="toclevel-1"><a href="#External_links"><span class="tocnumber">6</span> <span class="toctext">External links</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script>
+<p><a name="Definitions" id="Definitions"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Maxima_and_minima&amp;action=edit&amp;section=1" title="Edit section: Definitions">edit</a>]</span> <span class="mw-headline">Definitions</span></h2>
+<p>A real-valued <a href="/wiki/Function_%28mathematics%29" title="Function (mathematics)">function</a> <i>f' defined on the <a href="/wiki/Real_line" title="Real line">real line</a> is said to have a <b>local maximum point</b> at the point</i> x<i><sup>∗</sup>, if there exists some ε &gt; 0, such that</i> f<i>(</i>x<i><sup>∗</sup>) ≥</i> f<i>(</i>x<i>) when |</i>x <i>−</i> x<i><sup>∗</sup>| &lt; ε. The value of the function at this point is called <b>maximum</b> of the function.</i></p>
+<p>On a <a href="/wiki/Graph_of_a_function" title="Graph of a function">graph</a> of a function, its local maxima will look like the tops of hills.</p>
+<p>Similarly, a function has a <b>local minimum point</b> at <i>x</i><sup>∗</sup>, if <i>f</i>(<i>x</i><sup>∗</sup>) ≤ <i>f</i>(<i>x</i>) when |<i>x</i> − <i>x</i><sup>∗</sup>| &lt; ε. The value of the function at this point is called <b>minimum</b> of the function.</p>
+<p>On a graph of a function, its local minima will look like the bottoms of valleys.</p>
+<p>A function has a <b>global maximum point</b> at <i>x</i><sup>∗</sup>, if <i>f</i>(<i>x</i><sup>∗</sup>) ≥ <i>f</i>(<i>x</i>) for all <i>x</i>.</p>
+<p>Similarly, a function has a <b>global minimum point</b> at <i>x</i><sup>∗</sup>, if <i>f</i>(<i>x</i><sup>∗</sup>) ≤ <i>f</i>(<i>x</i>) for all <i>x</i>.</p>
+<p>Any global maximum (minimum) point is also a local maximum (minimum) point; however, a local maximum or minimum point need not also be a global maximum or minimum point.</p>
+<p><i>Terminology</i>: The terms <b>local</b> and <b>global</b> are synonymous with <b>relative</b> and <b>absolute</b> respectively. Also <b>extremum</b> is an inclusive term that includes both <b>maximum</b> and <b>minimum</b>: a <b>local extremum</b> is a local or relative maximum or minimum, and a <b>global extremum</b> is a global or absolute maximum or minimum.</p>
+<p><i>Restricted domains</i>: There may be maxima and minima for a function whose <a href="/wiki/Domain_%28mathematics%29" title="Domain (mathematics)">domain</a> does not include all <a href="/wiki/Real_number" title="Real number">real numbers</a>. A real-valued function, whose domain is any <a href="/wiki/Set" title="Set">set</a>, can have a global maximum and minimum. There may also be local maxima and local minima points, but only at points of the domain set where the concept of <a href="/wiki/Topology_glossary#N" title="Topology glossary">neighborhood</a> is defined. A neighborhood plays the role of the set of <i>x</i> such that |<i>x</i> − <i>x</i><sup>∗</sup>| &lt; ε.</p>
+<p>A <a href="/wiki/Continuous_function" title="Continuous function">continuous</a> (real-valued) function on a <a href="/wiki/Compact_space" title="Compact space">compact</a> set always takes maximum and minimum values on that set. An important example is a function whose domain is a closed (and bounded) <a href="/wiki/Interval" title="Interval">interval</a> of <a href="/wiki/Real_number" title="Real number">real numbers</a> (see the graph above). The <a href="/wiki/Topology_glossary#N" title="Topology glossary">neighborhood</a> requirement precludes a <i>local</i> maximum or minimum at an endpoint of an interval. However, an endpoint may still be a <i>global</i> maximum or minimum. Thus it is <i>not always true,</i> for finite domains, that a global maximum (minimum) must also be a local maximum (minimum).</p>
+<p><i>Terminology</i>: The term <b>optimum</b> can replace <i>either one</i> of the terms <b>maximum</b> or <b>minimum</b>, depending on the context. Some optimization problems (see next paragraph) search for a global maximum value while others search for a global minimum value.</p>
+<p><a name="Finding_maxima_and_minima" id="Finding_maxima_and_minima"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Maxima_and_minima&amp;action=edit&amp;section=2" title="Edit section: Finding maxima and minima">edit</a>]</span> <span class="mw-headline">Finding maxima and minima</span></h2>
+<p>Finding global maxima and minima is the goal of <a href="/wiki/Optimization_%28mathematics%29" title="Optimization (mathematics)">optimization</a>. If a function is continuous on a closed interval, then by the <a href="/wiki/Extreme_value_theorem" title="Extreme value theorem">extreme value theorem</a> global maxima and minima exist. Furthermore, a global maximum (or minimum) either must be a local maximum (or minimum) in the interior of the domain, or must lie on the boundary of the domain. So a method of finding a global maximum (or minimum) is to look at all the local maxima (or minima) in the interior, and also look at the maxima (or minima) of the points on the boundary; and take the biggest (or smallest) one.</p>
+<p>Local extrema can be found by <a href="/wiki/Fermat%27s_theorem_%28stationary_points%29" title="Fermat's theorem (stationary points)">Fermat's theorem</a>, which states that they must occur at <a href="/wiki/Critical_point_%28mathematics%29" title="Critical point (mathematics)">critical points</a>. One can distinguish whether a critical point is a local maximum or local minimum by using the <a href="/wiki/First_derivative_test" title="First derivative test">first derivative test</a> or <a href="/wiki/Second_derivative_test" title="Second derivative test">second derivative test</a>.</p>
+<p>For any function that is defined <a href="/wiki/Piecewise" title="Piecewise">piecewise</a>, one finds maxima (or minima) by finding the maximum (or minimum) of each piece separately; and then seeing which one is biggest (or smallest).</p>
+<p><a name="Examples" id="Examples"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Maxima_and_minima&amp;action=edit&amp;section=3" title="Edit section: Examples">edit</a>]</span> <span class="mw-headline">Examples</span></h2>
+<div class="thumb tright">
+<div class="thumbinner" style="width:182px;"><a href="/wiki/Image:Extrema.svg" class="image" title="x3+3x2−2x+1−4&#160;≤&#160;x&#160;≤&#160;2"><img alt="x3+3x2−2x+1−4&#160;≤&#160;x&#160;≤&#160;2" src="http://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Extrema.svg/180px-Extrema.svg.png" width="180" height="178" border="0" class="thumbimage" /></a>
+<div class="thumbcaption">
+<div class="magnify" style="float:right"><a href="/wiki/Image:Extrema.svg" class="internal" title="Enlarge"><img src="/skins-1.5/common/images/magnify-clip.png" width="15" height="11" alt="" /></a></div>
+<i>x</i><sup>3</sup>+3<i>x</i><sup>2</sup>−2<i>x</i>+1<br />
+−4&#160;≤&#160;<i>x</i>&#160;≤&#160;2</div>
+</div>
+</div>
+<ul>
+<li>The function <i>x</i><sup>2</sup> has a unique global minimum at <i>x</i> = 0.</li>
+<li>The function <i>x</i><sup>3</sup> has no global or local minima or maxima. Although the first derivative (3<i>x</i><sup>2</sup>) is 0 at <i>x</i> = 0, this is an <a href="/wiki/Inflection_point" title="Inflection point">inflection point</a>.</li>
+<li>The function <i>x</i><sup>3</sup>/3 − <i>x</i> has first derivative <i>x</i><sup>2</sup> − 1 and second derivative 2<i>x</i>. Setting the first derivative to 0 and solving for <i>x</i> gives stationary points at −1 and +1. From the sign of the second derivative we can see that −1 is a local maximum and +1 is a local minimum. Note that this function has no global maximum or minimum.</li>
+<li>The function |<i>x</i>| has a global minimum at <i>x</i> = 0 that cannot be found by taking derivatives, because the derivative does not exist at <i>x</i> = 0.</li>
+<li>The function cos(<i>x</i>) has infinitely many global maxima at 0, ±2π, ±4π, …, and infinitely many global minima at ±π, ±3π, ….</li>
+<li>The function 2 cos(<i>x</i>) − <i>x</i> has infinitely many local maxima and minima, but no global maximum or minimum.</li>
+<li>The function cos(3π<i>x</i>)/<i>x</i> with 0.1&#160;≤&#160;<i>x</i>&#160;≤&#160;1.1 has a global maximum at <i>x</i>&#160;= 0.1 (a boundary), a global minimum near <i>x</i>&#160;= 0.3, a local maximum near <i>x</i>&#160;= 0.6, and a local minimum near <i>x</i>&#160;= 1.0. (See figure at top of page.)</li>
+<li>The function <i>x</i><sup>3</sup> + 3<i>x</i><sup>2</sup> − 2<i>x</i> + 1 defined over the closed interval (segment) [−4,2] has two extrema: one local maximum at <i>x</i> = −1−<sup>√15</sup>⁄<sub>3</sub>, one local minimum at <i>x</i> = −1+<sup>√15</sup>⁄<sub>3</sub>, a global maximum at <i>x</i> = 2 and a global minimum at <i>x</i> = −4. (See figure at right)</li>
+</ul>
+<p><a name="Functions_of_more_variables" id="Functions_of_more_variables"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Maxima_and_minima&amp;action=edit&amp;section=4" title="Edit section: Functions of more variables">edit</a>]</span> <span class="mw-headline">Functions of more variables</span></h2>
+<p>For functions of more than one variable, similar conditions apply.</p>
+<div class="thumb tright">
+<div class="thumbinner" style="width:182px;"><a href="/wiki/Image:Maximum_boxed.png" class="image" title="Maximum boxed.png"><img alt="" src="http://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Maximum_boxed.png/180px-Maximum_boxed.png" width="180" height="170" border="0" class="thumbimage" /></a>
+<div class="thumbcaption">
+<div class="magnify" style="float:right"><a href="/wiki/Image:Maximum_boxed.png" class="internal" title="Enlarge"><img src="/skins-1.5/common/images/magnify-clip.png" width="15" height="11" alt="" /></a></div>
+</div>
+</div>
+</div>
+<p>For example, In the (enlargeable) figure at the right, the necessary conditions for a <i>local</i> maximum are similar to those of a function with only one variable. The first <a href="/wiki/Partial_derivatives" title="Partial derivatives">partial derivatives</a> as to <i>z</i> (the variable to be maximized) are zero at the maximum (the glowing dot on top in the figure). The second partial derivatives are negative. These are only necessary, not sufficient, conditions for a local maximum because of the possibility of a <a href="/wiki/Saddle_point" title="Saddle point">saddle point</a>. For use of these conditions to solve for a maximum, the function <i>z</i> must also be <a href="/wiki/Differentiable" title="Differentiable">differentiable</a> throughout. The <a href="/wiki/Second_partial_derivative_test" title="Second partial derivative test">second partial derivative test</a> can help classify the point as a relative maximum or relative minimum.</p>
+<p><a name="See_also" id="See_also"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Maxima_and_minima&amp;action=edit&amp;section=5" title="Edit section: See also">edit</a>]</span> <span class="mw-headline">See also</span></h2>
+<div class="infobox sisterproject">
+<div style="float: left;">
+<div class="floatnone"><span><a href="/wiki/Image:Wiktionary-logo-en.png" class="image" title="Wiktionary-logo-en.png"><img alt="" src="http://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Wiktionary-logo-en.png/50px-Wiktionary-logo-en.png" width="50" height="54" border="0" /></a></span></div>
+</div>
+<div style="margin-left: 60px;">Look up <i><b><a href="http://en.wiktionary.org/wiki/maxima" class="extiw" title="wiktionary:maxima">maxima</a></b>, <b><a href="http://en.wiktionary.org/wiki/minima" class="extiw" title="wiktionary:minima">minima</a></b>, <b><a href="http://en.wiktionary.org/wiki/extremum" class="extiw" title="wiktionary:extremum">extremum</a></b></i> in <a href="/wiki/Wiktionary" title="Wiktionary">Wiktionary</a>, the free dictionary.</div>
+</div>
+<ul>
+<li><a href="/wiki/Fermat%27s_theorem_%28stationary_points%29" title="Fermat's theorem (stationary points)">Fermat's theorem</a></li>
+<li><a href="/wiki/First_derivative_test" title="First derivative test">First derivative test</a></li>
+<li><a href="/wiki/Second_derivative_test" title="Second derivative test">Second derivative test</a></li>
+<li><a href="/wiki/Limit_superior_and_limit_inferior" title="Limit superior and limit inferior">Limit superior and limit inferior</a></li>
+<li><a href="/wiki/Mechanical_equilibrium" title="Mechanical equilibrium">Mechanical equilibrium</a></li>
+<li><a href="/wiki/Extreme_value" title="Extreme value">Extreme value</a></li>
+</ul>
+<p><a name="External_links" id="External_links"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Maxima_and_minima&amp;action=edit&amp;section=6" title="Edit section: External links">edit</a>]</span> <span class="mw-headline">External links</span></h2>
+<ul>
+<li><a href="http://mathdl.maa.org/convergence/1/?pa=content&amp;sa=viewDocument&amp;nodeId=606&amp;bodyId=948" class="external text" title="http://mathdl.maa.org/convergence/1/?pa=content&amp;sa=viewDocument&amp;nodeId=606&amp;bodyId=948" rel="nofollow">Thomas Simpson's work on Maxima and Minima</a> at <a href="http://mathdl.maa.org/convergence/1/" class="external text" title="http://mathdl.maa.org/convergence/1/" rel="nofollow">Convergence</a></li>
+</ul>
+
+<!-- 
+Pre-expand include size: 1086 bytes
+Post-expand include size: 406 bytes
+Template argument size: 82 bytes
+Maximum: 2048000 bytes
+-->
+
+<!-- Saved in parser cache with key enwiki:pcache:idhash:298420-0!1!0!default!!en!2 and timestamp 20070915070454 -->
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org/wiki/Maxima_and_minima">http://en.wikipedia.org/wiki/Maxima_and_minima</a>"</div>
+			<div id="catlinks"><p class='catlinks'><a href="/wiki/Special:Categories" title="Special:Categories">Categories</a>: <span dir='ltr'><a href="/wiki/Category:Calculus" title="Category:Calculus">Calculus</a></span> | <span dir='ltr'><a href="/wiki/Category:Mathematical_analysis" title="Category:Mathematical analysis">Mathematical analysis</a></span> | <span dir='ltr'><a href="/wiki/Category:Optimization" title="Category:Optimization">Optimization</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<div class="pBody">
+			<ul>
+					 <li id="ca-nstab-main" class="selected"><a href="/wiki/Maxima_and_minima" title="View the content page [c]" accesskey="c">Article</a></li>
+					 <li id="ca-talk"><a href="/wiki/Talk:Maxima_and_minima" title="Discussion about the content page [t]" accesskey="t">Discussion</a></li>
+					 <li id="ca-edit"><a href="/w/index.php?title=Maxima_and_minima&amp;action=edit" title="You can edit this page. Please use the preview button before saving. [e]" accesskey="e">Edit this page</a></li>
+					 <li id="ca-history"><a href="/w/index.php?title=Maxima_and_minima&amp;action=history" title="Past versions of this page [h]" accesskey="h">History</a></li>
+				</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-personal">
+		<h5>Personal tools</h5>
+		<div class="pBody">
+			<ul>
+				<li id="pt-login"><a href="/w/index.php?title=Special:Userlogin&amp;returnto=Maxima_and_minima" title="You are encouraged to log in, it is not mandatory however. [o]" accesskey="o">Sign in / create account</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-logo">
+		<a style="background-image: url(/images/wiki-en.png);" href="/wiki/Main_Page" title="Visit the Main Page [z]" accesskey="z"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-Main-page"><a href="/wiki/Main_Page">Main page</a></li>
+				<li id="n-Contents"><a href="/wiki/Wikipedia:Contents">Contents</a></li>
+				<li id="n-Featured-content"><a href="/wiki/Wikipedia:Featured_content">Featured content</a></li>
+				<li id="n-currentevents"><a href="/wiki/Portal:Current_events" title="Find background information on current events">Current events</a></li>
+				<li id="n-randompage"><a href="/wiki/Special:Random" title="Load a random page [x]" accesskey="x">Random article</a></li>
+			</ul>
+		</div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+		<h5>interaction</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-About-Wikipedia"><a href="/wiki/Wikipedia:About">About Wikipedia</a></li>
+				<li id="n-portal"><a href="/wiki/Wikipedia:Community_Portal" title="About the project, what you can do, where to find things">Community portal</a></li>
+				<li id="n-recentchanges"><a href="/wiki/Special:Recentchanges" title="The list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li>
+				<li id="n-contact"><a href="/wiki/Wikipedia:Contact_us">Contact Wikipedia</a></li>
+				<li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising" title="Support us">Donate to Wikipedia</a></li>
+				<li id="n-help"><a href="/wiki/Help:Contents" title="Guidance on how to use and edit Wikipedia">Help</a></li>
+			</ul>
+		</div>
+	</div>
+		<div id="p-search" class="portlet">
+		<h5><label for="searchInput">Search</label></h5>
+		<div id="searchBody" class="pBody">
+			<form action="/wiki/Special:Search" id="searchform"><div>
+				<input id="searchInput" name="search" type="text" title="Search Wikipedia [f]" accesskey="f" value="" />
+				<input type='submit' name="go" class="searchButton" id="searchGoButton"	value="Go" />&nbsp;
+				<input type='submit' name="fulltext" class="searchButton" id="mw-searchButton" value="Search" />
+			</div></form>
+		</div>
+	</div>
+	<div class="portlet" id="p-tb">
+		<h5>Toolbox</h5>
+		<div class="pBody">
+			<ul>
+				<li id="t-whatlinkshere"><a href="/wiki/Special:Whatlinkshere/Maxima_and_minima" title="List of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+				<li id="t-recentchangeslinked"><a href="/wiki/Special:Recentchangeslinked/Maxima_and_minima" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+<li id="t-upload"><a href="/wiki/Wikipedia:Upload" title="Upload images or media files [u]" accesskey="u">Upload file</a></li>
+<li id="t-specialpages"><a href="/wiki/Special:Specialpages" title="List of all special pages [q]" accesskey="q">Special pages</a></li>
+				<li id="t-print"><a href="/w/index.php?title=Maxima_and_minima&amp;printable=yes" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>				<li id="t-permalink"><a href="/w/index.php?title=Maxima_and_minima&amp;oldid=154316707" title="Permanent link to this version of the page">Permanent link</a></li><li id="t-cite"><a href="/w/index.php?title=Special:Cite&amp;page=Maxima_and_minima&amp;id=154316707">Cite this article</a></li>			</ul>
+		</div>
+	</div>
+	<div id="p-lang" class="portlet">
+		<h5>In other languages</h5>
+		<div class="pBody">
+			<ul>
+				<li class="interwiki-cy"><a href="http://cy.wikipedia.org/wiki/Uchafbwyntiau_ac_isafbwyntiau">Cymraeg</a></li>
+				<li class="interwiki-de"><a href="http://de.wikipedia.org/wiki/Extremwert">Deutsch</a></li>
+				<li class="interwiki-it"><a href="http://it.wikipedia.org/wiki/Massimo_e_minimo_di_una_funzione">Italiano</a></li>
+				<li class="interwiki-he"><a href="http://he.wikipedia.org/wiki/%D7%A0%D7%A7%D7%95%D7%93%D7%AA_%D7%A7%D7%99%D7%A6%D7%95%D7%9F">עברית</a></li>
+				<li class="interwiki-ja"><a href="http://ja.wikipedia.org/wiki/%E6%A5%B5%E5%80%A4">日本語</a></li>
+				<li class="interwiki-pt"><a href="http://pt.wikipedia.org/wiki/Pontos_extremos_de_uma_fun%C3%A7%C3%A3o">Português</a></li>
+				<li class="interwiki-ru"><a href="http://ru.wikipedia.org/wiki/%D0%AD%D0%BA%D1%81%D1%82%D1%80%D0%B5%D0%BC%D1%83%D0%BC">Русский</a></li>
+				<li class="interwiki-uk"><a href="http://uk.wikipedia.org/wiki/%D0%95%D0%BA%D1%81%D1%82%D1%80%D0%B5%D0%BC%D1%83%D0%BC">Українська</a></li>
+				<li class="interwiki-zh"><a href="http://zh.wikipedia.org/wiki/%E6%9E%81%E5%80%BC">中文</a></li>
+			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="/skins-1.5/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>
+				<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="/images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>
+			<ul id="f-list">
+				<li id="lastmod"> This page was last modified 04:10, 29 August 2007.</li>
+				<li id="copyright">All text is available under the terms of the <a class='internal' href="/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="/wiki/Wikipedia:Copyrights" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a U.S. registered <a class='internal' href="/wiki/501%28c%29#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="/wiki/Non-profit_organization" title="Non-profit organization">nonprofit</a> <a href="/wiki/Charitable_organization" title="Charitable organization">charity</a>.<br /></li>
+				<li id="privacy"><a href="http://wikimediafoundation.org/wiki/Privacy_policy" title="wikimedia:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="/wiki/Wikipedia:About" title="Wikipedia:About">About Wikipedia</a></li>
+				<li id="disclaimer"><a href="/wiki/Wikipedia:General_disclaimer" title="Wikipedia:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+		
+	
+		<script type="text/javascript">if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by srv67 in 0.087 secs. --></body></html>

@@ -1,0 +1,241 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+				<meta name="keywords" content="Shortest path problem,A* search algorithm,Abstract machine,Bellman-Ford algorithm,Charles E. Leiserson,Clifford Stein,Computational geometry,Dijkstra's algorithm,Euclidean shortest path,Floyd-Warshall algorithm,Glossary of graph theory" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="http://www.gnu.org/copyleft/fdl.html" />
+		<title>Shortest path problem - Wikipedia, the free encyclopedia</title>
+		<style type="text/css" media="screen, projection">/*<![CDATA[*/
+			@import "/skins-1.5/common/shared.css?99";
+			@import "/skins-1.5/monobook/main.css?99";
+		/*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="/skins-1.5/common/commonPrint.css?99" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE50Fixes.css?99";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE55Fixes.css?99";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "/skins-1.5/monobook/IE60Fixes.css?99";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "/skins-1.5/monobook/IE70Fixes.css?99";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="/skins-1.5/common/IEFixes.js?99"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		
+		<script type= "text/javascript">/*<![CDATA[*/
+var skin = "monobook";
+var stylepath = "/skins-1.5";
+var wgArticlePath = "/wiki/$1";
+var wgScriptPath = "/w";
+var wgScript = "/w/index.php";
+var wgServer = "http://en.wikipedia.org";
+var wgCanonicalNamespace = "";
+var wgCanonicalSpecialPageName = false;
+var wgNamespaceNumber = 0;
+var wgPageName = "Shortest_path_problem";
+var wgTitle = "Shortest path problem";
+var wgAction = "view";
+var wgRestrictionEdit = [];
+var wgRestrictionMove = [];
+var wgArticleId = "41985";
+var wgIsArticle = true;
+var wgUserName = null;
+var wgUserGroups = null;
+var wgUserLanguage = "en";
+var wgContentLanguage = "en";
+var wgBreakFrames = false;
+var wgCurRevisionId = "148252694";
+/*]]>*/</script>
+                
+		<script type="text/javascript" src="/skins-1.5/common/wikibits.js?99"><!-- wikibits js --></script>
+		<script type="text/javascript" src="/w/index.php?title=-&amp;action=raw&amp;gen=js&amp;useskin=monobook"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "/w/index.php?title=MediaWiki:Common.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=MediaWiki:Monobook.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=-&action=raw&gen=css&maxage=2678400";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+		<script type="text/javascript" src="/skins-1.5/common/ajax.js?99"></script>
+	</head>
+<body  class="mediawiki ns-0 ltr page-Shortest_path_problem">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">Shortest path problem</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<p>In <a href="/wiki/Graph_theory" title="Graph theory">graph theory</a>, the <b>shortest path problem</b> is the problem of finding a <a href="/wiki/Path_%28graph_theory%29" title="Path (graph theory)">path</a> between two <a href="/wiki/Vertex_%28graph_theory%29" title="Vertex (graph theory)">vertices</a> such that the sum of the <a href="/wiki/Glossary_of_graph_theory#Weighted_graphs_and_networks" title="Glossary of graph theory">weights</a> of its constituent edges is minimized. An example is finding the quickest way to get from one location to another on a road map; in this case, the vertices represent locations and the edges represent segments of road and are weighted by the time needed to travel that segment.</p>
+<p>Formally, given a weighted graph (that is, a set <i>V</i> of vertices, a set <i>E</i> of edges, and a <a href="/wiki/Real_number" title="Real number">real</a>-valued weight function <i>f</i>&#160;: <i>E</i>&#160;→&#160;<b>R</b>), and one element <i>v</i> of <i>V</i>, find a path <i>P</i> from <i>v</i> to each <i>v'</i> of <i>V</i> so that</p>
+<dl>
+<dd><img class="tex" alt="\sum_{p\in P} f(p)" src="http://upload.wikimedia.org/math/b/4/5/b45729288588aa71f80fa76d12767917.png" /></dd>
+</dl>
+<p>is minimal among all paths connecting <i>v</i> to <i>v'</i> .</p>
+<p>Sometimes it is called the <b>single-pair shortest path problem</b>, to distinguish it from the following generalizations:</p>
+<ul>
+<li>The <b>single-source shortest path problem</b> is a more general problem, in which we have to find shortest paths from a source vertex <i>v</i> to all other vertices in the graph.</li>
+<li>The <b>all-pairs shortest path problem</b> is an even more general problem, in which we have to find shortest paths between every pair of vertices <i>v</i>, <i>v'</i> in the graph.</li>
+</ul>
+<p>Both these generalizations have significantly more performant algorithms in practice than simply running a single-pair shortest path algorithm on all relevant pairs of vertices.</p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Algorithms"><span class="tocnumber">1</span> <span class="toctext">Algorithms</span></a></li>
+<li class="toclevel-1"><a href="#Applications"><span class="tocnumber">2</span> <span class="toctext">Applications</span></a></li>
+<li class="toclevel-1"><a href="#Related_problems"><span class="tocnumber">3</span> <span class="toctext">Related problems</span></a></li>
+<li class="toclevel-1"><a href="#References"><span class="tocnumber">4</span> <span class="toctext">References</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script>
+<p><a name="Algorithms" id="Algorithms"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Shortest_path_problem&amp;action=edit&amp;section=1" title="Edit section: Algorithms">edit</a>]</span> <span class="mw-headline">Algorithms</span></h2>
+<p>The most important algorithms for solving this problem are:</p>
+<ul>
+<li><a href="/wiki/Dijkstra%27s_algorithm" title="Dijkstra's algorithm">Dijkstra's algorithm</a>&#160;— solves single source problem if all edge weights are greater than or equal to zero. Without worsening the run time, this algorithm can in fact compute the shortest paths from a given start point <i>s</i> to <i>all other</i> nodes.</li>
+<li><a href="/wiki/Bellman-Ford_algorithm" title="Bellman-Ford algorithm">Bellman-Ford algorithm</a>&#160;— solves single source problem if edge weights may be negative.</li>
+<li><a href="/wiki/A%2A_search_algorithm" title="A* search algorithm">A* search algorithm</a> solves for single source shortest paths using heuristics to try to speed up the search</li>
+<li><a href="/wiki/Floyd-Warshall_algorithm" title="Floyd-Warshall algorithm">Floyd-Warshall algorithm</a>&#160;— solves all pairs shortest paths.</li>
+<li><a href="/wiki/Johnson%27s_algorithm" title="Johnson's algorithm">Johnson's algorithm</a>&#160;— solves all pairs shortest paths, may be faster than Floyd-Warshall on <a href="/wiki/Sparse_graph" title="Sparse graph">sparse graphs</a>.</li>
+<li><a href="/wiki/Perturbation_theory" title="Perturbation theory">Perturbation theory</a>; finds (at worst) the locally shortest path</li>
+</ul>
+<p><a name="Applications" id="Applications"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Shortest_path_problem&amp;action=edit&amp;section=2" title="Edit section: Applications">edit</a>]</span> <span class="mw-headline">Applications</span></h2>
+<p>Shortest path algorithms are applied in an obvious way to automatically find directions between physical locations, such as driving directions on <a href="/wiki/Web_mapping" title="Web mapping">web mapping</a> websites like <a href="/wiki/Mapquest" title="Mapquest">Mapquest</a>.</p>
+<p>If one represents a nondeterministic <a href="/wiki/Abstract_machine" title="Abstract machine">abstract machine</a> as a graph where vertices describe states and edges describe possible transitions, shortest path algorithms can be used to find an optimal sequence of choices to reach a certain goal state, or to establish lower bounds on the time needed to reach a given state. For example, if vertices represents the states of a puzzle like a <a href="/wiki/Rubik%27s_Cube" title="Rubik's Cube">Rubik's Cube</a> and each directed edge corresponds to a single move or turn, shortest path algorithms can be used to find a solution that uses the minimum possible number of moves.</p>
+<p>In a networking or telecommunications mindset, this shortest path problem is sometimes called the min-delay path problem and usually tied with a widest path problem. e.g.: Shortest (min-delay) widest path or Widest shortest (min-delay) path.</p>
+<p>A more spurious application is the games of "<a href="/wiki/Six_degrees_of_separation" title="Six degrees of separation">six degrees of separation</a>" that try to find the shortest path in graphs like movie stars appearing in the same film.</p>
+<p>Other applications cited by Danny Z. Chen include "<a href="/wiki/Operations_research" title="Operations research">operations research</a>, plant and facility layout, <a href="/wiki/Robotics" title="Robotics">robotics</a>, <a href="/wiki/Transportation" title="Transportation">transportation</a>, and <a href="/wiki/Very-large-scale_integration" title="Very-large-scale integration">VLSI</a> design".<sup id="_ref-0" class="reference"><a href="#_note-0" title="">[1]</a></sup></p>
+<p><a name="Related_problems" id="Related_problems"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Shortest_path_problem&amp;action=edit&amp;section=3" title="Edit section: Related problems">edit</a>]</span> <span class="mw-headline">Related problems</span></h2>
+<p>For shortest path problems in <a href="/wiki/Computational_geometry" title="Computational geometry">computational geometry</a>, see <a href="/wiki/Euclidean_shortest_path" title="Euclidean shortest path">Euclidean shortest path</a>.</p>
+<p>The <a href="/wiki/Traveling_salesman_problem" title="Traveling salesman problem">traveling salesman problem</a> is the problem of finding the shortest path that goes through every vertex exactly once, and returns to the start. Unlike the shortest path problem, this problem is <a href="/wiki/NP-complete" title="NP-complete">NP-complete</a> and, as such, <a href="/wiki/P%3DNP_problem" title="P=NP problem">is believed not</a> to be efficiently solvable. The problem of <a href="/w/index.php?title=Longest_path_problem&amp;action=edit" class="new" title="Longest path problem">finding the longest path</a> in a graph is also NP-complete.</p>
+<p><a name="References" id="References"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Shortest_path_problem&amp;action=edit&amp;section=4" title="Edit section: References">edit</a>]</span> <span class="mw-headline">References</span></h2>
+<ol class="references">
+<li id="_note-0"><b><a href="#_ref-0" title="">^</a></b> Danny Z. Chen. Developing Algorithms and Software for Geometric Path Planning Problems. <i>ACM Computing Surveys</i> 28A(4), December 1996, <a href="http://www.acm.org/surveys/1996/ChenDeveloping/" class="external free" title="http://www.acm.org/surveys/1996/ChenDeveloping/" rel="nofollow">http://www.acm.org/surveys/1996/ChenDeveloping/</a></li>
+</ol>
+<ul>
+<li><a href="/wiki/Thomas_H._Cormen" title="Thomas H. Cormen">Thomas H. Cormen</a>, <a href="/wiki/Charles_E._Leiserson" title="Charles E. Leiserson">Charles E. Leiserson</a>, <a href="/wiki/Ronald_L._Rivest" title="Ronald L. Rivest">Ronald L. Rivest</a>, and <a href="/wiki/Clifford_Stein" title="Clifford Stein">Clifford Stein</a>. <i><a href="/wiki/Introduction_to_Algorithms" title="Introduction to Algorithms">Introduction to Algorithms</a></i>, Second Edition. MIT Press and McGraw-Hill, 2001. <a href="/w/index.php?title=Special:Booksources&amp;isbn=0262032937" class="internal">ISBN 0-262-03293-7</a>. Chapters 24: Single-Source Shortest Paths, and 25: All-Pairs Shortest Paths, pp.580–642.</li>
+</ul>
+
+
+<!-- Saved in parser cache with key enwiki:pcache:idhash:41985-0!1!0!default!!en!2 and timestamp 20070907115001 -->
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org/wiki/Shortest_path_problem">http://en.wikipedia.org/wiki/Shortest_path_problem</a>"</div>
+			<div id="catlinks"><p class='catlinks'><a href="/wiki/Special:Categories" title="Special:Categories">Categories</a>: <span dir='ltr'><a href="/wiki/Category:Graph_theory" title="Category:Graph theory">Graph theory</a></span> | <span dir='ltr'><a href="/wiki/Category:Polynomial-time_problems" title="Category:Polynomial-time problems">Polynomial-time problems</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<div class="pBody">
+			<ul>
+					 <li id="ca-nstab-main" class="selected"><a href="/wiki/Shortest_path_problem" title="View the content page [c]" accesskey="c">Article</a></li>
+					 <li id="ca-talk"><a href="/wiki/Talk:Shortest_path_problem" title="Discussion about the content page [t]" accesskey="t">Discussion</a></li>
+					 <li id="ca-edit"><a href="/w/index.php?title=Shortest_path_problem&amp;action=edit" title="You can edit this page. Please use the preview button before saving. [e]" accesskey="e">Edit this page</a></li>
+					 <li id="ca-history"><a href="/w/index.php?title=Shortest_path_problem&amp;action=history" title="Past versions of this page [h]" accesskey="h">History</a></li>
+				</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-personal">
+		<h5>Personal tools</h5>
+		<div class="pBody">
+			<ul>
+				<li id="pt-login"><a href="/w/index.php?title=Special:Userlogin&amp;returnto=Shortest_path_problem" title="You are encouraged to log in, it is not mandatory however. [o]" accesskey="o">Sign in / create account</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-logo">
+		<a style="background-image: url(/images/wiki-en.png);" href="/wiki/Main_Page" title="Visit the Main Page [z]" accesskey="z"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-Main-page"><a href="/wiki/Main_Page">Main page</a></li>
+				<li id="n-Contents"><a href="/wiki/Wikipedia:Contents">Contents</a></li>
+				<li id="n-Featured-content"><a href="/wiki/Wikipedia:Featured_content">Featured content</a></li>
+				<li id="n-currentevents"><a href="/wiki/Portal:Current_events" title="Find background information on current events">Current events</a></li>
+				<li id="n-randompage"><a href="/wiki/Special:Random" title="Load a random page [x]" accesskey="x">Random article</a></li>
+			</ul>
+		</div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+		<h5>interaction</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-About-Wikipedia"><a href="/wiki/Wikipedia:About">About Wikipedia</a></li>
+				<li id="n-portal"><a href="/wiki/Wikipedia:Community_Portal" title="About the project, what you can do, where to find things">Community portal</a></li>
+				<li id="n-recentchanges"><a href="/wiki/Special:Recentchanges" title="The list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li>
+				<li id="n-contact"><a href="/wiki/Wikipedia:Contact_us">Contact Wikipedia</a></li>
+				<li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising" title="Support us">Donate to Wikipedia</a></li>
+				<li id="n-help"><a href="/wiki/Help:Contents" title="Guidance on how to use and edit Wikipedia">Help</a></li>
+			</ul>
+		</div>
+	</div>
+		<div id="p-search" class="portlet">
+		<h5><label for="searchInput">Search</label></h5>
+		<div id="searchBody" class="pBody">
+			<form action="/wiki/Special:Search" id="searchform"><div>
+				<input id="searchInput" name="search" type="text" title="Search Wikipedia [f]" accesskey="f" value="" />
+				<input type='submit' name="go" class="searchButton" id="searchGoButton"	value="Go" />&nbsp;
+				<input type='submit' name="fulltext" class="searchButton" id="mw-searchButton" value="Search" />
+			</div></form>
+		</div>
+	</div>
+	<div class="portlet" id="p-tb">
+		<h5>Toolbox</h5>
+		<div class="pBody">
+			<ul>
+				<li id="t-whatlinkshere"><a href="/wiki/Special:Whatlinkshere/Shortest_path_problem" title="List of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+				<li id="t-recentchangeslinked"><a href="/wiki/Special:Recentchangeslinked/Shortest_path_problem" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+<li id="t-upload"><a href="/wiki/Wikipedia:Upload" title="Upload images or media files [u]" accesskey="u">Upload file</a></li>
+<li id="t-specialpages"><a href="/wiki/Special:Specialpages" title="List of all special pages [q]" accesskey="q">Special pages</a></li>
+				<li id="t-print"><a href="/w/index.php?title=Shortest_path_problem&amp;printable=yes" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>				<li id="t-permalink"><a href="/w/index.php?title=Shortest_path_problem&amp;oldid=148252694" title="Permanent link to this version of the page">Permanent link</a></li><li id="t-cite"><a href="/w/index.php?title=Special:Cite&amp;page=Shortest_path_problem&amp;id=148252694">Cite this article</a></li>			</ul>
+		</div>
+	</div>
+	<div id="p-lang" class="portlet">
+		<h5>In other languages</h5>
+		<div class="pBody">
+			<ul>
+				<li class="interwiki-de"><a href="http://de.wikipedia.org/wiki/K%C3%BCrzester_Pfad">Deutsch</a></li>
+				<li class="interwiki-it"><a href="http://it.wikipedia.org/wiki/Shortest_path">Italiano</a></li>
+				<li class="interwiki-lt"><a href="http://lt.wikipedia.org/wiki/Trumpiausio_kelio_problema">Lietuvių</a></li>
+				<li class="interwiki-ja"><a href="http://ja.wikipedia.org/wiki/%E6%9C%80%E7%9F%AD%E7%B5%8C%E8%B7%AF%E5%95%8F%E9%A1%8C">日本語</a></li>
+				<li class="interwiki-pl"><a href="http://pl.wikipedia.org/wiki/Problem_najkr%C3%B3tszej_%C5%9Bcie%C5%BCki">Polski</a></li>
+				<li class="interwiki-pt"><a href="http://pt.wikipedia.org/wiki/Problema_do_caminho_m%C3%ADnimo">Português</a></li>
+				<li class="interwiki-vi"><a href="http://vi.wikipedia.org/wiki/B%C3%A0i_to%C3%A1n_%C4%91%C6%B0%E1%BB%9Dng_%C4%91i_ng%E1%BA%AFn_nh%E1%BA%A5t">Tiếng Việt</a></li>
+				<li class="interwiki-zh"><a href="http://zh.wikipedia.org/wiki/%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84">中文</a></li>
+			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="/skins-1.5/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>
+				<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="/images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>
+			<ul id="f-list">
+				<li id="lastmod"> This page was last modified 11:50, 31 July 2007.</li>
+				<li id="copyright">All text is available under the terms of the <a class='internal' href="/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="/wiki/Wikipedia:Copyrights" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a U.S. registered <a class='internal' href="/wiki/501%28c%29#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="/wiki/Non-profit_organization" title="Non-profit organization">nonprofit</a> <a href="/wiki/Charitable_organization" title="Charitable organization">charity</a>.<br /></li>
+				<li id="privacy"><a href="http://wikimediafoundation.org/wiki/Privacy_policy" title="wikimedia:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="/wiki/Wikipedia:About" title="Wikipedia:About">About Wikipedia</a></li>
+				<li id="disclaimer"><a href="/wiki/Wikipedia:General_disclaimer" title="Wikipedia:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+		
+	
+		<script type="text/javascript">if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by srv175 in 0.059 secs. --></body></html>

@@ -1,0 +1,239 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+				<meta name="keywords" content="Spanning tree (mathematics),Bridge (graph theory),Cayley's formula,Complete bipartite graph,Complete graph,Connected component (graph theory),Connected graph,Cycle (graph theory),Cycle graph,David Eppstein,David S. Johnson" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="http://www.gnu.org/copyleft/fdl.html" />
+		<title>Spanning tree (mathematics) - Wikipedia, the free encyclopedia</title>
+		<style type="text/css" media="screen, projection">/*<![CDATA[*/
+			@import "/skins-1.5/common/shared.css?99";
+			@import "/skins-1.5/monobook/main.css?99";
+		/*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="/skins-1.5/common/commonPrint.css?99" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE50Fixes.css?99";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE55Fixes.css?99";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "/skins-1.5/monobook/IE60Fixes.css?99";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "/skins-1.5/monobook/IE70Fixes.css?99";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="/skins-1.5/common/IEFixes.js?99"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		
+		<script type= "text/javascript">/*<![CDATA[*/
+var skin = "monobook";
+var stylepath = "/skins-1.5";
+var wgArticlePath = "/wiki/$1";
+var wgScriptPath = "/w";
+var wgScript = "/w/index.php";
+var wgServer = "http://en.wikipedia.org";
+var wgCanonicalNamespace = "";
+var wgCanonicalSpecialPageName = false;
+var wgNamespaceNumber = 0;
+var wgPageName = "Spanning_tree_(mathematics)";
+var wgTitle = "Spanning tree (mathematics)";
+var wgAction = "view";
+var wgRestrictionEdit = [];
+var wgRestrictionMove = [];
+var wgArticleId = "455770";
+var wgIsArticle = true;
+var wgUserName = null;
+var wgUserGroups = null;
+var wgUserLanguage = "en";
+var wgContentLanguage = "en";
+var wgBreakFrames = false;
+var wgCurRevisionId = "155227362";
+/*]]>*/</script>
+                
+		<script type="text/javascript" src="/skins-1.5/common/wikibits.js?99"><!-- wikibits js --></script>
+		<script type="text/javascript" src="/w/index.php?title=-&amp;action=raw&amp;gen=js&amp;useskin=monobook"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "/w/index.php?title=MediaWiki:Common.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=MediaWiki:Monobook.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=-&action=raw&gen=css&maxage=2678400";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+		<script type="text/javascript" src="/skins-1.5/common/ajax.js?99"></script>
+	</head>
+<body  class="mediawiki ns-0 ltr page-Spanning_tree_mathematics">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">Spanning tree (mathematics)</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<div class="thumb tright">
+<div class="thumbinner" style="width:182px;"><a href="/wiki/Image:4x4_grid_spanning_tree.svg" class="image" title="A spanning tree (blue heavy edges) of a grid graph."><img alt="A spanning tree (blue heavy edges) of a grid graph." src="http://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/4x4_grid_spanning_tree.svg/180px-4x4_grid_spanning_tree.svg.png" width="180" height="180" border="0" class="thumbimage" /></a>
+<div class="thumbcaption">
+<div class="magnify" style="float:right"><a href="/wiki/Image:4x4_grid_spanning_tree.svg" class="internal" title="Enlarge"><img src="/skins-1.5/common/images/magnify-clip.png" width="15" height="11" alt="" /></a></div>
+A spanning tree (blue heavy edges) of a <a href="/wiki/Grid_graph" title="Grid graph">grid graph</a>.</div>
+</div>
+</div>
+<p>In the <a href="/wiki/Mathematics" title="Mathematics">mathematical</a> field of <a href="/wiki/Graph_theory" title="Graph theory">graph theory</a>, a <b>spanning tree</b> <i>T</i> of a <a href="/wiki/Connected_graph" title="Connected graph">connected</a>, <a href="/wiki/Undirected_graph" title="Undirected graph">undirected graph</a> <i>G</i> is a <a href="/wiki/Tree_%28graph_theory%29" title="Tree (graph theory)">tree</a> composed of all the vertices and some (or perhaps all) of the edges of <i>G</i>. Informally, a spanning tree of <i>G</i> is a selection of edges of <i>G</i> that form a tree <i>spanning</i> every vertex. That is, every vertex lies in the tree, but no <a href="/wiki/Cycle_%28graph_theory%29" title="Cycle (graph theory)">cycles</a> (or loops) are formed. On the other hand, every <a href="/wiki/Bridge_%28graph_theory%29" title="Bridge (graph theory)">bridge</a> of <i>G</i> must belong to <i>T</i>.</p>
+<p>A spanning tree of a connected graph <i>G</i> can also be defined as a maximal set of edges of <i>G</i> that contains no cycle, or as a minimal set of edges that connect all vertices.</p>
+<p>In certain fields of graph theory it is often useful to find a <a href="/wiki/Minimum_spanning_tree" title="Minimum spanning tree">minimum spanning tree</a> of a <a href="/wiki/Weighted_graph" title="Weighted graph">weighted graph</a>. Other optimization problems on spanning trees have also been studied, including the maximum spanning tree, the minimum tree that spans at least k vertices, the minimum spanning tree with at most k edges per vertex, the spanning tree with the largest number of leaves (closely related to the smallest connected <a href="/wiki/Dominating_set" title="Dominating set">dominating set</a>), the spanning tree with the fewest leaves (closely related to the <a href="/wiki/Hamiltonian_path_problem" title="Hamiltonian path problem">Hamiltonian path problem</a>), the minimum diameter spanning tree, and the minimum dilation spanning tree.</p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Spanning_forests"><span class="tocnumber">1</span> <span class="toctext">Spanning forests</span></a></li>
+<li class="toclevel-1"><a href="#Counting_spanning_trees"><span class="tocnumber">2</span> <span class="toctext">Counting spanning trees</span></a></li>
+<li class="toclevel-1"><a href="#Uniform_spanning_trees"><span class="tocnumber">3</span> <span class="toctext">Uniform spanning trees</span></a></li>
+<li class="toclevel-1"><a href="#References"><span class="tocnumber">4</span> <span class="toctext">References</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script>
+<p><a name="Spanning_forests" id="Spanning_forests"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Spanning_tree_%28mathematics%29&amp;action=edit&amp;section=1" title="Edit section: Spanning forests">edit</a>]</span> <span class="mw-headline">Spanning forests</span></h2>
+<p>A <b>spanning forest</b> is a type of subgraph that generalises the concept of a spanning tree. However there are two definitions in common use. One is that a spanning forest is a subgraph that consists of a spanning tree in each <a href="/wiki/Connected_component_%28graph_theory%29" title="Connected component (graph theory)">connected component</a> of a graph. (Equivalently, it is a maximal cycle-free subgraph.) This definition is common in computer science and optimisation. It is also the definition used when discussing minimum spanning forests, the generalization to disconnected graphs of minimum spanning trees. Another definition, common in <a href="/wiki/Graph_theory" title="Graph theory">graph theory</a>, is that a spanning forest is any subgraph that is both a <a href="/wiki/Forest_%28graph_theory%29" title="Forest (graph theory)">forest</a> (contains no cycles) and spanning (includes every vertex).</p>
+<p><a name="Counting_spanning_trees" id="Counting_spanning_trees"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Spanning_tree_%28mathematics%29&amp;action=edit&amp;section=2" title="Edit section: Counting spanning trees">edit</a>]</span> <span class="mw-headline">Counting spanning trees</span></h2>
+<p>The number <i>t(G)</i> of spanning trees of a connected graph is an important <a href="/wiki/Invariant_%28mathematics%29" title="Invariant (mathematics)">invariant</a>. In some cases, it is easy to calculate <i>t(G)</i> directly. It is also widely used in data structures in different computer languages. For example, if <i>G</i> is itself a tree, then <i>t(G)=1</i>, while if <i>G</i> is the <a href="/wiki/Cycle_graph" title="Cycle graph">cycle graph</a> <span class="texhtml"><i>C</i><sub><i>n</i></sub></span> with <i>n</i> vertices, then <i>t(G)=n</i>. For any graph <i>G</i>, the number <i>t(G)</i> can be calculated using <a href="/wiki/Kirchhoff%27s_theorem" title="Kirchhoff's theorem">Kirchhoff's matrix-tree theorem</a> (follow the link for an explicit example using the theorem).</p>
+<p><b><a href="/wiki/Cayley%27s_formula" title="Cayley's formula">Cayley's formula</a></b> is a formula for the number of spanning trees in the <a href="/wiki/Complete_graph" title="Complete graph">complete graph</a> <span class="texhtml"><i>K</i><sub><i>n</i></sub></span> with <i>n</i> vertices. The formula states that <span class="texhtml"><i>t</i>(<i>K</i><sub><i>n</i></sub>) = <i>n</i><sup><i>n</i> − 2</sup></span>. Another way of stating Cayley's formula is that there are exactly <span class="texhtml"><i>n</i><sup><i>n</i> − 2</sup></span> labelled trees with <i>n</i> vertices. Cayley's formula can be proved using Kirchhoff's matrix-tree theorem or via the <a href="/wiki/Pr%C3%BCfer_code" title="Prüfer code">Prüfer code</a>.</p>
+<p>If <i>G</i> is the <a href="/wiki/Complete_bipartite_graph" title="Complete bipartite graph">complete bipartite graph</a> <span class="texhtml"><i>K</i><sub><i>p</i>,<i>q</i></sub></span>, then <span class="texhtml"><i>t</i>(<i>G</i>) = <i>p</i><sup><i>q</i> − 1</sup><i>q</i><sup><i>p</i> − 1</sup></span>, while if <i>G</i> is the <i>n</i>-dimensional <a href="/wiki/Hypercube_graph" title="Hypercube graph">hypercube graph</a> <span class="texhtml"><i>Q</i><sub><i>n</i></sub></span>, then <img class="tex" alt="t(G)=2^{2^n-n-1}\prod_{k=2}^n k^{{n\choose k}}" src="http://upload.wikimedia.org/math/0/b/5/0b59ed3e25449bef1d634aaa1c058205.png" />. These formulas are also consequences of the matrix-tree theorem.</p>
+<p>If <i>G</i> is a <a href="/wiki/Multigraph" title="Multigraph">multigraph</a> and <i>e</i> is an edge of <i>G</i>, then the number <i>t(G)</i> of spanning trees of <i>G</i> satisfies the <i>deletion-contraction recurrence</i> <i>t(G)=t(G-e)+t(G/e)</i>, where <i>G-e</i> is the multigraph obtained by deleting <i>e</i> and <i>G/e</i> is the <a href="/wiki/Edge_contraction" title="Edge contraction">contraction</a> of <i>G</i> by <i>e</i>, where multiple edges arising from this contraction are not deleted.</p>
+<p><a name="Uniform_spanning_trees" id="Uniform_spanning_trees"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Spanning_tree_%28mathematics%29&amp;action=edit&amp;section=3" title="Edit section: Uniform spanning trees">edit</a>]</span> <span class="mw-headline">Uniform spanning trees</span></h2>
+<p>A spanning tree chosen <a href="/wiki/Random" title="Random">randomly</a> from among all the spanning trees with equal probability is called a <a href="/wiki/Uniform_spanning_tree" title="Uniform spanning tree">uniform spanning tree</a> (UST). This model has been extensively researched in <a href="/wiki/Probability" title="Probability">probability</a> and <a href="/wiki/Mathematical_physics" title="Mathematical physics">mathematical physics</a>.</p>
+<p><a name="References" id="References"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Spanning_tree_%28mathematics%29&amp;action=edit&amp;section=4" title="Edit section: References">edit</a>]</span> <span class="mw-headline">References</span></h2>
+<ul>
+<li><cite style="font-style:normal"><a href="/wiki/David_Eppstein" title="David Eppstein">Eppstein, David</a> (1999). "<a href="http://www.ics.uci.edu/~eppstein/pubs/Epp-TR-96-16.pdf" class="external text" title="http://www.ics.uci.edu/~eppstein/pubs/Epp-TR-96-16.pdf" rel="nofollow">Spanning trees and spanners</a>". <i>Handbook of Computational Geometry</i>: 425–461, Elsevier.</cite><span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=proceeding&amp;rft.btitle=Handbook+of+Computational+Geometry&amp;rft.atitle=Spanning+trees+and+spanners&amp;rft.au=Eppstein%2C+David&amp;rft.date=1999&amp;rft.pub=Elsevier&amp;rft.pages=425%E2%80%93461&amp;rft_id=http%3A%2F%2Fwww.ics.uci.edu%2F%7Eeppstein%2Fpubs%2FEpp-TR-96-16.pdf">&#160;</span></li>
+</ul>
+<ul>
+<li><cite class="book" style="font-style:normal"><a href="/wiki/Michael_R._Garey" title="Michael R. Garey">Garey, Michael R.</a>; <a href="/wiki/David_S._Johnson" title="David S. Johnson">Johnson, David S.</a> (1979). <i><a href="/w/index.php?title=Computers_and_Intractability:_A_Guide_to_the_Theory_of_NP-Completeness&amp;action=edit" class="new" title="Computers and Intractability: A Guide to the Theory of NP-Completeness">Computers and Intractability: A Guide to the Theory of NP-Completeness</a></i>. W.H. Freeman. <a href="/w/index.php?title=Special:Booksources&amp;isbn=0716710455" class="internal">ISBN 0-7167-1045-5</a>.</cite><span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=%5B%5BComputers+and+Intractability%3A+A+Guide+to+the+Theory+of+NP-Completeness%5D%5D&amp;rft.au=%5B%5BMichael+R.+Garey%7CGarey%2C+Michael+R.%5D%5D%3B+%5B%5BDavid+S.+Johnson%7CJohnson%2C+David+S.%5D%5D&amp;rft.pub=W.H.+Freeman">&#160;</span> A2.1: ND2, pg.206.</li>
+</ul>
+<ul>
+<li><cite class="book" style="font-style:normal">Wu, Bang Ye; Chao, Kun-Mao (2004). <i>Spanning Trees and Optimization Problems</i>. CRC Press. <a href="/w/index.php?title=Special:Booksources&amp;isbn=1584884363" class="internal">ISBN 1584884363</a>.</cite><span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Spanning+Trees+and+Optimization+Problems&amp;rft.au=Wu%2C+Bang+Ye%3B+Chao%2C+Kun-Mao&amp;rft.pub=CRC+Press">&#160;</span></li>
+</ul>
+
+<!-- 
+Pre-expand include size: 17189 bytes
+Post-expand include size: 4613 bytes
+Template argument size: 3469 bytes
+Maximum: 2048000 bytes
+-->
+
+<!-- Saved in parser cache with key enwiki:pcache:idhash:455770-0!1!0!default!!en!2 and timestamp 20070914173703 -->
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org/wiki/Spanning_tree_%28mathematics%29">http://en.wikipedia.org/wiki/Spanning_tree_%28mathematics%29</a>"</div>
+			<div id="catlinks"><p class='catlinks'><a href="/wiki/Special:Categories" title="Special:Categories">Categories</a>: <span dir='ltr'><a href="/wiki/Category:Spanning_tree" title="Category:Spanning tree">Spanning tree</a></span> | <span dir='ltr'><a href="/wiki/Category:NP-complete_problems" title="Category:NP-complete problems">NP-complete problems</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<div class="pBody">
+			<ul>
+					 <li id="ca-nstab-main" class="selected"><a href="/wiki/Spanning_tree_%28mathematics%29" title="View the content page [c]" accesskey="c">Article</a></li>
+					 <li id="ca-talk"><a href="/wiki/Talk:Spanning_tree_%28mathematics%29" title="Discussion about the content page [t]" accesskey="t">Discussion</a></li>
+					 <li id="ca-edit"><a href="/w/index.php?title=Spanning_tree_%28mathematics%29&amp;action=edit" title="You can edit this page. Please use the preview button before saving. [e]" accesskey="e">Edit this page</a></li>
+					 <li id="ca-history"><a href="/w/index.php?title=Spanning_tree_%28mathematics%29&amp;action=history" title="Past versions of this page [h]" accesskey="h">History</a></li>
+				</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-personal">
+		<h5>Personal tools</h5>
+		<div class="pBody">
+			<ul>
+				<li id="pt-login"><a href="/w/index.php?title=Special:Userlogin&amp;returnto=Spanning_tree_(mathematics)" title="You are encouraged to log in, it is not mandatory however. [o]" accesskey="o">Sign in / create account</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-logo">
+		<a style="background-image: url(/images/wiki-en.png);" href="/wiki/Main_Page" title="Visit the Main Page [z]" accesskey="z"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-Main-page"><a href="/wiki/Main_Page">Main page</a></li>
+				<li id="n-Contents"><a href="/wiki/Wikipedia:Contents">Contents</a></li>
+				<li id="n-Featured-content"><a href="/wiki/Wikipedia:Featured_content">Featured content</a></li>
+				<li id="n-currentevents"><a href="/wiki/Portal:Current_events" title="Find background information on current events">Current events</a></li>
+				<li id="n-randompage"><a href="/wiki/Special:Random" title="Load a random page [x]" accesskey="x">Random article</a></li>
+			</ul>
+		</div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+		<h5>interaction</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-About-Wikipedia"><a href="/wiki/Wikipedia:About">About Wikipedia</a></li>
+				<li id="n-portal"><a href="/wiki/Wikipedia:Community_Portal" title="About the project, what you can do, where to find things">Community portal</a></li>
+				<li id="n-recentchanges"><a href="/wiki/Special:Recentchanges" title="The list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li>
+				<li id="n-contact"><a href="/wiki/Wikipedia:Contact_us">Contact Wikipedia</a></li>
+				<li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising" title="Support us">Donate to Wikipedia</a></li>
+				<li id="n-help"><a href="/wiki/Help:Contents" title="Guidance on how to use and edit Wikipedia">Help</a></li>
+			</ul>
+		</div>
+	</div>
+		<div id="p-search" class="portlet">
+		<h5><label for="searchInput">Search</label></h5>
+		<div id="searchBody" class="pBody">
+			<form action="/wiki/Special:Search" id="searchform"><div>
+				<input id="searchInput" name="search" type="text" title="Search Wikipedia [f]" accesskey="f" value="" />
+				<input type='submit' name="go" class="searchButton" id="searchGoButton"	value="Go" />&nbsp;
+				<input type='submit' name="fulltext" class="searchButton" id="mw-searchButton" value="Search" />
+			</div></form>
+		</div>
+	</div>
+	<div class="portlet" id="p-tb">
+		<h5>Toolbox</h5>
+		<div class="pBody">
+			<ul>
+				<li id="t-whatlinkshere"><a href="/wiki/Special:Whatlinkshere/Spanning_tree_%28mathematics%29" title="List of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+				<li id="t-recentchangeslinked"><a href="/wiki/Special:Recentchangeslinked/Spanning_tree_%28mathematics%29" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+<li id="t-upload"><a href="/wiki/Wikipedia:Upload" title="Upload images or media files [u]" accesskey="u">Upload file</a></li>
+<li id="t-specialpages"><a href="/wiki/Special:Specialpages" title="List of all special pages [q]" accesskey="q">Special pages</a></li>
+				<li id="t-print"><a href="/w/index.php?title=Spanning_tree_%28mathematics%29&amp;printable=yes" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>				<li id="t-permalink"><a href="/w/index.php?title=Spanning_tree_%28mathematics%29&amp;oldid=155227362" title="Permanent link to this version of the page">Permanent link</a></li><li id="t-cite"><a href="/w/index.php?title=Special:Cite&amp;page=Spanning_tree_%28mathematics%29&amp;id=155227362">Cite this article</a></li>			</ul>
+		</div>
+	</div>
+	<div id="p-lang" class="portlet">
+		<h5>In other languages</h5>
+		<div class="pBody">
+			<ul>
+				<li class="interwiki-cs"><a href="http://cs.wikipedia.org/wiki/Kostra_grafu">Česky</a></li>
+				<li class="interwiki-de"><a href="http://de.wikipedia.org/wiki/Spannbaum">Deutsch</a></li>
+				<li class="interwiki-he"><a href="http://he.wikipedia.org/wiki/%D7%A2%D7%A5_%D7%A4%D7%95%D7%A8%D7%A9">עברית</a></li>
+				<li class="interwiki-ja"><a href="http://ja.wikipedia.org/wiki/%E3%82%B9%E3%83%91%E3%83%8B%E3%83%B3%E3%82%B0%E6%9C%A8">日本語</a></li>
+				<li class="interwiki-lt"><a href="http://lt.wikipedia.org/wiki/Apr%C4%97pties_medis">Lietuvių</a></li>
+				<li class="interwiki-pl"><a href="http://pl.wikipedia.org/wiki/Drzewo_rozpinaj%C4%85ce">Polski</a></li>
+				<li class="interwiki-ru"><a href="http://ru.wikipedia.org/wiki/%D0%9E%D1%81%D1%82%D0%BE%D0%B2%D0%BD%D1%8B%D0%B9_%D0%BB%D0%B5%D1%81">Русский</a></li>
+				<li class="interwiki-vi"><a href="http://vi.wikipedia.org/wiki/C%C3%A2y_bao_tr%C3%B9m">Tiếng Việt</a></li>
+				<li class="interwiki-zh"><a href="http://zh.wikipedia.org/wiki/%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91">中文</a></li>
+			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="/skins-1.5/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>
+				<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="/images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>
+			<ul id="f-list">
+				<li id="lastmod"> This page was last modified 15:40, 2 September 2007.</li>
+				<li id="copyright">All text is available under the terms of the <a class='internal' href="/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="/wiki/Wikipedia:Copyrights" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a U.S. registered <a class='internal' href="/wiki/501%28c%29#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="/wiki/Non-profit_organization" title="Non-profit organization">nonprofit</a> <a href="/wiki/Charitable_organization" title="Charitable organization">charity</a>.<br /></li>
+				<li id="privacy"><a href="http://wikimediafoundation.org/wiki/Privacy_policy" title="wikimedia:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="/wiki/Wikipedia:About" title="Wikipedia:About">About Wikipedia</a></li>
+				<li id="disclaimer"><a href="/wiki/Wikipedia:General_disclaimer" title="Wikipedia:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+		
+	
+		<script type="text/javascript">if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by srv45 in 0.075 secs. --></body></html>

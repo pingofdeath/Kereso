@@ -1,0 +1,226 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+				<meta name="keywords" content="Parse tree,Compiler,Computational linguistics,Computer language,Formal grammar,LaTeX,Linguistics,Natural language,Natural language processing,Parsing,Programming language" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="http://www.gnu.org/copyleft/fdl.html" />
+		<title>Parse tree - Wikipedia, the free encyclopedia</title>
+		<style type="text/css" media="screen, projection">/*<![CDATA[*/
+			@import "/skins-1.5/common/shared.css?99";
+			@import "/skins-1.5/monobook/main.css?99";
+		/*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="/skins-1.5/common/commonPrint.css?99" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE50Fixes.css?99";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE55Fixes.css?99";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "/skins-1.5/monobook/IE60Fixes.css?99";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "/skins-1.5/monobook/IE70Fixes.css?99";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="/skins-1.5/common/IEFixes.js?99"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		
+		<script type= "text/javascript">/*<![CDATA[*/
+var skin = "monobook";
+var stylepath = "/skins-1.5";
+var wgArticlePath = "/wiki/$1";
+var wgScriptPath = "/w";
+var wgScript = "/w/index.php";
+var wgServer = "http://en.wikipedia.org";
+var wgCanonicalNamespace = "";
+var wgCanonicalSpecialPageName = false;
+var wgNamespaceNumber = 0;
+var wgPageName = "Parse_tree";
+var wgTitle = "Parse tree";
+var wgAction = "view";
+var wgRestrictionEdit = [];
+var wgRestrictionMove = [];
+var wgArticleId = "118404";
+var wgIsArticle = true;
+var wgUserName = null;
+var wgUserGroups = null;
+var wgUserLanguage = "en";
+var wgContentLanguage = "en";
+var wgBreakFrames = false;
+var wgCurRevisionId = "149327807";
+/*]]>*/</script>
+                
+		<script type="text/javascript" src="/skins-1.5/common/wikibits.js?99"><!-- wikibits js --></script>
+		<script type="text/javascript" src="/w/index.php?title=-&amp;action=raw&amp;gen=js&amp;useskin=monobook"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "/w/index.php?title=MediaWiki:Common.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=MediaWiki:Monobook.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=-&action=raw&gen=css&maxage=2678400";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+		<script type="text/javascript" src="/skins-1.5/common/ajax.js?99"></script>
+	</head>
+<body  class="mediawiki ns-0 ltr page-Parse_tree">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">Parse tree</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<p>A <b>parse tree</b> or <b>concrete syntax tree</b> is a <a href="/wiki/Tree_data_structure" title="Tree data structure">tree</a> that represents the <a href="/wiki/Syntax" title="Syntax">syntactic</a> structure of a <a href="/wiki/String_%28computer_science%29" title="String (computer science)">string</a> according to some <a href="/wiki/Formal_grammar" title="Formal grammar">formal grammar</a>. A program that produces such trees is called a <a href="/wiki/Parsing" title="Parsing">parser</a>. Parse trees may be generated for <a href="/wiki/Sentence_%28linguistics%29" title="Sentence (linguistics)">sentences</a> in <a href="/wiki/Natural_language" title="Natural language">natural languages</a> (<i>see</i> <a href="/wiki/Natural_language_processing" title="Natural language processing">natural language processing</a>), as well as during <a href="/wiki/Compiler" title="Compiler">processing</a> of computer languages, such as <a href="/wiki/Programming_language" title="Programming language">programming languages</a>.</p>
+<p><a name="Basic_description" id="Basic_description"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Parse_tree&amp;action=edit&amp;section=1" title="Edit section: Basic description">edit</a>]</span> <span class="mw-headline">Basic description</span></h2>
+<p>A parse tree is made up of nodes and branches. Below is a linguistic parse tree, here representing the English sentence "John hit the ball". (Note: this is only one possible parse tree for this sentence; different kinds of linguistic parse trees exist.) The parse tree is the entire structure, starting from S and ending in each of the leaf nodes (John, hit, the, ball).</p>
+<div class="thumb tnone">
+<div class="thumbinner" style="width:122px;"><a href="/wiki/Image:ParseTree.svg" class="image" title="A simple parse tree"><img alt="A simple parse tree" src="http://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/ParseTree.svg/120px-ParseTree.svg.png" width="120" height="120" border="0" class="thumbimage" /></a>
+<div class="thumbcaption">A simple parse tree</div>
+</div>
+</div>
+<p>In a parse tree, each node is either a <b>root</b> node, a <b>branch</b> node, or a <b>leaf</b> node. In the above example, S is a root node, NP and VP are branch nodes, while John, hit, the, and ball are all leaf nodes. (To better understand what "S", "VP", "NP" etc. mean, see <a href="http://www.w3.org/People/cmsmcq/2004/lgintro.html#id2614439" class="external autonumber" title="http://www.w3.org/People/cmsmcq/2004/lgintro.html#id2614439" rel="nofollow">[1]</a>)</p>
+<p><br />
+A node can also be referred to as parent node or a child node. A <b>parent</b> node is one that has at least one other node linked by a branch under it. In the example, S is a parent of both NP and VP. A <b>child</b> node is one that has at least one node directly above it to which it is linked by a branch of the tree. Again from our example, hit is a child node of V.</p>
+<p><a name="See_also" id="See_also"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Parse_tree&amp;action=edit&amp;section=2" title="Edit section: See also">edit</a>]</span> <span class="mw-headline">See also</span></h2>
+<ul>
+<li><a href="/wiki/Computational_linguistics" title="Computational linguistics">Computational linguistics</a></li>
+<li><a href="/wiki/Parsing" title="Parsing">Parsing</a></li>
+<li><a href="/wiki/Sentence_diagram" title="Sentence diagram">Sentence diagram</a></li>
+<li><a href="/wiki/X-bar_theory" title="X-bar theory">X-bar theory</a></li>
+</ul>
+<p><a name="External_links" id="External_links"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Parse_tree&amp;action=edit&amp;section=3" title="Edit section: External links">edit</a>]</span> <span class="mw-headline">External links</span></h2>
+<ul>
+<li><a href="http://ltc.sourceforge.net/" class="external text" title="http://ltc.sourceforge.net/" rel="nofollow">Linguistic Tree Constructor</a></li>
+<li><a href="http://www.ironcreek.net/phpsyntaxtree/" class="external text" title="http://www.ironcreek.net/phpsyntaxtree/" rel="nofollow">phpSyntaxTree</a> — Online parse tree drawing site</li>
+<li><a href="http://www.essex.ac.uk/linguistics/clmt/latex4ling/trees/qtree/" class="external text" title="http://www.essex.ac.uk/linguistics/clmt/latex4ling/trees/qtree/" rel="nofollow">Qtree</a> — <a href="/wiki/LaTeX" title="LaTeX">LaTeX</a> package for drawing parse trees</li>
+<li><a href="http://linguiste.org/syntax/tree/drawer/" class="external text" title="http://linguiste.org/syntax/tree/drawer/" rel="nofollow">Syntax Tree Drawer in SVG</a></li>
+<li><a href="http://www.ece.ubc.ca/~donaldd/treeform.htm" class="external text" title="http://www.ece.ubc.ca/~donaldd/treeform.htm" rel="nofollow">TreeForm Syntax Tree Drawing Software</a></li>
+<li><a href="http://lra.netfirms.com/Trees.htm" class="external text" title="http://lra.netfirms.com/Trees.htm" rel="nofollow">Trees Player</a></li>
+</ul>
+<div class="boilerplate metadata" id="stub" style="margin-top:1.5em;">
+<table cellpadding="0" cellspacing="0" style="background-color: transparent;">
+<tr>
+<td><a href="/wiki/Image:Linguistics_stub.svg" class="image" title="Linguistics stub.svg"><img alt="" src="http://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Linguistics_stub.svg/40px-Linguistics_stub.svg.png" width="40" height="17" border="0" /></a></td>
+<td><i>&#160;This <a href="/wiki/Linguistics" title="Linguistics">linguistics</a> article is a <a href="/wiki/Wikipedia:Stub" title="Wikipedia:Stub">stub</a>. You can help Wikipedia by <a href="http://en.wikipedia.org/w/index.php?title=Parse_tree&amp;action=edit" class="external text" title="http://en.wikipedia.org/w/index.php?title=Parse_tree&amp;action=edit" rel="nofollow">expanding it</a></i>.</td>
+</tr>
+</table>
+</div>
+<div class="boilerplate metadata" id="stub"><a href="/wiki/Image:LampFlowchart.svg" class="image" title="Soft Eng logo"><img alt="Soft Eng logo" src="http://upload.wikimedia.org/wikipedia/commons/thumb/9/91/LampFlowchart.svg/20px-LampFlowchart.svg.png" width="20" height="27" border="0" /></a> <i>This <a href="/wiki/Computer_language" title="Computer language">computer language</a>-related article is a <a href="/wiki/Wikipedia:Perfect_stub_article" title="Wikipedia:Perfect stub article">stub</a>. You can <a href="/wiki/Wikipedia:Stub" title="Wikipedia:Stub">help</a> Wikipedia by <a href="http://en.wikipedia.org/w/index.php?title=Parse_tree&amp;action=edit" class="external text" title="http://en.wikipedia.org/w/index.php?title=Parse_tree&amp;action=edit" rel="nofollow">expanding it</a></i>.</div>
+
+<!-- 
+Pre-expand include size: 1252 bytes
+Post-expand include size: 952 bytes
+Template argument size: 0 bytes
+Maximum: 2048000 bytes
+-->
+
+<!-- Saved in parser cache with key enwiki:pcache:idhash:118404-0!1!0!default!!en!2 and timestamp 20070912090600 -->
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org/wiki/Parse_tree">http://en.wikipedia.org/wiki/Parse_tree</a>"</div>
+			<div id="catlinks"><p class='catlinks'><a href="/wiki/Special:Categories" title="Special:Categories">Categories</a>: <span dir='ltr'><a href="/wiki/Category:Trees_%28structure%29" title="Category:Trees (structure)">Trees (structure)</a></span> | <span dir='ltr'><a href="/wiki/Category:Linguistics_stubs" title="Category:Linguistics stubs">Linguistics stubs</a></span> | <span dir='ltr'><a href="/wiki/Category:Computer_language_stubs" title="Category:Computer language stubs">Computer language stubs</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<div class="pBody">
+			<ul>
+					 <li id="ca-nstab-main" class="selected"><a href="/wiki/Parse_tree" title="View the content page [c]" accesskey="c">Article</a></li>
+					 <li id="ca-talk"><a href="/wiki/Talk:Parse_tree" title="Discussion about the content page [t]" accesskey="t">Discussion</a></li>
+					 <li id="ca-edit"><a href="/w/index.php?title=Parse_tree&amp;action=edit" title="You can edit this page. Please use the preview button before saving. [e]" accesskey="e">Edit this page</a></li>
+					 <li id="ca-history"><a href="/w/index.php?title=Parse_tree&amp;action=history" title="Past versions of this page [h]" accesskey="h">History</a></li>
+				</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-personal">
+		<h5>Personal tools</h5>
+		<div class="pBody">
+			<ul>
+				<li id="pt-login"><a href="/w/index.php?title=Special:Userlogin&amp;returnto=Parse_tree" title="You are encouraged to log in, it is not mandatory however. [o]" accesskey="o">Sign in / create account</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-logo">
+		<a style="background-image: url(/images/wiki-en.png);" href="/wiki/Main_Page" title="Visit the Main Page [z]" accesskey="z"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-Main-page"><a href="/wiki/Main_Page">Main page</a></li>
+				<li id="n-Contents"><a href="/wiki/Wikipedia:Contents">Contents</a></li>
+				<li id="n-Featured-content"><a href="/wiki/Wikipedia:Featured_content">Featured content</a></li>
+				<li id="n-currentevents"><a href="/wiki/Portal:Current_events" title="Find background information on current events">Current events</a></li>
+				<li id="n-randompage"><a href="/wiki/Special:Random" title="Load a random page [x]" accesskey="x">Random article</a></li>
+			</ul>
+		</div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+		<h5>interaction</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-About-Wikipedia"><a href="/wiki/Wikipedia:About">About Wikipedia</a></li>
+				<li id="n-portal"><a href="/wiki/Wikipedia:Community_Portal" title="About the project, what you can do, where to find things">Community portal</a></li>
+				<li id="n-recentchanges"><a href="/wiki/Special:Recentchanges" title="The list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li>
+				<li id="n-contact"><a href="/wiki/Wikipedia:Contact_us">Contact Wikipedia</a></li>
+				<li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising" title="Support us">Donate to Wikipedia</a></li>
+				<li id="n-help"><a href="/wiki/Help:Contents" title="Guidance on how to use and edit Wikipedia">Help</a></li>
+			</ul>
+		</div>
+	</div>
+		<div id="p-search" class="portlet">
+		<h5><label for="searchInput">Search</label></h5>
+		<div id="searchBody" class="pBody">
+			<form action="/wiki/Special:Search" id="searchform"><div>
+				<input id="searchInput" name="search" type="text" title="Search Wikipedia [f]" accesskey="f" value="" />
+				<input type='submit' name="go" class="searchButton" id="searchGoButton"	value="Go" />&nbsp;
+				<input type='submit' name="fulltext" class="searchButton" id="mw-searchButton" value="Search" />
+			</div></form>
+		</div>
+	</div>
+	<div class="portlet" id="p-tb">
+		<h5>Toolbox</h5>
+		<div class="pBody">
+			<ul>
+				<li id="t-whatlinkshere"><a href="/wiki/Special:Whatlinkshere/Parse_tree" title="List of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+				<li id="t-recentchangeslinked"><a href="/wiki/Special:Recentchangeslinked/Parse_tree" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+<li id="t-upload"><a href="/wiki/Wikipedia:Upload" title="Upload images or media files [u]" accesskey="u">Upload file</a></li>
+<li id="t-specialpages"><a href="/wiki/Special:Specialpages" title="List of all special pages [q]" accesskey="q">Special pages</a></li>
+				<li id="t-print"><a href="/w/index.php?title=Parse_tree&amp;printable=yes" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>				<li id="t-permalink"><a href="/w/index.php?title=Parse_tree&amp;oldid=149327807" title="Permanent link to this version of the page">Permanent link</a></li><li id="t-cite"><a href="/w/index.php?title=Special:Cite&amp;page=Parse_tree&amp;id=149327807">Cite this article</a></li>			</ul>
+		</div>
+	</div>
+	<div id="p-lang" class="portlet">
+		<h5>In other languages</h5>
+		<div class="pBody">
+			<ul>
+				<li class="interwiki-bs"><a href="http://bs.wikipedia.org/wiki/Stablo_parsiranja">Bosanski</a></li>
+				<li class="interwiki-de"><a href="http://de.wikipedia.org/wiki/Syntaxbaum">Deutsch</a></li>
+				<li class="interwiki-fr"><a href="http://fr.wikipedia.org/wiki/Arbre_syntaxique">Français</a></li>
+				<li class="interwiki-ko"><a href="http://ko.wikipedia.org/wiki/%ED%8C%8C%EC%8A%A4_%ED%8A%B8%EB%A6%AC">한국어</a></li>
+				<li class="interwiki-hr"><a href="http://hr.wikipedia.org/wiki/Stablo_parsiranja">Hrvatski</a></li>
+				<li class="interwiki-it"><a href="http://it.wikipedia.org/wiki/Parse_tree">Italiano</a></li>
+				<li class="interwiki-nl"><a href="http://nl.wikipedia.org/wiki/Syntaxisboom">Nederlands</a></li>
+				<li class="interwiki-ja"><a href="http://ja.wikipedia.org/wiki/%E6%A7%8B%E6%96%87%E6%9C%A8">日本語</a></li>
+				<li class="interwiki-pl"><a href="http://pl.wikipedia.org/wiki/Drzewo_sk%C5%82adni">Polski</a></li>
+				<li class="interwiki-sv"><a href="http://sv.wikipedia.org/wiki/Parsetr%C3%A4d">Svenska</a></li>
+			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="/skins-1.5/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>
+				<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="/images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>
+			<ul id="f-list">
+				<li id="lastmod"> This page was last modified 11:24, 5 August 2007.</li>
+				<li id="copyright">All text is available under the terms of the <a class='internal' href="/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="/wiki/Wikipedia:Copyrights" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a U.S. registered <a class='internal' href="/wiki/501%28c%29#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="/wiki/Non-profit_organization" title="Non-profit organization">nonprofit</a> <a href="/wiki/Charitable_organization" title="Charitable organization">charity</a>.<br /></li>
+				<li id="privacy"><a href="http://wikimediafoundation.org/wiki/Privacy_policy" title="wikimedia:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="/wiki/Wikipedia:About" title="Wikipedia:About">About Wikipedia</a></li>
+				<li id="disclaimer"><a href="/wiki/Wikipedia:General_disclaimer" title="Wikipedia:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+		
+	
+		<script type="text/javascript">if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by srv179 in 0.069 secs. --></body></html>

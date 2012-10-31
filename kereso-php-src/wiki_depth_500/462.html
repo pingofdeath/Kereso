@@ -1,0 +1,521 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+				<meta name="keywords" content="Lambda calculus,1930s,1935,1965,1977,1984,Actor model,Algorithm,Alonzo Church,Ambient calculus,American Journal of Mathematics" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="http://www.gnu.org/copyleft/fdl.html" />
+		<title>Lambda calculus - Wikipedia, the free encyclopedia</title>
+		<style type="text/css" media="screen, projection">/*<![CDATA[*/
+			@import "/skins-1.5/common/shared.css?99";
+			@import "/skins-1.5/monobook/main.css?99";
+		/*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="/skins-1.5/common/commonPrint.css?99" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE50Fixes.css?99";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE55Fixes.css?99";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "/skins-1.5/monobook/IE60Fixes.css?99";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "/skins-1.5/monobook/IE70Fixes.css?99";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="/skins-1.5/common/IEFixes.js?99"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		
+		<script type= "text/javascript">/*<![CDATA[*/
+var skin = "monobook";
+var stylepath = "/skins-1.5";
+var wgArticlePath = "/wiki/$1";
+var wgScriptPath = "/w";
+var wgScript = "/w/index.php";
+var wgServer = "http://en.wikipedia.org";
+var wgCanonicalNamespace = "";
+var wgCanonicalSpecialPageName = false;
+var wgNamespaceNumber = 0;
+var wgPageName = "Lambda_calculus";
+var wgTitle = "Lambda calculus";
+var wgAction = "view";
+var wgRestrictionEdit = [];
+var wgRestrictionMove = [];
+var wgArticleId = "18203";
+var wgIsArticle = true;
+var wgUserName = null;
+var wgUserGroups = null;
+var wgUserLanguage = "en";
+var wgContentLanguage = "en";
+var wgBreakFrames = false;
+var wgCurRevisionId = "157186714";
+/*]]>*/</script>
+                
+		<script type="text/javascript" src="/skins-1.5/common/wikibits.js?99"><!-- wikibits js --></script>
+		<script type="text/javascript" src="/w/index.php?title=-&amp;action=raw&amp;gen=js&amp;useskin=monobook"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "/w/index.php?title=MediaWiki:Common.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=MediaWiki:Monobook.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=-&action=raw&gen=css&maxage=2678400";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+		<script type="text/javascript" src="/skins-1.5/common/ajax.js?99"></script>
+	</head>
+<body  class="mediawiki ns-0 ltr page-Lambda_calculus">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">Lambda calculus</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<p>In <a href="/wiki/Mathematical_logic" title="Mathematical logic">mathematical logic</a> and <a href="/wiki/Computer_science" title="Computer science">computer science</a>, <b>lambda calculus</b>, also <b>λ-calculus</b>, is a <a href="/wiki/Formal_system" title="Formal system">formal system</a> designed to investigate <a href="/wiki/Function_%28mathematics%29" title="Function (mathematics)">function</a> definition, function application, and <a href="/wiki/Recursion" title="Recursion">recursion</a>. It was introduced by <a href="/wiki/Alonzo_Church" title="Alonzo Church">Alonzo Church</a> and <a href="/wiki/Stephen_Cole_Kleene" title="Stephen Cole Kleene">Stephen Cole Kleene</a> in the <a href="/wiki/1930s" title="1930s">1930s</a>; Church used lambda calculus in 1936 to give a negative answer to the <a href="/wiki/Entscheidungsproblem" title="Entscheidungsproblem">Entscheidungsproblem</a>. Lambda calculus can be used to define what a <a href="/wiki/Computable_function" title="Computable function">computable function</a> is. The question of whether two lambda calculus expressions are equivalent cannot be solved by a general algorithm. This was the first question, even before the <a href="/wiki/Halting_problem" title="Halting problem">halting problem</a>, for which <a href="/wiki/Decision_problem" title="Decision problem">undecidability</a> could be proved. Lambda calculus has greatly influenced <a href="/wiki/Functional_programming" title="Functional programming">functional programming languages</a>, such as <a href="/wiki/Lisp_programming_language" title="Lisp programming language">Lisp</a>, <a href="/wiki/ML_%28programming_language%29" title="ML (programming language)">ML</a> and <a href="/wiki/Haskell_%28programming_language%29" title="Haskell (programming language)">Haskell</a>.</p>
+<p>Lambda calculus can be called the smallest universal programming language. It consists of a single transformation rule (variable substitution) and a single function definition scheme. Lambda calculus is universal in the sense that any computable function can be expressed and evaluated using this formalism. It is thus equivalent to the <a href="/wiki/Turing_machine" title="Turing machine">Turing machine</a> formalism. However, lambda calculus emphasizes the use of transformation rules, and does not care about the actual machine implementing them. It is an approach more related to software than to hardware.</p>
+<p>This article deals with the "untyped lambda calculus" as originally conceived by Church. Since then, some <a href="/wiki/Typed_lambda_calculus" title="Typed lambda calculus">typed lambda calculi</a> have been developed.</p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#History"><span class="tocnumber">1</span> <span class="toctext">History</span></a></li>
+<li class="toclevel-1"><a href="#Informal_description"><span class="tocnumber">2</span> <span class="toctext">Informal description</span></a></li>
+<li class="toclevel-1"><a href="#Formal_definition"><span class="tocnumber">3</span> <span class="toctext">Formal definition</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Free_and_bound_variables"><span class="tocnumber">3.1</span> <span class="toctext">Free and bound variables</span></a></li>
+<li class="toclevel-2"><a href="#.CE.B1-conversion"><span class="tocnumber">3.2</span> <span class="toctext">α-conversion</span></a></li>
+<li class="toclevel-2"><a href="#Substitution"><span class="tocnumber">3.3</span> <span class="toctext">Substitution</span></a></li>
+<li class="toclevel-2"><a href="#.CE.B2-reduction"><span class="tocnumber">3.4</span> <span class="toctext">β-reduction</span></a></li>
+<li class="toclevel-2"><a href="#.CE.B7-conversion"><span class="tocnumber">3.5</span> <span class="toctext">η-conversion</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Arithmetic_in_lambda_calculus"><span class="tocnumber">4</span> <span class="toctext">Arithmetic in lambda calculus</span></a></li>
+<li class="toclevel-1"><a href="#Logic_and_predicates"><span class="tocnumber">5</span> <span class="toctext">Logic and predicates</span></a></li>
+<li class="toclevel-1"><a href="#Pairs"><span class="tocnumber">6</span> <span class="toctext">Pairs</span></a></li>
+<li class="toclevel-1"><a href="#Recursion"><span class="tocnumber">7</span> <span class="toctext">Recursion</span></a></li>
+<li class="toclevel-1"><a href="#Computable_functions_and_lambda_calculus"><span class="tocnumber">8</span> <span class="toctext">Computable functions and lambda calculus</span></a></li>
+<li class="toclevel-1"><a href="#Undecidability_of_equivalence"><span class="tocnumber">9</span> <span class="toctext">Undecidability of equivalence</span></a></li>
+<li class="toclevel-1"><a href="#Lambda_calculus_and_programming_languages"><span class="tocnumber">10</span> <span class="toctext">Lambda calculus and programming languages</span></a></li>
+<li class="toclevel-1"><a href="#Concurrency_and_parallelism"><span class="tocnumber">11</span> <span class="toctext">Concurrency and parallelism</span></a></li>
+<li class="toclevel-1"><a href="#See_also"><span class="tocnumber">12</span> <span class="toctext">See also</span></a></li>
+<li class="toclevel-1"><a href="#References"><span class="tocnumber">13</span> <span class="toctext">References</span></a></li>
+<li class="toclevel-1"><a href="#External_links"><span class="tocnumber">14</span> <span class="toctext">External links</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script>
+<p><a name="History" id="History"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Lambda_calculus&amp;action=edit&amp;section=1" title="Edit section: History">edit</a>]</span> <span class="mw-headline">History</span></h2>
+<p>Originally, Church had tried to construct a complete formal system for the foundations of mathematics; when the system turned out to be susceptible to the analog of <a href="/wiki/Russell%27s_paradox" title="Russell's paradox">Russell's paradox</a>, he separated out the lambda calculus and used it to study <a href="/wiki/Computability" title="Computability">computability</a>, culminating in his negative answer to the <a href="/wiki/Entscheidungsproblem" title="Entscheidungsproblem">Entscheidungsproblem</a>.</p>
+<p><a name="Informal_description" id="Informal_description"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Lambda_calculus&amp;action=edit&amp;section=2" title="Edit section: Informal description">edit</a>]</span> <span class="mw-headline">Informal description</span></h2>
+<p>In lambda calculus, every expression stands for a function with a single input, called its <i>argument</i>; the argument of the function is in turn a function with a single argument, and the value of the function is another function with a single argument. A function is anonymously defined by a lambda expression which expresses the function's action on its argument. For instance, the "add-two" function <i>f</i> such that <tt>&#160;<i>f</i>(<i>x</i>) = <i>x</i> + 2&#160;</tt> would be expressed in lambda calculus as <tt>&#160;λ <i>x</i>. <i>x</i> + 2&#160;</tt> (or equivalently as <tt>&#160;λ <i>y</i>. <i>y</i> + 2</tt>;&#160; the name of the formal argument is immaterial) and the number <tt><i>f</i>(3)</tt> would be written as <tt>&#160;(λ <i>x</i>. <i>x</i> + 2) 3</tt>.&#160; Function application is <a href="/wiki/Left_associative_operator" title="Left associative operator">left associative</a>: <tt>&#160;<i>f</i> <i>x</i> <i>y</i> = (<i>f</i> <i>x</i>) <i>y</i></tt>.&#160; Consider the function which takes a function as an argument and applies it to the number <tt>3</tt>:<tt>&#160;λ <i>f</i>. <i>f</i> 3</tt>.&#160; This latter function could be applied to our earlier "add-two" function as follows: <tt>&#160;(λ <i>f</i>. <i>f</i> 3) (λ <i>x</i>. <i>x</i> + 2)</tt>.&#160; The three expressions</p>
+<dl>
+<dd><tt>(λ <i>f</i>. <i>f</i> 3)(λ <i>x</i>. <i>x</i> + 2)&#160;&#160;&#160;</tt> and <tt>&#160;&#160;&#160;(λ <i>x</i>. <i>x</i> + 2) 3&#160;&#160;&#160;</tt> and <tt>&#160;&#160;&#160;3 + 2&#160;&#160;&#160;</tt></dd>
+</dl>
+<p>are equivalent. A function of two variables is expressed in lambda calculus as a function of one argument which returns a function of one argument (see <a href="/wiki/Currying" title="Currying">currying</a>). For instance, the function <tt>&#160;<i>f</i>(<i>x</i>, <i>y</i>) = <i>x</i> - <i>y</i>&#160;</tt> would be written as <tt>&#160;λ <i>x</i>. λ <i>y</i>. <i>x</i> - <i>y</i></tt>. A common convention is to abbreviate curried functions as, for instance, <tt>&#160;λ <i>x</i> <i>y</i>. <i>x</i> - <i>y</i></tt>. Not every lambda expression can be reduced to a definite value like the ones above; consider for instance</p>
+<dl>
+<dd><tt>(λ <i>x</i>. <i>x</i> <i>x</i>) (λ <i>x</i>. <i>x</i> <i>x</i>)</tt></dd>
+</dl>
+<p>or</p>
+<dl>
+<dd><tt>(λ <i>x</i>. <i>x</i> <i>x</i> <i>x</i>) (λ <i>x</i>. <i>x</i> <i>x</i> <i>x</i>)</tt></dd>
+</dl>
+<p>and try to visualize what happens as you start to apply the first function to its argument. <tt>&#160;(λ <i>x</i>. <i>x</i> <i>x</i>)&#160;</tt> is also known as the ω <a href="/wiki/Combinator" title="Combinator">combinator</a>; <tt>&#160;((λ <i>x</i>. <i>x</i> <i>x</i>) (λ <i>x</i>. <i>x</i> <i>x</i>))&#160;</tt> is known as Ω, <tt>&#160;((λ <i>x</i>. <i>x</i> <i>x</i> <i>x</i>) (λ <i>x</i>. <i>x</i> <i>x</i> <i>x</i>))&#160;</tt> as Ω<sub>2</sub>, etc.</p>
+<p>While the lambda calculus itself does not contain symbols for integers or addition, these can be defined as abbreviations within the calculus and arithmetic can be expressed as is shown below.</p>
+<p>Lambda calculus expressions may contain <i>free variables</i>, i.e. variables not bound by any <tt>λ</tt>. For example, the variable <tt>&#160;<i>y</i>&#160;</tt> is free in the expression <tt>&#160;(λ <i>x</i>. <i>y</i>)&#160;</tt>, representing a function which always produces the result <tt><i>y</i></tt>. Occasionally, this necessitates the renaming of formal arguments, for instance in order to reduce</p>
+<dl>
+<dd><tt>(λ <i>x</i> <i>y</i>. <i>y</i> <i>x</i>) (λ <i>x</i>. <i><b>y</b></i>)</tt></dd>
+</dl>
+<p>to</p>
+<dl>
+<dd><tt>λ <i>z</i>. <i>z</i> (λ <i>x</i>. <i>y</i>)</tt>.</dd>
+</dl>
+<p>In the unsimplified expression in this example, the first "y" defines the formal parameter, the second uses the formal parameter, and the third is a free variable.</p>
+<p>If one only formalizes the notion of function application and does not allow lambda expressions, one obtains <a href="/wiki/Combinatory_logic" title="Combinatory logic">combinatory logic</a>.</p>
+<p><a name="Formal_definition" id="Formal_definition"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Lambda_calculus&amp;action=edit&amp;section=3" title="Edit section: Formal definition">edit</a>]</span> <span class="mw-headline">Formal definition</span></h2>
+<p>Formally, a lambda expression is defined <a href="/wiki/Mathematical_induction" title="Mathematical induction">inductively</a> as one of the following:</p>
+<ol>
+<li><tt>V</tt>, a <em>variable</em>, where <tt>V</tt> is any <a href="/wiki/Identifier" title="Identifier">identifier</a>. (The precise set of identifiers is arbitrary, but must be infinite.)</li>
+<li><tt>(λ V. E)</tt>, an <em>abstraction</em>, where <i>V</i> is any identifier and <i>E</i> is any lambda expression. An abstraction corresponds to an <a href="/wiki/Anonymous_function" title="Anonymous function">anonymous function</a>.</li>
+<li><tt>E E′</tt>, an <em>application</em>, where <tt>E</tt> and <tt>E′</tt> are any lambda expressions. An application corresponds to calling a function (<tt>E</tt>) with an argument (<tt>E′</tt>).</li>
+</ol>
+<p>To unclutter the notation, parentheses may be omitted if they are redundant. When there are parentheses missing, function application is left associative, and a lambda binds as much as possible after it. For example, the expression <tt>&#160;((λ <i>x</i>. (<i>x</i> <i>x</i>)) (λ <i>y</i>. <i>y</i>))&#160;</tt> can be simply written as <tt>&#160;(λ <i>x</i>. <i>x</i> <i>x</i>) λ <i>y</i>. <i>y</i></tt>.</p>
+<p><a name="Free_and_bound_variables" id="Free_and_bound_variables"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Lambda_calculus&amp;action=edit&amp;section=4" title="Edit section: Free and bound variables">edit</a>]</span> <span class="mw-headline">Free and bound variables</span></h3>
+<p>Each variable in a lambda expression is <i>free</i> or <i>bound</i>. For example, the <i>x</i> in <tt>&#160;(<i>x</i> <i>y</i>)&#160;</tt> is free, while the <i>x</i> in <tt>&#160;λ <i>x</i>. (<i>x</i> <i>y</i>)&#160;</tt> is bound. A bound variable has a specific lambda it is associated with, while a free variable does not. Precisely, the free variables of a lambda expression are defined <a href="/wiki/Mathematical_induction" title="Mathematical induction">inductively</a> as follows:</p>
+<ol>
+<li>In an expression of the form <tt>&#160;<i>V</i></tt>,&#160; where <tt><i>V</i></tt> is a variable, this <tt><i>V</i></tt> is the single free occurrence.</li>
+<li>In an expression of the form <tt>&#160;λ <i>V</i>. <i>E</i></tt>,&#160; the free occurrences are the free occurrences in <tt><i>E</i></tt> except for <tt><i>V</i></tt>. In this case the occurrences of <tt><i>V</i></tt> in <tt><i>E</i></tt> are said to be bound by the <tt>λ</tt> before <tt><i>V</i></tt>.</li>
+<li>In an expression of the form <tt>&#160;(<i>E</i> <i>E′</i>)</tt>,&#160; the free occurrences are the free occurrences in <tt><i>E</i></tt> and <tt><i>E′</i></tt>.</li>
+</ol>
+<p><a name=".CE.B1-conversion"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Lambda_calculus&amp;action=edit&amp;section=5" title="Edit section: α-conversion">edit</a>]</span> <span class="mw-headline">α-conversion</span></h3>
+<p>Alpha conversion allows bound variable names to be changed. For example, an alpha conversion of <tt>&#160;λ<i>x</i>.<i>x</i>&#160;</tt> would be <tt>&#160;λ<i>y</i>.<i>y</i>&#160;</tt>. Frequently in uses of lambda calculus, terms that differ only by alpha conversion are considered to be equivalent.</p>
+<p>The precise rules for alpha conversion are not completely trivial. First, when alpha-converting an abstraction, the only variable occurrences that are renamed are those that are bound to the same abstraction. For example, an alpha conversion of <tt>&#160;λ<i>x</i>.λ<i>x</i>.<i>x</i>&#160;</tt> could result in <tt>&#160;λ<i>y</i>.λ<i>x</i>.<i>x</i>&#160;</tt>, but it could <em>not</em> result in <tt>&#160;λ<i>y</i>.λ<i>x</i>.<i>y</i>&#160;</tt>. The latter has a different meaning from the original.</p>
+<p>Second, alpha conversion is not possible if it would result in a variable getting captured by a different abstraction. For example, if we replace <i>x</i> with <i>y</i> in λ<i>x</i>.λ<i>y</i>.<i>x</i>, we get λ<i>y</i>.λ<i>y</i>.<i>y</i>, which is not at all the same.</p>
+<p><a name="Substitution" id="Substitution"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Lambda_calculus&amp;action=edit&amp;section=6" title="Edit section: Substitution">edit</a>]</span> <span class="mw-headline">Substitution</span></h3>
+<p>Substitution, written <tt>E[V&#160;:= E′]</tt>, corresponds to the replacement of a variable <tt>V</tt> by expression <tt>E′</tt> every place it is free within <tt>E</tt>. The precise definition must be careful in order to avoid accidental variable capture (See also <a href="/wiki/Hygienic_macro" title="Hygienic macro">Hygienic macro</a>). For example, it is not correct for <tt>(λ x.y)[y&#160;:= x]</tt> to result in <tt>(λ x.x)</tt>, because the substituted <tt>x</tt> was supposed to be free but ended up being bound. The correct substitution in this case is <tt>(λ z.x)</tt>.</p>
+<p>The precise rules are defined inductively as follows:</p>
+<ol>
+<li><tt>V[V&#160;:= E] == E</tt></li>
+<li><tt>W[V&#160;:= E] == W</tt>, if <tt>W</tt> and <tt>V</tt> are different</li>
+<li><tt>(E<sub>1</sub> E<sub>2</sub>)[V&#160;:= E] == (E<sub>1</sub>[v&#160;:= E] E<sub>2</sub>[v&#160;:= E])</tt></li>
+<li><tt><tt>(λ V. E′)[V&#160;:= E] == (λ E. E′)</tt> ** This should not be the case because binding variables don't get substituted. It should stay the same.**</tt></li>
+<li><tt>(λ W. E′)[V&#160;:= E] == (λ W. E′[V&#160;:= E])</tt>, if <tt>V</tt> and <tt>W</tt> are different and <tt>W</tt> is not free in <tt>E</tt>.</li>
+<li><tt>(λ W. E′)[V&#160;:= E] == (λ W′. E′[W&#160;:= W′])[V&#160;:= E]</tt>, if <tt>V</tt> and <tt>W</tt> are different and if <tt>W′</tt> is not free in <tt>E</tt></li>
+</ol>
+<p><a name=".CE.B2-reduction"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Lambda_calculus&amp;action=edit&amp;section=7" title="Edit section: β-reduction">edit</a>]</span> <span class="mw-headline">β-reduction</span></h3>
+<p>Beta reduction expresses the idea of function application. The beta reduction of <tt>&#160;((λ <i>V</i>. <i>E</i>) <i>E′</i>)&#160;</tt> is simply <tt>&#160;<i>E</i>[<i>V</i>&#160;:= <i>E′</i>]&#160;</tt>.</p>
+<p><a name=".CE.B7-conversion"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Lambda_calculus&amp;action=edit&amp;section=8" title="Edit section: η-conversion">edit</a>]</span> <span class="mw-headline">η-conversion</span></h3>
+<p>Eta conversion expresses the idea of <a href="/wiki/Extensionality" title="Extensionality">extensionality</a>, which in this context is that two functions are the same <a href="/wiki/If_and_only_if" title="If and only if">if and only if</a> they give the same result for all arguments. Eta-conversion converts between <tt>&#160;λ <i>x</i>. <i>f</i> <i>x</i>&#160;</tt> and <tt>&#160;<i>f</i>&#160;</tt> whenever <tt><i>x</i></tt> does not appear free in <tt><i>f</i></tt>.</p>
+<p>This conversion is not always equivalent when lambda expressions are interpreted as programs. Evaluation of <tt>&#160;λ <i>x</i>. <i>f</i> <i>x</i>&#160;</tt> can terminate even when evaluation of <i>f</i> does not.</p>
+<p><a name="Arithmetic_in_lambda_calculus" id="Arithmetic_in_lambda_calculus"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Lambda_calculus&amp;action=edit&amp;section=9" title="Edit section: Arithmetic in lambda calculus">edit</a>]</span> <span class="mw-headline">Arithmetic in lambda calculus</span></h2>
+<p>There are several possible ways to define the <a href="/wiki/Natural_number" title="Natural number">natural numbers</a> in lambda calculus, but by far the most common are the <a href="/wiki/Church_numeral" title="Church numeral">Church numerals</a>, which can be defined as follows:</p>
+<dl>
+<dd><tt>0&#160;:= λ <i>f</i> <i>x</i>. <i>x</i></tt></dd>
+<dd><tt>1&#160;:= λ <i>f</i> <i>x</i>. <i>f</i> <i>x</i></tt></dd>
+<dd><tt>2&#160;:= λ <i>f</i> <i>x</i>. <i>f</i> (<i>f</i> <i>x</i>)</tt></dd>
+<dd><tt>3&#160;:= λ <i>f</i> <i>x</i>. <i>f</i> (<i>f</i> (<i>f</i> <i>x</i>))</tt></dd>
+</dl>
+<p>and so on. Intuitively, the number <tt><i>n</i></tt> in lambda calculus is a function that takes a function <tt><i>f</i></tt> as argument and returns the <tt><i>n</i></tt>-th composition of <tt><i>f</i></tt>. That is to say, a Church numeral is a <a href="/wiki/Higher-order_function" title="Higher-order function">higher-order function</a> -- it takes a single-argument function <tt><i>f</i></tt>, and returns another single-argument function.</p>
+<p>(Note that in Church's original lambda calculus, the formal parameter of a lambda expression was required to occur at least once in the function body, which made the above definition of 0 impossible.) Given this definition of the Church numerals, we can define a successor function, which takes a number <tt><i>n</i></tt> and returns <tt><i>n</i> + 1</tt>:</p>
+<dl>
+<dd><tt>SUCC&#160;:= λ <i>n</i> <i>f</i> <i>x</i>. <i>f</i> (<i>n</i> <i>f</i> <i>x</i>)</tt></dd>
+</dl>
+<p>Addition is defined as follows:</p>
+<dl>
+<dd><tt>PLUS&#160;:= λ <i>m</i> <i>n</i> <i>f</i> <i>x</i>. <i>n</i> <i>f</i> (<i>m</i> <i>f</i> <i>x</i>)</tt></dd>
+</dl>
+<p><tt>PLUS</tt> can be thought of as a function taking two natural numbers as arguments and returning a natural number; it is fun to verify that</p>
+<dl>
+<dd><tt>PLUS 2 3 &#160;&#160;</tt> and <tt>&#160;&#160; 5</tt></dd>
+</dl>
+<p>are equivalent lambda expressions. Multiplication can then be defined as</p>
+<dl>
+<dd><tt>MULT&#160;:= λ <i>m</i> <i>n</i>. <i>m</i> (PLUS <i>n</i>) 0</tt>,</dd>
+</dl>
+<p>the idea being that multiplying <i>m</i> and <i>n</i> is the same as <i>m</i> times adding <i>n</i> to zero. Alternatively</p>
+<dl>
+<dd><tt>MULT&#160;:= λ <i>m</i> <i>n</i> <i>f</i>. <i>m</i> (<i>n</i> <i>f</i>)</tt></dd>
+</dl>
+<p>The predecessor <tt>&#160;PRED <i>n</i> = <i>n</i> - 1&#160;</tt> of a positive integer <i>n</i> is more difficult:</p>
+<dl>
+<dd><tt>PRED&#160;:= λ <i>n</i> <i>f</i> <i>x</i>. <i>n</i> (λ <i>g</i> <i>h</i>. <i>h</i> (<i>g</i> <i>f</i>)) (λ <i>u</i>. <i>x</i>) (λ <i>u</i>. <i>u</i>)&#160;</tt></dd>
+</dl>
+<p>or alternatively</p>
+<dl>
+<dd><tt>PRED&#160;:= λ <i>n</i>. <i>n</i> (λ <i>g</i> <i>k</i>. (<i>g</i> 1) (λ <i>u</i>. PLUS (<i>g</i> <i>k</i>) 1) <i>k</i>) (λ <i>v</i>. 0) 0</tt></dd>
+</dl>
+<p>Note the trick <tt>(<i>g</i> 1) (λ <i>u</i>. PLUS (<i>g</i> <i>k</i>) 1) <i>k</i></tt> which evaluates to <tt><i>k</i></tt> if <tt><i>g</i>(1)</tt> is zero and to <tt><i>g</i>(<i>k</i>) + 1</tt> otherwise.</p>
+<p><a name="Logic_and_predicates" id="Logic_and_predicates"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Lambda_calculus&amp;action=edit&amp;section=10" title="Edit section: Logic and predicates">edit</a>]</span> <span class="mw-headline">Logic and predicates</span></h2>
+<p>By convention, the following two definitions (known as Church booleans) are used for the boolean values <tt>TRUE</tt> and <tt>FALSE</tt>:</p>
+<dl>
+<dd><tt>TRUE&#160;:= λ <i>x</i> <i>y</i>. <i>x</i></tt></dd>
+<dd><tt>FALSE&#160;:= λ <i>x</i> <i>y</i>. <i>y</i></tt>
+<dl>
+<dd>(Note that <tt>FALSE</tt> is equivalent to the Church numeral zero defined above)</dd>
+</dl>
+</dd>
+</dl>
+<p>Then, with these two λ-terms, we can define some logic operators (these are just possible formulations; other expressions are equally correct):</p>
+<dl>
+<dd><tt>AND&#160;:= λ <i>p</i> <i>q</i>. <i>p q</i> FALSE</tt></dd>
+<dd><tt>OR&#160;:= λ <i>p</i> <i>q</i>. <i>p</i> TRUE <i>q</i></tt></dd>
+<dd><tt>NOT&#160;:= λ <i>p</i>. <i>p</i> FALSE TRUE</tt></dd>
+<dd><tt>IFTHENELSE&#160;:= λ <i>p</i> <i>x</i> <i>y</i>. <i>p x y</i></tt></dd>
+</dl>
+<p>We are now able to compute some logic functions, as for example:</p>
+<dl>
+<dd><tt>AND TRUE FALSE</tt>
+<dl>
+<dd><tt>≡ (λ <i>p</i> <i>q</i>. <i>p q</i> FALSE) TRUE FALSE →<sub>β</sub> TRUE FALSE FALSE</tt></dd>
+<dd><tt><tt>≡ (λ <i>x</i> <i>y</i>. <i>x</i>) FALSE FALSE →<sub>β</sub> FALSE</tt></tt></dd>
+</dl>
+</dd>
+</dl>
+<p>and we see that <tt>AND TRUE FALSE</tt> is equivalent to <tt>FALSE</tt>.</p>
+<p>A <i>predicate</i> is a function which returns a boolean value. The most fundamental predicate is <tt>ISZERO</tt> which returns <tt>TRUE</tt> if its argument is the Church numeral <tt>0</tt>, and <tt>FALSE</tt> if its argument is any other Church numeral:</p>
+<dl>
+<dd><tt>ISZERO&#160;:= λ <i>n</i>. <i>n</i> (λ <i>x</i>. FALSE) TRUE</tt></dd>
+</dl>
+<p>The availability of predicates and the above definition of <tt>TRUE</tt> and <tt>FALSE</tt> make it convenient to write "if-then-else" statements in lambda calculus.</p>
+<p><a name="Pairs" id="Pairs"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Lambda_calculus&amp;action=edit&amp;section=11" title="Edit section: Pairs">edit</a>]</span> <span class="mw-headline">Pairs</span></h2>
+<p>A pair (2-tuple) datatype can be defined in terms of <tt>TRUE</tt> and <tt>FALSE</tt>.</p>
+<dl>
+<dd><tt><a href="/wiki/Cons" title="Cons">CONS</a>&#160;:= λ<i>f</i>.λ<i>s</i>. λ<i>b</i>. <i>b</i> <i>f</i> <i>s</i></tt></dd>
+<dd><tt><a href="/wiki/Car_and_cdr" title="Car and cdr">CAR</a>&#160;:= λ<i>p</i>. <i>p</i> TRUE</tt></dd>
+<dd><tt><a href="/wiki/Car_and_cdr" title="Car and cdr">CDR</a>&#160;:= λ<i>p</i>. <i>p</i> FALSE</tt></dd>
+<dd><tt>NIL&#160;:= λx.TRUE</tt></dd>
+<dd><tt>NULL&#160;:= λp. p (λx y.FALSE)</tt></dd>
+</dl>
+<p>A linked list datatype can be defined as either NIL for the empty list, or the <tt>CONS</tt> of an element and a smaller list.</p>
+<p><a name="Recursion" id="Recursion"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Lambda_calculus&amp;action=edit&amp;section=12" title="Edit section: Recursion">edit</a>]</span> <span class="mw-headline">Recursion</span></h2>
+<p><a href="/wiki/Recursion" title="Recursion">Recursion</a> is the definition of a function using the function itself; on the face of it, lambda calculus does not allow this. However, this impression is misleading. Consider for instance the <a href="/wiki/Factorial" title="Factorial">factorial</a> function <tt><i>f</i>(<i>n</i>)</tt> recursively defined by</p>
+<dl>
+<dd><tt><i>f</i>(<i>n</i>) = 1, if <i>n</i> = 0; and <i>n</i>·<i>f</i>(<i>n</i>-1), if <i>n</i>&gt;0</tt>.</dd>
+</dl>
+<p>In lambda calculus, one cannot define a function which includes itself. To get around this, one may start by defining a function, here called <tt><i>g</i></tt>, which takes a function <tt><i>f</i></tt> as an argument and returns another function that takes <tt><i>n</i></tt> as an argument:</p>
+<dl>
+<dd><tt><i>g</i>&#160;:= λ <i>f</i> <i>n</i>. (1, if <i>n</i> = 0; and <i>n</i>·<i>f</i>(<i>n</i>-1), if <i>n</i>&gt;0)</tt>.</dd>
+</dl>
+<p>The function that <tt><i>g</i></tt> returns is either the constant <tt>1</tt>, or <i>n</i> times the application of the function <tt><i>f</i></tt> to <tt><i>n</i>-1</tt>. Using the <tt>ISZERO</tt> predicate, and boolean and algebraic definitions described above, the function <tt><i>g</i></tt> can be defined in lambda calculus.</p>
+<p>However, <tt><i>g</i></tt> by itself is still not recursive; in order to use <tt><i>g</i></tt> to create the recursive factorial function, the function passed to <tt><i>g</i></tt> as <tt><i>f</i></tt> must have specific properties. Namely, the function passed as <tt><i>f</i></tt> must expand to the function <tt><i>g</i></tt> called with one argument -- and that argument must be the function that was passed as <tt><i>f</i></tt> again!</p>
+<p>In other words, <tt><i>f</i></tt> must expand to <tt><i>g</i>(<i>f</i>)</tt>. This call to <tt><i>g</i></tt> will then expand to the above factorial function and calculate down to another level of recursion. In that expansion the function <tt><i>f</i></tt> will appear again, and will again expand to <tt><i>g</i>(<i>f</i>)</tt> and continue the recursion. This kind of function, where <tt><i>f</i> = <i>g</i>(<i>f</i>)</tt>, is called a <i>fixed-point</i> of <tt><i>g</i></tt>, and it turns out that it can be implemented in the lambda calculus using what is known as the <i>paradoxical operator</i> or <i>fixed-point operator</i> and is represented as <tt><i>Y</i></tt> -- the <a href="/wiki/Fixed_point_combinator" title="Fixed point combinator">Y combinator</a>:</p>
+<dl>
+<dd><tt><i>Y</i> = λ <i>g</i>. (λ <i>x</i>. <i>g</i> (<i>x</i> <i>x</i>)) (λ <i>x</i>. <i>g</i> (<i>x</i> <i>x</i>))</tt></dd>
+</dl>
+<p>In the lambda calculus, <tt><i>Y g</i></tt> is a fixed-point of <tt><i>g</i></tt>, as it expands to <tt><i>g</i> (<i>Y</i> <i>g</i>)</tt>. Now, to complete our recursive call to the factorial function, we would simply call <tt>&#160;<i>g</i> (<i>Y</i> <i>g</i>) <i>n</i></tt>,&#160; where <i>n</i> is the number we are calculating the factorial of.</p>
+<p>Given <i>n</i> = 5, for example, this expands to:</p>
+<dl>
+<dd><tt>(λ <i>n</i>.(1, if <i>n</i> = 0; and <i>n</i>·((<i>Y g</i>)(<i>n</i>-1)), if <i>n</i>&gt;0)) 5</tt></dd>
+<dd><tt>1, if 5 = 0; and 5·(<i>g</i>(<i>Y g</i>)(5-1)), if 5&gt;0</tt></dd>
+<dd><tt>5·(<i>g</i>(<i>Y g</i>) 4)</tt></dd>
+<dd><tt>5·(λ <i>n</i>. (1, if <i>n</i> = 0; and <i>n</i>·((<i>Y g</i>)(<i>n</i>-1)), if <i>n</i>&gt;0) 4)</tt></dd>
+<dd><tt>5·(1, if 4 = 0; and 4·(<i>g</i>(<i>Y g</i>)(4-1)), if 4&gt;0)</tt></dd>
+<dd><tt>5·(4·(<i>g</i>(<i>Y g</i>) 3))</tt></dd>
+<dd><tt>5·(4·(λ <i>n</i>. (1, if <i>n</i> = 0; and <i>n</i>·((<i>Y g</i>)(<i>n</i>-1)), if <i>n</i>&gt;0) 3))</tt></dd>
+<dd><tt>5·(4·(1, if 3 = 0; and 3·(<i>g</i>(<i>Y g</i>)(3-1)), if 3&gt;0))</tt></dd>
+<dd><tt>5·(4·(3·(<i>g</i>(<i>Y g</i>) 2)))</tt></dd>
+<dd><tt>...</tt></dd>
+</dl>
+<p>And so on, evaluating the structure of the algorithm recursively. Every recursively defined function can be seen as a fixed point of some other suitable function, and therefore, using <tt><i>Y</i></tt>, every recursively defined function can be expressed as a lambda expression. In particular, we can now cleanly define the subtraction, multiplication and comparison predicate of natural numbers recursively.</p>
+<p><a name="Computable_functions_and_lambda_calculus" id="Computable_functions_and_lambda_calculus"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Lambda_calculus&amp;action=edit&amp;section=13" title="Edit section: Computable functions and lambda calculus">edit</a>]</span> <span class="mw-headline">Computable functions and lambda calculus</span></h2>
+<p>A function <tt><i>F</i>: <b>N</b> → <b>N</b></tt> of <a href="/wiki/Natural_number" title="Natural number">natural numbers</a> is a <a href="/wiki/Computable_function" title="Computable function">computable function</a> <a href="/wiki/If_and_only_if" title="If and only if">if and only if</a> there exists a lambda expression <tt><i>f</i></tt> such that for every pair of <i>x</i>, <i>y</i> in <tt><b>N</b></tt>, <tt>&#160;<i>F</i>(</tt><i>x</i><tt>)</tt> = <i>y</i>&#160; if and only if <tt>&#160;<i>f</i> <i>x</i>&#160;==&#160;<i>y</i></tt>,&#160; where <tt><i>x</i></tt> and <tt><i>y</i></tt> are the Church numerals corresponding to <i>x</i> and <i>y</i>, respectively. This is one of the many ways to define <a href="/wiki/Computability" title="Computability">computability</a>; see the <a href="/wiki/Church-Turing_thesis" title="Church-Turing thesis">Church-Turing thesis</a> for a discussion of other approaches and their equivalence.</p>
+<p><a name="Undecidability_of_equivalence" id="Undecidability_of_equivalence"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Lambda_calculus&amp;action=edit&amp;section=14" title="Edit section: Undecidability of equivalence">edit</a>]</span> <span class="mw-headline">Undecidability of equivalence</span></h2>
+<p>There is no algorithm which takes as input two lambda expressions and outputs <tt>TRUE</tt> or <tt>FALSE</tt> depending on whether or not the two expressions are equivalent. This was historically the first problem for which the unsolvability could be proven. Of course, in order to do so, the notion of <a href="/wiki/Algorithm" title="Algorithm">algorithm</a> has to be cleanly defined; Church used a definition via recursive functions, which is now known to be equivalent to all other reasonable definitions of the notion.</p>
+<p>Church's proof first reduces the problem to determining whether a given lambda expression has a <i>normal form</i>. A normal form is an equivalent expression which cannot be reduced any further. Then he assumes that this predicate is computable, and can hence be expressed in lambda calculus. Building on earlier work by Kleene and constructing a <a href="/wiki/G%C3%B6del_numbering" title="Gödel numbering">Gödel numbering</a> for lambda expressions, he constructs a lambda expression <tt><i>e</i></tt> which closely follows the proof of <a href="/wiki/G%C3%B6del%27s_incompleteness_theorem" title="Gödel's incompleteness theorem">Gödel's first incompleteness theorem</a>. If <tt><i>e</i></tt> is applied to its own <a href="/wiki/G%C3%B6del_number" title="Gödel number">Gödel number</a>, a contradiction results.</p>
+<p><a name="Lambda_calculus_and_programming_languages" id="Lambda_calculus_and_programming_languages"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Lambda_calculus&amp;action=edit&amp;section=15" title="Edit section: Lambda calculus and programming languages">edit</a>]</span> <span class="mw-headline">Lambda calculus and programming languages</span></h2>
+<p>As pointed out by <a href="/wiki/Peter_Landin" title="Peter Landin">Peter Landin</a>'s 1965 classic <cite><a href="http://portal.acm.org/citation.cfm?id=363749&amp;coll=portal&amp;dl=ACM" class="external text" title="http://portal.acm.org/citation.cfm?id=363749&amp;coll=portal&amp;dl=ACM" rel="nofollow">A Correspondence between ALGOL 60 and Church's Lambda-notation</a></cite>, most <a href="/wiki/Programming_language" title="Programming language">programming languages</a> are rooted in the lambda calculus, which provides the basic mechanisms for procedural abstraction and procedure (subprogram) application.</p>
+<p>Implementing the lambda calculus on a computer involves treating "functions" as <a href="/wiki/First-class_object" title="First-class object">first-class objects</a>, which raises implementation issues for stack-based programming languages. This is known as the <a href="/wiki/Funarg_problem" title="Funarg problem">Funarg problem</a>.</p>
+<p>The most prominent counterparts to lambda calculus in programming are <a href="/wiki/Functional_programming_language" title="Functional programming language">functional programming languages</a>, which essentially implement the calculus augmented with some <a href="/wiki/Constant" title="Constant">constants</a> and <a href="/wiki/Datatype" title="Datatype">datatypes</a>. <a href="/wiki/Lisp_programming_language" title="Lisp programming language">Lisp</a> uses a variant of lambda notation for defining functions, but only its purely functional subset ("<a href="/wiki/Lispkit_Lisp" title="Lispkit Lisp">Pure Lisp</a>") is really equivalent to lambda calculus.</p>
+<p>Functional languages are not the only ones to support functions as <a href="/wiki/First-class_object" title="First-class object">first-class objects</a>. Numerous <a href="/wiki/Imperative_programming" title="Imperative programming">imperative languages</a>, e.g. <a href="/wiki/Pascal_%28programming_language%29" title="Pascal (programming language)">Pascal</a>, have long supported passing subprograms as arguments to other subprograms. In <a href="/wiki/C_%28programming_language%29" title="C (programming language)">C</a> and the C-like subset of <a href="/wiki/C%2B%2B" title="C++">C++</a> the equivalent result is obtained by passing <i>pointers</i> to the code of functions (subprograms). Such mechanisms are limited to subprograms written explicitly in the code, and do not directly support higher-level functions. Some imperative <a href="/wiki/Object-oriented_language" title="Object-oriented language">object-oriented languages</a> have notations that represent functions of any order; such mechanisms are available in <a href="/wiki/C%2B%2B" title="C++">C++</a>, <a href="/wiki/Smalltalk" title="Smalltalk">Smalltalk</a> and more recently in <a href="/wiki/Eiffel_%28programming_language%29" title="Eiffel (programming language)">Eiffel</a> ("agents") and <a href="/wiki/C_Sharp" title="C Sharp">C#</a> ("delegates"). As an example, the Eiffel "inline agent" expression</p>
+<pre>
+   <b>agent</b> (x: REAL): REAL <b>do Result</b> := x * x <b>end</b>
+</pre>
+<p>denotes an object corresponding to the lambda expression λ x . x*x (with call by value). It can be treated like any other expression, e.g. assigned to a variable or passed around to routines. If the value of <var>square</var> is the above agent expression, then the result of applying <var>square</var> to a value a (β-reduction) is expressed as <var>square</var>.item ([a]), where the argument is passed as a <a href="/wiki/Tuple" title="Tuple">tuple</a>.</p>
+<p>A <a href="/wiki/Python_%28programming_language%29" title="Python (programming language)">Python</a> example of this uses the <a href="http://docs.python.org/ref/lambdas.html#lambda" class="external text" title="http://docs.python.org/ref/lambdas.html#lambda" rel="nofollow">lambda</a> form of functions:</p>
+<pre>
+   func = <b>lambda</b> x: x * x
+</pre>
+<p>This creates a new anonymous function named <b>func</b> which can be passed to other functions, stored in variables, etc. Python can also treat any other function created with the standard <a href="http://docs.python.org/ref/function.html" class="external text" title="http://docs.python.org/ref/function.html" rel="nofollow">def</a> statement as <a href="/wiki/First-class_object" title="First-class object">first-class objects</a>.</p>
+<p>The same holds for Smalltalk expression</p>
+<pre>
+   [ :x | x * x ]
+</pre>
+<p>This is first-class object (block closure), which can be stored in variables, passed as arguments, etc.</p>
+<p>A similar C++ example (using the Boost.Lambda library):</p>
+<pre>
+   std::for_each(c.begin(), c.end(), std::cout &lt;&lt; _1 * _1 &lt;&lt; std::endl);
+</pre>
+<p>Here the standard library function <b>for_each</b> iterates over all members of container 'c', and prints the square of each element. The _1 notation is Boost.Lambda's convention (originally derived from Boost.Bind) for representing the first placeholder element (the first argument), represented as <b>x</b> elsewhere.</p>
+<p>A simple C# <a href="/wiki/Delegate_%28.NET%29" title="Delegate (.NET)">delegate</a> taking a variable and returning the square. This function variable can then be passed to other methods (or function delegates)</p>
+<pre>
+   //Declare a delegate signature
+   delegate double MathDelegate(double i);
+   //Create an delegate instance
+   MathDelegate f = delegate(double i) { return Math.Pow(i, 2); };
+</pre>
+<pre>
+   //Passing 'f' function variable to another method, executing,
+   // and returning the result of the function
+   double Execute(MathDelegate func)
+   {
+       return func(100);
+   }
+</pre>
+<p>In the .NET Framework 3.5, C# has lambda expressions in a form similar to python or lisp. The expression resolves to a delegate like in the previous example but the above can be simplified to below.</p>
+<pre>
+   //Create an delegate instance
+   MathDelegate f = i =&gt; i * i;
+   Execute(f);
+   // or more simply put
+   Execute(i =&gt; i * i);
+</pre>
+<p><a name="Concurrency_and_parallelism" id="Concurrency_and_parallelism"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Lambda_calculus&amp;action=edit&amp;section=16" title="Edit section: Concurrency and parallelism">edit</a>]</span> <span class="mw-headline">Concurrency and parallelism</span></h2>
+<p>The Church-Rosser property of the lambda calculus means that evaluation (β-reduction) can be carried out in <i>any order</i>, even concurrently. (Indeed, the lambda calculus is <a href="/wiki/Referential_transparency" title="Referential transparency">referentially transparent</a>.) While this means the lambda calculus can model the various <a href="/wiki/Evaluation_strategy#Nondeterministic_strategies" title="Evaluation strategy">nondeterministic evaluation strategies</a>, it does not offer any richer notion of <a href="/wiki/Parallel_computing" title="Parallel computing">parallelism</a>, nor can it express any <a href="/wiki/Concurrent_programming_language" title="Concurrent programming language">concurrency</a> issues. The <a href="/wiki/Actor_model" title="Actor model">Actor model</a> and <a href="/wiki/Process_calculus" title="Process calculus">Process calculi</a> such as <a href="/wiki/Communicating_sequential_processes" title="Communicating sequential processes">CSP</a>, the <a href="/wiki/Calculus_of_communicating_systems" title="Calculus of communicating systems">CCS</a>, the <a href="/wiki/Pi-calculus" title="Pi-calculus">π calculus</a> and the <a href="/wiki/Ambient_calculus" title="Ambient calculus">ambient calculus</a> have been designed for such purposes.</p>
+<p>Although the nondeterministic lambda calculus is capable of expressing all partial recursive <i>functions</i>, it is not capable of expressing all <i>computations</i>. For example it is not capable of expressing <a href="/wiki/Unbounded_nondeterminism" title="Unbounded nondeterminism">unbounded nondeterminism</a> (<i>i.e.</i> every nondeterministic lambda expression that is guaranteed to terminate; terminates in a finite number of expressions). However, there are concurrent programs guaranteed to halt that terminate in an infinite number of states [Clinger 1981, Hewitt 2006].</p>
+<p><a name="See_also" id="See_also"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Lambda_calculus&amp;action=edit&amp;section=17" title="Edit section: See also">edit</a>]</span> <span class="mw-headline">See also</span></h2>
+<div style="-moz-column-count:2; column-count:2;">
+<ul>
+<li><a href="/wiki/Anonymous_recursion" title="Anonymous recursion">Anonymous recursion</a></li>
+<li><a href="/wiki/Curry-Howard_isomorphism" title="Curry-Howard isomorphism">Curry-Howard isomorphism</a></li>
+<li><a href="/wiki/Evaluation_strategy" title="Evaluation strategy">Evaluation strategy</a></li>
+<li><a href="/wiki/Knights_of_the_Lambda_Calculus" title="Knights of the Lambda Calculus">Knights of the Lambda Calculus</a></li>
+<li><a href="/wiki/Lambda_cube" title="Lambda cube">Lambda cube</a></li>
+<li><a href="/wiki/Rewriting" title="Rewriting">Rewriting</a></li>
+<li><a href="/wiki/SKI_combinator_calculus" title="SKI combinator calculus">SKI combinator calculus</a></li>
+<li><a href="/wiki/System_F" title="System F">System F</a></li>
+<li><a href="/wiki/Calculus_of_constructions" title="Calculus of constructions">Calculus of constructions</a></li>
+<li><a href="/wiki/Typed_lambda_calculus" title="Typed lambda calculus">Typed lambda calculus</a></li>
+<li><a href="/wiki/Unlambda" title="Unlambda">Unlambda</a></li>
+<li><a href="/wiki/Lambda-mu_calculus" title="Lambda-mu calculus">Lambda-mu calculus</a></li>
+</ul>
+</div>
+<p><a name="References" id="References"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Lambda_calculus&amp;action=edit&amp;section=18" title="Edit section: References">edit</a>]</span> <span class="mw-headline">References</span></h2>
+<ul>
+<li>Abelson, Harold &amp; Gerald Jay Sussman. <a href="/wiki/Structure_and_Interpretation_of_Computer_Programs" title="Structure and Interpretation of Computer Programs">Structure and Interpretation of Computer Programs</a>. <a href="/wiki/The_MIT_Press" title="The MIT Press">The MIT Press</a>. <a href="/w/index.php?title=Special:Booksources&amp;isbn=0262510871" class="internal">ISBN 0-262-51087-1</a>.</li>
+<li>Barendregt, Henk, <a href="http://www.elsevier.com/wps/find/bookdescription.cws_home/501727/description#description" class="external text" title="http://www.elsevier.com/wps/find/bookdescription.cws_home/501727/description#description" rel="nofollow"><i>The lambda calculus, its syntax and semantics</i></a>, <a href="/wiki/North-Holland" title="North-Holland">North-Holland</a> (<a href="/wiki/1984" title="1984">1984</a>), is <i>the</i> comprehensive reference on the (untyped) lambda calculus; see also the paper <a href="http://citeseer.ist.psu.edu/barendregt94introduction.html" class="external text" title="http://citeseer.ist.psu.edu/barendregt94introduction.html" rel="nofollow"><i>Introduction to Lambda Calculus</i></a>.</li>
+<li>Barendregt, Henk, <i>The Type Free Lambda Calculus</i> pp1091-1132 of <i>Handbook of Mathematical Logic</i>, <a href="/wiki/North-Holland" title="North-Holland">North-Holland</a> (<a href="/wiki/1977" title="1977">1977</a>) <a href="/w/index.php?title=Special:Booksources&amp;isbn=072042285X" class="internal">ISBN 0-7204-2285-X</a></li>
+<li>Church, Alonzo, <i>An unsolvable problem of elementary number theory</i>, <a href="/wiki/American_Journal_of_Mathematics" title="American Journal of Mathematics">American Journal of Mathematics</a>, 58 (1936), pp. 345–363. This paper contains the proof that the equivalence of lambda expressions is in general not decidable.</li>
+<li>Clinger, William, <i>Foundations of Actor Semantics</i>. MIT Mathematics Doctoral Dissertation, June 1981.</li>
+<li>Punit,Gupta, Amit &amp; Ashutosh Agte, <i>Untyped lambda-calculus, alpha-, beta- and eta- reductions and recursion</i></li>
+<li>Henz, Martin, <i>The Lambda Calculus</i>. Formally correct development of the Lambda calculus.</li>
+<li>Hewitt, Carl, <a href="http://www.pcs.usp.br/~coin-aamas06/10_commitment-43_16pages.pdf" class="external text" title="http://www.pcs.usp.br/~coin-aamas06/10_commitment-43_16pages.pdf" rel="nofollow"><i>What is Commitment? Physical, Organizational, and Social</i></a> COIN@AAMAS. April 27, 2006.</li>
+<li>Kleene, Stephen, <i>A theory of positive integers in formal logic</i>, <a href="/wiki/American_Journal_of_Mathematics" title="American Journal of Mathematics">American Journal of Mathematics</a>, 57 (<a href="/wiki/1935" title="1935">1935</a>), pp. 153–173 and 219–244. Contains the lambda calculus definitions of several familiar functions.</li>
+<li><a href="/wiki/Peter_Landin" title="Peter Landin">Landin, Peter</a>, <i>A Correspondence Between ALGOL 60 and Church's Lambda-Notation</i>, <a href="/wiki/Communications_of_the_ACM" title="Communications of the ACM">Communications of the ACM</a>, vol. 8, no. 2 (<a href="/wiki/1965" title="1965">1965</a>), pages 89-101. Available from the <a href="http://portal.acm.org/citation.cfm?id=363749&amp;coll=portal&amp;dl=ACM" class="external text" title="http://portal.acm.org/citation.cfm?id=363749&amp;coll=portal&amp;dl=ACM" rel="nofollow">ACM site</a>. A classic paper highlighting the importance of lambda-calculus as a basis for programming languages.</li>
+<li>Larson, Jim, <a href="http://www.jetcafe.org/~jim/lambda.html" class="external text" title="http://www.jetcafe.org/~jim/lambda.html" rel="nofollow"><i>An Introduction to Lambda Calculus and Scheme</i></a>. A gentle introduction for programmers.</li>
+</ul>
+<p><i>Some parts of this article are based on material from <a href="/wiki/Free_On-line_Dictionary_of_Computing" title="Free On-line Dictionary of Computing">FOLDOC</a>, used with <a href="/wiki/Wikipedia:Foldoc_license" title="Wikipedia:Foldoc license">permission</a>.</i></p>
+<p><a name="External_links" id="External_links"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Lambda_calculus&amp;action=edit&amp;section=19" title="Edit section: External links">edit</a>]</span> <span class="mw-headline">External links</span></h2>
+<ul>
+<li>L. Allison, <i><a href="http://www.csse.monash.edu.au/~lloyd/tildeFP/Lambda/Examples/" class="external text" title="http://www.csse.monash.edu.au/~lloyd/tildeFP/Lambda/Examples/" rel="nofollow">Some executable λ-calculus examples</a></i></li>
+<li>Chris Barker, <a href="http://ling.ucsd.edu/~barker/Lambda/" class="external text" title="http://ling.ucsd.edu/~barker/Lambda/" rel="nofollow">Lambda tutorial</a> Some executable (Javascript) simple examples, and text.</li>
+<li>Georg P. Loczewski, <a href="http://www.lambda-bound.com/book/lambdacalc/lcalconl.html" class="external text" title="http://www.lambda-bound.com/book/lambdacalc/lcalconl.html" rel="nofollow"><i>The Lambda Calculus and A++</i></a></li>
+<li>Raùl Rojas, <i><a href="http://www.inf.fu-berlin.de/lehre/WS03/alpi/lambda.pdf" class="external text" title="http://www.inf.fu-berlin.de/lehre/WS03/alpi/lambda.pdf" rel="nofollow">A Tutorial Introduction to the Lambda Calculus</a></i> -(<a href="/wiki/Portable_Document_Format" title="Portable Document Format">PDF</a>)</li>
+<li>David C. Keenan, <i><a href="http://users.bigpond.net.au/d.keenan/Lambda/" class="external text" title="http://users.bigpond.net.au/d.keenan/Lambda/" rel="nofollow">To Dissect a Mockingbird: A Graphical Notation for the Lambda Calculus with Animated Reduction</a></i></li>
+<li>Bret Victor, <i><a href="http://worrydream.com/AlligatorEggs/" class="external text" title="http://worrydream.com/AlligatorEggs/" rel="nofollow">Alligator Eggs: A Puzzle Game Based on Lambda Calculus</a></i></li>
+<li><a href="http://planetmath.org/?op=getobj&amp;from=objects&amp;id=2788" class="external text" title="http://planetmath.org/?op=getobj&amp;from=objects&amp;id=2788" rel="nofollow">Lambda Calculus</a> on <a href="/wiki/PlanetMath" title="PlanetMath">PlanetMath</a></li>
+<li>Mike Thyer, <i><a href="http://thyer.name/lambda-animator/" class="external text" title="http://thyer.name/lambda-animator/" rel="nofollow">Lambda Animator</a> a graphical Java applet demonstrating alternative reduction strategies.</i></li>
+</ul>
+
+
+<!-- Saved in parser cache with key enwiki:pcache:idhash:18203-0!1!0!default!!en!2 and timestamp 20070911171243 -->
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org/wiki/Lambda_calculus">http://en.wikipedia.org/wiki/Lambda_calculus</a>"</div>
+			<div id="catlinks"><p class='catlinks'><a href="/wiki/Special:Categories" title="Special:Categories">Categories</a>: <span dir='ltr'><a href="/wiki/Category:Computational_models" title="Category:Computational models">Computational models</a></span> | <span dir='ltr'><a href="/wiki/Category:Lambda_calculus" title="Category:Lambda calculus">Lambda calculus</a></span> | <span dir='ltr'><a href="/wiki/Category:Theoretical_computer_science" title="Category:Theoretical computer science">Theoretical computer science</a></span> | <span dir='ltr'><a href="/wiki/Category:Formal_methods" title="Category:Formal methods">Formal methods</a></span> | <span dir='ltr'><a href="/wiki/Category:Recursion_theory" title="Category:Recursion theory">Recursion theory</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<div class="pBody">
+			<ul>
+					 <li id="ca-nstab-main" class="selected"><a href="/wiki/Lambda_calculus" title="View the content page [c]" accesskey="c">Article</a></li>
+					 <li id="ca-talk"><a href="/wiki/Talk:Lambda_calculus" title="Discussion about the content page [t]" accesskey="t">Discussion</a></li>
+					 <li id="ca-edit"><a href="/w/index.php?title=Lambda_calculus&amp;action=edit" title="You can edit this page. Please use the preview button before saving. [e]" accesskey="e">Edit this page</a></li>
+					 <li id="ca-history"><a href="/w/index.php?title=Lambda_calculus&amp;action=history" title="Past versions of this page [h]" accesskey="h">History</a></li>
+				</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-personal">
+		<h5>Personal tools</h5>
+		<div class="pBody">
+			<ul>
+				<li id="pt-login"><a href="/w/index.php?title=Special:Userlogin&amp;returnto=Lambda_calculus" title="You are encouraged to log in, it is not mandatory however. [o]" accesskey="o">Sign in / create account</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-logo">
+		<a style="background-image: url(/images/wiki-en.png);" href="/wiki/Main_Page" title="Visit the Main Page [z]" accesskey="z"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-Main-page"><a href="/wiki/Main_Page">Main page</a></li>
+				<li id="n-Contents"><a href="/wiki/Wikipedia:Contents">Contents</a></li>
+				<li id="n-Featured-content"><a href="/wiki/Wikipedia:Featured_content">Featured content</a></li>
+				<li id="n-currentevents"><a href="/wiki/Portal:Current_events" title="Find background information on current events">Current events</a></li>
+				<li id="n-randompage"><a href="/wiki/Special:Random" title="Load a random page [x]" accesskey="x">Random article</a></li>
+			</ul>
+		</div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+		<h5>interaction</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-About-Wikipedia"><a href="/wiki/Wikipedia:About">About Wikipedia</a></li>
+				<li id="n-portal"><a href="/wiki/Wikipedia:Community_Portal" title="About the project, what you can do, where to find things">Community portal</a></li>
+				<li id="n-recentchanges"><a href="/wiki/Special:Recentchanges" title="The list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li>
+				<li id="n-contact"><a href="/wiki/Wikipedia:Contact_us">Contact Wikipedia</a></li>
+				<li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising" title="Support us">Donate to Wikipedia</a></li>
+				<li id="n-help"><a href="/wiki/Help:Contents" title="Guidance on how to use and edit Wikipedia">Help</a></li>
+			</ul>
+		</div>
+	</div>
+		<div id="p-search" class="portlet">
+		<h5><label for="searchInput">Search</label></h5>
+		<div id="searchBody" class="pBody">
+			<form action="/wiki/Special:Search" id="searchform"><div>
+				<input id="searchInput" name="search" type="text" title="Search Wikipedia [f]" accesskey="f" value="" />
+				<input type='submit' name="go" class="searchButton" id="searchGoButton"	value="Go" />&nbsp;
+				<input type='submit' name="fulltext" class="searchButton" id="mw-searchButton" value="Search" />
+			</div></form>
+		</div>
+	</div>
+	<div class="portlet" id="p-tb">
+		<h5>Toolbox</h5>
+		<div class="pBody">
+			<ul>
+				<li id="t-whatlinkshere"><a href="/wiki/Special:Whatlinkshere/Lambda_calculus" title="List of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+				<li id="t-recentchangeslinked"><a href="/wiki/Special:Recentchangeslinked/Lambda_calculus" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+<li id="t-upload"><a href="/wiki/Wikipedia:Upload" title="Upload images or media files [u]" accesskey="u">Upload file</a></li>
+<li id="t-specialpages"><a href="/wiki/Special:Specialpages" title="List of all special pages [q]" accesskey="q">Special pages</a></li>
+				<li id="t-print"><a href="/w/index.php?title=Lambda_calculus&amp;printable=yes" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>				<li id="t-permalink"><a href="/w/index.php?title=Lambda_calculus&amp;oldid=157186714" title="Permanent link to this version of the page">Permanent link</a></li><li id="t-cite"><a href="/w/index.php?title=Special:Cite&amp;page=Lambda_calculus&amp;id=157186714">Cite this article</a></li>			</ul>
+		</div>
+	</div>
+	<div id="p-lang" class="portlet">
+		<h5>In other languages</h5>
+		<div class="pBody">
+			<ul>
+				<li class="interwiki-bn"><a href="http://bn.wikipedia.org/wiki/%E0%A6%B2%E0%A7%8D%E0%A6%AF%E0%A6%BE%E0%A6%AE%E0%A7%8D%E2%80%8C%E0%A6%A1%E0%A6%BE_%E0%A6%95%E0%A7%8D%E0%A6%AF%E0%A6%BE%E0%A6%B2%E0%A6%95%E0%A7%81%E0%A6%B2%E0%A6%BE%E0%A6%B8">বাংলা</a></li>
+				<li class="interwiki-ca"><a href="http://ca.wikipedia.org/wiki/C%C3%A0lcul_lambda">Català</a></li>
+				<li class="interwiki-cs"><a href="http://cs.wikipedia.org/wiki/Lambda_kalkul">Česky</a></li>
+				<li class="interwiki-de"><a href="http://de.wikipedia.org/wiki/Lambda-Kalk%C3%BCl">Deutsch</a></li>
+				<li class="interwiki-es"><a href="http://es.wikipedia.org/wiki/C%C3%A1lculo_lambda">Español</a></li>
+				<li class="interwiki-eo"><a href="http://eo.wikipedia.org/wiki/Lambda-abstraktado">Esperanto</a></li>
+				<li class="interwiki-fr"><a href="http://fr.wikipedia.org/wiki/Lambda-calcul">Français</a></li>
+				<li class="interwiki-hr"><a href="http://hr.wikipedia.org/wiki/Lambda_ra%C4%8Dun">Hrvatski</a></li>
+				<li class="interwiki-it"><a href="http://it.wikipedia.org/wiki/Lambda_calcolo">Italiano</a></li>
+				<li class="interwiki-he"><a href="http://he.wikipedia.org/wiki/%D7%AA%D7%97%D7%A9%D7%99%D7%91_%D7%9C%D7%9E%D7%91%D7%93%D7%90">עברית</a></li>
+				<li class="interwiki-hu"><a href="http://hu.wikipedia.org/wiki/Lambda-kalkulus">Magyar</a></li>
+				<li class="interwiki-nl"><a href="http://nl.wikipedia.org/wiki/Lambdacalculus">Nederlands</a></li>
+				<li class="interwiki-ja"><a href="http://ja.wikipedia.org/wiki/%E3%83%A9%E3%83%A0%E3%83%80%E8%A8%88%E7%AE%97">日本語</a></li>
+				<li class="interwiki-pl"><a href="http://pl.wikipedia.org/wiki/Rachunek_lambda">Polski</a></li>
+				<li class="interwiki-pt"><a href="http://pt.wikipedia.org/wiki/C%C3%A1lculo_lambda">Português</a></li>
+				<li class="interwiki-ru"><a href="http://ru.wikipedia.org/wiki/%D0%9B%D1%8F%D0%BC%D0%B1%D0%B4%D0%B0-%D0%B8%D1%81%D1%87%D0%B8%D1%81%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5">Русский</a></li>
+				<li class="interwiki-simple"><a href="http://simple.wikipedia.org/wiki/Lambda_calculus">Simple English</a></li>
+				<li class="interwiki-sk"><a href="http://sk.wikipedia.org/wiki/Lambda_kalkul">Slovenčina</a></li>
+				<li class="interwiki-sv"><a href="http://sv.wikipedia.org/wiki/Lambdakalkyl">Svenska</a></li>
+				<li class="interwiki-zh"><a href="http://zh.wikipedia.org/wiki/%CE%9B%E6%BC%94%E7%AE%97">中文</a></li>
+			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="/skins-1.5/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>
+				<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="/images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>
+			<ul id="f-list">
+				<li id="lastmod"> This page was last modified 17:12, 11 September 2007.</li>
+				<li id="copyright">All text is available under the terms of the <a class='internal' href="/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="/wiki/Wikipedia:Copyrights" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a U.S. registered <a class='internal' href="/wiki/501%28c%29#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="/wiki/Non-profit_organization" title="Non-profit organization">nonprofit</a> <a href="/wiki/Charitable_organization" title="Charitable organization">charity</a>.<br /></li>
+				<li id="privacy"><a href="http://wikimediafoundation.org/wiki/Privacy_policy" title="wikimedia:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="/wiki/Wikipedia:About" title="Wikipedia:About">About Wikipedia</a></li>
+				<li id="disclaimer"><a href="/wiki/Wikipedia:General_disclaimer" title="Wikipedia:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+		
+	
+		<script type="text/javascript">if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by srv169 in 0.060 secs. --></body></html>

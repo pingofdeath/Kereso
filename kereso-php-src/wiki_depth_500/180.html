@@ -1,0 +1,210 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+				<meta name="keywords" content="Constraint satisfaction problem,AC-3 algorithm,Artificial intelligence,Backtracking,Boolean satisfiability problem,Combinatorial search,Computational complexity theory,Constraint,Constraint programming,Constraint satisfaction,Declarative programming" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="http://www.gnu.org/copyleft/fdl.html" />
+		<title>Constraint satisfaction problem - Wikipedia, the free encyclopedia</title>
+		<style type="text/css" media="screen, projection">/*<![CDATA[*/
+			@import "/skins-1.5/common/shared.css?99";
+			@import "/skins-1.5/monobook/main.css?99";
+		/*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="/skins-1.5/common/commonPrint.css?99" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE50Fixes.css?99";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE55Fixes.css?99";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "/skins-1.5/monobook/IE60Fixes.css?99";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "/skins-1.5/monobook/IE70Fixes.css?99";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="/skins-1.5/common/IEFixes.js?99"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		
+		<script type= "text/javascript">/*<![CDATA[*/
+var skin = "monobook";
+var stylepath = "/skins-1.5";
+var wgArticlePath = "/wiki/$1";
+var wgScriptPath = "/w";
+var wgScript = "/w/index.php";
+var wgServer = "http://en.wikipedia.org";
+var wgCanonicalNamespace = "";
+var wgCanonicalSpecialPageName = false;
+var wgNamespaceNumber = 0;
+var wgPageName = "Constraint_satisfaction_problem";
+var wgTitle = "Constraint satisfaction problem";
+var wgAction = "view";
+var wgRestrictionEdit = [];
+var wgRestrictionMove = [];
+var wgArticleId = "211652";
+var wgIsArticle = true;
+var wgUserName = null;
+var wgUserGroups = null;
+var wgUserLanguage = "en";
+var wgContentLanguage = "en";
+var wgBreakFrames = false;
+var wgCurRevisionId = "146625314";
+/*]]>*/</script>
+                
+		<script type="text/javascript" src="/skins-1.5/common/wikibits.js?99"><!-- wikibits js --></script>
+		<script type="text/javascript" src="/w/index.php?title=-&amp;action=raw&amp;gen=js&amp;useskin=monobook"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "/w/index.php?title=MediaWiki:Common.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=MediaWiki:Monobook.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=-&action=raw&gen=css&maxage=2678400";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+		<script type="text/javascript" src="/skins-1.5/common/ajax.js?99"></script>
+	</head>
+<body  class="mediawiki ns-0 ltr page-Constraint_satisfaction_problem">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">Constraint satisfaction problem</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<p><b>Constraint satisfaction problems</b> or <b>CSP</b>s are <a href="/wiki/Mathematics" title="Mathematics">mathematical</a> problems where one must find states or objects that satisfy a number of <i><a href="/wiki/Constraint" title="Constraint">constraints</a></i> or criteria. CSPs are the subject of intense research in both <a href="/wiki/Artificial_intelligence" title="Artificial intelligence">artificial intelligence</a> and <a href="/wiki/Operations_research" title="Operations research">operations research</a>. Many CSPs require a combination of <a href="/wiki/Heuristics" title="Heuristics">heuristics</a> and <a href="/wiki/Combinatorial_search" title="Combinatorial search">combinatorial search</a> methods to be solved in a reasonable time.</p>
+<p>Examples of constraint satisfaction problems:</p>
+<ul>
+<li><a href="/wiki/Eight_queens_puzzle" title="Eight queens puzzle">Eight queens puzzle</a></li>
+<li><a href="/wiki/Four_color_theorem" title="Four color theorem">Map coloring problem</a></li>
+<li><a href="/wiki/Sudoku" title="Sudoku">Sudoku</a></li>
+<li><a href="/wiki/Boolean_satisfiability_problem" title="Boolean satisfiability problem">Boolean satisfiability</a></li>
+</ul>
+<p>Algorithms used for solving constraint satisfaction problems include the <a href="/wiki/AC-3_algorithm" title="AC-3 algorithm">AC-3 algorithm</a>, <a href="/wiki/Backtracking" title="Backtracking">Backtracking</a>, and the <a href="/wiki/Min-conflicts_algorithm" title="Min-conflicts algorithm">min-conflicts algorithm</a>.</p>
+<p><a name="Theoretical_aspects_of_CSPs" id="Theoretical_aspects_of_CSPs"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Constraint_satisfaction_problem&amp;action=edit&amp;section=1" title="Edit section: Theoretical aspects of CSPs">edit</a>]</span> <span class="mw-headline">Theoretical aspects of CSPs</span></h2>
+<p>CSPs are also studied in <a href="/wiki/Computational_complexity_theory" title="Computational complexity theory">computational complexity theory</a> and <a href="/wiki/Finite_model_theory" title="Finite model theory">finite model theory</a>. An important question is whether for each set of relations, the set of all CSPs that can be represented using only relations chosen from that set is either in <a href="/wiki/PTIME" title="PTIME">PTIME</a> or otherwise <a href="/wiki/NP-complete" title="NP-complete">NP-complete</a> (assuming P ≠ NP). If such a <a href="/wiki/Dichotomy" title="Dichotomy">dichotomy</a> is true, then CSPs provide one of the largest known subsets of <a href="/wiki/NP_%28complexity%29" title="NP (complexity)">NP</a> which avoids problems that are neither <a href="/wiki/PTIME" title="PTIME">polynomial time solvable</a> nor <a href="/wiki/NP-complete" title="NP-complete">NP-complete</a>, whose existence was demonstrated by <a href="/wiki/Ladner%27s_theorem" title="Ladner's theorem">Ladner</a>. Dichotomy results are known for CSPs where the domain of values is of size 2 or 3, but the general case is still open.</p>
+<p>Most classes of CSPs that are known to be tractable are those where the hypergraph of constraints has bounded treewidth (and there are no restrictions on the set of constraint relations), or where the constraints have arbitrary form but there exist essentially non-unary polymorphisms of the set of constraint relations.</p>
+<p><a name="See_also" id="See_also"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Constraint_satisfaction_problem&amp;action=edit&amp;section=2" title="Edit section: See also">edit</a>]</span> <span class="mw-headline">See also</span></h2>
+<ul>
+<li><a href="/wiki/Constraint_satisfaction" title="Constraint satisfaction">Constraint satisfaction</a></li>
+<li><a href="/wiki/Declarative_programming" title="Declarative programming">Declarative programming</a></li>
+<li><a href="/wiki/Constraint_programming" title="Constraint programming">Constraint programming</a></li>
+<li><a href="/wiki/DisCSP" title="DisCSP">Distributed Constraint Satisfaction Problem</a> (DisCSP)</li>
+</ul>
+<p><a name="External_links" id="External_links"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Constraint_satisfaction_problem&amp;action=edit&amp;section=3" title="Edit section: External links">edit</a>]</span> <span class="mw-headline">External links</span></h2>
+<ul>
+<li><cite class="book" style="font-style:normal" id="Reference-Tsang-1993">Tsang, Edward (1993). <i><a href="http://www.bracil.net/edward/FCS.html" class="external text" title="http://www.bracil.net/edward/FCS.html" rel="nofollow">Foundations of Constraint Satisfaction</a></i>. Academic Press.</cite><span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Foundations+of+Constraint+Satisfaction&amp;rft.aulast=Tsang&amp;rft.aufirst=Edward&amp;rft.pub=Academic+Press&amp;rft_id=http%3A%2F%2Fwww.bracil.net%2Fedward%2FFCS.html">&#160;</span> <a href="/w/index.php?title=Special:Booksources&amp;isbn=0127016104" class="internal">ISBN 0-12-701610-4</a></li>
+<li><cite class="book" style="font-style:normal" id="Reference-Dechter-2003">Dechter, Rina (2003). <i><a href="http://www.ics.uci.edu/~dechter/books/index.html" class="external text" title="http://www.ics.uci.edu/~dechter/books/index.html" rel="nofollow">Constraint processing</a></i>. Morgan Kaufmann.</cite><span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Constraint+processing&amp;rft.aulast=Dechter&amp;rft.aufirst=Rina&amp;rft.pub=Morgan+Kaufmann&amp;rft_id=http%3A%2F%2Fwww.ics.uci.edu%2F%7Edechter%2Fbooks%2Findex.html">&#160;</span> <a href="/w/index.php?title=Special:Booksources&amp;isbn=1558608907" class="internal">ISBN 1-55860-890-7</a></li>
+<li><cite class="book" style="font-style:normal" id="Reference-Apt-2003">Apt, Krzysztof (2003). <i>Principles of constraint programming</i>. Cambridge University Press.</cite><span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Principles+of+constraint+programming&amp;rft.aulast=Apt&amp;rft.aufirst=Krzysztof&amp;rft.pub=Cambridge+University+Press">&#160;</span> <a href="/w/index.php?title=Special:Booksources&amp;isbn=0521825830" class="internal">ISBN 0-521-82583-0</a></li>
+<li>Tomás Feder, <a href="http://theory.stanford.edu/~tomas/consmod.pdf" class="external text" title="http://theory.stanford.edu/~tomas/consmod.pdf" rel="nofollow"><i>Constraint satisfaction: a personal perspective</i></a>, manuscript.</li>
+<li><a href="http://4c.ucc.ie/web/archive/index.jsp" class="external text" title="http://4c.ucc.ie/web/archive/index.jsp" rel="nofollow">Constraints archive</a></li>
+<li><a href="http://www.nlsde.buaa.edu.cn/~kexu/benchmarks/benchmarks.htm" class="external text" title="http://www.nlsde.buaa.edu.cn/~kexu/benchmarks/benchmarks.htm" rel="nofollow">Forced Satisfiable CSP Benchmarks of Model RB</a></li>
+<li><a href="http://www.cril.univ-artois.fr/~lecoutre/research/benchmarks/benchmarks.html" class="external text" title="http://www.cril.univ-artois.fr/~lecoutre/research/benchmarks/benchmarks.html" rel="nofollow">Benchmarks -- XML representation of CSP instances</a></li>
+</ul>
+
+<!-- 
+Pre-expand include size: 19633 bytes
+Post-expand include size: 4085 bytes
+Template argument size: 3057 bytes
+Maximum: 2048000 bytes
+-->
+
+<!-- Saved in parser cache with key enwiki:pcache:idhash:211652-0!1!0!default!!en!2 and timestamp 20070913161246 -->
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org/wiki/Constraint_satisfaction_problem">http://en.wikipedia.org/wiki/Constraint_satisfaction_problem</a>"</div>
+			<div id="catlinks"><p class='catlinks'><a href="/wiki/Special:Categories" title="Special:Categories">Category</a>: <span dir='ltr'><a href="/wiki/Category:Constraint_satisfaction" title="Category:Constraint satisfaction">Constraint satisfaction</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<div class="pBody">
+			<ul>
+					 <li id="ca-nstab-main" class="selected"><a href="/wiki/Constraint_satisfaction_problem" title="View the content page [c]" accesskey="c">Article</a></li>
+					 <li id="ca-talk" class="new"><a href="/w/index.php?title=Talk:Constraint_satisfaction_problem&amp;action=edit" title="Discussion about the content page [t]" accesskey="t">Discussion</a></li>
+					 <li id="ca-edit"><a href="/w/index.php?title=Constraint_satisfaction_problem&amp;action=edit" title="You can edit this page. Please use the preview button before saving. [e]" accesskey="e">Edit this page</a></li>
+					 <li id="ca-history"><a href="/w/index.php?title=Constraint_satisfaction_problem&amp;action=history" title="Past versions of this page [h]" accesskey="h">History</a></li>
+				</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-personal">
+		<h5>Personal tools</h5>
+		<div class="pBody">
+			<ul>
+				<li id="pt-login"><a href="/w/index.php?title=Special:Userlogin&amp;returnto=Constraint_satisfaction_problem" title="You are encouraged to log in, it is not mandatory however. [o]" accesskey="o">Sign in / create account</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-logo">
+		<a style="background-image: url(/images/wiki-en.png);" href="/wiki/Main_Page" title="Visit the Main Page [z]" accesskey="z"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-Main-page"><a href="/wiki/Main_Page">Main page</a></li>
+				<li id="n-Contents"><a href="/wiki/Wikipedia:Contents">Contents</a></li>
+				<li id="n-Featured-content"><a href="/wiki/Wikipedia:Featured_content">Featured content</a></li>
+				<li id="n-currentevents"><a href="/wiki/Portal:Current_events" title="Find background information on current events">Current events</a></li>
+				<li id="n-randompage"><a href="/wiki/Special:Random" title="Load a random page [x]" accesskey="x">Random article</a></li>
+			</ul>
+		</div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+		<h5>interaction</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-About-Wikipedia"><a href="/wiki/Wikipedia:About">About Wikipedia</a></li>
+				<li id="n-portal"><a href="/wiki/Wikipedia:Community_Portal" title="About the project, what you can do, where to find things">Community portal</a></li>
+				<li id="n-recentchanges"><a href="/wiki/Special:Recentchanges" title="The list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li>
+				<li id="n-contact"><a href="/wiki/Wikipedia:Contact_us">Contact Wikipedia</a></li>
+				<li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising" title="Support us">Donate to Wikipedia</a></li>
+				<li id="n-help"><a href="/wiki/Help:Contents" title="Guidance on how to use and edit Wikipedia">Help</a></li>
+			</ul>
+		</div>
+	</div>
+		<div id="p-search" class="portlet">
+		<h5><label for="searchInput">Search</label></h5>
+		<div id="searchBody" class="pBody">
+			<form action="/wiki/Special:Search" id="searchform"><div>
+				<input id="searchInput" name="search" type="text" title="Search Wikipedia [f]" accesskey="f" value="" />
+				<input type='submit' name="go" class="searchButton" id="searchGoButton"	value="Go" />&nbsp;
+				<input type='submit' name="fulltext" class="searchButton" id="mw-searchButton" value="Search" />
+			</div></form>
+		</div>
+	</div>
+	<div class="portlet" id="p-tb">
+		<h5>Toolbox</h5>
+		<div class="pBody">
+			<ul>
+				<li id="t-whatlinkshere"><a href="/wiki/Special:Whatlinkshere/Constraint_satisfaction_problem" title="List of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+				<li id="t-recentchangeslinked"><a href="/wiki/Special:Recentchangeslinked/Constraint_satisfaction_problem" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+<li id="t-upload"><a href="/wiki/Wikipedia:Upload" title="Upload images or media files [u]" accesskey="u">Upload file</a></li>
+<li id="t-specialpages"><a href="/wiki/Special:Specialpages" title="List of all special pages [q]" accesskey="q">Special pages</a></li>
+				<li id="t-print"><a href="/w/index.php?title=Constraint_satisfaction_problem&amp;printable=yes" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>				<li id="t-permalink"><a href="/w/index.php?title=Constraint_satisfaction_problem&amp;oldid=146625314" title="Permanent link to this version of the page">Permanent link</a></li><li id="t-cite"><a href="/w/index.php?title=Special:Cite&amp;page=Constraint_satisfaction_problem&amp;id=146625314">Cite this article</a></li>			</ul>
+		</div>
+	</div>
+	<div id="p-lang" class="portlet">
+		<h5>In other languages</h5>
+		<div class="pBody">
+			<ul>
+				<li class="interwiki-de"><a href="http://de.wikipedia.org/wiki/Constraint_Satisfaction_Problem">Deutsch</a></li>
+			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="/skins-1.5/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>
+				<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="/images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>
+			<ul id="f-list">
+				<li id="lastmod"> This page was last modified 22:15, 23 July 2007.</li>
+				<li id="copyright">All text is available under the terms of the <a class='internal' href="/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="/wiki/Wikipedia:Copyrights" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a U.S. registered <a class='internal' href="/wiki/501%28c%29#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="/wiki/Non-profit_organization" title="Non-profit organization">nonprofit</a> <a href="/wiki/Charitable_organization" title="Charitable organization">charity</a>.<br /></li>
+				<li id="privacy"><a href="http://wikimediafoundation.org/wiki/Privacy_policy" title="wikimedia:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="/wiki/Wikipedia:About" title="Wikipedia:About">About Wikipedia</a></li>
+				<li id="disclaimer"><a href="/wiki/Wikipedia:General_disclaimer" title="Wikipedia:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+		
+	
+		<script type="text/javascript">if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by srv138 in 0.066 secs. --></body></html>

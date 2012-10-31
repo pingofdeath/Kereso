@@ -1,0 +1,276 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ru" lang="ru" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+				<meta name="keywords" content="Алгоритм Беллмана — Форда,Алгоритм Дейкстры,Граф (математика),Математика,Матрица,Болванка статьи,Правила и указания" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Википедия (Русский)" />
+		<link rel="copyright" href="http://www.gnu.org/copyleft/fdl.html" />
+		<title>Алгоритм Беллмана — Форда — Википедия</title>
+		<style type="text/css" media="screen, projection">/*<![CDATA[*/
+			@import "/skins-1.5/common/shared.css?99";
+			@import "/skins-1.5/monobook/main.css?99";
+		/*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="/skins-1.5/common/commonPrint.css?99" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE50Fixes.css?99";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE55Fixes.css?99";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "/skins-1.5/monobook/IE60Fixes.css?99";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "/skins-1.5/monobook/IE70Fixes.css?99";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="/skins-1.5/common/IEFixes.js?99"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		
+		<script type= "text/javascript">/*<![CDATA[*/
+var skin = "monobook";
+var stylepath = "/skins-1.5";
+var wgArticlePath = "/wiki/$1";
+var wgScriptPath = "/w";
+var wgScript = "/w/index.php";
+var wgServer = "http://ru.wikipedia.org";
+var wgCanonicalNamespace = "";
+var wgCanonicalSpecialPageName = false;
+var wgNamespaceNumber = 0;
+var wgPageName = "Алгоритм_Беллмана_— Форда";
+var wgTitle = "Алгоритм Беллмана — Форда";
+var wgAction = "view";
+var wgRestrictionEdit = [];
+var wgRestrictionMove = [];
+var wgArticleId = "248821";
+var wgIsArticle = true;
+var wgUserName = null;
+var wgUserGroups = null;
+var wgUserLanguage = "ru";
+var wgContentLanguage = "ru";
+var wgBreakFrames = false;
+var wgCurRevisionId = "5243739";
+/*]]>*/</script>
+                
+		<script type="text/javascript" src="/skins-1.5/common/wikibits.js?99"><!-- wikibits js --></script>
+		<script type="text/javascript" src="/w/index.php?title=-&amp;action=raw&amp;gen=js&amp;useskin=monobook"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "/w/index.php?title=MediaWiki:Common.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=MediaWiki:Monobook.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=-&action=raw&gen=css&maxage=2678400";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+		<script type="text/javascript" src="/skins-1.5/common/ajax.js?99"></script>
+	</head>
+<body  class="mediawiki ns-0 ltr page-Алгоритм_Беллмана_—_Форда">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+		<div id="siteNotice"><script type="text/javascript" language="JavaScript">
+<!--
+document.writeln("\x3cp\x3e\x3cspan style=\"display:none;\"\x3e\x3c/span\x3e\n\x3c/p\x3e");
+-->
+</script></div>		<h1 class="firstHeading">Алгоритм Беллмана — Форда</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">Материал из Википедии — свободной энциклопедии</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Перейти к: <a href="#column-one">навигация</a>, <a href="#searchInput">поиск</a></div>			<!-- start content -->
+			<p><b>Алгоритм Беллмана — Форда</b> — алгоритм поиска кратчайшего пути во взвешенном <a href="/wiki/%D0%93%D1%80%D0%B0%D1%84_%28%D0%BC%D0%B0%D1%82%D0%B5%D0%BC%D0%B0%D1%82%D0%B8%D0%BA%D0%B0%29" title="Граф (математика)">графе</a>. За время <i>O(V × E)</i> алгоритм находит кратчайшие пути от одной вершины графа до всех остальных. В отличие от <a href="/wiki/%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC_%D0%94%D0%B5%D0%B9%D0%BA%D1%81%D1%82%D1%80%D1%8B" title="Алгоритм Дейкстры">алгоритма Дейкстры</a>, алгоритм Беллмана — Форда допускает рёбра с отрицательным весом.</p>
+<table id="toc" class="toc" summary="Содержание">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Содержание</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#.D0.A4.D0.BE.D1.80.D0.BC.D1.83.D0.BB.D0.B8.D1.80.D0.BE.D0.B2.D0.BA.D0.B0_.D0.B7.D0.B0.D0.B4.D0.B0.D1.87.D0.B8"><span class="tocnumber">1</span> <span class="toctext">Формулировка задачи</span></a></li>
+<li class="toclevel-1"><a href="#.D0.A0.D0.B5.D1.88.D0.B5.D0.BD.D0.B8.D0.B5_.D0.B7.D0.B0.D0.B4.D0.B0.D1.87.D0.B8_.D0.BD.D0.B0_.D0.B3.D1.80.D0.B0.D1.84.D0.B5_.D0.B1.D0.B5.D0.B7_.D0.BE.D1.82.D1.80.D0.B8.D1.86.D0.B0.D1.82.D0.B5.D0.BB.D1.8C.D0.BD.D1.8B.D1.85_.D1.86.D0.B8.D0.BA.D0.BB.D0.BE.D0.B2"><span class="tocnumber">2</span> <span class="toctext">Решение задачи на графе без отрицательных циклов</span></a></li>
+<li class="toclevel-1"><a href="#.D0.93.D1.80.D0.B0.D1.84_.D1.81_.D0.BE.D1.82.D1.80.D0.B8.D1.86.D0.B0.D1.82.D0.B5.D0.BB.D1.8C.D0.BD.D1.8B.D0.BC.D0.B8_.D1.86.D0.B8.D0.BA.D0.BB.D0.B0.D0.BC.D0.B8"><span class="tocnumber">3</span> <span class="toctext">Граф с отрицательными циклами</span></a></li>
+<li class="toclevel-1"><a href="#.D0.A1.D1.81.D1.8B.D0.BB.D0.BA.D0.B8"><span class="tocnumber">4</span> <span class="toctext">Ссылки</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "показать"; var tocHideText = "убрать"; showTocToggle(); } 
+//]]>
+</script>
+<p><a name=".D0.A4.D0.BE.D1.80.D0.BC.D1.83.D0.BB.D0.B8.D1.80.D0.BE.D0.B2.D0.BA.D0.B0_.D0.B7.D0.B0.D0.B4.D0.B0.D1.87.D0.B8"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC_%D0%91%D0%B5%D0%BB%D0%BB%D0%BC%D0%B0%D0%BD%D0%B0_%E2%80%94%C2%A0%D0%A4%D0%BE%D1%80%D0%B4%D0%B0&amp;action=edit&amp;section=1" title="Править секцию: Формулировка задачи">править</a>]</span> <span class="mw-headline">Формулировка задачи</span></h2>
+<p>Дан ориентированный или неориентированный <a href="/wiki/%D0%93%D1%80%D0%B0%D1%84_%28%D0%BC%D0%B0%D1%82%D0%B5%D0%BC%D0%B0%D1%82%D0%B8%D0%BA%D0%B0%29" title="Граф (математика)">граф</a> <i>G</i> со взвешенными рёбрами. Длиной пути назовём сумму весов рёбер, входящих в этот путь. Требуется найти кратчайшие пути от выделенной вершины <i>s</i> до всех вершин графа.</p>
+<p>Заметим, что кратчайших путей может не существовать. Так, в графе, содержащем цикл с отрицательным суммарным весом, существует сколь угодно короткий путь от одной вершины этого цикла до другой (каждый обход цикла уменьшает длину пути). Цикл, сумма весов рёбер которого отрицательна, называется <b>отрицательным циклом</b>.</p>
+<p><a name=".D0.A0.D0.B5.D1.88.D0.B5.D0.BD.D0.B8.D0.B5_.D0.B7.D0.B0.D0.B4.D0.B0.D1.87.D0.B8_.D0.BD.D0.B0_.D0.B3.D1.80.D0.B0.D1.84.D0.B5_.D0.B1.D0.B5.D0.B7_.D0.BE.D1.82.D1.80.D0.B8.D1.86.D0.B0.D1.82.D0.B5.D0.BB.D1.8C.D0.BD.D1.8B.D1.85_.D1.86.D0.B8.D0.BA.D0.BB.D0.BE.D0.B2"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC_%D0%91%D0%B5%D0%BB%D0%BB%D0%BC%D0%B0%D0%BD%D0%B0_%E2%80%94%C2%A0%D0%A4%D0%BE%D1%80%D0%B4%D0%B0&amp;action=edit&amp;section=2" title="Править секцию: Решение задачи на графе без отрицательных циклов">править</a>]</span> <span class="mw-headline">Решение задачи на графе без отрицательных циклов</span></h2>
+<p>Решим поставленную задачу на графе, в котором заведомо нет отрицательных циклов.</p>
+<p>Для нахождения кратчайших путей от одной вершины до всех остальных, воспользуемся методом динамического программирования. Построим <a href="/wiki/%D0%9C%D0%B0%D1%82%D1%80%D0%B8%D1%86%D0%B0" title="Матрица">матрицу</a> A<sub>ij</sub>, элементы которой будут обозначать следующее: A<sub>ij</sub> — это длина кратчайшего пути из <i>s</i> в <i>i</i>, содержащего ровно <i>j</i> рёбер.</p>
+<p>Путь, содержащий 0 рёбер существует только до вершины <i>s</i>. Таким образом, A<sub>i0</sub> равно 0 при <i>i</i> = <i>s</i>, и <img class="tex" alt="+\infty" src="http://upload.wikimedia.org/math/2/8/c/28cfe0a2608499ff5984a938e0d16d64.png" /> в противном случае.</p>
+<p>Теперь рассмотрим все пути из <i>s</i> в <i>i</i>, содержащие ровно <i>j</i> рёбер. Каждый такой путь есть путь из <span class="texhtml"><i>j</i> − 1</span> ребра, к которому добавлено последнее ребро. Если про пути длины <span class="texhtml"><i>j</i> − 1</span> все данные уже подсчитаны, то определить <i>j</i>-й столбец матрицы не составляет труда.</p>
+<p>Так выглядит алгоритм поиска длин кратчайших путей в графе без отрицательных циклов:</p>
+<pre>
+<b>for</b> <img class="tex" alt="v \in V" src="http://upload.wikimedia.org/math/f/5/9/f597bb2e018f9feb80df75d899613dbe.png" />
+  <b>do</b> <img class="tex" alt="d[v] \gets +\infty" src="http://upload.wikimedia.org/math/1/c/0/1c0ab82e4dc883f21dffa2847957e00d.png" />
+<img class="tex" alt="d[s] \gets 0" src="http://upload.wikimedia.org/math/1/7/e/17e24208fffe7a3d46fe5d56160b7704.png" />
+<b>for</b> <img class="tex" alt="i \gets 1" src="http://upload.wikimedia.org/math/c/d/5/cd54848d4c17f571bf24f4fd42ba5b7f.png" /> <b>to</b> <span class="texhtml"> | <i>V</i> |  − 1</span>
+  <b>do for</b> <img class="tex" alt="(u, v) \in E" src="http://upload.wikimedia.org/math/2/0/7/2077a4df35530fa21c75805d81eb3822.png" />
+    <b>if</b> <span class="texhtml"><i>d</i>[<i>v</i>] &gt; <i>d</i>[<i>u</i>] + <i>w</i>(<i>u</i>,<i>v</i>)</span>
+      <b>then</b> <img class="tex" alt="d[v] \gets d[u] + w(u, v)" src="http://upload.wikimedia.org/math/2/7/b/27b66a814c7c6c1fcd571064df43d637.png" />
+<b>return</b> <span class="texhtml"><i>d</i></span>
+</pre>
+<p>Здесь <i>V</i> — множество вершин графа <i>G</i>, <i>E</i> — множество его рёбер, а <i>w</i> — весовая функция, заданная на ребрах графа.</p>
+<p>Внешний цикл выполняется |<i>V</i>| - 1 раз, поскольку кратчайший путь не может содержать большее число ребер, иначе он будет содержать цикл, который точно можно выкинуть.</p>
+<p>Вместо массива <i>d</i> можно хранить всю матрицу A, но это требует <i>O(V<sup>2</sup>)</i> памяти. Зато при этом можно вычислить и сами кратчайшие пути, а не только их длины. Для этого заведем матрицу <i>P<sub>ij</sub></i>.</p>
+<p>Если элемент <i>A<sub>ij</sub></i> содержит длину кратчайшего пути из <i>s</i> в <i>i</i>, содержащего <i>j</i> рёбер, то <i>P<sub>ij</sub></i> содержит предыдущую вершину до <i>i</i> в одном из таких кратчайших путей (ведь их может быть несколько).</p>
+<p>Теперь алгоритм Беллмана — Форда выглядит так:</p>
+<pre>
+<b>for</b> <img class="tex" alt="v \in V" src="http://upload.wikimedia.org/math/f/5/9/f597bb2e018f9feb80df75d899613dbe.png" />
+  <b>for</b> <img class="tex" alt="i \gets 0" src="http://upload.wikimedia.org/math/d/b/f/dbfd18a229c343deaba09c0165f8732c.png" /> <b>to</b> <span class="texhtml"> | <i>V</i> |  − 1</span>
+    <b>do</b> <img class="tex" alt="A_{vi} \gets +\infty" src="http://upload.wikimedia.org/math/8/1/2/8123b02cbacd208139e5bdd5cba9a044.png" />
+<img class="tex" alt="A_{s0} \gets 0" src="http://upload.wikimedia.org/math/b/9/1/b919ca6ed7f06710b670be7fb7cebd53.png" />
+<b>for</b> <img class="tex" alt="i \gets 1" src="http://upload.wikimedia.org/math/c/d/5/cd54848d4c17f571bf24f4fd42ba5b7f.png" /> <b>to</b> <span class="texhtml"> | <i>V</i> |  − 1</span>
+  <b>do for</b> <img class="tex" alt="(u, v) \in E" src="http://upload.wikimedia.org/math/2/0/7/2077a4df35530fa21c75805d81eb3822.png" />
+    <b>if</b> <span class="texhtml"><i>A</i><sub><i>v</i><i>i</i></sub> &gt; <i>A</i><sub><i>u</i>,<i>i</i> − 1</sub> + <i>w</i>(<i>u</i>,<i>v</i>)</span>
+      <b>then</b> <img class="tex" alt="A_{vi} \gets A_{u, i-1} + w(u, v)" src="http://upload.wikimedia.org/math/3/e/6/3e6292a216bf6a6d0dad24a0f6a8d3f4.png" />
+           <img class="tex" alt="P_{vi} \gets u" src="http://upload.wikimedia.org/math/a/5/4/a54ea9e6732b8c4606c4a9493da97658.png" />
+</pre>
+<p>После выполнения этого алгоритма элементы <span class="texhtml"><i>A</i><sub><i>i</i>,<i>j</i></sub></span> содержат длины кратчайших путей от <i>s</i> до <i>i</i> с количеством ребер <i>j</i>, и из всех таких путей следует выбрать самый короткий. А сам кратчайший путь до вершины <i>i</i> с <i>j</i> ребрами восстанавливается так:</p>
+<pre>
+<b>while</b> <span class="texhtml"><i>j</i> &gt; 0</span>
+  <img class="tex" alt="p[j] \gets i" src="http://upload.wikimedia.org/math/5/5/9/559c4d5978fd56cefd0914ca721371f7.png" />
+  <img class="tex" alt="i \gets P_{ij}" src="http://upload.wikimedia.org/math/2/a/c/2ac21d0d2e29730d9873de43e3593d98.png" />
+  <img class="tex" alt="j \gets j - 1" src="http://upload.wikimedia.org/math/1/f/6/1f69821882a3ff4643e31956e6eda703.png" />
+<b>return</b> <i>p</i>
+</pre>
+<p><a name=".D0.93.D1.80.D0.B0.D1.84_.D1.81_.D0.BE.D1.82.D1.80.D0.B8.D1.86.D0.B0.D1.82.D0.B5.D0.BB.D1.8C.D0.BD.D1.8B.D0.BC.D0.B8_.D1.86.D0.B8.D0.BA.D0.BB.D0.B0.D0.BC.D0.B8"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC_%D0%91%D0%B5%D0%BB%D0%BB%D0%BC%D0%B0%D0%BD%D0%B0_%E2%80%94%C2%A0%D0%A4%D0%BE%D1%80%D0%B4%D0%B0&amp;action=edit&amp;section=3" title="Править секцию: Граф с отрицательными циклами">править</a>]</span> <span class="mw-headline">Граф с отрицательными циклами</span></h2>
+<p>Алгоритм Беллмана — Форда позволяет очень просто определить, существует ли в графе <i>G</i> отрицательный цикл, достижимый из вершины <i>s</i>. Достаточно произвести внешнюю итерацию цикла не |<i>V</i>| - 1, a ровно |<i>V</i>| раз. Если при исполении последней итерации длина кратчайшего пути до какой-либо вершины строго уменьшилась, то в графе есть отрицательный цикл, достижимый из <i>s</i>.</p>
+<p><a name=".D0.A1.D1.81.D1.8B.D0.BB.D0.BA.D0.B8"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC_%D0%91%D0%B5%D0%BB%D0%BB%D0%BC%D0%B0%D0%BD%D0%B0_%E2%80%94%C2%A0%D0%A4%D0%BE%D1%80%D0%B4%D0%B0&amp;action=edit&amp;section=4" title="Править секцию: Ссылки">править</a>]</span> <span class="mw-headline">Ссылки</span></h2>
+<ul>
+<li><a href="http://maximal.hocomua.ru/ford_bellman.htm" class="external text" title="http://maximal.hocomua.ru/ford_bellman.htm" rel="nofollow">Реализация алгоритма Форда-Беллмана на maximal.hocomua.ru</a></li>
+<li><a href="http://maximal.hocomua.ru/negative_cycle.htm" class="external text" title="http://maximal.hocomua.ru/negative_cycle.htm" rel="nofollow">Реализация алгоритма Поиска отрицательного цикла на maximal.hocomua.ru</a></li>
+</ul>
+<div class="boilerplate metadata" id="stub">
+<table align="center" border="0" cellpadding="0" cellspacing="4" style="background: none;">
+<tr>
+<td><a href="/wiki/%D0%98%D0%B7%D0%BE%D0%B1%D1%80%D0%B0%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5:Crystal_kformula.png" class="image" title="Формула"><img alt="Формула" src="http://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Crystal_kformula.png/60px-Crystal_kformula.png" width="60" height="60" border="0" /></a></td>
+<td><i>Это <a href="/wiki/%D0%92%D0%B8%D0%BA%D0%B8%D0%BF%D0%B5%D0%B4%D0%B8%D1%8F:%D0%91%D0%BE%D0%BB%D0%B2%D0%B0%D0%BD%D0%BA%D0%B0_%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8" title="Википедия:Болванка статьи">незавершённая статья</a> по <a href="/wiki/%D0%9C%D0%B0%D1%82%D0%B5%D0%BC%D0%B0%D1%82%D0%B8%D0%BA%D0%B0" title="Математика">математике</a>.<br />
+Вы можете помочь проекту, <a href="/wiki/%D0%92%D0%B8%D0%BA%D0%B8%D0%BF%D0%B5%D0%B4%D0%B8%D1%8F:%D0%9F%D1%80%D0%B0%D0%B2%D0%B8%D0%BB%D0%B0_%D0%B8_%D1%83%D0%BA%D0%B0%D0%B7%D0%B0%D0%BD%D0%B8%D1%8F" title="Википедия:Правила и указания">исправив&#160;и&#160;дополнив&#160;её</a>.</i></td>
+</tr>
+</table>
+</div>
+
+<!-- 
+Pre-expand include size: 1773 bytes
+Post-expand include size: 1685 bytes
+Template argument size: 259 bytes
+Maximum: 2048000 bytes
+-->
+
+<!-- Saved in parser cache with key ruwiki:pcache:idhash:248821-0!1!0!!ru!2 and timestamp 20070914201502 -->
+<div class="printfooter">
+<!-- Получено с "<a href="http://ru.wikipedia.org/wiki/%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC_%D0%91%D0%B5%D0%BB%D0%BB%D0%BC%D0%B0%D0%BD%D0%B0_%E2%80%94%C2%A0%D0%A4%D0%BE%D1%80%D0%B4%D0%B0">http://ru.wikipedia.org/wiki/%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC_%D0%91%D0%B5%D0%BB%D0%BB%D0%BC%D0%B0%D0%BD%D0%B0_%E2%80%94%C2%A0%D0%A4%D0%BE%D1%80%D0%B4%D0%B0</a>" -->&nbsp;</div>
+			<div id="catlinks"><p class='catlinks'><a href="/wiki/%D0%A1%D0%BB%D1%83%D0%B6%D0%B5%D0%B1%D0%BD%D0%B0%D1%8F:Categories" title="Служебная:Categories">Категории</a>: <span dir='ltr'><a href="/wiki/%D0%9A%D0%B0%D1%82%D0%B5%D0%B3%D0%BE%D1%80%D0%B8%D1%8F:%D0%9D%D0%B5%D0%B7%D0%B0%D0%B2%D0%B5%D1%80%D1%88%D1%91%D0%BD%D0%BD%D1%8B%D0%B5_%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8_%D0%BF%D0%BE_%D0%BC%D0%B0%D1%82%D0%B5%D0%BC%D0%B0%D1%82%D0%B8%D0%BA%D0%B5" title="Категория:Незавершённые статьи по математике">Незавершённые статьи по математике</a></span> | <span dir='ltr'><a href="/wiki/%D0%9A%D0%B0%D1%82%D0%B5%D0%B3%D0%BE%D1%80%D0%B8%D1%8F:%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC%D1%8B_%D0%BD%D0%B0_%D0%B3%D1%80%D0%B0%D1%84%D0%B0%D1%85" title="Категория:Алгоритмы на графах">Алгоритмы на графах</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Просмотры</h5>
+		<div class="pBody">
+			<ul>
+					 <li id="ca-nstab-main" class="selected"><a href="/wiki/%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC_%D0%91%D0%B5%D0%BB%D0%BB%D0%BC%D0%B0%D0%BD%D0%B0_%E2%80%94%C2%A0%D0%A4%D0%BE%D1%80%D0%B4%D0%B0" title="Содержание статьи [c]" accesskey="c">Статья</a></li>
+					 <li id="ca-talk" class="new"><a href="/w/index.php?title=%D0%9E%D0%B1%D1%81%D1%83%D0%B6%D0%B4%D0%B5%D0%BD%D0%B8%D0%B5:%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC_%D0%91%D0%B5%D0%BB%D0%BB%D0%BC%D0%B0%D0%BD%D0%B0_%E2%80%94%C2%A0%D0%A4%D0%BE%D1%80%D0%B4%D0%B0&amp;action=edit" title="Обсуждение статьи [t]" accesskey="t">Обсуждение</a></li>
+					 <li id="ca-edit"><a href="/w/index.php?title=%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC_%D0%91%D0%B5%D0%BB%D0%BB%D0%BC%D0%B0%D0%BD%D0%B0_%E2%80%94%C2%A0%D0%A4%D0%BE%D1%80%D0%B4%D0%B0&amp;action=edit" title="Эту статью можно изменять. Перед сохранением изменений, пожалуйста, нажмите кнопку предварительного просмотра для визуальной проверки результата [e]" accesskey="e">Править</a></li>
+					 <li id="ca-history"><a href="/w/index.php?title=%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC_%D0%91%D0%B5%D0%BB%D0%BB%D0%BC%D0%B0%D0%BD%D0%B0_%E2%80%94%C2%A0%D0%A4%D0%BE%D1%80%D0%B4%D0%B0&amp;action=history" title="Журнал изменений страницы [h]" accesskey="h">История</a></li>
+				</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-personal">
+		<h5>Личные инструменты</h5>
+		<div class="pBody">
+			<ul>
+				<li id="pt-login"><a href="/w/index.php?title=%D0%A1%D0%BB%D1%83%D0%B6%D0%B5%D0%B1%D0%BD%D0%B0%D1%8F:Userlogin&amp;returnto=%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC_%D0%91%D0%B5%D0%BB%D0%BB%D0%BC%D0%B0%D0%BD%D0%B0_%E2%80%94%C2%A0%D0%A4%D0%BE%D1%80%D0%B4%D0%B0" title="Здесь можно зарегистрироваться в системе, но это необязательно [o]" accesskey="o">Представиться системе</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-logo">
+		<a style="background-image: url(http://upload.wikimedia.org/wikipedia/ru/b/bc/Wiki.png);" href="/wiki/%D0%97%D0%B0%D0%B3%D0%BB%D0%B0%D0%B2%D0%BD%D0%B0%D1%8F_%D1%81%D1%82%D1%80%D0%B0%D0%BD%D0%B8%D1%86%D0%B0" title="Перейти на заглавную страницу [z]" accesskey="z"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Навигация</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="/wiki/%D0%97%D0%B0%D0%B3%D0%BB%D0%B0%D0%B2%D0%BD%D0%B0%D1%8F_%D1%81%D1%82%D1%80%D0%B0%D0%BD%D0%B8%D1%86%D0%B0" title="Перейти на заглавную страницу [z]" accesskey="z">Заглавная страница</a></li>
+				<li id="n-browse"><a href="/wiki/%D0%92%D0%B8%D0%BA%D0%B8%D0%BF%D0%B5%D0%B4%D0%B8%D1%8F:%D0%9F%D0%BE%D0%B8%D1%81%D0%BA_%D0%BF%D0%BE_%D0%BA%D0%B0%D1%82%D0%B5%D0%B3%D0%BE%D1%80%D0%B8%D1%8F%D0%BC">Рубрикация</a></li>
+				<li id="n-index"><a href="/wiki/%D0%92%D0%B8%D0%BA%D0%B8%D0%BF%D0%B5%D0%B4%D0%B8%D1%8F:%D0%91%D1%8B%D1%81%D1%82%D1%80%D1%8B%D0%B9_%D0%B8%D0%BD%D0%B4%D0%B5%D0%BA%D1%81">Индекс А — Я</a></li>
+				<li id="n-randompage"><a href="/wiki/%D0%A1%D0%BB%D1%83%D0%B6%D0%B5%D0%B1%D0%BD%D0%B0%D1%8F:Random" title="Посмотреть случайную страницу [x]" accesskey="x">Случайная статья</a></li>
+				<li id="n-newpages"><a href="/wiki/%D0%A1%D0%BB%D1%83%D0%B6%D0%B5%D0%B1%D0%BD%D0%B0%D1%8F:Newpages">Новые статьи</a></li>
+				<li id="n-currentevents"><a href="/wiki/%D0%A2%D0%B5%D0%BA%D1%83%D1%89%D0%B8%D0%B5_%D1%81%D0%BE%D0%B1%D1%8B%D1%82%D0%B8%D1%8F" title="Список текущих событий">Текущие события</a></li>
+			</ul>
+		</div>
+	</div>
+		<div class='portlet' id='p-participation'>
+		<h5>Участие</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-portal"><a href="/wiki/%D0%92%D0%B8%D0%BA%D0%B8%D0%BF%D0%B5%D0%B4%D0%B8%D1%8F:%D0%9F%D0%BE%D1%80%D1%82%D0%B0%D0%BB_%D1%81%D0%BE%D0%BE%D0%B1%D1%89%D0%B5%D1%81%D1%82%D0%B2%D0%B0" title="О проекте, о том, что вы можете сделать, где что находится">Портал сообщества</a></li>
+				<li id="n-forum"><a href="/wiki/%D0%92%D0%B8%D0%BA%D0%B8%D0%BF%D0%B5%D0%B4%D0%B8%D1%8F:%D0%A4%D0%BE%D1%80%D1%83%D0%BC">Форум</a></li>
+				<li id="n-recentchanges"><a href="/wiki/%D0%A1%D0%BB%D1%83%D0%B6%D0%B5%D0%B1%D0%BD%D0%B0%D1%8F:Recentchanges" title="Список последних изменений [r]" accesskey="r">Свежие правки</a></li>
+				<li id="n-help"><a href="/wiki/%D0%92%D0%B8%D0%BA%D0%B8%D0%BF%D0%B5%D0%B4%D0%B8%D1%8F:%D0%A1%D0%BF%D1%80%D0%B0%D0%B2%D0%BA%D0%B0" title="Справочник по проекту «Википедия»">Справка</a></li>
+				<li id="n-sitesupport"><a href="/wiki/%D0%92%D0%B8%D0%BA%D0%B8%D0%BF%D0%B5%D0%B4%D0%B8%D1%8F:%D0%9F%D0%BE%D0%B6%D0%B5%D1%80%D1%82%D0%B2%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F" title="Поддержите проект">Пожертвования</a></li>
+			</ul>
+		</div>
+	</div>
+		<div id="p-search" class="portlet">
+		<h5><label for="searchInput">Поиск</label></h5>
+		<div id="searchBody" class="pBody">
+			<form action="/wiki/%D0%A1%D0%BB%D1%83%D0%B6%D0%B5%D0%B1%D0%BD%D0%B0%D1%8F:Search" id="searchform"><div>
+				<input id="searchInput" name="search" type="text" title="Искать это слово [f]" accesskey="f" value="" />
+				<input type='submit' name="go" class="searchButton" id="searchGoButton"	value="Перейти" />&nbsp;
+				<input type='submit' name="fulltext" class="searchButton" id="mw-searchButton" value="Найти" />
+			</div></form>
+		</div>
+	</div>
+	<div class="portlet" id="p-tb">
+		<h5>Инструменты</h5>
+		<div class="pBody">
+			<ul>
+				<li id="t-whatlinkshere"><a href="/wiki/%D0%A1%D0%BB%D1%83%D0%B6%D0%B5%D0%B1%D0%BD%D0%B0%D1%8F:Whatlinkshere/%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC_%D0%91%D0%B5%D0%BB%D0%BB%D0%BC%D0%B0%D0%BD%D0%B0_%E2%80%94%C2%A0%D0%A4%D0%BE%D1%80%D0%B4%D0%B0" title="Список всех страниц, которые ссылаются на эту страницу [j]" accesskey="j">Ссылки сюда</a></li>
+				<li id="t-recentchangeslinked"><a href="/wiki/%D0%A1%D0%BB%D1%83%D0%B6%D0%B5%D0%B1%D0%BD%D0%B0%D1%8F:Recentchangeslinked/%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC_%D0%91%D0%B5%D0%BB%D0%BB%D0%BC%D0%B0%D0%BD%D0%B0_%E2%80%94%C2%A0%D0%A4%D0%BE%D1%80%D0%B4%D0%B0" title="Последние изменения в страницах, на которые ссылается эта страница [k]" accesskey="k">Связанные правки</a></li>
+<li id="t-upload"><a href="/wiki/%D0%A1%D0%BB%D1%83%D0%B6%D0%B5%D0%B1%D0%BD%D0%B0%D1%8F:Upload" title="Загрузить изображения или мультимедиа-файлы [u]" accesskey="u">Загрузить файл</a></li>
+<li id="t-specialpages"><a href="/wiki/%D0%A1%D0%BB%D1%83%D0%B6%D0%B5%D0%B1%D0%BD%D0%B0%D1%8F:Specialpages" title="Список служебных страниц [q]" accesskey="q">Спецстраницы</a></li>
+				<li id="t-print"><a href="/w/index.php?title=%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC_%D0%91%D0%B5%D0%BB%D0%BB%D0%BC%D0%B0%D0%BD%D0%B0_%E2%80%94%C2%A0%D0%A4%D0%BE%D1%80%D0%B4%D0%B0&amp;printable=yes" title="Версия для печати этой страницы [p]" accesskey="p">Версия для печати</a></li>				<li id="t-permalink"><a href="/w/index.php?title=%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC_%D0%91%D0%B5%D0%BB%D0%BB%D0%BC%D0%B0%D0%BD%D0%B0_%E2%80%94%C2%A0%D0%A4%D0%BE%D1%80%D0%B4%D0%B0&amp;oldid=5243739" title="Постоянная ссылка на эту версию страницы">Постоянная ссылка</a></li><li id="t-cite"><a href="/w/index.php?title=%D0%A1%D0%BB%D1%83%D0%B6%D0%B5%D0%B1%D0%BD%D0%B0%D1%8F:Cite&amp;page=%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC_%D0%91%D0%B5%D0%BB%D0%BB%D0%BC%D0%B0%D0%BD%D0%B0_%E2%80%94%C2%A0%D0%A4%D0%BE%D1%80%D0%B4%D0%B0&amp;id=5243739">Цитировать статью</a></li>			</ul>
+		</div>
+	</div>
+	<div id="p-lang" class="portlet">
+		<h5>На других языках</h5>
+		<div class="pBody">
+			<ul>
+				<li class="interwiki-cs"><a href="http://cs.wikipedia.org/wiki/Bellman-Ford%C5%AFv_algoritmus">Česky</a></li>
+				<li class="interwiki-de"><a href="http://de.wikipedia.org/wiki/Bellman-Ford-Algorithmus">Deutsch</a></li>
+				<li class="interwiki-en"><a href="http://en.wikipedia.org/wiki/Bellman-Ford_algorithm">English</a></li>
+				<li class="interwiki-es"><a href="http://es.wikipedia.org/wiki/Algoritmo_de_Bellman-Ford">Español</a></li>
+				<li class="interwiki-fr"><a href="http://fr.wikipedia.org/wiki/Algorithme_de_Ford-Bellman">Français</a></li>
+				<li class="interwiki-he"><a href="http://he.wikipedia.org/wiki/%D7%90%D7%9C%D7%92%D7%95%D7%A8%D7%99%D7%AA%D7%9D_%D7%91%D7%9C%D7%9E%D7%9F-%D7%A4%D7%95%D7%A8%D7%93">עברית</a></li>
+				<li class="interwiki-ko"><a href="http://ko.wikipedia.org/wiki/%EB%B2%A8%EB%A7%8C-%ED%8F%AC%EB%93%9C_%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98">한국어</a></li>
+				<li class="interwiki-pl"><a href="http://pl.wikipedia.org/wiki/Algorytm_Bellmana-Forda">Polski</a></li>
+				<li class="interwiki-pt"><a href="http://pt.wikipedia.org/wiki/Algoritmo_de_Bellman-Ford">Português</a></li>
+				<li class="interwiki-vi"><a href="http://vi.wikipedia.org/wiki/Thu%E1%BA%ADt_to%C3%A1n_Bellman-Ford">Tiếng Việt</a></li>
+				<li class="interwiki-zh"><a href="http://zh.wikipedia.org/wiki/Bellman-Ford%E7%AE%97%E6%B3%95">中文</a></li>
+			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="/skins-1.5/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>
+				<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="/images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>
+			<ul id="f-list">
+				<li id="lastmod"> Последнее изменение этой страницы: 08:17, 20 августа 2007.</li>
+				<li id="copyright"><small>Содержимое доступно в соответствии с <a href="http://www.gnu.org/copyleft/fdl.html" class="external " title="http://www.gnu.org/copyleft/fdl.html" rel="nofollow">GNU Free Documentation License</a>.</small><br /></li>
+				<li id="privacy"><a href="/wiki/%D0%92%D0%B8%D0%BA%D0%B8%D0%BF%D0%B5%D0%B4%D0%B8%D1%8F:%D0%9F%D0%BE%D0%BB%D0%B8%D1%82%D0%B8%D0%BA%D0%B0_%D0%BA%D0%BE%D0%BD%D1%84%D0%B8%D0%B4%D0%B5%D0%BD%D1%86%D0%B8%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D1%81%D1%82%D0%B8" title="Википедия:Политика конфиденциальности">Политика конфиденциальности</a></li>
+				<li id="about"><a href="/wiki/%D0%92%D0%B8%D0%BA%D0%B8%D0%BF%D0%B5%D0%B4%D0%B8%D1%8F:%D0%9E%D0%BF%D0%B8%D1%81%D0%B0%D0%BD%D0%B8%D0%B5" title="Википедия:Описание">Описание Википедии</a></li>
+				<li id="disclaimer"><a href="/wiki/%D0%92%D0%B8%D0%BA%D0%B8%D0%BF%D0%B5%D0%B4%D0%B8%D1%8F:%D0%9E%D1%82%D0%BA%D0%B0%D0%B7_%D0%BE%D1%82_%D0%BE%D1%82%D0%B2%D0%B5%D1%82%D1%81%D1%82%D0%B2%D0%B5%D0%BD%D0%BD%D0%BE%D1%81%D1%82%D0%B8" title="Википедия:Отказ от ответственности">Отказ от ответственности</a></li>
+			</ul>
+		</div>
+		
+	
+		<script type="text/javascript">if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by srv46 in 0.694 secs. --></body></html>

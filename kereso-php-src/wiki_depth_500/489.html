@@ -1,0 +1,788 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+				<meta name="keywords" content="Control flow,Control flow,Ada programming language,Algol 60,Algol 68,Algol programming language,AppleScript,Assembly language,BASIC programming language,Branch (computer science),Branch delay slot" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="http://www.gnu.org/copyleft/fdl.html" />
+		<title>Control flow - Wikipedia, the free encyclopedia</title>
+		<style type="text/css" media="screen, projection">/*<![CDATA[*/
+			@import "/skins-1.5/common/shared.css?99";
+			@import "/skins-1.5/monobook/main.css?99";
+		/*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="/skins-1.5/common/commonPrint.css?99" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE50Fixes.css?99";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE55Fixes.css?99";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "/skins-1.5/monobook/IE60Fixes.css?99";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "/skins-1.5/monobook/IE70Fixes.css?99";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="/skins-1.5/common/IEFixes.js?99"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		
+		<script type= "text/javascript">/*<![CDATA[*/
+var skin = "monobook";
+var stylepath = "/skins-1.5";
+var wgArticlePath = "/wiki/$1";
+var wgScriptPath = "/w";
+var wgScript = "/w/index.php";
+var wgServer = "http://en.wikipedia.org";
+var wgCanonicalNamespace = "";
+var wgCanonicalSpecialPageName = false;
+var wgNamespaceNumber = 0;
+var wgPageName = "Control_flow";
+var wgTitle = "Control flow";
+var wgAction = "view";
+var wgRestrictionEdit = [];
+var wgRestrictionMove = [];
+var wgArticleId = "45459";
+var wgIsArticle = true;
+var wgUserName = null;
+var wgUserGroups = null;
+var wgUserLanguage = "en";
+var wgContentLanguage = "en";
+var wgBreakFrames = false;
+var wgCurRevisionId = "154322686";
+/*]]>*/</script>
+                
+		<script type="text/javascript" src="/skins-1.5/common/wikibits.js?99"><!-- wikibits js --></script>
+		<script type="text/javascript" src="/w/index.php?title=-&amp;action=raw&amp;gen=js&amp;useskin=monobook"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "/w/index.php?title=MediaWiki:Common.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=MediaWiki:Monobook.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=-&action=raw&gen=css&maxage=2678400";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+		<script type="text/javascript" src="/skins-1.5/common/ajax.js?99"></script>
+	</head>
+<body  class="mediawiki ns-0 ltr page-Control_flow">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">Control flow</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<p>In <a href="/wiki/Computer_science" title="Computer science">computer science</a> <b>control flow</b> (or alternatively, flow of control) refers to the order in which the individual <a href="/wiki/Statement_%28programming%29" title="Statement (programming)">statements</a>, <a href="/wiki/Instruction_%28computer_science%29" title="Instruction (computer science)">instructions</a> or <a href="/wiki/Function_call" title="Function call">function calls</a> of an <a href="/wiki/Imperative_programming" title="Imperative programming">imperative</a> or <a href="/wiki/Functional_programming" title="Functional programming">functional</a> <a href="/wiki/Computer_program" title="Computer program">program</a> are <a href="/wiki/Execution_%28computers%29" title="Execution (computers)">executed</a> or evaluated. Within an imperative <a href="/wiki/Programming_language" title="Programming language">programming language</a>, a <b>control flow statement</b> is an instruction that when executed can cause a change in the subsequent control flow to differ from the natural sequential order in which the instructions are listed. For <a href="/wiki/Strict_programming_language" title="Strict programming language">non-strict</a> functional languages, functions and language constructs exist to achieve the same ends, but they are not necessarily called control flow statements.</p>
+<p>The kinds of control flow statements available differ by language, but can be roughly categorized by their effect:</p>
+<ul>
+<li>continuation at a different statement (jump),</li>
+<li>executing a set of statements only if some condition is met (choice),</li>
+<li>executing a set of statements zero or more times, until some condition is met (loop),</li>
+<li>executing a set of distant statements, after which the flow of control may possibly return (<a href="/wiki/Subroutine" title="Subroutine">subroutines</a>, <a href="/wiki/Coroutine" title="Coroutine">coroutines</a>, and <a href="/wiki/Continuation" title="Continuation">continuations</a>),</li>
+<li>stopping the program, preventing any further execution (halt).</li>
+</ul>
+<p><a href="/wiki/Interrupt" title="Interrupt">Interrupts</a> and <a href="/wiki/Signal_%28computing%29" title="Signal (computing)">signals</a> are low-level mechanisms that can alter the flow of control in a way similar to a subroutine, but are usually in response to some external stimulus or event rather than a control flow statement in the language. <a href="/wiki/Self-modifying_code" title="Self-modifying code">Self-modifying code</a> can also be used to affect control flow through its <a href="/wiki/Side_effect_%28computer_science%29" title="Side effect (computer science)">side effects</a>, but usually does not involve an explicit control flow statement (an exception being the ALTER verb in <a href="/wiki/COBOL" title="COBOL">COBOL</a><sup class="noprint Template-Fact"><span title="This claim needs references to reliable sources&#160;since May 2007" style="white-space: nowrap;">[<i><a href="/wiki/Wikipedia:Citing_sources" title="Wikipedia:Citing sources">citation needed</a></i>]</span></sup>).</p>
+<p>At the level of <a href="/wiki/Machine_language" title="Machine language">machine</a> or <a href="/wiki/Assembly_language" title="Assembly language">assembly language</a>, control flow instructions usually work by altering the <a href="/wiki/Program_counter" title="Program counter">program counter</a>. For many<sup class="noprint Template-Fact"><span title="This claim needs references to reliable sources&#160;since May 2007" style="white-space: nowrap;">[<i><a href="/wiki/Wikipedia:Citing_sources" title="Wikipedia:Citing sources">citation needed</a></i>]</span></sup> <a href="/wiki/Central_processing_unit" title="Central processing unit">CPUs</a> the only control flow instructions available are conditional or unconditional <a href="/wiki/Branch_%28computer_science%29" title="Branch (computer science)">branches</a> (sometimes called jumps). Some processor designs also complicate the control flow by wavering from a strict sequential ordering of instructions, with features such as <a href="/wiki/Speculative_execution" title="Speculative execution">speculative execution</a>, <a href="/wiki/Out-of-order_execution" title="Out-of-order execution">out-of-order execution</a>, and <a href="/wiki/Branch_delay_slot" title="Branch delay slot">branch delay slots</a>. <a href="/wiki/Compiler" title="Compiler">Compilers</a> for higher-level programming languages must therefore translate all the many control-flow statements of the language into equivalent code using only the more limited instructions, and in a manner which preserves an observable behavior of a natural sequential flow - assuming that only one thread is executing. Discussion of control flow is almost always restricted to a single <a href="/wiki/Thread_%28computer_science%29" title="Thread (computer science)">thread of execution</a>, as it depends upon a definite sequence in which instructions are executed one at a time.</p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Primitives"><span class="tocnumber">1</span> <span class="toctext">Primitives</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Labels"><span class="tocnumber">1.1</span> <span class="toctext">Labels</span></a></li>
+<li class="toclevel-2"><a href="#Goto"><span class="tocnumber">1.2</span> <span class="toctext">Goto</span></a></li>
+<li class="toclevel-2"><a href="#Subroutines"><span class="tocnumber">1.3</span> <span class="toctext">Subroutines</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Minimal_structured_control_flow"><span class="tocnumber">2</span> <span class="toctext">Minimal structured control flow</span></a></li>
+<li class="toclevel-1"><a href="#Control_structures_in_practice"><span class="tocnumber">3</span> <span class="toctext">Control structures in practice</span></a></li>
+<li class="toclevel-1"><a href="#Choice"><span class="tocnumber">4</span> <span class="toctext">Choice</span></a></li>
+<li class="toclevel-1"><a href="#Loops"><span class="tocnumber">5</span> <span class="toctext">Loops</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Count-controlled_loops"><span class="tocnumber">5.1</span> <span class="toctext">Count-controlled loops</span></a></li>
+<li class="toclevel-2"><a href="#Condition-controlled_loops"><span class="tocnumber">5.2</span> <span class="toctext">Condition-controlled loops</span></a></li>
+<li class="toclevel-2"><a href="#Collection-controlled_loops"><span class="tocnumber">5.3</span> <span class="toctext">Collection-controlled loops</span></a></li>
+<li class="toclevel-2"><a href="#General_iteration"><span class="tocnumber">5.4</span> <span class="toctext">General iteration</span></a></li>
+<li class="toclevel-2"><a href="#Infinite_loops"><span class="tocnumber">5.5</span> <span class="toctext">Infinite loops</span></a></li>
+<li class="toclevel-2"><a href="#Continuation_with_next_iteration"><span class="tocnumber">5.6</span> <span class="toctext">Continuation with next iteration</span></a></li>
+<li class="toclevel-2"><a href="#Early_exit_from_loops"><span class="tocnumber">5.7</span> <span class="toctext">Early exit from loops</span></a></li>
+<li class="toclevel-2"><a href="#Loop_system_cross_reference_table"><span class="tocnumber">5.8</span> <span class="toctext">Loop system cross reference table</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Structured_non-local_control_flow"><span class="tocnumber">6</span> <span class="toctext">Structured non-local control flow</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Conditions"><span class="tocnumber">6.1</span> <span class="toctext">Conditions</span></a></li>
+<li class="toclevel-2"><a href="#Exceptions"><span class="tocnumber">6.2</span> <span class="toctext">Exceptions</span></a></li>
+<li class="toclevel-2"><a href="#Continuations"><span class="tocnumber">6.3</span> <span class="toctext">Continuations</span></a></li>
+<li class="toclevel-2"><a href="#Non-local_control_flow_cross_reference"><span class="tocnumber">6.4</span> <span class="toctext">Non-local control flow cross reference</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Proposed_control_structures"><span class="tocnumber">7</span> <span class="toctext">Proposed control structures</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Loop_with_test_in_the_middle"><span class="tocnumber">7.1</span> <span class="toctext">Loop with test in the middle</span></a></li>
+<li class="toclevel-2"><a href="#Multiple_early_exit.2Fexit_from_nested_loops"><span class="tocnumber">7.2</span> <span class="toctext">Multiple early exit/exit from nested loops</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#See_also"><span class="tocnumber">8</span> <span class="toctext">See also</span></a></li>
+<li class="toclevel-1"><a href="#References"><span class="tocnumber">9</span> <span class="toctext">References</span></a></li>
+<li class="toclevel-1"><a href="#External_links"><span class="tocnumber">10</span> <span class="toctext">External links</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script>
+<p><a name="Primitives" id="Primitives"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Control_flow&amp;action=edit&amp;section=1" title="Edit section: Primitives">edit</a>]</span> <span class="mw-headline">Primitives</span></h2>
+<p><a name="Labels" id="Labels"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Control_flow&amp;action=edit&amp;section=2" title="Edit section: Labels">edit</a>]</span> <span class="mw-headline">Labels</span></h3>
+<p>A label is an explicit name or number assigned to a fixed position within the <a href="/wiki/Source_code" title="Source code">source code</a>, and which may be referenced by control flow statements appearing elsewhere in the source code. Other than marking a position within the source code a label has no effect.</p>
+<p><a href="/wiki/Line_number" title="Line number">Line numbers</a> are a kind of label used in some languages (e.g. <a href="/wiki/Fortran" title="Fortran">Fortran</a> and <a href="/wiki/BASIC_programming_language" title="BASIC programming language">BASIC</a>), which are <a href="/wiki/Whole_number" title="Whole number">whole numbers</a> placed at the beginning of each line of text within the source code. Languages which use line numbers often impose the constraint that the line numbers must increase in value in each subsequent line, but may not require that they be consecutive. For example, in BASIC:</p>
+<pre>
+   <b>10</b> X = 3
+   <b>20</b> PRINT X
+</pre>
+<p>In other languages such as <a href="/wiki/C_%28programming_language%29" title="C (programming language)">C</a> and <a href="/wiki/Ada_programming_language" title="Ada programming language">Ada</a> a label is an <a href="/wiki/Identifier" title="Identifier">identifier</a>, usually appearing at the beginning of a line and immediately followed by a colon. For example, in C:</p>
+<pre>
+   <b>Success:</b> printf ("The operation was successful.\n");
+</pre>
+<p>The <a href="/wiki/Algol_60" title="Algol 60">Algol 60</a> language allowed both whole numbers and identifiers as labels (both attached by colons to the following statement), but few if any other variants of Algol allowed whole numbers.</p>
+<p><a name="Goto" id="Goto"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Control_flow&amp;action=edit&amp;section=3" title="Edit section: Goto">edit</a>]</span> <span class="mw-headline">Goto</span></h3>
+<dl>
+<dd>
+<div class="noprint"><i>Main article: <a href="/wiki/GOTO" title="GOTO">GOTO</a></i></div>
+</dd>
+</dl>
+<p>The <b>goto</b> statement (a juxtaposition of the English words <i><a href="http://en.wiktionary.org/wiki/go" class="extiw" title="wiktionary:go">go</a></i> and <i><a href="http://en.wiktionary.org/wiki/to" class="extiw" title="wiktionary:to">to</a></i>, and pronounced<sup class="noprint Template-Fact"><span title="This claim needs references to reliable sources&#160;since May 2007" style="white-space: nowrap;">[<i><a href="/wiki/Wikipedia:Citing_sources" title="Wikipedia:Citing sources">citation needed</a></i>]</span></sup> as two words) is the most basic form of unconditional transfer of control.</p>
+<p>Although the <a href="/wiki/Keyword_%28computer%29" title="Keyword (computer)">keyword</a> may either be in upper or lower case depending on the language, it is usually written as:</p>
+<pre>
+   <b>goto</b> <i>label</i>
+</pre>
+<p>The effect of a goto statement is to cause the next statement to be executed to always be the statement appearing immediately after (or at) the indicated label.</p>
+<p>Goto statements have been <a href="/wiki/Considered_harmful" title="Considered harmful">considered harmful</a> by many computer scientists, notably <a href="/wiki/Dijkstra" title="Dijkstra">Dijkstra</a>.</p>
+<p><a name="Subroutines" id="Subroutines"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Control_flow&amp;action=edit&amp;section=4" title="Edit section: Subroutines">edit</a>]</span> <span class="mw-headline">Subroutines</span></h3>
+<dl>
+<dd>
+<div class="noprint"><i>Main article: <a href="/wiki/Subroutine" title="Subroutine">Subroutine</a></i></div>
+</dd>
+</dl>
+<p>The terminology for <a href="/wiki/Subroutine" title="Subroutine">subroutines</a> varies; they may alternatively be known as routines, procedures, functions (especially if they return results) or methods (especially if they belong to <a href="/wiki/Class_%28programming%29" title="Class (programming)">classes</a> or <a href="/wiki/Type_class" title="Type class">type classes</a>).</p>
+<p>In the 1950's, computer memories were very small by current standards so subroutines were used primarily<sup class="noprint Template-Fact"><span title="This claim needs references to reliable sources&#160;since May 2007" style="white-space: nowrap;">[<i><a href="/wiki/Wikipedia:Citing_sources" title="Wikipedia:Citing sources">citation needed</a></i>]</span></sup> to reduce program size; a piece of code was written once and then used many times from various other places in the program.</p>
+<p>Nowadays, subroutines are more frequently used to help make a program more structured, e.g. by isolating some particular algorithm or hiding some particular data access method. If many programmers are working on a single program, subroutines are one kind of <a href="/wiki/Modularity_%28programming%29" title="Modularity (programming)">modularity</a> that can help split up the work.</p>
+<p><a name="Minimal_structured_control_flow" id="Minimal_structured_control_flow"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Control_flow&amp;action=edit&amp;section=5" title="Edit section: Minimal structured control flow">edit</a>]</span> <span class="mw-headline">Minimal structured control flow</span></h2>
+<p>(See also <a href="/wiki/Structured_program_theorem" title="Structured program theorem">Structured program theorem</a>.) In May 1966, Böhm and Jacopini published an article in Communications of the ACM which showed that any program with <b>goto</b>s could be transformed into a goto-free form involving only choice (IF THEN ELSE) and loops (WHILE condition DO xxx), possibly with duplicated code and/or the addition of Boolean variables (true/false flags). Later authors have shown that choice can be replaced by loops (and yet more Boolean variables).</p>
+<p>The fact that such minimalism is possible does not necessarily mean that it is desirable; after all, computers theoretically only need one machine instruction (subtract one number from another and branch if the result is negative)<sup class="noprint Template-Fact"><span title="This claim needs references to reliable sources&#160;since May 2007" style="white-space: nowrap;">[<i><a href="/wiki/Wikipedia:Citing_sources" title="Wikipedia:Citing sources">citation needed</a></i>]</span></sup>, but practical computers have dozens or even hundreds of machine instructions.</p>
+<p>What Böhm and Jacopini's article showed was that all programs could be goto-free. Other research showed that control structures with one entry and one exit were much easier to understand than any other form, primarily because they could be used anywhere as a statement without disrupting the control flow. In other words, they were <i>composable</i>. (Later developments, such as <a href="/wiki/Non-strict_programming_language" title="Non-strict programming language">non-strict programming languages</a> - and more recently, composable <a href="/wiki/Software_transactional_memory" title="Software transactional memory">software transactions</a> - have continued this line of thought, making components of programs even more freely composable.)</p>
+<p><a name="Control_structures_in_practice" id="Control_structures_in_practice"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Control_flow&amp;action=edit&amp;section=6" title="Edit section: Control structures in practice">edit</a>]</span> <span class="mw-headline">Control structures in practice</span></h2>
+<div class="infobox sisterproject">
+<div style="float: left;">
+<div class="floatnone"><span><a href="/wiki/Image:Wikibooks-logo-en.svg" class="image" title="Wikibooks"><img alt="Wikibooks" src="http://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Wikibooks-logo-en.svg/50px-Wikibooks-logo-en.svg.png" width="50" height="57" border="0" /></a></span></div>
+</div>
+<div style="margin-left: 60px;"><a href="/wiki/Wikibooks" title="Wikibooks">Wikibooks</a> <a href="http://en.wikibooks.org/wiki/Computer_programming" class="extiw" title="wikibooks:Computer_programming">Computer programming</a> has a page on the topic of
+<div style="margin-left:10px;"><i><b><a href="http://en.wikibooks.org/wiki/Computer_programming/Control" class="extiw" title="wikibooks:Computer_programming/Control">Control</a></b></i></div>
+</div>
+</div>
+<p>Most programming languages with control structures have an initial keyword which indicates the type of control structure involved. Languages then divide as to whether or not control structures have a final keyword.</p>
+<ul>
+<li>No final keyword: <a href="/wiki/Algol_programming_language" title="Algol programming language">Algol 60</a>, <a href="/wiki/C_%28programming_language%29" title="C (programming language)">C</a>, <a href="/wiki/C%2B%2B" title="C++">C++</a>, <a href="/wiki/Haskell_%28programming_language%29" title="Haskell (programming language)">Haskell</a>, <a href="/wiki/Java_%28programming_language%29" title="Java (programming language)">Java</a>, <a href="/wiki/Pascal_programming_language" title="Pascal programming language">Pascal</a>, <a href="/wiki/Perl" title="Perl">Perl</a>, <a href="/wiki/PHP" title="PHP">PHP</a>, <a href="/wiki/PL/I_programming_language" title="PL/I programming language">PL/I</a>, <a href="/wiki/Python_%28programming_language%29" title="Python (programming language)">Python</a>. Such languages need some way of grouping statements together:
+<ul>
+<li>Algol 60 and Pascal&#160;: <b>begin</b> ... <b>end</b></li>
+<li>C, C++, Java, Perl, and PHP: curly brackets <b>{</b> ... <b>}</b></li>
+<li>PL/1: <b>DO</b> ... <b>END</b></li>
+<li>Python: uses indentation level (see <a href="/wiki/Off-side_rule" title="Off-side rule">Off-side rule</a>)</li>
+<li>Haskell: either indentation level or curly brackets can be used, and they can be freely mixed</li>
+</ul>
+</li>
+<li>Final keyword: <a href="/wiki/Ada_programming_language" title="Ada programming language">Ada</a>, <a href="/wiki/Algol_68" title="Algol 68">Algol 68</a>, <a href="/wiki/Modula-2" title="Modula-2">Modula-2</a>, <a href="/wiki/Fortran" title="Fortran">Fortran 77</a>, <a href="/wiki/Visual_Basic" title="Visual Basic">Visual Basic</a>. The forms of the final keyword vary:
+<ul>
+<li>Ada: final keyword is <b>end</b> + <i>space</i> + initial keyword e.g. <b>if</b> ... <b>end if</b>, <b>loop</b> ... <b>end loop</b></li>
+<li>Algol 68: initial keyword spelled backwards e.g. <b>if</b> ... <b>fi</b>, <b>case</b> ... <b>esac</b></li>
+<li>Fortran 77: final keyword is <b>end</b> + initial keyword e.g. <b>IF</b> ... <b>ENDIF</b>, <b>DO</b> ... <b>ENDDO</b></li>
+<li>Modula-2: same final keyword <b>end</b> for everything</li>
+<li>Visual Basic: every control structure has its own keyword. <b>If</b> ... <b>End If</b>; <b>For</b> ... <b>Next</b>; <b>Do</b> ... <b>Loop</b></li>
+</ul>
+</li>
+</ul>
+<p><a name="Choice" id="Choice"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Control_flow&amp;action=edit&amp;section=7" title="Edit section: Choice">edit</a>]</span> <span class="mw-headline">Choice</span></h2>
+<dl>
+<dd>
+<div class="noprint"><i>Main article: <a href="/wiki/Conditional_%28programming%29" title="Conditional (programming)">Conditional (programming)</a></i></div>
+</dd>
+</dl>
+<p><a name="Loops" id="Loops"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Control_flow&amp;action=edit&amp;section=8" title="Edit section: Loops">edit</a>]</span> <span class="mw-headline">Loops</span></h2>
+<p>A loop is a sequence of statements which is specified once but which may be carried out several times in succession. The code "inside" the loop (the <i>body</i> of the loop, shown below as <i>xxx</i>) is obeyed a specified number of times, or once for each of a collection of items, or until some condition is met.</p>
+<p>In some languages, such as <a href="/wiki/Scheme_%28programming_language%29" title="Scheme (programming language)">Scheme</a>, loops are often expressed using <a href="/wiki/Tail_recursion" title="Tail recursion">tail recursion</a> rather than explicit looping constructs.</p>
+<p><a name="Count-controlled_loops" id="Count-controlled_loops"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Control_flow&amp;action=edit&amp;section=9" title="Edit section: Count-controlled loops">edit</a>]</span> <span class="mw-headline">Count-controlled loops</span></h3>
+<p>Most programming languages have constructions for repeating a loop a certain number of times. Note that if N is less than 1 in these examples then the body is skipped completely. In most cases counting can go downwards instead of upwards and step sizes other than 1 can be used.</p>
+<pre>
+   FOR I = 1 TO N            <b>for</b> I := 1 <b>to</b> N <b>do</b> <b>begin</b>
+       xxx                       xxx
+   NEXT I                    <b>end</b>;
+
+   DO I = 1,N                <b>for</b> ( I=1; I&lt;=N; ++I ) {
+       xxx                       xxx
+   END DO                    }
+</pre>
+<p>See also <a href="/wiki/For_loop" title="For loop">For loop</a>, <a href="/wiki/Loop_counter" title="Loop counter">Loop counter</a>.</p>
+<p>In many programming languages, only integers can be reliably used in a count-controlled loop. Floating-point numbers are represented imprecisely due to hardware constraints, so a loop such as<br /></p>
+<pre>
+   <b>for</b> X := 0.1 <b>step</b> 0.1 <b>to</b> 1.0 <b>do</b><br />
+</pre>
+<p>might be repeated 9 or 10 times, depending on rounding errors and/or the hardware and/or the compiler version. Furthermore, if the increment of X occurs by repeated addition, accumulated rounding errors may mean that the value of X in each iteration can differ quite significantly from the expected sequence 0.1, 0.2, 0.3, ..., 1.0.</p>
+<p><a name="Condition-controlled_loops" id="Condition-controlled_loops"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Control_flow&amp;action=edit&amp;section=10" title="Edit section: Condition-controlled loops">edit</a>]</span> <span class="mw-headline">Condition-controlled loops</span></h3>
+<p>Again, most programming languages have constructions for repeating a loop until some condition changes. Note that some variations place the test at the start of the loop, while others have the test at the end of the loop. In the former case the body may be skipped completely, while in the latter case the body is always obeyed at least once.</p>
+<pre>
+   DO WHILE (test)           <b>repeat</b> 
+       xxx                       xxx 
+   END DO                    <b>until</b> test;
+
+   <b>while</b> (test) {            <b>do</b>
+       xxx                       xxx
+   }                         <b>while</b> (test);
+</pre>
+<p>See also <a href="/wiki/While_loop" title="While loop">While loop</a>.</p>
+<p><a name="Collection-controlled_loops" id="Collection-controlled_loops"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Control_flow&amp;action=edit&amp;section=11" title="Edit section: Collection-controlled loops">edit</a>]</span> <span class="mw-headline">Collection-controlled loops</span></h3>
+<p>A few programming languages (e.g. <a href="/wiki/Smalltalk" title="Smalltalk">Smalltalk</a>, <a href="/wiki/Perl" title="Perl">Perl</a>, <a href="/wiki/Java_%28programming_language%29" title="Java (programming language)">Java</a>, <a href="/wiki/C_sharp" title="C sharp">C#</a>, <a href="/wiki/Visual_Basic" title="Visual Basic">Visual Basic</a>) have special constructs which allow you to implicitly loop through all elements of an array, or all members of a set or collection.</p>
+<pre>
+   someCollection <b>do</b>: [:eachElement |xxx].
+
+   <b>foreach</b> someArray { xxx }
+
+   Collection&lt;String&gt; coll; <b>for</b> (String s : coll) {}
+
+   <b>foreach</b> (<b>string</b> s <b>in</b> myStringCollection) { xxx }
+</pre>
+<p><a name="General_iteration" id="General_iteration"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Control_flow&amp;action=edit&amp;section=12" title="Edit section: General iteration">edit</a>]</span> <span class="mw-headline">General iteration</span></h3>
+<p>General iteration constructs such as C's <b>for</b> statement and <a href="/wiki/Common_Lisp" title="Common Lisp">Common Lisp</a>'s <b>do</b> form can be used to express any of the above sorts of loops, as well as others -- such as looping over a number of collections in parallel. Where a more specific looping construct can be used, it is usually preferred over the general iteration construct, since it often makes the purpose of the expression more clear.</p>
+<p><a name="Infinite_loops" id="Infinite_loops"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Control_flow&amp;action=edit&amp;section=13" title="Edit section: Infinite loops">edit</a>]</span> <span class="mw-headline"><a href="/wiki/Infinite_loop" title="Infinite loop">Infinite loops</a></span></h3>
+<p>Sometimes it is desirable for a program to loop forever, or until an exceptional condition such as an error arises. For instance, an event-driven program may be intended to loop forever handling events as they occur, only stopping when the process is killed by the operator.</p>
+<p>More often, an infinite loop is due to a programming error in a condition-controlled loop, wherein the loop condition is never changed within the loop.</p>
+<p><a name="Continuation_with_next_iteration" id="Continuation_with_next_iteration"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Control_flow&amp;action=edit&amp;section=14" title="Edit section: Continuation with next iteration">edit</a>]</span> <span class="mw-headline">Continuation with next iteration</span></h3>
+<p>Sometimes within the body of a loop there is a desire to skip the remainder of the loop body and continue with the next iteration of the loop. Some languages provide a statement such as <b>continue</b> or <b>skip</b> which will do this. The effect is to prematurely terminate the innermost loop body and then resume as normal with the next iteration. If the iteration is the last one in the loop, the effect is to terminate the entire loop early.</p>
+<p><a name="Early_exit_from_loops" id="Early_exit_from_loops"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Control_flow&amp;action=edit&amp;section=15" title="Edit section: Early exit from loops">edit</a>]</span> <span class="mw-headline">Early exit from loops</span></h3>
+<p>When using a count-controlled loop to search through a table, you may wish to stop searching as soon as you have found the required item. Some programming languages provide a statement such as <b>break</b> or <b>exit</b>, whose effect is to terminate the current loop immediately and transfer control to the statement immediately following that loop. Things can get a bit messy if you are searching a multi-dimensional table using nested loops (see Missing Control Structures below).</p>
+<p>The following example is done in <a href="/wiki/Ada_programming_language" title="Ada programming language">Ada</a> which supports both <i><a href="/wiki/Control_flow#Early_exit_from_loops" title="Control flow">Early exit from loops</a></i> and <i><a href="/wiki/Control_flow#Loop_with_test_in_the_middle" title="Control flow">Loop with test in the middle</a></i>. Both features are very similar and comparing both code snipletts will show the difference: <i>early exit</i> needs to be combined with an <b>if</b> statement while a <i>condition in the middle</i> is a self contained construct.</p>
+<pre>
+   <b><a href="http://en.wikibooks.org/wiki/Ada_Programming/Keywords/with" class="extiw" title="b:Ada_Programming/Keywords/with">with</a></b> <i><a href="http://en.wikibooks.org/wiki/Ada_Programming/Libraries/Ada.Text_IO" class="extiw" title="b:Ada_Programming/Libraries/Ada.Text_IO">Ada.Text IO</a></i>;
+   <b><a href="http://en.wikibooks.org/wiki/Ada_Programming/Keywords/with" class="extiw" title="b:Ada_Programming/Keywords/with">with</a></b> <i><a href="http://en.wikibooks.org/wiki/Ada_Programming/Libraries/Ada.Integer_Text_IO" class="extiw" title="b:Ada_Programming/Libraries/Ada.Integer_Text_IO">Ada.Integer Text IO</a></i>;
+
+   <b><a href="http://en.wikibooks.org/wiki/Ada_Programming/Keywords/procedure" class="extiw" title="b:Ada_Programming/Keywords/procedure">procedure</a></b> Print_Squares <b><a href="http://en.wikibooks.org/wiki/Ada_Programming/Keywords/is" class="extiw" title="b:Ada_Programming/Keywords/is">is</a></b> 
+       X : Integer;
+   <b><a href="http://en.wikibooks.org/wiki/Ada_Programming/Keywords/begin" class="extiw" title="b:Ada_Programming/Keywords/begin">begin</a></b>
+       Read_Data : <b><a href="http://en.wikibooks.org/wiki/Ada_Programming/Keywords/loop" class="extiw" title="b:Ada_Programming/Keywords/loop">loop</a></b>
+           <i><a href="http://en.wikibooks.org/wiki/Ada_Programming/Libraries/Ada.Integer_Text_IO" class="extiw" title="b:Ada_Programming/Libraries/Ada.Integer_Text_IO">Ada.Integer Text IO</a></i>.Get(X);
+           <b><a href="http://en.wikibooks.org/wiki/Ada_Programming/Keywords/if" class="extiw" title="b:Ada_Programming/Keywords/if">if</a></b> X = 0; <b><a href="http://en.wikibooks.org/wiki/Ada_Programming/Keywords/then" class="extiw" title="b:Ada_Programming/Keywords/then">then</a></b>
+               <b><a href="http://en.wikibooks.org/wiki/Ada_Programming/Keywords/exit" class="extiw" title="b:Ada_Programming/Keywords/exit">exit</a></b> Read_Data;
+           <b><a href="http://en.wikibooks.org/wiki/Ada_Programming/Keywords/end" class="extiw" title="b:Ada_Programming/Keywords/end">end</a></b> <b><a href="http://en.wikibooks.org/wiki/Ada_Programming/Keywords/if" class="extiw" title="b:Ada_Programming/Keywords/if">if</a></b>;
+           <i><a href="http://en.wikibooks.org/wiki/Ada_Programming/Libraries/Ada.Text_IO" class="extiw" title="b:Ada_Programming/Libraries/Ada.Text_IO">Ada.Text IO</a></i>.Put (X * X);
+           <i><a href="http://en.wikibooks.org/wiki/Ada_Programming/Libraries/Ada.Text_IO" class="extiw" title="b:Ada_Programming/Libraries/Ada.Text_IO">Ada.Text IO</a></i>.New_Line;
+       <b><a href="http://en.wikibooks.org/wiki/Ada_Programming/Keywords/end" class="extiw" title="b:Ada_Programming/Keywords/end">end</a></b> <b><a href="http://en.wikibooks.org/wiki/Ada_Programming/Keywords/loop" class="extiw" title="b:Ada_Programming/Keywords/loop">loop</a></b> Read_Data;
+   <b><a href="http://en.wikibooks.org/wiki/Ada_Programming/Keywords/end" class="extiw" title="b:Ada_Programming/Keywords/end">end</a></b> Print_Squares;
+</pre>
+<p><a href="/wiki/Python_%28programming_language%29" title="Python (programming language)">Python</a> supports conditional execution of code depending on whether a loop was exited early or not. For example,</p>
+<pre>
+   for n in set_of_numbers:
+       if <a href="/wiki/Isprime" title="Isprime">isprime</a>(n):
+           print "Set contains a prime number"
+           break
+   else:
+       print "Set did not contain any prime numbers"
+</pre>
+<p>Both Python's for and while loops support such an else clause, which is executed only if early exit of the loop did not occur.</p>
+<p><a name="Loop_system_cross_reference_table" id="Loop_system_cross_reference_table"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Control_flow&amp;action=edit&amp;section=16" title="Edit section: Loop system cross reference table">edit</a>]</span> <span class="mw-headline">Loop system cross reference table</span></h3>
+<table class="wikitable">
+<tr>
+<th rowspan="2"><a href="/wiki/Programming_language" title="Programming language">Programming language</a></th>
+<th colspan="3">conditional</th>
+<th colspan="4">loop</th>
+<th rowspan="2">early exit</th>
+<th rowspan="2">continuation</th>
+</tr>
+<tr>
+<th>begin</th>
+<th>middle</th>
+<th>end</th>
+<th>count</th>
+<th>collection</th>
+<th>general</th>
+<th>infinite <span class="reference"><sup id="ref_loop_infinitea"><a href="#endnote_loop_infinitea" title="">[1]</a></sup></span></th>
+</tr>
+<tr>
+<td><a href="/wiki/Ada_programming_language" title="Ada programming language">Ada</a></td>
+<td style="background:#90ff90; color:black;" class="table-yes">Yes</td>
+<td style="background:#90ff90; color:black;" class="table-yes">Yes</td>
+<td style="background:#90ff90; color:black;" class="table-yes">Yes</td>
+<td style="background:#90ff90; color:black;" class="table-yes">Yes</td>
+<td style="background: #ffffdd; color: black;" class="table-partial">arrays</td>
+<td style="background:#ff9090; color:black;" class="table-no">No</td>
+<td style="background:#90ff90; color:black;" class="table-yes">Yes</td>
+<td style="background:#90ff90; color:black;" class="table-yes">deep nested</td>
+<td style="background:#ff9090; color:black;" class="table-no">No</td>
+</tr>
+<tr>
+<td><a href="/wiki/C_%28programming_language%29" title="C (programming language)">C</a></td>
+<td style="background:#90ff90; color:black;" class="table-yes">Yes</td>
+<td style="background:#ff9090; color:black;" class="table-no">No</td>
+<td style="background:#90ff90; color:black;" class="table-yes">Yes</td>
+<td style="background:#ff9090; color:black;" class="table-no">No <span class="reference"><sup id="ref_loop_fora"><a href="#endnote_loop_fora" title="">[2]</a></sup></span></td>
+<td style="background:#ff9090; color:black;" class="table-no">No</td>
+<td style="background:#90ff90; color:black;" class="table-yes">Yes</td>
+<td style="background:#ff9090; color:black;" class="table-no">No</td>
+<td style="background: #ffffdd; color: black;" class="table-partial">deep nested <span class="reference"><sup id="ref_deep_break_ca"><a href="#endnote_deep_break_ca" title="">[3]</a></sup></span></td>
+<td style="background:#90ff90; color:black;" class="table-yes">Yes</td>
+</tr>
+<tr>
+<td><a href="/wiki/C%2B%2B" title="C++">C++</a></td>
+<td style="background:#90ff90; color:black;" class="table-yes">Yes</td>
+<td style="background:#ff9090; color:black;" class="table-no">No</td>
+<td style="background:#90ff90; color:black;" class="table-yes">Yes</td>
+<td style="background:#ff9090; color:black;" class="table-no">No <span class="reference"><sup id="ref_loop_forb"><a href="#endnote_loop_forb" title="">[2]</a></sup></span></td>
+<td style="background:#ff9090; color:black;" class="table-no">No</td>
+<td style="background:#90ff90; color:black;" class="table-yes">Yes</td>
+<td style="background:#ff9090; color:black;" class="table-no">No</td>
+<td style="background: #ffffdd; color: black;" class="table-partial">deep nested <span class="reference"><sup id="ref_deep_break_cb"><a href="#endnote_deep_break_cb" title="">[3]</a></sup></span></td>
+<td style="background:#90ff90; color:black;" class="table-yes">Yes</td>
+</tr>
+<tr>
+<td><a href="/wiki/FORTRAN_77" title="FORTRAN 77">FORTRAN 77</a></td>
+<td style="background:#90ff90; color:black;" class="table-yes">Yes</td>
+<td style="background:#ff9090; color:black;" class="table-no">No</td>
+<td style="background:#ff9090; color:black;" class="table-no">No</td>
+<td style="background:#90ff90; color:black;" class="table-yes">Yes</td>
+<td style="background:#ff9090; color:black;" class="table-no">No</td>
+<td style="background:#ff9090; color:black;" class="table-no">No</td>
+<td style="background:#ff9090; color:black;" class="table-no">No</td>
+<td style="background: #ffffdd; color: black;" class="table-partial">one level</td>
+<td style="background:#90ff90; color:black;" class="table-yes">Yes</td>
+</tr>
+<tr>
+<td><a href="/wiki/Fortran_90" title="Fortran 90">Fortran 90</a></td>
+<td style="background:#90ff90; color:black;" class="table-yes">Yes</td>
+<td style="background:#ff9090; color:black;" class="table-no">No</td>
+<td style="background:#ff9090; color:black;" class="table-no">No</td>
+<td style="background:#90ff90; color:black;" class="table-yes">Yes</td>
+<td style="background:#ff9090; color:black;" class="table-no">No</td>
+<td style="background:#ff9090; color:black;" class="table-no">No</td>
+<td style="background:#90ff90; color:black;" class="table-yes">Yes</td>
+<td style="background:#90ff90; color:black;" class="table-yes">deep nested</td>
+<td style="background:#90ff90; color:black;" class="table-yes">Yes</td>
+</tr>
+<tr>
+<td><a href="/wiki/Java_%28programming_language%29" title="Java (programming language)">Java</a></td>
+<td style="background:#90ff90; color:black;" class="table-yes">Yes</td>
+<td style="background:#ff9090; color:black;" class="table-no">No</td>
+<td style="background:#90ff90; color:black;" class="table-yes">Yes</td>
+<td style="background:#ff9090; color:black;" class="table-no">No <span class="reference"><sup id="ref_loop_forc"><a href="#endnote_loop_forc" title="">[2]</a></sup></span></td>
+<td style="background:#90ff90; color:black;" class="table-yes">Yes</td>
+<td style="background:#90ff90; color:black;" class="table-yes">Yes</td>
+<td style="background:#ff9090; color:black;" class="table-no">No</td>
+<td style="background:#90ff90; color:black;" class="table-yes">deep nested</td>
+<td style="background:#90ff90; color:black;" class="table-yes">Yes</td>
+</tr>
+<tr>
+<td><a href="/wiki/PHP" title="PHP">PHP</a></td>
+<td style="background:#90ff90; color:black;" class="table-yes">Yes</td>
+<td style="background:#ff9090; color:black;" class="table-no">No</td>
+<td style="background:#90ff90; color:black;" class="table-yes">Yes</td>
+<td style="background:#ff9090; color:black;" class="table-no">No <span class="reference"><sup id="ref_loop_ford"><a href="#endnote_loop_ford" title="">[2]</a></sup></span></td>
+<td style="background:#90ff90; color:black;" class="table-yes">Yes <span class="reference"><sup id="ref_loop_phpforeacha"><a href="#endnote_loop_phpforeacha" title="">[4]</a></sup></span></td>
+<td style="background:#90ff90; color:black;" class="table-yes">Yes</td>
+<td style="background:#ff9090; color:black;" class="table-no">No</td>
+<td style="background:#90ff90; color:black;" class="table-yes">deep nested</td>
+<td style="background:#90ff90; color:black;" class="table-yes">Yes</td>
+</tr>
+<tr>
+<td><a href="/wiki/Python_%28programming_language%29" title="Python (programming language)">Python</a></td>
+<td style="background:#90ff90; color:black;" class="table-yes">Yes</td>
+<td style="background:#ff9090; color:black;" class="table-no">No</td>
+<td style="background:#ff9090; color:black;" class="table-no">No</td>
+<td style="background:#ff9090; color:black;" class="table-no">No <span class="reference"><sup id="ref_loop_rangea"><a href="#endnote_loop_rangea" title="">[5]</a></sup></span></td>
+<td style="background:#90ff90; color:black;" class="table-yes">Yes</td>
+<td style="background:#ff9090; color:black;" class="table-no">No</td>
+<td style="background:#ff9090; color:black;" class="table-no">No</td>
+<td style="background: #ffffdd; color: black;" class="table-partial">deep nested <span class="reference"><sup id="ref_deep_break_pythona"><a href="#endnote_deep_break_pythona" title="">[6]</a></sup></span></td>
+<td style="background:#90ff90; color:black;" class="table-yes">Yes</td>
+</tr>
+</table>
+<ol>
+<li><cite id="endnote_loop_infinitea"><a href="#ref_loop_infinitea" title=""><b><sup>a</sup></b></a></cite>&#160; <code>while (true)</code> does not count as an infinite loop for this purpose, because it is not a dedicated language structure.</li>
+<li><cite id="endnote_loop_fora"><a href="#ref_loop_fora" title=""><b><sup>a</sup></b></a></cite>&#160;<cite id="endnote_loop_forb"><a href="#ref_loop_forb" title=""><b><sup>b</sup></b></a></cite>&#160;<cite id="endnote_loop_forc"><a href="#ref_loop_forc" title=""><b><sup>c</sup></b></a></cite>&#160;<cite id="endnote_loop_ford"><a href="#ref_loop_ford" title=""><b><sup>d</sup></b></a></cite>&#160; C's <code>for (<i>init</i>; <i>condition</i>; <i>loop</i>)</code> loop is a general loop construct, not specifically a counting one, although it is often used for that.</li>
+<li><cite id="endnote_deep_break_ca"><a href="#ref_deep_break_ca" title=""><b><sup>a</sup></b></a></cite>&#160; <cite id="endnote_deep_break_cb"><a href="#ref_deep_break_cb" title=""><b><sup>b</sup></b></a></cite>&#160; Deep breaks may be accomplished in C and C++ through the use of labels and gotos.</li>
+<li><cite id="endnote_loop_phpforeacha"><a href="#ref_loop_phpforeacha" title=""><b><sup>a</sup></b></a></cite>&#160; Iteration over objects was <a href="http://www.php.net/manual/en/language.oop5.iterations.php" class="external text" title="http://www.php.net/manual/en/language.oop5.iterations.php" rel="nofollow">added</a> in PHP 5.</li>
+<li><cite id="endnote_loop_rangea"><a href="#ref_loop_rangea" title=""><b><sup>a</sup></b></a></cite>&#160; A counting loop can be simulated by iterating over an incrementing list or generator, like <code>range</code> or <code>xrange</code>.</li>
+<li><cite id="endnote_deep_break_pythona"><a href="#ref_deep_break_pythona" title=""><b><sup>a</sup></b></a></cite>&#160; Deep breaks may be accomplished in Python through the use of exception handling.</li>
+</ol>
+<p><a name="Structured_non-local_control_flow" id="Structured_non-local_control_flow"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Control_flow&amp;action=edit&amp;section=17" title="Edit section: Structured non-local control flow">edit</a>]</span> <span class="mw-headline">Structured non-local control flow</span></h2>
+<p>Many programming languages, particularly those which favor more dynamic styles of programming, offer constructs for <b>non-local control flow</b>. These cause the flow of execution to jump out of a given context and resume at some predeclared point. <i><a href="/wiki/Exception_handling" title="Exception handling">Exceptions</a></i>, <i><a href="/wiki/Condition" title="Condition">conditions</a></i>, and <i><a href="/wiki/Continuation" title="Continuation">continuations</a></i> are three common sorts of non-local control constructs.</p>
+<p><a name="Conditions" id="Conditions"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Control_flow&amp;action=edit&amp;section=18" title="Edit section: Conditions">edit</a>]</span> <span class="mw-headline">Conditions</span></h3>
+<p><a href="/wiki/PL/I_programming_language" title="PL/I programming language">PL/I</a> has some 22 standard conditions (e.g. ZERODIVIDE SUBSCRIPTRANGE ENDFILE) which can be RAISEd and which can be intercepted by: ON <i>condition</i> action; Programmers can also define and use their own named conditions.</p>
+<p>Like the <i>unstructured if</i> only one statement can be specified so in many cases a GOTO is needed to decide where flow of control should resume.</p>
+<p>Unfortunately, some implementations had a substantial overhead in both space and time (especially SUBSCRIPTRANGE), so many programmers tried to avoid using conditions.</p>
+<p>Common Syntax examples:</p>
+<pre>
+ <b>ON</b> <i>condition</i> <b>GOTO</b> <i>label</i>
+</pre>
+<p><a name="Exceptions" id="Exceptions"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Control_flow&amp;action=edit&amp;section=19" title="Edit section: Exceptions">edit</a>]</span> <span class="mw-headline">Exceptions</span></h3>
+<dl>
+<dd>
+<div class="noprint"><i>Main article: <a href="/wiki/Exception_handling" title="Exception handling">Exception handling</a></i></div>
+</dd>
+</dl>
+<p>Modern languages have a structured construct for exception handling which does not rely on the use of GOTO:</p>
+<pre>
+   <b>try</b> {
+       xxx1                                  // Somewhere in here
+       xxx2                                  //     use: <b>throw</b> someValue;
+       xxx3
+   } <b>catch</b> (someClass &amp; someId) {            // catch value of someClass
+       actionForSomeClass 
+   } <b>catch</b> (someType &amp; anotherId) {          // catch value of someType
+       actionForSomeType
+   } <b>catch</b> (...) {                           // catch anything not already caught
+       actionForAnythingElse
+   }
+</pre>
+<p>Any number and variety of <b>catch</b> clauses can be used above. In D, Java, C#, and Python a <b>finally</b> clause can be added to the <b>try</b> construct. No matter how control leaves the <b>try</b> the code inside the <b>finally</b> clause is guaranteed to execute. This is useful when writing code that must relinquish an expensive resource (such as an opened file or a database connection) when finished processing:</p>
+<pre>
+   FileStream stm = null;                    // C# example
+   <b>try</b> {
+       stm = <b>new</b> FileStream ("logfile.txt", FileMode. Create);
+       <b>return</b> ProcessStuff(stm);             // may throw an exception
+   } <b>finally</b> {
+       <b>if</b> (stm != null)
+           stm. Close();
+   }
+</pre>
+<p>Since this pattern is fairly common, C# has a special syntax:</p>
+<pre>
+   <b>using</b> (FileStream stm = new FileStream ("logfile.txt", FileMode. Create)) {
+       <b>return</b> ProcessStuff(stm);             // may throw an exception
+   }
+</pre>
+<p>Upon leaving the <b>using</b>-block, the compiler guarantees that the <b>stm</b> object is released.</p>
+<p>All these languages define standard exceptions and the circumstances under which they are thrown. Users can throw exceptions of their own (in fact C++ and Python allow users to throw and catch almost any type).</p>
+<p>If there is no <b>catch</b> matching a particular <b>throw</b>, then control percolates back through subroutine calls and/or nested blocks until a matching <b>catch</b> is found or until the end of the main program is reached, at which point the program is forcibly stopped with a suitable error message.</p>
+<p>The <a href="/wiki/AppleScript" title="AppleScript">AppleScript</a> <a href="/wiki/Scripting_programming_language" title="Scripting programming language">scripting programming language</a> provides several pieces of information to a "try" block:</p>
+<pre>
+try
+    set myNumber to myNumber / 0
+
+on error e  number n  from f  to t  partial result pr
+
+    if ( e = "Can't divide by zero" ) then display dialog "You idiot!"
+
+end try
+</pre>
+<p><a name="Continuations" id="Continuations"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Control_flow&amp;action=edit&amp;section=20" title="Edit section: Continuations">edit</a>]</span> <span class="mw-headline">Continuations</span></h3>
+<dl>
+<dd>
+<div class="noprint"><i>Main article: <a href="/wiki/Continuation" title="Continuation">Continuation</a></i></div>
+</dd>
+</dl>
+<p><a name="Non-local_control_flow_cross_reference" id="Non-local_control_flow_cross_reference"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Control_flow&amp;action=edit&amp;section=21" title="Edit section: Non-local control flow cross reference">edit</a>]</span> <span class="mw-headline">Non-local control flow cross reference</span></h3>
+<table class="wikitable">
+<tr>
+<th><a href="/wiki/Programming_language" title="Programming language">Programming language</a></th>
+<th>conditions</th>
+<th>exceptions</th>
+</tr>
+<tr>
+<td><a href="/wiki/Ada_programming_language" title="Ada programming language">Ada</a></td>
+<td style="background:#ff9090; color:black;" class="table-no">No</td>
+<td style="background:#90ff90; color:black;" class="table-yes">Yes</td>
+</tr>
+<tr>
+<td><a href="/wiki/C_%28programming_language%29" title="C (programming language)">C</a></td>
+<td style="background:#ff9090; color:black;" class="table-no">No</td>
+<td style="background:#ff9090; color:black;" class="table-no">No</td>
+</tr>
+<tr>
+<td><a href="/wiki/C%2B%2B" title="C++">C++</a></td>
+<td style="background:#ff9090; color:black;" class="table-no">No</td>
+<td style="background:#90ff90; color:black;" class="table-yes">Yes</td>
+</tr>
+<tr>
+<td><a href="/wiki/C_sharp" title="C sharp">C#</a></td>
+<td style="background:#ff9090; color:black;" class="table-no">No</td>
+<td style="background:#90ff90; color:black;" class="table-yes">Yes</td>
+</tr>
+<tr>
+<td><a href="/wiki/D_programming_language" title="D programming language">D</a></td>
+<td style="background:#ff9090; color:black;" class="table-no">No</td>
+<td style="background:#90ff90; color:black;" class="table-yes">Yes</td>
+</tr>
+<tr>
+<td><a href="/wiki/Haskell_%28programming_language%29" title="Haskell (programming language)">Haskell</a></td>
+<td style="background:#ff9090; color:black;" class="table-no">No</td>
+<td style="background:#90ff90; color:black;" class="table-yes">Yes</td>
+</tr>
+<tr>
+<td><a href="/wiki/Java_%28programming_language%29" title="Java (programming language)">Java</a></td>
+<td style="background:#ff9090; color:black;" class="table-no">No</td>
+<td style="background:#90ff90; color:black;" class="table-yes">Yes</td>
+</tr>
+<tr>
+<td><a href="/wiki/Objective_C_programming_language" title="Objective C programming language">Objective C</a></td>
+<td style="background:#ff9090; color:black;" class="table-no">No</td>
+<td style="background:#90ff90; color:black;" class="table-yes">Yes</td>
+</tr>
+<tr>
+<td><a href="/wiki/PHP" title="PHP">PHP</a></td>
+<td style="background:#ff9090; color:black;" class="table-no">No</td>
+<td style="background:#90ff90; color:black;" class="table-yes">Yes</td>
+</tr>
+<tr>
+<td><a href="/wiki/PL/I_programming_language" title="PL/I programming language">PL/1</a></td>
+<td style="background:#90ff90; color:black;" class="table-yes">Yes</td>
+<td style="background:#ff9090; color:black;" class="table-no">No</td>
+</tr>
+<tr>
+<td><a href="/wiki/Python_%28programming_language%29" title="Python (programming language)">Python</a></td>
+<td style="background:#ff9090; color:black;" class="table-no">No</td>
+<td style="background:#90ff90; color:black;" class="table-yes">Yes</td>
+</tr>
+<tr>
+<td><a href="/wiki/Ruby_programming_language" title="Ruby programming language">Ruby</a></td>
+<td style="background:#ff9090; color:black;" class="table-no">No</td>
+<td style="background:#90ff90; color:black;" class="table-yes">Yes</td>
+</tr>
+</table>
+<p><a name="Proposed_control_structures" id="Proposed_control_structures"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Control_flow&amp;action=edit&amp;section=22" title="Edit section: Proposed control structures">edit</a>]</span> <span class="mw-headline">Proposed control structures</span></h2>
+<p>In a spoof <a href="/wiki/Datamation" title="Datamation">Datamation</a> <a href="http://www.fortran.com/fortran/come_from.html" class="external text" title="http://www.fortran.com/fortran/come_from.html" rel="nofollow">article</a> (December 1973), R. Lawrence Clark suggested that the GOTO statement could be replaced by the <a href="/wiki/COMEFROM" title="COMEFROM">COMEFROM</a> statement, and provides some entertaining examples. This was actually implemented in the <a href="/wiki/INTERCAL_programming_language" title="INTERCAL programming language">INTERCAL programming language</a>, a language designed to make programs as obscure as possible.</p>
+<p>In his 1974 article "Structured Programming with go to Statements", <a href="/wiki/Donald_Knuth" title="Donald Knuth">Donald Knuth</a> identified two situations which were not covered by the control structures listed above, and gave examples of control structures which could handle these situations. Despite their utility, these constructions have not yet found their way into main-stream programming languages.</p>
+<p><a name="Loop_with_test_in_the_middle" id="Loop_with_test_in_the_middle"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Control_flow&amp;action=edit&amp;section=23" title="Edit section: Loop with test in the middle">edit</a>]</span> <span class="mw-headline">Loop with test in the middle</span></h3>
+<p>This was proposed by <a href="/wiki/Ole-Johan_Dahl" title="Ole-Johan Dahl">Dahl</a> in 1972.</p>
+<pre>
+   <b>loop</b>                           <b>loop</b>
+       xxx1                           read(char);
+   <b>while</b> test;                    <b>while</b> <b>not</b> atEndOfFile;
+       xxx2                           write(char);
+   <b>repeat</b>;                        <b>repeat</b>;
+</pre>
+<p>If <i>xxx1</i> is omitted we get a loop with the test at the top. If <i>xxx2</i> is omitted we get a loop with the test at the bottom. If <b>while</b> is omitted we get an infinite loop. Hence this single construction can replace several constructions in most programming languages. A possible variant is to allow more than one <b>while</b> test; within the loop, but the use of <b>exitwhen</b> (see next section) appears to cover this case better.</p>
+<p>As the example on the right shows (copying a file one character at a time), there are simple situations where this is exactly the right construction to use in order to avoid duplicated code and/or repeated tests.</p>
+<div class="infobox sisterproject">
+<div style="float: left;">
+<div class="floatnone"><span><a href="/wiki/Image:Wikibooks-logo-en.svg" class="image" title="Wikibooks"><img alt="Wikibooks" src="http://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Wikibooks-logo-en.svg/50px-Wikibooks-logo-en.svg.png" width="50" height="57" border="0" /></a></span></div>
+</div>
+<div style="margin-left: 60px;"><a href="/wiki/Wikibooks" title="Wikibooks">Wikibooks</a> <a href="http://en.wikibooks.org/wiki/Ada_Programming" class="extiw" title="wikibooks:Ada_Programming">Ada Programming</a> has a page on the topic of
+<div style="margin-left:10px;"><i><b><a href="http://en.wikibooks.org/wiki/Ada_Programming/Control" class="extiw" title="wikibooks:Ada_Programming/Control">Control</a></b></i></div>
+</div>
+</div>
+<p>In <a href="/wiki/Ada_programming_language" title="Ada programming language">Ada</a>, the above loop construct (<b>loop</b>-<b>while</b>-<b>repeat</b>) can be represented using a standard infinite loop (<b>loop</b> - <b>end loop</b>) that has an <b>exit when</b> clause in the middle (not to be confused with the <b>exitwhen</b> statement in the following section).</p>
+<pre>
+   <b><a href="http://en.wikibooks.org/wiki/Ada_Programming/Keywords/with" class="extiw" title="b:Ada_Programming/Keywords/with">with</a></b> <i><a href="http://en.wikibooks.org/wiki/Ada_Programming/Libraries/Ada.Text_IO" class="extiw" title="b:Ada_Programming/Libraries/Ada.Text_IO">Ada.Text IO</a></i>;
+   <b><a href="http://en.wikibooks.org/wiki/Ada_Programming/Keywords/with" class="extiw" title="b:Ada_Programming/Keywords/with">with</a></b> <i><a href="http://en.wikibooks.org/wiki/Ada_Programming/Libraries/Ada.Integer_Text_IO" class="extiw" title="b:Ada_Programming/Libraries/Ada.Integer_Text_IO">Ada.Integer Text IO</a></i>;
+
+   <b><a href="http://en.wikibooks.org/wiki/Ada_Programming/Keywords/procedure" class="extiw" title="b:Ada_Programming/Keywords/procedure">procedure</a></b> Print_Squares <b><a href="http://en.wikibooks.org/wiki/Ada_Programming/Keywords/is" class="extiw" title="b:Ada_Programming/Keywords/is">is</a></b> 
+       X : Integer;
+   <b><a href="http://en.wikibooks.org/wiki/Ada_Programming/Keywords/begin" class="extiw" title="b:Ada_Programming/Keywords/begin">begin</a></b>
+       Read_Data : <b><a href="http://en.wikibooks.org/wiki/Ada_Programming/Keywords/loop" class="extiw" title="b:Ada_Programming/Keywords/loop">loop</a></b>
+           <i><a href="http://en.wikibooks.org/wiki/Ada_Programming/Libraries/Ada.Integer_Text_IO" class="extiw" title="b:Ada_Programming/Libraries/Ada.Integer_Text_IO">Ada.Integer Text IO</a></i>.Get(X);
+       <b><a href="http://en.wikibooks.org/wiki/Ada_Programming/Keywords/exit" class="extiw" title="b:Ada_Programming/Keywords/exit">exit</a></b> Read_Data <b><a href="http://en.wikibooks.org/wiki/Ada_Programming/Keywords/when" class="extiw" title="b:Ada_Programming/Keywords/when">when</a></b> X = 0;
+           <i><a href="http://en.wikibooks.org/wiki/Ada_Programming/Libraries/Ada.Text_IO" class="extiw" title="b:Ada_Programming/Libraries/Ada.Text_IO">Ada.Text IO</a></i>.Put (X * X);
+           <i><a href="http://en.wikibooks.org/wiki/Ada_Programming/Libraries/Ada.Text_IO" class="extiw" title="b:Ada_Programming/Libraries/Ada.Text_IO">Ada.Text IO</a></i>.New_Line;
+       <b><a href="http://en.wikibooks.org/wiki/Ada_Programming/Keywords/end" class="extiw" title="b:Ada_Programming/Keywords/end">end</a></b> <b><a href="http://en.wikibooks.org/wiki/Ada_Programming/Keywords/loop" class="extiw" title="b:Ada_Programming/Keywords/loop">loop</a></b> Read_Data;
+   <b><a href="http://en.wikibooks.org/wiki/Ada_Programming/Keywords/end" class="extiw" title="b:Ada_Programming/Keywords/end">end</a></b> Print_Squares;
+</pre>
+<p>Naming a loop (Like <i>Read_Data</i> in our example) is optional but allows to leave the outer loop of several nested loops.</p>
+<p><a name="Multiple_early_exit.2Fexit_from_nested_loops" id="Multiple_early_exit.2Fexit_from_nested_loops"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Control_flow&amp;action=edit&amp;section=24" title="Edit section: Multiple early exit/exit from nested loops">edit</a>]</span> <span class="mw-headline">Multiple early exit/exit from nested loops</span></h3>
+<p>This was proposed by Zahn in 1974. A modified version is presented here.</p>
+<pre>
+   <b>exitwhen</b> EventA <b>or</b> EventB <b>or</b> EventC;
+       xxx
+   <b>exits</b>
+       EventA: actionA
+       EventB: actionB
+       EventC: actionC
+   <b>endexit</b>;
+</pre>
+<p><b>exitwhen</b> is used to specify the events which may occur within <i>xxx</i>, their occurrence is indicated by using the name of the event as a statement. When some event does occur, the relevant action is carried out, and then control passes just after <b>endexit</b>. This construction provides a very clear separation between determining that some situation applies, and the action to be taken for that situation.</p>
+<p><b>exitwhen</b> is conceptually similar to the <b>try</b>/<b>catch</b> construct in C++, but is likely to be much more efficient since there is no percolation across subroutine calls and no transfer of arbitrary values. Also, the compiler can check that all specified events do actually occur and have associated actions.</p>
+<p>The following simple example involves searching a two-dimensional table for a particular item.</p>
+<pre>
+   <b>exitwhen</b> found <b>or</b> missing;
+       <b>for</b> I := 1 <b>to</b> N <b>do</b>
+           <b>for</b> J := 1 <b>to</b> M <b>do</b>
+               <b>if</b> table[I,J] = target <b>then</b> found;
+       missing;
+   <b>exits</b>
+       found:   print ("item is in table");
+       missing: print ("item is not in table");
+   <b>endexit</b>;
+</pre>
+<p><a name="See_also" id="See_also"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Control_flow&amp;action=edit&amp;section=25" title="Edit section: See also">edit</a>]</span> <span class="mw-headline">See also</span></h2>
+<ul>
+<li><a href="/wiki/Flow-driven_programming" title="Flow-driven programming">Flow-driven programming</a></li>
+<li><a href="/wiki/Branch_%28computer_science%29" title="Branch (computer science)">Branch (computer science)</a></li>
+<li><a href="/wiki/Control_flow_graph" title="Control flow graph">Control flow graph</a></li>
+<li><a href="/wiki/Coroutine" title="Coroutine">Coroutine</a></li>
+<li><a href="/wiki/Flowchart" title="Flowchart">Flowchart</a></li>
+<li><a href="/wiki/GOTO" title="GOTO">GOTO</a></li>
+<li><a href="/wiki/Main_loop" title="Main loop">Main loop</a></li>
+<li><a href="/wiki/Recursion" title="Recursion">Recursion</a></li>
+<li><a href="/wiki/Spaghetti_code" title="Spaghetti code">Spaghetti code</a></li>
+<li><a href="/wiki/Structured_programming" title="Structured programming">Structured programming</a></li>
+<li><a href="/wiki/Subroutine" title="Subroutine">Subroutine</a></li>
+</ul>
+<p><a name="References" id="References"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Control_flow&amp;action=edit&amp;section=26" title="Edit section: References">edit</a>]</span> <span class="mw-headline">References</span></h2>
+<ul>
+<li>Dahl &amp; Dijkstra &amp; Hoare, "Structured Programming" Academic Press, 1972.</li>
+<li>Knuth, Donald E. "Structured Programming with go to Statements" <a href="/w/index.php?title=ACM_Computing_Surveys&amp;action=edit" class="new" title="ACM Computing Surveys">ACM Computing Surveys</a> 6(4):261-301, December 1974.</li>
+<li>Böhm, Jacopini. Flow diagrams, "Turing Machines and Languages with only Two Formation Rules" <a href="/wiki/Comm._ACM" title="Comm. ACM">Comm. ACM</a>, 9(5):366-371, May 1966.</li>
+<li>Hoare, C. A. R. "Partition: Algorithm 63," "Quicksort: Algorithm 64," and "Find: Algorithm 65." Comm. ACM 4, 321-322, 1961.</li>
+<li>Zahn, C. T. "A control statement for natural top-down structured programming" presented at Symposium on Programming Languages, Paris, 1974.</li>
+</ul>
+<p><a name="External_links" id="External_links"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Control_flow&amp;action=edit&amp;section=27" title="Edit section: External links">edit</a>]</span> <span class="mw-headline">External links</span></h2>
+<ul>
+<li><a href="http://beginner-java-tutorial.com/java-control-statements.html" class="external text" title="http://beginner-java-tutorial.com/java-control-statements.html" rel="nofollow">Java Control Statements</a></li>
+<li><a href="http://www.acm.org/classics/oct95/" class="external text" title="http://www.acm.org/classics/oct95/" rel="nofollow">Go To Statement Considered Harmful</a></li>
+<li><a href="http://www.fortran.com/fortran/come_from.html" class="external text" title="http://www.fortran.com/fortran/come_from.html" rel="nofollow">A Linguistic Contribution of GOTO-less Programming</a></li>
+<li><span class="PDFlink"><a href="http://pplab.snu.ac.kr/courses/adv_pl05/papers/p261-knuth.pdf" class="external text" title="http://pplab.snu.ac.kr/courses/adv_pl05/papers/p261-knuth.pdf" rel="nofollow">Structured Programming with Go To Statements</a></span><span style="font-size:smaller;"><a href="/wiki/Portable_Document_Format" title="Portable Document Format">PDF</a>&#160;(2.88&#160;<a href="/wiki/Mebibyte" title="Mebibyte">MiB</a>)</span></li>
+<li><span class="PDFlink"><a href="http://www.bitsavers.org/pdf/ibm/704/24-6661-2_704_Manual_1955.pdf" class="external text" title="http://www.bitsavers.org/pdf/ibm/704/24-6661-2_704_Manual_1955.pdf" rel="nofollow">IBM 704 Manual</a></span><span style="font-size:smaller;"><a href="/wiki/Portable_Document_Format" title="Portable Document Format">PDF</a>&#160;(31.4&#160;<a href="/wiki/Mebibyte" title="Mebibyte">MiB</a>)</span></li>
+</ul>
+
+<!-- 
+Pre-expand include size: 38360 bytes
+Post-expand include size: 18832 bytes
+Template argument size: 6370 bytes
+Maximum: 2048000 bytes
+-->
+
+<!-- Saved in parser cache with key enwiki:pcache:idhash:45459-0!1!0!default!!en!2 and timestamp 20070915010538 -->
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org/wiki/Control_flow">http://en.wikipedia.org/wiki/Control_flow</a>"</div>
+			<div id="catlinks"><p class='catlinks'><a href="/wiki/Special:Categories" title="Special:Categories">Categories</a>: <span dir='ltr'><a href="/wiki/Category:All_articles_with_unsourced_statements" title="Category:All articles with unsourced statements">All articles with unsourced statements</a></span> | <span dir='ltr'><a href="/wiki/Category:Articles_with_unsourced_statements_since_May_2007" title="Category:Articles with unsourced statements since May 2007">Articles with unsourced statements since May 2007</a></span> | <span dir='ltr'><a href="/wiki/Category:Control_flow" title="Category:Control flow">Control flow</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<div class="pBody">
+			<ul>
+					 <li id="ca-nstab-main" class="selected"><a href="/wiki/Control_flow" title="View the content page [c]" accesskey="c">Article</a></li>
+					 <li id="ca-talk"><a href="/wiki/Talk:Control_flow" title="Discussion about the content page [t]" accesskey="t">Discussion</a></li>
+					 <li id="ca-edit"><a href="/w/index.php?title=Control_flow&amp;action=edit" title="You can edit this page. Please use the preview button before saving. [e]" accesskey="e">Edit this page</a></li>
+					 <li id="ca-history"><a href="/w/index.php?title=Control_flow&amp;action=history" title="Past versions of this page [h]" accesskey="h">History</a></li>
+				</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-personal">
+		<h5>Personal tools</h5>
+		<div class="pBody">
+			<ul>
+				<li id="pt-login"><a href="/w/index.php?title=Special:Userlogin&amp;returnto=Control_flow" title="You are encouraged to log in, it is not mandatory however. [o]" accesskey="o">Sign in / create account</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-logo">
+		<a style="background-image: url(/images/wiki-en.png);" href="/wiki/Main_Page" title="Visit the Main Page [z]" accesskey="z"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-Main-page"><a href="/wiki/Main_Page">Main page</a></li>
+				<li id="n-Contents"><a href="/wiki/Wikipedia:Contents">Contents</a></li>
+				<li id="n-Featured-content"><a href="/wiki/Wikipedia:Featured_content">Featured content</a></li>
+				<li id="n-currentevents"><a href="/wiki/Portal:Current_events" title="Find background information on current events">Current events</a></li>
+				<li id="n-randompage"><a href="/wiki/Special:Random" title="Load a random page [x]" accesskey="x">Random article</a></li>
+			</ul>
+		</div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+		<h5>interaction</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-About-Wikipedia"><a href="/wiki/Wikipedia:About">About Wikipedia</a></li>
+				<li id="n-portal"><a href="/wiki/Wikipedia:Community_Portal" title="About the project, what you can do, where to find things">Community portal</a></li>
+				<li id="n-recentchanges"><a href="/wiki/Special:Recentchanges" title="The list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li>
+				<li id="n-contact"><a href="/wiki/Wikipedia:Contact_us">Contact Wikipedia</a></li>
+				<li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising" title="Support us">Donate to Wikipedia</a></li>
+				<li id="n-help"><a href="/wiki/Help:Contents" title="Guidance on how to use and edit Wikipedia">Help</a></li>
+			</ul>
+		</div>
+	</div>
+		<div id="p-search" class="portlet">
+		<h5><label for="searchInput">Search</label></h5>
+		<div id="searchBody" class="pBody">
+			<form action="/wiki/Special:Search" id="searchform"><div>
+				<input id="searchInput" name="search" type="text" title="Search Wikipedia [f]" accesskey="f" value="" />
+				<input type='submit' name="go" class="searchButton" id="searchGoButton"	value="Go" />&nbsp;
+				<input type='submit' name="fulltext" class="searchButton" id="mw-searchButton" value="Search" />
+			</div></form>
+		</div>
+	</div>
+	<div class="portlet" id="p-tb">
+		<h5>Toolbox</h5>
+		<div class="pBody">
+			<ul>
+				<li id="t-whatlinkshere"><a href="/wiki/Special:Whatlinkshere/Control_flow" title="List of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+				<li id="t-recentchangeslinked"><a href="/wiki/Special:Recentchangeslinked/Control_flow" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+<li id="t-upload"><a href="/wiki/Wikipedia:Upload" title="Upload images or media files [u]" accesskey="u">Upload file</a></li>
+<li id="t-specialpages"><a href="/wiki/Special:Specialpages" title="List of all special pages [q]" accesskey="q">Special pages</a></li>
+				<li id="t-print"><a href="/w/index.php?title=Control_flow&amp;printable=yes" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>				<li id="t-permalink"><a href="/w/index.php?title=Control_flow&amp;oldid=154322686" title="Permanent link to this version of the page">Permanent link</a></li><li id="t-cite"><a href="/w/index.php?title=Special:Cite&amp;page=Control_flow&amp;id=154322686">Cite this article</a></li>			</ul>
+		</div>
+	</div>
+	<div id="p-lang" class="portlet">
+		<h5>In other languages</h5>
+		<div class="pBody">
+			<ul>
+				<li class="interwiki-cs"><a href="http://cs.wikipedia.org/wiki/%C5%98%C3%ADd%C3%ADc%C3%AD_struktura">Česky</a></li>
+				<li class="interwiki-de"><a href="http://de.wikipedia.org/wiki/Kontrollstruktur">Deutsch</a></li>
+				<li class="interwiki-es"><a href="http://es.wikipedia.org/wiki/Estructuras_de_control">Español</a></li>
+				<li class="interwiki-fr"><a href="http://fr.wikipedia.org/wiki/Structure_de_contr%C3%B4le">Français</a></li>
+				<li class="interwiki-it"><a href="http://it.wikipedia.org/wiki/Struttura_di_controllo">Italiano</a></li>
+				<li class="interwiki-he"><a href="http://he.wikipedia.org/wiki/%D7%91%D7%A7%D7%A8%D7%AA_%D7%96%D7%A8%D7%99%D7%9E%D7%94">עברית</a></li>
+				<li class="interwiki-nl"><a href="http://nl.wikipedia.org/wiki/Control_flow">Nederlands</a></li>
+				<li class="interwiki-ja"><a href="http://ja.wikipedia.org/wiki/%E5%88%B6%E5%BE%A1%E6%A7%8B%E9%80%A0">日本語</a></li>
+				<li class="interwiki-pl"><a href="http://pl.wikipedia.org/wiki/Przep%C5%82yw_sterowania">Polski</a></li>
+				<li class="interwiki-ta"><a href="http://ta.wikipedia.org/wiki/%E0%AE%95%E0%AE%9F%E0%AF%8D%E0%AE%9F%E0%AF%81%E0%AE%AA%E0%AF%8D%E0%AE%AA%E0%AE%BE%E0%AE%9F%E0%AF%8D%E0%AE%9F%E0%AF%81_%E0%AE%95%E0%AE%9F%E0%AF%8D%E0%AE%9F%E0%AE%AE%E0%AF%88%E0%AE%AA%E0%AF%8D%E0%AE%AA%E0%AF%81">தமிழ்</a></li>
+				<li class="interwiki-uk"><a href="http://uk.wikipedia.org/wiki/%D0%A6%D0%B8%D0%BA%D0%BB_%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%B8">Українська</a></li>
+			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="/skins-1.5/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>
+				<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="/images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>
+			<ul id="f-list">
+				<li id="lastmod"> This page was last modified 05:01, 29 August 2007.</li>
+				<li id="copyright">All text is available under the terms of the <a class='internal' href="/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="/wiki/Wikipedia:Copyrights" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a U.S. registered <a class='internal' href="/wiki/501%28c%29#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="/wiki/Non-profit_organization" title="Non-profit organization">nonprofit</a> <a href="/wiki/Charitable_organization" title="Charitable organization">charity</a>.<br /></li>
+				<li id="privacy"><a href="http://wikimediafoundation.org/wiki/Privacy_policy" title="wikimedia:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="/wiki/Wikipedia:About" title="Wikipedia:About">About Wikipedia</a></li>
+				<li id="disclaimer"><a href="/wiki/Wikipedia:General_disclaimer" title="Wikipedia:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+		
+	
+		<script type="text/javascript">if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by srv155 in 0.632 secs. --></body></html>

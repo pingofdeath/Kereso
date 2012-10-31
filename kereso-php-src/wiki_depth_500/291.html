@@ -1,0 +1,287 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es" lang="es" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+				<meta name="keywords" content="Algoritmo de búsqueda A*,1968,Algoritmo voraz,Heurística,Primero en anchura,Primero en profundidad,Wikimedia Commons,RTA*,IDA*,SMA*,Algoritmos de escalada" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (Español)" />
+		<link rel="copyright" href="http://www.gnu.org/copyleft/fdl.html" />
+		<title>Algoritmo de búsqueda A* - Wikipedia, la enciclopedia libre</title>
+		<style type="text/css" media="screen, projection">/*<![CDATA[*/
+			@import "/skins-1.5/common/shared.css?97";
+			@import "/skins-1.5/monobook/main.css?97";
+		/*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="/skins-1.5/common/commonPrint.css?97" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE50Fixes.css?97";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE55Fixes.css?97";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "/skins-1.5/monobook/IE60Fixes.css?97";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "/skins-1.5/monobook/IE70Fixes.css?97";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="/skins-1.5/common/IEFixes.js?97"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		
+		<script type= "text/javascript">/*<![CDATA[*/
+var skin = "monobook";
+var stylepath = "/skins-1.5";
+var wgArticlePath = "/wiki/$1";
+var wgScriptPath = "/w";
+var wgScript = "/w/index.php";
+var wgServer = "http://es.wikipedia.org";
+var wgCanonicalNamespace = "";
+var wgCanonicalSpecialPageName = false;
+var wgNamespaceNumber = 0;
+var wgPageName = "Algoritmo_de_búsqueda_A*";
+var wgTitle = "Algoritmo de búsqueda A*";
+var wgAction = "view";
+var wgRestrictionEdit = [];
+var wgRestrictionMove = [];
+var wgArticleId = "388858";
+var wgIsArticle = true;
+var wgUserName = null;
+var wgUserGroups = null;
+var wgUserLanguage = "es";
+var wgContentLanguage = "es";
+var wgBreakFrames = false;
+var wgCurRevisionId = "10724671";
+/*]]>*/</script>
+                
+		<script type="text/javascript" src="/skins-1.5/common/wikibits.js?97"><!-- wikibits js --></script>
+		<script type="text/javascript" src="/w/index.php?title=-&amp;action=raw&amp;gen=js&amp;useskin=monobook"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "/w/index.php?title=MediaWiki:Common.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=MediaWiki:Monobook.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=-&action=raw&gen=css&maxage=2678400";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+		<script type="text/javascript" src="/skins-1.5/common/ajax.js?97"></script>
+	</head>
+<body  class="mediawiki ns-0 ltr page-Algoritmo_de_búsqueda_A">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">Algoritmo de búsqueda A*</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">De Wikipedia, la enciclopedia libre</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Saltar a <a href="#column-one">navegación</a>, <a href="#searchInput">búsqueda</a></div>			<!-- start content -->
+			<div class="thumb tright">
+<div class="thumbinner" style="width:182px;"><a href="/wiki/Imagen:Pathfinding_A_Star.svg" class="image" title="Ejemplo de aplicación del algoritmo A*"><img alt="Ejemplo de aplicación del algoritmo A*" src="http://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Pathfinding_A_Star.svg/180px-Pathfinding_A_Star.svg.png" width="180" height="130" border="0" class="thumbimage" /></a>
+<div class="thumbcaption">
+<div class="magnify" style="float:right"><a href="/wiki/Imagen:Pathfinding_A_Star.svg" class="internal" title="Aumentar"><img src="/skins-1.5/common/images/magnify-clip.png" width="15" height="11" alt="" /></a></div>
+Ejemplo de aplicación del algoritmo A*</div>
+</div>
+</div>
+<p>El <b>algoritmo de búsqueda A*</b> (A Estrella) se clasifica dentro de los <a href="/w/index.php?title=Algoritmos_de_b%C3%BAsqueda_en_grafos&amp;action=edit" class="new" title="Algoritmos de búsqueda en grafos">algoritmos de búsqueda en grafos</a>. Presentado por primera vez en <a href="/wiki/1968" title="1968">1968</a> por <a href="/w/index.php?title=Peter_E._Hart&amp;action=edit" class="new" title="Peter E. Hart">Peter E. Hart</a>, <a href="/w/index.php?title=Nils_J._Nilsson&amp;action=edit" class="new" title="Nils J. Nilsson">Nils J. Nilsson</a> y <a href="/w/index.php?title=Bertram_Raphael&amp;action=edit" class="new" title="Bertram Raphael">Bertram Raphael</a>, el algoritmo encuentra, siempre y cuando se cumplan unas determinadas condiciones, el camino de menor coste entre un nodo origen y uno objetivo.</p>
+<table id="toc" class="toc" summary="Tabla de contenidos">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Tabla de contenidos</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Motivaci.C3.B3n_y_Descripci.C3.B3n"><span class="tocnumber">1</span> <span class="toctext">Motivación y Descripción</span></a></li>
+<li class="toclevel-1"><a href="#Propiedades"><span class="tocnumber">2</span> <span class="toctext">Propiedades</span></a></li>
+<li class="toclevel-1"><a href="#Complejidad_computacional"><span class="tocnumber">3</span> <span class="toctext">Complejidad computacional</span></a></li>
+<li class="toclevel-1"><a href="#Complejidad_en_memoria"><span class="tocnumber">4</span> <span class="toctext">Complejidad en memoria</span></a></li>
+<li class="toclevel-1"><a href="#Implementaci.C3.B3n_en_pseudoc.C3.B3digo"><span class="tocnumber">5</span> <span class="toctext">Implementación en pseudocódigo</span></a>
+<ul>
+<li class="toclevel-2"><a href="#ALGORITMO_A.2A"><span class="tocnumber">5.1</span> <span class="toctext">ALGORITMO A*</span></a></li>
+<li class="toclevel-2"><a href="#TRATAR_SUCESOR"><span class="tocnumber">5.2</span> <span class="toctext">TRATAR_SUCESOR</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Enlaces_externos"><span class="tocnumber">6</span> <span class="toctext">Enlaces externos</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "mostrar"; var tocHideText = "ocultar"; showTocToggle(); } 
+//]]>
+</script>
+<p><a name="Motivaci.C3.B3n_y_Descripci.C3.B3n" id="Motivaci.C3.B3n_y_Descripci.C3.B3n"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Algoritmo_de_b%C3%BAsqueda_A%2A&amp;action=edit&amp;section=1" title="Editar sección: Motivación y Descripción">editar</a>]</span> <span class="mw-headline">Motivación y Descripción</span></h2>
+<p>El problema de algunos algoritmos de búsqueda en grafos informados, como puede ser el <a href="/wiki/Algoritmo_voraz" title="Algoritmo voraz">algoritmo voraz</a>, es que se guían en exclusiva por la <a href="/wiki/Heur%C3%ADstica" title="Heurística">función heurística</a>, la cual puede no indicar el camino de coste más bajo, o por el coste real de desplazarse de un nodo a otro (como los <a href="/w/index.php?title=Algoritmos_de_escalada&amp;action=edit" class="new" title="Algoritmos de escalada">algoritmos de escalada</a>), pudiéndose dar el caso de que sea necesario realizar un movimiento de coste mayor para alcanzar la solución. Es por ello bastante intuitivo el hecho de que un buen algoritmo de búsqueda informada debería tener en cuenta ambos factores, el valor heurístico de los nodos y el coste real del recorrido.</p>
+<p>Así, el algoritmo A* utiliza una función de evaluación <span class="texhtml"><i>f</i>(<i>n</i>) = <i>g</i>(<i>n</i>) + <i>h</i>(<i>n</i>)</span>, donde <span class="texhtml"><i>h</i>(<i>n</i>)</span> representa el valor heurístico del nodo a evaluar, y <span class="texhtml"><i>g</i>(<i>n</i>)</span>, el coste real del camino recorrido para llegar a dicho nodo. A* mantiene dos estructuras de datos auxiliares, que podemos denominar <i>abiertos</i>, implementado como una cola de prioridad (ordenada por el valor <span class="texhtml"><i>f</i>(<i>n</i>)</span> de cada nodo), y <i>cerrados</i>, donde se guarda la información de los nodos que ya han sido visitados. En cada paso del algoritmo, se expande el nodo que esté primero en abiertos, y en caso de que no sea un nodo objetivo, calcula la <span class="texhtml"><i>f</i>(<i>n</i>)</span> de todos sus hijos, los inserta en abiertos, y pasa el nodo evaluado a cerrados.</p>
+<p>El algoritmo es una combinación entre búsquedas del tipo <a href="/wiki/Primero_en_anchura" title="Primero en anchura">primero en anchura</a> con <a href="/wiki/Primero_en_profundidad" title="Primero en profundidad">primero en profundidad</a>: mientras que <span class="texhtml"><i>h</i>(<i>n</i>)</span> tiende a primero en profundidad, <span class="texhtml"><i>g</i>(<i>n</i>)</span> tiende a primero en anchura. De este modo, se cambia de camino de búsqueda cada vez que existen nodos más prometedores.</p>
+<p><a name="Propiedades" id="Propiedades"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Algoritmo_de_b%C3%BAsqueda_A%2A&amp;action=edit&amp;section=2" title="Editar sección: Propiedades">editar</a>]</span> <span class="mw-headline">Propiedades</span></h2>
+<p>Como todo algoritmo de búsqueda en anchura, A* es un algoritmo completo: en caso de existir una solución, siempre dará con ella.</p>
+<p>Si para todo nodo n del grafo se cumple <span class="texhtml"><i>g</i>(<i>n</i>) = 0</span>, nos encontramos ante una búsqueda voraz. Si para todo nodo n del grafo se cumple <span class="texhtml"><i>h</i>(<i>n</i>) = 0</span>, A* pasa a ser una búsqueda de coste uniforme no informada.</p>
+<p>Para garantizar la optimalidad del algoritmo, la función <span class="texhtml"><i>h</i>(<i>n</i>)</span> debe ser admisible, esto es, que no sobrestime el coste real de alcanzar el nodo objetivo.</p>
+<p>De no cumplirse dicha condición, el algoritmo pasa a denominarse simplemente A, y a pesar de seguir siendo completo, no se asegura que el resultado obtenido sea el camino de coste mínimo. Asimismo, si garantizamos que <span class="texhtml"><i>h</i>(<i>n</i>)</span> es consistente (o monótona), es decir, que para cualquier nodo <span class="texhtml"><i>n</i></span> y cualquiera de sus sucesores, el coste estimado de alcanzar el objetivo desde n no es mayor que el de alcanzar el sucesor más el coste de alcanzar el objetivo desde el sucesor.</p>
+<p><a name="Complejidad_computacional" id="Complejidad_computacional"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Algoritmo_de_b%C3%BAsqueda_A%2A&amp;action=edit&amp;section=3" title="Editar sección: Complejidad computacional">editar</a>]</span> <span class="mw-headline">Complejidad computacional</span></h2>
+<p>La complejidad computacional del algoritmo está íntimamente relacionada con la calidad de la heurística que se utilice en el problema. En el caso peor, con una heurística de pésima calidad, la complejidad será exponencial, mientras que en el caso mejor, con una buena <span class="texhtml"><i>h</i>(<i>n</i>)</span>, el algoritmo se ejecutará en tiempo lineal. Para que esto último suceda, se debe cumplir que</p>
+<dl>
+<dd><img class="tex" alt="h(x) \le g(y) - g(x) + h(y)" src="http://upload.wikimedia.org/math/3/e/9/3e9cc2812546b6219a9a801788e12ed4.png" /></dd>
+</dl>
+<p>donde h* es una heurística óptima para el problema, como por ejemplo, el coste real de alcanzar el objetivo.</p>
+<p><a name="Complejidad_en_memoria" id="Complejidad_en_memoria"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Algoritmo_de_b%C3%BAsqueda_A%2A&amp;action=edit&amp;section=4" title="Editar sección: Complejidad en memoria">editar</a>]</span> <span class="mw-headline">Complejidad en memoria</span></h2>
+<p>El espacio requerido por A* para ser ejecutado es su mayor problema. Dado que tiene que almacenar todos los posibles siguientes nodos de cada estado, la cantidad de memoria que requerirá será exponencial con respecto al tamaño del problema. Para solucionar este problema, se han propuesto diversas variaciones de este algoritmo, como pueden ser <a href="/w/index.php?title=RTA%2A&amp;action=edit" class="new" title="RTA*">RTA*</a>, <a href="/w/index.php?title=IDA%2A&amp;action=edit" class="new" title="IDA*">IDA*</a> o <a href="/w/index.php?title=SMA%2A&amp;action=edit" class="new" title="SMA*">SMA*</a>.</p>
+<p><a name="Implementaci.C3.B3n_en_pseudoc.C3.B3digo" id="Implementaci.C3.B3n_en_pseudoc.C3.B3digo"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Algoritmo_de_b%C3%BAsqueda_A%2A&amp;action=edit&amp;section=5" title="Editar sección: Implementación en pseudocódigo">editar</a>]</span> <span class="mw-headline">Implementación en pseudocódigo</span></h2>
+<p><a name="ALGORITMO_A.2A" id="ALGORITMO_A.2A"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Algoritmo_de_b%C3%BAsqueda_A%2A&amp;action=edit&amp;section=6" title="Editar sección: ALGORITMO A*">editar</a>]</span> <span class="mw-headline">ALGORITMO A*</span></h3>
+<pre>
+ABIERTOS := [INICIAL]            //inicialización
+CERRADOS := []
+f'(INICIAL) := h'(INICIAL)
+repetir
+   si ABIERTOS = [] entonces FALLO
+   si no                           // quedan nodos
+      extraer MEJORNODO de ABIERTOS con f' mí­nima
+         // cola de prioridad
+      mover MEJORNODO de ABIERTOS a CERRADOS
+      si MEJORNODO contiene estado_objetivo entonces
+         SOLUCION_ENCONTRADA := TRUE
+      si no
+         generar SUCESORES de MEJORNODO
+         para cada SUCESOR hacer TRATAR_SUCESOR
+hasta SOLUCION_ENCONTRADA o FALLO
+</pre>
+<p><a name="TRATAR_SUCESOR" id="TRATAR_SUCESOR"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Algoritmo_de_b%C3%BAsqueda_A%2A&amp;action=edit&amp;section=7" title="Editar sección: TRATAR_SUCESOR">editar</a>]</span> <span class="mw-headline">TRATAR_SUCESOR</span></h3>
+<pre>
+SUCESOR.ANTERIOR := 
+                                   // coste del camino hasta SUCESOR
+
+caso SUCESOR = VIEJO perteneciente a CERRADOS
+   si g(SUCESOR) &lt; g(VIEJO) entonces // (no si monotoní­a)
+      // nos quedamos con el camino de menor coste
+      VIEJO.ANTERIOR := MEJORNODO
+      actualizar g(VIEJO) y f'(VIEJO)
+      propagar g a sucesores de VIEJO
+   eliminar SUCESOR
+   añadir VIEJO a SUCESORES_MEJORNODO
+caso SUCESOR = VIEJO perteneciente a ABIERTOS
+   si g(SUCESOR) &lt; g(VIEJO) entonces
+      // nos quedamos con el camino de menor coste
+      VIEJO.ANTERIOR := MEJORNODO
+      actualizar g(VIEJO) y f'(VIEJO)
+   eliminar SUCESOR
+   añadir VIEJO a SUCESORES_MEJORNODO
+caso SUCESOR no estaba en ABIERTOS ni CERRADOS
+   añadir SUCESOR a ABIERTOS
+   añadir SUCESOR a SUCESORES_MEJORNODO
+   f'(SUCESOR) := g(SUCESOR) + h'(SUCESOR)
+</pre>
+<p><a name="Enlaces_externos" id="Enlaces_externos"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Algoritmo_de_b%C3%BAsqueda_A%2A&amp;action=edit&amp;section=8" title="Editar sección: Enlaces externos">editar</a>]</span> <span class="mw-headline">Enlaces externos</span></h2>
+<ul>
+<li><a href="/wiki/Imagen:Commons-logo.svg" class="image" title="Colabora en Commons"><img alt="Colabora en Commons" src="http://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Commons-logo.svg/15px-Commons-logo.svg.png" width="15" height="20" border="0" /></a> <a href="/wiki/Wikimedia_Commons" title="Wikimedia Commons">Commons</a> alberga contenido multimedia sobre <b><a href="http://commons.wikimedia.org/wiki/A%2A_Algorithm" class="extiw" title="commons:A*_Algorithm">Algoritmo de búsqueda A*</a></b>.<span class="interProject"><a href="http://commons.wikimedia.org/wiki/A%2A_Algorithm" class="extiw" title="commons:A*_Algorithm">Commons</a></span></li>
+<li><a href="http://scalab.uc3m.es/~docweb/ia/transpas/8puzzle/Web/index.html" class="external text" title="http://scalab.uc3m.es/~docweb/ia/transpas/8puzzle/Web/index.html" rel="nofollow">Applet de búsqueda con A* para el 8 puzzle</a></li>
+</ul>
+<p><span class="bueno" id="de" style="display:none;"></span></p>
+
+<!-- 
+Pre-expand include size: 2739 bytes
+Post-expand include size: 425 bytes
+Template argument size: 153 bytes
+Maximum: 2048000 bytes
+-->
+
+<!-- Saved in parser cache with key eswiki:pcache:idhash:388858-0!1!0!!es!2 and timestamp 20070910165847 -->
+<div class="printfooter">
+Obtenido de "<a href="http://es.wikipedia.org/wiki/Algoritmo_de_b%C3%BAsqueda_A%2A">http://es.wikipedia.org/wiki/Algoritmo_de_b%C3%BAsqueda_A%2A</a>"</div>
+			<div id="catlinks"><p class='catlinks'><a href="/wiki/Especial:Categories" title="Especial:Categories">Categorías</a>: <span dir='ltr'><a href="/wiki/Categor%C3%ADa:Wikipedia:Art%C3%ADculos_buenos_en_w:de" title="Categoría:Wikipedia:Artículos buenos en w:de">Wikipedia:Artículos buenos en w:de</a></span> | <span dir='ltr'><a href="/wiki/Categor%C3%ADa:Algoritmos_de_b%C3%BAsqueda" title="Categoría:Algoritmos de búsqueda">Algoritmos de búsqueda</a></span> | <span dir='ltr'><a href="/wiki/Categor%C3%ADa:Inteligencia_artificial" title="Categoría:Inteligencia artificial">Inteligencia artificial</a></span> | <span dir='ltr'><a href="/wiki/Categor%C3%ADa:%C3%81rboles_%28estructura%29" title="Categoría:Árboles (estructura)">Árboles (estructura)</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Vistas</h5>
+		<div class="pBody">
+			<ul>
+					 <li id="ca-nstab-main" class="selected"><a href="/wiki/Algoritmo_de_b%C3%BAsqueda_A%2A" title="Ver el artículo [c]" accesskey="c">Artículo</a></li>
+					 <li id="ca-talk" class="new"><a href="/w/index.php?title=Discusi%C3%B3n:Algoritmo_de_b%C3%BAsqueda_A%2A&amp;action=edit" title="Discusión acerca del artículo [t]" accesskey="t">Discusión</a></li>
+					 <li id="ca-edit"><a href="/w/index.php?title=Algoritmo_de_b%C3%BAsqueda_A%2A&amp;action=edit" title="Puede editar esta página. Por favor, use el botón de previsualización antes de grabar. [e]" accesskey="e">Editar</a></li>
+					 <li id="ca-history"><a href="/w/index.php?title=Algoritmo_de_b%C3%BAsqueda_A%2A&amp;action=history" title="Versiones anteriores de esta página y sus autores [h]" accesskey="h">Historial</a></li>
+				</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-personal">
+		<h5>Herramientas personales</h5>
+		<div class="pBody">
+			<ul>
+				<li id="pt-login"><a href="/w/index.php?title=Especial:Userlogin&amp;returnto=Algoritmo_de_b%C3%BAsqueda_A%2A" title="Le animamos a registrarse, aunque no es obligatorio [o]" accesskey="o">Registrarse/Entrar</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-logo">
+		<a style="background-image: url(http://upload.wikimedia.org/wikipedia/commons/7/74/Wikipedia-logo-es.png);" href="/wiki/Portada" title="Visitar la Portada [z]" accesskey="z"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navegación</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="/wiki/Portada" title="Visitar la Portada [z]" accesskey="z">Portada</a></li>
+				<li id="n-portal"><a href="/wiki/Portal:Comunidad" title="Acerca del proyecto, qué puede hacer, dónde encontrar información">Portal de la comunidad</a></li>
+				<li id="n-currentevents"><a href="/wiki/Portal:Actualidad" title="Información de contexto sobre acontecimientos actuales">Actualidad</a></li>
+				<li id="n-recentchanges"><a href="/wiki/Especial:Recentchanges" title="La lista de cambios recientes en el wiki [r]" accesskey="r">Cambios recientes</a></li>
+				<li id="n-randompage"><a href="/wiki/Especial:Random" title="Cargar una página aleatoriamente [x]" accesskey="x">Página aleatoria</a></li>
+				<li id="n-help"><a href="/wiki/Ayuda:Contenidos" title="El lugar para aprender">Ayuda</a></li>
+				<li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Donaciones" title="Respáldenos">Donativos</a></li>
+			</ul>
+		</div>
+	</div>
+		<div id="p-search" class="portlet">
+		<h5><label for="searchInput">Buscar</label></h5>
+		<div id="searchBody" class="pBody">
+			<form action="/wiki/Especial:Search" id="searchform"><div>
+				<input id="searchInput" name="search" type="text" title="Buscar en este wiki [f]" accesskey="f" value="" />
+				<input type='submit' name="go" class="searchButton" id="searchGoButton"	value="Ir" />&nbsp;
+				<input type='submit' name="fulltext" class="searchButton" id="mw-searchButton" value="Buscar" />
+			</div></form>
+		</div>
+	</div>
+	<div class="portlet" id="p-tb">
+		<h5>Herramientas</h5>
+		<div class="pBody">
+			<ul>
+				<li id="t-whatlinkshere"><a href="/wiki/Especial:Whatlinkshere/Algoritmo_de_b%C3%BAsqueda_A%2A" title="Lista de todas las páginas del wiki que enlazan con ésta [j]" accesskey="j">Lo que enlaza aquí</a></li>
+				<li id="t-recentchangeslinked"><a href="/wiki/Especial:Recentchangeslinked/Algoritmo_de_b%C3%BAsqueda_A%2A" title="Cambios recientes en las páginas que enlazan con ésta [k]" accesskey="k">Cambios en enlazadas</a></li>
+<li id="t-upload"><a href="http://commons.wikimedia.org/wiki/Special:Upload?uselang=es" title="Subir imágenes o archivos multimedia [u]" accesskey="u">Subir archivo</a></li>
+<li id="t-specialpages"><a href="/wiki/Especial:Specialpages" title="Lista de todas las páginas especiales [q]" accesskey="q">Páginas especiales</a></li>
+				<li id="t-print"><a href="/w/index.php?title=Algoritmo_de_b%C3%BAsqueda_A%2A&amp;printable=yes" title="Versión para imprimir de esta página [p]" accesskey="p">Versión para imprimir</a></li>				<li id="t-permalink"><a href="/w/index.php?title=Algoritmo_de_b%C3%BAsqueda_A%2A&amp;oldid=10724671" title="Enlace permanente a la versión imprimible de esta página">Enlace permanente</a></li><li id="t-cite"><a href="/w/index.php?title=Especial:Cite&amp;page=Algoritmo_de_b%C3%BAsqueda_A%2A&amp;id=10724671">Citar este artículo</a></li>			</ul>
+		</div>
+	</div>
+	<div id="p-lang" class="portlet">
+		<h5>Otros idiomas</h5>
+		<div class="pBody">
+			<ul>
+				<li class="interwiki-de"><a href="http://de.wikipedia.org/wiki/A%2A-Algorithmus">Deutsch</a></li>
+				<li class="interwiki-en"><a href="http://en.wikipedia.org/wiki/A%2A_search_algorithm">English</a></li>
+				<li class="interwiki-fi"><a href="http://fi.wikipedia.org/wiki/A%2A-algoritmi">Suomi</a></li>
+				<li class="interwiki-fr"><a href="http://fr.wikipedia.org/wiki/Algorithme_A%2A">Français</a></li>
+				<li class="interwiki-it"><a href="http://it.wikipedia.org/wiki/A%2A">Italiano</a></li>
+				<li class="interwiki-ja"><a href="http://ja.wikipedia.org/wiki/A%2A">日本語</a></li>
+				<li class="interwiki-nl"><a href="http://nl.wikipedia.org/wiki/A%2A-algoritme">Nederlands</a></li>
+				<li class="interwiki-pl"><a href="http://pl.wikipedia.org/wiki/Algorytm_A%2A">Polski</a></li>
+				<li class="interwiki-pt"><a href="http://pt.wikipedia.org/wiki/Algoritmo_A%2A">Português</a></li>
+				<li class="interwiki-vi"><a href="http://vi.wikipedia.org/wiki/Gi%E1%BA%A3i_thu%E1%BA%ADt_t%C3%ACm_ki%E1%BA%BFm_A%2A">Tiếng Việt</a></li>
+			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="/skins-1.5/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>
+				<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="/images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>
+			<ul id="f-list">
+				<li id="lastmod"> Esta página fue modificada por última vez el 15:35, 19 ago 2007.</li>
+				<li id="copyright">Contenido disponible bajo los términos de la <a class="internal" href="/wiki/Wikipedia:Texto_de_la_Licencia_de_documentación_libre_de_GNU">Licencia de documentación libre de GNU</a> (véase <b><a class="internal" href="/wiki/Wikipedia:Derechos_de_autor">Derechos de autor</a></b>).<br />
+Wikipedia® es una marca registrada de la organización sin ánimo de lucro <a class="internal" href="http://wikimediafoundation.org/wiki/Portada">Wikimedia Foundation, Inc.</a><br /></li>
+				<li id="privacy"><a href="http://wikimediafoundation.org/wiki/Pol%C3%ADtica_de_privacidad" title="wikimedia:Política de privacidad">Política de privacidad</a></li>
+				<li id="about"><a href="/wiki/Wikipedia:Acerca_de" title="Wikipedia:Acerca de">Acerca de Wikipedia</a></li>
+				<li id="disclaimer"><a href="/wiki/Wikipedia:Limitaci%C3%B3n_general_de_responsabilidad" title="Wikipedia:Limitación general de responsabilidad">Aviso legal</a></li>
+			</ul>
+		</div>
+		
+	
+		<script type="text/javascript">if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by srv138 in 0.073 secs. --></body></html>

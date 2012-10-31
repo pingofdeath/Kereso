@@ -1,0 +1,262 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+				<meta name="keywords" content="Brute-force search,Anagram,Automated theorem proving,Backtracking,Benchmarking,Big O notation,Binary digit,Brute force attack,Central processing unit,Chart parsing,Chessboard" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="http://www.gnu.org/copyleft/fdl.html" />
+		<title>Brute-force search - Wikipedia, the free encyclopedia</title>
+		<style type="text/css" media="screen, projection">/*<![CDATA[*/
+			@import "/skins-1.5/common/shared.css?99";
+			@import "/skins-1.5/monobook/main.css?99";
+		/*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="/skins-1.5/common/commonPrint.css?99" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE50Fixes.css?99";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE55Fixes.css?99";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "/skins-1.5/monobook/IE60Fixes.css?99";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "/skins-1.5/monobook/IE70Fixes.css?99";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="/skins-1.5/common/IEFixes.js?99"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		
+		<script type= "text/javascript">/*<![CDATA[*/
+var skin = "monobook";
+var stylepath = "/skins-1.5";
+var wgArticlePath = "/wiki/$1";
+var wgScriptPath = "/w";
+var wgScript = "/w/index.php";
+var wgServer = "http://en.wikipedia.org";
+var wgCanonicalNamespace = "";
+var wgCanonicalSpecialPageName = false;
+var wgNamespaceNumber = 0;
+var wgPageName = "Brute-force_search";
+var wgTitle = "Brute-force search";
+var wgAction = "view";
+var wgRestrictionEdit = [];
+var wgRestrictionMove = [];
+var wgArticleId = "103127";
+var wgIsArticle = true;
+var wgUserName = null;
+var wgUserGroups = null;
+var wgUserLanguage = "en";
+var wgContentLanguage = "en";
+var wgBreakFrames = false;
+var wgCurRevisionId = "156237457";
+/*]]>*/</script>
+                
+		<script type="text/javascript" src="/skins-1.5/common/wikibits.js?99"><!-- wikibits js --></script>
+		<script type="text/javascript" src="/w/index.php?title=-&amp;action=raw&amp;gen=js&amp;useskin=monobook"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "/w/index.php?title=MediaWiki:Common.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=MediaWiki:Monobook.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=-&action=raw&gen=css&maxage=2678400";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+		<script type="text/javascript" src="/skins-1.5/common/ajax.js?99"></script>
+	</head>
+<body  class="mediawiki ns-0 ltr page-Brute-force_search">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">Brute-force search</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<p>In <a href="/wiki/Computer_science" title="Computer science">computer science</a>, <b>brute-force search</b> or <b>exhaustive search</b> is a trivial but very general problem-solving technique, that consists of systematically enumerating all possible candidates for the solution and checking whether each candidate satisfies the problem's statement.</p>
+<p>It should not be confused with <a href="/wiki/Backtracking" title="Backtracking">backtracking</a>, where large sets of solutions can be discarded, without being explicitly searched. For example, consider the popular <a href="/wiki/Eight_queens_problem" title="Eight queens problem">eight queens problem</a>, which asks to place eight <a href="/wiki/Queen_%28chess%29" title="Queen (chess)">queens</a> on a standard <a href="/wiki/Chessboard" title="Chessboard">chessboard</a> so that no queen attacks any other. A brute-force approach would examine all the <span class="texhtml">64! / 56! = 178,462,987,637,760</span> possible placements in order to find the ones where no queen attacks any other. A backtracking approach is much faster, because it can use the fact that, if two queens attack each other, it is pointless to place the remaining queens on the board.</p>
+<p>Brute-force search is simple to implement, and will always find a solution if it exists. However, its cost is proportional to the number of candidate solutions, which, in many practical problems, tends to grow very quickly as the size of the problem increases. Therefore, brute-force search is typically used when the problem size is limited, or when there are problem-specific <a href="/wiki/Heuristic_%28computer_science%29" title="Heuristic (computer science)">heuristics</a> that can be used to reduce the set of candidate solutions to a manageable size.</p>
+<p>The method is also used when the simplicity of implementation is more important than speed. This is the case, for example, in critical applications where any errors in the algorithm would have very serious consequences; or when <a href="/wiki/Automated_theorem_proving" title="Automated theorem proving">using a computer to prove a mathematical theorem</a>. Brute-force search is also useful as "baseline" method when <a href="/wiki/Benchmarking" title="Benchmarking">benchmarking</a> other algorithms or <a href="/wiki/Metaheuristic" title="Metaheuristic">metaheuristics</a>. Indeed, brute-force search can be viewed as the simplest metaheuristic.</p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Implementing_the_brute-force_search"><span class="tocnumber">1</span> <span class="toctext">Implementing the brute-force search</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Basic_algorithm"><span class="tocnumber">1.1</span> <span class="toctext">Basic algorithm</span></a></li>
+<li class="toclevel-2"><a href="#Common_variations"><span class="tocnumber">1.2</span> <span class="toctext">Common variations</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Combinatorial_explosion"><span class="tocnumber">2</span> <span class="toctext">Combinatorial explosion</span></a></li>
+<li class="toclevel-1"><a href="#Speeding_up_brute-force_searches"><span class="tocnumber">3</span> <span class="toctext">Speeding up brute-force searches</span></a></li>
+<li class="toclevel-1"><a href="#Reordering_the_search_space"><span class="tocnumber">4</span> <span class="toctext">Reordering the search space</span></a></li>
+<li class="toclevel-1"><a href="#Alternatives_to_brute_force_search"><span class="tocnumber">5</span> <span class="toctext">Alternatives to brute force search</span></a></li>
+<li class="toclevel-1"><a href="#See_also"><span class="tocnumber">6</span> <span class="toctext">See also</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script>
+<p><a name="Implementing_the_brute-force_search" id="Implementing_the_brute-force_search"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Brute-force_search&amp;action=edit&amp;section=1" title="Edit section: Implementing the brute-force search">edit</a>]</span> <span class="mw-headline">Implementing the brute-force search</span></h2>
+<p><a name="Basic_algorithm" id="Basic_algorithm"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Brute-force_search&amp;action=edit&amp;section=2" title="Edit section: Basic algorithm">edit</a>]</span> <span class="mw-headline">Basic algorithm</span></h3>
+<p>In order to apply brute-force search to a specific class of problems, one must implement four <a href="/wiki/Procedure" title="Procedure">procedures</a>, <i>first</i>, <i>next</i>, <i>valid</i>, and <i>output</i>. These procedures should take as a parameter the data <i>P</i> for the particular instance of the problem that is to be solved, and should do the following:</p>
+<ol>
+<li><i>first</i> (<i>P</i>): generate a first candidate solution for <i>P</i>.</li>
+<li><i>next</i> (<i>P</i>, <i>c</i>): generate the next candidate for <i>P</i> after the current one <i>c</i>.</li>
+<li><i>valid</i> (<i>P</i>, <i>c</i>): check whether candidate <i>c</i> is a solution for <i>P</i>.</li>
+<li><i>output</i> (<i>P</i>, <i>c</i>): use the solution <i>c</i> of <i>P</i> as appropriate to the application</li>
+</ol>
+<p>The <i>next</i> procedure must also tell when there are no more candidates for the instance <i>P</i>, after the current one <i>c</i>. A convenient way to do that is to return a "null candidate", some conventional data value Λ that is distinct from any real candidate. Likewise the <i>first</i> procedure should return Λ if there are no candidates at all for the instance <i>P</i>. The brute-force method is then expressed by the algorithm</p>
+<pre>
+<i>c</i> <img class="tex" alt="\gets" src="http://upload.wikimedia.org/math/c/e/9/ce9bfd92570656019fed79d092b6ae74.png" /> <i>first</i>(<i>P</i>)
+<b>while</b> <i>c</i> <img class="tex" alt="\neq" src="http://upload.wikimedia.org/math/b/d/0/bd0d5f08997b7a4ad8598963f7e50231.png" /> Λ <i>do</i>
+  <b>if</b> <i>valid</i>(<i>P</i>,<i>c</i>) <b>then</b> <i>output</i>(<i>P</i>, <i>c</i>)
+  <i>c</i> <img class="tex" alt="\gets" src="http://upload.wikimedia.org/math/c/e/9/ce9bfd92570656019fed79d092b6ae74.png" /> <i>next</i>(<i>P</i>,<i>c</i>)
+</pre>
+<p>For example, when looking for the divisors of an integer <i>n</i>, the instance data <i>P</i> is the number <i>n</i>. The call <i>first</i> (<i>n</i>) should return the integer 1 if <i>n</i> <img class="tex" alt="\geq" src="http://upload.wikimedia.org/math/8/f/b/8fbe2a506fe3db0835548e1b648ec977.png" /> 1, or Λ otherwise; the call <i>next</i> (<i>n</i>,<i>c</i>) should return <i>c</i> + 1 if <i>c</i> <span class="texhtml">&lt;</span> <i>n</i>, and Λ otherwise; and <i>valid</i> (<i>n</i>,<i>c</i>) should return <b>true</b> if and only if <i>c</i> is a divisor of <i>n</i>. (In fact, if we choose Λ to be <i>n</i> + 1, the tests are unnecessary, and the algorithm simplifies considerably.)</p>
+<p><a name="Common_variations" id="Common_variations"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Brute-force_search&amp;action=edit&amp;section=3" title="Edit section: Common variations">edit</a>]</span> <span class="mw-headline">Common variations</span></h3>
+<p>The brute-force search algorithm above will call <i>output</i> for every candidate that is a solution to the given instance <i>P</i>. The algorithm is easily modified to stop after finding the first solution, or a specified number of solutions; or after testing a specified number of candidates, or after spending a given amount of <a href="/wiki/Central_processing_unit" title="Central processing unit">CPU</a> time.</p>
+<p><a name="Combinatorial_explosion" id="Combinatorial_explosion"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Brute-force_search&amp;action=edit&amp;section=4" title="Edit section: Combinatorial explosion">edit</a>]</span> <span class="mw-headline">Combinatorial explosion</span></h2>
+<p>The main disadvantage of the brute-force method is that, for many real-world problems, the number of natural candidates is prohibitively large.</p>
+<p>For instance, if we look for the divisors of a number as described above, the number of candidates tested will be the given number <i>n</i>. So if <i>n</i> has sixteen decimal digits, say, the search will require executing at least 10<sup>15</sup> computer instructions, which will take several days on a typical <a href="/wiki/Personal_computer" title="Personal computer">PC</a>. If <i>n</i> is a random 64-<a href="/wiki/Binary_digit" title="Binary digit">bit</a> natural number, which has about 19 decimal digits on the average, the search will take about 10 years.</p>
+<p>This steep growth in the number of candidates, as the size of the data increases, occur in all sorts of problems. For instance, if we are seeking a particular rearrangement of 10 letters, then we have 10<a href="/wiki/Factorial" title="Factorial">!</a> = 3,628,800 candidates to consider; which a typical PC can generate and test in less than one second. However, adding one more letter — which is only a 10% increase in the data size — will multiply the number of candidates by 11 — a 1000% increase. For 20 letters, the number of candidates is 20!, which is about 2.4×10<sup>18</sup> or 2.4 million million million; and the search will take about 10,000 years. This unwelcome phenomenon is commonly called the <a href="/wiki/Combinatorial_explosion" title="Combinatorial explosion">combinatorial explosion</a>.</p>
+<p><a name="Speeding_up_brute-force_searches" id="Speeding_up_brute-force_searches"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Brute-force_search&amp;action=edit&amp;section=5" title="Edit section: Speeding up brute-force searches">edit</a>]</span> <span class="mw-headline">Speeding up brute-force searches</span></h2>
+<p>One way to speed up a brute-force algorithm is to reduce the search space, that is, the set of candidate solutions, by using <a href="/wiki/Heuristic" title="Heuristic">heuristics</a> specific to the problem class.</p>
+<p>For example, consider the popular <a href="/wiki/Eight_queens_problem" title="Eight queens problem">eight queens problem</a>, which asks to place eight <a href="/wiki/Queen_%28chess%29" title="Queen (chess)">queens</a> on a standard <a href="/wiki/Chessboard" title="Chessboard">chessboard</a> so that no queen attacks any other. If we consider only that the queens are all alike, and that no two queens can be placed on the same square, we conclude that the candidates are <a href="/wiki/Combinations" title="Combinations">all possible ways of choosing</a> of a set of 8 squares from the set all 64 squares; which means 64!/56!/8! = 4,426,165,368 candidate solutions.</p>
+<p>However, a little more thought tells us that no arrangement with two queens on the same row or the same column can be a solution. Therefore, we can further restrict the set of candidates to those arrangements where queen 1 is on row 1, queen 2 is in row 2, and so on; all in different columns. We can describe such an arrangement by an array of eight numbers <i>c</i>[1] through <i>c</i>[8], each of them between 1 and 8, where <i>c</i>[1] is the column of queen 1, <i>c</i>[2] is the column of queen 2, and so on. Since these numbers must be all different, the number of candidates to search is the number of <a href="/wiki/Permutation" title="Permutation">permutations</a> of the integers 1 through 8, namely 8! = 40,320 — about 1/100,000 of the original number.</p>
+<p>As this example shows, a little bit of analysis will often lead to dramatic reductions in the number of candidate solutions, and may turn an intractable problem into a trivial one. This example also shows that the candidate enumeration procedures (<i>first</i> and <i>next</i>) for the restricted set may be just as simple as those of the original set, or even simpler.</p>
+<p>In some cases, the analysis may reduce the candidates to the set of all valid solutions; that is, it may result in an algorithm that directly enumerates all the solutions (or finds one solution, as appropriate), without wasting time with tests and the generation of invalid candidates. For example, consider the problem of checking whether two words are <a href="/wiki/Anagram" title="Anagram">anagrams</a> of each other. A naive implementation of the brute-force method would generate all possible <a href="/wiki/Permutation" title="Permutation">rearrangements</a> of the letters of the first word, and compare each one to the second word. However, that problem can be solved much more efficiently by sorting or counting the letters of each word separately, and comparing the results.</p>
+<p><a name="Reordering_the_search_space" id="Reordering_the_search_space"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Brute-force_search&amp;action=edit&amp;section=6" title="Edit section: Reordering the search space">edit</a>]</span> <span class="mw-headline">Reordering the search space</span></h2>
+<p>In applications that require only one solution, rather than all solutions, the <a href="/wiki/Expected_value" title="Expected value">expected</a> running time of a brute force search will often depend on the order in which the candidates are tested. As a general rule, one should test the most promising candidates first. For example, when searching for a proper divisor of a random number <i>n</i>, it is better to enumerate the candidate divisors in increasing order, from 2 to <i>n</i> - 1, than the other way around — because the probability that <i>n</i> is divisible by <i>c</i> is 1/<i>c</i>.</p>
+<p>Moreover, the probability of a candidate being valid is often affected by the previous failed trials. For example, consider the problem of finding a <b>1</b> bit in a given 1000-bit string <i>P</i>. In this case, the candidate solutions are the indices 1 to 1000, and a candidate <i>c</i> is valid if <i>P</i>[<i>c</i>] = <b>1</b>. Now, suppose that the first bit of <i>P</i> is equally likely to be <b>0</b> or <b>1</b>, but each bit thereafter is equal to the previous one with 90% probability. If the candidates are enumerated in increasing order, 1 to 1000, the number <i>t</i> of candidates examined before success will be about 6, on the average. On the other hand, if the candidates are enumerated in the order 1,11,21,31...991,2,12,22,32 etc., the expected value of <i>t</i> will be only a little more than 2.</p>
+<p>More generally, the search space should be enumerated in such a way that the next candidate is most likely to be valid, <i>given that the previous trials were not</i>. So if the valid solutions are likely to be "clustered" in some sense, then each new candidate should be as far as possible from the previous ones, in that same sense. The converse holds, of course, if the solutions are likely to be spread out more uniformly than expected by chance.</p>
+<p><a name="Alternatives_to_brute_force_search" id="Alternatives_to_brute_force_search"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Brute-force_search&amp;action=edit&amp;section=7" title="Edit section: Alternatives to brute force search">edit</a>]</span> <span class="mw-headline">Alternatives to brute force search</span></h2>
+<p>There are many other search methods, or metaheuristics, which are designed to take advantage of various kinds of partial knowledge one may have about the solution.</p>
+<p><a href="/wiki/Heuristic" title="Heuristic">Heuristics</a> can also be used to make an early cutoff of parts of the search. One example of this is the <a href="/wiki/Minimax" title="Minimax">minimax</a> principle for searching game trees. This eliminates many subtrees at an early stage in the search.</p>
+<p>In certain fields such as language parsing techniques such as <a href="/wiki/Chart_parsing" title="Chart parsing">chart parsing</a> can exploit constraints in the problem to reduce an exponential complexity problem into a polynomial complexity problem.</p>
+<p>The search space for problems can also be reduced by replacing the full problem with a simplified version. For example, in <a href="/wiki/Computer_chess" title="Computer chess">computer chess</a>, rather than computing the full <a href="/wiki/Minimax" title="Minimax">minimax</a> tree of all possible moves for the remainder of the game, a more limited tree of minimax possibilities is computed, with the tree being pruned at a certain number of moves, and the remainder of the tree being approximated by a <a href="/wiki/Evaluation_function" title="Evaluation function">static evaluation function</a>.</p>
+<p><a name="See_also" id="See_also"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Brute-force_search&amp;action=edit&amp;section=8" title="Edit section: See also">edit</a>]</span> <span class="mw-headline">See also</span></h2>
+<ul>
+<li><a href="/wiki/Brute_force_attack" title="Brute force attack">brute force attack</a></li>
+<li><a href="/wiki/Big_O_notation" title="Big O notation">big O notation</a></li>
+</ul>
+
+
+<!-- Saved in parser cache with key enwiki:pcache:idhash:103127-0!1!0!default!!en!2 and timestamp 20070911152428 -->
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org/wiki/Brute-force_search">http://en.wikipedia.org/wiki/Brute-force_search</a>"</div>
+			<div id="catlinks"><p class='catlinks'><a href="/wiki/Special:Categories" title="Special:Categories">Category</a>: <span dir='ltr'><a href="/wiki/Category:Search_algorithms" title="Category:Search algorithms">Search algorithms</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<div class="pBody">
+			<ul>
+					 <li id="ca-nstab-main" class="selected"><a href="/wiki/Brute-force_search" title="View the content page [c]" accesskey="c">Article</a></li>
+					 <li id="ca-talk"><a href="/wiki/Talk:Brute-force_search" title="Discussion about the content page [t]" accesskey="t">Discussion</a></li>
+					 <li id="ca-edit"><a href="/w/index.php?title=Brute-force_search&amp;action=edit" title="You can edit this page. Please use the preview button before saving. [e]" accesskey="e">Edit this page</a></li>
+					 <li id="ca-history"><a href="/w/index.php?title=Brute-force_search&amp;action=history" title="Past versions of this page [h]" accesskey="h">History</a></li>
+				</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-personal">
+		<h5>Personal tools</h5>
+		<div class="pBody">
+			<ul>
+				<li id="pt-login"><a href="/w/index.php?title=Special:Userlogin&amp;returnto=Brute-force_search" title="You are encouraged to log in, it is not mandatory however. [o]" accesskey="o">Sign in / create account</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-logo">
+		<a style="background-image: url(/images/wiki-en.png);" href="/wiki/Main_Page" title="Visit the Main Page [z]" accesskey="z"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-Main-page"><a href="/wiki/Main_Page">Main page</a></li>
+				<li id="n-Contents"><a href="/wiki/Wikipedia:Contents">Contents</a></li>
+				<li id="n-Featured-content"><a href="/wiki/Wikipedia:Featured_content">Featured content</a></li>
+				<li id="n-currentevents"><a href="/wiki/Portal:Current_events" title="Find background information on current events">Current events</a></li>
+				<li id="n-randompage"><a href="/wiki/Special:Random" title="Load a random page [x]" accesskey="x">Random article</a></li>
+			</ul>
+		</div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+		<h5>interaction</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-About-Wikipedia"><a href="/wiki/Wikipedia:About">About Wikipedia</a></li>
+				<li id="n-portal"><a href="/wiki/Wikipedia:Community_Portal" title="About the project, what you can do, where to find things">Community portal</a></li>
+				<li id="n-recentchanges"><a href="/wiki/Special:Recentchanges" title="The list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li>
+				<li id="n-contact"><a href="/wiki/Wikipedia:Contact_us">Contact Wikipedia</a></li>
+				<li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising" title="Support us">Donate to Wikipedia</a></li>
+				<li id="n-help"><a href="/wiki/Help:Contents" title="Guidance on how to use and edit Wikipedia">Help</a></li>
+			</ul>
+		</div>
+	</div>
+		<div id="p-search" class="portlet">
+		<h5><label for="searchInput">Search</label></h5>
+		<div id="searchBody" class="pBody">
+			<form action="/wiki/Special:Search" id="searchform"><div>
+				<input id="searchInput" name="search" type="text" title="Search Wikipedia [f]" accesskey="f" value="" />
+				<input type='submit' name="go" class="searchButton" id="searchGoButton"	value="Go" />&nbsp;
+				<input type='submit' name="fulltext" class="searchButton" id="mw-searchButton" value="Search" />
+			</div></form>
+		</div>
+	</div>
+	<div class="portlet" id="p-tb">
+		<h5>Toolbox</h5>
+		<div class="pBody">
+			<ul>
+				<li id="t-whatlinkshere"><a href="/wiki/Special:Whatlinkshere/Brute-force_search" title="List of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+				<li id="t-recentchangeslinked"><a href="/wiki/Special:Recentchangeslinked/Brute-force_search" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+<li id="t-upload"><a href="/wiki/Wikipedia:Upload" title="Upload images or media files [u]" accesskey="u">Upload file</a></li>
+<li id="t-specialpages"><a href="/wiki/Special:Specialpages" title="List of all special pages [q]" accesskey="q">Special pages</a></li>
+				<li id="t-print"><a href="/w/index.php?title=Brute-force_search&amp;printable=yes" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>				<li id="t-permalink"><a href="/w/index.php?title=Brute-force_search&amp;oldid=156237457" title="Permanent link to this version of the page">Permanent link</a></li><li id="t-cite"><a href="/w/index.php?title=Special:Cite&amp;page=Brute-force_search&amp;id=156237457">Cite this article</a></li>			</ul>
+		</div>
+	</div>
+	<div id="p-lang" class="portlet">
+		<h5>In other languages</h5>
+		<div class="pBody">
+			<ul>
+				<li class="interwiki-cs"><a href="http://cs.wikipedia.org/wiki/%C5%98e%C5%A1en%C3%AD_hrubou_silou">Česky</a></li>
+				<li class="interwiki-da"><a href="http://da.wikipedia.org/wiki/Brute_force">Dansk</a></li>
+				<li class="interwiki-de"><a href="http://de.wikipedia.org/wiki/Brute-Force-Methode">Deutsch</a></li>
+				<li class="interwiki-el"><a href="http://el.wikipedia.org/wiki/Brute-force_attack">Ελληνικά</a></li>
+				<li class="interwiki-fr"><a href="http://fr.wikipedia.org/wiki/Recherche_exhaustive">Français</a></li>
+				<li class="interwiki-he"><a href="http://he.wikipedia.org/wiki/%D7%9B%D7%95%D7%97_%D7%92%D7%A1">עברית</a></li>
+				<li class="interwiki-nl"><a href="http://nl.wikipedia.org/wiki/Brute_force">Nederlands</a></li>
+				<li class="interwiki-pl"><a href="http://pl.wikipedia.org/wiki/Atak_brute_force">Polski</a></li>
+				<li class="interwiki-sv"><a href="http://sv.wikipedia.org/wiki/Brute_force">Svenska</a></li>
+			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="/skins-1.5/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>
+				<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="/images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>
+			<ul id="f-list">
+				<li id="lastmod"> This page was last modified 09:19, 7 September 2007.</li>
+				<li id="copyright">All text is available under the terms of the <a class='internal' href="/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="/wiki/Wikipedia:Copyrights" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a U.S. registered <a class='internal' href="/wiki/501%28c%29#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="/wiki/Non-profit_organization" title="Non-profit organization">nonprofit</a> <a href="/wiki/Charitable_organization" title="Charitable organization">charity</a>.<br /></li>
+				<li id="privacy"><a href="http://wikimediafoundation.org/wiki/Privacy_policy" title="wikimedia:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="/wiki/Wikipedia:About" title="Wikipedia:About">About Wikipedia</a></li>
+				<li id="disclaimer"><a href="/wiki/Wikipedia:General_disclaimer" title="Wikipedia:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+		
+	
+		<script type="text/javascript">if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by srv151 in 0.061 secs. --></body></html>

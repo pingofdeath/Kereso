@@ -1,0 +1,257 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+				<meta name="keywords" content="Talk:Depth-first search,Topological sorting,David Eppstein,EatMyShortz,Jerf,Opticyclic,Stimpy,Thesilverbail,Yonestar" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="http://www.gnu.org/copyleft/fdl.html" />
+		<title>Talk:Depth-first search - Wikipedia, the free encyclopedia</title>
+		<style type="text/css" media="screen, projection">/*<![CDATA[*/
+			@import "/skins-1.5/common/shared.css?99";
+			@import "/skins-1.5/monobook/main.css?99";
+		/*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="/skins-1.5/common/commonPrint.css?99" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE50Fixes.css?99";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE55Fixes.css?99";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "/skins-1.5/monobook/IE60Fixes.css?99";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "/skins-1.5/monobook/IE70Fixes.css?99";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="/skins-1.5/common/IEFixes.js?99"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		
+		<script type= "text/javascript">/*<![CDATA[*/
+var skin = "monobook";
+var stylepath = "/skins-1.5";
+var wgArticlePath = "/wiki/$1";
+var wgScriptPath = "/w";
+var wgScript = "/w/index.php";
+var wgServer = "http://en.wikipedia.org";
+var wgCanonicalNamespace = "Talk";
+var wgCanonicalSpecialPageName = false;
+var wgNamespaceNumber = 1;
+var wgPageName = "Talk:Depth-first_search";
+var wgTitle = "Depth-first search";
+var wgAction = "view";
+var wgRestrictionEdit = [];
+var wgRestrictionMove = [];
+var wgArticleId = "153236";
+var wgIsArticle = true;
+var wgUserName = null;
+var wgUserGroups = null;
+var wgUserLanguage = "en";
+var wgContentLanguage = "en";
+var wgBreakFrames = false;
+var wgCurRevisionId = "99439556";
+/*]]>*/</script>
+                
+		<script type="text/javascript" src="/skins-1.5/common/wikibits.js?99"><!-- wikibits js --></script>
+		<script type="text/javascript" src="/w/index.php?title=-&amp;action=raw&amp;gen=js&amp;useskin=monobook"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "/w/index.php?title=MediaWiki:Common.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=MediaWiki:Monobook.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=-&action=raw&gen=css&maxage=2678400";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+		<script type="text/javascript" src="/skins-1.5/common/ajax.js?99"></script>
+	</head>
+<body  class="mediawiki ns-1 ltr page-Talk_Depth-first_search">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">Talk:Depth-first search</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Weird_Example"><span class="tocnumber">1</span> <span class="toctext">Weird Example</span></a></li>
+<li class="toclevel-1"><a href="#The_algorithm_given_in_pseudocode_section_is_wrong.3F"><span class="tocnumber">2</span> <span class="toctext">The algorithm given in pseudocode section is wrong?</span></a></li>
+<li class="toclevel-1"><a href="#Recursive_solution.3F"><span class="tocnumber">3</span> <span class="toctext">Recursive solution?</span></a></li>
+<li class="toclevel-1"><a href="#Pseudocode.21.3DPython"><span class="tocnumber">4</span> <span class="toctext">Pseudocode!=Python</span></a></li>
+<li class="toclevel-1"><a href="#Edges"><span class="tocnumber">5</span> <span class="toctext">Edges</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script>
+<p><a name="Weird_Example" id="Weird_Example"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Talk:Depth-first_search&amp;action=edit&amp;section=1" title="Edit section: Weird Example">edit</a>]</span> <span class="mw-headline">Weird Example</span></h2>
+<p>Another more basic example should be given to start with, without the link from F to E. Surely it would be more intuitive to put the letters in a different order Something like</p>
+<pre>
+ 
+     A
+  B  C  D
+E F  G
+</pre>
+<p>Or maybe the order that the search would go?</p>
+<pre>
+     A
+  B  E  G
+C D  F
+</pre>
+<p><a href="/wiki/User:Opticyclic" title="User:Opticyclic">Opticyclic</a> 16:33, 21 April 2006 (UTC)</p>
+<hr />
+<p>I think the psuedocode give in incorrect-- it enters an infinite loop! the node must be marked as visited BEFORE recursively calling dfs on adjacent nodes. pleaes confirm this! <a href="/wiki/User:Yonestar" title="User:Yonestar">Yonestar</a> 17:26, 20 April 2006 (UTC)</p>
+<hr />
+<p>What's with the "ie where's the recursion?" DFS doesn't require recursion... no algorithm does. The stack makes it so you don't have to recurse (that's all recursion really does for you anyway, is add to a stack). If lack of recursion is the only "problem" with the algorithm, then there is no problem.</p>
+<hr />
+<p>Changed from "DFS is optimal" to "DFS is not optimal". Please Confirm.</p>
+<hr />
+<p>can you show me the program in c for dfs</p>
+<hr />
+<p>Whoever "corrected" the page to put E on the end of the path, please do not un-correct it again. DFS will follow the link from F to E before getting to E from A. The <i>apparent</i> tree view does not reflect the actual DFS tree, and I chose it that way deliberately for didactic purposes. <a href="/wiki/User:Jerf" title="User:Jerf">Jerf</a></p>
+<hr />
+<p>Can you explain what <i>all non-negative path costs</i> is refering to&#160;?</p>
+<hr />
+<p>DFS's can be preformed for graphs in general as well, not just Trees. Though if you're thinking specifically of the technique as used in state-space search's I guess not. Perhaps, these two concepts should be seperated? <a href="/wiki/User:Thesilverbail" title="User:Thesilverbail">Deepak</a> 01:39, 17 Jan 2004 (UTC)</p>
+<p><i>They're awfully closely related... I've tried to improve the situation in my last edit, but there still needs to be some more seperation of "depth-first traversal" and "depth-first search". <a href="/wiki/User:Jerf" title="User:Jerf">Jerf</a></i></p>
+<hr />
+<p>Why does the page say that DFS is a method for traversing trees, and then goes on to give an example of a general graph? (as it clearly has a cycle it is not a tree). The page should either state that it is a method for traversing graphs, or change the example to a tree.</p>
+<p><a name="The_algorithm_given_in_pseudocode_section_is_wrong.3F" id="The_algorithm_given_in_pseudocode_section_is_wrong.3F"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Talk:Depth-first_search&amp;action=edit&amp;section=2" title="Edit section: The algorithm given in pseudocode section is wrong?">edit</a>]</span> <span class="mw-headline">The algorithm given in pseudocode section is wrong?</span></h2>
+<p>Well, headline explains it all. It is not depth first for a general graph because of the Color(grey) thing.</p>
+<p>I think the color(grey) thing shouldn't be there. and, there should be a color check just after the pop, to skip the node or not.</p>
+<p>also, for generalization of the alg. to graphs, there should be an iteration over the nodes above the while loop. I'll change the pseudocode, if anyone has objections, we can revert it.</p>
+<p><a name="Recursive_solution.3F" id="Recursive_solution.3F"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Talk:Depth-first_search&amp;action=edit&amp;section=3" title="Edit section: Recursive solution?">edit</a>]</span> <span class="mw-headline">Recursive solution?</span></h2>
+<p>Why do we have TWO solutions, both of them iterative, creatings stacks, etc? It seems that in general, iterative approaches that have to heavily-manipulate stacks are well-suited to recursive approaches (at least - it is conceptually easier) - and that is certainly true here. I'm definitely going to replace one of these algorithms with a recursive solution. I'd prefer to replace the second, it looks less intuitive. (Remember we're not here to give the best-optimised code, but to teach how it works - therefore the conceptually easier code is <i>always</i> the best on wikipedia). —<a href="/wiki/User:EatMyShortz" title="User:EatMyShortz">EatMyShortz</a> 11:46, 28 February 2006 (UTC)</p>
+<p><a name="Pseudocode.21.3DPython" id="Pseudocode.21.3DPython"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Talk:Depth-first_search&amp;action=edit&amp;section=4" title="Edit section: Pseudocode!=Python">edit</a>]</span> <span class="mw-headline">Pseudocode!=Python</span></h2>
+<p>As much as I love python, it shouldn't be marked as pseudocode. The second one was better, but still not pseudocode.</p>
+<p><a name="Edges" id="Edges"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Talk:Depth-first_search&amp;action=edit&amp;section=5" title="Edit section: Edges">edit</a>]</span> <span class="mw-headline">Edges</span></h2>
+<div class="thumb tright">
+<div class="thumbinner" style="width:272px;"><a href="/wiki/Image:Tree_edges.svg" class="image" title="The four tree edge types"><img alt="The four tree edge types" src="http://upload.wikimedia.org/wikipedia/en/thumb/5/57/Tree_edges.svg/270px-Tree_edges.svg.png" width="270" height="161" border="0" class="thumbimage" /></a>
+<div class="thumbcaption">
+<div class="magnify" style="float:right"><a href="/wiki/Image:Tree_edges.svg" class="internal" title="Enlarge"><img src="/skins-1.5/common/images/magnify-clip.png" width="15" height="11" alt="" /></a></div>
+The four tree edge types</div>
+</div>
+</div>
+<p>The different classifications of edges are briefly discussed here, but should perhaps be moved to a new article. Consider:</p>
+<ul>
+<li><b>Tree edge</b>: an edge (<i>u</i>, <i>v</i>) where <i>v</i> was discovered by exploring edge (<i>u</i>, <i>v</i>);</li>
+<li><b>Back edge</b>: an edge (<i>u</i>, <i>v</i>) where <i>u</i> is connected to one of it's ancestors, <i>v</i>;</li>
+<li><b>Forward edge</b>: a non-tree edge (<i>u</i>, <i>v</i>) that connects a vertex <i>u</i> to a descendant <i>v</i>;</li>
+<li><b>Cross edge</b>: any other edge where one vertex is <i>not</i> an ancestor of the other.</li>
+</ul>
+<p>I think this distinction should be made in the interest of better explaining the ability of detecting cycles in a graph using <a href="/wiki/Topological_sorting" title="Topological sorting">topological sorting</a>. --<a href="/wiki/User:Stimpy" title="User:Stimpy">Stimpy</a> 20:10, 17 December 2006 (UTC)</p>
+<dl>
+<dd>By the way, cycle detection is not the same as topological sorting, and I'm not convinced it belongs in the topological sorting article at all any more than it would belong in articles about other algorithmic problems on DAGs. If it is there, it should be as a brief sentence explaining why the DFS based topological sort algorithm is correct rather than as a separate subsection. —<a href="/wiki/User:David_Eppstein" title="User:David Eppstein">David Eppstein</a> 21:25, 17 December 2006 (UTC)</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>I'm sorry, upon reviewing my comment I understand that I didn't make clear what I was suggesting. I emphasize that (un)directional edges should be moved to a separate article and that both DFS article and the topological sorting article point to it, hence bridging the 'gap' in understanding how topological sort can be used – together with the principles of the four edge classifications – to find cycles in a depth-first search tree in <span class="texhtml"><i>O</i>(<i>n</i>)</span> time. In none of the articles on the subject is this relationship properly explained, in my opinion. —<a href="/wiki/User:Stimpy" title="User:Stimpy">Stimpy</a> 22:11, 21 December 2006 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+
+
+<!-- Saved in parser cache with key enwiki:pcache:idhash:153236-0!1!0!default!!en!2 and timestamp 20070914151717 -->
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org/wiki/Talk:Depth-first_search">http://en.wikipedia.org/wiki/Talk:Depth-first_search</a>"</div>
+						<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<div class="pBody">
+			<ul>
+					 <li id="ca-nstab-main"><a href="/wiki/Depth-first_search" title="View the content page [c]" accesskey="c">Article</a></li>
+					 <li id="ca-talk" class="selected"><a href="/wiki/Talk:Depth-first_search" title="Discussion about the content page [t]" accesskey="t">Discussion</a></li>
+					 <li id="ca-edit" class=" istalk"><a href="/w/index.php?title=Talk:Depth-first_search&amp;action=edit" title="You can edit this page. Please use the preview button before saving. [e]" accesskey="e">Edit this page</a></li>
+					 <li id="ca-addsection"><a href="/w/index.php?title=Talk:Depth-first_search&amp;action=edit&amp;section=new" title="Start a new section on this discussion page. [+]" accesskey="+">+</a></li>
+					 <li id="ca-history"><a href="/w/index.php?title=Talk:Depth-first_search&amp;action=history" title="Past versions of this page [h]" accesskey="h">History</a></li>
+				</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-personal">
+		<h5>Personal tools</h5>
+		<div class="pBody">
+			<ul>
+				<li id="pt-login"><a href="/w/index.php?title=Special:Userlogin&amp;returnto=Talk:Depth-first_search" title="You are encouraged to log in, it is not mandatory however. [o]" accesskey="o">Sign in / create account</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-logo">
+		<a style="background-image: url(/images/wiki-en.png);" href="/wiki/Main_Page" title="Visit the Main Page [z]" accesskey="z"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-Main-page"><a href="/wiki/Main_Page">Main page</a></li>
+				<li id="n-Contents"><a href="/wiki/Wikipedia:Contents">Contents</a></li>
+				<li id="n-Featured-content"><a href="/wiki/Wikipedia:Featured_content">Featured content</a></li>
+				<li id="n-currentevents"><a href="/wiki/Portal:Current_events" title="Find background information on current events">Current events</a></li>
+				<li id="n-randompage"><a href="/wiki/Special:Random" title="Load a random page [x]" accesskey="x">Random article</a></li>
+			</ul>
+		</div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+		<h5>interaction</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-About-Wikipedia"><a href="/wiki/Wikipedia:About">About Wikipedia</a></li>
+				<li id="n-portal"><a href="/wiki/Wikipedia:Community_Portal" title="About the project, what you can do, where to find things">Community portal</a></li>
+				<li id="n-recentchanges"><a href="/wiki/Special:Recentchanges" title="The list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li>
+				<li id="n-contact"><a href="/wiki/Wikipedia:Contact_us">Contact Wikipedia</a></li>
+				<li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising" title="Support us">Donate to Wikipedia</a></li>
+				<li id="n-help"><a href="/wiki/Help:Contents" title="Guidance on how to use and edit Wikipedia">Help</a></li>
+			</ul>
+		</div>
+	</div>
+		<div id="p-search" class="portlet">
+		<h5><label for="searchInput">Search</label></h5>
+		<div id="searchBody" class="pBody">
+			<form action="/wiki/Special:Search" id="searchform"><div>
+				<input id="searchInput" name="search" type="text" title="Search Wikipedia [f]" accesskey="f" value="" />
+				<input type='submit' name="go" class="searchButton" id="searchGoButton"	value="Go" />&nbsp;
+				<input type='submit' name="fulltext" class="searchButton" id="mw-searchButton" value="Search" />
+			</div></form>
+		</div>
+	</div>
+	<div class="portlet" id="p-tb">
+		<h5>Toolbox</h5>
+		<div class="pBody">
+			<ul>
+				<li id="t-whatlinkshere"><a href="/wiki/Special:Whatlinkshere/Talk:Depth-first_search" title="List of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+				<li id="t-recentchangeslinked"><a href="/wiki/Special:Recentchangeslinked/Talk:Depth-first_search" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+<li id="t-upload"><a href="/wiki/Wikipedia:Upload" title="Upload images or media files [u]" accesskey="u">Upload file</a></li>
+<li id="t-specialpages"><a href="/wiki/Special:Specialpages" title="List of all special pages [q]" accesskey="q">Special pages</a></li>
+				<li id="t-print"><a href="/w/index.php?title=Talk:Depth-first_search&amp;printable=yes" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>				<li id="t-permalink"><a href="/w/index.php?title=Talk:Depth-first_search&amp;oldid=99439556" title="Permanent link to this version of the page">Permanent link</a></li>			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="/skins-1.5/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>
+				<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="/images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>
+			<ul id="f-list">
+				<li id="lastmod"> This page was last modified 23:57, 8 January 2007.</li>
+				<li id="copyright">All text is available under the terms of the <a class='internal' href="/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="/wiki/Wikipedia:Copyrights" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a U.S. registered <a class='internal' href="/wiki/501%28c%29#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="/wiki/Non-profit_organization" title="Non-profit organization">nonprofit</a> <a href="/wiki/Charitable_organization" title="Charitable organization">charity</a>.<br /></li>
+				<li id="privacy"><a href="http://wikimediafoundation.org/wiki/Privacy_policy" title="wikimedia:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="/wiki/Wikipedia:About" title="Wikipedia:About">About Wikipedia</a></li>
+				<li id="disclaimer"><a href="/wiki/Wikipedia:General_disclaimer" title="Wikipedia:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+		
+	
+		<script type="text/javascript">if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by srv174 in 0.167 secs. --></body></html>

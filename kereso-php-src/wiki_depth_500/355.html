@@ -1,0 +1,399 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+				<meta name="keywords" content="Routing,Internet service provider,Border Gateway Protocol,Autonomous system (Internet),Braess' paradox,Nash equilibrium,Router,Hot-potato routing,2003,London,Millisecond" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="http://www.gnu.org/copyleft/fdl.html" />
+		<title>Routing - Wikipedia, the free encyclopedia</title>
+		<style type="text/css" media="screen, projection">/*<![CDATA[*/
+			@import "/skins-1.5/common/shared.css?99";
+			@import "/skins-1.5/monobook/main.css?99";
+		/*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="/skins-1.5/common/commonPrint.css?99" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE50Fixes.css?99";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE55Fixes.css?99";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "/skins-1.5/monobook/IE60Fixes.css?99";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "/skins-1.5/monobook/IE70Fixes.css?99";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="/skins-1.5/common/IEFixes.js?99"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		
+		<script type= "text/javascript">/*<![CDATA[*/
+var skin = "monobook";
+var stylepath = "/skins-1.5";
+var wgArticlePath = "/wiki/$1";
+var wgScriptPath = "/w";
+var wgScript = "/w/index.php";
+var wgServer = "http://en.wikipedia.org";
+var wgCanonicalNamespace = "";
+var wgCanonicalSpecialPageName = false;
+var wgNamespaceNumber = 0;
+var wgPageName = "Routing";
+var wgTitle = "Routing";
+var wgAction = "view";
+var wgRestrictionEdit = [];
+var wgRestrictionMove = [];
+var wgArticleId = "25750";
+var wgIsArticle = true;
+var wgUserName = null;
+var wgUserGroups = null;
+var wgUserLanguage = "en";
+var wgContentLanguage = "en";
+var wgBreakFrames = false;
+var wgCurRevisionId = "158084557";
+/*]]>*/</script>
+                
+		<script type="text/javascript" src="/skins-1.5/common/wikibits.js?99"><!-- wikibits js --></script>
+		<script type="text/javascript" src="/w/index.php?title=-&amp;action=raw&amp;gen=js&amp;useskin=monobook"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "/w/index.php?title=MediaWiki:Common.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=MediaWiki:Monobook.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=-&action=raw&gen=css&maxage=2678400";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+		<script type="text/javascript" src="/skins-1.5/common/ajax.js?99"></script>
+	</head>
+<body  class="mediawiki ns-0 ltr page-Routing">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">Routing</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<div class="dablink">This article is about routing (or routeing) in computer networks.  For other uses, see <a href="/wiki/Routing_%28disambiguation%29" title="Routing (disambiguation)">Routing (disambiguation)</a>.</div>
+<p><b>Routing</b> (or <b>routeing</b>) is the process of selecting paths in a <a href="/wiki/Network" title="Network">network</a> along which to send data or physical traffic. Routing is performed for many kinds of networks, including the <a href="/wiki/PSTN" title="PSTN">telephone network</a>, the <a href="/wiki/Internet" title="Internet">Internet</a>, and <a href="/wiki/Transport_network" title="Transport network">transport networks</a>.</p>
+<p>Routing directs <a href="/wiki/Packet_forwarding" title="Packet forwarding">forwarding</a>, the passing of logically addressed packets from their source toward their ultimate destination through intermediary <a href="/wiki/Node_%28networking%29" title="Node (networking)">nodes</a>; typically hardware devices called <a href="/wiki/Router" title="Router">routers</a>, <a href="/wiki/Network_bridge" title="Network bridge">bridges</a>, <a href="/wiki/Gateway_%28telecommunications%29" title="Gateway (telecommunications)">gateways</a>, <a href="/wiki/Firewall" title="Firewall">firewalls</a>, or <a href="/wiki/Network_switch" title="Network switch">switches</a>. Ordinary computers with multiple <a href="/wiki/Network_card" title="Network card">network cards</a> can also forward packets and perform routing, though with more limited functionality and performance. The routing process usually directs forwarding on the basis of <a href="/wiki/Routing_table" title="Routing table">routing tables</a> which maintain a record of the routes to various network destinations. Thus constructing routing tables, which are held in the routers' <a href="/wiki/Computer_storage" title="Computer storage">memory</a>, becomes very important for efficient routing.</p>
+<p>Routing, in a more narrow sense of the term, is often contrasted with <a href="/wiki/Bridging_%28networking%29" title="Bridging (networking)">bridging</a> in its assumption that <a href="/wiki/Network_address" title="Network address">network addresses</a> are structured and that similar addresses imply proximity within the network. Because structured addresses allow a single routing table entry to represent the route to a group of devices, structured addressing (routing, in the narrow sense) outperforms unstructured addressing (bridging) in large networks, and has become the dominant form of addressing on the <a href="/wiki/Internet" title="Internet">Internet</a>, though bridging is still widely used, albeit within localized environments.</p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Delivery_semantics"><span class="tocnumber">1</span> <span class="toctext">Delivery semantics</span></a></li>
+<li class="toclevel-1"><a href="#Topology_distribution"><span class="tocnumber">2</span> <span class="toctext">Topology distribution</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Distance_vector_algorithms"><span class="tocnumber">2.1</span> <span class="toctext">Distance vector algorithms</span></a></li>
+<li class="toclevel-2"><a href="#Link-state_algorithms"><span class="tocnumber">2.2</span> <span class="toctext">Link-state algorithms</span></a></li>
+<li class="toclevel-2"><a href="#Path_vector_protocol"><span class="tocnumber">2.3</span> <span class="toctext">Path vector protocol</span></a></li>
+<li class="toclevel-2"><a href="#Comparison_of_routing_algorithms"><span class="tocnumber">2.4</span> <span class="toctext">Comparison of routing algorithms</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Path_selection"><span class="tocnumber">3</span> <span class="toctext">Path selection</span></a></li>
+<li class="toclevel-1"><a href="#Multiple_agents"><span class="tocnumber">4</span> <span class="toctext">Multiple agents</span></a></li>
+<li class="toclevel-1"><a href="#See_also"><span class="tocnumber">5</span> <span class="toctext">See also</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Routing_algorithms_and_techniques"><span class="tocnumber">5.1</span> <span class="toctext">Routing algorithms and techniques</span></a></li>
+<li class="toclevel-2"><a href="#Routing_in_specific_networks"><span class="tocnumber">5.2</span> <span class="toctext">Routing in specific networks</span></a></li>
+<li class="toclevel-2"><a href="#Routing_protocols"><span class="tocnumber">5.3</span> <span class="toctext">Routing protocols</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#References"><span class="tocnumber">6</span> <span class="toctext">References</span></a></li>
+<li class="toclevel-1"><a href="#External_links"><span class="tocnumber">7</span> <span class="toctext">External links</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script>
+<p><a name="Delivery_semantics" id="Delivery_semantics"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Routing&amp;action=edit&amp;section=1" title="Edit section: Delivery semantics">edit</a>]</span> <span class="mw-headline">Delivery semantics</span></h2>
+<div class="boilerplate metadata plainlinks" id="stub">
+<table cellpadding="0" cellspacing="0" style="background-color:transparent;">
+<tr>
+<td><a href="/wiki/Image:Wiki_letter_w.svg" class="image" title="Wiki letter w.svg"><img alt="" src="http://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Wiki_letter_w.svg/17px-Wiki_letter_w.svg.png" width="17" height="17" border="0" /></a></td>
+<td><i>&#160;<sup>This short section requires <a href="http://en.wikipedia.org/w/index.php?title=Routing&amp;action=edit" class="external text" title="http://en.wikipedia.org/w/index.php?title=Routing&amp;action=edit" rel="nofollow">expansion</a>.</sup></i></td>
+</tr>
+</table>
+</div>
+<table style="float:right; clear:both; margin:1em; padding:0; border: thin solid #000; text-align:center;">
+<tr>
+<th style="background-color:#ddd; color:#000;">
+<p><strong class="selflink">Routing</strong> Schemes</p>
+<p><a href="/wiki/Image:Cast.svg" class="image" title="Cast.svg"><img alt="" src="http://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Cast.svg/100px-Cast.svg.png" width="100" height="67" border="0" /></a></p>
+</th>
+</tr>
+<tr>
+<th style="border-bottom: thin solid #999;">
+<p><a href="/wiki/Anycast" title="Anycast">anycast</a></p>
+<p><a href="/wiki/Image:Anycast.svg" class="image" title="Anycast.svg"><img alt="" src="http://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Anycast.svg/100px-Anycast.svg.png" width="100" height="67" border="0" /></a></p>
+</th>
+</tr>
+<tr>
+<th style="border-bottom: thin solid #999;">
+<p><a href="/wiki/Broadcasting_%28networks%29" title="Broadcasting (networks)">broadcast</a></p>
+<p><a href="/wiki/Image:Broadcast.svg" class="image" title="Broadcast.svg"><img alt="" src="http://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Broadcast.svg/100px-Broadcast.svg.png" width="100" height="67" border="0" /></a></p>
+</th>
+</tr>
+<tr>
+<th style="border-bottom: thin solid #999;">
+<p><a href="/wiki/Multicast" title="Multicast">multicast</a></p>
+<p><a href="/wiki/Image:Multicast.svg" class="image" title="Multicast.svg"><img alt="" src="http://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Multicast.svg/100px-Multicast.svg.png" width="100" height="67" border="0" /></a></p>
+</th>
+</tr>
+<tr>
+<th style="border-bottom: 0 solid #555;">
+<p><a href="/wiki/Unicast" title="Unicast">unicast</a></p>
+<p><a href="/wiki/Image:Unicast.svg" class="image" title="Unicast.svg"><img alt="" src="http://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Unicast.svg/100px-Unicast.svg.png" width="100" height="67" border="0" /></a></p>
+</th>
+</tr>
+</table>
+<p>Routing schemes differ in their delivery semantics:</p>
+<ul>
+<li><a href="/wiki/Unicast" title="Unicast">unicast</a> delivers a message to a single specified node;</li>
+<li><a href="/wiki/Broadcasting_%28computing%29" title="Broadcasting (computing)">broadcast</a> delivers a message to all nodes in the network;</li>
+<li><a href="/wiki/Multicast" title="Multicast">multicast</a> delivers a message to a group of nodes that have expressed interest in receiving the message;</li>
+<li><a href="/wiki/Anycast" title="Anycast">anycast</a> delivers a message to any one out of a group of nodes, typically the one nearest to the source.</li>
+</ul>
+<p>Unicast is the dominant form of message delivery on the Internet, and this article focuses on unicast routing algorithms.</p>
+<p><a name="Topology_distribution" id="Topology_distribution"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Routing&amp;action=edit&amp;section=2" title="Edit section: Topology distribution">edit</a>]</span> <span class="mw-headline">Topology distribution</span></h2>
+<p>Small networks may involve manually configured routing tables, while larger networks involve complex <a href="/wiki/Network_topology" title="Network topology">topologies</a> and may change rapidly, making the manual construction of routing tables infeasible. Nevertheless, most of the <a href="/wiki/Public_Switched_Telephone_Network" title="Public Switched Telephone Network">public switched telephone network</a> (PSTN) uses pre-computed routing tables, with fallback routes if the most direct route becomes blocked; see <a href="/wiki/Routing_in_the_PSTN" title="Routing in the PSTN">routing in the PSTN</a>. <i>Dynamic routing</i> attempts to solve this problem by constructing routing tables automatically, based on information carried by <a href="/wiki/Routing_protocol" title="Routing protocol">routing protocols</a>, and allowing the network to act nearly autonomously in avoiding network failures and blockages.</p>
+<p>Dynamic routing dominates the Internet. However, the configuration of the routing protocols often requires a skilled touch; one should not suppose that networking technology has developed to the point of the complete automation of routing.</p>
+<p><a name="Distance_vector_algorithms" id="Distance_vector_algorithms"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Routing&amp;action=edit&amp;section=3" title="Edit section: Distance vector algorithms">edit</a>]</span> <span class="mw-headline">Distance vector algorithms</span></h3>
+<dl>
+<dd>
+<div class="noprint"><i>Main article: <a href="/wiki/Distance-vector_routing_protocol" title="Distance-vector routing protocol">Distance-vector routing protocol</a></i></div>
+</dd>
+</dl>
+<p><i><b>Distance vector algorithms</b></i> use the <a href="/wiki/Bellman-Ford" title="Bellman-Ford">Bellman-Ford</a> algorithm. This approach assigns a number, the <i>cost</i>, to each of the links between each node in the network. Nodes will send information from point A to point B via the path that results in the lowest <i>total cost</i> (i.e. the sum of the costs of the links between the nodes used).</p>
+<p>The algorithm operates in a very simple manner. When a node first starts, it only knows of its immediate neighbours, and the direct cost involved in reaching them. (This information, the list of destinations, the total cost to each, and the <i>next hop</i> to send data to get there, makes up the <a href="/wiki/Routing_table" title="Routing table">routing table</a>, or <i>distance table</i>.) Each node, on a regular basis, sends to each neighbour its own current idea of the total cost to get to all the destinations it knows of. The neighbouring node(s) examine this information, and compare it to what they already 'know'; anything which represents an improvement on what they already have, they insert in their own routing table(s). Over time, all the nodes in the network will discover the best next hop for all destinations, and the best total cost.</p>
+<p>When one of the nodes involved goes down, those nodes which used it as their next hop for certain destinations discard those entries, and create new routing-table information. They then pass this information to all adjacent nodes, which then repeat the process. Eventually all the nodes in the network receive the updated information, and will then discover new paths to all the destinations which they can still "reach".</p>
+<p><a name="Link-state_algorithms" id="Link-state_algorithms"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Routing&amp;action=edit&amp;section=4" title="Edit section: Link-state algorithms">edit</a>]</span> <span class="mw-headline">Link-state algorithms</span></h3>
+<dl>
+<dd>
+<div class="noprint"><i>Main article: <a href="/wiki/Link-state_routing_protocol" title="Link-state routing protocol">Link-state routing protocol</a></i></div>
+</dd>
+</dl>
+<p>When applying link-state algorithms, each node uses as its fundamental data a <a href="/wiki/Map" title="Map">map</a> of the network in the form of a <a href="/wiki/Graph_%28mathematics%29" title="Graph (mathematics)">graph</a>. To produce this, each node floods the entire network with information about what other nodes it can connect to, and each node then independently assembles this information into a map. Using this map, each router then independently determines the least-cost path from itself to every other node using a standard <a href="/wiki/Shortest_path_problem" title="Shortest path problem">shortest paths</a> algorithm such as <a href="/wiki/Dijkstra%27s_algorithm" title="Dijkstra's algorithm">Dijkstra's algorithm</a>. The result is a <a href="/wiki/Tree_%28graph_theory%29" title="Tree (graph theory)">tree</a> rooted at the current node such that the path through the tree from the root to any other node is the least-cost path to that node. This tree then serves to construct the routing table, which specifies the best next hop to get from the current node to any other node.</p>
+<p><a name="Path_vector_protocol" id="Path_vector_protocol"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Routing&amp;action=edit&amp;section=5" title="Edit section: Path vector protocol">edit</a>]</span> <span class="mw-headline">Path vector protocol</span></h3>
+<dl>
+<dd>
+<div class="noprint"><i>Main article: <a href="/wiki/Path_vector_protocol" title="Path vector protocol">Path vector protocol</a></i></div>
+</dd>
+</dl>
+<p>Distance vector and link state routing are both intra-domain routing protocols. They are used inside an <a href="/wiki/Autonomous_system" title="Autonomous system">autonomous system</a>, but not between <a href="/wiki/Autonomous_system" title="Autonomous system">autonomous systems</a>. Both of these routing protocols become intractable in large networks and cannot be used in <a href="/wiki/Inter-domain" title="Inter-domain">Inter-domain</a> routing. Distance vector routing is subject to instability if there are more than few hops in the domain. Link state routing needs huge amount of resources to calculate routing tables. It also creates heavy traffic because of flooding.</p>
+<p>Path vector routing is used for inter-domain routing. It is similar to Distance vector routing. In path vector routing we assume there is one node (there can be many) in each autonomous system which acts on behalf of the entire autonomous system. This node is called the speaker node. The speaker node creates a routing table and advertises it to neighboring speaker nodes in neighboring autonomous systems. The idea is the same as Distance vector routing except that only speaker nodes in each autonomous system can communicate with each other. The speaker node advertises the path, not the metric of the nodes, in its autonomous system or other autonomous systems.</p>
+<p><a name="Comparison_of_routing_algorithms" id="Comparison_of_routing_algorithms"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Routing&amp;action=edit&amp;section=6" title="Edit section: Comparison of routing algorithms">edit</a>]</span> <span class="mw-headline">Comparison of routing algorithms</span></h3>
+<p><a href="/wiki/Distance-vector_routing_protocols" title="Distance-vector routing protocols">Distance-vector routing protocols</a> are simple and efficient in small networks, and require little, if any management. However, naïve distance-vector algorithms do not <a href="/wiki/Scale_%28computing%29" title="Scale (computing)">scale</a> well (due to the <a href="/wiki/Distance-vector_routing_protocol#Limitations" title="Distance-vector routing protocol">count-to-infinity</a> problem <a href="http://wiki.uni.lu/secan-lab/Count-To-Infinity+Problem.html" class="external autonumber" title="http://wiki.uni.lu/secan-lab/Count-To-Infinity+Problem.html" rel="nofollow">[1]</a>), and have poor <a href="/wiki/Convergence" title="Convergence">convergence</a> properties, which has led to the development of more complex but more scalable algorithms for use in large networks, such as <a href="/wiki/Link-state_routing_protocol" title="Link-state routing protocol">link-state routing protocols</a> and <a href="/w/index.php?title=Loop-free_distance-vector_protocol&amp;action=edit" class="new" title="Loop-free distance-vector protocol">loop-free distance-vector protocols</a> (e.g. <a href="/wiki/EIGRP" title="EIGRP">EIGRP</a>). loop-free distance-vector protocols are as robust and manageable as distance-vector protocols, while avoiding counting to infinity and hence having good worst-case convergence times.</p>
+<p>The primary advantage of link-state routing is that it reacts more quickly, and in a bounded amount of time, to connectivity changes. Also, the <a href="/wiki/Link-state" title="Link-state">link-state</a> packets that are sent over the network are smaller than the packets used in distance-vector routing. Distance-vector routing requires a node's entire <a href="/wiki/Routing_table" title="Routing table">routing table</a> to be transmitted, while in link-state routing only information about the node's immediate neighbours are transmitted. Therefore, these packets are small enough that they do not use network resources to any significant degree. The primary disadvantage of link-state routing is that it requires more storage and more computing to run than distance-vector routing.</p>
+<p><a name="Path_selection" id="Path_selection"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Routing&amp;action=edit&amp;section=7" title="Edit section: Path selection">edit</a>]</span> <span class="mw-headline">Path selection</span></h2>
+<p>A <b>routing metric</b> is a value used by a routing algorithm to determine whether one route should perform better than another. Metrics can cover such information as <a href="/wiki/Bandwidth" title="Bandwidth">bandwidth</a>, <a href="/wiki/Delay" title="Delay">delay</a>, <a href="/wiki/Hop_count" title="Hop count">hop count</a>, path cost, load, <a href="/wiki/MTU_%28networking%29" title="MTU (networking)">MTU</a>, reliability, and communication cost. The routing table stores only the best possible routes, while <a href="/wiki/Link-state" title="Link-state">link-state</a> or topological databases may store all other information as well.</p>
+<p>As a routing metric is specific to a given routing protocol, multi-protocol routers must use some external heuristic in order to select between routes learned from different routing protocols. <a href="/wiki/Cisco" title="Cisco">Cisco</a>'s routers, for example, attribute a value known as the <a href="/wiki/Administrative_distance" title="Administrative distance">administrative distance</a> to each route, where smaller administrative distances indicate routes learned from a supposedly more reliable protocol.</p>
+<p><a name="Multiple_agents" id="Multiple_agents"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Routing&amp;action=edit&amp;section=8" title="Edit section: Multiple agents">edit</a>]</span> <span class="mw-headline">Multiple agents</span></h2>
+<p>In some networks, routing is complicated by the fact that no single entity is responsible for selecting paths: instead, multiple entities are involved in selecting paths or even parts of a single path. Complications or inefficiency can result if these entities choose paths to selfishly optimize their own objectives, which may conflict with the objectives of other participants.</p>
+<p>A classic example involves traffic in a road system, in which each driver selfishly picks a path which minimizes her own travel time. With such selfish routing, the <a href="/wiki/Nash_equilibrium" title="Nash equilibrium">equilibrium</a> routes can be longer than optimal for all drivers. In particular, <a href="/wiki/Braess%27_paradox" title="Braess' paradox">Braess' paradox</a> shows that adding a new road can <i>lengthen</i> travel times for all drivers.</p>
+<p>The Internet is partitioned into <a href="/wiki/Autonomous_system_%28Internet%29" title="Autonomous system (Internet)">autonomous systems</a> (ASs) such as <a href="/wiki/Internet_service_provider" title="Internet service provider">internet service providers</a> (ISPs), each of which has control over routes involving its network, at multiple levels. First, AS-level paths are selected via the <a href="/wiki/Border_Gateway_Protocol" title="Border Gateway Protocol">BGP</a> protocol, which produces a sequence of ASs through which packets will flow. Each AS may have multiple paths, offered by neighboring ASs, from which to choose. Its decision often involves business relationships with these neighboring ASs,<sup id="_ref-0" class="reference"><a href="#_note-0" title="">[1]</a></sup> which may be unrelated to path quality or latency. Second, once an AS-level path has been selected, there are often multiple corresponding <a href="/wiki/Router" title="Router">router</a>-level paths, in part because two ISPs may be connected in multiple locations. In choosing the single router-level path, it is common practice for each ISP to employ <a href="/wiki/Hot-potato_routing" title="Hot-potato routing">hot-potato routing</a>: sending traffic along the path that minimizes the distance through the ISP's own network—even if that path lengthens the total distance to the destination. Consider two ISPs, <i>A</i> and <i>B</i>, which each have a presence in <a href="/wiki/New_York_City" title="New York City">New York</a>, connected by a fast link with latency 5 <a href="/wiki/Millisecond" title="Millisecond">ms</a>; and which each have a presence in <a href="/wiki/London" title="London">London</a> connected by a 5 ms link. Suppose both ISPs have trans-Atlantic links connecting their two networks, but <i>A</i>'s link has latency 100 ms and B's has latency 120 ms. When routing a message from a source in <i>A</i>'s London network to a destination in <i>B</i>'s New York network, <i>A</i> may choose to immediately send the message to <i>B</i> in London. This saves <i>A</i> the work of sending it along an expensive trans-Atlantic link, but causes the message to experience latency 125 ms when the other route would have been 20 ms faster.</p>
+<p>A <a href="/wiki/2003" title="2003">2003</a> measurement study of Internet routes found that, between pairs of neighboring ISPs, more than 30% of paths have inflated latency due to hot potato routing, with 5% of paths being delayed by at least 12 ms. Inflation due to AS-level path selection, while substantial, was attributed primarily to BGP's lack of a mechanism to directly optimize for latency, rather than to selfish routing policies. It was also suggested that, were an appropriate mechanism in place, ISPs would be willing to cooperate to reduce latency rather than use hot-potato routing.<sup id="_ref-1" class="reference"><a href="#_note-1" title="">[2]</a></sup></p>
+<p><a name="See_also" id="See_also"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Routing&amp;action=edit&amp;section=9" title="Edit section: See also">edit</a>]</span> <span class="mw-headline">See also</span></h2>
+<p><a name="Routing_algorithms_and_techniques" id="Routing_algorithms_and_techniques"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Routing&amp;action=edit&amp;section=10" title="Edit section: Routing algorithms and techniques">edit</a>]</span> <span class="mw-headline">Routing algorithms and techniques</span></h3>
+<ul>
+<li><a href="/wiki/Adaptive_routing" title="Adaptive routing">Adaptive routing</a></li>
+<li><a href="/w/index.php?title=Alternative-path_routing&amp;action=edit" class="new" title="Alternative-path routing">Alternative-path routing</a></li>
+<li><a href="/wiki/Deflection_routing" title="Deflection routing">Deflection routing</a></li>
+<li><a href="/wiki/Edge_Disjoint_Shortest_Pair_Algorithm" title="Edge Disjoint Shortest Pair Algorithm">Edge Disjoint Shortest Pair Algorithm</a></li>
+<li><a href="/wiki/Fuzzy_routing" title="Fuzzy routing">Fuzzy routing</a></li>
+<li><a href="/wiki/Geographic_routing" title="Geographic routing">Geographic routing</a></li>
+<li><a href="/wiki/Hierarchical_routing" title="Hierarchical routing">Hierarchical routing</a></li>
+<li><a href="/w/index.php?title=Multi-path_routing&amp;action=edit" class="new" title="Multi-path routing">Multi-path routing</a></li>
+<li><a href="/wiki/Overlay_network" title="Overlay network">Overlay network</a> routing schemes
+<ul>
+<li><a href="/wiki/Key_based_routing" title="Key based routing">Key based routing</a> (KBR)</li>
+<li><a href="/wiki/Decentralized_object_location_and_routing" title="Decentralized object location and routing">Decentralized object location and routing</a> (DOLR)</li>
+<li><a href="/w/index.php?title=Group_anycast_and_multicast&amp;action=edit" class="new" title="Group anycast and multicast">Group anycast and multicast</a> (CAST)</li>
+<li><a href="/wiki/Distributed_hash_table" title="Distributed hash table">Distributed hash table</a> (DHT)</li>
+</ul>
+</li>
+<li><a href="/wiki/Policy-based_routing" title="Policy-based routing">Policy-based routing</a></li>
+<li><a href="/wiki/Quality_of_Service" title="Quality of Service">Quality of Service</a> in routing</li>
+<li><a href="/wiki/Static_routing" title="Static routing">Static routing</a></li>
+<li><a href="/wiki/Wormhole_routing" title="Wormhole routing">Wormhole routing</a></li>
+</ul>
+<p><a name="Routing_in_specific_networks" id="Routing_in_specific_networks"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Routing&amp;action=edit&amp;section=11" title="Edit section: Routing in specific networks">edit</a>]</span> <span class="mw-headline">Routing in specific networks</span></h3>
+<ul>
+<li><a href="/wiki/Route_assignment" title="Route assignment">Route assignment</a> in transportation networks</li>
+<li><a href="/wiki/National_Routeing_Guide" title="National Routeing Guide">National Routeing Guide</a>: passenger routing in the UK rail network</li>
+<li><a href="/wiki/Routing_in_the_PSTN" title="Routing in the PSTN">Routing in the PSTN</a></li>
+</ul>
+<p><a name="Routing_protocols" id="Routing_protocols"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Routing&amp;action=edit&amp;section=12" title="Edit section: Routing protocols">edit</a>]</span> <span class="mw-headline">Routing protocols</span></h3>
+<ul>
+<li><a href="/wiki/Routing_protocol" title="Routing protocol">Routing protocol</a></li>
+<li><a href="/wiki/Classless_inter-domain_routing" title="Classless inter-domain routing">Classless inter-domain routing</a> (CIDR)</li>
+<li><a href="/wiki/MPLS" title="MPLS">MPLS</a> routing</li>
+<li><a href="/wiki/Asynchronous_Transfer_Mode" title="Asynchronous Transfer Mode">ATM</a> routing</li>
+<li><a href="/wiki/RPSL" title="RPSL">RPSL</a></li>
+</ul>
+<p><a name="References" id="References"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Routing&amp;action=edit&amp;section=13" title="Edit section: References">edit</a>]</span> <span class="mw-headline">References</span></h2>
+<div class="references-small">
+<ol class="references">
+<li id="_note-0"><b><a href="#_ref-0" title="">^</a></b> Matthew Caesar and Jennifer Rexford. <a href="http://www.cs.princeton.edu/~jrex/papers/policies.pdf" class="external text" title="http://www.cs.princeton.edu/~jrex/papers/policies.pdf" rel="nofollow">BGP routing policies in ISP networks</a>. IEEE Network Magazine, special issue on Interdomain Routing, Nov/Dec 2005.</li>
+<li id="_note-1"><b><a href="#_ref-1" title="">^</a></b> Neil Spring, Ratul Mahajan, and Thomas Anderson. <a href="http://www.cs.washington.edu/research/networking/rocketfuel/papers/sigcomm2003.pdf" class="external text" title="http://www.cs.washington.edu/research/networking/rocketfuel/papers/sigcomm2003.pdf" rel="nofollow">Quantifying the Causes of Path Inflation</a>. Proc. <a href="/wiki/SIGCOMM" title="SIGCOMM">SIGCOMM</a> 2003.</li>
+</ol>
+</div>
+<ul>
+<li><cite class="book" style="font-style:normal">Ash, Gerald (1997). <i>Dynamic Routing in Telecommunication Networks</i>. McGraw-Hill. <a href="/w/index.php?title=Special:Booksources&amp;isbn=0070064148" class="internal">ISBN 0070064148</a>.</cite><span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Dynamic+Routing+in+Telecommunication+Networks&amp;rft.au=Ash%2C+Gerald&amp;rft.pub=McGraw-Hill">&#160;</span></li>
+<li><cite class="book" style="font-style:normal">Doyle, Jeff and Carroll, Jennifer (2005). <i>Routing TCP/IP, Volume I, Second Ed.</i>. Cisco Press. <a href="/w/index.php?title=Special:Booksources&amp;isbn=1587052024" class="internal">ISBN 1587052024</a>.</cite><span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Routing+TCP%2FIP%2C+Volume+I%2C+Second+Ed.&amp;rft.au=Doyle%2C+Jeff+and+Carroll%2C+Jennifer&amp;rft.pub=Cisco+Press">&#160;</span><a href="http://www.ciscopress.com/title/1587052024" class="external text" title="http://www.ciscopress.com/title/1587052024" rel="nofollow">Ciscopress ISBN 1587052024</a></li>
+<li><cite class="book" style="font-style:normal">Doyle, Jeff and Carroll, Jennifer (2001). <i>Routing TCP/IP, Volume II,</i>. Cisco Press. <a href="/w/index.php?title=Special:Booksources&amp;isbn=1578700892" class="internal">ISBN 1578700892</a>.</cite><span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Routing+TCP%2FIP%2C+Volume+II%2C&amp;rft.au=Doyle%2C+Jeff+and+Carroll%2C+Jennifer&amp;rft.pub=Cisco+Press">&#160;</span><a href="http://www.ciscopress.com/title/1578700892" class="external text" title="http://www.ciscopress.com/title/1578700892" rel="nofollow">Ciscopress ISBN 1578700892</a></li>
+<li><cite class="book" style="font-style:normal">Huitema, Christian (2000). <i>Routing in the Internet, Second Ed.</i>. Prentice-Hall. <a href="/w/index.php?title=Special:Booksources&amp;isbn=0321227352" class="internal">ISBN 0321227352</a>.</cite><span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Routing+in+the+Internet%2C+Second+Ed.&amp;rft.au=Huitema%2C+Christian&amp;rft.pub=Prentice-Hall">&#160;</span></li>
+<li><cite class="book" style="font-style:normal">Kurose, James E. and Ross, Keith W. (2004). <i>Computer Networking, Third Ed.</i>. Benjamin/Cummings. <a href="/w/index.php?title=Special:Booksources&amp;isbn=0321227352" class="internal">ISBN 0321227352</a>.</cite><span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Computer+Networking%2C+Third+Ed.&amp;rft.au=Kurose%2C+James+E.+and+Ross%2C+Keith+W.&amp;rft.pub=Benjamin%2FCummings">&#160;</span></li>
+<li><cite class="book" style="font-style:normal">Medhi, Deepankar and Ramasamy, Karthikeyan (2007). <i>Network Routing: Algorithms, Protocols, and Architectures</i>. Morgan Kaufmann. <a href="/w/index.php?title=Special:Booksources&amp;isbn=0120885883" class="internal">ISBN 0120885883</a>.</cite><span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Network+Routing%3A+Algorithms%2C+Protocols%2C+and+Architectures&amp;rft.au=Medhi%2C+Deepankar+and+Ramasamy%2C+Karthikeyan&amp;rft.pub=Morgan+Kaufmann">&#160;</span></li>
+</ul>
+<p><a name="External_links" id="External_links"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Routing&amp;action=edit&amp;section=14" title="Edit section: External links">edit</a>]</span> <span class="mw-headline">External links</span></h2>
+<ul>
+<li><a href="http://wiki.uni.lu/secan-lab/Count-To-Infinity+Problem.html" class="external text" title="http://wiki.uni.lu/secan-lab/Count-To-Infinity+Problem.html" rel="nofollow">Count-To-Infinity Problem</a></li>
+<li><a href="http://www.ba-stuttgart.de/~schulte/htme/55024.htm#HDR3" class="external text" title="http://www.ba-stuttgart.de/~schulte/htme/55024.htm#HDR3" rel="nofollow">"Stability Features"</a> are ways of avoiding the "count to infinity" problem.</li>
+<li><a href="http://www.cisco.com/web/about/ciscoitatwork/case_studies/routing.html" class="external text" title="http://www.cisco.com/web/about/ciscoitatwork/case_studies/routing.html" rel="nofollow">Cisco IT Case Studies</a> about Routing and Switching</li>
+</ul>
+
+<!-- 
+Pre-expand include size: 46017 bytes
+Post-expand include size: 10433 bytes
+Template argument size: 7742 bytes
+Maximum: 2048000 bytes
+-->
+
+<!-- Saved in parser cache with key enwiki:pcache:idhash:25750-0!1!0!default!!en!2 and timestamp 20070915173044 -->
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org/wiki/Routing">http://en.wikipedia.org/wiki/Routing</a>"</div>
+			<div id="catlinks"><p class='catlinks'><a href="/wiki/Special:Categories" title="Special:Categories">Categories</a>: <span dir='ltr'><a href="/wiki/Category:Articles_with_sections_needing_expansion" title="Category:Articles with sections needing expansion">Articles with sections needing expansion</a></span> | <span dir='ltr'><a href="/wiki/Category:Routing" title="Category:Routing">Routing</a></span> | <span dir='ltr'><a href="/wiki/Category:Internet_architecture" title="Category:Internet architecture">Internet architecture</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<div class="pBody">
+			<ul>
+					 <li id="ca-nstab-main" class="selected"><a href="/wiki/Routing" title="View the content page [c]" accesskey="c">Article</a></li>
+					 <li id="ca-talk"><a href="/wiki/Talk:Routing" title="Discussion about the content page [t]" accesskey="t">Discussion</a></li>
+					 <li id="ca-edit"><a href="/w/index.php?title=Routing&amp;action=edit" title="You can edit this page. Please use the preview button before saving. [e]" accesskey="e">Edit this page</a></li>
+					 <li id="ca-history"><a href="/w/index.php?title=Routing&amp;action=history" title="Past versions of this page [h]" accesskey="h">History</a></li>
+				</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-personal">
+		<h5>Personal tools</h5>
+		<div class="pBody">
+			<ul>
+				<li id="pt-login"><a href="/w/index.php?title=Special:Userlogin&amp;returnto=Routing" title="You are encouraged to log in, it is not mandatory however. [o]" accesskey="o">Sign in / create account</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-logo">
+		<a style="background-image: url(/images/wiki-en.png);" href="/wiki/Main_Page" title="Visit the Main Page [z]" accesskey="z"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-Main-page"><a href="/wiki/Main_Page">Main page</a></li>
+				<li id="n-Contents"><a href="/wiki/Wikipedia:Contents">Contents</a></li>
+				<li id="n-Featured-content"><a href="/wiki/Wikipedia:Featured_content">Featured content</a></li>
+				<li id="n-currentevents"><a href="/wiki/Portal:Current_events" title="Find background information on current events">Current events</a></li>
+				<li id="n-randompage"><a href="/wiki/Special:Random" title="Load a random page [x]" accesskey="x">Random article</a></li>
+			</ul>
+		</div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+		<h5>interaction</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-About-Wikipedia"><a href="/wiki/Wikipedia:About">About Wikipedia</a></li>
+				<li id="n-portal"><a href="/wiki/Wikipedia:Community_Portal" title="About the project, what you can do, where to find things">Community portal</a></li>
+				<li id="n-recentchanges"><a href="/wiki/Special:Recentchanges" title="The list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li>
+				<li id="n-contact"><a href="/wiki/Wikipedia:Contact_us">Contact Wikipedia</a></li>
+				<li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising" title="Support us">Donate to Wikipedia</a></li>
+				<li id="n-help"><a href="/wiki/Help:Contents" title="Guidance on how to use and edit Wikipedia">Help</a></li>
+			</ul>
+		</div>
+	</div>
+		<div id="p-search" class="portlet">
+		<h5><label for="searchInput">Search</label></h5>
+		<div id="searchBody" class="pBody">
+			<form action="/wiki/Special:Search" id="searchform"><div>
+				<input id="searchInput" name="search" type="text" title="Search Wikipedia [f]" accesskey="f" value="" />
+				<input type='submit' name="go" class="searchButton" id="searchGoButton"	value="Go" />&nbsp;
+				<input type='submit' name="fulltext" class="searchButton" id="mw-searchButton" value="Search" />
+			</div></form>
+		</div>
+	</div>
+	<div class="portlet" id="p-tb">
+		<h5>Toolbox</h5>
+		<div class="pBody">
+			<ul>
+				<li id="t-whatlinkshere"><a href="/wiki/Special:Whatlinkshere/Routing" title="List of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+				<li id="t-recentchangeslinked"><a href="/wiki/Special:Recentchangeslinked/Routing" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+<li id="t-upload"><a href="/wiki/Wikipedia:Upload" title="Upload images or media files [u]" accesskey="u">Upload file</a></li>
+<li id="t-specialpages"><a href="/wiki/Special:Specialpages" title="List of all special pages [q]" accesskey="q">Special pages</a></li>
+				<li id="t-print"><a href="/w/index.php?title=Routing&amp;printable=yes" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>				<li id="t-permalink"><a href="/w/index.php?title=Routing&amp;oldid=158084557" title="Permanent link to this version of the page">Permanent link</a></li><li id="t-cite"><a href="/w/index.php?title=Special:Cite&amp;page=Routing&amp;id=158084557">Cite this article</a></li>			</ul>
+		</div>
+	</div>
+	<div id="p-lang" class="portlet">
+		<h5>In other languages</h5>
+		<div class="pBody">
+			<ul>
+				<li class="interwiki-mk"><a href="http://mk.wikipedia.org/wiki/%D0%A8%D0%B0%D0%B1%D0%BB%D0%BE%D0%BD:Routing_scheme">Македонски</a></li>
+				<li class="interwiki-af"><a href="http://af.wikipedia.org/wiki/Roetebepaling">Afrikaans</a></li>
+				<li class="interwiki-cs"><a href="http://cs.wikipedia.org/wiki/Sm%C4%9Brov%C3%A1n%C3%AD">Česky</a></li>
+				<li class="interwiki-de"><a href="http://de.wikipedia.org/wiki/Routing">Deutsch</a></li>
+				<li class="interwiki-el"><a href="http://el.wikipedia.org/wiki/%CE%94%CF%81%CE%BF%CE%BC%CE%BF%CE%BB%CF%8C%CE%B3%CE%B7%CF%83%CE%B7">Ελληνικά</a></li>
+				<li class="interwiki-es"><a href="http://es.wikipedia.org/wiki/Encaminamiento">Español</a></li>
+				<li class="interwiki-eu"><a href="http://eu.wikipedia.org/wiki/Bideratze-algoritmo">Euskara</a></li>
+				<li class="interwiki-fr"><a href="http://fr.wikipedia.org/wiki/Routage">Français</a></li>
+				<li class="interwiki-ga"><a href="http://ga.wikipedia.org/wiki/R%C3%B3d%C3%BA">Gaeilge</a></li>
+				<li class="interwiki-id"><a href="http://id.wikipedia.org/wiki/Routing">Bahasa Indonesia</a></li>
+				<li class="interwiki-it"><a href="http://it.wikipedia.org/wiki/Routing">Italiano</a></li>
+				<li class="interwiki-he"><a href="http://he.wikipedia.org/wiki/%D7%A0%D7%99%D7%AA%D7%95%D7%91">עברית</a></li>
+				<li class="interwiki-mk"><a href="http://mk.wikipedia.org/wiki/%D0%A0%D1%83%D1%82%D0%B8%D1%80%D0%B0%D1%9A%D0%B5">Македонски</a></li>
+				<li class="interwiki-ja"><a href="http://ja.wikipedia.org/wiki/%E3%83%AB%E3%83%BC%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0">日本語</a></li>
+				<li class="interwiki-pl"><a href="http://pl.wikipedia.org/wiki/Routowanie">Polski</a></li>
+				<li class="interwiki-pt"><a href="http://pt.wikipedia.org/wiki/Encaminhamento">Português</a></li>
+				<li class="interwiki-ru"><a href="http://ru.wikipedia.org/wiki/%D0%9C%D0%B0%D1%80%D1%88%D1%80%D1%83%D1%82%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F">Русский</a></li>
+				<li class="interwiki-fi"><a href="http://fi.wikipedia.org/wiki/Reititys">Suomi</a></li>
+				<li class="interwiki-vi"><a href="http://vi.wikipedia.org/wiki/Routing">Tiếng Việt</a></li>
+				<li class="interwiki-tr"><a href="http://tr.wikipedia.org/wiki/Routing">Türkçe</a></li>
+				<li class="interwiki-uk"><a href="http://uk.wikipedia.org/wiki/%D0%94%D0%B8%D0%BD%D0%B0%D0%BC%D1%96%D1%87%D0%BD%D0%B0_%D0%B0%D0%B4%D0%B0%D0%BF%D1%82%D0%B8%D0%B2%D0%BD%D0%B0_%D0%BC%D0%B0%D1%80%D1%88%D1%80%D1%83%D1%82%D0%B8%D0%B7%D0%B0%D1%86%D1%96%D1%8F">Українська</a></li>
+				<li class="interwiki-zh"><a href="http://zh.wikipedia.org/wiki/%E8%B7%AF%E7%94%B1">中文</a></li>
+			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="/skins-1.5/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>
+				<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="/images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>
+			<ul id="f-list">
+				<li id="lastmod"> This page was last modified 17:05, 15 September 2007.</li>
+				<li id="copyright">All text is available under the terms of the <a class='internal' href="/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="/wiki/Wikipedia:Copyrights" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a U.S. registered <a class='internal' href="/wiki/501%28c%29#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="/wiki/Non-profit_organization" title="Non-profit organization">nonprofit</a> <a href="/wiki/Charitable_organization" title="Charitable organization">charity</a>.<br /></li>
+				<li id="privacy"><a href="http://wikimediafoundation.org/wiki/Privacy_policy" title="wikimedia:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="/wiki/Wikipedia:About" title="Wikipedia:About">About Wikipedia</a></li>
+				<li id="disclaimer"><a href="/wiki/Wikipedia:General_disclaimer" title="Wikipedia:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+		
+	
+		<script type="text/javascript">if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by srv96 in 0.091 secs. --></body></html>

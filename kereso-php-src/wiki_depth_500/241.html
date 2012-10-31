@@ -1,0 +1,262 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+				<meta name="keywords" content="Induced path,Chordal graph,Cograph,Complement (graph theory),Complete graph,Cycle graph,David S. Johnson,Digital object identifier,Girth,Graph theory,Hypercube graph" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="http://www.gnu.org/copyleft/fdl.html" />
+		<title>Induced path - Wikipedia, the free encyclopedia</title>
+		<style type="text/css" media="screen, projection">/*<![CDATA[*/
+			@import "/skins-1.5/common/shared.css?99";
+			@import "/skins-1.5/monobook/main.css?99";
+		/*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="/skins-1.5/common/commonPrint.css?99" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE50Fixes.css?99";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE55Fixes.css?99";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "/skins-1.5/monobook/IE60Fixes.css?99";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "/skins-1.5/monobook/IE70Fixes.css?99";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="/skins-1.5/common/IEFixes.js?99"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		
+		<script type= "text/javascript">/*<![CDATA[*/
+var skin = "monobook";
+var stylepath = "/skins-1.5";
+var wgArticlePath = "/wiki/$1";
+var wgScriptPath = "/w";
+var wgScript = "/w/index.php";
+var wgServer = "http://en.wikipedia.org";
+var wgCanonicalNamespace = "";
+var wgCanonicalSpecialPageName = false;
+var wgNamespaceNumber = 0;
+var wgPageName = "Induced_path";
+var wgTitle = "Induced path";
+var wgAction = "view";
+var wgRestrictionEdit = [];
+var wgRestrictionMove = [];
+var wgArticleId = "7714430";
+var wgIsArticle = true;
+var wgUserName = null;
+var wgUserGroups = null;
+var wgUserLanguage = "en";
+var wgContentLanguage = "en";
+var wgBreakFrames = false;
+var wgCurRevisionId = "85987494";
+/*]]>*/</script>
+                
+		<script type="text/javascript" src="/skins-1.5/common/wikibits.js?99"><!-- wikibits js --></script>
+		<script type="text/javascript" src="/w/index.php?title=-&amp;action=raw&amp;gen=js&amp;useskin=monobook"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "/w/index.php?title=MediaWiki:Common.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=MediaWiki:Monobook.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=-&action=raw&gen=css&maxage=2678400";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+		<script type="text/javascript" src="/skins-1.5/common/ajax.js?99"></script>
+	</head>
+<body  class="mediawiki ns-0 ltr page-Induced_path">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">Induced path</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<div class="thumb tright">
+<div class="thumbinner" style="width:182px;"><a href="/wiki/Image:Snakeinthebox.jpg" class="image" title="An induced path of length four in a cube. Finding the longest induced path in a hypercube is known as the snake-in-the-box problem."><img alt="An induced path of length four in a cube. Finding the longest induced path in a hypercube is known as the snake-in-the-box problem." src="http://upload.wikimedia.org/wikipedia/en/thumb/5/5f/Snakeinthebox.jpg/180px-Snakeinthebox.jpg" width="180" height="177" border="0" class="thumbimage" /></a>
+<div class="thumbcaption">
+<div class="magnify" style="float:right"><a href="/wiki/Image:Snakeinthebox.jpg" class="internal" title="Enlarge"><img src="/skins-1.5/common/images/magnify-clip.png" width="15" height="11" alt="" /></a></div>
+An induced path of length four in a <a href="/wiki/Hypercube_graph" title="Hypercube graph">cube</a>. Finding the longest induced path in a hypercube is known as the <a href="/wiki/Snake-in-the-box" title="Snake-in-the-box">snake-in-the-box</a> problem.</div>
+</div>
+</div>
+<p>In the <a href="/wiki/Mathematics" title="Mathematics">mathematical</a> area of <a href="/wiki/Graph_theory" title="Graph theory">graph theory</a>, an <b>induced path</b> in an undirected graph <i>G</i> is a <a href="/wiki/Path_%28graph_theory%29" title="Path (graph theory)">path</a> that is an <a href="/wiki/Induced_subgraph" title="Induced subgraph">induced subgraph</a> of <i>G</i>. That is, it is a sequence of vertices in <i>G</i> such that each two adjacent vertices in the sequence are connected by an edge in <i>G</i>, and each two nonadjacent vertices in the sequence are not connected by any edge in <i>G</i>. Similarly, an <b>induced cycle</b> is a <a href="/wiki/Cycle_graph" title="Cycle graph">cycle</a> that is an induced subgraph of <i>G</i>; induced cycles are also called <i>chordless cycles</i> or (when the length of the cycle is four or more) <i>holes</i>. An <i>antihole</i> is a hole in the <a href="/wiki/Complement_%28graph_theory%29" title="Complement (graph theory)">complement</a> of <i>G</i>. An induced path is sometimes called a <i>snake</i>, and the problem of finding long induced paths in <a href="/wiki/Hypercube_graph" title="Hypercube graph">hypercube graphs</a> is known as the <a href="/wiki/Snake-in-the-box" title="Snake-in-the-box">snake-in-the-box</a> problem.</p>
+<p>The length of the longest induced path in a graph has sometimes been called the <i>detour number</i> of the graph (Buckley and Harary 1988). The <i>induced path number</i> of a graph <i>G</i> is the smallest number of induced paths into which the vertices of the graph may be partitioned (Chartrand et al 1994), and the closely related <i>path cover number</i> of <i>G</i> is the smallest number of induced paths that together include all vertices of <i>G</i> (Barioli et al 2004). The <a href="/wiki/Girth" title="Girth">girth</a> of a graph is the length of its shortest cycle, but this cycle must be an induced cycle as any chord could be used to produce a shorter cycle; for similar reasons the <i>odd girth</i> of a graph is also the length of its shortest odd induced cycle.</p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Example"><span class="tocnumber">1</span> <span class="toctext">Example</span></a></li>
+<li class="toclevel-1"><a href="#Characterization_of_graph_families"><span class="tocnumber">2</span> <span class="toctext">Characterization of graph families</span></a></li>
+<li class="toclevel-1"><a href="#Algorithms_and_complexity"><span class="tocnumber">3</span> <span class="toctext">Algorithms and complexity</span></a></li>
+<li class="toclevel-1"><a href="#References"><span class="tocnumber">4</span> <span class="toctext">References</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script>
+<p><a name="Example" id="Example"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Induced_path&amp;action=edit&amp;section=1" title="Edit section: Example">edit</a>]</span> <span class="mw-headline">Example</span></h2>
+<p>The illustration shows a cube, a graph with eight vertices and twelve edges, and an induced path of length four in this graph. A straightforward case analysis shows that there can be no longer induced path in the cube, although it has an induced cycle of length six. The problem of finding the longest induced path or cycle in a hypercube, first posed by Kautz (1958), is known as the <a href="/wiki/Snake-in-the-box" title="Snake-in-the-box">snake-in-the-box</a> problem, and it has been studied extensively due to its applications in coding theory and engineering.</p>
+<p><a name="Characterization_of_graph_families" id="Characterization_of_graph_families"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Induced_path&amp;action=edit&amp;section=2" title="Edit section: Characterization of graph families">edit</a>]</span> <span class="mw-headline">Characterization of graph families</span></h2>
+<p>Many important graph families can be characterized in terms of the induced paths or cycles of the graphs in the family.</p>
+<ul>
+<li>Trivially, the connected graphs with no induced path of length two are the <a href="/wiki/Complete_graph" title="Complete graph">complete graphs</a>, and the connected graphs with no induced cycle are the <a href="/wiki/Tree_%28graph_theory%29" title="Tree (graph theory)">trees</a>.</li>
+</ul>
+<ul>
+<li>A <a href="/wiki/Triangle-free_graph" title="Triangle-free graph">triangle-free graph</a> is a graph with no induced cycle of length three.</li>
+</ul>
+<ul>
+<li>The <a href="/wiki/Cograph" title="Cograph">cographs</a> are exactly the graphs with no induced path of length four.</li>
+</ul>
+<ul>
+<li>The <a href="/wiki/Chordal_graph" title="Chordal graph">chordal graphs</a> are the graphs with no induced cycle of length four or more.</li>
+</ul>
+<ul>
+<li>By the strong perfect graph theorem, the <a href="/wiki/Perfect_graph" title="Perfect graph">perfect graphs</a> are the graphs with no odd hole and no odd antihole.</li>
+</ul>
+<ul>
+<li>The <a href="/w/index.php?title=Distance-hereditary_graph&amp;action=edit" class="new" title="Distance-hereditary graph">distance-hereditary graphs</a> are the graphs in which every induced path is a shortest path.</li>
+</ul>
+<p><a name="Algorithms_and_complexity" id="Algorithms_and_complexity"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Induced_path&amp;action=edit&amp;section=3" title="Edit section: Algorithms and complexity">edit</a>]</span> <span class="mw-headline">Algorithms and complexity</span></h2>
+<p>It is NP-complete to determine, for a graph <i>G</i> and parameter <i>k</i>, whether the graph has an induced path of length at least <i>k</i>. Garey and Johnson (1979) credit this result to an unpublished communication of Yannakakis. However, this problem can be solved in polynomial time for certain graph families, such as asteroidal-triple-free graphs (Kratsch et al 2003) or graphs with no long holes (Gavril 2002).</p>
+<p>It is also NP-complete to determine whether the vertices of a graph can be partitioned into two induced paths, or two induced cycles (Le et al 2003). As a consequence, determining the induced path number of a graph is NP-hard.</p>
+<p>The complexity of approximating the longest induced path or cycle problems can be related to that of finding large <a href="/wiki/Independent_set" title="Independent set">independent sets</a> in graphs, by the following reduction (Berman and Schnitger 1992). From any graph <i>G</i> with <i>n</i> vertices, form another graph <i>H</i> with twice as many vertices as <i>G</i>, by adding to <i>G</i> an independent set <i>I</i> of <i>n</i> vertices, and an edge from each vertex of <i>G</i> to each vertex of <i>I</i>. Then if <i>G</i> has an independent set of size <i>k</i>, <i>H</i> must have an induced path and an induced cycle of length 2<i>k</i>, formed by alternating vertices of the independent set in <i>G</i> with vertices of <i>I</i>. Conversely, if <i>H</i> has an induced path or cycle of length <i>k</i>, any maximal set of nonadjacent vertices in <i>G</i> from this path or cycle forms an independent set in <i>G</i> of size at least <i>k</i>/3. Thus, the size of the maximum independent set in <i>G</i> is within a constant factor of the size of the longest induced path and the longest induced cycle in <i>H</i>. Therefore, by the results of Håstad (1996) on inapproximability of independent sets, unless NP=ZPP, there does not exist a polynomial time algorithm for approximating the longest induced path or the longest induced cycle to within a factor of O(<i>n</i><sup>1-ε</sup>) of the optimal solution.</p>
+<p><a name="References" id="References"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Induced_path&amp;action=edit&amp;section=4" title="Edit section: References">edit</a>]</span> <span class="mw-headline">References</span></h2>
+<div class="references-small" style="-moz-column-count:2; column-count:2;">
+<ul>
+<li><cite style="font-style:normal">Barioli, Francesco; Fallat, Shaun; Hogben, Leslie (2004). "<a href="http://orion.math.iastate.edu/lhogben/research/BFHmrank.pdf" class="external text" title="http://orion.math.iastate.edu/lhogben/research/BFHmrank.pdf" rel="nofollow">Computation of minimal rank and path cover number for certain graphs</a>". <i>Linear Algebra Appl.</i> <b>392</b>: 289–303. <a href="/wiki/Digital_object_identifier" title="Digital object identifier">DOI</a>:<a href="http://dx.doi.org/10.1016/j.laa.2004.06.019" class="external text" title="http://dx.doi.org/10.1016/j.laa.2004.06.019" rel="nofollow">10.1016/j.laa.2004.06.019</a>.</cite><span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.atitle=Computation+of+minimal+rank+and+path+cover+number+for+certain+graphs&amp;rft.jtitle=Linear+Algebra+Appl.&amp;rft.date=2004&amp;rft.volume=392&amp;rft.au=Barioli%2C+Francesco%3B+Fallat%2C+Shaun%3B+Hogben%2C+Leslie&amp;rft.pages=289%E2%80%93303&amp;rft_id=info:doi/10.1016%2Fj.laa.2004.06.019&amp;rft_id=http%3A%2F%2Forion.math.iastate.edu%2Flhogben%2Fresearch%2FBFHmrank.pdf">&#160;</span></li>
+</ul>
+<ul>
+<li><cite style="font-style:normal">Berman, Piotr; Schnitger, Georg (1992). "On the complexity of approximating the independent set problem". <i>Information and Computation</i> <b>96</b> (1): 77–94.</cite><span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.atitle=On+the+complexity+of+approximating+the+independent+set+problem&amp;rft.jtitle=Information+and+Computation&amp;rft.date=1992&amp;rft.volume=96&amp;rft.issue=1&amp;rft.au=Berman%2C+Piotr%3B+Schnitger%2C+Georg&amp;rft.pages=77%E2%80%9394">&#160;</span></li>
+</ul>
+<ul>
+<li><cite style="font-style:normal">Buckley, Fred; Harary, Frank (1988). "On longest induced paths in graphs". <i>Chinese Quart. J. Math.</i> <b>3</b> (3): 61–65.</cite><span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.atitle=On+longest+induced+paths+in+graphs&amp;rft.jtitle=Chinese+Quart.+J.+Math.&amp;rft.date=1988&amp;rft.volume=3&amp;rft.issue=3&amp;rft.au=Buckley%2C+Fred%3B+Harary%2C+Frank&amp;rft.pages=61%E2%80%9365">&#160;</span></li>
+</ul>
+<ul>
+<li><cite style="font-style:normal">Chartrand, Gary; McCanna, Joseph; Sherwani, Naveed; Hossain, Moazzem; Hashmi, Jahangir (1994). "The induced path number of bipartite graphs". <i>Ars Combin.</i> <b>37</b>: 191–208.</cite><span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.atitle=The+induced+path+number+of+bipartite+graphs&amp;rft.jtitle=Ars+Combin.&amp;rft.date=1994&amp;rft.volume=37&amp;rft.au=Chartrand%2C+Gary%3B+McCanna%2C+Joseph%3B+Sherwani%2C+Naveed%3B+Hossain%2C+Moazzem%3B+Hashmi%2C+Jahangir&amp;rft.pages=191%E2%80%93208">&#160;</span></li>
+</ul>
+<ul>
+<li><cite class="book" style="font-style:normal"><a href="/wiki/Michael_Garey" title="Michael Garey">Garey, Michael R.</a>; <a href="/wiki/David_S._Johnson" title="David S. Johnson">Johnson, David S.</a> (1979). <i>Computers and Intractability: A Guide to the Theory of NP-Completeness.</i>. W. H. Freeman, 196.</cite><span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Computers+and+Intractability%3A+A+Guide+to+the+Theory+of+NP-Completeness.&amp;rft.au=%5B%5BMichael+Garey%7CGarey%2C+Michael+R.%5D%5D%3B+%5B%5BDavid+S.+Johnson%7CJohnson%2C+David+S.%5D%5D&amp;rft.pub=W.+H.+Freeman&amp;rft.pages=196">&#160;</span></li>
+</ul>
+<ul>
+<li><cite style="font-style:normal">Gavril, Fănică (2002). "Algorithms for maximum weight induced paths". <i>Information Processing Letters</i> <b>81</b> (4): 203–208. <a href="/wiki/Digital_object_identifier" title="Digital object identifier">DOI</a>:<a href="http://dx.doi.org/10.1016/S0020-0190(01)00222-8" class="external text" title="http://dx.doi.org/10.1016/S0020-0190(01)00222-8" rel="nofollow">10.1016/S0020-0190(01)00222-8</a>.</cite><span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.atitle=Algorithms+for+maximum+weight+induced+paths&amp;rft.jtitle=Information+Processing+Letters&amp;rft.date=2002&amp;rft.volume=81&amp;rft.issue=4&amp;rft.au=Gavril%2C+F%C4%83nic%C4%83&amp;rft.pages=203%E2%80%93208&amp;rft_id=info:doi/10.1016%2FS0020-0190%2801%2900222-8">&#160;</span></li>
+</ul>
+<ul>
+<li><cite style="font-style:normal"><a href="/wiki/Johan_H%C3%A5stad" title="Johan Håstad">Håstad, Johan</a> (1996). "<a href="http://www.nada.kth.se/~johanh/cliqueinap.ps" class="external text" title="http://www.nada.kth.se/~johanh/cliqueinap.ps" rel="nofollow">Clique is hard to approximate within <i>n</i><sup>1-ε</sup></a>". <i>Proceedings of the 37th Annual IEEE Symposium on Foundations of Computer Science</i>: 627–636. <a href="/wiki/Digital_object_identifier" title="Digital object identifier">DOI</a>:<a href="http://dx.doi.org/10.1109/SFCS.1996.548522" class="external text" title="http://dx.doi.org/10.1109/SFCS.1996.548522" rel="nofollow">10.1109/SFCS.1996.548522</a>.</cite><span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=proceeding&amp;rft.btitle=Proceedings+of+the+37th+Annual+IEEE+Symposium+on+Foundations+of+Computer+Science&amp;rft.atitle=Clique+is+hard+to+approximate+within+%27%27n%27%27%3Csup%3E1-%26epsilon%3B%3C%2Fsup%3E&amp;rft.au=H%C3%A5stad%2C+Johan&amp;rft.date=1996&amp;rft.pages=627%E2%80%93636&amp;rft_id=info:doi/10.1109%2FSFCS.1996.548522&amp;rft_id=http%3A%2F%2Fwww.nada.kth.se%2F%7Ejohanh%2Fcliqueinap.ps">&#160;</span></li>
+</ul>
+<ul>
+<li><cite style="font-style:normal">Kautz, W. H. (1958). "Unit-distance error-checking codes". <i>IRE Trans. Elect. Comput.</i> <b>7</b>: 177–180.</cite><span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.atitle=Unit-distance+error-checking+codes&amp;rft.jtitle=IRE+Trans.+Elect.+Comput.&amp;rft.date=1958&amp;rft.volume=7&amp;rft.au=Kautz%2C+W.+H.&amp;rft.pages=177%E2%80%93180">&#160;</span></li>
+</ul>
+<ul>
+<li><cite style="font-style:normal">Kratsch, Dieter; Müller, Haiko; Todinca, Ioan (2003). "<a href="http://lita.sciences.univ-metz.fr/~kratsch/publications/KMT_preprocWG.ps" class="external text" title="http://lita.sciences.univ-metz.fr/~kratsch/publications/KMT_preprocWG.ps" rel="nofollow">Feedback vertex set and longest induced path on AT-free graphs</a>". <i>Graph-theoretic concepts in computer science</i>: 309–321, Berlin: Lecture Notes in Computer Science, Vol. 2880, Springer-Verlag. <a href="/wiki/Digital_object_identifier" title="Digital object identifier">DOI</a>:<a href="http://dx.doi.org/10.1007/b93953" class="external text" title="http://dx.doi.org/10.1007/b93953" rel="nofollow">10.1007/b93953</a>.</cite><span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=proceeding&amp;rft.btitle=Graph-theoretic+concepts+in+computer+science&amp;rft.atitle=Feedback+vertex+set+and+longest+induced+path+on+AT-free+graphs&amp;rft.au=Kratsch%2C+Dieter%3B+M%C3%BCller%2C+Haiko%3B+Todinca%2C+Ioan&amp;rft.date=2003&amp;rft.pub=Lecture+Notes+in+Computer+Science%2C+Vol.+2880%2C+Springer-Verlag&amp;rft.place=Berlin&amp;rft.pages=309%E2%80%93321&amp;rft_id=info:doi/10.1007%2Fb93953&amp;rft_id=http%3A%2F%2Flita.sciences.univ-metz.fr%2F%7Ekratsch%2Fpublications%2FKMT_preprocWG.ps">&#160;</span></li>
+</ul>
+<ul>
+<li><cite style="font-style:normal">Le, Hoàng-Oanh; Le, Van Bang; Müller, Haiko (2003). "<a href="http://www.informatik.uni-rostock.de/~le/Research/splitting.pdf" class="external text" title="http://www.informatik.uni-rostock.de/~le/Research/splitting.pdf" rel="nofollow">Splitting a graph into disjoint induced paths or cycles</a>" (The Second International Colloquium "Journées de l'Informatique Messine", Metz, 2000). <i>Discrete Appl. Math.</i> <b>131</b> (1): 199–212. <a href="/wiki/Digital_object_identifier" title="Digital object identifier">DOI</a>:<a href="http://dx.doi.org/10.1016/S0166-218X(02)00425-0" class="external text" title="http://dx.doi.org/10.1016/S0166-218X(02)00425-0" rel="nofollow">10.1016/S0166-218X(02)00425-0</a>.</cite><span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.atitle=Splitting+a+graph+into+disjoint+induced+paths+or+cycles&amp;rft.jtitle=Discrete+Appl.+Math.&amp;rft.date=2003&amp;rft.volume=131&amp;rft.issue=1&amp;rft.au=Le%2C+Ho%C3%A0ng-Oanh%3B+Le%2C+Van+Bang%3B+M%C3%BCller%2C+Haiko&amp;rft.pages=199%E2%80%93212&amp;rft_id=info:doi/10.1016%2FS0166-218X%2802%2900425-0&amp;rft_id=http%3A%2F%2Fwww.informatik.uni-rostock.de%2F%7Ele%2FResearch%2Fsplitting.pdf">&#160;</span></li>
+</ul>
+</div>
+
+<!-- 
+Pre-expand include size: 56551 bytes
+Post-expand include size: 18979 bytes
+Template argument size: 12640 bytes
+Maximum: 2048000 bytes
+-->
+
+<!-- Saved in parser cache with key enwiki:pcache:idhash:7714430-0!1!0!default!!en!2 and timestamp 20070914212520 -->
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org/wiki/Induced_path">http://en.wikipedia.org/wiki/Induced_path</a>"</div>
+			<div id="catlinks"><p class='catlinks'><a href="/wiki/Special:Categories" title="Special:Categories">Category</a>: <span dir='ltr'><a href="/wiki/Category:Graph_theory" title="Category:Graph theory">Graph theory</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<div class="pBody">
+			<ul>
+					 <li id="ca-nstab-main" class="selected"><a href="/wiki/Induced_path" title="View the content page [c]" accesskey="c">Article</a></li>
+					 <li id="ca-talk" class="new"><a href="/w/index.php?title=Talk:Induced_path&amp;action=edit" title="Discussion about the content page [t]" accesskey="t">Discussion</a></li>
+					 <li id="ca-edit"><a href="/w/index.php?title=Induced_path&amp;action=edit" title="You can edit this page. Please use the preview button before saving. [e]" accesskey="e">Edit this page</a></li>
+					 <li id="ca-history"><a href="/w/index.php?title=Induced_path&amp;action=history" title="Past versions of this page [h]" accesskey="h">History</a></li>
+				</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-personal">
+		<h5>Personal tools</h5>
+		<div class="pBody">
+			<ul>
+				<li id="pt-login"><a href="/w/index.php?title=Special:Userlogin&amp;returnto=Induced_path" title="You are encouraged to log in, it is not mandatory however. [o]" accesskey="o">Sign in / create account</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-logo">
+		<a style="background-image: url(/images/wiki-en.png);" href="/wiki/Main_Page" title="Visit the Main Page [z]" accesskey="z"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-Main-page"><a href="/wiki/Main_Page">Main page</a></li>
+				<li id="n-Contents"><a href="/wiki/Wikipedia:Contents">Contents</a></li>
+				<li id="n-Featured-content"><a href="/wiki/Wikipedia:Featured_content">Featured content</a></li>
+				<li id="n-currentevents"><a href="/wiki/Portal:Current_events" title="Find background information on current events">Current events</a></li>
+				<li id="n-randompage"><a href="/wiki/Special:Random" title="Load a random page [x]" accesskey="x">Random article</a></li>
+			</ul>
+		</div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+		<h5>interaction</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-About-Wikipedia"><a href="/wiki/Wikipedia:About">About Wikipedia</a></li>
+				<li id="n-portal"><a href="/wiki/Wikipedia:Community_Portal" title="About the project, what you can do, where to find things">Community portal</a></li>
+				<li id="n-recentchanges"><a href="/wiki/Special:Recentchanges" title="The list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li>
+				<li id="n-contact"><a href="/wiki/Wikipedia:Contact_us">Contact Wikipedia</a></li>
+				<li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising" title="Support us">Donate to Wikipedia</a></li>
+				<li id="n-help"><a href="/wiki/Help:Contents" title="Guidance on how to use and edit Wikipedia">Help</a></li>
+			</ul>
+		</div>
+	</div>
+		<div id="p-search" class="portlet">
+		<h5><label for="searchInput">Search</label></h5>
+		<div id="searchBody" class="pBody">
+			<form action="/wiki/Special:Search" id="searchform"><div>
+				<input id="searchInput" name="search" type="text" title="Search Wikipedia [f]" accesskey="f" value="" />
+				<input type='submit' name="go" class="searchButton" id="searchGoButton"	value="Go" />&nbsp;
+				<input type='submit' name="fulltext" class="searchButton" id="mw-searchButton" value="Search" />
+			</div></form>
+		</div>
+	</div>
+	<div class="portlet" id="p-tb">
+		<h5>Toolbox</h5>
+		<div class="pBody">
+			<ul>
+				<li id="t-whatlinkshere"><a href="/wiki/Special:Whatlinkshere/Induced_path" title="List of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+				<li id="t-recentchangeslinked"><a href="/wiki/Special:Recentchangeslinked/Induced_path" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+<li id="t-upload"><a href="/wiki/Wikipedia:Upload" title="Upload images or media files [u]" accesskey="u">Upload file</a></li>
+<li id="t-specialpages"><a href="/wiki/Special:Specialpages" title="List of all special pages [q]" accesskey="q">Special pages</a></li>
+				<li id="t-print"><a href="/w/index.php?title=Induced_path&amp;printable=yes" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>				<li id="t-permalink"><a href="/w/index.php?title=Induced_path&amp;oldid=85987494" title="Permanent link to this version of the page">Permanent link</a></li><li id="t-cite"><a href="/w/index.php?title=Special:Cite&amp;page=Induced_path&amp;id=85987494">Cite this article</a></li>			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="/skins-1.5/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>
+				<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="/images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>
+			<ul id="f-list">
+				<li id="lastmod"> This page was last modified 04:28, 6 November 2006.</li>
+				<li id="copyright">All text is available under the terms of the <a class='internal' href="/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="/wiki/Wikipedia:Copyrights" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a U.S. registered <a class='internal' href="/wiki/501%28c%29#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="/wiki/Non-profit_organization" title="Non-profit organization">nonprofit</a> <a href="/wiki/Charitable_organization" title="Charitable organization">charity</a>.<br /></li>
+				<li id="privacy"><a href="http://wikimediafoundation.org/wiki/Privacy_policy" title="wikimedia:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="/wiki/Wikipedia:About" title="Wikipedia:About">About Wikipedia</a></li>
+				<li id="disclaimer"><a href="/wiki/Wikipedia:General_disclaimer" title="Wikipedia:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+		
+	
+		<script type="text/javascript">if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by srv157 in 0.067 secs. --></body></html>

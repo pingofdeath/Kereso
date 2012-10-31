@@ -1,0 +1,774 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+				<meta name="keywords" content="SQL,Databases,Databases,.QL,1979,1981,1983,1989,1992,1996,1999" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="http://www.gnu.org/copyleft/fdl.html" />
+		<title>SQL - Wikipedia, the free encyclopedia</title>
+		<style type="text/css" media="screen, projection">/*<![CDATA[*/
+			@import "/skins-1.5/common/shared.css?99";
+			@import "/skins-1.5/monobook/main.css?99";
+		/*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="/skins-1.5/common/commonPrint.css?99" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE50Fixes.css?99";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE55Fixes.css?99";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "/skins-1.5/monobook/IE60Fixes.css?99";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "/skins-1.5/monobook/IE70Fixes.css?99";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="/skins-1.5/common/IEFixes.js?99"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		
+		<script type= "text/javascript">/*<![CDATA[*/
+var skin = "monobook";
+var stylepath = "/skins-1.5";
+var wgArticlePath = "/wiki/$1";
+var wgScriptPath = "/w";
+var wgScript = "/w/index.php";
+var wgServer = "http://en.wikipedia.org";
+var wgCanonicalNamespace = "";
+var wgCanonicalSpecialPageName = false;
+var wgNamespaceNumber = 0;
+var wgPageName = "SQL";
+var wgTitle = "SQL";
+var wgAction = "view";
+var wgRestrictionEdit = [];
+var wgRestrictionMove = [];
+var wgArticleId = "29004";
+var wgIsArticle = true;
+var wgUserName = null;
+var wgUserGroups = null;
+var wgUserLanguage = "en";
+var wgContentLanguage = "en";
+var wgBreakFrames = false;
+var wgCurRevisionId = "157825351";
+/*]]>*/</script>
+                
+		<script type="text/javascript" src="/skins-1.5/common/wikibits.js?99"><!-- wikibits js --></script>
+		<script type="text/javascript" src="/w/index.php?title=-&amp;action=raw&amp;gen=js&amp;useskin=monobook"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "/w/index.php?title=MediaWiki:Common.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=MediaWiki:Monobook.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=-&action=raw&gen=css&maxage=2678400";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+		<script type="text/javascript" src="/skins-1.5/common/ajax.js?99"></script>
+<style type="text/css">/*<![CDATA[*/
+.source-sql {line-height: normal;}
+.source-sql li {line-height: normal;}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for sql
+ * CSS class: source-sql, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie (http://qbnz.com/highlighter)
+ */
+.source-sql .de1, .source-sql .de2 {font-family: 'Courier New', Courier, monospace; font-weight: normal;}
+.source-sql  {}
+.source-sql .head {}
+.source-sql .foot {}
+.source-sql .imp {font-weight: bold; color: red;}
+.source-sql .ln-xtra {color: #cc0; background-color: #ffc;}
+.source-sql li {font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;}
+.source-sql li.li2 {font-weight: bold;}
+.source-sql .kw1 {color: #993333; font-weight: bold;}
+.source-sql .co1 {color: #808080; font-style: italic;}
+.source-sql .co2 {color: #808080; font-style: italic;}
+.source-sql .coMULTI {color: #808080; font-style: italic;}
+.source-sql .es0 {color: #000099; font-weight: bold;}
+.source-sql .br0 {color: #66cc66;}
+.source-sql .st0 {color: #ff0000;}
+.source-sql .nu0 {color: #cc66cc;}
+
+/*]]>*/
+</style>
+<style type="text/css">/*<![CDATA[*/
+@import "/w/index.php?title=MediaWiki:Geshi.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+/*]]>*/
+</style>	</head>
+<body  class="mediawiki ns-0 ltr page-SQL">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">SQL</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<table class="infobox" style="width: 23em; text-align: left;font-size: 90%">
+<caption><big><b>SQL</b></big></caption>
+<tr>
+<th><a href="/wiki/Programming_paradigm" title="Programming paradigm">Paradigm</a>:</th>
+<td><a href="/wiki/Multi-paradigm_programming_language" title="Multi-paradigm programming language">multi-paradigm</a></td>
+</tr>
+<tr>
+<th>Appeared in:</th>
+<td>1974</td>
+</tr>
+<tr>
+<th>Designed by:</th>
+<td><a href="/wiki/Donald_D._Chamberlin" title="Donald D. Chamberlin">Donald D. Chamberlin</a> and <a href="/wiki/Raymond_F._Boyce" title="Raymond F. Boyce">Raymond F. Boyce</a></td>
+</tr>
+<tr>
+<th><a href="/wiki/Software_developer" title="Software developer">Developer</a>:</th>
+<td><a href="/wiki/IBM" title="IBM">IBM</a></td>
+</tr>
+<tr>
+<th><a href="/wiki/Software_release" title="Software release">Latest release</a>:</th>
+<td valign="bottom">SQL:2003/ 2003</td>
+</tr>
+<tr>
+<th><a href="/wiki/Type_system" title="Type system">Typing discipline</a>:</th>
+<td><a href="/wiki/Static_typing" title="Static typing">static</a>, <a href="/wiki/Strong_typing" title="Strong typing">strong</a></td>
+</tr>
+<tr>
+<th><a href="/wiki/Implementation" title="Implementation">Major implementations</a>:</th>
+<td><a href="/wiki/List_of_relational_database_management_systems" title="List of relational database management systems">Many</a></td>
+</tr>
+<tr>
+<td></td>
+</tr>
+</table>
+<p><b>SQL</b> (<a href="/wiki/International_Phonetic_Alphabet" title="International Phonetic Alphabet">IPA</a>: <span title="Pronunciation in IPA" class="IPA">[ˈɛsˈkjuˈɛl]</span> or <a href="/wiki/International_Phonetic_Alphabet" title="International Phonetic Alphabet">IPA</a>: <span title="Pronunciation in IPA" class="IPA">[ˈsiːkwəl]</span>), commonly expanded as <b>Structured Query Language</b>, is a <a href="/wiki/Computer_language" title="Computer language">computer language</a> designed for the retrieval and management of <a href="/wiki/Data" title="Data">data</a> in <a href="/wiki/Relational_database_management_system" title="Relational database management system">relational database management systems</a>, database schema creation and modification, and database object access control management.<sup id="_ref-chapple_0" class="reference"><a href="#_note-chapple" title="">[1]</a></sup><sup id="_ref-IBM-sql_0" class="reference"><a href="#_note-IBM-sql" title="">[2]</a></sup> SQL has been <a href="/wiki/Standardization" title="Standardization">standardized</a> by both <a href="/wiki/American_National_Standards_Institute" title="American National Standards Institute">ANSI</a> and <a href="/wiki/International_Organization_for_Standardization" title="International Organization for Standardization">ISO</a>.</p>
+<p>The first version of SQL was developed at <a href="/wiki/IBM" title="IBM">IBM</a> by <a href="/wiki/Donald_D._Chamberlin" title="Donald D. Chamberlin">Donald D. Chamberlin</a> and <a href="/wiki/Raymond_F._Boyce" title="Raymond F. Boyce">Raymond F. Boyce</a> in the early 1970s. This version, initially called <b>SEQUEL</b>, was designed to manipulate and retrieve data stored in IBM's original relational database product, <a href="/wiki/System_R" title="System R">System R</a>. The SQL language was later formally standardized by the American National Standards Institute in 1986. Subsequent versions of the SQL standard have been released as International Organization for Standardization (ISO) standards.</p>
+<p>Originally designed as a <a href="/wiki/Declarative_programming" title="Declarative programming">declarative</a> query and data manipulation language, variations of SQL have been created by SQL <a href="/wiki/Database_management_system" title="Database management system">database management system (DBMS)</a> vendors that add procedural constructs, control-of-flow statements, user-defined data types, and various other language extensions. With the release of the SQL:1999 standard, many such extensions were formally adopted as part of the SQL language via the SQL Persistent Stored Modules (SQL/PSM) portion of the standard.</p>
+<p>Common criticisms of SQL include a perceived lack of cross-platform portability between vendors, inappropriate handling of missing data (<i>see <a href="/wiki/Null_%28SQL%29" title="Null (SQL)">Null (SQL)</a></i>), a complex three-valued logic system, and its complex and occasionally ambiguous language grammar and semantics.</p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#History"><span class="tocnumber">1</span> <span class="toctext">History</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Standardization"><span class="tocnumber">1.1</span> <span class="toctext">Standardization</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Scope_and_extensions"><span class="tocnumber">2</span> <span class="toctext">Scope and extensions</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Procedural_extensions"><span class="tocnumber">2.1</span> <span class="toctext">Procedural extensions</span></a></li>
+<li class="toclevel-2"><a href="#Additional_extensions"><span class="tocnumber">2.2</span> <span class="toctext">Additional extensions</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Language_elements"><span class="tocnumber">3</span> <span class="toctext">Language elements</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Queries"><span class="tocnumber">3.1</span> <span class="toctext">Queries</span></a></li>
+<li class="toclevel-2"><a href="#Data_manipulation"><span class="tocnumber">3.2</span> <span class="toctext">Data manipulation</span></a></li>
+<li class="toclevel-2"><a href="#Transaction_controls"><span class="tocnumber">3.3</span> <span class="toctext">Transaction controls</span></a></li>
+<li class="toclevel-2"><a href="#Data_definition"><span class="tocnumber">3.4</span> <span class="toctext">Data definition</span></a></li>
+<li class="toclevel-2"><a href="#Data_control"><span class="tocnumber">3.5</span> <span class="toctext">Data control</span></a></li>
+<li class="toclevel-2"><a href="#Other"><span class="tocnumber">3.6</span> <span class="toctext">Other</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Criticisms_of_SQL"><span class="tocnumber">4</span> <span class="toctext">Criticisms of SQL</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Reasons_for_lack_of_portability"><span class="tocnumber">4.1</span> <span class="toctext">Reasons for lack of portability</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Alternatives_to_SQL"><span class="tocnumber">5</span> <span class="toctext">Alternatives to SQL</span></a></li>
+<li class="toclevel-1"><a href="#See_also"><span class="tocnumber">6</span> <span class="toctext">See also</span></a></li>
+<li class="toclevel-1"><a href="#References"><span class="tocnumber">7</span> <span class="toctext">References</span></a></li>
+<li class="toclevel-1"><a href="#About_FSQL"><span class="tocnumber">8</span> <span class="toctext">About FSQL</span></a></li>
+<li class="toclevel-1"><a href="#External_links"><span class="tocnumber">9</span> <span class="toctext">External links</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script>
+<p><a name="History" id="History"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=SQL&amp;action=edit&amp;section=1" title="Edit section: History">edit</a>]</span> <span class="mw-headline">History</span></h2>
+<p>During the 1970s, a group at IBM's San Jose research center developed the System R relational database management system, based on the model introduced by Dr. E.F. Codd in his influential <a href="/wiki/Academic_publishing" title="Academic publishing">paper</a>, <b>A Relational Model of Data for Large Shared Data Banks</b>.<sup id="_ref-codd-relational-model_0" class="reference"><a href="#_note-codd-relational-model" title="">[3]</a></sup> Donald D. Chamberlin and Raymond F. Boyce of IBM subsequently created the <b>Structured English Query Language</b> (SEQUEL) to manipulate and manage data stored in System R.<sup id="_ref-chamberlin-boyce-sequel_0" class="reference"><a href="#_note-chamberlin-boyce-sequel" title="">[4]</a></sup> The acronym SEQUEL was later changed to SQL because "SEQUEL" was a <a href="/wiki/Trademark" title="Trademark">trademark</a> of the <a href="/wiki/United_Kingdom" title="United Kingdom">UK-based</a> <a href="/wiki/Hawker_Siddeley" title="Hawker Siddeley">Hawker Siddeley</a> aircraft company.<sup id="_ref-oppel-databases_0" class="reference"><a href="#_note-oppel-databases" title="">[5]</a></sup></p>
+<p>The first non-commercial non-SQL RDBMS, <a href="/wiki/Ingres" title="Ingres">Ingres</a>, was developed in 1974 at the <a href="/wiki/University_of_California%2C_Berkeley" title="University of California, Berkeley">U.C. Berkeley</a>. Ingres implemented a query language known as <a href="/wiki/QUEL_query_languages" title="QUEL query languages">QUEL</a>, which was later supplanted in the marketplace by SQL.<sup id="_ref-oppel-databases_1" class="reference"><a href="#_note-oppel-databases" title="">[5]</a></sup></p>
+<p>In the late 1970s, Relational Software, Inc. (now <a href="/wiki/Oracle_Corporation" title="Oracle Corporation">Oracle Corporation</a>) saw the potential of the concepts described by Codd, Chamberlin, and Boyce and developed their own SQL-based <a href="/wiki/RDBMS" title="RDBMS">RDBMS</a> with aspirations of selling it to the <a href="/wiki/United_States_Navy" title="United States Navy">U.S. Navy</a>, <a href="/wiki/Central_Intelligence_Agency" title="Central Intelligence Agency">CIA</a>, and other <a href="/wiki/Federal_government_of_the_United_States" title="Federal government of the United States">government</a> agencies. In the summer of <a href="/wiki/1979" title="1979">1979</a>, Relational Software, Inc. introduced the first commercially available implementation of SQL, <a href="/wiki/Oracle_database" title="Oracle database">Oracle</a> V2 (Version2) for <a href="/wiki/VAX" title="VAX">VAX</a> computers. <i>Oracle V2</i> beat IBM's release of the <a href="/wiki/System/38" title="System/38">System/38</a> RDBMS to market by a few weeks.<sup class="noprint Template-Fact"><span title="This claim needs references to reliable sources&#160;since June 2007" style="white-space: nowrap;">[<i><a href="/wiki/Wikipedia:Citing_sources" title="Wikipedia:Citing sources">citation needed</a></i>]</span></sup></p>
+<p>After methodically testing SQL at customer test sites to demonstrate both the usefulness and practicality of the system, IBM began developing commercial products based on their System R prototype including System/38, <a href="/wiki/SQL/DS" title="SQL/DS">SQL/DS</a>, and <a href="/wiki/IBM_DB2" title="IBM DB2">DB2</a>, which were commercially available in 1979, <a href="/wiki/1981" title="1981">1981</a>, and <a href="/wiki/1983" title="1983">1983</a>, respectively.<sup id="_ref-IBM-history_0" class="reference"><a href="#_note-IBM-history" title="">[6]</a></sup></p>
+<p><a name="Standardization" id="Standardization"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=SQL&amp;action=edit&amp;section=2" title="Edit section: Standardization">edit</a>]</span> <span class="mw-headline">Standardization</span></h3>
+<p>SQL was adopted as a standard by the ANSI in 1986 and ISO in 1987. In their SQL standard, the ANSI declared that the official pronunciation for SQL is "es queue el".<sup id="_ref-0" class="reference"><a href="#_note-0" title="">[7]</a></sup> However, many English-speaking database professionals still pronounce the name of the language as sequel. Until <a href="/wiki/1996" title="1996">1996</a>, the <a href="/wiki/National_Institute_of_Standards_and_Technology" title="National Institute of Standards and Technology">National Institute of Standards and Technology (NIST)</a> data management standards program was tasked with certifying SQL DBMS compliance with the SQL standard. In 1996, however, the NIST data management standards program was dissolved, and vendors are now relied upon to self-certify their products for compliance.<sup id="_ref-1" class="reference"><a href="#_note-1" title="">[8]</a></sup></p>
+<p>The SQL standard has gone through a number of revisions, as shown below:</p>
+<table class="wikitable">
+<tr>
+<th>Year</th>
+<th>Name</th>
+<th width="125">Alias</th>
+<th>Comments</th>
+</tr>
+<tr valign="top">
+<td>1986</td>
+<td>SQL-86</td>
+<td>SQL-87</td>
+<td>First published by ANSI. Ratified by ISO in 1987.</td>
+</tr>
+<tr valign="top">
+<td><a href="/wiki/1989" title="1989">1989</a></td>
+<td>SQL-89</td>
+<td><a href="/wiki/Federal_Information_Processing_Standard" title="Federal Information Processing Standard">FIPS</a> 127-1</td>
+<td>Minor revision, adopted as FIPS 127-1.</td>
+</tr>
+<tr valign="top">
+<td><a href="/wiki/1992" title="1992">1992</a></td>
+<td><a href="/wiki/SQL-92" title="SQL-92">SQL-92</a></td>
+<td>SQL2, FIPS 127-2</td>
+<td>Major revision (ISO 9075), <i>Entry Level</i> SQL-92 adopted as FIPS 127-2.</td>
+</tr>
+<tr valign="top">
+<td><a href="/wiki/1999" title="1999">1999</a></td>
+<td>SQL:1999</td>
+<td>SQL3</td>
+<td>Added regular expression matching, recursive queries, triggers, support for procedural and control-of-flow statements, non-scalar types, and some object-oriented features.</td>
+</tr>
+<tr valign="top">
+<td><a href="/wiki/2003" title="2003">2003</a></td>
+<td><a href="/wiki/SQL:2003" title="SQL:2003">SQL:2003</a></td>
+<td>&#160;</td>
+<td>Introduced <a href="/wiki/XML" title="XML">XML</a>-related features, <i>window functions</i>, standardized sequences, and columns with auto-generated values (including identity-columns).</td>
+</tr>
+<tr valign="top">
+<td><a href="/wiki/2006" title="2006">2006</a></td>
+<td>SQL:2006</td>
+<td>&#160;</td>
+<td>ISO/IEC 9075-14:2006 defines ways in which SQL can be used in conjunction with XML. It defines ways of importing and storing XML data in an SQL database, manipulating it within the database and publishing both XML and conventional SQL-data in XML form. In addition, it provides facilities that permit applications to integrate into their SQL code the use of <a href="/wiki/XQuery" title="XQuery">XQuery</a>, the XML Query Language published by the World Wide Web Consortium (<a href="/wiki/W3C" title="W3C">W3C</a>), to concurrently access ordinary SQL-data and XML documents.</td>
+</tr>
+</table>
+<p>The SQL standard is not freely available. SQL:2003 and SQL:2006 may be purchased from ISO or ANSI. A <a href="http://www.wiscorp.com/sql_2003_standard.zip" class="external text" title="http://www.wiscorp.com/sql_2003_standard.zip" rel="nofollow">late draft</a> of SQL:2003 is freely available as a <a href="/wiki/ZIP_file_format" title="ZIP file format">zip</a> archive, however, from <a href="http://www.wiscorp.com/" class="external text" title="http://www.wiscorp.com/" rel="nofollow">Whitemarsh Information Systems Corporation</a>. The zip archive contains a number of <a href="/wiki/PDF" title="PDF">PDF</a> files that define the parts of the SQL:2003 specification.</p>
+<p><a name="Scope_and_extensions" id="Scope_and_extensions"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=SQL&amp;action=edit&amp;section=3" title="Edit section: Scope and extensions">edit</a>]</span> <span class="mw-headline">Scope and extensions</span></h2>
+<p><a name="Procedural_extensions" id="Procedural_extensions"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=SQL&amp;action=edit&amp;section=4" title="Edit section: Procedural extensions">edit</a>]</span> <span class="mw-headline">Procedural extensions</span></h3>
+<p>SQL is designed for a specific purpose: to query data contained in a <a href="/wiki/Relational_database" title="Relational database">relational database</a>. SQL is a <a href="/wiki/Set" title="Set">set</a>-based, <a href="/wiki/Declarative_programming" title="Declarative programming">declarative</a> query language, not an <a href="/wiki/Imperative_programming" title="Imperative programming">imperative language</a> such as <a href="/wiki/C_%28programming_language%29" title="C (programming language)">C</a> or <a href="/wiki/BASIC_programming_language" title="BASIC programming language">BASIC</a>. However, there are extensions to Standard SQL which add <a href="/wiki/Procedural_programming_language" title="Procedural programming language">procedural programming language</a> functionality, such as control-of-flow constructs. These are:</p>
+<table class="wikitable">
+<tr>
+<th>Source</th>
+<th>Common<br />
+Name</th>
+<th>Full Name</th>
+</tr>
+<tr>
+<td align="center">ANSI</td>
+<td align="center"><a href="/wiki/SQL/PSM" title="SQL/PSM">SQL/PSM</a></td>
+<td>SQL/Persistent Stored Module</td>
+</tr>
+<tr>
+<td align="center">IBM</td>
+<td align="center"><a href="/wiki/SQL_PL" title="SQL PL">SQL PL</a></td>
+<td>SQL Procedural Language</td>
+</tr>
+<tr>
+<td align="center"><a href="/wiki/Microsoft" title="Microsoft">Microsoft</a>/<br />
+<a href="/wiki/Sybase" title="Sybase">Sybase</a></td>
+<td align="center"><a href="/wiki/T-SQL" title="T-SQL">T-SQL</a></td>
+<td>Transact-SQL</td>
+</tr>
+<tr>
+<td align="center"><a href="/wiki/MySQL" title="MySQL">MySQL</a></td>
+<td align="center">MySQL</td>
+<td>MySQL</td>
+</tr>
+<tr>
+<td align="center"><a href="/wiki/Oracle_Corporation" title="Oracle Corporation">Oracle</a></td>
+<td align="center"><a href="/wiki/PL/SQL" title="PL/SQL">PL/SQL</a></td>
+<td>Procedural Language/SQL</td>
+</tr>
+<tr>
+<td align="center"><a href="/wiki/PostgreSQL" title="PostgreSQL">PostgreSQL</a></td>
+<td align="center"><a href="/wiki/PL/pgSQL" title="PL/pgSQL">PL/pgSQL</a></td>
+<td>Procedural Language/PostgreSQL Structured Query Language</td>
+</tr>
+</table>
+<p>In addition to the standard SQL/PSM extensions and proprietary SQL extensions, procedural and <a href="/wiki/Object-oriented_programming_language" title="Object-oriented programming language">object-oriented</a> programmability is available on many SQL platforms via DBMS integration with other languages. The SQL standard defines <a href="/wiki/SQL/JRT" title="SQL/JRT">SQL/JRT</a> extensions (SQL Routines and Types for the Java Programming Language) to support <a href="/wiki/Java_%28programming_language%29" title="Java (programming language)">Java</a> code in SQL databases. <a href="/wiki/SQL_Server_2005" title="SQL Server 2005">SQL Server 2005</a> uses the <a href="/wiki/SQLCLR" title="SQLCLR">SQLCLR</a> (SQL Server Common Language Runtime) to host managed <a href="/wiki/Microsoft_.NET" title="Microsoft .NET">.NET</a> assemblies in the database, while prior versions of SQL Server were restricted to using unmanaged <a href="/w/index.php?title=Extended_stored_procedures&amp;action=edit" class="new" title="Extended stored procedures">extended stored procedures</a> which were primarily written in C. Other database platforms, like MySQL and Postgres, allow functions to be written in a wide variety of languages including <a href="/wiki/Perl" title="Perl">Perl</a>, <a href="/wiki/Python_%28programming_language%29" title="Python (programming language)">Python</a>, <a href="/wiki/Tcl" title="Tcl">Tcl</a>, and C.</p>
+<p><a name="Additional_extensions" id="Additional_extensions"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=SQL&amp;action=edit&amp;section=5" title="Edit section: Additional extensions">edit</a>]</span> <span class="mw-headline">Additional extensions</span></h3>
+<p>SQL:2003 also defines several additional extensions to the standard to increase SQL functionality overall. These extensions include:</p>
+<p>The <a href="/wiki/SQL/CLI" title="SQL/CLI">SQL/CLI</a>, or <b>Call-Level Interface</b>, extension is defined in ISO/IEC 9075-3:2003. This extension defines common interfacing components (structures and procedures) that can be used to execute SQL statements from applications written in other programming languages. The SQL/CLI extension is defined in such a way that SQL statements and SQL/CLI procedure calls are treated as separate from the calling application's source code.</p>
+<p>The <a href="/wiki/SQL/MED" title="SQL/MED">SQL/MED</a>, or <b>Management of External Data</b>, extension is defined by ISO/IEC 9075-9:2003. SQL/MED provides extensions to SQL that define foreign-data wrappers and datalink types to allow SQL to manage external data. External data is data that is accessible to, but not managed by, an SQL-based DBMS.</p>
+<p>The <a href="/wiki/SQL/OLB" title="SQL/OLB">SQL/OLB</a>, or '<i>Object Language Bindings</i>, extension is defined by ISO/IEC 9075-10:2003. SQL/OLB defines the syntax and symantics of <a href="/wiki/SQLJ" title="SQLJ">SQLJ</a>, which is SQL embedded in Java. The standard also describes mechanisms to ensure binary portability of SQLJ applications, and specifies various Java packages and their contained classes.</p>
+<p>The <a href="/wiki/SQL/Schemata" title="SQL/Schemata">SQL/Schemata</a>, or <b>Information and Definition Schemas</b>, extension is defined by ISO/IEC 9075-11:2003. SQL/Schemata defines the Information Schema and Definition Schema, providing a common set of tools to make SQL databases and objects self-describing. These tools include the SQL object identifier, structure and integrity constraints, security and authorization specifications, features and packages of ISO/IEC 9075, support of features provided by SQL-based DBMS implementations, SQL-based DBMS implementation information and sizing items, and the values supported by the DBMS implementations.<sup id="_ref-ISO.2FIEC_9075-11:2003_0" class="reference"><a href="#_note-ISO.2FIEC_9075-11:2003" title="">[9]</a></sup></p>
+<p>The SQL/JRT, or <b>SQL Routines and Types for the Java Programming Language</b>, extension is defined by ISO/IEC 9075-13:2003. SQL/JRT specifies the ability to invoke static Java methods as routines from within SQL applications. It also calls for the ability to use Java classes as SQL structured user-defined types.</p>
+<p>The <a href="/wiki/SQL/XML" title="SQL/XML">SQL/XML</a>, or <b>XML-Related Specifications</b>, extension is defined by ISO/IEC 9075-14:2003. SQL/XML specifies SQL-based extensions for using conjunction with SQL. The XML data type is introduced, as well as several routines, functions, and XML-to-SQL data type mappings to support manipulation and storage of XML in a SQL database.</p>
+<p>The SQL/PSM, or <b>Persistent Stored Modules</b>, extension is defined by ISO/IEC 9075-4:2003. SQL/PSM standardizes procedural extensions for SQL, including flow of control, condition handling, statement condition signals and resignals, cursors and local variables, and assignment of expressions to variables and parameters. In addition, SQL/PSM formalizes declaration and maintenance of persistent database language routines (e.g., "stored procedures").</p>
+<p><a name="Language_elements" id="Language_elements"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=SQL&amp;action=edit&amp;section=6" title="Edit section: Language elements">edit</a>]</span> <span class="mw-headline">Language elements</span></h2>
+<div class="thumb tright">
+<div class="thumbinner" style="width:277px;"><a href="/wiki/Image:Sql_statement_anatomy.png" class="image" title="This chart shows several of the SQL language elements that compose a single statement."><img alt="This chart shows several of the SQL language elements that compose a single statement." src="http://upload.wikimedia.org/wikipedia/en/thumb/d/d7/Sql_statement_anatomy.png/275px-Sql_statement_anatomy.png" width="275" height="83" border="0" class="thumbimage" /></a>
+<div class="thumbcaption">
+<div class="magnify" style="float:right"><a href="/wiki/Image:Sql_statement_anatomy.png" class="internal" title="Enlarge"><img src="/skins-1.5/common/images/magnify-clip.png" width="15" height="11" alt="" /></a></div>
+This chart shows several of the SQL language elements that compose a single statement.</div>
+</div>
+</div>
+<p>The SQL language is sub-divided into several language elements, including:</p>
+<ul>
+<li><i>Statements</i> which may have a persistent effect on schemas and data, or which may control transactions, program flow, connections, sessions, or diagnostics.</li>
+<li><i>Queries</i> which retrieve data based on specific criteria.</li>
+<li><i>Expressions</i> which can produce either <a href="/wiki/Scalar_%28computing%29" title="Scalar (computing)">scalar</a> values or <a href="/wiki/Table_%28database%29" title="Table (database)">tables</a> consisting of <a href="/wiki/Column_%28database%29" title="Column (database)">columns</a> and <a href="/wiki/Row_%28database%29" title="Row (database)">rows</a> of data.</li>
+<li><i>Predicates</i> which specify conditions that can be evaluated to SQL <a href="/wiki/Ternary_logic" title="Ternary logic">three-valued logic (3VL)</a> Boolean truth values and which are used to limit the effects of statements and queries, or to change program flow.</li>
+<li><i>Clauses</i> which are (in some cases optional) constituent components of statements and queries.<sup id="_ref-2" class="reference"><a href="#_note-2" title="">[10]</a></sup></li>
+<li><a href="/wiki/Whitespace_%28computer_science%29" title="Whitespace (computer science)">Whitespace</a> is generally ignored in SQL statements and queries, making it easier to format SQL code for readability.</li>
+<li>SQL statements also include the <a href="/wiki/Semicolon" title="Semicolon">semicolon</a> (";") statement terminator. Though not required on every platform, it is defined as a standard part of the SQL grammar.</li>
+</ul>
+<p><a name="Queries" id="Queries"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=SQL&amp;action=edit&amp;section=7" title="Edit section: Queries">edit</a>]</span> <span class="mw-headline">Queries</span></h3>
+<p>The most common operation in SQL databases is the query, which is performed with the declarative <code><a href="/wiki/Select_%28SQL%29" title="Select (SQL)">SELECT</a></code> keyword. <code>SELECT</code> retrieves data from a specified <a href="/wiki/Table_%28database%29" title="Table (database)">table</a>, or multiple related tables, in a database. While often grouped with <a href="/wiki/Data_Manipulation_Language" title="Data Manipulation Language">Data Manipulation Language (DML)</a> statements, the standard <code>SELECT</code> query is considered separate from SQL DML, as it has no persistent effects on the data stored in a database. Note that there are some platform-specific variations of <code>SELECT</code> that can persist their effects in a database, such as Microsoft SQL Server's proprietary <code>SELECT INTO</code> syntax.<sup id="_ref-ms-sql-select-into_0" class="reference"><a href="#_note-ms-sql-select-into" title="">[11]</a></sup></p>
+<p>SQL queries allow the user to specify a description of the desired result set, but it is left to the devices of the <a href="/wiki/Database_management_system" title="Database management system">database management system (DBMS)</a> to <a href="/wiki/Query_plan" title="Query plan">plan</a>, <a href="/wiki/Query_optimizer" title="Query optimizer">optimize</a>, and perform the physical operations necessary to produce that result set in as efficient a manner as possible. A SQL query includes a list of columns to be included in the final result immediately following the <code>SELECT</code> keyword. An asterisk ("<code>*</code>") can also be used as a "wildcard" indicator to specify that all available columns of a table (or multiple tables) are to be returned. <code>SELECT</code> is the most complex statement in SQL, with several optional keywords and clauses, including:</p>
+<ul>
+<li>The <code>FROM</code> clause which indicates the source table or tables from which the data is to be retrieved. The <code>FROM</code> clause can include optional <code><a href="/wiki/Join_%28SQL%29" title="Join (SQL)">JOIN</a></code> clauses to join related tables to one another based on user-specified criteria.</li>
+<li>The <code><a href="/wiki/Where_%28SQL%29" title="Where (SQL)">WHERE</a></code> clause includes a comparison predicate, which is used to restrict the number of rows returned by the query. The <code>WHERE</code> clause is applied before the <code>GROUP BY</code> clause. The <code>WHERE</code> clause eliminates all rows from the result set where the comparison predicate does not evaluate to True.</li>
+<li>The <code><a href="/wiki/Group_by_%28SQL%29" title="Group by (SQL)">GROUP BY</a></code> clause is used to combine, or group, rows with related values into elements of a smaller set of rows. <code>GROUP BY</code> is often used in conjunction with SQL aggregate functions or to eliminate duplicate rows from a result set.</li>
+<li>The <code><a href="/wiki/Having_%28SQL%29" title="Having (SQL)">HAVING</a></code> clause includes a comparison predicate used to eliminate rows after the <code>GROUP BY</code> clause is applied to the result set. Because it acts on the results of the <code>GROUP BY</code> clause, aggregate functions can be used in the <code>HAVING</code> clause predicate.</li>
+<li>The <code><a href="/wiki/Order_by_%28SQL%29" title="Order by (SQL)">ORDER BY</a></code> clause is used to identify which columns are used to sort the resulting data, and in which order they should be sorted (options are ascending or descending). The order of rows returned by a SQL query is never guaranteed unless an <code>ORDER BY</code> clause is specified.</li>
+</ul>
+<p>The following is an example of a <code>SELECT</code> query that returns a list of expensive books. The query retrieves all rows from the <i>books</i> table in which the <i>price</i> column contains a value greater than 100.00. The result is sorted in ascending order by <i>title</i>. The asterisk (*) in the <i>select list</i> indicates that all columns of the <i>books</i> table should be included in the result set.</p>
+<div dir="ltr">
+<pre class="source-sql">
+<span class="kw1">SELECT</span> * 
+<span class="kw1">FROM</span> books
+<span class="kw1">WHERE</span> price &gt; <span class="nu0">100.00</span>
+<span class="kw1">ORDER</span> <span class="kw1">BY</span> title;
+</pre></div>
+<p>The example below demonstrates the use of multiple tables in a join, grouping, and aggregation in a SQL query, by returning a list of books and the number of authors associated with each book.</p>
+<div dir="ltr">
+<pre class="source-sql">
+<span class="kw1">SELECT</span> books.title, count<span class="br0">(</span>*<span class="br0">)</span> <span class="kw1">AS</span> Authors
+<span class="kw1">FROM</span> books
+<span class="kw1">JOIN</span> book_authors 
+<span class="kw1">ON</span> books.isbn = book_authors.isbn
+<span class="kw1">GROUP</span> <span class="kw1">BY</span> books.title;
+</pre></div>
+<p>Example output might resemble the following:</p>
+<pre>
+Title                   Authors
+----------------------  -------
+SQL Examples and Guide     3
+The Joy of SQL             1
+How to use Wikipedia       2
+Pitfalls of SQL            1
+How SQL Saved my Dog       1
+</pre>
+<p>(The underscore character "_" is often used as part of table and column names to separate descriptive words because other punctuation tends to conflict with SQL syntax. For example, a dash "-" would be interpreted as a minus sign.)</p>
+<p>Under the precondition that <i><a href="/wiki/Isbn" title="Isbn">isbn</a></i> is the only common column name of the two tables and that a column named <i>title</i> only exists in the <i>books</i> table, the above query could be rewritten in the following form:</p>
+<div dir="ltr">
+<pre class="source-sql">
+<span class="kw1">SELECT</span> title, count<span class="br0">(</span>*<span class="br0">)</span> <span class="kw1">AS</span> Authors
+<span class="kw1">FROM</span> books 
+<span class="kw1">NATURAL</span> <span class="kw1">JOIN</span> book_authors 
+<span class="kw1">GROUP</span> <span class="kw1">BY</span> title;
+</pre></div>
+<p>However, many vendors either don't support this approach, or it requires certain column naming conventions. Thus, it is less common in practice.</p>
+<p>Data retrieval is very often combined with <a href="/w/index.php?title=Data_projection&amp;action=edit" class="new" title="Data projection">data projection</a> when the user is looking for calculated values and not just the verbatim data stored in <a href="/wiki/Primitive_type" title="Primitive type">primitive data types</a>, or when the data needs to be expressed in a form that is different from how it's stored. SQL allows the use of expressions in the <i>select list</i> to project data, as in the following example which returns a list of books that cost more than 100.00 with an additional <i>sales_tax</i> column containing a sales tax figure calculated at 6% of the <i>price</i>.</p>
+<div dir="ltr">
+<pre class="source-sql">
+<span class="kw1">SELECT</span> isbn, title, price, price * <span class="nu0">0.06</span> <span class="kw1">AS</span> sales_tax
+<span class="kw1">FROM</span> books
+<span class="kw1">WHERE</span> price &gt; <span class="nu0">100.00</span>
+<span class="kw1">ORDER</span> <span class="kw1">BY</span> title;
+</pre></div>
+<p><a name="Data_manipulation" id="Data_manipulation"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=SQL&amp;action=edit&amp;section=8" title="Edit section: Data manipulation">edit</a>]</span> <span class="mw-headline">Data manipulation</span></h3>
+<p>First, there are the standard Data Manipulation Language (DML) elements. DML is the subset of the language used to add, update and delete data:</p>
+<ul>
+<li><code><a href="/wiki/Insert_%28SQL%29" title="Insert (SQL)">INSERT</a></code> is used to add rows (formally <a href="/wiki/Tuple" title="Tuple">tuples</a>) to an existing table, eg:</li>
+</ul>
+<div dir="ltr">
+<pre class="source-sql">
+<span class="kw1">INSERT</span> <span class="kw1">INTO</span> my_table <span class="br0">(</span>field1, field2, field3<span class="br0">)</span> <span class="kw1">VALUES</span> <span class="br0">(</span><span class="st0">'test'</span>, <span class="st0">'N'</span>, <span class="kw1">NULL</span><span class="br0">)</span>;
+</pre></div>
+<ul>
+<li><code><a href="/wiki/Update_%28SQL%29" title="Update (SQL)">UPDATE</a></code> is used to modify the values of a set of existing table rows, eg:</li>
+</ul>
+<div dir="ltr">
+<pre class="source-sql">
+<span class="kw1">UPDATE</span> my_table <span class="kw1">SET</span> field1 = <span class="st0">'updated value'</span> <span class="kw1">WHERE</span> field2 = <span class="st0">'N'</span>;
+</pre></div>
+<ul>
+<li><code><a href="/wiki/Delete_%28SQL%29" title="Delete (SQL)">DELETE</a></code> removes zero or more existing rows from a table, eg:</li>
+</ul>
+<div dir="ltr">
+<pre class="source-sql">
+<span class="kw1">DELETE</span> <span class="kw1">FROM</span> my_table <span class="kw1">WHERE</span> field2 = <span class="st0">'N'</span>;
+</pre></div>
+<ul>
+<li><code><a href="/wiki/Merge_%28SQL%29" title="Merge (SQL)">MERGE</a></code> is used to combine the data of multiple tables. It is something of a combination of the <code>INSERT</code> and <code>UPDATE</code> elements. It is defined in the SQL:2003 standard; prior to that, some databases provided similar functionality via different syntax, sometimes called an "<a href="/wiki/Upsert" title="Upsert">upsert</a>".</li>
+</ul>
+<p><a name="Transaction_controls" id="Transaction_controls"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=SQL&amp;action=edit&amp;section=9" title="Edit section: Transaction controls">edit</a>]</span> <span class="mw-headline">Transaction controls</span></h3>
+<p>Transactions, if available, can be used to wrap around the DML operations:</p>
+<ul>
+<li><code><a href="/wiki/Begin_work_%28SQL%29" title="Begin work (SQL)">BEGIN WORK</a></code> (or (SQL)|START TRANSACTION]], depending on SQL dialect) can be used to mark the start of a <a href="/wiki/Database_transaction" title="Database transaction">database transaction</a>, which either completes completely or not at all.</li>
+<li><code><a href="/wiki/Commit_%28SQL%29" title="Commit (SQL)">COMMIT</a></code> causes all data changes in a transaction to be made permanent.</li>
+<li><code><a href="/wiki/Rollback_%28SQL%29" title="Rollback (SQL)">ROLLBACK</a></code> causes all data changes since the last <code>COMMIT</code> or <code>ROLLBACK</code> to be discarded, so that the state of the data is "rolled back" to the way it was prior to those changes being requested.</li>
+</ul>
+<p><code>COMMIT</code> and <code>ROLLBACK</code> interact with areas such as transaction control and locking. Strictly, both terminate any open transaction and release any locks held on data. In the absence of a <code>BEGIN WORK</code> or similar statement, the semantics of SQL are implementation-dependent. Example:</p>
+<div dir="ltr">
+<pre class="source-sql">
+BEGIN WORK;
+<span class="kw1">UPDATE</span> inventory <span class="kw1">SET</span> quantity = quantity - <span class="nu0">3</span> <span class="kw1">WHERE</span> item = <span class="st0">'pants'</span>;
+COMMIT;
+</pre></div>
+<p><a name="Data_definition" id="Data_definition"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=SQL&amp;action=edit&amp;section=10" title="Edit section: Data definition">edit</a>]</span> <span class="mw-headline">Data definition</span></h3>
+<p>The second group of keywords is the <a href="/wiki/Data_Definition_Language" title="Data Definition Language">Data Definition Language</a> (DDL). DDL allows the user to define new tables and associated elements. Most commercial SQL databases have proprietary extensions in their DDL, which allow control over nonstandard features of the database system. The most basic items of DDL are the <code>CREATE</code>, <code>ALTER</code>, <code>RENAME</code>, <code>TRUNCATE</code> and <code>DROP</code> statements:</p>
+<ul>
+<li><code><a href="/wiki/Create_%28SQL%29" title="Create (SQL)">CREATE</a></code> causes an object (a table, for example) to be created within the database.</li>
+<li><code><a href="/wiki/Drop_%28SQL%29" title="Drop (SQL)">DROP</a></code> causes an existing object within the database to be deleted, usually irretrievably.</li>
+<li><code><a href="/wiki/Truncate_%28SQL%29" title="Truncate (SQL)">TRUNCATE</a></code> deletes all data from a table (non-standard, but common SQL statement).</li>
+<li><code><a href="/wiki/Alter_%28SQL%29" title="Alter (SQL)">ALTER</a></code> statement permits the user to modify an existing object in various ways -- for example, adding a column to an existing table.</li>
+</ul>
+<p>Example:</p>
+<div dir="ltr">
+<pre class="source-sql">
+<span class="kw1">CREATE</span> <span class="kw1">TABLE</span> my_table <span class="br0">(</span>
+  my_field1   INT,
+  my_field2   VARCHAR <span class="br0">(</span><span class="nu0">50</span><span class="br0">)</span>,
+  my_field3   DATE         <span class="kw1">NOT</span> <span class="kw1">NULL</span>,
+  <span class="kw1">PRIMARY</span> <span class="kw1">KEY</span> <span class="br0">(</span>my_field1, my_field2<span class="br0">)</span> 
+<span class="br0">)</span>;
+</pre></div>
+<p><a name="Data_control" id="Data_control"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=SQL&amp;action=edit&amp;section=11" title="Edit section: Data control">edit</a>]</span> <span class="mw-headline">Data control</span></h3>
+<p>The third group of SQL keywords is the <a href="/wiki/Data_Control_Language" title="Data Control Language">Data Control Language</a> (DCL). DCL handles the authorization aspects of data and permits the user to control who has access to see or manipulate data within the database. Its two main keywords are:</p>
+<ul>
+<li><code><a href="/wiki/Grant_%28SQL%29" title="Grant (SQL)">GRANT</a></code> authorizes one or more users to perform an operation or a set of operations on an object.</li>
+<li><code><a href="/w/index.php?title=Revoke_%28SQL%29&amp;action=edit" class="new" title="Revoke (SQL)">REVOKE</a></code> removes or restricts the capability of a user to perform an operation or a set of operations.</li>
+</ul>
+<p>Example:</p>
+<div dir="ltr">
+<pre class="source-sql">
+<span class="kw1">GRANT</span> <span class="kw1">SELECT</span>, <span class="kw1">UPDATE</span> <span class="kw1">ON</span> my_table <span class="kw1">TO</span> some_user, another_user.
+</pre></div>
+<p><a name="Other" id="Other"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=SQL&amp;action=edit&amp;section=12" title="Edit section: Other">edit</a>]</span> <span class="mw-headline">Other</span></h3>
+<ul>
+<li>ANSI-standard SQL supports double dash, <code>--</code>, as a single line <a href="/wiki/Comment_%28computer_programming%29" title="Comment (computer programming)">comment</a> identifier (some extensions also support curly brackets or C style <code>/* comments */</code> for multi-line comments).</li>
+</ul>
+<p>Example:</p>
+<div dir="ltr">
+<pre class="source-sql">
+<span class="kw1">SELECT</span> * <span class="kw1">FROM</span> inventory <span class="co1">-- Retrieve everything from inventory table</span>
+</pre></div>
+<ul>
+<li>Some SQL servers allow <a href="/wiki/User_Defined_Function" title="User Defined Function">User Defined Functions</a></li>
+</ul>
+<p><a name="Criticisms_of_SQL" id="Criticisms_of_SQL"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=SQL&amp;action=edit&amp;section=13" title="Edit section: Criticisms of SQL">edit</a>]</span> <span class="mw-headline">Criticisms of SQL</span></h2>
+<p>Technically, SQL is a declarative computer language for use with "SQL databases". Theorists and some practitioners note that many of the original SQL features were inspired by, but in violation of, the <a href="/wiki/Relational_model" title="Relational model">relational model</a> for database management and its <a href="/wiki/Tuple_calculus" title="Tuple calculus">tuple calculus</a> realization. Recent extensions to SQL achieved relational completeness, but have worsened the violations, as documented in <i><a href="/wiki/The_Third_Manifesto" title="The Third Manifesto">The Third Manifesto</a></i>.</p>
+<p>In addition, there are also some criticisms about the practical use of&#160;:</p>
+<ul>
+<li>Implementations are inconsistent and, usually, incompatible between vendors. In particular date and time syntax, string concatenation, nulls, and comparison case sensitivity often vary from vendor to vendor.</li>
+<li>The language makes it too easy to do a <a href="/wiki/Cartesian_product" title="Cartesian product">Cartesian</a> join (joining all possible combinations), which results in "run-away" result sets when <code>WHERE</code> clauses are mistyped. Cartesian joins are so rarely used in practice that requiring an explicit <code>CARTESIAN</code> keyword may be warranted.</li>
+<li>It is also possible to misconstruct a <code>WHERE</code> on an update or delete, thereby affecting more rows in a table than desired.</li>
+<li>SQL—and the relational model as it is—offer no standard way for handling <a href="/wiki/Hierarchical_database#Tree_Data_structure_in_Relational_Model" title="Hierarchical database">tree-structures</a>, i.e. rows <a href="/wiki/Recursion_%28computer_science%29" title="Recursion (computer science)">recursively</a> referring other rows of the same table. Oracle offers a "CONNECT BY" clause, Microsoft and <a href="/wiki/IBM_DB2" title="IBM DB2">IBM DB2</a> offer recursive joins via Common Table Expressions, other solutions are database functions which use recursion and return a row set, as possible in PostgreSQL with <a href="/wiki/PL/PgSQL" title="PL/PgSQL">PL/PgSQL</a>. Similar problems exist with <a href="/wiki/Graph_%28data_structure%29" title="Graph (data structure)">Graph (data structure)</a> traversal. A general graph solution could perhaps be used for trees also, since trees are a subset of graphs.</li>
+<li>The grammar of SQL is perhaps unnecessarily complex, borrowing a <a href="/wiki/COBOL" title="COBOL">COBOL</a>-like keyword approach, when a function-influenced syntax could result in more re-use of fewer grammar and syntax rules. This is perhaps due to IBM's early goal of making the language more English-like so that it is more approachable to those without a math or programming background. (Predecessors to SQL were more math-like.)</li>
+</ul>
+<p><a name="Reasons_for_lack_of_portability" id="Reasons_for_lack_of_portability"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=SQL&amp;action=edit&amp;section=14" title="Edit section: Reasons for lack of portability">edit</a>]</span> <span class="mw-headline">Reasons for lack of portability</span></h3>
+<p>Popular implementations of SQL commonly omit support for basic features of Standard SQL, such as the <code>DATE</code> or <code>TIME</code> data types, preferring variations of their own. As a result, SQL code can rarely be ported between database systems without modifications.</p>
+<p>There are several reasons for this lack of portability between database systems:</p>
+<ul>
+<li>The complexity and size of the SQL standard means that most databases do not implement the entire standard.</li>
+<li>The standard does not specify database behavior in several important areas (e.g. <a href="/wiki/Index_%28database%29" title="Index (database)">indexes</a>), leaving it up to implementations of the database to decide how to behave.</li>
+<li>The SQL standard precisely specifies the syntax that a conforming database system must implement. However, the standard's specification of the semantics of language constructs is less well-defined, leading to areas of ambiguity.</li>
+<li>Many database vendors have large existing customer bases; where the SQL standard conflicts with the prior behavior of the vendor's database, the vendor may be unwilling to break <a href="/wiki/Backward_compatibility" title="Backward compatibility">backward compatibility</a>.</li>
+</ul>
+<p><a name="Alternatives_to_SQL" id="Alternatives_to_SQL"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=SQL&amp;action=edit&amp;section=15" title="Edit section: Alternatives to SQL">edit</a>]</span> <span class="mw-headline">Alternatives to SQL</span></h2>
+<p>A distinction should be made between alternatives to relational query languages and alternatives to SQL. The list below are proposed alternatives to SQL, but are still (nominally) relational. See <a href="/wiki/Navigational_database" title="Navigational database">navigational database</a> for alternatives to relational:</p>
+<ul>
+<li><a href="/wiki/IBM_BS12" title="IBM BS12">IBM Business System 12</a> (IBM BS12)</li>
+<li><a href="/wiki/Tutorial_D" title="Tutorial D">Tutorial D</a></li>
+<li><a href="/wiki/Hibernate_%28Java%29" title="Hibernate (Java)">Hibernate Query Language</a> (HQL) - A Java-based tool that uses modified SQL</li>
+<li><a href="/w/index.php?title=EJB-QL&amp;action=edit" class="new" title="EJB-QL">EJB-QL</a> (Enterprise <a href="/wiki/JavaBeans" title="JavaBeans">Java Bean</a> Query Language/Java Persistence Query Language) - An object-based query language, which allows objects to be retrieved using a syntax similar to SQL. It is used within the Java Persistence framework, and formerly within the J2EE/JEE <a href="/wiki/Enterprise_JavaBean" title="Enterprise JavaBean">Enterprise Java Bean</a> framework with Entity Beans.<sup id="_ref-3" class="reference"><a href="#_note-3" title="">[12]</a></sup></li>
+<li><a href="/wiki/QUEL_query_languages" title="QUEL query languages">Quel</a> introduced in 1974 by the U.C. Berkeley Ingres project.</li>
+<li><a href="/wiki/Object_Query_Language" title="Object Query Language">Object Query Language</a></li>
+<li><a href="/wiki/Datalog" title="Datalog">Datalog</a></li>
+<li><a href="/wiki/.QL" title=".QL">.QL</a> - object-oriented Datalog</li>
+<li><a href="/wiki/Language_Integrated_Query" title="Language Integrated Query">LINQ</a></li>
+<li>InfinityDB (infinitydb.com) Entity-Attribute-Value embeddable java dbms</li>
+<li>In the context of fuzzy <a href="/wiki/Databases" title="Databases">databases</a>, databases with <a href="/wiki/Fuzzy_logic" title="Fuzzy logic">fuzzy logic</a>, some fuzzy querying languages have been defined, highlighting the <a href="/w/index.php?title=SQLf&amp;action=edit" class="new" title="SQLf">SQLf</a> by P. <a href="/wiki/Bosc" title="Bosc">Bosc</a> et al. and the <a href="/w/index.php?title=FSQL&amp;action=edit" class="new" title="FSQL">FSQL</a> by J. <a href="/w/index.php?title=Galindo&amp;action=edit" class="new" title="Galindo">Galindo</a> et al. These languages define some structures in order to include fuzzy aspects in the SQL statements, like fuzzy conditions, fuzzy comparators, fuzzy constants, fuzzy constraints, fuzzy thresholds, linguistic labels and so on.</li>
+</ul>
+<p><a name="See_also" id="See_also"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=SQL&amp;action=edit&amp;section=16" title="Edit section: See also">edit</a>]</span> <span class="mw-headline">See also</span></h2>
+<ul>
+<li><a href="/wiki/D_%28data_language_specification%29" title="D (data language specification)">D (data language specification)</a></li>
+<li><a href="/wiki/D4_%28programming_language%29" title="D4 (programming language)">D4 (programming language)</a> (an implementation of D)</li>
+<li><a href="/wiki/Comparison_of_relational_database_management_systems" title="Comparison of relational database management systems">Comparison of relational database management systems</a></li>
+<li><a href="/wiki/Comparison_of_truly_relational_database_management_systems" title="Comparison of truly relational database management systems">Comparison of truly relational database management systems</a></li>
+<li><a href="/wiki/Comparison_of_object-relational_database_management_systems" title="Comparison of object-relational database management systems">Comparison of object-relational database management systems</a></li>
+<li><a href="/wiki/List_of_relational_database_management_systems" title="List of relational database management systems">List of relational database management systems</a></li>
+<li><a href="/wiki/List_of_object-relational_database_management_systems" title="List of object-relational database management systems">List of object-relational database management systems</a></li>
+<li><a href="/wiki/List_of_hierarchical_database_management_systems" title="List of hierarchical database management systems">List of hierarchical database management systems</a></li>
+<li><a href="/wiki/MUMPS" title="MUMPS">MUMPS</a></li>
+</ul>
+<p><a name="References" id="References"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=SQL&amp;action=edit&amp;section=17" title="Edit section: References">edit</a>]</span> <span class="mw-headline">References</span></h2>
+<div class="references-small">
+<ol class="references">
+<li id="_note-chapple"><b><a href="#_ref-chapple_0" title="">^</a></b> Chapple, Mike. <a href="http://databases.about.com/od/sql/a/sqlfundamentals.htm?terms=SQL" class="external text" title="http://databases.about.com/od/sql/a/sqlfundamentals.htm?terms=SQL" rel="nofollow">SQL Fundamentals</a> (HTML). <i>About.com: Databases</i>. About.com. Retrieved on <a href="/w/index.php?title=June_10%2C_2007&amp;action=edit" class="new" title="June 10, 2007">June 10, 2007</a>.</li>
+<li id="_note-IBM-sql"><b><a href="#_ref-IBM-sql_0" title="">^</a></b> <a href="http://publib.boulder.ibm.com/infocenter/db2luw/v9/index.jsp?topic=/com.ibm.db2.udb.admin.doc/doc/c0004100.htm" class="external text" title="http://publib.boulder.ibm.com/infocenter/db2luw/v9/index.jsp?topic=/com.ibm.db2.udb.admin.doc/doc/c0004100.htm" rel="nofollow">Structured Query Language (SQL)</a> (HTML). International Business Machines (October 27, 2006). Retrieved on <a href="/w/index.php?title=June_10%2C_2007&amp;action=edit" class="new" title="June 10, 2007">June 10, 2007</a>.</li>
+<li id="_note-codd-relational-model"><b><a href="#_ref-codd-relational-model_0" title="">^</a></b> <cite style="font-style:normal">Codd, E.F. (June 1970). "<a href="http://www.acm.org/classics/nov95/toc.html" class="external text" title="http://www.acm.org/classics/nov95/toc.html" rel="nofollow">A Relational Model of Data for Large Shared Data Banks</a>". <i>Communications of the ACM</i> <b>13</b> (No. 6): pp. 377-387. Retrieved on <a href="/w/index.php?title=June_9%2C_2007&amp;action=edit" class="new" title="June 9, 2007">June 9, 2007</a>.</cite><span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.atitle=A+Relational+Model+of+Data+for+Large+Shared+Data+Banks&amp;rft.jtitle=Communications+of+the+ACM&amp;rft.date=June+1970&amp;rft.volume=13&amp;rft.issue=No.+6&amp;rft.aulast=Codd&amp;rft.aufirst=E.F.&amp;rft.pages=pp.+377-387&amp;rft_id=http%3A%2F%2Fwww.acm.org%2Fclassics%2Fnov95%2Ftoc.html">&#160;</span></li>
+<li id="_note-chamberlin-boyce-sequel"><b><a href="#_ref-chamberlin-boyce-sequel_0" title="">^</a></b> <cite style="font-style:normal">Chamberlin, Donald D.; Boyce, Raymond F. (1974). "<a href="http://www.almaden.ibm.com/cs/people/chamberlin/sequel-1974.pdf" class="external text" title="http://www.almaden.ibm.com/cs/people/chamberlin/sequel-1974.pdf" rel="nofollow">SEQUEL: A Structured English Query Language</a>". <i>Proceedings of the 1974 ACM SIGFIDET Workshop on Data Description, Access and Control</i>: pp. 249-264. Retrieved on <a href="/w/index.php?title=June_9%2C_2007&amp;action=edit" class="new" title="June 9, 2007">June 9, 2007</a>.</cite><span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.atitle=SEQUEL%3A+A+Structured+English+Query+Language&amp;rft.jtitle=Proceedings+of+the+1974+ACM+SIGFIDET+Workshop+on+Data+Description%2C+Access+and+Control&amp;rft.date=1974&amp;rft.aulast=Chamberlin&amp;rft.aufirst=Donald+D.&amp;rft.pages=pp.+249-264&amp;rft_id=http%3A%2F%2Fwww.almaden.ibm.com%2Fcs%2Fpeople%2Fchamberlin%2Fsequel-1974.pdf">&#160;</span></li>
+<li id="_note-oppel-databases">^ <a href="#_ref-oppel-databases_0" title=""><sup><i><b>a</b></i></sup></a> <a href="#_ref-oppel-databases_1" title=""><sup><i><b>b</b></i></sup></a> <cite class="book" style="font-style:normal">Oppel, Andy (March 1, 2004). <i><a href="http://www.mhprofessional.com/product.php?cat=112&amp;isbn=0072253649" class="external text" title="http://www.mhprofessional.com/product.php?cat=112&amp;isbn=0072253649" rel="nofollow">Databases Demystified</a></i>. <a href="/wiki/San_Francisco" title="San Francisco">San Francisco</a>, <a href="/wiki/CA" title="CA">CA</a>: McGraw-Hill Osborne Media, pp. 90-91. <a href="/w/index.php?title=Special:Booksources&amp;isbn=0072253649" class="internal">ISBN 0-07-225364-9</a>.</cite><span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Databases+Demystified&amp;rft.aulast=Oppel&amp;rft.aufirst=Andy&amp;rft.date=March+1%2C+2004&amp;rft.pub=McGraw-Hill+Osborne+Media&amp;rft.place=%5B%5BSan+Francisco%5D%5D%2C+%5B%5BCA%5D%5D&amp;rft.pages=pp.+90-91&amp;rft_id=http%3A%2F%2Fwww.mhprofessional.com%2Fproduct.php%3Fcat%3D112%26isbn%3D0072253649">&#160;</span></li>
+<li id="_note-IBM-history"><b><a href="#_ref-IBM-history_0" title="">^</a></b> <a href="http://www-03.ibm.com/ibm/history/history/year_1978.html" class="external text" title="http://www-03.ibm.com/ibm/history/history/year_1978.html" rel="nofollow">History of IBM, 1978</a> (HTML). <i>IBM Archives</i>. IBM. Retrieved on <a href="/w/index.php?title=June_9%2C_2007&amp;action=edit" class="new" title="June 9, 2007">June 9, 2007</a>.</li>
+<li id="_note-0"><b><a href="#_ref-0" title="">^</a></b> Chapple, Mike (?). <a href="http://databases.about.com/od/sql/a/sqlfundamentals.htm" class="external text" title="http://databases.about.com/od/sql/a/sqlfundamentals.htm" rel="nofollow">SQL Fundamentals</a> (HTML). <i>About.com</i>. About.com, A New York Times Company. Retrieved on <a href="/wiki/August_30%2C_2007" title="August 30, 2007">August 30, 2007</a>.</li>
+<li id="_note-1"><b><a href="#_ref-1" title="">^</a></b> Doll, Shelley (June 19, 2002). <a href="http://builder.com.com/5100-6388-1046268.html" class="external text" title="http://builder.com.com/5100-6388-1046268.html" rel="nofollow">Is SQL a Standard Anymore?</a> (HTML). <i>TechRepublic's Builder.com</i>. TechRepublic. Retrieved on <a href="/w/index.php?title=June_9%2C_2007&amp;action=edit" class="new" title="June 9, 2007">June 9, 2007</a>.</li>
+<li id="_note-ISO.2FIEC_9075-11:2003"><b><a href="#_ref-ISO.2FIEC_9075-11:2003_0" title="">^</a></b> <cite id="CITEREF2003"><i>ISO/IEC 9075-11:2003: Information and Definition Schemas (SQL/Schemata)</i>, 2003, pp. p. 1</cite></li>
+<li id="_note-2"><b><a href="#_ref-2" title="">^</a></b> ANSI/ISO/IEC International Standard (IS). Database Language SQL—Part 2: Foundation (SQL/Foundation). 1999</li>
+<li id="_note-ms-sql-select-into"><b><a href="#_ref-ms-sql-select-into_0" title="">^</a></b> <a href="http://msdn2.microsoft.com/en-us/library/ms188029(SQL.90).aspx" class="external text" title="http://msdn2.microsoft.com/en-us/library/ms188029(SQL.90).aspx" rel="nofollow">INTO Clause (Transact-SQL)</a> (HTML). <i>SQL Server 2005 Books Online</i>. Microsoft (2007). Retrieved on <a href="/w/index.php?title=June_17%2C_1007&amp;action=edit" class="new" title="June 17, 1007">June 17, 1007</a>.</li>
+<li id="_note-3"><b><a href="#_ref-3" title="">^</a></b> <a href="http://java.sun.com/javaee/5/docs/tutorial/doc/QueryLanguage.html" class="external text" title="http://java.sun.com/javaee/5/docs/tutorial/doc/QueryLanguage.html" rel="nofollow">The Java Persistence Query Language</a></li>
+</ol>
+</div>
+<div class="references-small">
+<ul>
+<li><a href="http://www.acm.org/classics/nov95/toc.html" class="external text" title="http://www.acm.org/classics/nov95/toc.html" rel="nofollow">"A Relational Model of Data for Large Shared Data Banks"</a> E. F. Codd, Communications of the ACM, Vol. 13, No. 6, June 1970, pp. 377-387.</li>
+<li>Donald D. Chamberlin and Raymond F. Boyce, 1974. "<a href="http://www.almaden.ibm.com/cs/people/chamberlin/sequel-1974.pdf" class="external text" title="http://www.almaden.ibm.com/cs/people/chamberlin/sequel-1974.pdf" rel="nofollow">SEQUEL: A structured English query language</a>", International Conference on Management of Data, Proceedings of the 1974 ACM SIGFIDET (now SIGMOD) workshop on Data description, access and control, <a href="/wiki/Ann_Arbor%2C_Michigan" title="Ann Arbor, Michigan">Ann Arbor, Michigan</a>, pp. 249–264.</li>
+<li><a href="http://www.c2.com/cgi/wiki?SqlFlaws" class="external text" title="http://www.c2.com/cgi/wiki?SqlFlaws" rel="nofollow">Discussion on alleged SQL flaws</a> (C2 wiki)</li>
+</ul>
+</div>
+<p><a name="About_FSQL" id="About_FSQL"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=SQL&amp;action=edit&amp;section=18" title="Edit section: About FSQL">edit</a>]</span> <span class="mw-headline">About <a href="/w/index.php?title=FSQL&amp;action=edit" class="new" title="FSQL">FSQL</a></span></h2>
+<ul>
+<li>Galindo, J., Urrutia, A., Piattini, M., "Fuzzy Databases: Modeling, Design and Implementation" (<a href="/w/index.php?title=FSQL&amp;action=edit" class="new" title="FSQL">FSQL</a> guide). Idea Group Publishing Hershey, USA, 2006.</li>
+<li>Galindo, J. (Editor). Handbook on Fuzzy Information Processing in Databases. Information Science Reference (an imprint of Idea Group Inc.), Hershey, USA, 2008.</li>
+</ul>
+<p><a name="External_links" id="External_links"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=SQL&amp;action=edit&amp;section=19" title="Edit section: External links">edit</a>]</span> <span class="mw-headline">External links</span></h2>
+<table class="metadata plainlinks ambox ambox-style">
+<tr>
+<td class="ambox-image"><a href="/wiki/Image:Broom_icon.svg" class="image" title="Broom icon.svg"><img alt="" src="http://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Broom_icon.svg/40px-Broom_icon.svg.png" width="40" height="40" border="0" /></a></td>
+<td><b>The <a href="/wiki/Wikipedia:External_links" title="Wikipedia:External links">external links</a> in this article or section may require <a href="/wiki/Wikipedia:Cleanup" title="Wikipedia:Cleanup">cleanup</a> to comply with Wikipedia's <a href="/wiki/Wikipedia:What_Wikipedia_is_not#Wikipedia_is_not_a_mirror_or_a_repository_of_links.2C_images.2C_or_media_files" title="Wikipedia:What Wikipedia is not">content policies</a>.</b><br />
+<small>Please <a href="http://en.wikipedia.org/w/index.php?title=SQL&amp;action=edit" class="external text" title="http://en.wikipedia.org/w/index.php?title=SQL&amp;action=edit" rel="nofollow">improve this article</a> by removing excessive or inappropriate external links. Please remove this tag when this is done. (<a href="/wiki/Talk:SQL" title="Talk:SQL">talk</a>)</small></td>
+</tr>
+</table>
+<div class="infobox sisterproject">
+<div style="float: left;">
+<div class="floatnone"><span><a href="/wiki/Image:Wikibooks-logo-en.svg" class="image" title="Wikibooks"><img alt="Wikibooks" src="http://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Wikibooks-logo-en.svg/50px-Wikibooks-logo-en.svg.png" width="50" height="57" border="0" /></a></span></div>
+</div>
+<div style="margin-left: 60px;"><a href="http://en.wikibooks.org/wiki/Programming" class="extiw" title="wikibooks:Programming">Wikibooks Programming</a> has more about this subject:
+<div style="margin-left: 10px;"><i><b><a href="http://en.wikibooks.org/wiki/Programming:SQL" class="extiw" title="wikibooks:Programming:SQL">SQL</a></b></i></div>
+</div>
+</div>
+<div class="infobox sisterproject">
+<div style="float: left;">
+<div class="floatnone"><span><a href="/wiki/Image:Wikibooks-logo-en.svg" class="image" title="Wikibooks"><img alt="Wikibooks" src="http://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Wikibooks-logo-en.svg/50px-Wikibooks-logo-en.svg.png" width="50" height="57" border="0" /></a></span></div>
+</div>
+<div style="margin-left: 60px;"><a href="/wiki/Wikibooks" title="Wikibooks">Wikibooks</a> <a href="http://en.wikibooks.org/wiki/SQL_dialects_reference" class="extiw" title="wikibooks:SQL_dialects_reference">SQL dialects reference</a> has a page on the topic of
+<div style="margin-left:10px;"><i><b><a href="http://en.wikibooks.org/wiki/SQL_dialects_reference/Comparison_of_SQL_syntax" class="extiw" title="wikibooks:SQL_dialects_reference/Comparison_of_SQL_syntax">Comparison of SQL syntax</a></b></i></div>
+</div>
+</div>
+<ul>
+<li><a href="http://www.w3schools.com/sql/default.asp" class="external text" title="http://www.w3schools.com/sql/default.asp" rel="nofollow">W3Schools Tutorial</a></li>
+<li><a href="http://databases.about.com/od/sql/a/sqlbasics.htm" class="external text" title="http://databases.about.com/od/sql/a/sqlbasics.htm" rel="nofollow"><i>SQL Basics</i></a></li>
+<li><a href="http://www.mcjones.org/System_R/SQL_Reunion_95/" class="external text" title="http://www.mcjones.org/System_R/SQL_Reunion_95/" rel="nofollow"><i>The 1995 SQL Reunion: People, Projects, and Politics</i> (early history of SQL)</a></li>
+<li><a href="http://www.SQLSummit.com/People/JMelton.htm" class="external text" title="http://www.SQLSummit.com/People/JMelton.htm" rel="nofollow"><i>SQL:2003, SQL/XML and the Future of SQL</i> (webcast and podcast with Jim Melton, editor of the SQL standard)</a></li>
+<li><a href="http://sqlzoo.net/" class="external text" title="http://sqlzoo.net/" rel="nofollow"><i>A Gentle Introduction to SQL</i> at SQLzoo</a></li>
+<li><a href="http://www.1keydata.com/sql/sql.html" class="external text" title="http://www.1keydata.com/sql/sql.html" rel="nofollow"><i>SQL Tutorial</i> at 1keydata</a></li>
+<li><a href="http://aam.ugpl.de/?q=sql_help/select" class="external text" title="http://aam.ugpl.de/?q=sql_help/select" rel="nofollow">SQL Help and Tutorial</a></li>
+<li><a href="http://www.techbookreport.com/sql-tut1.html" class="external text" title="http://www.techbookreport.com/sql-tut1.html" rel="nofollow">TechBookReport SQL Tutorial</a> A three-part tutorial/introduction to SQL</li>
+<li><a href="http://www.sqlrecipes.com" class="external text" title="http://www.sqlrecipes.com" rel="nofollow">SQL Recipes - A free SQL cookbook full of practical examples and queries for all dialects</a></li>
+<li><a href="http://www.lcc.uma.es/~ppgg/FSQL/" class="external text" title="http://www.lcc.uma.es/~ppgg/FSQL/" rel="nofollow">Web page about FSQL</a>: References and links.</li>
+</ul>
+<table class="navbox" style="width:95%;margin-left:auto;margin-right:auto">
+<tr>
+<th colspan="2">
+<div style="text-align:center;position:relative;white-space:nowrap;">Topics in <a href="/wiki/Database_management_system" title="Database management system">database management systems</a> (DBMS)
+<div class="noprint plainlinksneverexpand" style="background-color:transparent; padding:0; font-weight:normal; font-size:xx-small; color: #000; white-space:nowrap; position: absolute; right: 0; top: 0; margin: 0 5px;"><a href="/wiki/Template:Databases" title="Template:Databases"><span title="View this template">view</span></a>&#160;<span style="font-size:80%;">•</span>&#160;<a href="/wiki/Template_talk:Databases" title="Template talk:Databases"><span title="Discussion about this template">talk</span></a>&#160;<span style="font-size:80%;">•</span>&#160;<a href="http://en.wikipedia.org/w/index.php?title=Template:Databases&amp;action=edit" class="external text" title="http://en.wikipedia.org/w/index.php?title=Template:Databases&amp;action=edit" rel="nofollow"><span style="color: #002bb8;" title="You can edit this template. Please use the preview button before saving.">edit</span></a></div>
+</div>
+</th>
+</tr>
+<tr>
+<td colspan="2" style="border-bottom:1px solid #ccccff">
+<p><i>Concepts</i><br />
+<a href="/wiki/Database" title="Database">Database</a>&#160;• <a href="/wiki/Database_models" title="Database models">Database models</a>&#160;• <a href="/wiki/Database_storage_structures" title="Database storage structures">Database storage</a>&#160;• <a href="/wiki/Relational_model" title="Relational model">Relational model</a>&#160;• <a href="/wiki/Distributed_database_management_system" title="Distributed database management system">Distributed&#160;DBMS</a>&#160;• <a href="/wiki/ACID" title="ACID">ACID</a>&#160;• <a href="/wiki/Null_%28SQL%29" title="Null (SQL)">Null</a><br />
+<a href="/wiki/Relational_database" title="Relational database">Relational database</a>&#160;• <a href="/wiki/Relational_algebra" title="Relational algebra">Relational algebra</a>&#160;• <a href="/wiki/Relational_calculus" title="Relational calculus">Relational calculus</a>&#160;• <a href="/wiki/Database_normalization" title="Database normalization">Database normalization</a>&#160;• <a href="/wiki/Referential_integrity" title="Referential integrity">Referential integrity</a>&#160;• <a href="/wiki/Relational_database_management_system" title="Relational database management system">Relational&#160;DBMS</a>&#160;<br />
+<a href="/wiki/Primary_key" title="Primary key">Primary key</a>, <a href="/wiki/Foreign_key" title="Foreign key">Foreign key</a>, <a href="/wiki/Surrogate_key" title="Surrogate key">Surrogate key</a>, <a href="/wiki/Superkey" title="Superkey">Superkey</a>, <a href="/wiki/Candidate_key" title="Candidate key">Candidate key</a></p>
+</td>
+</tr>
+<tr>
+<td style="width:50%; vertical-align:top; border-right:1px solid #ccccff">
+<p><i>Objects</i><br />
+<a href="/wiki/Database_trigger" title="Database trigger">Trigger</a>&#160;• <a href="/wiki/View_%28database%29" title="View (database)">View</a>&#160;• <a href="/wiki/Table_%28database%29" title="Table (database)">Table</a>&#160;• <a href="/wiki/Cursor_%28databases%29" title="Cursor (databases)">Cursor</a>&#160;• <a href="/wiki/Transaction_log" title="Transaction log">Log</a>&#160;• <a href="/wiki/Database_transaction" title="Database transaction">Transaction</a>&#160;• <a href="/wiki/Index_%28database%29" title="Index (database)">Index</a>&#160;<br />
+<a href="/wiki/Stored_procedure" title="Stored procedure">Stored procedure</a>&#160;• <a href="/wiki/Partition_%28database%29" title="Partition (database)">Partition</a></p>
+</td>
+<td style="width:50%; vertical-align:top">
+<p><i>Topics in <strong class="selflink">SQL</strong></i><br />
+<a href="/wiki/Select_%28SQL%29" title="Select (SQL)">Select</a>&#160;• <a href="/wiki/Insert_%28SQL%29" title="Insert (SQL)">Insert</a>&#160;• <a href="/wiki/Update_%28SQL%29" title="Update (SQL)">Update</a>&#160;• <a href="/wiki/Merge_%28SQL%29" title="Merge (SQL)">Merge</a>&#160;• <a href="/wiki/Delete_%28SQL%29" title="Delete (SQL)">Delete</a>&#160;• <a href="/wiki/Join_%28SQL%29" title="Join (SQL)">Join</a>&#160;• <a href="/wiki/Union_%28SQL%29" title="Union (SQL)">Union</a>&#160;• <a href="/wiki/Create_%28SQL%29" title="Create (SQL)">Create</a>&#160;• <a href="/wiki/Drop_%28SQL%29" title="Drop (SQL)">Drop</a><br />
+<a href="/wiki/Begin_work_%28SQL%29" title="Begin work (SQL)">Begin work</a>&#160;• <a href="/wiki/Commit_%28SQL%29" title="Commit (SQL)">Commit</a>&#160;• <a href="/wiki/Rollback_%28SQL%29" title="Rollback (SQL)">Rollback</a>&#160;• <a href="/wiki/Truncate_%28SQL%29" title="Truncate (SQL)">Truncate</a>&#160;• <a href="/wiki/Alter_%28SQL%29" title="Alter (SQL)">Alter</a></p>
+</td>
+</tr>
+<tr>
+<th colspan="2">Implementations of database management systems</th>
+</tr>
+<tr>
+<td colspan="2" style="vertical-align:top; border-bottom:1px solid #ccccff">
+<p><i>Types of implementations</i><br />
+<a href="/wiki/Relational_database" title="Relational database">Relational</a>&#160;• <a href="/wiki/Flat_file_database" title="Flat file database">Flat&#160;file</a>&#160;• <a href="/wiki/Deductive_database" title="Deductive database">Deductive</a>&#160;• <a href="/wiki/Dimensional_database" title="Dimensional database">Dimensional</a>&#160;• <a href="/wiki/Hierarchical_model" title="Hierarchical model">Hierarchical</a>&#160;• <a href="/wiki/Object_database" title="Object database">Object&#160;oriented</a>&#160;• <a href="/wiki/Object-relational_database" title="Object-relational database">Object&#160;relational</a>&#160;• <a href="/wiki/Temporal_database" title="Temporal database">Temporal</a>&#160;• <a href="/wiki/XML_database" title="XML database">XML&#160;data&#160;stores</a></p>
+</td>
+</tr>
+<tr>
+<td style="width:50%; vertical-align:top; border-right:1px solid #ccccff">
+<p><i>Database products</i><br />
+<a href="/wiki/List_of_object-oriented_database_management_systems" title="List of object-oriented database management systems">Object-oriented</a> (<a href="/wiki/Comparison_of_object-relational_database_management_systems" title="Comparison of object-relational database management systems">comparison</a>)&#160;• <a href="/wiki/List_of_relational_database_management_systems" title="List of relational database management systems">Relational</a> (<a href="/wiki/Comparison_of_relational_database_management_systems" title="Comparison of relational database management systems">comparison</a>)</p>
+</td>
+<td style="width:50%; vertical-align:top">
+<p><i>Components</i><br />
+<a href="/wiki/Query_language" title="Query language">Query language</a>&#160;• <a href="/wiki/Query_optimizer" title="Query optimizer">Query optimizer</a>&#160;• <a href="/wiki/Query_plan" title="Query plan">Query plan</a>&#160;• <a href="/wiki/Open_Database_Connectivity" title="Open Database Connectivity">ODBC</a>&#160;• <a href="/wiki/Java_Database_Connectivity" title="Java Database Connectivity">JDBC</a></p>
+</td>
+</tr>
+</table>
+
+<!-- 
+Pre-expand include size: 83196 bytes
+Post-expand include size: 27131 bytes
+Template argument size: 14149 bytes
+Maximum: 2048000 bytes
+-->
+
+<!-- Saved in parser cache with key enwiki:pcache:idhash:29004-0!1!0!default!!en!2 and timestamp 20070915214136 -->
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org/wiki/SQL">http://en.wikipedia.org/wiki/SQL</a>"</div>
+			<div id="catlinks"><p class='catlinks'><a href="/wiki/Special:Categories" title="Special:Categories">Categories</a>: <span dir='ltr'><a href="/wiki/Category:All_articles_with_unsourced_statements" title="Category:All articles with unsourced statements">All articles with unsourced statements</a></span> | <span dir='ltr'><a href="/wiki/Category:Articles_with_unsourced_statements_since_June_2007" title="Category:Articles with unsourced statements since June 2007">Articles with unsourced statements since June 2007</a></span> | <span dir='ltr'><a href="/wiki/Category:Wikipedia_external_links_cleanup" title="Category:Wikipedia external links cleanup">Wikipedia external links cleanup</a></span> | <span dir='ltr'><a href="/wiki/Category:Declarative_programming_languages" title="Category:Declarative programming languages">Declarative programming languages</a></span> | <span dir='ltr'><a href="/wiki/Category:Programming_languages" title="Category:Programming languages">Programming languages</a></span> | <span dir='ltr'><a href="/wiki/Category:Query_languages" title="Category:Query languages">Query languages</a></span> | <span dir='ltr'><a href="/wiki/Category:SQL" title="Category:SQL">SQL</a></span> | <span dir='ltr'><a href="/wiki/Category:Databases" title="Category:Databases">Databases</a></span> | <span dir='ltr'><a href="/wiki/Category:IBM_software" title="Category:IBM software">IBM software</a></span> | <span dir='ltr'><a href="/wiki/Category:Data_modeling_languages" title="Category:Data modeling languages">Data modeling languages</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<div class="pBody">
+			<ul>
+					 <li id="ca-nstab-main" class="selected"><a href="/wiki/SQL" title="View the content page [c]" accesskey="c">Article</a></li>
+					 <li id="ca-talk"><a href="/wiki/Talk:SQL" title="Discussion about the content page [t]" accesskey="t">Discussion</a></li>
+					 <li id="ca-edit"><a href="/w/index.php?title=SQL&amp;action=edit" title="You can edit this page. Please use the preview button before saving. [e]" accesskey="e">Edit this page</a></li>
+					 <li id="ca-history"><a href="/w/index.php?title=SQL&amp;action=history" title="Past versions of this page [h]" accesskey="h">History</a></li>
+				</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-personal">
+		<h5>Personal tools</h5>
+		<div class="pBody">
+			<ul>
+				<li id="pt-login"><a href="/w/index.php?title=Special:Userlogin&amp;returnto=SQL" title="You are encouraged to log in, it is not mandatory however. [o]" accesskey="o">Sign in / create account</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-logo">
+		<a style="background-image: url(/images/wiki-en.png);" href="/wiki/Main_Page" title="Visit the Main Page [z]" accesskey="z"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-Main-page"><a href="/wiki/Main_Page">Main page</a></li>
+				<li id="n-Contents"><a href="/wiki/Wikipedia:Contents">Contents</a></li>
+				<li id="n-Featured-content"><a href="/wiki/Wikipedia:Featured_content">Featured content</a></li>
+				<li id="n-currentevents"><a href="/wiki/Portal:Current_events" title="Find background information on current events">Current events</a></li>
+				<li id="n-randompage"><a href="/wiki/Special:Random" title="Load a random page [x]" accesskey="x">Random article</a></li>
+			</ul>
+		</div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+		<h5>interaction</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-About-Wikipedia"><a href="/wiki/Wikipedia:About">About Wikipedia</a></li>
+				<li id="n-portal"><a href="/wiki/Wikipedia:Community_Portal" title="About the project, what you can do, where to find things">Community portal</a></li>
+				<li id="n-recentchanges"><a href="/wiki/Special:Recentchanges" title="The list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li>
+				<li id="n-contact"><a href="/wiki/Wikipedia:Contact_us">Contact Wikipedia</a></li>
+				<li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising" title="Support us">Donate to Wikipedia</a></li>
+				<li id="n-help"><a href="/wiki/Help:Contents" title="Guidance on how to use and edit Wikipedia">Help</a></li>
+			</ul>
+		</div>
+	</div>
+		<div id="p-search" class="portlet">
+		<h5><label for="searchInput">Search</label></h5>
+		<div id="searchBody" class="pBody">
+			<form action="/wiki/Special:Search" id="searchform"><div>
+				<input id="searchInput" name="search" type="text" title="Search Wikipedia [f]" accesskey="f" value="" />
+				<input type='submit' name="go" class="searchButton" id="searchGoButton"	value="Go" />&nbsp;
+				<input type='submit' name="fulltext" class="searchButton" id="mw-searchButton" value="Search" />
+			</div></form>
+		</div>
+	</div>
+	<div class="portlet" id="p-tb">
+		<h5>Toolbox</h5>
+		<div class="pBody">
+			<ul>
+				<li id="t-whatlinkshere"><a href="/wiki/Special:Whatlinkshere/SQL" title="List of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+				<li id="t-recentchangeslinked"><a href="/wiki/Special:Recentchangeslinked/SQL" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+<li id="t-upload"><a href="/wiki/Wikipedia:Upload" title="Upload images or media files [u]" accesskey="u">Upload file</a></li>
+<li id="t-specialpages"><a href="/wiki/Special:Specialpages" title="List of all special pages [q]" accesskey="q">Special pages</a></li>
+				<li id="t-print"><a href="/w/index.php?title=SQL&amp;printable=yes" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>				<li id="t-permalink"><a href="/w/index.php?title=SQL&amp;oldid=157825351" title="Permanent link to this version of the page">Permanent link</a></li><li id="t-cite"><a href="/w/index.php?title=Special:Cite&amp;page=SQL&amp;id=157825351">Cite this article</a></li>			</ul>
+		</div>
+	</div>
+	<div id="p-lang" class="portlet">
+		<h5>In other languages</h5>
+		<div class="pBody">
+			<ul>
+				<li class="interwiki-ar"><a href="http://ar.wikipedia.org/wiki/%D9%84%D8%BA%D8%A9_%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D8%B9%D9%84%D8%A7%D9%85%D8%A7%D8%AA_%D8%A7%D9%84%D8%A8%D9%86%D9%8A%D9%88%D9%8A%D8%A9">العربية</a></li>
+				<li class="interwiki-be"><a href="http://be.wikipedia.org/wiki/SQL">Беларуская</a></li>
+				<li class="interwiki-bs"><a href="http://bs.wikipedia.org/wiki/SQL">Bosanski</a></li>
+				<li class="interwiki-br"><a href="http://br.wikipedia.org/wiki/Areg_SQL">Brezhoneg</a></li>
+				<li class="interwiki-bg"><a href="http://bg.wikipedia.org/wiki/SQL">Български</a></li>
+				<li class="interwiki-ca"><a href="http://ca.wikipedia.org/wiki/Structured_Query_Language">Català</a></li>
+				<li class="interwiki-cs"><a href="http://cs.wikipedia.org/wiki/SQL">Česky</a></li>
+				<li class="interwiki-da"><a href="http://da.wikipedia.org/wiki/Structured_Query_Language">Dansk</a></li>
+				<li class="interwiki-de"><a href="http://de.wikipedia.org/wiki/SQL">Deutsch</a></li>
+				<li class="interwiki-es"><a href="http://es.wikipedia.org/wiki/SQL">Español</a></li>
+				<li class="interwiki-eo"><a href="http://eo.wikipedia.org/wiki/SQL">Esperanto</a></li>
+				<li class="interwiki-eu"><a href="http://eu.wikipedia.org/wiki/SQL">Euskara</a></li>
+				<li class="interwiki-fa"><a href="http://fa.wikipedia.org/wiki/%D8%A7%D8%B3%E2%80%8C%DA%A9%DB%8C%D9%88%D8%A7%D9%84">فارسی</a></li>
+				<li class="interwiki-fr"><a href="http://fr.wikipedia.org/wiki/Structured_Query_Language">Français</a></li>
+				<li class="interwiki-ga"><a href="http://ga.wikipedia.org/wiki/Teanga_Strucht%C3%BArtha_Iarratas">Gaeilge</a></li>
+				<li class="interwiki-hr"><a href="http://hr.wikipedia.org/wiki/SQL">Hrvatski</a></li>
+				<li class="interwiki-id"><a href="http://id.wikipedia.org/wiki/SQL">Bahasa Indonesia</a></li>
+				<li class="interwiki-ia"><a href="http://ia.wikipedia.org/wiki/SQL">Interlingua</a></li>
+				<li class="interwiki-is"><a href="http://is.wikipedia.org/wiki/SQL">Íslenska</a></li>
+				<li class="interwiki-it"><a href="http://it.wikipedia.org/wiki/SQL">Italiano</a></li>
+				<li class="interwiki-he"><a href="http://he.wikipedia.org/wiki/SQL">עברית</a></li>
+				<li class="interwiki-ku"><a href="http://ku.wikipedia.org/wiki/SQL">Kurdî / كوردی</a></li>
+				<li class="interwiki-lt"><a href="http://lt.wikipedia.org/wiki/SQL">Lietuvių</a></li>
+				<li class="interwiki-hu"><a href="http://hu.wikipedia.org/wiki/SQL_programoz%C3%A1si_nyelv">Magyar</a></li>
+				<li class="interwiki-ms"><a href="http://ms.wikipedia.org/wiki/SQL">Bahasa Melayu</a></li>
+				<li class="interwiki-cdo"><a href="http://cdo.wikipedia.org/wiki/SQL">Mìng-dĕ̤ng-ngṳ̄</a></li>
+				<li class="interwiki-nl"><a href="http://nl.wikipedia.org/wiki/SQL">Nederlands</a></li>
+				<li class="interwiki-ja"><a href="http://ja.wikipedia.org/wiki/SQL">日本語</a></li>
+				<li class="interwiki-no"><a href="http://no.wikipedia.org/wiki/Structured_Query_Language">‪Norsk (bokmål)‬</a></li>
+				<li class="interwiki-pl"><a href="http://pl.wikipedia.org/wiki/SQL">Polski</a></li>
+				<li class="interwiki-pt"><a href="http://pt.wikipedia.org/wiki/SQL">Português</a></li>
+				<li class="interwiki-ro"><a href="http://ro.wikipedia.org/wiki/SQL">Română</a></li>
+				<li class="interwiki-ru"><a href="http://ru.wikipedia.org/wiki/SQL">Русский</a></li>
+				<li class="interwiki-sk"><a href="http://sk.wikipedia.org/wiki/SQL">Slovenčina</a></li>
+				<li class="interwiki-sl"><a href="http://sl.wikipedia.org/wiki/SQL">Slovenščina</a></li>
+				<li class="interwiki-sr"><a href="http://sr.wikipedia.org/wiki/SQL">Српски / Srpski</a></li>
+				<li class="interwiki-fi"><a href="http://fi.wikipedia.org/wiki/SQL">Suomi</a></li>
+				<li class="interwiki-sv"><a href="http://sv.wikipedia.org/wiki/SQL">Svenska</a></li>
+				<li class="interwiki-th"><a href="http://th.wikipedia.org/wiki/%E0%B8%A0%E0%B8%B2%E0%B8%A9%E0%B8%B2%E0%B8%AA%E0%B8%AD%E0%B8%9A%E0%B8%96%E0%B8%B2%E0%B8%A1%E0%B9%80%E0%B8%8A%E0%B8%B4%E0%B8%87%E0%B9%82%E0%B8%84%E0%B8%A3%E0%B8%87%E0%B8%AA%E0%B8%A3%E0%B9%89%E0%B8%B2%E0%B8%87">ไทย</a></li>
+				<li class="interwiki-vi"><a href="http://vi.wikipedia.org/wiki/SQL">Tiếng Việt</a></li>
+				<li class="interwiki-tr"><a href="http://tr.wikipedia.org/wiki/SQL">Türkçe</a></li>
+				<li class="interwiki-uk"><a href="http://uk.wikipedia.org/wiki/SQL">Українська</a></li>
+				<li class="interwiki-zh"><a href="http://zh.wikipedia.org/wiki/SQL">中文</a></li>
+			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="/skins-1.5/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>
+				<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="/images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>
+			<ul id="f-list">
+				<li id="lastmod"> This page was last modified 11:08, 14 September 2007.</li>
+				<li id="copyright">All text is available under the terms of the <a class='internal' href="/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="/wiki/Wikipedia:Copyrights" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a U.S. registered <a class='internal' href="/wiki/501%28c%29#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="/wiki/Non-profit_organization" title="Non-profit organization">nonprofit</a> <a href="/wiki/Charitable_organization" title="Charitable organization">charity</a>.<br /></li>
+				<li id="privacy"><a href="http://wikimediafoundation.org/wiki/Privacy_policy" title="wikimedia:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="/wiki/Wikipedia:About" title="Wikipedia:About">About Wikipedia</a></li>
+				<li id="disclaimer"><a href="/wiki/Wikipedia:General_disclaimer" title="Wikipedia:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+		
+	
+		<script type="text/javascript">if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by srv117 in 1.144 secs. --></body></html>

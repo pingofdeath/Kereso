@@ -1,0 +1,490 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+				<meta name="keywords" content="Breadth-first search,A* search algorithm,Algorithm,Apriori algorithm,BFS,Bellman-Ford algorithm,Best-first search,Bidirectional search,Bipartite,Boost Graph Library,Branching factor" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="http://www.gnu.org/copyleft/fdl.html" />
+		<title>Breadth-first search - Wikipedia, the free encyclopedia</title>
+		<style type="text/css" media="screen, projection">/*<![CDATA[*/
+			@import "/skins-1.5/common/shared.css?99";
+			@import "/skins-1.5/monobook/main.css?99";
+		/*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="/skins-1.5/common/commonPrint.css?99" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE50Fixes.css?99";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE55Fixes.css?99";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "/skins-1.5/monobook/IE60Fixes.css?99";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "/skins-1.5/monobook/IE70Fixes.css?99";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="/skins-1.5/common/IEFixes.js?99"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		
+		<script type= "text/javascript">/*<![CDATA[*/
+var skin = "monobook";
+var stylepath = "/skins-1.5";
+var wgArticlePath = "/wiki/$1";
+var wgScriptPath = "/w";
+var wgScript = "/w/index.php";
+var wgServer = "http://en.wikipedia.org";
+var wgCanonicalNamespace = "";
+var wgCanonicalSpecialPageName = false;
+var wgNamespaceNumber = 0;
+var wgPageName = "Breadth-first_search";
+var wgTitle = "Breadth-first search";
+var wgAction = "view";
+var wgRestrictionEdit = [];
+var wgRestrictionMove = [];
+var wgArticleId = "97026";
+var wgIsArticle = true;
+var wgUserName = null;
+var wgUserGroups = null;
+var wgUserLanguage = "en";
+var wgContentLanguage = "en";
+var wgBreakFrames = false;
+var wgCurRevisionId = "155860178";
+/*]]>*/</script>
+                
+		<script type="text/javascript" src="/skins-1.5/common/wikibits.js?99"><!-- wikibits js --></script>
+		<script type="text/javascript" src="/w/index.php?title=-&amp;action=raw&amp;gen=js&amp;useskin=monobook"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "/w/index.php?title=MediaWiki:Common.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=MediaWiki:Monobook.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=-&action=raw&gen=css&maxage=2678400";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+		<script type="text/javascript" src="/skins-1.5/common/ajax.js?99"></script>
+	</head>
+<body  class="mediawiki ns-0 ltr page-Breadth-first_search">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">Breadth-first search</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<table class="infobox" style="width:22em; background:#fff6d9; text-align:center; font-size:95%;" cellpadding="3">
+<tr>
+<th align="center" bgcolor="#FFC0C0">Breadth-first search</th>
+</tr>
+<tr>
+<td align="center">
+<div class="floatnone"><span><a href="/wiki/Image:Breadth-first_tree.svg" class="image" title="Order in which the nodes get expanded"><img alt="Order in which the nodes get expanded" src="http://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Breadth-first_tree.svg/300px-Breadth-first_tree.svg.png" width="300" height="199" border="0" /></a></span></div>
+<small>Order in which the nodes are expanded</small></td>
+</tr>
+<tr>
+<th align="center" bgcolor="#FFC0C0"><b>General Data</b></th>
+</tr>
+<tr>
+<td>
+<table border="0" style="text-align:left;">
+<tr>
+<td><i>Class</i>:</td>
+<td><a href="/wiki/Search_Algorithm" title="Search Algorithm">Search Algorithm</a></td>
+</tr>
+<tr>
+<td><i>Data Structure</i>:</td>
+<td><a href="/wiki/Graph_%28data_structure%29" title="Graph (data structure)">Graph</a></td>
+</tr>
+<tr>
+<td><i>Time Complexity</i>:</td>
+<td><span class="texhtml"><i>O</i>( | <i>V</i> | + | <i>E</i> | ) = <i>O</i>(<i>b</i><sup><i>d</i></sup>)</span></td>
+</tr>
+<tr>
+<td><i>Space Complexity</i>:</td>
+<td><span class="texhtml"><i>O</i>( | <i>V</i> | + | <i>E</i> | ) = <i>O</i>(<i>b</i><sup><i>d</i></sup>)</span></td>
+</tr>
+<tr>
+<td><i>Optimal</i>:</td>
+<td>yes (for unweighted graphs)</td>
+</tr>
+<tr>
+<td><i>Complete</i>:</td>
+<td>yes</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<p><br />
+In <a href="/wiki/Graph_theory" title="Graph theory">graph theory</a>, <b>breadth-first search</b> (<b><a href="/wiki/BFS" title="BFS">BFS</a></b>) is a <a href="/wiki/Graph_search_algorithm" title="Graph search algorithm">graph search algorithm</a> that begins at the root <a href="/wiki/Node_%28computer_science%29" title="Node (computer science)">node</a> and explores all the neighboring nodes. Then for each of those nearest nodes, it explores their unexplored neighbour nodes, and so on, until it finds the goal.</p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#How_it_works"><span class="tocnumber">1</span> <span class="toctext">How it works</span></a></li>
+<li class="toclevel-1"><a href="#Algorithm_.28informal.29"><span class="tocnumber">2</span> <span class="toctext">Algorithm (informal)</span></a>
+<ul>
+<li class="toclevel-2"><a href="#C_implementation"><span class="tocnumber">2.1</span> <span class="toctext">C implementation</span></a></li>
+<li class="toclevel-2"><a href="#C.2B.2B_implementation"><span class="tocnumber">2.2</span> <span class="toctext">C++ implementation</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Features"><span class="tocnumber">3</span> <span class="toctext">Features</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Space_Complexity"><span class="tocnumber">3.1</span> <span class="toctext">Space Complexity</span></a></li>
+<li class="toclevel-2"><a href="#Time_Complexity"><span class="tocnumber">3.2</span> <span class="toctext">Time Complexity</span></a></li>
+<li class="toclevel-2"><a href="#Completeness"><span class="tocnumber">3.3</span> <span class="toctext">Completeness</span></a></li>
+<li class="toclevel-2"><a href="#Optimality"><span class="tocnumber">3.4</span> <span class="toctext">Optimality</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Applications_of_BFS"><span class="tocnumber">4</span> <span class="toctext">Applications of BFS</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Finding_connected_Components"><span class="tocnumber">4.1</span> <span class="toctext">Finding connected Components</span></a></li>
+<li class="toclevel-2"><a href="#Testing_bipartiteness"><span class="tocnumber">4.2</span> <span class="toctext">Testing bipartiteness</span></a></li>
+<li class="toclevel-2"><a href="#Usage_in_2D_grids_for_computer_games"><span class="tocnumber">4.3</span> <span class="toctext">Usage in 2D grids for computer games</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#See_also"><span class="tocnumber">5</span> <span class="toctext">See also</span></a></li>
+<li class="toclevel-1"><a href="#References"><span class="tocnumber">6</span> <span class="toctext">References</span></a></li>
+<li class="toclevel-1"><a href="#External_links"><span class="tocnumber">7</span> <span class="toctext">External links</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script>
+<p><a name="How_it_works" id="How_it_works"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Breadth-first_search&amp;action=edit&amp;section=1" title="Edit section: How it works">edit</a>]</span> <span class="mw-headline">How it works</span></h2>
+<p>BFS is a <a href="/wiki/Uninformed_search" title="Uninformed search">uninformed search</a> method that aims to expand and examine all nodes of a <a href="/wiki/Graph_%28data_structure%29" title="Graph (data structure)">graph</a> systematically in search of a solution. In other words, it exhaustively searches the entire graph without considering the goal until it finds it. It does not use a <a href="/wiki/Heuristic_%28computer_science%29" title="Heuristic (computer science)">heuristic</a>.</p>
+<p>From the standpoint of the <a href="/wiki/Algorithm" title="Algorithm">algorithm</a>, all child nodes obtained by expanding a node are added to a <a href="/wiki/FIFO" title="FIFO">FIFO</a> <a href="/wiki/Queue_%28data_structure%29" title="Queue (data structure)">queue</a>. In typical implementations, nodes that have not yet been examined for their neighbors are placed in some container (such as a queue or <a href="/wiki/Linked_list" title="Linked list">linked list</a>) called "open" and then once examined are placed in the container "closed".</p>
+<table>
+<tr>
+<td>
+<div class="thumb tleft">
+<div class="thumbinner" style="width:252px;"><a href="/wiki/Image:MapGermanyGraph.svg" class="image" title="An example map of Germany with some connections between cities."><img alt="An example map of Germany with some connections between cities." src="http://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/MapGermanyGraph.svg/250px-MapGermanyGraph.svg.png" width="250" height="252" border="0" class="thumbimage" /></a>
+<div class="thumbcaption">
+<div class="magnify" style="float:right"><a href="/wiki/Image:MapGermanyGraph.svg" class="internal" title="Enlarge"><img src="/skins-1.5/common/images/magnify-clip.png" width="15" height="11" alt="" /></a></div>
+An example map of <a href="/wiki/Germany" title="Germany">Germany</a> with some connections between cities.</div>
+</div>
+</div>
+</td>
+<td>
+<div class="center">
+<div class="thumb tnone">
+<div class="thumbinner" style="width:252px;"><a href="/wiki/Image:GermanyBFS.svg" class="image" title="The breadth-first tree one gets when running BFS on the given map and starting in Frankfurt."><img alt="The breadth-first tree one gets when running BFS on the given map and starting in Frankfurt." src="http://upload.wikimedia.org/wikipedia/commons/thumb/6/63/GermanyBFS.svg/250px-GermanyBFS.svg.png" width="250" height="179" border="0" class="thumbimage" /></a>
+<div class="thumbcaption">
+<div class="magnify" style="float:right"><a href="/wiki/Image:GermanyBFS.svg" class="internal" title="Enlarge"><img src="/skins-1.5/common/images/magnify-clip.png" width="15" height="11" alt="" /></a></div>
+The breadth-first tree one gets when running BFS on the given map and starting in <a href="/wiki/Frankfurt" title="Frankfurt">Frankfurt</a>.</div>
+</div>
+</div>
+</div>
+</td>
+<td>
+<div class="thumb tright">
+<div class="thumbinner" style="width:189px;"><a href="/wiki/Image:Animated_BFS.gif" class="image" title="Animated example of a breadth-first search"><img alt="Animated example of a breadth-first search" src="http://upload.wikimedia.org/wikipedia/en/4/46/Animated_BFS.gif" width="187" height="175" border="0" class="thumbimage" /></a>
+<div class="thumbcaption">
+<div class="magnify" style="float:right"><a href="/wiki/Image:Animated_BFS.gif" class="internal" title="Enlarge"><img src="/skins-1.5/common/images/magnify-clip.png" width="15" height="11" alt="" /></a></div>
+Animated example of a breadth-first search</div>
+</div>
+</div>
+</td>
+</tr>
+</table>
+<p><a name="Algorithm_.28informal.29" id="Algorithm_.28informal.29"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Breadth-first_search&amp;action=edit&amp;section=2" title="Edit section: Algorithm (informal)">edit</a>]</span> <span class="mw-headline">Algorithm (informal)</span></h2>
+<ol>
+<li>Put the ending node (the root node) in the queue.</li>
+<li>Pull a node from the beginning of the queue and examine it.
+<ul>
+<li>If the searched element is found in this node, quit the search and return a result.</li>
+<li>Otherwise push all the (so-far-unexamined) successors (the direct child nodes) of this node into the end of the queue, if there are any.</li>
+</ul>
+</li>
+<li>If the queue is empty, every node on the graph has been examined -- quit the search and return "not found".</li>
+<li>Repeat from Step 2.</li>
+</ol>
+<p><a name="C_implementation" id="C_implementation"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Breadth-first_search&amp;action=edit&amp;section=3" title="Edit section: C implementation">edit</a>]</span> <span class="mw-headline">C implementation</span></h3>
+<p>Algorithm of Breadth-first search：</p>
+<pre>
+void BFS(VLink G[], int v) { 
+  int w;
+  VISIT(v);                    /*visit vertex v*/
+  visited[v] = 1;              /*mark v as visited : 1 */
+  ADDQ(Q,v);
+  while(!QMPTYQ(Q)) { 
+    v = DELQ(Q);               /*Dequeue v*/
+    w = FIRSTADJ(G,v);         /*Find first neighbor, return -1 if no neighbor*/
+    while(w != -1) { 
+      if(visited[w] == 0) { 
+        VISIT(w);              /*visit vertex v*/
+        ADDQ(Q,w);             /*Enqueue current visited vertext w*/
+        visited[w] = 1;        /*mark w as visited*/
+      }
+      W = NEXTADJ(G,v);        /*Find next neighbor, return -1 if no neighbor*/
+    }
+  }  
+}
+</pre>
+<p>Main Algorithm of apply Breadth-first search to graph G=(V,E)：</p>
+<pre>
+void TRAVEL_BFS(VLink G[], int visited[], int n) { 
+  int i;
+  for(i = 0; i &lt; n; i ++) {
+    visited[i] = 0;            /* Mark initial value as 0 */
+  }
+  for(i = 0; i &lt; n; i ++)
+    if(visited[i] == 0)
+      BFS(G,i);
+}
+</pre>
+<p><a name="C.2B.2B_implementation" id="C.2B.2B_implementation"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Breadth-first_search&amp;action=edit&amp;section=4" title="Edit section: C++ implementation">edit</a>]</span> <span class="mw-headline">C++ implementation</span></h3>
+<p>This is the implementation of the above informal algorithm, where the "so-far-unexamined" is handled by the parent array. For actual C++ applications, see the <a href="/wiki/Boost_Graph_Library" title="Boost Graph Library">Boost Graph Library</a>.</p>
+<dl>
+<dd>Suppose we have a struct:</dd>
+</dl>
+<pre>
+struct Vertex {
+        ...
+        std::vector&lt;int&gt; out;
+        ...
+};
+</pre>
+<dl>
+<dd>and an array of vertices: (the algorithm will use the indexes of this array, to handle the vertices)</dd>
+</dl>
+<pre>
+std::vector&lt;Vertex&gt; graph(vertices);
+</pre>
+<dl>
+<dd>the algorithm starts from <b>start</b> and returns true if there is a directed path from <b>start</b> to <b>end</b>:</dd>
+</dl>
+<pre>
+bool <b>BFS</b>(const std::vector&lt;Vertex&gt;&amp; <b>graph</b>, int <b>start</b>, int <b>end</b>) {
+  std::queue&lt;int&gt; next;
+  std::map&lt;int,int&gt; parent;
+  parent[start] = -1;
+  next.push(start);
+  while (!next.empty()) {
+    int u = next.front();
+    next.pop();
+    <i>// Here is the point where you can examine the u th vertex of graph</i>
+    <i>// For example:</i>
+    if (u == <b>end</b>) return <b>true</b>;
+    for (std::vector&lt;int&gt;::const_iterator j = graph[u].out.begin(); j != graph[u].out.end(); ++j) {
+      <i>// Look through neighbors.</i>
+      int v = *j;
+      if (parent.count(v) == 0) {
+        <i>// If v is unvisited.</i>
+        parent[v] = u;
+        next.push(v);
+      }
+    }
+  }
+  return <b>false</b>;
+}
+</pre>
+<dl>
+<dd>it also stores the parents of each node, from which you can get the path.</dd>
+</dl>
+<p><br /></p>
+<p><a name="Features" id="Features"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Breadth-first_search&amp;action=edit&amp;section=5" title="Edit section: Features">edit</a>]</span> <span class="mw-headline">Features</span></h2>
+<table align="right" class="toccolours" style="padding: 0px; width: 170px; margin: 0 0 1em 1em;">
+<tr>
+<th style="background: #ccf;"><a href="/wiki/Graph_search_algorithm" title="Graph search algorithm">Graph search algorithms</a></th>
+</tr>
+<tr>
+<td><b>Search</b>
+<ul>
+<li><a href="/wiki/A%2A_search_algorithm" title="A* search algorithm">A*</a></li>
+<li><a href="/wiki/Bellman-Ford_algorithm" title="Bellman-Ford algorithm">Bellman-Ford algorithm</a></li>
+<li><a href="/wiki/Best-first_search" title="Best-first search">Best-first search</a></li>
+<li><a href="/wiki/Bidirectional_search" title="Bidirectional search">Bidirectional search</a></li>
+<li><strong class="selflink">Breadth-first search</strong></li>
+<li><a href="/wiki/Depth-first_search" title="Depth-first search">Depth-first search</a></li>
+<li><a href="/wiki/Depth-limited_search" title="Depth-limited search">Depth-limited search</a></li>
+<li><a href="/wiki/Dijkstra%27s_algorithm" title="Dijkstra's algorithm">Dijkstra's algorithm</a></li>
+<li><a href="/wiki/Floyd-Warshall_algorithm" title="Floyd-Warshall algorithm">Floyd-Warshall algorithm</a></li>
+<li><a href="/wiki/Hill_climbing" title="Hill climbing">Hill climbing</a></li>
+<li><a href="/wiki/Iterative_deepening_depth-first_search" title="Iterative deepening depth-first search">Iterative deepening depth-first search</a></li>
+<li><a href="/wiki/Johnson%27s_algorithm" title="Johnson's algorithm">Johnson's algorithm</a></li>
+<li><a href="/wiki/Uniform-cost_search" title="Uniform-cost search">Uniform-cost search</a></li>
+</ul>
+</td>
+</tr>
+</table>
+<p><a name="Space_Complexity" id="Space_Complexity"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Breadth-first_search&amp;action=edit&amp;section=6" title="Edit section: Space Complexity">edit</a>]</span> <span class="mw-headline">Space Complexity</span></h3>
+<p>Since all nodes discovered so far have to be saved, the space complexity of breadth-first search is O(|V| + |E|) where |V| is the number of nodes and |E| the number of edges in the graph. Note: another way of saying this is that it is <span class="texhtml"><i>O</i>(<i>B</i><sup><i>M</i></sup>)</span> where B is the maximum <a href="/wiki/Branching_factor" title="Branching factor">branching factor</a> and M is the maximum path length of the tree. This immense demand for space is the reason why breadth-first search is impractical for larger problems.</p>
+<p><a name="Time_Complexity" id="Time_Complexity"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Breadth-first_search&amp;action=edit&amp;section=7" title="Edit section: Time Complexity">edit</a>]</span> <span class="mw-headline">Time Complexity</span></h3>
+<p>Since in the worst case breadth-first search has to consider all paths to all possible nodes the time complexity of breadth-first search is O(|V| + |E|) where |V| is the number of nodes and |E| the number of edges in the graph. The best case of this search is o(1). It occurs when the node is found at first time.</p>
+<p><a name="Completeness" id="Completeness"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Breadth-first_search&amp;action=edit&amp;section=8" title="Edit section: Completeness">edit</a>]</span> <span class="mw-headline">Completeness</span></h3>
+<p>Breadth-first search is complete. This means that if there is a solution breadth-first search will find it regardless of the kind of graph. However, if the graph is infinite and there is no solution breadth-first search will diverge.</p>
+<p><a name="Optimality" id="Optimality"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Breadth-first_search&amp;action=edit&amp;section=9" title="Edit section: Optimality">edit</a>]</span> <span class="mw-headline">Optimality</span></h3>
+<p>For unit-step cost, breadth-first search is optimal. In general breadth-first search is not optimal since it always returns the result with the fewest edges between the start node and the goal node. If the graph is a weighted graph, and therefore has costs associated with each step, a goal next to the start does not have to be the cheapest goal available. This problem is solved by improving breadth-first search to <a href="/wiki/Uniform-cost_search" title="Uniform-cost search">uniform-cost search</a> which considers the path costs. Nevertheless, if the graph is not weighted, and therefore all step costs are equal, breadth-first search will find the nearest and the best solution.</p>
+<p><a name="Applications_of_BFS" id="Applications_of_BFS"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Breadth-first_search&amp;action=edit&amp;section=10" title="Edit section: Applications of BFS">edit</a>]</span> <span class="mw-headline">Applications of BFS</span></h2>
+<p>Breadth-first search can be used to solve many problems in graph theory, for example:</p>
+<ul>
+<li>Finding all connected components in a graph.</li>
+<li>Finding all nodes within one connected component</li>
+<li>Copying Collection, Cheney's algorithm</li>
+<li>Finding the shortest path between two nodes <i>u</i> and <i>v</i> (in an unweighted graph)</li>
+<li>Testing a graph for <a href="/wiki/Bipartite" title="Bipartite">bipartiteness</a></li>
+<li><a href="/wiki/Cuthill%E2%80%93McKee_algorithm" title="Cuthill–McKee algorithm">(Reverse) Cuthill–McKee</a> mesh numbering</li>
+</ul>
+<p><a name="Finding_connected_Components" id="Finding_connected_Components"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Breadth-first_search&amp;action=edit&amp;section=11" title="Edit section: Finding connected Components">edit</a>]</span> <span class="mw-headline">Finding connected Components</span></h3>
+<p>The set of nodes reached by a BFS are the largest connected component containing the start node.</p>
+<p><a name="Testing_bipartiteness" id="Testing_bipartiteness"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Breadth-first_search&amp;action=edit&amp;section=12" title="Edit section: Testing bipartiteness">edit</a>]</span> <span class="mw-headline">Testing bipartiteness</span></h3>
+<p>BFS can be used to test bipartiteness, by starting the search at any vertex and giving alternating labels to the vertices visited during the search. That is, give label 0 to the starting vertex, 1 to all its neighbours, 0 to those neighbours' neighbours, and so on. If at any step a vertex has (visited) neighbours with the same label as itself, then the graph is not bipartite. If the search ends without such a situation occurring, then the graph is bipartite.</p>
+<p><a name="Usage_in_2D_grids_for_computer_games" id="Usage_in_2D_grids_for_computer_games"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Breadth-first_search&amp;action=edit&amp;section=13" title="Edit section: Usage in 2D grids for computer games">edit</a>]</span> <span class="mw-headline">Usage in 2D grids for computer games</span></h3>
+<p>BFS has been applied to pathfinding problems in computer games, such as Real-Time Strategy games, where the graph is represented by a tilemap, and each tile in the map represents a node. Each of that node is then connected to each of its neighbour (neighbour in north, north-east, east, south-east, south, south-west, west, and north-west).</p>
+<p>It is worth mentioning that when BFS is used in that manner, the neighbour list should be created such that north, east, south and west get priority over north-east, south-east, south-west and north-west. The reason for this is that BFS tends to start searching in a diagonal manner rather than adjacent, and the path found will not be the correct one. BFS should first search adjacent nodes, then diagonal nodes.</p>
+<p><a name="See_also" id="See_also"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Breadth-first_search&amp;action=edit&amp;section=14" title="Edit section: See also">edit</a>]</span> <span class="mw-headline">See also</span></h2>
+<ul>
+<li><a href="/wiki/Apriori_algorithm" title="Apriori algorithm">Apriori algorithm</a></li>
+<li><a href="/wiki/Depth-first_search" title="Depth-first search">Depth-first search</a></li>
+</ul>
+<p><a name="References" id="References"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Breadth-first_search&amp;action=edit&amp;section=15" title="Edit section: References">edit</a>]</span> <span class="mw-headline">References</span></h2>
+<ul>
+<li><a href="/wiki/Thomas_H._Cormen" title="Thomas H. Cormen">Thomas H. Cormen</a>, <a href="/wiki/Charles_E._Leiserson" title="Charles E. Leiserson">Charles E. Leiserson</a>, <a href="/wiki/Ronald_L._Rivest" title="Ronald L. Rivest">Ronald L. Rivest</a>, and <a href="/wiki/Clifford_Stein" title="Clifford Stein">Clifford Stein</a>. <i><a href="/wiki/Introduction_to_Algorithms" title="Introduction to Algorithms">Introduction to Algorithms</a></i>, Second Edition. MIT Press and McGraw-Hill, 2001. <a href="/w/index.php?title=Special:Booksources&amp;isbn=0262032937" class="internal">ISBN 0-262-03293-7</a>. Section 22.2: Breadth-first search, pp.531–539.</li>
+</ul>
+<p><a name="External_links" id="External_links"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Breadth-first_search&amp;action=edit&amp;section=16" title="Edit section: External links">edit</a>]</span> <span class="mw-headline">External links</span></h2>
+<ul>
+<li><a href="http://www.nist.gov/dads/HTML/breadthfirst.html" class="external text" title="http://www.nist.gov/dads/HTML/breadthfirst.html" rel="nofollow">Dictionary of Algorithms and Data Structures: breadth-first search</a></li>
+<li><a href="http://www.boost.org/libs/graph/doc/breadth_first_search.html" class="external text" title="http://www.boost.org/libs/graph/doc/breadth_first_search.html" rel="nofollow">C++ Boost Graph Library: Breadth-First Search</a></li>
+<li><a href="http://www.kirupa.com/developer/actionscript/depth_breadth_search.htm" class="external text" title="http://www.kirupa.com/developer/actionscript/depth_breadth_search.htm" rel="nofollow">Depth First and Breadth First Search: Explanation and Code</a></li>
+<li><a href="http://www.cs.duke.edu/csed/jawaa/BFSanim.html" class="external text" title="http://www.cs.duke.edu/csed/jawaa/BFSanim.html" rel="nofollow">BFS Animation</a></li>
+<li><a href="http://www.willmcgugan.com/2007/04/20/swim-fugu-swim/" class="external text" title="http://www.willmcgugan.com/2007/04/20/swim-fugu-swim/" rel="nofollow">Breadth First Search implementation in Python</a></li>
+</ul>
+
+<!-- 
+Pre-expand include size: 1207 bytes
+Post-expand include size: 1316 bytes
+Template argument size: 297 bytes
+Maximum: 2048000 bytes
+-->
+
+<!-- Saved in parser cache with key enwiki:pcache:idhash:97026-0!1!0!default!!en!2 and timestamp 20070913063904 -->
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org/wiki/Breadth-first_search">http://en.wikipedia.org/wiki/Breadth-first_search</a>"</div>
+			<div id="catlinks"><p class='catlinks'><a href="/wiki/Special:Categories" title="Special:Categories">Categories</a>: <span dir='ltr'><a href="/wiki/Category:Graph_algorithms" title="Category:Graph algorithms">Graph algorithms</a></span> | <span dir='ltr'><a href="/wiki/Category:Search_algorithms" title="Category:Search algorithms">Search algorithms</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<div class="pBody">
+			<ul>
+					 <li id="ca-nstab-main" class="selected"><a href="/wiki/Breadth-first_search" title="View the content page [c]" accesskey="c">Article</a></li>
+					 <li id="ca-talk"><a href="/wiki/Talk:Breadth-first_search" title="Discussion about the content page [t]" accesskey="t">Discussion</a></li>
+					 <li id="ca-edit"><a href="/w/index.php?title=Breadth-first_search&amp;action=edit" title="You can edit this page. Please use the preview button before saving. [e]" accesskey="e">Edit this page</a></li>
+					 <li id="ca-history"><a href="/w/index.php?title=Breadth-first_search&amp;action=history" title="Past versions of this page [h]" accesskey="h">History</a></li>
+				</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-personal">
+		<h5>Personal tools</h5>
+		<div class="pBody">
+			<ul>
+				<li id="pt-login"><a href="/w/index.php?title=Special:Userlogin&amp;returnto=Breadth-first_search" title="You are encouraged to log in, it is not mandatory however. [o]" accesskey="o">Sign in / create account</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-logo">
+		<a style="background-image: url(/images/wiki-en.png);" href="/wiki/Main_Page" title="Visit the Main Page [z]" accesskey="z"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-Main-page"><a href="/wiki/Main_Page">Main page</a></li>
+				<li id="n-Contents"><a href="/wiki/Wikipedia:Contents">Contents</a></li>
+				<li id="n-Featured-content"><a href="/wiki/Wikipedia:Featured_content">Featured content</a></li>
+				<li id="n-currentevents"><a href="/wiki/Portal:Current_events" title="Find background information on current events">Current events</a></li>
+				<li id="n-randompage"><a href="/wiki/Special:Random" title="Load a random page [x]" accesskey="x">Random article</a></li>
+			</ul>
+		</div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+		<h5>interaction</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-About-Wikipedia"><a href="/wiki/Wikipedia:About">About Wikipedia</a></li>
+				<li id="n-portal"><a href="/wiki/Wikipedia:Community_Portal" title="About the project, what you can do, where to find things">Community portal</a></li>
+				<li id="n-recentchanges"><a href="/wiki/Special:Recentchanges" title="The list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li>
+				<li id="n-contact"><a href="/wiki/Wikipedia:Contact_us">Contact Wikipedia</a></li>
+				<li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising" title="Support us">Donate to Wikipedia</a></li>
+				<li id="n-help"><a href="/wiki/Help:Contents" title="Guidance on how to use and edit Wikipedia">Help</a></li>
+			</ul>
+		</div>
+	</div>
+		<div id="p-search" class="portlet">
+		<h5><label for="searchInput">Search</label></h5>
+		<div id="searchBody" class="pBody">
+			<form action="/wiki/Special:Search" id="searchform"><div>
+				<input id="searchInput" name="search" type="text" title="Search Wikipedia [f]" accesskey="f" value="" />
+				<input type='submit' name="go" class="searchButton" id="searchGoButton"	value="Go" />&nbsp;
+				<input type='submit' name="fulltext" class="searchButton" id="mw-searchButton" value="Search" />
+			</div></form>
+		</div>
+	</div>
+	<div class="portlet" id="p-tb">
+		<h5>Toolbox</h5>
+		<div class="pBody">
+			<ul>
+				<li id="t-whatlinkshere"><a href="/wiki/Special:Whatlinkshere/Breadth-first_search" title="List of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+				<li id="t-recentchangeslinked"><a href="/wiki/Special:Recentchangeslinked/Breadth-first_search" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+<li id="t-upload"><a href="/wiki/Wikipedia:Upload" title="Upload images or media files [u]" accesskey="u">Upload file</a></li>
+<li id="t-specialpages"><a href="/wiki/Special:Specialpages" title="List of all special pages [q]" accesskey="q">Special pages</a></li>
+				<li id="t-print"><a href="/w/index.php?title=Breadth-first_search&amp;printable=yes" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>				<li id="t-permalink"><a href="/w/index.php?title=Breadth-first_search&amp;oldid=155860178" title="Permanent link to this version of the page">Permanent link</a></li><li id="t-cite"><a href="/w/index.php?title=Special:Cite&amp;page=Breadth-first_search&amp;id=155860178">Cite this article</a></li>			</ul>
+		</div>
+	</div>
+	<div id="p-lang" class="portlet">
+		<h5>In other languages</h5>
+		<div class="pBody">
+			<ul>
+				<li class="interwiki-ca"><a href="http://ca.wikipedia.org/wiki/Cerca_en_profunditat">Català</a></li>
+				<li class="interwiki-cs"><a href="http://cs.wikipedia.org/wiki/Prohled%C3%A1v%C3%A1n%C3%AD_do_%C5%A1%C3%AD%C5%99ky">Česky</a></li>
+				<li class="interwiki-de"><a href="http://de.wikipedia.org/wiki/Breitensuche">Deutsch</a></li>
+				<li class="interwiki-es"><a href="http://es.wikipedia.org/wiki/B%C3%BAsqueda_en_anchura">Español</a></li>
+				<li class="interwiki-fr"><a href="http://fr.wikipedia.org/wiki/Algorithme_de_parcours_en_largeur">Français</a></li>
+				<li class="interwiki-he"><a href="http://he.wikipedia.org/wiki/%D7%90%D7%9C%D7%92%D7%95%D7%A8%D7%99%D7%AA%D7%9D_%D7%97%D7%99%D7%A4%D7%95%D7%A9_%D7%9C%D7%A8%D7%95%D7%97%D7%91">עברית</a></li>
+				<li class="interwiki-lt"><a href="http://lt.wikipedia.org/wiki/Paie%C5%A1ka_%C4%AF_plot%C4%AF">Lietuvių</a></li>
+				<li class="interwiki-ja"><a href="http://ja.wikipedia.org/wiki/%E5%B9%85%E5%84%AA%E5%85%88%E6%8E%A2%E7%B4%A2">日本語</a></li>
+				<li class="interwiki-pl"><a href="http://pl.wikipedia.org/wiki/Przeszukiwanie_wszerz">Polski</a></li>
+				<li class="interwiki-pt"><a href="http://pt.wikipedia.org/wiki/Busca_em_largura">Português</a></li>
+				<li class="interwiki-ru"><a href="http://ru.wikipedia.org/wiki/%D0%9F%D0%BE%D0%B8%D1%81%D0%BA_%D0%B2_%D1%88%D0%B8%D1%80%D0%B8%D0%BD%D1%83">Русский</a></li>
+				<li class="interwiki-zh"><a href="http://zh.wikipedia.org/wiki/%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2">中文</a></li>
+			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="/skins-1.5/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>
+				<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="/images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>
+			<ul id="f-list">
+				<li id="lastmod"> This page was last modified 16:06, 5 September 2007.</li>
+				<li id="copyright">All text is available under the terms of the <a class='internal' href="/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="/wiki/Wikipedia:Copyrights" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a U.S. registered <a class='internal' href="/wiki/501%28c%29#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="/wiki/Non-profit_organization" title="Non-profit organization">nonprofit</a> <a href="/wiki/Charitable_organization" title="Charitable organization">charity</a>.<br /></li>
+				<li id="privacy"><a href="http://wikimediafoundation.org/wiki/Privacy_policy" title="wikimedia:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="/wiki/Wikipedia:About" title="Wikipedia:About">About Wikipedia</a></li>
+				<li id="disclaimer"><a href="/wiki/Wikipedia:General_disclaimer" title="Wikipedia:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+		
+	
+		<script type="text/javascript">if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by srv156 in 0.058 secs. --></body></html>

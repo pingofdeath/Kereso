@@ -1,0 +1,2519 @@
+
+
+
+
+
+	
+
+
+
+
+
+
+
+	
+	
+	  	
+		
+			
+		
+	
+	
+	
+	
+	  	
+		
+			
+		
+	
+	
+
+
+
+   
+
+
+
+
+		
+<style>
+.note-header-text {font-family: Times, Times New Roman, serif;
+		color:#ff0000; font-size: .95em;
+		margin-left: .75em; margin-right: .75em;}
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 	
+	
+  		
+		
+	
+
+
+
+  	 
+     
+
+
+
+	
+	
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+		
+		
+   	 
+
+
+
+
+ 	
+ 	
+	
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<LINK REL=STYLESHEET TYPE="text/css" HREF="css/dl.css">
+<title>Efficient Algorithms for Shortest Paths in Sparse Networks</title>
+<style type="text/css"><!--
+    body {margin-left: 0em; margin-top: 0}
+    a:link {text-decoration: underline; 	Color: #006699;}
+    a:visited  { color: #990033; text-decoration: underline;}
+    a:hover {color: red; text-decoration: none}
+    a.dLink1:link {color:#336699}
+    a.dLink1:visited {color:#666666}
+	a.isblack:link {text-decoration: underline; 	Color: #000000;}
+    a.isblack:visited  { color: #000000; text-decoration: underline;}
+    a.isblack:hover {color: #000000; text-decoration: none}
+    h1 {font-size: 140%; margin-bottom: 0}
+	ul {margin-top: .25em; list-style-type: disc}
+	ol {margin-top: .25em;}
+	li {padding-bottom: .25em}
+    h2 {color: white; background-color: #069; 
+        font-size: 100%; padding-left: 1em;
+		margin: 0}
+	h3 {color: black; background-color: yellow; 
+    	font-size: 100%;
+		margin: 0}
+	 h4 {color: black; background-color: #99c5e8; 
+        font-size: 100%;
+		margin: 0}
+    hr {color: #39176d;}
+    form {margin-top: 10}
+    form.xrs {margin-top: 0}
+	
+	a {text-decoration: none; }
+	
+	input {font-size: 1em;}
+	.chevron {color: #ff0000;}
+	.light-blue {color:#336699;}
+	.black {color:#000000;}
+	
+	/* ### standard text styles, smallest to largest ### */
+	
+	.footer-link-text {font-family: Arial, Helvetica, sans-serif;
+		color:#336699; font-size: .75em; line-height: 1.33em;
+		text-indent: -.75 em; margin-left: 2em; margin-right: .75em;}
+		
+	.footer-copy-text {font-family: Arial, Helvetica, sans-serif;
+		color:#000000; font-size: .75em; line-height: 1.3em;
+		margin-left: .75em; margin-right: .75em;}
+		
+	.small-link-text {font-family: Arial, Helvetica, sans-serif;
+		color:#000000; font-size: .83em; padding-bottom : 2px;
+	  	padding-top : 2px;}
+
+	.smaller-text {font-family: Arial, Helvetica, sans-serif;
+		color:#000000; font-size: .75em;}		
+	.small-text {font-family: Arial, Helvetica, sans-serif;
+		color:#000000; font-size: .83em;}
+	.medium-text {font-family: Arial, Helvetica, sans-serif;
+		color:#000000; font-size: 1em;}
+	.mediumb-text {font-family: Arial, Helvetica, sans-serif;
+		color:#000000; font-size: 1em; font-weight: bold;}
+	.large-text {font-family: Arial, Helvetica, sans-serif;
+		color:#000000; font-size: 1.3em;}		
+	
+	.list-link-text {font-family: Arial, Helvetica, sans-serif;
+		color:#336699; font-size: .83em; line-height: 1.3em;}
+	.list-link-btext {font-family: Arial, Helvetica, sans-serif;
+		color:#000000; font-size: .83em; line-height: 1.3em;}
+	
+	.searchbox-text {font-family: Arial, Helvetica, sans-serif;
+		color:#000066; font-size: 1em; font-weight: bold;}
+	.footer-header-text {font-family: Arial, Helvetica, sans-serif;
+		color:#000066; font-size: 1em; font-weight: bold;
+		margin-left: .75em; margin-right: .75em;}
+	.medium-link-text {font-family: Arial, Helvetica, sans-serif;
+		color:#000066; font-size: 1em; font-weight: bold; line-height: 1em;
+		text-indent: -1.25em; margin-left: 2em; margin-right: .75em;}
+	
+	
+	.small-copy-text {font-family: Times, Times New Roman, serif;
+		color:#000066; font-size: .75em; line-height: 1.2em;
+		margin-left: .75em; margin-right: .75em;}
+
+	.medium-copy-text {font-family: Times, Times New Roman, serif;
+		color:#000066; font-size: 1em; line-height: 1.2em;
+		margin-left: .75em; margin-right: .75em;}
+	
+	.large-copy-text {font-family: Times, Times New Roman, serif;
+		color:#000066; font-size: 1.3em; line-height: 1.5em;
+		margin-left: .75em; margin-right: .75em;}
+	
+	.medium-header-text {font-family: Times, Times New Roman, serif;
+		color:#ff0000; font-size: 1em;
+		margin-left: .75em; margin-right: .75em;}
+	
+	.large-header-text {font-family: Times, Times New Roman, serif;
+		color:#ff0000; font-size: 1.5em;
+		margin-left: .75em; margin-right: .75em;}
+
+  --></style>
+ 
+<SCRIPT LANGUAGE="JavaScript">
+ /* <!-- Begin
+	if(document.layers || document.all) {
+	a = 1;
+	setInterval("Jump()", 10);
+	}
+	function Jump() {
+	a = a + 1;
+	//self.moveBy((Math.random() * a * 2 - a), (Math.random() * a * 2) - a);
+	}
+//  End --> */
+</script>
+<script type="text/javascript" src="/CFIDE/scripts/cfform.js"></script>
+<script type="text/javascript" src="/CFIDE/scripts/masks.js"></script>
+<script type="text/javascript">
+<!--
+    function  _CF_checkqiksearch(_CF_this)
+    {
+        //reset on submit
+        _CF_error_exists = false;
+        _CF_error_messages = new Array();
+        _CF_error_fields = new Object();
+        _CF_FirstErrorField = null;
+
+        //form element query required check
+        if( !_CF_hasValue(_CF_this['query'], "TEXT", false ) )
+        {
+            _CF_onError(_CF_this, "query", _CF_this['query'].value, "Please enter your Search Criteria");
+            _CF_error_exists = true;
+        }
+
+
+        //display error messages and return success
+        if( _CF_error_exists )
+        {
+            if( _CF_error_messages.length > 0 )
+            {
+                // show alert() message
+                _CF_onErrorAlert(_CF_error_messages);
+                // set focus to first form error, if the field supports js focus().
+                if( _CF_this[_CF_FirstErrorField].type == "text" )
+                { _CF_this[_CF_FirstErrorField].focus(); }
+
+            }
+            return false;
+        }else {
+            return true;
+        }
+    }
+//-->
+</script>
+</head>
+
+
+
+
+
+
+	
+	
+	
+	
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+
+
+
+ 
+ 
+
+
+
+
+
+	
+  
+
+
+
+
+
+<body bgcolor="#ffffff" onload="window.focus(); ">
+<div align="center">
+<a name="CIT"></a>
+<table border="0" width="85%" cellspacing="0" cellpadding="0">
+<tr>
+<td>
+
+
+	
+		
+				
+				
+					
+				  
+		
+	 
+
+
+
+
+
+
+
+
+
+	
+		
+	  
+		
+
+	
+
+
+
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+	<tr valign="top">
+		<td width="1%" class="small-link-text" align="center"  background="http://portal.acm.org/images/horiz-bar.jpg"><img src="http://portal.acm.org/images/logo_acm_portal2.jpg" alt="ACM Portal" width="263" height="54" border="0" usemap="#PORT">
+			
+			
+		</td>
+		<td width="99%" align="left" class="small-link-text">
+			<table border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td>&nbsp;</td>
+				
+					<td class="small-link-text"><a href="https://campus.acm.org/Public/login_genpubqj.cfm?rdr=http://portal.acm.org/citation.cfm?doid=321992.321993&promo=QJPUB&offering=200&form_type=PUB&CFID=29900198&CFTOKEN=74432114" class="small-link-text">Subscribe</a><span class="small-link-text">&nbsp;(Full Service)</span>&nbsp;&nbsp;&nbsp;</td>
+					<td class="small-link-text"><a href="https://portal.acm.org/poplogin.cfm?dl=GUIDE&coll=GUIDE&want_href=citation%2Ecfm%3Fdoid%3D321992%2E321993%26CFID%3D29900198%26CFTOKEN%3D74432114&CFID=29900198&CFTOKEN=74432114" class="small-link-text">Register</a><span class="small-link-text">&nbsp;(Limited Service, <font color="Red">Free</font>)</span>&nbsp;&nbsp;&nbsp;</td>
+				
+				<td class="small-link-text" valign="bot">
+					
+					
+		 					<a href="https://portal.acm.org/poplogin.cfm?dl=GUIDE&coll=GUIDE&want_href=citation%2Ecfm%3Fdoid%3D321992%2E321993%26CFID%3D29900198%26CFTOKEN%3D74432114&CFID=29900198&CFTOKEN=74432114" class="small-link-text">Login</a>
+					
+				</td>			
+			</tr>
+			</table>
+			
+			<table border="0" width="100%" cellspacing="0" cellpadding="0">
+				<form name="qiksearch" action="results.cfm?coll=GUIDE&dl=GUIDE&CFID=29900198&CFTOKEN=74432114" method="post" target="_self" onsubmit="return _CF_checkqiksearch(this)">
+				<tr>
+					<td height="5"><img src="http://portal.acm.org/images/blanks.gif" width=1 height=1 alt="" border="0"></td>
+				</tr>
+				<input type="hidden" name="parser" value="Internet">
+				<tr>
+					<td class="small-link-text">&nbsp;</td>
+					<td class="small-link-text">
+						
+						  	
+						
+						<b>Search:</b>&nbsp;&nbsp;&nbsp;<input type="Radio" name="whichDL" value="acm" >The ACM Digital Library&nbsp;&nbsp;&nbsp;<input type="Radio" name="whichDL" value="guide" checked>The Guide
+						<br><input name="query" id="query" type="text" size="60"  class="pubdescr"  />&nbsp;&nbsp;
+						<input type="Image" alt="Search" name=Go src="http://portal.acm.org/images/search_small.jpg" border="0">
+					</td>
+				</tr>
+				</form>
+
+			</table>
+			
+		</td>
+	<!-- top nav END -->
+	</tr>
+	</table>
+	<table border="0" cellspacing="0" cellpadding="0">
+	<tr>
+		<td height="12"><img src="http://portal.acm.org/images/blanks.gif" width=1 height=1 alt="" border="0"></td>
+	</tr>
+	</table>
+
+<map name="PORT" > 
+  <area shape="rect" coords="1,1,55,60" href="http://www.acm.org/" alt="ACM Home Page">
+  <area shape="rect" coords="65,1,300,78" href="portal.cfm?coll=GUIDE&dl=GUIDE&CFID=29900198&CFTOKEN=74432114">
+</map>
+
+	
+
+<table border="0" width="100%" align="left">
+	<col width="40%">
+	<col width="60%">
+	<tr>
+		<td>
+			
+				<a href="guide.cfm?coll=GUIDE&dl=GUIDE&CFID=29900198&CFTOKEN=74432114"><img src="http://portal.acm.org/images/acm_guide_bar_large2.jpg" width=350 height=25 alt="" border="0"></a>
+			
+		</td>
+ 		<td class="small-text" align="center">
+			<img src="http://portal.acm.org/images/feedback.gif" width="20" height="19" alt="Please provide us with feedback." border="0">&nbsp;<a href="survey/survey-ci.cfm?CFID=29900198&CFTOKEN=74432114">Feedback</a>&nbsp;&nbsp;<a href="survey/survey-ci.cfm?CFID=29900198&CFTOKEN=74432114">Report a problem</a>&nbsp;&nbsp;<a href="survey/survey-general.cfm?CFID=29900198&CFTOKEN=74432114">Satisfaction survey</a>
+		</td>
+	</tr>
+	<tr>
+		<td height="6"><img src="http://portal.acm.org/images/blanks.gif" width=1 height=1 alt="" border="0"></td>
+	</tr>
+</table>
+</td>
+</tr>
+
+
+
+
+<tr>
+	<td colspan="3" valign="top" height="1" background="http://portal.acm.org/images/horiz-bar-long.jpg"></td>
+</tr>
+
+<tr>
+<td class="small-text">
+	<table border="0" width="100%"  cellpadding="2">
+		<col width="1%">
+		<col width="8%">
+		<col width="91%">
+	<tr>
+		<td class="medium-text" colspan="3"><strong>Efficient Algorithms for Shortest Paths in Sparse Networks</strong></td>
+	</tr>
+					
+	
+		<tr valign="middle">
+			
+			
+		</tr>
+		
+			<tr valign="top">
+				
+					<td class="small-text"><strong>Full text</strong></td>
+				 
+				<td class="smaller-text" colspan="2" >
+						
+						
+							
+									 <A NAME="FullText" HREF="ft_gateway.cfm?id=321993&type=pdf&coll=GUIDE&dl=GUIDE&CFID=29900198&CFTOKEN=74432114" target="_blank"><img src="http://portal.acm.org/images/pdf_logo.gif" width="16" height="16" alt="pdf format" border="0" hspace="1" align="texttop">Pdf</A>
+									 (853&nbsp;KB)
+							
+						   
+				</td>
+			</tr>
+		
+
+		<tr valign="top">
+			<td class="small-text"><strong>Source</strong>
+				
+				
+						
+				
+				
+					
+
+					
+				
+				
+			</td>
+			<td class="small-text" colspan="2">
+			
+								
+										
+											
+											
+										
+											
+											
+										
+											
+											
+												
+										
+											
+											
+											
+											
+											
+											
+												
+												
+												
+													
+													
+												
+											
+												
+											
+											
+													
+													
+													
+												    
+													
+														
+														
+															
+													
+														
+														
+														
+														
+														
+														<SPAN class="mediumb-text">Journal of the ACM (JACM) </span>
+																			<a href="toc.cfm?id=J401&type=periodical&coll=GUIDE&dl=GUIDE&CFID=29900198&CFTOKEN=74432114" target="_self" class="small-link-text">archive</a><br>
+														
+															 <span class="small-text"> Volume 24 ,&nbsp; Issue 1 &nbsp;(January 1977)</span>
+															 					  <a href="toc.cfm?id=321992&type=issue&coll=GUIDE&dl=GUIDE&CFID=29900198&CFTOKEN=74432114" target="_self" class="small-link-text">table of contents</a><br>
+																				  <span class="small-text"> </span>
+														   
+													
+												 
+										
+								
+		
+
+		
+		<div class="medium-text">
+			
+			
+			
+		</div>
+		
+		
+		    
+			
+			
+		
+
+			
+			
+			<div class="small-text">
+				 Pages: 1 - 13&nbsp;&nbsp;
+			</div>
+					
+			
+			
+			
+				<div class="small-text">
+					Year of Publication:&nbsp;1977
+				</div>
+			
+					
+			
+				<div class="small-text">
+					
+						
+						
+							
+							
+						  
+					  
+					ISSN:0004-5411
+				</div>
+				
+
+			
+			
+				
+					
+					
+					
+				
+					
+					
+					
+				
+					
+					
+					
+				
+			
+			
+		
+			 
+			  	
+			 
+			 
+		
+			
+				
+			</td>
+		</tr>
+		
+		
+		
+			<tr valign="top">
+				<td class="small-text">							
+										  	<strong>Author </strong>
+										
+				</td>
+				
+				
+					
+					
+				<td colspan="2">
+				<div class="authors">
+					<table cellpadding="0" cellspacing="0">		
+					
+							<tr>
+								<td class="small-text">
+									<a href="results.cfm?query=author%3ADonald%20B%2E%20Johnson&querydisp=author%3ADonald%20B%2E%20Johnson&coll=GUIDE&dl=GUIDE&CFID=29900198&CFTOKEN=74432114" target="_self">Donald B. Johnson</a>
+ 									 
+										
+										
+										
+							    </td>
+								<td class="small-text">
+									
+										<small>&nbsp;Computer Science Department, Whitmore Laboratory, The Pennsylvania State University, University Park, PA</small>
+										
+								</td>
+							</tr>
+					
+					</table>	
+				</div>
+				</td>
+			</tr>
+			
+		
+		
+		
+	    
+
+		
+		
+		
+		
+			
+		
+		
+		
+		
+			
+			
+			
+			
+				
+					<tr valign="top">
+						<td class="small-text"><strong>Publisher</strong></td>
+						<td colspan="2">
+							<div class="publishers">
+								
+								
+								
+								
+								
+								
+									
+									
+									  	ACM Press &nbsp;
+									
+									
+										<small> New York, NY, USA </small>
+									
+								
+							</div>
+						</td>
+					</tr>
+				
+			
+		
+		
+		
+		
+		
+		
+		
+		
+		</table>
+		
+		
+		
+		
+		
+		
+		
+ 
+ 		
+</td>
+</tr>
+
+
+<tr>
+<td>
+
+<!-- third main table: main content START -->
+	<table border="0" width="100%" cellspacing="0" cellpadding="0">
+	<tr>
+		<td height="6"><img src="http://portal.acm.org/images/blanks.gif" width=1 height=1 alt="" border="0"></td>
+	</tr>
+	<tr>
+		<td colspan="4" valign="top" height="1" background="http://portal.acm.org/images/horiz-bar-long.jpg"></td>
+	</tr>
+	<tr>
+		<td height="6"><img src="http://portal.acm.org/images/blanks.gif" width=1 height=1 alt="" border="0"></td>
+	</tr>
+
+	
+
+	<tr valign="top">
+	<!-- buttons -->
+		<td width="100%" colspan="4">
+	    <table border="0" cellspacing="0" cellpadding="0" width="100%">
+		<col width="22%">
+	    <col width="78%">
+		<tr>
+			<td class="small-text"><b>Additional Information:</b></td>
+			<td>
+			<p class="small-text">
+				
+				
+				
+					<a href="citation.cfm?doid=321992.321993#abstract">abstract</a>&nbsp;&nbsp;
+				
+				
+					<a href="citation.cfm?doid=321992.321993#references">references</a>&nbsp;&nbsp;
+				
+				
+					<a href="citation.cfm?doid=321992.321993#citedby">cited by</a>&nbsp;&nbsp;
+				
+				
+				
+					<a href="citation.cfm?doid=321992.321993#IndexTerms">index terms</a>&nbsp;&nbsp;
+				
+				
+				
+						<a href="citation.cfm?doid=321992.321993#collab">collaborative colleagues</a>&nbsp;&nbsp;
+				
+				
+				</p>
+			</td>
+		</tr>
+		</table>
+		</td>
+	</tr>
+	<tr>
+		<td height="6"><img src="http://portal.acm.org/images/blanks.gif" width=1 height=1 alt="" border="0"></td>
+	</tr>
+	
+	<tr valign="top">
+	<!-- buttons -->
+		<form name="popbinder">
+		<td width="100%" colspan="4">
+		
+		<table border="0" cellspacing="0" cellpadding="2" width="100%" >
+		  <col width="22%">
+		  <col width="78%">
+		  <tr valign="top">
+		  	<td class="small-text"><b>Tools and Actions:</b></td>
+			<td>
+			
+			  	
+			
+			
+			<a href="results.cfm?query=321993&querydisp=Similar%20to%3A%20Efficient%20Algorithms%20for%20Shortest%20Paths%20in%20Sparse%20Networks&coll=GUIDE&dl=GUIDE&CFID=29900198&CFTOKEN=74432114" target="_self" class="small-link-text">Find similar Articles</a>&nbsp;&nbsp;
+
+			<a href="http://www.reviews.com/reviewer/quickreview/frameset_toplevel.cfm?bib_id=321993" target="reviews" class="small-link-text">Review this Article</a>&nbsp;&nbsp;
+			
+			
+				<br>
+				
+					<a href="https://portal.acm.org/poplogin.cfm?dl=GUIDE&coll=GUIDE&comp_id=COMPONENT034&want_href=citation%2Ecfm%3Fdoid%3D321992%2E321993%26backfrombind%3D1&CFID=29900198&CFTOKEN=74432114" class="small-link-text">
+				
+				Save this Article to a Binder</a><img src="http://portal.acm.org/images/blanks.gif" border="0" name="saved">
+			  
+			&nbsp;&nbsp;
+			<span class="small-text">Display Formats:</span>
+			<a href="citation.cfm?doid=321992.321993#" onClick="window.open('popBibTex.cfm?id=321993&ids=J401.321992.321993&types=periodical.issue.article&reqtype=article&coll=GUIDE&dl=GUIDE&CFID=29900198&CFTOKEN=74432114','BibTex','width=800,height=100,top=100,left=100,scrollbars=Yes,resizable=yes');" class="small-link-text">
+			BibTex</a>&nbsp;
+
+			<a href="citation.cfm?doid=321992.321993#" onClick="window.open('popendnotes.cfm?id=321993&ids=J401.321992.321993&types=periodical.issue.article&reqtype=article&coll=GUIDE&dl=GUIDE&CFID=29900198&CFTOKEN=74432114','BibTex','width=800,height=100,top=100,left=100,scrollbars=Yes,resizable=yes');" class="small-link-text">
+			EndNote</a>
+
+			
+			 
+				<a href="citation.cfm?doid=321992.321993#" onClick="window.open('popacmref.cfm?id=321993&ids=J401.321992.321993&types=periodical.issue.article&reqtype=article&coll=GUIDE&dl=GUIDE&CFID=29900198&CFTOKEN=74432114','BibTeX','width=800,height=100,top=100,left=100,scrollbars=Yes,resizable=yes');" class="small-link-text">
+			ACM Ref</a>
+			
+			
+			&nbsp;&nbsp;				
+			
+			</td>
+		</tr>
+		<tr>
+			<td height="10"><img src="http://portal.acm.org/images/blanks.gif" width=1 height=1 alt="" border="0"></td>
+		</tr>
+		
+		<tr valign="top">
+			<td class="small-text"><b>DOI Bookmark:</b></td>
+			<td class="small-text">
+				<small>Use this link to bookmark this Article:&nbsp;</small><a href="http://doi.acm.org/10.1145/321992.321993">http://doi.acm.org/10.1145/321992.321993</a><br><small><a href="http://www.doi.org/">What is a DOI?</a></small>
+			    
+			</td>
+		</tr> 
+		
+		</table>
+		
+		</td>
+		</form>
+	</tr>
+	<tr>
+		<td height="6"><img src="http://portal.acm.org/images/blanks.gif" width=1 height=1 alt="" border="0"></td>
+	</tr>
+	<tr>
+		<td colspan="4" valign="top" height="1" background="http://portal.acm.org/images/horiz-bar-long.jpg"></td>
+	</tr>
+	<tr>
+		<td height="6"><img src="http://portal.acm.org/images/blanks.gif" width=1 height=1 alt="" border="0"></td>
+	</tr>
+	</table>
+<!-- third main table: main content END -->
+	
+
+		
+		
+
+
+
+		
+		
+		  	<div class="abstract">
+			
+			
+			  	
+			 
+			 
+			
+			</div>
+		
+		
+		
+
+		
+			<br>
+			<div class="abstract">
+			
+			<A HREF="citation.cfm?doid=321992.321993#CIT"><img name="top" src="http://portal.acm.org/images/arrowu.gif" hspace="10" border="0"></A><SPAN class=heading><A NAME="abstract">ABSTRACT</A></span>
+			
+			  	
+			 
+			 
+			
+				<p class="abstract">
+				
+					 <par>Algorithms for finding shortest paths are presented which are faster than algorithms previously known on networks which are relatively sparse in arcs. Known results which the results of this paper extend are surveyed briefly and analyzed. A new implementation for priority queues is employed, and a class of &ldquo;arc set partition&rdquo; algorithms is introduced. For the single source problem on networks with nonnegative arcs a running time of <italic>O</italic>(min(<italic>n</italic><supscrpt>1+1/<italic>k</italic></supscrpt> + <italic>e</italic>, <italic>n</italic> + <italic>e</italic>) log <italic>n</italic>)) is achieved, where there are <italic>n</italic> nodes and <italic>e</italic> arcs, and <italic>k</italic> is a fixed integer satisfying <italic>k</italic> > 0. This bound is <italic>O</italic>(<italic>e</italic>) on dense networks. For the single source and all pairs problem on unrestricted networks the running time is <italic>O</italic>(min(<italic>n</italic><supscrpt>2+1/<italic>k</italic></supscrpt> + <italic>ne</italic>, <italic>n</italic><supscrpt>2</supscrpt> log <italic>n</italic> + <italic>ne</italic> log <italic>n</italic>).</par>
+
+				 
+				</p>
+			
+			
+			</div>
+		  
+			
+		
+			<br>
+			<div class="abstract">
+			
+			<A HREF="citation.cfm?doid=321992.321993#CIT"><img name="top" src="http://portal.acm.org/images/arrowu.gif" hspace="10" border="0"></A><SPAN class=heading><A NAME="references">REFERENCES</A></span>
+			<p class="abstract"><font color="Red">Note: OCR errors may be found in this Reference List extracted from the full text article.  ACM has opted to expose the complete List rather than only correct and linked references.</font></p>
+			
+			
+			  	
+			
+			
+			
+				
+				<table border="0" cellpadding="5">
+					
+						<tr valign="top">
+							<td valign="top"> &nbsp;</td>
+							<td>
+								<div class="abstract">
+									1
+								</div>
+							</td>
+							<td>
+								<div class="abstract">
+									 
+										
+										<a href="citation.cfm?id=578775&dl=GUIDE&coll=GUIDE&CFID=29900198&CFTOKEN=74432114">
+									
+									Alfred V. Aho , John E. Hopcroft, The  Design and Analysis of Computer Algorithms, Addison-Wesley Longman Publishing Co., Inc., Boston, MA, 1974
+									</a>
+
+																		
+								</div>
+							</td>
+						</tr>
+					
+						<tr valign="top">
+							<td valign="top"> &nbsp;</td>
+							<td>
+								<div class="abstract">
+									2
+								</div>
+							</td>
+							<td>
+								<div class="abstract">
+									 
+									BELLMAN, R E On a routing problem Quart Appl Math 16, 1 (1958), 87-90
+									
+
+																		
+								</div>
+							</td>
+						</tr>
+					
+						<tr valign="top">
+							<td valign="top"> &nbsp;</td>
+							<td>
+								<div class="abstract">
+									3
+								</div>
+							</td>
+							<td>
+								<div class="abstract">
+									 
+									BERGE, C Theorle des Graphs et Ses Apphcatlons Dunod, Pans, 1958
+									
+
+																		
+								</div>
+							</td>
+						</tr>
+					
+						<tr valign="top">
+							<td valign="top"> &nbsp;</td>
+							<td>
+								<div class="abstract">
+									4
+								</div>
+							</td>
+							<td>
+								<div class="abstract">
+									 
+									DANTZIG, G B On the shortest route through a network Manage Sct 6, 2 (1960), 187-190
+									
+
+																		
+								</div>
+							</td>
+						</tr>
+					
+						<tr valign="top">
+							<td valign="top"> &nbsp;</td>
+							<td>
+								<div class="abstract">
+									5
+								</div>
+							</td>
+							<td>
+								<div class="abstract">
+									 
+									DANa'ZIG, G B All shortest routes m a graph Proc Int Symp on Theory of Graphs (Rome, 1966), Gordon and Breach, New York, 1967, pp 91-92
+									
+
+																		
+								</div>
+							</td>
+						</tr>
+					
+						<tr valign="top">
+							<td valign="top"> &nbsp;</td>
+							<td>
+								<div class="abstract">
+									6
+								</div>
+							</td>
+							<td>
+								<div class="abstract">
+									 
+									DANTZIG, G B, BLAI"rNER, W O , AND RAO, M R All shortest routes from a fixed ongm in a graph Proc Int Symp on Theory of Graphs (Rome, 1966), Gordon and Breach, New York, 1967, pp 85-90
+									
+
+																		
+								</div>
+							</td>
+						</tr>
+					
+						<tr valign="top">
+							<td valign="top"> &nbsp;</td>
+							<td>
+								<div class="abstract">
+									7
+								</div>
+							</td>
+							<td>
+								<div class="abstract">
+									 
+									DIJKSTRA, E W A note on two problems m connexion with graphs. Numer Math 1 (1959), 269-271
+									
+
+																		
+								</div>
+							</td>
+						</tr>
+					
+						<tr valign="top">
+							<td valign="top"> &nbsp;</td>
+							<td>
+								<div class="abstract">
+									8
+								</div>
+							</td>
+							<td>
+								<div class="abstract">
+									 
+									DREYFUS, S E An appraisal of some shortest-path algorithms Operattons Res 17, 3 (May-June 1969), 395-412
+									
+
+																		
+								</div>
+							</td>
+						</tr>
+					
+						<tr valign="top">
+							<td valign="top"> <img src="http://portal.acm.org/images/ACM_mini.jpg" width="25" height="24" alt="" vspace="0" border="0" align="top"></td>
+							<td>
+								<div class="abstract">
+									9
+								</div>
+							</td>
+							<td>
+								<div class="abstract">
+									 
+										
+										<a href="citation.cfm?id=321699&dl=GUIDE&coll=GUIDE&CFID=29900198&CFTOKEN=74432114">
+									
+									Jack Edmonds , Richard M. Karp, Theoretical Improvements in Algorithmic Efficiency for Network Flow Problems, Journal of the ACM (JACM), v.19 n.2, p.248-264, April 1972
+									</a>
+
+									&nbsp;[doi><a href="http://doi.acm.org/10.1145/321694.321699">10.1145/321694.321699</a>]									
+								</div>
+							</td>
+						</tr>
+					
+						<tr valign="top">
+							<td valign="top"> <img src="http://portal.acm.org/images/ACM_mini.jpg" width="25" height="24" alt="" vspace="0" border="0" align="top"></td>
+							<td>
+								<div class="abstract">
+									10
+								</div>
+							</td>
+							<td>
+								<div class="abstract">
+									 
+										
+										<a href="citation.cfm?id=368168&dl=GUIDE&coll=GUIDE&CFID=29900198&CFTOKEN=74432114">
+									
+									Robert W. Floyd, Algorithm 97: Shortest path, Communications of the ACM, v.5 n.6, p.345, June 1962
+									</a>
+
+									&nbsp;[doi><a href="http://doi.acm.org/10.1145/367766.368168">10.1145/367766.368168</a>]									
+								</div>
+							</td>
+						</tr>
+					
+						<tr valign="top">
+							<td valign="top"> &nbsp;</td>
+							<td>
+								<div class="abstract">
+									11
+								</div>
+							</td>
+							<td>
+								<div class="abstract">
+									 
+									FORD. L R JR, AND FULKERSON, D R Flows m Networks Princeton U Press, Prin~~eon, N J , 1962
+									
+
+																		
+								</div>
+							</td>
+						</tr>
+					
+						<tr valign="top">
+							<td valign="top"> &nbsp;</td>
+							<td>
+								<div class="abstract">
+									12
+								</div>
+							</td>
+							<td>
+								<div class="abstract">
+									 
+									FREDMAN, M L On the decision tree complexity of the shortest path problems Conf Rec 16th Annual IEEE Syrup on Foundations Comptr. Sc~, Oct 1975, 98-99
+									
+
+																		
+								</div>
+							</td>
+						</tr>
+					
+						<tr valign="top">
+							<td valign="top"> &nbsp;</td>
+							<td>
+								<div class="abstract">
+									13
+								</div>
+							</td>
+							<td>
+								<div class="abstract">
+									 
+									FREOMAN, M L New bounds on the complexity of the shortest path problem SIAM J Comput 5, 1 (March 1976), 83-89
+									
+
+																		
+								</div>
+							</td>
+						</tr>
+					
+						<tr valign="top">
+							<td valign="top"> &nbsp;</td>
+							<td>
+								<div class="abstract">
+									14
+								</div>
+							</td>
+							<td>
+								<div class="abstract">
+									 
+									HOFFMAN, A J , AND WINOGRAO, S Finding all shortest &amp;stances In a directed network IBM J Res Devel. 16, 4 (July 1972), 412-414
+									
+
+																		
+								</div>
+							</td>
+						</tr>
+					
+						<tr valign="top">
+							<td valign="top"> &nbsp;</td>
+							<td>
+								<div class="abstract">
+									15
+								</div>
+							</td>
+							<td>
+								<div class="abstract">
+									 
+									Hu, T C, AND TORRES, W.T Shortcut in the decomposition algorithm for shortest paths m a network IBM J Res Devel 13, 4 (July 1969), 387-390
+									
+
+																		
+								</div>
+							</td>
+						</tr>
+					
+						<tr valign="top">
+							<td valign="top"> &nbsp;</td>
+							<td>
+								<div class="abstract">
+									16
+								</div>
+							</td>
+							<td>
+								<div class="abstract">
+									 
+									JOHNSON, D B Algorithms for shortest paths Tech Rep 73-169, Dep Comptr Sci, CorneU U, ithaca, N Y , May 1973, available as PB-220 872, NTIS, Springfield, Va
+									
+
+																		
+								</div>
+							</td>
+						</tr>
+					
+						<tr valign="top">
+							<td valign="top"> <img src="http://portal.acm.org/images/ACM_mini.jpg" width="25" height="24" alt="" vspace="0" border="0" align="top"></td>
+							<td>
+								<div class="abstract">
+									17
+								</div>
+							</td>
+							<td>
+								<div class="abstract">
+									 
+										
+										<a href="citation.cfm?id=321768&dl=GUIDE&coll=GUIDE&CFID=29900198&CFTOKEN=74432114">
+									
+									Donald B. Johnson, A Note on Dijkstra's Shortest Path Algorithm, Journal of the ACM (JACM), v.20 n.3, p.385-388, July 1973
+									</a>
+
+									&nbsp;[doi><a href="http://doi.acm.org/10.1145/321765.321768">10.1145/321765.321768</a>]									
+								</div>
+							</td>
+						</tr>
+					
+						<tr valign="top">
+							<td valign="top"> &nbsp;</td>
+							<td>
+								<div class="abstract">
+									18
+								</div>
+							</td>
+							<td>
+								<div class="abstract">
+									 
+									JOHNSON, D B Priority queues with update and finding minimum spanning trees lnformatton Processmg Letters 4, 3 (Dec 1975), 53-57
+									
+
+																		
+								</div>
+							</td>
+						</tr>
+					
+						<tr valign="top">
+							<td valign="top"> <img src="http://portal.acm.org/images/ACM_mini.jpg" width="25" height="24" alt="" vspace="0" border="0" align="top"></td>
+							<td>
+								<div class="abstract">
+									19
+								</div>
+							</td>
+							<td>
+								<div class="abstract">
+									 
+										
+										<a href="citation.cfm?id=569965&dl=GUIDE&coll=GUIDE&CFID=29900198&CFTOKEN=74432114">
+									
+									Ellis L. Johnson, On shortest paths and sorting, Proceedings of the ACM annual conference, August 01-01, 1972, Boston, Massachusetts, United States
+									</a>
+
+									&nbsp;[doi><a href="http://doi.acm.org/10.1145/800193.569965">10.1145/800193.569965</a>]									
+								</div>
+							</td>
+						</tr>
+					
+						<tr valign="top">
+							<td valign="top"> &nbsp;</td>
+							<td>
+								<div class="abstract">
+									20
+								</div>
+							</td>
+							<td>
+								<div class="abstract">
+									 
+									KARP, R M Reduobdlty among combinatorial problems In Complexity of Computer Computattons,{ R E Miller and J W Thatcher, Eds, Plenum Press, New York, 1972, pp 85-103
+									
+
+																		
+								</div>
+							</td>
+						</tr>
+					
+						<tr valign="top">
+							<td valign="top"> &nbsp;</td>
+							<td>
+								<div class="abstract">
+									21
+								</div>
+							</td>
+							<td>
+								<div class="abstract">
+									 
+										
+										<a href="citation.cfm?id=260999&dl=GUIDE&coll=GUIDE&CFID=29900198&CFTOKEN=74432114">
+									
+									Donald E. Knuth, The art of computer programming, volume 1 (3rd ed.): fundamental algorithms, Addison Wesley Longman Publishing Co., Inc., Redwood City, CA, 1997
+									</a>
+
+																		
+								</div>
+							</td>
+						</tr>
+					
+						<tr valign="top">
+							<td valign="top"> &nbsp;</td>
+							<td>
+								<div class="abstract">
+									22
+								</div>
+							</td>
+							<td>
+								<div class="abstract">
+									 
+										
+										<a href="citation.cfm?id=280635&dl=GUIDE&coll=GUIDE&CFID=29900198&CFTOKEN=74432114">
+									
+									Donald E. Knuth, The art of computer programming,  volume 3: (2nd ed.) sorting and searching, Addison Wesley Longman Publishing Co., Inc., Redwood City, CA, 1998
+									</a>
+
+																		
+								</div>
+							</td>
+						</tr>
+					
+						<tr valign="top">
+							<td valign="top"> &nbsp;</td>
+							<td>
+								<div class="abstract">
+									23
+								</div>
+							</td>
+							<td>
+								<div class="abstract">
+									 
+									LAWLER, E L Combmatortal Opttmtzauon Networks and Matrotds Holt, Rinehart, and Winston, New York, I976
+									
+
+																		
+								</div>
+							</td>
+						</tr>
+					
+						<tr valign="top">
+							<td valign="top"> &nbsp;</td>
+							<td>
+								<div class="abstract">
+									24
+								</div>
+							</td>
+							<td>
+								<div class="abstract">
+									 
+									MOORE, E F. The shortest path through a maze Proc Int Symp. on Theory of Switching, Part II, April 2-5, 1957; Annals of the Computation Lab of Harvard Untverslty 30, Harvard U Press, Cambridge, Mass, 1959, pp 285-292
+									
+
+																		
+								</div>
+							</td>
+						</tr>
+					
+						<tr valign="top">
+							<td valign="top"> &nbsp;</td>
+							<td>
+								<div class="abstract">
+									25
+								</div>
+							</td>
+							<td>
+								<div class="abstract">
+									 
+									MOR~,VEK, J A note upon mlmmal path problem J Math Anal Appl 30 (1970), 702-717
+									
+
+																		
+								</div>
+							</td>
+						</tr>
+					
+						<tr valign="top">
+							<td valign="top"> &nbsp;</td>
+							<td>
+								<div class="abstract">
+									26
+								</div>
+							</td>
+							<td>
+								<div class="abstract">
+									 
+									NEMI-IAVSER, G L A generahzed permanent label setting algorithm for the shortest path between specified nodes J Math Anal Appl 38, 2 (May 1972), 328-334
+									
+
+																		
+								</div>
+							</td>
+						</tr>
+					
+						<tr valign="top">
+							<td valign="top"> &nbsp;</td>
+							<td>
+								<div class="abstract">
+									27
+								</div>
+							</td>
+							<td>
+								<div class="abstract">
+									 
+										
+										<a href="citation.cfm?id=1098661&dl=GUIDE&coll=GUIDE&CFID=29900198&CFTOKEN=74432114">
+									
+									Nils J. Nilsson, Problem-Solving Methods in Artificial Intelligence, McGraw-Hill Pub. Co., 1971
+									</a>
+
+																		
+								</div>
+							</td>
+						</tr>
+					
+						<tr valign="top">
+							<td valign="top"> &nbsp;</td>
+							<td>
+								<div class="abstract">
+									28
+								</div>
+							</td>
+							<td>
+								<div class="abstract">
+									 
+									PmRCE, A R Bibliography on algorithms for shortest path, shortest spanning tree and related circuit routing problems (1956-1974) Networks 5, 2 (Aprd 1975), 129-149
+									
+
+																		
+								</div>
+							</td>
+						</tr>
+					
+						<tr valign="top">
+							<td valign="top"> <img src="http://portal.acm.org/images/ACM_mini.jpg" width="25" height="24" alt="" vspace="0" border="0" align="top"></td>
+							<td>
+								<div class="abstract">
+									29
+								</div>
+							</td>
+							<td>
+								<div class="abstract">
+									 
+										
+										<a href="citation.cfm?id=321927&dl=GUIDE&coll=GUIDE&CFID=29900198&CFTOKEN=74432114">
+									
+									Robert A. Wagner, A Shortest Path Algorithm for Edge-Sparse Graphs, Journal of the ACM (JACM), v.23 n.1, p.50-57, Jan. 1976
+									</a>
+
+									&nbsp;[doi><a href="http://doi.acm.org/10.1145/321921.321927">10.1145/321921.321927</a>]									
+								</div>
+							</td>
+						</tr>
+					
+						<tr valign="top">
+							<td valign="top"> <img src="http://portal.acm.org/images/ACM_mini.jpg" width="25" height="24" alt="" vspace="0" border="0" align="top"></td>
+							<td>
+								<div class="abstract">
+									30
+								</div>
+							</td>
+							<td>
+								<div class="abstract">
+									 
+										
+										<a href="citation.cfm?id=321107&dl=GUIDE&coll=GUIDE&CFID=29900198&CFTOKEN=74432114">
+									
+									Stephen Warshall, A Theorem on Boolean Matrices, Journal of the ACM (JACM), v.9 n.1, p.11-12, Jan. 1962
+									</a>
+
+									&nbsp;[doi><a href="http://doi.acm.org/10.1145/321105.321107">10.1145/321105.321107</a>]									
+								</div>
+							</td>
+						</tr>
+					
+						<tr valign="top">
+							<td valign="top"> &nbsp;</td>
+							<td>
+								<div class="abstract">
+									31
+								</div>
+							</td>
+							<td>
+								<div class="abstract">
+									 
+									YEN, J Y A shortest path algorithm Ph.D Th , U of California, Berkeley, Cahf, 1970.
+									
+
+																		
+								</div>
+							</td>
+						</tr>
+					
+						<tr valign="top">
+							<td valign="top"> &nbsp;</td>
+							<td>
+								<div class="abstract">
+									32
+								</div>
+							</td>
+							<td>
+								<div class="abstract">
+									 
+									YEN, J Y An a|gonthm for finding shortest routes from all source nodes to a given destination m general networks Quart Appl Math 27, 4 (Jan 1970), 526-530
+									
+
+																		
+								</div>
+							</td>
+						</tr>
+					
+						<tr valign="top">
+							<td valign="top"> <img src="http://portal.acm.org/images/ACM_mini.jpg" width="25" height="24" alt="" vspace="0" border="0" align="top"></td>
+							<td>
+								<div class="abstract">
+									33
+								</div>
+							</td>
+							<td>
+								<div class="abstract">
+									 
+										
+										<a href="citation.cfm?id=321712&dl=GUIDE&coll=GUIDE&CFID=29900198&CFTOKEN=74432114">
+									
+									Jin Y. Yen, Finding the Lengths of All Shortest paths in <italic>N</italic> -Node Nonnegative-Distance Complete Networks Using <inline-equation> <f> <fr><nu>1</nu><de>2</de></fr>N<sup>3</sup></f> </inline-equation> Additions and <inline-equation> <f> N<sup>3</sup></f > </inline-equation> Comparisons, Journal of the ACM (JACM), v.19 n.3, p.423-424, July 1972
+									</a>
+
+									&nbsp;[doi><a href="http://doi.acm.org/10.1145/321707.321712">10.1145/321707.321712</a>]									
+								</div>
+							</td>
+						</tr>
+					
+				</table>
+				
+			  
+			
+			</div>
+		
+		
+		
+			<br>
+			<div class="abstract">
+			
+			<A HREF="citation.cfm?doid=321992.321993#CIT"><img name="top" src="http://portal.acm.org/images/arrowu.gif" hspace="10" border="0"></A><SPAN class=heading><A NAME="citings">CITED BY</A><A NAME="citedby"></A>&nbsp;&nbsp;<i>33</i></span>
+			
+			
+			  	
+			
+			
+			<table cellpadding="5">
+			
+				<tr valign="top">
+				<td valign="top">
+					
+					<img src="http://portal.acm.org/images/ACM_mini.jpg" width="25" height="24" alt="" vspace="0" border="0" align="top">
+				</td>
+				<td>
+					<div class="abstract">
+						
+						<a href="citation.cfm?id=253504&dl=GUIDE&coll=GUIDE&CFID=29900198&CFTOKEN=74432114">
+						Michael Lesk, Graphical information resources: maps and beyond, Proceedings of the 8th annual international ACM SIGIR conference on Research and development in information retrieval, p.2-8, June 05-07, 1985, Montreal, Quebec, Canada
+						</a>
+					</div>  
+					
+				</td>
+				</tr>
+			
+				<tr valign="top">
+				<td valign="top">
+					
+					<img src="http://portal.acm.org/images/ACM_mini.jpg" width="25" height="24" alt="" vspace="0" border="0" align="top">
+				</td>
+				<td>
+					<div class="abstract">
+						
+						<a href="citation.cfm?id=129784&dl=GUIDE&coll=GUIDE&CFID=29900198&CFTOKEN=74432114">
+						Raimund Seidel, On the all-pairs-shortest-path problem, Proceedings of the twenty-fourth annual ACM symposium on Theory of computing, p.745-749, May 04-06, 1992, Victoria, British Columbia, Canada
+						</a>
+					</div>  
+					
+				</td>
+				</tr>
+			
+				<tr valign="top">
+				<td valign="top">
+					
+					<img src="http://portal.acm.org/images/ACM_mini.jpg" width="25" height="24" alt="" vspace="0" border="0" align="top">
+				</td>
+				<td>
+					<div class="abstract">
+						
+						<a href="citation.cfm?id=141913&dl=GUIDE&coll=GUIDE&CFID=29900198&CFTOKEN=74432114">
+						Y. Han , V. Pan , John Reif, Efficient parallel algorithms for computing all pair shortest paths in directed graphs, Proceedings of the fourth annual ACM symposium on Parallel algorithms and architectures, p.353-362, June 29-July 01, 1992, San Diego, California, United States
+						</a>
+					</div>  
+					
+				</td>
+				</tr>
+			
+				<tr valign="top">
+				<td valign="top">
+					
+					<img src="http://portal.acm.org/images/ACM_mini.jpg" width="25" height="24" alt="" vspace="0" border="0" align="top">
+				</td>
+				<td>
+					<div class="abstract">
+						
+						<a href="citation.cfm?id=359846&dl=GUIDE&coll=GUIDE&CFID=29900198&CFTOKEN=74432114">
+						H. Fuchs , Z. M. Kedem , S. P. Uselton, Optimal surface reconstruction from planar contours, Communications of the ACM, v.20 n.10, p.693-702, Oct. 1977
+						</a>
+					</div>  
+					
+				</td>
+				</tr>
+			
+				<tr valign="top">
+				<td valign="top">
+					
+					&nbsp;
+				</td>
+				<td>
+					<div class="abstract">
+						
+						<a href="citation.cfm?id=1225154&dl=GUIDE&coll=GUIDE&CFID=29900198&CFTOKEN=74432114">
+						C. W. Duin, Two fast algorithms for all-pairs shortest paths, Computers and Operations Research, v.34 n.9, p.2824-2839, September, 2007
+						</a>
+					</div>  
+					
+				</td>
+				</tr>
+			
+				<tr valign="top">
+				<td valign="top">
+					
+					<img src="http://portal.acm.org/images/ACM_mini.jpg" width="25" height="24" alt="" vspace="0" border="0" align="top">
+				</td>
+				<td>
+					<div class="abstract">
+						
+						<a href="citation.cfm?id=988797&dl=GUIDE&coll=GUIDE&CFID=29900198&CFTOKEN=74432114">
+						Darko Kirovski, Toward an automated verification of certificates of authenticity, Proceedings of the 5th ACM conference on Electronic commerce, May 17-20, 2004, New York, NY, USA
+						</a>
+					</div>  
+					
+				</td>
+				</tr>
+			
+				<tr valign="top">
+				<td valign="top">
+					
+					&nbsp;
+				</td>
+				<td>
+					<div class="abstract">
+						
+						<a href="citation.cfm?id=42117&dl=GUIDE&coll=GUIDE&CFID=29900198&CFTOKEN=74432114">
+						J. Banerjee, A DAG clustering algorithm for design configurations, Proceedings of the 1987 Fall Joint Computer Conference on Exploring technology: today and tomorrow, p.444-451, December 1987, Dallas, Texas, United States
+						</a>
+					</div>  
+					
+				</td>
+				</tr>
+			
+				<tr valign="top">
+				<td valign="top">
+					
+					<img src="http://portal.acm.org/images/ACM_mini.jpg" width="25" height="24" alt="" vspace="0" border="0" align="top">
+				</td>
+				<td>
+					<div class="abstract">
+						
+						<a href="citation.cfm?id=127761&dl=GUIDE&coll=GUIDE&CFID=29900198&CFTOKEN=74432114">
+						Debaprosad Dutt , Chi-Yuan Lo, On minimal closure constraint generation for symbolic cell assembly, Proceedings of the 28th conference on ACM/IEEE design automation, p.736-739, June 17-22, 1991, San Francisco, California, United States
+						</a>
+					</div>  
+					
+				</td>
+				</tr>
+			
+				<tr valign="top">
+				<td valign="top">
+					
+					&nbsp;
+				</td>
+				<td>
+					<div class="abstract">
+						
+						<a href="citation.cfm?id=271038&dl=GUIDE&coll=GUIDE&CFID=29900198&CFTOKEN=74432114">
+						C. D. Yang , D. T. Lee , C. K. Wong, The Smallest Pair of Noncrossing Paths in a Rectilinear Polygon, IEEE Transactions on Computers, v.46 n.8, p.930-941, August 1997
+						</a>
+					</div>  
+					
+				</td>
+				</tr>
+			
+				<tr valign="top">
+				<td valign="top">
+					
+					<img src="http://portal.acm.org/images/ACM_mini.jpg" width="25" height="24" alt="" vspace="0" border="0" align="top">
+				</td>
+				<td>
+					<div class="abstract">
+						
+						<a href="citation.cfm?id=212081&dl=GUIDE&coll=GUIDE&CFID=29900198&CFTOKEN=74432114">
+						G. Carpaneto , M. Dell'Amico , P. Toth, Exact solution of large-scale, asymmetric traveling salesman problems, ACM Transactions on Mathematical Software (TOMS), v.21 n.4, p.394-409, Dec. 1995
+						</a>
+					</div>  
+					
+				</td>
+				</tr>
+			
+				<tr valign="top">
+				<td valign="top">
+					
+					<img src="http://portal.acm.org/images/ACM_mini.jpg" width="25" height="24" alt="" vspace="0" border="0" align="top">
+				</td>
+				<td>
+					<div class="abstract">
+						
+						<a href="citation.cfm?id=802981&dl=GUIDE&coll=GUIDE&CFID=29900198&CFTOKEN=74432114">
+						John M. McQuillan , Ira Richer , Eric C. Rosen, An overview of the new routing algorithm for the ARPANET, Proceedings of the sixth symposium on Data communications, p.63-68, November 27-29, 1979, Pacific Grove, California, United States
+						</a>
+					</div>  
+					
+				</td>
+				</tr>
+			
+				<tr valign="top">
+				<td valign="top">
+					
+					&nbsp;
+				</td>
+				<td>
+					<div class="abstract">
+						
+						<a href="citation.cfm?id=809194&dl=GUIDE&coll=GUIDE&CFID=29900198&CFTOKEN=74432114">
+						Kenneth J. Supowit, A minimum-impact routing algorithm, Proceedings of the 19th conference on Design automation, p.104-112, January 1982
+						</a>
+					</div>  
+					
+				</td>
+				</tr>
+			
+				<tr valign="top">
+				<td valign="top">
+					
+					<img src="http://portal.acm.org/images/ACM_mini.jpg" width="25" height="24" alt="" vspace="0" border="0" align="top">
+				</td>
+				<td>
+					<div class="abstract">
+						
+						<a href="citation.cfm?id=77615&dl=GUIDE&coll=GUIDE&CFID=29900198&CFTOKEN=74432114">
+						Ravindra K. Ahuja , Kurt Mehlhorn , James Orlin , Robert E. Tarjan, Faster algorithms for the shortest path problem, Journal of the ACM (JACM), v.37 n.2, p.213-223, April 1990
+						</a>
+					</div>  
+					
+				</td>
+				</tr>
+			
+				<tr valign="top">
+				<td valign="top">
+					
+					&nbsp;
+				</td>
+				<td>
+					<div class="abstract">
+						
+						<a href="citation.cfm?id=809304&dl=GUIDE&coll=GUIDE&CFID=29900198&CFTOKEN=74432114">
+						Zahir Syed , Abbas El Gamal , M. A. Breuer, On routing for custom integrated circuits, Proceedings of the 19th conference on Design automation, p.887-893, January 1982
+						</a>
+					</div>  
+					
+				</td>
+				</tr>
+			
+				<tr valign="top">
+				<td valign="top">
+					
+					<img src="http://portal.acm.org/images/ACM_mini.jpg" width="25" height="24" alt="" vspace="0" border="0" align="top">
+				</td>
+				<td>
+					<div class="abstract">
+						
+						<a href="citation.cfm?id=322097&dl=GUIDE&coll=GUIDE&CFID=29900198&CFTOKEN=74432114">
+						Donald B. Johnson , Samuel D. Kashdan, Lower Bounds for Selection in <italic>X</italic> + <italic>Y</italic> and Other Multisets, Journal of the ACM (JACM), v.25 n.4, p.556-570, Oct. 1978
+						</a>
+					</div>  
+					
+				</td>
+				</tr>
+			
+				<tr valign="top">
+				<td valign="top">
+					
+					<img src="http://portal.acm.org/images/ACM_mini.jpg" width="25" height="24" alt="" vspace="0" border="0" align="top">
+				</td>
+				<td>
+					<div class="abstract">
+						
+						<a href="citation.cfm?id=301271&dl=GUIDE&coll=GUIDE&CFID=29900198&CFTOKEN=74432114">
+						Uri Zwick, All pairs lightest shortest paths, Proceedings of the thirty-first annual ACM symposium on Theory of computing, p.61-69, May 01-04, 1999, Atlanta, Georgia, United States
+						</a>
+					</div>  
+					
+				</td>
+				</tr>
+			
+				<tr valign="top">
+				<td valign="top">
+					
+					<img src="http://portal.acm.org/images/ACM_mini.jpg" width="25" height="24" alt="" vspace="0" border="0" align="top">
+				</td>
+				<td>
+					<div class="abstract">
+						
+						<a href="citation.cfm?id=65954&dl=GUIDE&coll=GUIDE&CFID=29900198&CFTOKEN=74432114">
+						Harold N. Gabow , Zvi Galil , Thomas H. Spencer, Efficient implementation of graph algorithms using contraction, Journal of the ACM (JACM), v.36 n.3, p.540-572, July 1989
+						</a>
+					</div>  
+					
+				</td>
+				</tr>
+			
+				<tr valign="top">
+				<td valign="top">
+					
+					<img src="http://portal.acm.org/images/ACM_mini.jpg" width="25" height="24" alt="" vspace="0" border="0" align="top">
+				</td>
+				<td>
+					<div class="abstract">
+						
+						<a href="citation.cfm?id=1216585&dl=GUIDE&coll=GUIDE&CFID=29900198&CFTOKEN=74432114">
+						Rolf H. M&#246;hring , Heiko Schilling , Birk Sch&#252;tz , Dorothea Wagner , Thomas Willhalm, Partitioning graphs to speedup Dijkstra's algorithm, Journal of Experimental Algorithmics (JEA), 11, 2006
+						</a>
+					</div>  
+					
+				</td>
+				</tr>
+			
+				<tr valign="top">
+				<td valign="top">
+					
+					<img src="http://portal.acm.org/images/ACM_mini.jpg" width="25" height="24" alt="" vspace="0" border="0" align="top">
+				</td>
+				<td>
+					<div class="abstract">
+						
+						<a href="citation.cfm?id=28874&dl=GUIDE&coll=GUIDE&CFID=29900198&CFTOKEN=74432114">
+						Michael L. Fredman , Robert Endre Tarjan, Fibonacci heaps and their uses in improved network optimization algorithms, Journal of the ACM (JACM), v.34 n.3, p.596-615, July 1987
+						</a>
+					</div>  
+					
+				</td>
+				</tr>
+			
+				<tr valign="top">
+				<td valign="top">
+					
+					&nbsp;
+				</td>
+				<td>
+					<div class="abstract">
+						
+						<a href="citation.cfm?id=634570&dl=GUIDE&coll=GUIDE&CFID=29900198&CFTOKEN=74432114">
+						Mo Mu, A multiple-heaps algorithm for parallel simulation of collision systems, Journal of Computational Physics, v.179 n.2, p.539-556, July 2002
+						</a>
+					</div>  
+					
+				</td>
+				</tr>
+			
+				<tr valign="top">
+				<td valign="top">
+					
+					&nbsp;
+				</td>
+				<td>
+					<div class="abstract">
+						
+						<a href="citation.cfm?id=1139753&dl=GUIDE&coll=GUIDE&CFID=29900198&CFTOKEN=74432114">
+						Gerald Penn, Efficient transitive closure of sparse matrices over closed semirings, Theoretical Computer Science, v.354 n.1, p.72-81, 21 March 2006
+						</a>
+					</div>  
+					
+				</td>
+				</tr>
+			
+				<tr valign="top">
+				<td valign="top">
+					
+					<img src="http://portal.acm.org/images/ACM_mini.jpg" width="25" height="24" alt="" vspace="0" border="0" align="top">
+				</td>
+				<td>
+					<div class="abstract">
+						
+						<a href="citation.cfm?id=1109615&dl=GUIDE&coll=GUIDE&CFID=29900198&CFTOKEN=74432114">
+						Glencora Borradaile , Philip Klein, An <i>O (n log n)</i> algorithm for maximum <i>st</i>-flow in a directed planar graph, Proceedings of the seventeenth annual ACM-SIAM symposium on Discrete algorithm, p.524-533, January 22-26, 2006, Miami, Florida
+						</a>
+					</div>  
+					
+				</td>
+				</tr>
+			
+				<tr valign="top">
+				<td valign="top">
+					
+					<img src="http://portal.acm.org/images/ACM_mini.jpg" width="25" height="24" alt="" vspace="0" border="0" align="top">
+				</td>
+				<td>
+					<div class="abstract">
+						
+						<a href="citation.cfm?id=358406&dl=GUIDE&coll=GUIDE&CFID=29900198&CFTOKEN=74432114">
+						Ronald Prescott Loui, Optimal paths in graphs with stochastic or multidimensional weights, Communications of the ACM, v.26 n.9, p.670-676, Sept. 1983
+						</a>
+					</div>  
+					
+				</td>
+				</tr>
+			
+				<tr valign="top">
+				<td valign="top">
+					
+					<img src="http://portal.acm.org/images/ACM_mini.jpg" width="25" height="24" alt="" vspace="0" border="0" align="top">
+				</td>
+				<td>
+					<div class="abstract">
+						
+						<a href="citation.cfm?id=322272&dl=GUIDE&coll=GUIDE&CFID=29900198&CFTOKEN=74432114">
+						Robert Endre Tarjan, A Unified Approach to Path Problems, Journal of the ACM (JACM), v.28 n.3, p.577-593, July 1981
+						</a>
+					</div>  
+					
+				</td>
+				</tr>
+			
+				<tr valign="top">
+				<td valign="top">
+					
+					<img src="http://portal.acm.org/images/ACM_mini.jpg" width="25" height="24" alt="" vspace="0" border="0" align="top">
+				</td>
+				<td>
+					<div class="abstract">
+						
+						<a href="citation.cfm?id=322273&dl=GUIDE&coll=GUIDE&CFID=29900198&CFTOKEN=74432114">
+						Robert Endre Tarjan, Fast Algorithms for Solving Path Problems, Journal of the ACM (JACM), v.28 n.3, p.594-614, July 1981
+						</a>
+					</div>  
+					
+				</td>
+				</tr>
+			
+				<tr valign="top">
+				<td valign="top">
+					
+					&nbsp;
+				</td>
+				<td>
+					<div class="abstract">
+						
+						<a href="citation.cfm?id=985561&dl=GUIDE&coll=GUIDE&CFID=29900198&CFTOKEN=74432114">
+						Seth Pettie, A new approach to all-pairs shortest paths on real-weighted graphs, Theoretical Computer Science, v.312 n.1, p.47-74, 26 January 2004
+						</a>
+					</div>  
+					
+				</td>
+				</tr>
+			
+				<tr valign="top">
+				<td valign="top">
+					
+					&nbsp;
+				</td>
+				<td>
+					<div class="abstract">
+						
+						<a href="citation.cfm?id=314190&dl=GUIDE&coll=GUIDE&CFID=29900198&CFTOKEN=74432114">
+						Edith Cohen , Uri Zwick, All-pairs small-stretch paths, Proceedings of the eighth annual ACM-SIAM symposium on Discrete algorithms, p.93-102, January 05-07, 1997, New Orleans, Louisiana, United States
+						</a>
+					</div>  
+					
+				</td>
+				</tr>
+			
+				<tr valign="top">
+				<td valign="top">
+					
+					&nbsp;
+				</td>
+				<td>
+					<div class="abstract">
+						
+						<a href="citation.cfm?id=365449&dl=GUIDE&coll=GUIDE&CFID=29900198&CFTOKEN=74432114">
+						David Eppstein , Joseph Wang, Fast approximation of centrality, Proceedings of the twelfth annual ACM-SIAM symposium on Discrete algorithms, p.228-229, January 07-09, 2001, Washington, D.C., United States
+						</a>
+					</div>  
+					
+				</td>
+				</tr>
+			
+				<tr valign="top">
+				<td valign="top">
+					
+					<img src="http://portal.acm.org/images/ACM_mini.jpg" width="25" height="24" alt="" vspace="0" border="0" align="top">
+				</td>
+				<td>
+					<div class="abstract">
+						
+						<a href="citation.cfm?id=567114&dl=GUIDE&coll=GUIDE&CFID=29900198&CFTOKEN=74432114">
+						All pairs shortest paths using bridging sets and rectangular matrix multiplication, Journal of the ACM (JACM), v.49 n.3, p.289-317, May 2002
+						</a>
+					</div>  
+					
+				</td>
+				</tr>
+			
+				<tr valign="top">
+				<td valign="top">
+					
+					<img src="http://portal.acm.org/images/ACM_mini.jpg" width="25" height="24" alt="" vspace="0" border="0" align="top">
+				</td>
+				<td>
+					<div class="abstract">
+						
+						<a href="citation.cfm?id=513430&dl=GUIDE&coll=GUIDE&CFID=29900198&CFTOKEN=74432114">
+						Jeff Erickson , Sariel Har-Peled, Optimally cutting a surface into a disk, Proceedings of the eighteenth annual symposium on Computational geometry, p.244-253, June 05-07, 2002, Barcelona, Spain
+						</a>
+					</div>  
+					
+				</td>
+				</tr>
+			
+				<tr valign="top">
+				<td valign="top">
+					
+					&nbsp;
+				</td>
+				<td>
+					<div class="abstract">
+						
+						<a href="citation.cfm?id=1150656&dl=GUIDE&coll=GUIDE&CFID=29900198&CFTOKEN=74432114">
+						Jittat Fakcharoenphol , Satish Rao, Planar graphs, negative weight edges, shortest paths, and near linear time, Journal of Computer and System Sciences, v.72 n.5, p.868-889, August 2006
+						</a>
+					</div>  
+					
+				</td>
+				</tr>
+			
+				<tr valign="top">
+				<td valign="top">
+					
+					&nbsp;
+				</td>
+				<td>
+					<div class="abstract">
+						
+						<a href="citation.cfm?id=129815&dl=GUIDE&coll=GUIDE&CFID=29900198&CFTOKEN=74432114">
+						Zahira Ammarguellat, A Control-Flow Normalization Algorithm and its Complexity, IEEE Transactions on Software Engineering, v.18 n.3, p.237-251, March 1992
+						</a>
+					</div>  
+					
+				</td>
+				</tr>
+			
+				<tr valign="top">
+				<td valign="top">
+					
+					<img src="http://portal.acm.org/images/ACM_mini.jpg" width="25" height="24" alt="" vspace="0" border="0" align="top">
+				</td>
+				<td>
+					<div class="abstract">
+						
+						<a href="citation.cfm?id=6502&dl=GUIDE&coll=GUIDE&CFID=29900198&CFTOKEN=74432114">
+						Zvi Galil, Efficient algorithms for finding maximum matching in graphs, ACM Computing Surveys (CSUR), v.18 n.1, p.23-38, March 1986
+						</a>
+					</div>  
+					
+				</td>
+				</tr>
+			
+			</table>
+			
+			</div>
+		
+
+		
+			
+			
+			  	
+			 
+			 
+			
+		
+		
+		
+		  	<br>
+			<div class="indterms">
+			
+			<A HREF="citation.cfm?doid=321992.321993#CIT"><img name="top" src="http://portal.acm.org/images/arrowu.gif" hspace="10" border="0"></A><SPAN class=heading><A NAME="IndexTerms">INDEX TERMS</A></span>
+			
+				
+					<p class="Categories">
+						<SPAN class=heading><A NAME="GenTerms">Primary Classification:</A></span>
+						
+						  	
+						
+						
+						
+							<br>&nbsp;
+							
+							
+								  
+									
+									
+									
+									<b>G.</b>
+									
+									
+									    
+									 
+									<a href="results.cfm?query=CCS%3AG%2E%2A&coll=GUIDE&dl=GUIDE&CFID=29900198&CFTOKEN=74432114" target="_self">
+									Mathematics of Computing</a><br>
+								  
+							
+								  
+									
+									
+										&nbsp;
+									
+									
+										<img src="http://portal.acm.org/images/tree.gif" border="0" height="20" width="20">
+									
+									<b>G.2</b>
+									
+									
+										
+									  
+									<a href="results.cfm?query=CCS%3A%22G%2E2%22&coll=GUIDE&dl=GUIDE&CFID=29900198&CFTOKEN=74432114" target="_self">
+									 DISCRETE MATHEMATICS</a><br>
+								  
+							
+								  
+									
+									
+										&nbsp;
+									
+										&nbsp;
+									
+										&nbsp;
+									
+									
+										<img src="http://portal.acm.org/images/tree.gif" border="0" height="20" width="20">
+									
+									<b>G.2.2</b>
+									
+									
+										
+									  
+									<a href="results.cfm?query=CCS%3A%22G%2E2%2E2%22&coll=GUIDE&dl=GUIDE&CFID=29900198&CFTOKEN=74432114" target="_self">
+									 Graph Theory</a><br>
+								  
+							
+								
+									  	
+										
+										
+											
+											
+												&nbsp;
+											
+												&nbsp;
+											
+												&nbsp;
+											
+												&nbsp;
+											
+												&nbsp;
+											
+											
+												<img src="http://portal.acm.org/images/tree.gif" border="0" height="20" width="20">
+											 
+											<b>Subjects:</b>
+										    
+												<a href="results.cfm?query=CCS%3A%22Path%20and%20circuit%20problems%22&coll=GUIDE&dl=GUIDE&CFID=29900198&CFTOKEN=74432114" target="_self">Path and circuit problems</a>
+											
+										
+										<br>
+										
+								
+							
+						
+					 </p>
+				  
+				
+				  <p class="Categories">
+					<SPAN class=heading><A NAME="GenTerms">Additional&nbsp;Classification:</A></span>
+					 
+					  	
+					 
+					 
+					
+							<br>&nbsp;
+							
+							
+								 
+									
+									
+									 
+									<b>G.</b>
+									
+									    
+									 
+									<a href="results.cfm?query=CCS%3AG%2E%2A&coll=GUIDE&dl=GUIDE&CFID=29900198&CFTOKEN=74432114" target="_self">
+									Mathematics of Computing</a><br>
+								 
+							
+								 
+									
+									
+										&nbsp;
+									
+									
+										<img src="http://portal.acm.org/images/tree.gif" border="0" height="20" width="20">
+									 
+									<b>G.2</b>
+									
+										
+									  
+									<a href="results.cfm?query=CCS%3A%22G%2E2%22&coll=GUIDE&dl=GUIDE&CFID=29900198&CFTOKEN=74432114" target="_self">
+									 DISCRETE MATHEMATICS</a><br>
+								 
+							
+								 
+									
+									
+										&nbsp;
+									
+										&nbsp;
+									
+										&nbsp;
+									
+									
+										<img src="http://portal.acm.org/images/tree.gif" border="0" height="20" width="20">
+									 
+									<b>G.2.2</b>
+									
+										
+									  
+									<a href="results.cfm?query=CCS%3A%22G%2E2%2E2%22&coll=GUIDE&dl=GUIDE&CFID=29900198&CFTOKEN=74432114" target="_self">
+									 Graph Theory</a><br>
+								 
+							
+								
+								  	
+									
+									
+										
+										
+											&nbsp;
+										
+											&nbsp;
+										
+											&nbsp;
+										
+											&nbsp;
+										
+											&nbsp;
+										
+										
+											<img src="http://portal.acm.org/images/tree.gif" border="0" height="20" width="20">
+										 
+										<b>Subjects:</b>
+									    
+											<a href="results.cfm?query=CCS%3A%22Network%20problems%22&coll=GUIDE&dl=GUIDE&CFID=29900198&CFTOKEN=74432114" target="_self">Network problems</a>
+										
+									
+									<br>
+									
+								
+							
+					
+
+					</p>
+				   
+			
+				
+				<br>
+					<p class="GenTerms">
+						<SPAN class=heading><A NAME="GenTerms">General Terms:</A></span>
+						
+						  	
+						
+						
+						<BR>
+						 
+						
+							
+							<a href="results.cfm?query=genterm%3A%22Algorithms%22&coll=GUIDE&dl=GUIDE&CFID=29900198&CFTOKEN=74432114" target="_self">
+							Algorithms</a>,
+							
+						
+							
+							<a href="results.cfm?query=genterm%3A%22Performance%22&coll=GUIDE&dl=GUIDE&CFID=29900198&CFTOKEN=74432114" target="_self">
+							 Performance</a>,
+							
+						
+							
+							<a href="results.cfm?query=genterm%3A%22Reliability%22&coll=GUIDE&dl=GUIDE&CFID=29900198&CFTOKEN=74432114" target="_self">
+							 Reliability</a>,
+							
+						
+							
+							<a href="results.cfm?query=genterm%3A%22Theory%22&coll=GUIDE&dl=GUIDE&CFID=29900198&CFTOKEN=74432114" target="_self">
+							 Theory</a>,
+							
+						
+							
+							<a href="results.cfm?query=genterm%3A%22Verification%22&coll=GUIDE&dl=GUIDE&CFID=29900198&CFTOKEN=74432114" target="_self">
+							 Verification</a>
+							
+						
+					</p>
+				  
+				
+				
+				  		
+						  	
+						
+						
+				
+				
+			
+			</div>
+		 
+		
+		
+				
+		
+			<div class="abstract">
+				
+				<A HREF="citation.cfm?doid=321992.321993#CIT"><img name="top" src="http://portal.acm.org/images/arrowu.gif" hspace="10" border="0"></A><SPAN class=heading><A NAME="collab">Collaborative Colleagues:</A></span>
+				
+				<table border="0" style="margin-left: 2em" cellpadding="2">
+				
+				
+						<tr valign="top"><td><div class="abstract">Donald B. Johnson:</div></td><td>
+					
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+					
+							
+					
+					
+					
+						
+						
+						<div class="abstract">Matt Bishop</div>
+						
+					
+						
+						
+						<div class="abstract">Daniel R. L. Brown</div>
+						
+					
+						
+						
+						<div class="abstract">Matthew Cheyney</div>
+						
+					
+						
+						
+						<div class="abstract">Robert L. S Drysdale</div>
+						
+					
+						
+						
+						<div class="abstract">Greg N. Frederickson</div>
+						
+					
+						
+						
+						<div class="abstract">Peter Gloor</div>
+						
+					
+						
+						
+						<div class="abstract">Peter A. Gloor</div>
+						
+					
+						
+						
+						<div class="abstract">Michael Goldweber</div>
+						
+					
+						
+						
+						<div class="abstract">Teofilo F. Gonzalez</div>
+						
+					
+						
+						
+						<div class="abstract">Samuel D. Kashdan</div>
+						
+					
+						
+						
+							
+							</td><td>							
+						
+						<div class="abstract">David Kotz</div>
+						
+					
+						
+						
+						<div class="abstract">Fillia Makedon</div>
+						
+					
+						
+						
+						<div class="abstract">James Matthews</div>
+						
+					
+						
+						
+						<div class="abstract">Panagiotis Metaxas</div>
+						
+					
+						
+						
+						<div class="abstract">Panagiotis Takis Metaxas</div>
+						
+					
+						
+						
+						<div class="abstract">Webb Miller</div>
+						
+					
+						
+						
+						<div class="abstract">Brian Minnihan</div>
+						
+					
+						
+						
+						<div class="abstract">Larry Raab</div>
+						
+					
+						
+						
+						<div class="abstract">Celia Wrathall</div>
+						
+					
+						</td>
+						</tr>
+				
+				</table>
+			</div>
+						
+		
+		
+		
+		
+		
+		
+		
+			
+				
+				
+				
+			
+				
+				
+				
+			
+				
+				
+				
+			
+		
+				
+			
+  	
+
+
+
+
+<br>
+<DIV class=footer-copy-text align="center">
+	
+	The ACM Portal is published by the Association for Computing Machinery. Copyright © 2007 ACM, Inc.<br>
+	<A href="http://portal.acm.org/info/usage.cfm?CFID=29900198&CFTOKEN=74432114">Terms of Usage</A>&nbsp;&nbsp;
+	<A href="http://www.acm.org/serving/acm-privacy.html">Privacy Policy</A>&nbsp;&nbsp;
+	<A href="http://www.acm.org/constitution/code.html">Code of Ethics</A>&nbsp;&nbsp;	  
+	<A href="http://www.acm.org/key_people/">Contact Us</A>
+
+<br><br>
+Useful downloads: 
+<a href="http://www.adobe.com/products/acrobat/readstep2.html"><img src="http://portal.acm.org/images/pdf_logo.gif" width="16" height="16" alt="" border="0"> Adobe Acrobat</a>
+&nbsp;&nbsp;
+<a href="http://www.apple.com/quicktime/download/" target="_blank"><img src="http://portal.acm.org/images/qtlogo.gif" width="16" height="16" alt="" border="0"> QuickTime</a>
+&nbsp;&nbsp;
+<a href="http://www.microsoft.com/windows/windowsmedia/download/default.asp" target="_blank"><img src="http://portal.acm.org/images/wmv.gif" width="16" height="15" alt="" border="0"> Windows Media Player</a>
+&nbsp;&nbsp;
+<a href="http://www.real.com/" target="_blank"><img src="http://portal.acm.org/images/realplayer.gif" width="20" height="18" alt="" border="0"> Real Player</a>
+
+
+</DIV>
+
+</td>
+</tr>
+</table>
+</div>
+
+</body>
+</html>

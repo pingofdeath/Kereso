@@ -1,0 +1,263 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de" lang="de" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+				<meta name="keywords" content="Suchverfahren,A*-Algorithmus,Abstraktion,Algorithmus,Algorithmus von Dijkstra,Algorithmus von Knuth-Morris-Pratt,Algorithmus von Kruskal,Algorithmus von Prim,Alpha-Beta-Suche,Backtracking,Baum (Graphentheorie)" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (Deutsch)" />
+		<link rel="copyright" href="http://www.gnu.org/copyleft/fdl.html" />
+		<title>Suchverfahren - Wikipedia</title>
+		<style type="text/css" media="screen, projection">/*<![CDATA[*/
+			@import "/skins-1.5/common/shared.css?99";
+			@import "/skins-1.5/monobook/main.css?99";
+		/*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="/skins-1.5/common/commonPrint.css?99" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE50Fixes.css?99";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE55Fixes.css?99";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "/skins-1.5/monobook/IE60Fixes.css?99";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "/skins-1.5/monobook/IE70Fixes.css?99";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="/skins-1.5/common/IEFixes.js?99"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		
+		<script type= "text/javascript">/*<![CDATA[*/
+var skin = "monobook";
+var stylepath = "/skins-1.5";
+var wgArticlePath = "/wiki/$1";
+var wgScriptPath = "/w";
+var wgScript = "/w/index.php";
+var wgServer = "http://de.wikipedia.org";
+var wgCanonicalNamespace = "";
+var wgCanonicalSpecialPageName = false;
+var wgNamespaceNumber = 0;
+var wgPageName = "Suchverfahren";
+var wgTitle = "Suchverfahren";
+var wgAction = "view";
+var wgRestrictionEdit = [];
+var wgRestrictionMove = [];
+var wgArticleId = "295046";
+var wgIsArticle = true;
+var wgUserName = null;
+var wgUserGroups = null;
+var wgUserLanguage = "de";
+var wgContentLanguage = "de";
+var wgBreakFrames = false;
+var wgCurRevisionId = "35027631";
+/*]]>*/</script>
+                
+		<script type="text/javascript" src="/skins-1.5/common/wikibits.js?99"><!-- wikibits js --></script>
+		<script type="text/javascript" src="/w/index.php?title=-&amp;action=raw&amp;gen=js&amp;useskin=monobook"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "/w/index.php?title=MediaWiki:Common.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=MediaWiki:Monobook.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=-&action=raw&gen=css&maxage=2678400";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+		<script type="text/javascript" src="/skins-1.5/common/ajax.js?99"></script>
+	</head>
+<body  class="mediawiki ns-0 ltr page-Suchverfahren">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+		<div id="siteNotice"><script type="text/javascript" language="JavaScript">
+<!--
+document.writeln("\x3cdiv style=\"position:absolute; z-index:100; right:5px; top:-20px;\" class=\"metadata\" id=\"donate\"\x3e\n\x3cdiv style=\"text-align:right; font-size:80%\"\x3e\x3ca href=\"http://wikimediafoundation.org/wiki/Spenden\" class=\"extiw\" title=\"wikimedia:Spenden\"\x3eIhre \x3cb\x3eSpenden\x3c/b\x3e\x3c/a\x3e helfen, Wikipedia zu betreiben. \n\x3c/div\x3e\x3c/div\x3e\n");
+-->
+</script></div>		<h1 class="firstHeading">Suchverfahren</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">aus Wikipedia, der freien Enzyklopädie</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Wechseln zu: <a href="#column-one">Navigation</a>, <a href="#searchInput">Suche</a></div>			<!-- start content -->
+			<p>Die <a href="/wiki/Informatik" title="Informatik">Informatik</a> bezeichnet mit <b>Suchverfahren</b> oder <b>Suchalgorithmus</b> einen <a href="/wiki/Algorithmus" title="Algorithmus">Algorithmus</a>, der in einem <i>Suchraum</i> nach Mustern oder Objekten mit bestimmten Eigenschaften sucht. Man unterscheidet einfache und heuristische Suchalgorithmen. Einfache Suchalgorithmen benutzen intuitive Methoden für das Durchsuchen des Suchraumes, während <a href="/wiki/Heuristik" title="Heuristik">heuristische</a> Suchalgorithmen Wissen über den Suchraum (beispielsweise die Datenverteilung) mit einbeziehen um die benötigte Suchzeit zu reduzieren.</p>
+<table id="toc" class="toc" summary="Inhaltsverzeichnis">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Inhaltsverzeichnis</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Einfache_Suchalgorithmen"><span class="tocnumber">1</span> <span class="toctext">Einfache Suchalgorithmen</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Suche_in_Listen"><span class="tocnumber">1.1</span> <span class="toctext">Suche in Listen</span></a></li>
+<li class="toclevel-2"><a href="#Suche_in_B.C3.A4umen"><span class="tocnumber">1.2</span> <span class="toctext">Suche in Bäumen</span></a></li>
+<li class="toclevel-2"><a href="#Suche_in_Graphen"><span class="tocnumber">1.3</span> <span class="toctext">Suche in Graphen</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Heuristische_Suchalgorithmen"><span class="tocnumber">2</span> <span class="toctext">Heuristische Suchalgorithmen</span></a></li>
+<li class="toclevel-1"><a href="#Optimierende_Suche"><span class="tocnumber">3</span> <span class="toctext">Optimierende Suche</span></a></li>
+<li class="toclevel-1"><a href="#Andere_Suchverfahren"><span class="tocnumber">4</span> <span class="toctext">Andere Suchverfahren</span></a></li>
+<li class="toclevel-1"><a href="#Leistungsunterschiede_der_Suchverfahren"><span class="tocnumber">5</span> <span class="toctext">Leistungsunterschiede der Suchverfahren</span></a></li>
+<li class="toclevel-1"><a href="#Siehe_auch"><span class="tocnumber">6</span> <span class="toctext">Siehe auch</span></a></li>
+<li class="toclevel-1"><a href="#Weblinks"><span class="tocnumber">7</span> <span class="toctext">Weblinks</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "Anzeigen"; var tocHideText = "Verbergen"; showTocToggle(); } 
+//]]>
+</script>
+<p><a name="Einfache_Suchalgorithmen" id="Einfache_Suchalgorithmen"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Suchverfahren&amp;action=edit&amp;section=1" title="Abschnitt bearbeiten: Einfache Suchalgorithmen">Bearbeiten</a>]</span> <span class="mw-headline">Einfache Suchalgorithmen</span></h2>
+<p>Einfache Suchalgorithmen vernachlässigen die spezielle Natur des jeweiligen Problems. Deshalb können sie allgemeiner und <a href="/wiki/Abstraktion" title="Abstraktion">abstrakter</a> <a href="/wiki/Implementation" title="Implementation">implementiert</a> werden, wodurch dieselbe Implementierung für eine große Auswahl von Problemen verwendet werden kann. Der Nachteil einfacher Suchalgorithmen sind die entstehenden Kosten: Der Suchraum von Suchproblemen ist im Allgemeinen sehr groß, einfaches Suchen läuft jedoch nur in kleinen Suchräumen in annehmbarer Zeit ab.</p>
+<p><a name="Suche_in_Listen" id="Suche_in_Listen"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Suchverfahren&amp;action=edit&amp;section=2" title="Abschnitt bearbeiten: Suche in Listen">Bearbeiten</a>]</span> <span class="mw-headline">Suche in Listen</span></h3>
+<p>Algorithmen zur Suche in Listen sind die einfachsten Suchalgorithmen überhaupt. Das Ziel der Suche in Listen ist es, ein bestimmtes Element einer Liste zu finden, von dem der zugehörige <a href="/wiki/Suchschl%C3%BCssel" title="Suchschlüssel">Suchschlüssel</a> bekannt ist. Da dieses Problem in der <a href="/wiki/Informatik" title="Informatik">Informatik</a> oft anzutreffen ist, sind die verwendeten Algorithmen – sowie deren <a href="/wiki/Komplexit%C3%A4tstheorie" title="Komplexitätstheorie">Komplexität</a> – sehr gut untersucht.</p>
+<p>Der einfachste Suchalgorithmus für Listen ist die <a href="/wiki/Lineare_Suche" title="Lineare Suche">lineare Suche</a>. Bei ihr wird solange ein Element nach dem anderen durchlaufen, bis ein Element mit dem gesuchten Schlüssel angetroffen wird. Die lineare Suche hat eine Laufzeit von <a href="/wiki/Landau-Notation" title="Landau-Notation">O(<i>n</i>)</a> (<i>n</i> ist die Anzahl der Elemente der Liste) und kann sowohl auf sortierte als auch unsortierte Listen angewendet werden. Ein fortgeschrittenes Verfahren ist die <a href="/wiki/Bin%C3%A4re_Suche" title="Binäre Suche">binäre Suche</a> mit einer Laufzeit von O(log <i>n</i>). Für große Listen ist sie viel effizienter als die lineare Suche, setzt jedoch voraus, dass die Liste vorher <a href="/wiki/Sortierverfahren" title="Sortierverfahren">sortiert</a> wurde und ein <a href="/wiki/Wahlfreier_Zugriff" title="Wahlfreier Zugriff">wahlfreier Zugriff</a> auf die Elemente möglich ist. Die <a href="/wiki/Interpolationssuche" title="Interpolationssuche">Interpolationssuche</a>, auch Intervallsuche genannt, ist eine Verbesserung der binären Suche, die eine Gleichverteilung der Daten voraussetzt. Die Laufzeit O(log(log <i>n</i>)) ist nur für sehr große Datenmengen besser als die der binären Suche. Ein weiterer Suchalgorithmus für Listen ist der <a href="/wiki/Grover-Algorithmus" title="Grover-Algorithmus">Grover-Algorithmus</a>, der auf <a href="/wiki/Quantencomputer" title="Quantencomputer">Quantencomputern</a> zum Einsatz kommt und quadratisch schneller als die klassische lineare Suche für unsortierte Listen abläuft. Für die Suche in Listen kann auch <a href="/wiki/Hash-Funktion" title="Hash-Funktion">Hashing</a> verwendet werden, das im Durchschnitt eine konstante Zeit O(1), im <a href="/wiki/Worst_Case" title="Worst Case">schlechtesten Fall</a> jedoch lineare Zeit benötigt.</p>
+<p><a name="Suche_in_B.C3.A4umen" id="Suche_in_B.C3.A4umen"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Suchverfahren&amp;action=edit&amp;section=3" title="Abschnitt bearbeiten: Suche in Bäumen">Bearbeiten</a>]</span> <span class="mw-headline">Suche in Bäumen</span></h3>
+<p>Die Suche in Bäumen ist die Königsdisziplin unter den Suchalgorithmen. Sie durchsucht <a href="/wiki/Knoten_%28Graphentheorie%29" title="Knoten (Graphentheorie)">Knoten</a> von <a href="/wiki/Baum_%28Graphentheorie%29" title="Baum (Graphentheorie)">Bäumen</a>, unabhängig davon ob der Baum explizit oder implizit (während der Suche generiert) ist. Dabei wird folgendes Prinzip angewendet: Ein Knoten wird aus einer <a href="/wiki/Datenstruktur" title="Datenstruktur">Datenstruktur</a> entnommen. Seine Kindknoten werden untersucht und gegebenenfalls der Datenstruktur hinzugefügt. Je nach Auswahl der Datenstruktur kann der Baum in verschiedenen Reihenfolgen durchsucht werden. Die Verwendung einer <a href="/wiki/Warteschlange" title="Warteschlange">Warteschlange</a> führt so zu einer <a href="/wiki/Breitensuche" title="Breitensuche">Breitensuche</a>, bei der der Baum Ebene für Ebene durchlaufen wird. Bei Verwendung eines <a href="/wiki/Stapelspeicher" title="Stapelspeicher">Stacks</a> hingegen, wird jeweils bis zu einem Blatt gesucht und erst anschließend mit dem nächsten Kindknoten fortgefahren. Dies wird als <a href="/wiki/Tiefensuche" title="Tiefensuche">Tiefensuche</a> bezeichnet.</p>
+<p><a name="Suche_in_Graphen" id="Suche_in_Graphen"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Suchverfahren&amp;action=edit&amp;section=4" title="Abschnitt bearbeiten: Suche in Graphen">Bearbeiten</a>]</span> <span class="mw-headline">Suche in Graphen</span></h3>
+<p>Viele Probleme der <a href="/wiki/Graphentheorie" title="Graphentheorie">Graphentheorie</a> können mit Hilfe von Suchalgorithmen gelöst werden. Beispiele für diese Algorithmen sind <a href="/wiki/Algorithmus_von_Dijkstra" title="Algorithmus von Dijkstra">Dijkstras Algorithmus</a>, <a href="/wiki/Algorithmus_von_Kruskal" title="Algorithmus von Kruskal">Kruskals Algorithmus</a>, <a href="/w/index.php?title=Problem_des_k%C3%BCrzesten_Weges&amp;action=edit" class="new" title="Problem des kürzesten Weges">Problem des kürzesten Weges</a> oder <a href="/wiki/Algorithmus_von_Prim" title="Algorithmus von Prim">Prims Algorithmus</a>, die als Erweiterungen der Algorithmen für die Suche in Bäumen gesehen werden können.</p>
+<p><a name="Heuristische_Suchalgorithmen" id="Heuristische_Suchalgorithmen"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Suchverfahren&amp;action=edit&amp;section=5" title="Abschnitt bearbeiten: Heuristische Suchalgorithmen">Bearbeiten</a>]</span> <span class="mw-headline">Heuristische Suchalgorithmen</span></h2>
+<p>Strategien, die das Auffinden von Lösungen beschleunigen können, bezeichnet man als <a href="/wiki/Heuristik" title="Heuristik">Heuristiken</a>. Typische Heuristiken sind Faustregeln, die Orientierung an Beispielen und die Nachbildung des menschlichen Problemlöseprozesses. Das Studium verschiedener Verfahren zur heuristischen Suche, die Entwicklung und Implementation neuer Verfahren und ihre Anwendung auf verschiedene Problembereiche rechnet man üblicherweise zum algorithmischen Kern der Künstlichen Intelligenz. Dazu gehören z. B. das automatische Beweisen, die Steuerung von Robotern und, als typische Vertreter, insbesondere Spiele. Gemeint sind sowohl Zwei-Personen-Spiele (Nullsummenspiele mit vollständiger Information) wie z. B. <a href="/wiki/Schach" title="Schach">Schach</a>, Dame, Mühle als auch Ein-Personen-Spiele wie Schiebepuzzles oder Solitaire. Die klassischen Verfahren zur heuristischen Suche sind <a href="/wiki/A%2A-Algorithmus" title="A*-Algorithmus">A*</a>, <a href="/w/index.php?title=IDA%2A&amp;action=edit" class="new" title="IDA*">IDA*</a>, <a href="/w/index.php?title=Bidirektionale_Suche&amp;action=edit" class="new" title="Bidirektionale Suche">bidirektionale Suchschemata</a>, das <a href="/wiki/Minimax-Algorithmus" title="Minimax-Algorithmus">Minimax-Verfahren</a>, <a href="/wiki/Alpha-Beta-Suche" title="Alpha-Beta-Suche">Alpha-Beta-Suche</a>.</p>
+<p><a name="Optimierende_Suche" id="Optimierende_Suche"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Suchverfahren&amp;action=edit&amp;section=6" title="Abschnitt bearbeiten: Optimierende Suche">Bearbeiten</a>]</span> <span class="mw-headline">Optimierende Suche</span></h2>
+<p>Diese Art der Suche löst Optimierungsaufgaben, bei der eine Reihe von Variablen mit Werten belegt werden muss. Da es sich dabei um sehr viele Variablen mit sehr großem Wertebereich handeln kann, ist der Suchbereich sehr groß und herkömmliche Suchverfahren versagen.</p>
+<p><i>Kombinatorische Suche</i> und <a href="/wiki/Backtracking" title="Backtracking">Backtracking</a> sind Verfahren, die bei der optimierenden Suche zum Einsatz kommen, vor allem bei diskreten Variablen.</p>
+<p>Zur analogen Suche nach Minima oder Maxima von mehrdimensionalen Funktionen gibt es eine ganze Anzahl an numerischen <a href="/wiki/Optimierung_%28Mathematik%29" title="Optimierung (Mathematik)">Optimierungsverfahren</a>, die je nach den jeweiligen Ausgangsbedingungen eingesetzt werden.</p>
+<p>Ein anderes Vorgehen beruht auf dem <a href="/wiki/Feedback" title="Feedback">Feedback</a> durch den Nutzer, der die <a href="/wiki/Relevanz" title="Relevanz">Relevanz</a> der Ergebnisse zu bewerten hat, siehe <a href="/wiki/Relevanz-Feedback" title="Relevanz-Feedback">Relevanz-Feedback</a>.</p>
+<p><a name="Andere_Suchverfahren" id="Andere_Suchverfahren"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Suchverfahren&amp;action=edit&amp;section=7" title="Abschnitt bearbeiten: Andere Suchverfahren">Bearbeiten</a>]</span> <span class="mw-headline">Andere Suchverfahren</span></h2>
+<p>Suchverfahren für <a href="/wiki/Zeichenkette" title="Zeichenkette">Zeichenketten</a> suchen in Zeichenketten nach dem Auftreten eines Schlüssels. Bekannte Vertreter sind der <a href="/wiki/Algorithmus_von_Knuth-Morris-Pratt" title="Algorithmus von Knuth-Morris-Pratt">Algorithmus von Knuth-Morris-Pratt</a>, der <a href="/wiki/Boyer-Moore-Algorithmus" title="Boyer-Moore-Algorithmus">Algorithmus von Boyer-Moore</a> sowie der <a href="/wiki/Karp-Rabin-Algorithmus" title="Karp-Rabin-Algorithmus">Karp-Rabin-Algorithmus</a>. Siehe dazu: <a href="/wiki/String-Matching-Algorithmus" title="String-Matching-Algorithmus">String-Matching-Algorithmus</a>.</p>
+<p><a href="/wiki/Genetischer_Algorithmus" title="Genetischer Algorithmus">Genetische Algorithmen</a> benutzen Ideen aus der <a href="/wiki/Evolutionslehre" title="Evolutionslehre">Evolutionslehre</a> als Heuristiken, um den Suchraum zu verkleinern.</p>
+<p><a href="/wiki/Simulierte_Abk%C3%BChlung" title="Simulierte Abkühlung">Simulierte Abkühlung</a> (<i>simulated annealing</i>) ist ein auf Wahrscheinlichkeit beruhender Suchalgorithmus.</p>
+<p><i>Adversarial Search</i> wird im Bereich der <a href="/wiki/K%C3%BCnstliche_Intelligenz" title="Künstliche Intelligenz">künstlichen Intelligenz</a> eingesetzt.</p>
+<p><a name="Leistungsunterschiede_der_Suchverfahren" id="Leistungsunterschiede_der_Suchverfahren"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Suchverfahren&amp;action=edit&amp;section=8" title="Abschnitt bearbeiten: Leistungsunterschiede der Suchverfahren">Bearbeiten</a>]</span> <span class="mw-headline">Leistungsunterschiede der Suchverfahren</span></h2>
+<p>In den <a href="/wiki/No-Free-Lunch-Theoreme" title="No-Free-Lunch-Theoreme">No-Free-Lunch-Theoremen</a> wurde gezeigt, dass – gemittelt über alle mathematisch formulierbaren Probleme – alle Suchverfahren gleich gut sind. Einen Leistungsvorsprung zeigt ein Suchverfahren jeweils nur auf einer speziellen Klasse von Problemen.</p>
+<p><a name="Siehe_auch" id="Siehe_auch"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Suchverfahren&amp;action=edit&amp;section=9" title="Abschnitt bearbeiten: Siehe auch">Bearbeiten</a>]</span> <span class="mw-headline">Siehe auch</span></h2>
+<ul>
+<li><a href="/wiki/Fuzzy-Suche" title="Fuzzy-Suche">Fuzzy-Suche</a></li>
+<li><a href="/wiki/Phonetische_Suche" title="Phonetische Suche">Phonetische Suche</a></li>
+<li><a href="/wiki/Recherche" title="Recherche">Recherche</a></li>
+<li><a href="/wiki/Pattern_Matching" title="Pattern Matching">Pattern Matching</a></li>
+<li><a href="/wiki/Regul%C3%A4rer_Ausdruck" title="Regulärer Ausdruck">Regulärer Ausdruck</a></li>
+<li><a href="/wiki/Data-Mining" title="Data-Mining">Data-Mining</a></li>
+<li><a href="/wiki/Suchfunktion" title="Suchfunktion">Suchfunktion</a></li>
+<li><a href="/wiki/Sortierverfahren" title="Sortierverfahren">Sortierverfahren</a></li>
+<li><a href="/wiki/Liste_von_Algorithmen" title="Liste von Algorithmen">Liste von Algorithmen</a></li>
+</ul>
+<p><a name="Weblinks" id="Weblinks"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Suchverfahren&amp;action=edit&amp;section=10" title="Abschnitt bearbeiten: Weblinks">Bearbeiten</a>]</span> <span class="mw-headline">Weblinks</span></h2>
+<ul>
+<li><a href="http://www.Cornelius-Herget.de/Facharbeit%20Sortieralgorithmen.pdf" class="external text" title="http://www.Cornelius-Herget.de/Facharbeit%20Sortieralgorithmen.pdf" rel="nofollow">Facharbeit über Sortier- und Suchalgorithmen (PDF)</a></li>
+<li><a href="http://www.stefan-baur.de/cs.algo.search.html" class="external text" title="http://www.stefan-baur.de/cs.algo.search.html" rel="nofollow">Simulation verschiedener Suchverfahren anhand eines Java-Applets</a></li>
+</ul>
+
+
+<!-- Saved in parser cache with key dewiki:pcache:idhash:295046-0!1!0!!de!2 and timestamp 20070912113803 -->
+<div class="printfooter">
+Von „<a href="http://de.wikipedia.org/wiki/Suchverfahren">http://de.wikipedia.org/wiki/Suchverfahren</a>“</div>
+			<div id="catlinks"><p class='catlinks'><a href="/wiki/Spezial:Categories" title="Spezial:Categories">Kategorie</a>: <span dir='ltr'><a href="/wiki/Kategorie:Suchalgorithmus" title="Kategorie:Suchalgorithmus">Suchalgorithmus</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Ansichten</h5>
+		<div class="pBody">
+			<ul>
+					 <li id="ca-nstab-main" class="selected"><a href="/wiki/Suchverfahren" title="Seiteninhalt anzeigen [c]" accesskey="c">Artikel</a></li>
+					 <li id="ca-talk"><a href="/wiki/Diskussion:Suchverfahren" title="Diskussion zum Seiteninhalt [t]" accesskey="t">Diskussion</a></li>
+					 <li id="ca-edit"><a href="/w/index.php?title=Suchverfahren&amp;action=edit" title="Seite bearbeiten. Bitte vor dem Speichern die Vorschaufunktion benutzen. [e]" accesskey="e">Seite bearbeiten</a></li>
+					 <li id="ca-history"><a href="/w/index.php?title=Suchverfahren&amp;action=history" title="Frühere Versionen dieser Seite [h]" accesskey="h">Versionen/Autoren</a></li>
+				</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-personal">
+		<h5>Persönliche Werkzeuge</h5>
+		<div class="pBody">
+			<ul>
+				<li id="pt-login"><a href="/w/index.php?title=Spezial:Anmelden&amp;returnto=Suchverfahren" title="Sich einzuloggen wird zwar gerne gesehen, ist aber keine Pflicht. [o]" accesskey="o">Anmelden</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-logo">
+		<a style="background-image: url(http://upload.wikimedia.org/wikipedia/de/b/bc/Wiki.png);" href="/wiki/Hauptseite" title="Hauptseite anzeigen [z]" accesskey="z"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="/wiki/Hauptseite" title="Hauptseite anzeigen [z]" accesskey="z">Hauptseite</a></li>
+				<li id="n-aboutsite"><a href="/wiki/Wikipedia:%C3%9Cber_Wikipedia">Über Wikipedia</a></li>
+				<li id="n-topics"><a href="/wiki/Portal:Wikipedia_nach_Themen">Themenportale</a></li>
+				<li id="n-alphindex"><a href="/wiki/Spezial:Alle_Seiten">Von A bis Z</a></li>
+				<li id="n-randompage"><a href="/wiki/Spezial:Zuf%C3%A4llige_Seite" title="Zufällige Seite [x]" accesskey="x">Zufälliger Artikel</a></li>
+			</ul>
+		</div>
+	</div>
+		<div class='portlet' id='p-Mitmachen'>
+		<h5>Mitmachen</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-help"><a href="/wiki/Wikipedia:Hilfe" title="Hilfeseite anzeigen">Hilfe</a></li>
+				<li id="n-portal"><a href="/wiki/Wikipedia:Autorenportal" title="Über das Portal, was du tun kannst, wo was zu finden ist">Autorenportal</a></li>
+				<li id="n-recentchanges"><a href="/wiki/Spezial:Letzte_%C3%84nderungen" title="Liste der letzten Änderungen in Wikipedia. [r]" accesskey="r">Letzte Änderungen</a></li>
+				<li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Spenden" title="Unterstützen Sie uns">Spenden</a></li>
+			</ul>
+		</div>
+	</div>
+		<div id="p-search" class="portlet">
+		<h5><label for="searchInput">Suche</label></h5>
+		<div id="searchBody" class="pBody">
+			<form action="/wiki/Spezial:Suche" id="searchform"><div>
+				<input id="searchInput" name="search" type="text" title="Durchsuche die Wikipedia [f]" accesskey="f" value="" />
+				<input type='submit' name="go" class="searchButton" id="searchGoButton"	value="Artikel" />&nbsp;
+				<input type='submit' name="fulltext" class="searchButton" id="mw-searchButton" value="Volltext" />
+			</div></form>
+		</div>
+	</div>
+	<div class="portlet" id="p-tb">
+		<h5>Werkzeuge</h5>
+		<div class="pBody">
+			<ul>
+				<li id="t-whatlinkshere"><a href="/wiki/Spezial:Linkliste/Suchverfahren" title="Liste aller Seiten, die hierher zeigen [j]" accesskey="j">Links auf diese Seite</a></li>
+				<li id="t-recentchangeslinked"><a href="/wiki/Spezial:%C3%84nderungen_an_verlinkten_Seiten/Suchverfahren" title="Letzte Änderungen an Seiten, die von hier verlinkt sind [k]" accesskey="k">Änderungen an verlinkten Seiten</a></li>
+<li id="t-upload"><a href="/wiki/Spezial:Hochladen" title="Dateien hochladen [u]" accesskey="u">Hochladen</a></li>
+<li id="t-specialpages"><a href="/wiki/Spezial:Spezialseiten" title="Liste aller Spezialseiten [q]" accesskey="q">Spezialseiten</a></li>
+				<li id="t-print"><a href="/w/index.php?title=Suchverfahren&amp;printable=yes" title="Druckansicht dieser Seite [p]" accesskey="p">Druckversion</a></li>				<li id="t-permalink"><a href="/w/index.php?title=Suchverfahren&amp;oldid=35027631" title="Dauerhafter Link zu dieser Seitenversion">Permanentlink</a></li><li id="t-cite"><a href="/w/index.php?title=Spezial:Cite&amp;page=Suchverfahren&amp;id=35027631">Artikel zitieren</a></li>			</ul>
+		</div>
+	</div>
+	<div id="p-lang" class="portlet">
+		<h5>Andere Sprachen</h5>
+		<div class="pBody">
+			<ul>
+				<li class="interwiki-en"><a href="http://en.wikipedia.org/wiki/Search_algorithm">English</a></li>
+				<li class="interwiki-fi"><a href="http://fi.wikipedia.org/wiki/Hakualgoritmi">Suomi</a></li>
+				<li class="interwiki-fr"><a href="http://fr.wikipedia.org/wiki/Algorithme_de_recherche">Français</a></li>
+				<li class="interwiki-id"><a href="http://id.wikipedia.org/wiki/Algoritma_pencarian">Bahasa Indonesia</a></li>
+				<li class="interwiki-it"><a href="http://it.wikipedia.org/wiki/Algoritmo_di_ricerca">Italiano</a></li>
+				<li class="interwiki-ja"><a href="http://ja.wikipedia.org/wiki/%E6%A4%9C%E7%B4%A2">日本語</a></li>
+				<li class="interwiki-nl"><a href="http://nl.wikipedia.org/wiki/Zoekalgoritme">Nederlands</a></li>
+				<li class="interwiki-pt"><a href="http://pt.wikipedia.org/wiki/Algoritmo_de_busca">Português</a></li>
+				<li class="interwiki-vi"><a href="http://vi.wikipedia.org/wiki/Gi%E1%BA%A3i_thu%E1%BA%ADt_t%C3%ACm_ki%E1%BA%BFm">Tiếng Việt</a></li>
+			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="/skins-1.5/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>
+				<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="/images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>
+			<ul id="f-list">
+				<li id="lastmod"> Diese Seite wurde zuletzt am 31. Juli 2007 um 17:14 Uhr geändert.</li>
+				<li id="copyright">Ihr Inhalt steht unter der <a class='internal' href="/wiki/Wikipedia:GNU_Free_Documentation_License">GNU-Lizenz für freie Dokumentation</a>.<br />
+Wikipedia® ist eine eingetragene Marke der Wikimedia Foundation Inc.<br /></li>
+				<li id="privacy"><a href="/wiki/Wikipedia:Datenschutz" title="Wikipedia:Datenschutz">Datenschutz</a></li>
+				<li id="about"><a href="/wiki/Wikipedia:%C3%9Cber_Wikipedia" title="Wikipedia:Über Wikipedia">Über Wikipedia</a></li>
+				<li id="disclaimer"><a href="/wiki/Wikipedia:Impressum" title="Wikipedia:Impressum">Impressum</a></li>
+			</ul>
+		</div>
+		
+	
+		<script type="text/javascript">if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by srv75 in 0.089 secs. --></body></html>

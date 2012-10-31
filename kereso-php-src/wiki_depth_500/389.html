@@ -1,0 +1,453 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+				<meta name="keywords" content="Invertible matrix,LU decomposition,System of linear equations,Transpose,Block matrix,Schur complement,Strassen algorithm,Volker Strassen,Minor (linear algebra),Determinant,Algorithm" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="http://www.gnu.org/copyleft/fdl.html" />
+		<title>Invertible matrix - Wikipedia, the free encyclopedia</title>
+		<style type="text/css" media="screen, projection">/*<![CDATA[*/
+			@import "/skins-1.5/common/shared.css?99";
+			@import "/skins-1.5/monobook/main.css?99";
+		/*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="/skins-1.5/common/commonPrint.css?99" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE50Fixes.css?99";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE55Fixes.css?99";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "/skins-1.5/monobook/IE60Fixes.css?99";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "/skins-1.5/monobook/IE70Fixes.css?99";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="/skins-1.5/common/IEFixes.js?99"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		
+		<script type= "text/javascript">/*<![CDATA[*/
+var skin = "monobook";
+var stylepath = "/skins-1.5";
+var wgArticlePath = "/wiki/$1";
+var wgScriptPath = "/w";
+var wgScript = "/w/index.php";
+var wgServer = "http://en.wikipedia.org";
+var wgCanonicalNamespace = "";
+var wgCanonicalSpecialPageName = false;
+var wgNamespaceNumber = 0;
+var wgPageName = "Invertible_matrix";
+var wgTitle = "Invertible matrix";
+var wgAction = "view";
+var wgRestrictionEdit = [];
+var wgRestrictionMove = [];
+var wgArticleId = "217122";
+var wgIsArticle = true;
+var wgUserName = null;
+var wgUserGroups = null;
+var wgUserLanguage = "en";
+var wgContentLanguage = "en";
+var wgBreakFrames = false;
+var wgCurRevisionId = "158048223";
+/*]]>*/</script>
+                
+		<script type="text/javascript" src="/skins-1.5/common/wikibits.js?99"><!-- wikibits js --></script>
+		<script type="text/javascript" src="/w/index.php?title=-&amp;action=raw&amp;gen=js&amp;useskin=monobook"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "/w/index.php?title=MediaWiki:Common.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=MediaWiki:Monobook.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=-&action=raw&gen=css&maxage=2678400";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+		<script type="text/javascript" src="/skins-1.5/common/ajax.js?99"></script>
+	</head>
+<body  class="mediawiki ns-0 ltr page-Invertible_matrix">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">Invertible matrix</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<p>In <a href="/wiki/Linear_algebra" title="Linear algebra">linear algebra</a>, an <i>n</i>-by-<i>n</i> (square) <a href="/wiki/Matrix_%28mathematics%29" title="Matrix (mathematics)">matrix</a> <span class="texhtml"><i>A</i></span> is called <b>invertible</b> or <b>non-singular</b> if there exists an <i>n</i>-by-<i>n</i> matrix <span class="texhtml"><i>B</i></span> such that</p>
+<dl>
+<dd><img class="tex" alt="AB = BA = I_n \ " src="http://upload.wikimedia.org/math/3/b/7/3b79052825133bfb8057ba5e90aa9412.png" /></dd>
+</dl>
+<p>where <span class="texhtml"><i>I</i><sub><i>n</i></sub></span> denotes the <i>n</i>-by-<i>n</i> <a href="/wiki/Identity_matrix" title="Identity matrix">identity matrix</a> and the multiplication used is ordinary <a href="/wiki/Matrix_multiplication" title="Matrix multiplication">matrix multiplication</a>. If this is the case, then the matrix <span class="texhtml"><i>B</i></span> is uniquely determined by <span class="texhtml"><i>A</i></span> and is called the <i>inverse</i> of <span class="texhtml"><i>A</i></span>, denoted by <span class="texhtml"><i>A</i> <sup>− 1</sup></span>. It follows from the theory of matrices that if</p>
+<dl>
+<dd><img class="tex" alt="AB = I \ " src="http://upload.wikimedia.org/math/4/e/5/4e5acec86832d3cc704c4e8641b48389.png" /></dd>
+</dl>
+<p>for square matrices <span class="texhtml"><i>A</i></span> and <span class="texhtml"><i>B</i></span>, then also</p>
+<dl>
+<dd><img class="tex" alt="BA = I \ ." src="http://upload.wikimedia.org/math/6/b/c/6bc1566d4ccd02cf8903f415b3b8cddd.png" /></dd>
+</dl>
+<p>While the most common case is that of matrices over the <a href="/wiki/Real_number" title="Real number">real</a> or <a href="/wiki/Complex_number" title="Complex number">complex</a> numbers, all these definitions can be given for matrices over any <a href="/wiki/Ring_%28mathematics%29" title="Ring (mathematics)">ring</a>.</p>
+<p>A square matrix that is not invertible is called <b>singular</b> or <b>degenerate</b>. A square matrix is singular if and only if its <a href="/wiki/Determinant" title="Determinant">determinant</a> is 0.</p>
+<p>As a rule of thumb, almost all square matrices are invertible. Over the field of real numbers, this can be made precise as follows: the set of singular <i>n</i>-by-<i>n</i> matrices, considered as a subset of <img class="tex" alt="R^{n \times n}" src="http://upload.wikimedia.org/math/f/4/e/f4e03d32aa19d81c2153d16e52869780.png" />, is a <a href="/wiki/Null_set" title="Null set">null set</a>, i.e., has <a href="/wiki/Lebesgue_measure" title="Lebesgue measure">Lebesgue</a> <a href="/wiki/Measure_zero" title="Measure zero">measure zero</a>. Intuitively, this means that if you pick a random square matrix over the reals, the <a href="/wiki/Probability" title="Probability">probability</a> that it will be singular is zero. This is true because singular matrices can be thought of as the roots of the polynomial function given by the <a href="/wiki/Determinant" title="Determinant">determinant</a>. In practice however, one may encounter non-invertible matrices. And in <a href="/wiki/Numerical_analysis" title="Numerical analysis">numerical calculations</a>, matrices which are invertible, but close to a non-invertible matrix, can still be problematic; such matrices are said to be <b><a href="/wiki/Condition_number#The_condition_number_of_a_matrix" title="Condition number">ill conditioned</a></b>.</p>
+<p><i>Matrix inversion</i> is the process of finding the matrix <span class="texhtml"><i>B</i></span> that satisfies the prior equation for a given invertible matrix <span class="texhtml"><i>A</i></span>.</p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Properties_of_invertible_matrices"><span class="tocnumber">1</span> <span class="toctext">Properties of invertible matrices</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Proof_for_matrix_product_rule"><span class="tocnumber">1.1</span> <span class="toctext">Proof for matrix product rule</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Methods_of_matrix_inversion"><span class="tocnumber">2</span> <span class="toctext">Methods of matrix inversion</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Gaussian_elimination"><span class="tocnumber">2.1</span> <span class="toctext">Gaussian elimination</span></a></li>
+<li class="toclevel-2"><a href="#Analytic_solution"><span class="tocnumber">2.2</span> <span class="toctext">Analytic solution</span></a>
+<ul>
+<li class="toclevel-3"><a href="#Inversion_of_2_x_2_matrices"><span class="tocnumber">2.2.1</span> <span class="toctext">Inversion of 2 x 2 matrices</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2"><a href="#Blockwise_inversion"><span class="tocnumber">2.3</span> <span class="toctext">Blockwise inversion</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#The_derivative_of_the_matrix_inverse"><span class="tocnumber">3</span> <span class="toctext">The derivative of the matrix inverse</span></a></li>
+<li class="toclevel-1"><a href="#The_Moore-Penrose_pseudoinverse"><span class="tocnumber">4</span> <span class="toctext">The Moore-Penrose pseudoinverse</span></a></li>
+<li class="toclevel-1"><a href="#Matrix_inverses_in_real-time_simulations"><span class="tocnumber">5</span> <span class="toctext">Matrix inverses in real-time simulations</span></a></li>
+<li class="toclevel-1"><a href="#See_also"><span class="tocnumber">6</span> <span class="toctext">See also</span></a></li>
+<li class="toclevel-1"><a href="#References"><span class="tocnumber">7</span> <span class="toctext">References</span></a></li>
+<li class="toclevel-1"><a href="#External_links"><span class="tocnumber">8</span> <span class="toctext">External links</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script>
+<p><a name="Properties_of_invertible_matrices" id="Properties_of_invertible_matrices"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Invertible_matrix&amp;action=edit&amp;section=1" title="Edit section: Properties of invertible matrices">edit</a>]</span> <span class="mw-headline">Properties of invertible matrices</span></h2>
+<p>Let <span class="texhtml"><i>A</i></span> be a square <i>n</i> by <i>n</i> matrix over a <a href="/wiki/Field_%28mathematics%29" title="Field (mathematics)">field</a> <span class="texhtml"><i>K</i></span> (for example the field <span class="texhtml"><i>R</i></span> of real numbers). Then the following statements are equivalent:</p>
+<ul>
+<li><span class="texhtml"><i>A</i></span> is invertible.</li>
+<li><span class="texhtml"><i>A</i></span> is <a href="/wiki/Gauss-Jordan_elimination" title="Gauss-Jordan elimination">row-equivalent</a> to the <i>n</i>-by-<i>n</i> <a href="/wiki/Identity_matrix" title="Identity matrix">identity matrix</a> <span class="texhtml"><i>I</i><sub><i>n</i></sub></span>.</li>
+<li><span class="texhtml"><i>A</i></span> is <a href="/wiki/Gauss-Jordan_elimination" title="Gauss-Jordan elimination">column-equivalent</a> to the <i>n</i>-by-<i>n</i> <a href="/wiki/Identity_matrix" title="Identity matrix">identity matrix</a> <span class="texhtml"><i>I</i><sub><i>n</i></sub></span>.</li>
+<li><span class="texhtml"><i>A</i></span> has <i>n</i> pivot positions.</li>
+<li><a href="/wiki/Determinant" title="Determinant">det</a> <span class="texhtml"><i>A</i></span> ≠ 0.</li>
+<li><a href="/wiki/Rank_%28linear_algebra%29" title="Rank (linear algebra)">rank</a> <span class="texhtml"><i>A</i></span> = <i>n</i>.</li>
+<li>The equation <span class="texhtml"><i>A</i><i>x</i> = 0</span> has only the trivial solution <span class="texhtml"><i>x</i> = 0</span> (i.e., <a href="/wiki/Null_space" title="Null space">Null</a> <i>A</i> = {0})</li>
+<li>The equation <span class="texhtml"><i>A</i><i>x</i> = <i>b</i></span> has exactly one solution for each <span class="texhtml"><i>b</i></span> in <span class="texhtml"><i>K</i><sup><i>n</i></sup></span>.</li>
+<li>The columns of <span class="texhtml"><i>A</i></span> are <a href="/wiki/Linear_independence" title="Linear independence">linearly independent</a>.</li>
+<li>The columns of <span class="texhtml"><i>A</i></span> span <span class="texhtml"><i>K</i><sup><i>n</i></sup></span> (i.e. Col <span class="texhtml"><i>A</i> = <i>K</i><sup><i>n</i></sup></span>).</li>
+<li>The columns of <span class="texhtml"><i>A</i></span> form a <a href="/wiki/Basis_of_a_vector_space" title="Basis of a vector space">basis</a> of <span class="texhtml"><i>K</i><sup><i>n</i></sup></span>.</li>
+<li>The linear transformation mapping <span class="texhtml"><i>x</i></span> to <span class="texhtml"><i>A</i><i>x</i></span> is a <a href="/wiki/Bijection" title="Bijection">bijection</a> from <span class="texhtml"><i>K</i><sup><i>n</i></sup></span> to <span class="texhtml"><i>K</i><sup><i>n</i></sup></span>.</li>
+<li>There is an <i>n</i> by <i>n</i> matrix <span class="texhtml"><i>B</i></span> such that <span class="texhtml"><i>A</i><i>B</i> = <i>I</i><sub><i>n</i></sub></span>.</li>
+<li>The <a href="/wiki/Transpose" title="Transpose">transpose</a> <span class="texhtml"><i>A</i><sup><i>T</i></sup></span> is an invertible matrix.</li>
+<li>The matrix times its transpose, <img class="tex" alt="A^T \times A" src="http://upload.wikimedia.org/math/f/4/5/f4552822c3813ec3931b5641419c3729.png" /> is an invertible matrix.</li>
+<li>The number 0 is not an <a href="/wiki/Eigenvalue" title="Eigenvalue">eigenvalue</a> of <span class="texhtml"><i>A</i></span>.</li>
+</ul>
+<p>In general, a square matrix over a <a href="/wiki/Commutative_ring" title="Commutative ring">commutative ring</a> is invertible if and only if its <a href="/wiki/Determinant" title="Determinant">determinant</a> is a <a href="/wiki/Unit_%28ring_theory%29" title="Unit (ring theory)">unit</a> in that ring.</p>
+<p>The inverse of an invertible matrix <span class="texhtml"><i>A</i></span> is itself invertible, with</p>
+<dl>
+<dd><img class="tex" alt="\left(A^{-1}\right)^{-1} = A " src="http://upload.wikimedia.org/math/e/2/d/e2d62aefdf94a675859257541097a163.png" />.</dd>
+</dl>
+<p>The inverse of an invertible matrix <span class="texhtml"><i>A</i></span> multiplied by a non-zero scalar <span class="texhtml"><i>k</i></span> yields the product of the inverse of both the matrix and the scalar</p>
+<dl>
+<dd><img class="tex" alt="\left(kA\right)^{-1} = k^{-1}A^{-1}" src="http://upload.wikimedia.org/math/3/9/1/3910e987f3d1bc97abddeaee7d96dc0c.png" />.</dd>
+</dl>
+<p>For an invertible matrix <i>A</i>, the transpose of the inverse is the inverse of the transpose:</p>
+<dl>
+<dd><img class="tex" alt="(A^\mathrm{T})^{-1} = (A^{-1})^\mathrm{T} \," src="http://upload.wikimedia.org/math/a/f/3/af360a9478c912018c192df8c834f090.png" /></dd>
+</dl>
+<p>The product of two invertible matrices <span class="texhtml"><i>A</i></span> and <span class="texhtml"><i>B</i></span> of the same size is again invertible, with the inverse given by</p>
+<dl>
+<dd><img class="tex" alt="\left(AB\right)^{-1} = B^{-1}A^{-1}" src="http://upload.wikimedia.org/math/0/9/8/098702fa9895833e172f534c74670e7d.png" /></dd>
+</dl>
+<p>(note that the order of the factors is reversed.) As a consequence, the set of invertible <i>n</i>-by-<i>n</i> matrices forms a <a href="/wiki/Group_%28mathematics%29" title="Group (mathematics)">group</a>, known as the <a href="/wiki/General_linear_group" title="General linear group">general linear group</a> Gl(<i>n</i>).</p>
+<p><a name="Proof_for_matrix_product_rule" id="Proof_for_matrix_product_rule"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Invertible_matrix&amp;action=edit&amp;section=2" title="Edit section: Proof for matrix product rule">edit</a>]</span> <span class="mw-headline">Proof for matrix product rule</span></h3>
+<p>If <span class="texhtml"><i>A</i><sub>1</sub></span>, <span class="texhtml"><i>A</i><sub>2</sub></span>, ..., <span class="texhtml"><i>A</i><sub><i>n</i></sub></span> are nonsingular square matrices over a field, then</p>
+<dl>
+<dd><img class="tex" alt="(A_1A_2\cdots A_n)^{-1} = A_n^{-1}A_{n-1}^{-1}\cdots A_1^{-1} " src="http://upload.wikimedia.org/math/f/e/5/fe558047a1bc74418b4c90f6ef76169b.png" /></dd>
+</dl>
+<p>It becomes evident why this is the case if one attempts to find an inverse for the product of the <span class="texhtml"><i>A</i><sub><i>i</i></sub></span>s from first principles, that is, that we wish to determine <span class="texhtml"><i>B</i></span> such that</p>
+<dl>
+<dd><img class="tex" alt="(A_1A_2\cdots A_n)B=I" src="http://upload.wikimedia.org/math/c/7/0/c7073c164b5dc063bb85dd6c7a8e81c8.png" /></dd>
+</dl>
+<p>where <span class="texhtml"><i>B</i></span> is the inverse matrix of the product. To remove <span class="texhtml"><i>A</i><sub>1</sub></span> from the product, we can then write</p>
+<dl>
+<dd><img class="tex" alt=" A_1^{-1}(A_1A_2\cdots A_n)B=A_1^{-1}I" src="http://upload.wikimedia.org/math/3/7/2/37289545a05fe2eabd71ce196cff4e0a.png" /></dd>
+</dl>
+<p>which would reduce the equation to</p>
+<dl>
+<dd><img class="tex" alt="(A_2A_3\cdots A_n)B=A_1^{-1}I" src="http://upload.wikimedia.org/math/2/f/b/2fbc8147529415a7804aa18298bcc50b.png" /></dd>
+</dl>
+<p>Likewise, then, from</p>
+<dl>
+<dd><img class="tex" alt="A_2^{-1}(A_2A_3\cdots A_n)B=A_2^{-1}A_1^{-1}I" src="http://upload.wikimedia.org/math/5/5/4/5546d0e5044d3aa4632e1fc018a4bddb.png" /></dd>
+</dl>
+<p>which simplifies to</p>
+<dl>
+<dd><img class="tex" alt="(A_3A_4\cdots A_n)B=A_2^{-1}A_1^{-1}I" src="http://upload.wikimedia.org/math/2/1/f/21f8aa7c13b1b57d1f5a51c337557394.png" /></dd>
+</dl>
+<p>If one repeat the process up to <span class="texhtml"><i>A</i><sub><i>n</i></sub></span>, the equation becomes</p>
+<dl>
+<dd><img class="tex" alt=" B=A_n^{-1}A_{n-1}^{-1}\cdots A_2^{-1}A_1^{-1}I" src="http://upload.wikimedia.org/math/c/2/e/c2e9c074b222f7afa616158455a27ceb.png" /></dd>
+</dl>
+<dl>
+<dd><img class="tex" alt=" B=A_n^{-1}A_{n-1}^{-1}\cdots A_2^{-1}A_1^{-1}" src="http://upload.wikimedia.org/math/6/6/2/6623c0d91634069046d721fbd6accf3f.png" /></dd>
+</dl>
+<p>but <span class="texhtml"><i>B</i></span> is the inverse matrix, i.e <img class="tex" alt=" B = (A_1A_2\cdots A_n)^{-1} " src="http://upload.wikimedia.org/math/7/d/1/7d1e959e528eab367ed4a795f81a685e.png" /> so the property is established.</p>
+<p><a name="Methods_of_matrix_inversion" id="Methods_of_matrix_inversion"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Invertible_matrix&amp;action=edit&amp;section=3" title="Edit section: Methods of matrix inversion">edit</a>]</span> <span class="mw-headline">Methods of matrix inversion</span></h2>
+<p><a name="Gaussian_elimination" id="Gaussian_elimination"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Invertible_matrix&amp;action=edit&amp;section=4" title="Edit section: Gaussian elimination">edit</a>]</span> <span class="mw-headline">Gaussian elimination</span></h3>
+<p><a href="/wiki/Gaussian_elimination" title="Gaussian elimination">Gaussian elimination</a> is an <a href="/wiki/Algorithm" title="Algorithm">algorithm</a> that can be used to determine whether a given matrix is invertible and to find the inverse. An alternative is the <a href="/wiki/LU_decomposition" title="LU decomposition">LU decomposition</a> which generates an upper and a lower triangular matrices which are easier to invert. For special purposes, it may be convenient to invert matrices by treating <i>mn</i>-by-<i>mn</i> matrices as <i>m</i>-by-<i>m</i> matrices of <i>n</i>-by-<i>n</i> matrices, and applying one or another formula recursively (other sized matrices can be padded out with dummy rows and columns). For other purposes, a variant of <a href="/wiki/Newton%27s_method" title="Newton's method">Newton's method</a> may be convenient (particularly when dealing with families of related matrices, so inverses of earlier matrices can be used to seed generating inverses of later matrices).</p>
+<p><a name="Analytic_solution" id="Analytic_solution"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Invertible_matrix&amp;action=edit&amp;section=5" title="Edit section: Analytic solution">edit</a>]</span> <span class="mw-headline">Analytic solution</span></h3>
+<p>Writing another special matrix of <a href="/wiki/Cofactor_%28mathematics%29" title="Cofactor (mathematics)">cofactors</a>, known as an <a href="/wiki/Adjugate" title="Adjugate">adjugate</a> matrix, can also be an efficient way to calculate the inverse of <i>small</i> matrices (since this method is essentially recursive, it becomes inefficient for large matrices). To determine the inverse, we calculate a matrix of cofactors:</p>
+<dl>
+<dd><img class="tex" alt="A^{-1}={1 \over \begin{vmatrix}A\end{vmatrix}}\left(C_{ij}\right)^{T}={1 \over \begin{vmatrix}A\end{vmatrix}}\left(C_{ji}\right)={1 \over \begin{vmatrix}A\end{vmatrix}}
+\begin{pmatrix}
+C_{11} &amp; C_{21} &amp; \cdots &amp; C_{j1} \\
+C_{12} &amp; \ddots &amp;        &amp; C_{j2} \\
+\vdots &amp;        &amp; \ddots &amp; \vdots \\
+C_{1i} &amp; \cdots &amp; \cdots &amp; C_{ji} \\
+\end{pmatrix}" src="http://upload.wikimedia.org/math/6/5/4/6542334e3cdcd5ab88d0ea4388187776.png" /></dd>
+</dl>
+<p>where |<i>A</i>| is the <a href="/wiki/Determinant" title="Determinant">determinant</a> of <i>A</i>, <i>C</i><sub><i>ij</i></sub> is the <a href="/wiki/Minor_%28linear_algebra%29" title="Minor (linear algebra)">matrix cofactor</a>, and <i>A</i><sup>T</sup> represents the matrix <a href="/wiki/Transpose" title="Transpose">transpose</a>.</p>
+<p>For most practical applications, it is <i>not</i> necessary to invert a matrix to solve a <a href="/wiki/System_of_linear_equations" title="System of linear equations">system of linear equations</a>; however, for a unique solution, it <i>is</i> necessary that the matrix involved be invertible.</p>
+<p>Decomposition techniques like <a href="/wiki/LU_decomposition" title="LU decomposition">LU decomposition</a>, are <i>much</i> faster than inversion, and various fast algorithms for special classes of linear systems have also been developed.</p>
+<p><a name="Inversion_of_2_x_2_matrices" id="Inversion_of_2_x_2_matrices"></a></p>
+<h4><span class="editsection">[<a href="/w/index.php?title=Invertible_matrix&amp;action=edit&amp;section=6" title="Edit section: Inversion of 2 x 2 matrices">edit</a>]</span> <span class="mw-headline">Inversion of 2 x 2 matrices</span></h4>
+<p>The <i>cofactor equation</i> listed above yields the following result for 2 x 2 matrices. Inversion of these matrices can be done easily as follows: <sup id="_ref-0" class="reference"><a href="#_note-0" title="">[1]</a></sup></p>
+<dl>
+<dd><img class="tex" alt="A^{-1} = \begin{bmatrix}
+a &amp; b \\ c &amp; d \\
+\end{bmatrix}^{-1} =
+\frac{1}{ad - bc} \begin{bmatrix}
+d &amp; -b \\ -c &amp; a \\
+\end{bmatrix}" src="http://upload.wikimedia.org/math/9/7/8/978385a0486dce3b1fc10ebbc63f8ae0.png" /></dd>
+</dl>
+<p><a name="Blockwise_inversion" id="Blockwise_inversion"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Invertible_matrix&amp;action=edit&amp;section=7" title="Edit section: Blockwise inversion">edit</a>]</span> <span class="mw-headline">Blockwise inversion</span></h3>
+<p>Matrices can also be <i>inverted blockwise</i> by using the following analytic inversion formula:</p>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td align="left">
+<dl>
+<dd><img class="tex" alt="
+\begin{bmatrix} A &amp; B \\ C &amp; D \end{bmatrix}^{-1} = \begin{bmatrix} A^{-1}+A^{-1}B(D-CA^{-1}B)^{-1}CA^{-1} &amp; -A^{-1}B(D-CA^{-1}B)^{-1} \\ -(D-CA^{-1}B)^{-1}CA^{-1} &amp; (D-CA^{-1}B)^{-1} \end{bmatrix}
+" src="http://upload.wikimedia.org/math/c/6/6/c6628917db3f23fa185f2c7745b0364a.png" /></dd>
+</dl>
+</td>
+<td align="right"><img class="tex" alt="(1)\," src="http://upload.wikimedia.org/math/0/9/8/09805d958fc7ab3d6c57c02f71afdc39.png" /></td>
+</tr>
+</table>
+<p>where A, B, C and D are <a href="/wiki/Block_matrix" title="Block matrix">matrix sub-blocks</a> of arbitrary size. This strategy is particularly advantageous if A is diagonal and <span class="texhtml">(<i>D</i> − <i>C</i><i>A</i> <sup>− 1</sup><i>B</i>)</span> (the <a href="/wiki/Schur_complement" title="Schur complement">Schur complement</a> of <span class="texhtml"><i>A</i></span>) is a small matrix, since they are the only matrices requiring inversion. This technique was invented by <a href="/wiki/Volker_Strassen" title="Volker Strassen">Volker Strassen</a>, who also invented the <a href="/wiki/Strassen_algorithm" title="Strassen algorithm">Strassen algorithm</a> for fast(er) <a href="/wiki/Matrix_multiplication" title="Matrix multiplication">matrix multiplication</a>.</p>
+<p>The inversion procedure that led to Equation (1) performed matrix block operations that operated on <span class="texhtml"><i>C</i></span> and <span class="texhtml"><i>D</i></span> first. Instead, if <span class="texhtml"><i>A</i></span> and <span class="texhtml"><i>B</i></span> are operated on first, the result is</p>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td align="left">
+<dl>
+<dd><img class="tex" alt="
+\begin{bmatrix} A &amp; B \\ C &amp; D \end{bmatrix}^{-1} = \begin{bmatrix} (A-BD^{-1}C)^{-1} &amp; -(A-BD^{-1}C)^{-1}BD^{-1} \\ -D^{-1}C(A-BD^{-1}C)^{-1} &amp; D^{-1}+D^{-1}C(A-BD^{-1}C)^{-1}BD^{-1}\end{bmatrix}
+" src="http://upload.wikimedia.org/math/4/9/0/490dbaf4d8b1aa75df704bd6145315ab.png" /></dd>
+</dl>
+</td>
+<td align="right"><img class="tex" alt="(2)\," src="http://upload.wikimedia.org/math/e/d/0/ed004ded4d1925b3ebfc6e1ad87a0b0f.png" /></td>
+</tr>
+</table>
+<p>Equating Equations (1) and (2) leads to</p>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td align="left">
+<dl>
+<dd><img class="tex" alt="
+(A-BD^{-1}C)^{-1} = A^{-1}+A^{-1}B(D-CA^{-1}B)^{-1}CA^{-1}\,
+" src="http://upload.wikimedia.org/math/b/d/e/bdee817674f05185a5f0c5b50f10e80d.png" /></dd>
+</dl>
+</td>
+<td align="right"><img class="tex" alt="(3)\," src="http://upload.wikimedia.org/math/5/c/5/5c5afe41da9b4223447f2257873c995a.png" /></td>
+</tr>
+</table>
+<dl>
+<dd><img class="tex" alt="
+(A-BD^{-1}C)^{-1}BD^{-1} = A^{-1}B(D-CA^{-1}B)^{-1}\,
+" src="http://upload.wikimedia.org/math/b/1/c/b1ca77475b209855c17f9c72e85e76db.png" /></dd>
+<dd><img class="tex" alt="
+D^{-1}C(A-BD^{-1}C)^{-1} = (D-CA^{-1}B)^{-1}CA^{-1}\,
+" src="http://upload.wikimedia.org/math/4/3/2/4324d6b0b9a626f3e2184bcea2dd6afb.png" /></dd>
+<dd><img class="tex" alt="
+D^{-1}+D^{-1}C(A-BD^{-1}C)^{-1}BD^{-1} = (D-CA^{-1}B)^{-1}\,
+" src="http://upload.wikimedia.org/math/b/2/4/b2402130d85ba5228551aaa07e88da9d.png" /></dd>
+</dl>
+<p>where Equation (3) is the <a href="/wiki/Matrix_inversion_lemma" title="Matrix inversion lemma">matrix inversion lemma</a>, which is equivalent to the <a href="/wiki/Binomial_inverse_theorem" title="Binomial inverse theorem">binomial inverse theorem</a>.</p>
+<p><a name="The_derivative_of_the_matrix_inverse" id="The_derivative_of_the_matrix_inverse"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Invertible_matrix&amp;action=edit&amp;section=8" title="Edit section: The derivative of the matrix inverse">edit</a>]</span> <span class="mw-headline">The derivative of the matrix inverse</span></h2>
+<p>Suppose that the matrix <i>A</i> depends on a parameter <i>t</i>. Then the derivative of the inverse of <i>A</i> with respect to <i>t</i> is given by</p>
+<dl>
+<dd><img class="tex" alt=" \frac{\mathrm{d}A^{-1}}{\mathrm{d}t} = - A^{-1} \frac{\mathrm{d}A}{\mathrm{d}t} A^{-1}. " src="http://upload.wikimedia.org/math/5/5/c/55c4767fd3d35863aa136dfa8890b1e3.png" /></dd>
+</dl>
+<p>This formula can be found by differentiating the identity</p>
+<dl>
+<dd><img class="tex" alt="A^{-1}A = I.\," src="http://upload.wikimedia.org/math/d/f/5/df5cd7921c61c6218981c91bd796b122.png" /></dd>
+</dl>
+<p><a name="The_Moore-Penrose_pseudoinverse" id="The_Moore-Penrose_pseudoinverse"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Invertible_matrix&amp;action=edit&amp;section=9" title="Edit section: The Moore-Penrose pseudoinverse">edit</a>]</span> <span class="mw-headline">The Moore-Penrose pseudoinverse</span></h2>
+<p>Some of the properties of inverse matrices are shared by (Moore-Penrose) <a href="/wiki/Pseudoinverse" title="Pseudoinverse">pseudoinverses</a>, which can be defined for any <i>m</i>-by-<i>n</i> matrix.</p>
+<p><a name="Matrix_inverses_in_real-time_simulations" id="Matrix_inverses_in_real-time_simulations"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Invertible_matrix&amp;action=edit&amp;section=10" title="Edit section: Matrix inverses in real-time simulations">edit</a>]</span> <span class="mw-headline">Matrix inverses in real-time simulations</span></h2>
+<p>Matrix inversion plays a significant role in <a href="/wiki/Computer_graphics" title="Computer graphics">computer graphics</a>, particularly in <a href="/wiki/3D_graphics" title="3D graphics">3D graphics</a> rendering and 3D simulations. Examples include screen-to-world ray casting, world-to-subspace-to-world object transformations, and physical simulations. The problem there is usually the numerical complexity of calculating the inverses of 3×3 and 4×4 matrices. Compared to matrix multiplication or creation of rotation matrices, inversion is several orders of magnitude slower. There are existing solutions which use hand-crafted assembly routines and SIMD processor extensions (SSE, SSE2, Altivec) that address this problem and achieve a performance improvement of as much as 5X.</p>
+<p><a name="See_also" id="See_also"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Invertible_matrix&amp;action=edit&amp;section=11" title="Edit section: See also">edit</a>]</span> <span class="mw-headline">See also</span></h2>
+<ul>
+<li><a href="/wiki/Matrix_decomposition" title="Matrix decomposition">Matrix decomposition</a></li>
+<li><a href="/wiki/Binomial_inverse_theorem" title="Binomial inverse theorem">Binomial inverse theorem</a></li>
+<li><a href="/wiki/Singular_value_decomposition" title="Singular value decomposition">Singular value decomposition</a></li>
+<li><a href="/wiki/LU_decomposition" title="LU decomposition">LU decomposition</a></li>
+<li><a href="/wiki/Pseudoinverse" title="Pseudoinverse">Pseudoinverse</a> (Moore-Penrose inverse)</li>
+</ul>
+<p><a name="References" id="References"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Invertible_matrix&amp;action=edit&amp;section=12" title="Edit section: References">edit</a>]</span> <span class="mw-headline">References</span></h2>
+<ul>
+<li><a href="/wiki/Thomas_H._Cormen" title="Thomas H. Cormen">Thomas H. Cormen</a>, <a href="/wiki/Charles_E._Leiserson" title="Charles E. Leiserson">Charles E. Leiserson</a>, <a href="/wiki/Ronald_L._Rivest" title="Ronald L. Rivest">Ronald L. Rivest</a>, and <a href="/wiki/Clifford_Stein" title="Clifford Stein">Clifford Stein</a>. <i><a href="/wiki/Introduction_to_Algorithms" title="Introduction to Algorithms">Introduction to Algorithms</a></i>, Second Edition. MIT Press and McGraw-Hill, 2001. <a href="/w/index.php?title=Special:Booksources&amp;isbn=0262032937" class="internal">ISBN 0-262-03293-7</a>. Section 28.4: Inverting matrices, pp.755–760.</li>
+</ul>
+<ol class="references">
+<li id="_note-0"><b><a href="#_ref-0" title="">^</a></b> <cite class="book" style="font-style:normal">Strang, Gilbert (2006). <i>Linear Algebra and Its Applications</i>. Thomson Brooks/Cole, p. 46. <a href="/w/index.php?title=Special:Booksources&amp;isbn=0030105676" class="internal">ISBN 0-03-010567-6</a>.</cite><span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Linear+Algebra+and+Its+Applications&amp;rft.aulast=Strang&amp;rft.aufirst=Gilbert&amp;rft.date=2006&amp;rft.pub=Thomson+Brooks%2FCole&amp;rft.pages=p.+46&amp;rft.isbn=0-03-010567-6">&#160;</span></li>
+</ol>
+<p><a name="External_links" id="External_links"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Invertible_matrix&amp;action=edit&amp;section=13" title="Edit section: External links">edit</a>]</span> <span class="mw-headline">External links</span></h2>
+<ul>
+<li><a href="http://video.google.com/videoplay?docid=5240579335412465654" class="external text" title="http://video.google.com/videoplay?docid=5240579335412465654" rel="nofollow">MIT Linear Algebra Lecture on Inverse Matrices</a> at Google Video, from MIT OpenCourseWare</li>
+<li><a href="http://netlib.org/lapack/" class="external text" title="http://netlib.org/lapack/" rel="nofollow">LAPACK</a> is a collection of FORTRAN subroutines for solving dense linear algebra problems</li>
+<li><a href="http://www.alglib.net/eigen/" class="external text" title="http://www.alglib.net/eigen/" rel="nofollow">ALGLIB</a> includes a partial port of the LAPACK to C++, C#, Delphi, etc.</li>
+<li><a href="http://www.jimmysie.com/maths/matrixinv.php" class="external text" title="http://www.jimmysie.com/maths/matrixinv.php" rel="nofollow">Online Inverse Matrix Calculator using AJAX</a></li>
+<li><a href="http://www.easycalculation.com/matrix/matrix-inverse.php" class="external text" title="http://www.easycalculation.com/matrix/matrix-inverse.php" rel="nofollow">Inverse Matrix Calculator</a></li>
+<li><a href="http://www.vias.org/tmdatanaleng/cc_matrix_pseudoinv.html" class="external text" title="http://www.vias.org/tmdatanaleng/cc_matrix_pseudoinv.html" rel="nofollow">Moore Penrose Pseudoinverse</a></li>
+<li><a href="http://numericalmethods.eng.usf.edu/mws/gen/04sle/mws_gen_sle_bck_system.pdf" class="external text" title="http://numericalmethods.eng.usf.edu/mws/gen/04sle/mws_gen_sle_bck_system.pdf" rel="nofollow">Inverse of a Matrix Notes</a></li>
+<li><a href="http://math.fullerton.edu/mathews/n2003/InverseMatrixMod.html" class="external text" title="http://math.fullerton.edu/mathews/n2003/InverseMatrixMod.html" rel="nofollow">Module for the Matrix Inverse</a></li>
+<li><a href="http://planetmath.org/?op=getobj&amp;from=objects&amp;id=6362" class="external text" title="http://planetmath.org/?op=getobj&amp;from=objects&amp;id=6362" rel="nofollow">Derivative of inverse matrix</a> on <a href="/wiki/PlanetMath" title="PlanetMath">PlanetMath</a></li>
+</ul>
+
+<!-- 
+Pre-expand include size: 7404 bytes
+Post-expand include size: 1381 bytes
+Template argument size: 997 bytes
+Maximum: 2048000 bytes
+-->
+
+<!-- Saved in parser cache with key enwiki:pcache:idhash:217122-0!1!0!default!!en!2 and timestamp 20070915134520 -->
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org/wiki/Invertible_matrix">http://en.wikipedia.org/wiki/Invertible_matrix</a>"</div>
+			<div id="catlinks"><p class='catlinks'><a href="/wiki/Special:Categories" title="Special:Categories">Categories</a>: <span dir='ltr'><a href="/wiki/Category:Linear_algebra" title="Category:Linear algebra">Linear algebra</a></span> | <span dir='ltr'><a href="/wiki/Category:Matrices" title="Category:Matrices">Matrices</a></span> | <span dir='ltr'><a href="/wiki/Category:Determinants" title="Category:Determinants">Determinants</a></span> | <span dir='ltr'><a href="/wiki/Category:Matrix_theory" title="Category:Matrix theory">Matrix theory</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<div class="pBody">
+			<ul>
+					 <li id="ca-nstab-main" class="selected"><a href="/wiki/Invertible_matrix" title="View the content page [c]" accesskey="c">Article</a></li>
+					 <li id="ca-talk"><a href="/wiki/Talk:Invertible_matrix" title="Discussion about the content page [t]" accesskey="t">Discussion</a></li>
+					 <li id="ca-edit"><a href="/w/index.php?title=Invertible_matrix&amp;action=edit" title="You can edit this page. Please use the preview button before saving. [e]" accesskey="e">Edit this page</a></li>
+					 <li id="ca-history"><a href="/w/index.php?title=Invertible_matrix&amp;action=history" title="Past versions of this page [h]" accesskey="h">History</a></li>
+				</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-personal">
+		<h5>Personal tools</h5>
+		<div class="pBody">
+			<ul>
+				<li id="pt-login"><a href="/w/index.php?title=Special:Userlogin&amp;returnto=Invertible_matrix" title="You are encouraged to log in, it is not mandatory however. [o]" accesskey="o">Sign in / create account</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-logo">
+		<a style="background-image: url(/images/wiki-en.png);" href="/wiki/Main_Page" title="Visit the Main Page [z]" accesskey="z"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-Main-page"><a href="/wiki/Main_Page">Main page</a></li>
+				<li id="n-Contents"><a href="/wiki/Wikipedia:Contents">Contents</a></li>
+				<li id="n-Featured-content"><a href="/wiki/Wikipedia:Featured_content">Featured content</a></li>
+				<li id="n-currentevents"><a href="/wiki/Portal:Current_events" title="Find background information on current events">Current events</a></li>
+				<li id="n-randompage"><a href="/wiki/Special:Random" title="Load a random page [x]" accesskey="x">Random article</a></li>
+			</ul>
+		</div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+		<h5>interaction</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-About-Wikipedia"><a href="/wiki/Wikipedia:About">About Wikipedia</a></li>
+				<li id="n-portal"><a href="/wiki/Wikipedia:Community_Portal" title="About the project, what you can do, where to find things">Community portal</a></li>
+				<li id="n-recentchanges"><a href="/wiki/Special:Recentchanges" title="The list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li>
+				<li id="n-contact"><a href="/wiki/Wikipedia:Contact_us">Contact Wikipedia</a></li>
+				<li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising" title="Support us">Donate to Wikipedia</a></li>
+				<li id="n-help"><a href="/wiki/Help:Contents" title="Guidance on how to use and edit Wikipedia">Help</a></li>
+			</ul>
+		</div>
+	</div>
+		<div id="p-search" class="portlet">
+		<h5><label for="searchInput">Search</label></h5>
+		<div id="searchBody" class="pBody">
+			<form action="/wiki/Special:Search" id="searchform"><div>
+				<input id="searchInput" name="search" type="text" title="Search Wikipedia [f]" accesskey="f" value="" />
+				<input type='submit' name="go" class="searchButton" id="searchGoButton"	value="Go" />&nbsp;
+				<input type='submit' name="fulltext" class="searchButton" id="mw-searchButton" value="Search" />
+			</div></form>
+		</div>
+	</div>
+	<div class="portlet" id="p-tb">
+		<h5>Toolbox</h5>
+		<div class="pBody">
+			<ul>
+				<li id="t-whatlinkshere"><a href="/wiki/Special:Whatlinkshere/Invertible_matrix" title="List of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+				<li id="t-recentchangeslinked"><a href="/wiki/Special:Recentchangeslinked/Invertible_matrix" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+<li id="t-upload"><a href="/wiki/Wikipedia:Upload" title="Upload images or media files [u]" accesskey="u">Upload file</a></li>
+<li id="t-specialpages"><a href="/wiki/Special:Specialpages" title="List of all special pages [q]" accesskey="q">Special pages</a></li>
+				<li id="t-print"><a href="/w/index.php?title=Invertible_matrix&amp;printable=yes" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>				<li id="t-permalink"><a href="/w/index.php?title=Invertible_matrix&amp;oldid=158048223" title="Permanent link to this version of the page">Permanent link</a></li><li id="t-cite"><a href="/w/index.php?title=Special:Cite&amp;page=Invertible_matrix&amp;id=158048223">Cite this article</a></li>			</ul>
+		</div>
+	</div>
+	<div id="p-lang" class="portlet">
+		<h5>In other languages</h5>
+		<div class="pBody">
+			<ul>
+				<li class="interwiki-cs"><a href="http://cs.wikipedia.org/wiki/Inverzn%C3%AD_matice">Česky</a></li>
+				<li class="interwiki-de"><a href="http://de.wikipedia.org/wiki/Regul%C3%A4re_Matrix">Deutsch</a></li>
+				<li class="interwiki-es"><a href="http://es.wikipedia.org/wiki/Matriz_invertible">Español</a></li>
+				<li class="interwiki-fr"><a href="http://fr.wikipedia.org/wiki/Matrice_inversible">Français</a></li>
+				<li class="interwiki-ko"><a href="http://ko.wikipedia.org/wiki/%EA%B0%80%EC%97%AD%ED%96%89%EB%A0%AC">한국어</a></li>
+				<li class="interwiki-it"><a href="http://it.wikipedia.org/wiki/Matrice_invertibile">Italiano</a></li>
+				<li class="interwiki-he"><a href="http://he.wikipedia.org/wiki/%D7%9E%D7%98%D7%A8%D7%99%D7%A6%D7%94_%D7%94%D7%A4%D7%99%D7%9B%D7%94">עברית</a></li>
+				<li class="interwiki-lv"><a href="http://lv.wikipedia.org/wiki/Apgriezt%C4%81_matrica">Latviešu</a></li>
+				<li class="interwiki-nl"><a href="http://nl.wikipedia.org/wiki/Inverse_matrix">Nederlands</a></li>
+				<li class="interwiki-ja"><a href="http://ja.wikipedia.org/wiki/%E6%AD%A3%E5%89%87%E8%A1%8C%E5%88%97">日本語</a></li>
+				<li class="interwiki-pl"><a href="http://pl.wikipedia.org/wiki/Macierz_odwrotna">Polski</a></li>
+				<li class="interwiki-pt"><a href="http://pt.wikipedia.org/wiki/Matriz_inversa">Português</a></li>
+				<li class="interwiki-ru"><a href="http://ru.wikipedia.org/wiki/%D0%9E%D0%B1%D1%80%D0%B0%D1%82%D0%BD%D0%B0%D1%8F_%D0%BC%D0%B0%D1%82%D1%80%D0%B8%D1%86%D0%B0">Русский</a></li>
+				<li class="interwiki-sr"><a href="http://sr.wikipedia.org/wiki/%D0%98%D0%BD%D0%B2%D0%B5%D1%80%D1%82%D0%B8%D0%B1%D0%B8%D0%BB%D0%BD%D0%B0_%D0%BC%D0%B0%D1%82%D1%80%D0%B8%D1%86%D0%B0">Српски / Srpski</a></li>
+				<li class="interwiki-fi"><a href="http://fi.wikipedia.org/wiki/K%C3%A4%C3%A4ntyv%C3%A4_matriisi">Suomi</a></li>
+				<li class="interwiki-vi"><a href="http://vi.wikipedia.org/wiki/Ma_tr%E1%BA%ADn_kh%E1%BA%A3_ngh%E1%BB%8Bch">Tiếng Việt</a></li>
+				<li class="interwiki-ur"><a href="http://ur.wikipedia.org/wiki/%D9%85%D9%82%D9%84%D9%88%D8%A8_%D9%85%DB%8C%D9%B9%D8%B1%DA%A9%D8%B3">اردو</a></li>
+				<li class="interwiki-zh"><a href="http://zh.wikipedia.org/wiki/%E9%80%86%E7%9F%A9%E9%98%B5">中文</a></li>
+			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="/skins-1.5/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>
+				<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="/images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>
+			<ul id="f-list">
+				<li id="lastmod"> This page was last modified 18:30, 29 August 2007.</li>
+				<li id="copyright">All text is available under the terms of the <a class='internal' href="/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="/wiki/Wikipedia:Copyrights" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a U.S. registered <a class='internal' href="/wiki/501%28c%29#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="/wiki/Non-profit_organization" title="Non-profit organization">nonprofit</a> <a href="/wiki/Charitable_organization" title="Charitable organization">charity</a>.<br /></li>
+				<li id="privacy"><a href="http://wikimediafoundation.org/wiki/Privacy_policy" title="wikimedia:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="/wiki/Wikipedia:About" title="Wikipedia:About">About Wikipedia</a></li>
+				<li id="disclaimer"><a href="/wiki/Wikipedia:General_disclaimer" title="Wikipedia:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+		
+	
+		<script type="text/javascript">if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by srv154 in 0.064 secs. --></body></html>

@@ -1,0 +1,295 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+				<meta name="keywords" content="FIFO,Acronym,CPU,Circular buffer,Circular queue,Computer science,Data structure,Electronics,FIFO and LIFO accounting,First-come, first-served,Garbage In, Garbage Out" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="http://www.gnu.org/copyleft/fdl.html" />
+		<title>FIFO - Wikipedia, the free encyclopedia</title>
+		<style type="text/css" media="screen, projection">/*<![CDATA[*/
+			@import "/skins-1.5/common/shared.css?99";
+			@import "/skins-1.5/monobook/main.css?99";
+		/*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="/skins-1.5/common/commonPrint.css?99" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE50Fixes.css?99";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE55Fixes.css?99";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "/skins-1.5/monobook/IE60Fixes.css?99";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "/skins-1.5/monobook/IE70Fixes.css?99";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="/skins-1.5/common/IEFixes.js?99"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		
+		<script type= "text/javascript">/*<![CDATA[*/
+var skin = "monobook";
+var stylepath = "/skins-1.5";
+var wgArticlePath = "/wiki/$1";
+var wgScriptPath = "/w";
+var wgScript = "/w/index.php";
+var wgServer = "http://en.wikipedia.org";
+var wgCanonicalNamespace = "";
+var wgCanonicalSpecialPageName = false;
+var wgNamespaceNumber = 0;
+var wgPageName = "FIFO";
+var wgTitle = "FIFO";
+var wgAction = "view";
+var wgRestrictionEdit = [];
+var wgRestrictionMove = [];
+var wgArticleId = "11347";
+var wgIsArticle = true;
+var wgUserName = null;
+var wgUserGroups = null;
+var wgUserLanguage = "en";
+var wgContentLanguage = "en";
+var wgBreakFrames = false;
+var wgCurRevisionId = "156932848";
+/*]]>*/</script>
+                
+		<script type="text/javascript" src="/skins-1.5/common/wikibits.js?99"><!-- wikibits js --></script>
+		<script type="text/javascript" src="/w/index.php?title=-&amp;action=raw&amp;gen=js&amp;useskin=monobook"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "/w/index.php?title=MediaWiki:Common.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=MediaWiki:Monobook.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=-&action=raw&gen=css&maxage=2678400";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+		<script type="text/javascript" src="/skins-1.5/common/ajax.js?99"></script>
+	</head>
+<body  class="mediawiki ns-0 ltr page-FIFO">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">FIFO</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<div class="dablink">This article is about FIFOs in computing and electronic design.  For the term in accounting, see <a href="/wiki/FIFO_and_LIFO_accounting" title="FIFO and LIFO accounting">FIFO and LIFO accounting</a>.</div>
+<p><b>FIFO</b> is an <a href="/wiki/Acronym" title="Acronym">acronym</a> for <b>First In, First Out</b>. This expression describes the principle of a <a href="/wiki/Queue_%28data_structure%29" title="Queue (data structure)">queue</a> or <a href="/wiki/First-come%2C_first-served" title="First-come, first-served">first-come, first-served</a> (FCFS) behaviour: what comes in first is handled first, what comes in next waits until the first is finished, etc. Thus it is analogous to the behaviour of persons queueing (or "standing in line", in common American parlance), where the persons leave the queue in the order they arrive. <b>FCFS</b> is also the other name for the FIFO operating system scheduling algorithm, which gives every process <a href="/wiki/CPU" title="CPU">CPU</a> time in the order they come.</p>
+<p>A <a href="/wiki/Priority_queue" title="Priority queue">priority queue</a> is a variation on the queue which does not qualify for the name FIFO, because it is not accurately descriptive of that <a href="/wiki/Data_structure" title="Data structure">data structure</a>'s behavior. <a href="/wiki/Queueing_theory" title="Queueing theory">Queueing theory</a> encompasses the more general concept of queue, as well as interactions between strict-FIFO queues.</p>
+<p>The expression <b>FIFO</b> can be used in different contexts.</p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#People"><span class="tocnumber">1</span> <span class="toctext">People</span></a></li>
+<li class="toclevel-1"><a href="#Computer_science"><span class="tocnumber">2</span> <span class="toctext">Computer science</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Data_structure"><span class="tocnumber">2.1</span> <span class="toctext">Data structure</span></a></li>
+<li class="toclevel-2"><a href="#Head_or_tail_first"><span class="tocnumber">2.2</span> <span class="toctext">Head or tail first</span></a></li>
+<li class="toclevel-2"><a href="#Pipes"><span class="tocnumber">2.3</span> <span class="toctext">Pipes</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Electronics"><span class="tocnumber">3</span> <span class="toctext">Electronics</span></a>
+<ul>
+<li class="toclevel-2"><a href="#FIFO_FULL.2FEMPTY"><span class="tocnumber">3.1</span> <span class="toctext">FIFO FULL/EMPTY</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#See_also"><span class="tocnumber">4</span> <span class="toctext">See also</span></a></li>
+<li class="toclevel-1"><a href="#References"><span class="tocnumber">5</span> <span class="toctext">References</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script>
+<p><a name="People" id="People"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=FIFO&amp;action=edit&amp;section=1" title="Edit section: People">edit</a>]</span> <span class="mw-headline">People</span></h2>
+<ul>
+<li>For queues of people, <i>see</i> <a href="/wiki/Queue_area" title="Queue area">queue area</a>.</li>
+</ul>
+<p><a name="Computer_science" id="Computer_science"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=FIFO&amp;action=edit&amp;section=2" title="Edit section: Computer science">edit</a>]</span> <span class="mw-headline">Computer science</span></h2>
+<p><a name="Data_structure" id="Data_structure"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=FIFO&amp;action=edit&amp;section=3" title="Edit section: Data structure">edit</a>]</span> <span class="mw-headline">Data structure</span></h3>
+<p>In <a href="/wiki/Computer_science" title="Computer science">computer science</a> this term refers to the way data stored in a queue is processed. Each item in the queue is stored in a queue (<i>simpliciter</i>) data structure. The first data to be added to the queue will be the first data to be removed, then processing proceeds sequentially in the same order. This is typical behavior for a queue, but see also the <a href="/wiki/LIFO" title="LIFO">LIFO</a> and <a href="/wiki/Stack_%28data_structure%29" title="Stack (data structure)">stack</a> algorithms.</p>
+<p>A typical data structure will look like</p>
+<pre>
+ struct fifo_node {
+   struct fifo_node *next;
+   value_type value;
+ };
+</pre>
+<pre>
+ class fifo
+ {
+   fifo_node *front;
+   fifo_node *back;
+   fifo_node *dequeue(void)
+   {
+     fifo_node *tmp = front;
+     front = front-&gt;next;
+     return tmp;
+   }
+   queue(value)
+   {
+     fifo_node *tempNode = new fifo_node;
+     tempNode-&gt;value = value;
+     tempNode-&gt;next = back;
+     back = tempNode;
+   }
+ }
+</pre>
+<p>(For information on the abstract data structure, see <a href="/wiki/Queue_%28data_structure%29" title="Queue (data structure)">Queue</a>. For details of a common implementation, see <a href="/wiki/Circular_buffer" title="Circular buffer">Circular buffer</a>.)</p>
+<p>Popular UNIX systems include a sys/queue.h C/C++ header file which provides macros usable by applications which need to create FIFO queues.</p>
+<p><a name="Head_or_tail_first" id="Head_or_tail_first"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=FIFO&amp;action=edit&amp;section=4" title="Edit section: Head or tail first">edit</a>]</span> <span class="mw-headline">Head or tail first</span></h3>
+<p>Authors and users of FIFO queue software should consider carefully the use of the terms "head" and "tail" to refer to the two ends of the queue. To many people, items should enter a queue at the tail, remain in the queue until they reach the head and leave the queue from there. This point of view is justified by analogy with queues of people waiting for some kind of service and parallels the use of "front" and "back" in the above example. Other people, however, believe that you enter a queue at the head and leave at the tail, in the manner of food passing through a snake. Queues written in that way appear in places that might be considered authoritiative, such as the GNU/Linux operating system, making the point of view hard to dismiss however repugnant you find the idea of getting your data from a snake's rear-end.</p>
+<p><a name="Pipes" id="Pipes"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=FIFO&amp;action=edit&amp;section=5" title="Edit section: Pipes">edit</a>]</span> <span class="mw-headline">Pipes</span></h3>
+<p>In computing environments that support the <a href="/wiki/Pipes_and_filters" title="Pipes and filters">pipes and filters</a> model for <a href="/wiki/Interprocess_communication" title="Interprocess communication">interprocess communication</a>, a <b>FIFO</b> is another name for a <a href="/wiki/Named_pipe" title="Named pipe">named pipe</a>.</p>
+<p><a name="Electronics" id="Electronics"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=FIFO&amp;action=edit&amp;section=6" title="Edit section: Electronics">edit</a>]</span> <span class="mw-headline">Electronics</span></h2>
+<p>FIFOs are used commonly in <a href="/wiki/Electronics" title="Electronics">electronic</a> circuits for buffering and flow control. In hardware form a FIFO primarily consists of a set of read and write pointers, storage and control logic. Storage may be SRAM, flip-flops, latches or any other suitable form of storage. For FIFOs of non-trivial size a dual-port SRAM is usually used where one port is used for writing and the other is used for reading.</p>
+<p>A synchronous FIFO is a FIFO where the same clock is used for both reading and writing. An asynchronous FIFO uses different clocks for reading and writing. Asynchronous FIFOs introduce <a href="/wiki/Metastability" title="Metastability">metastability</a> issues. A common implementation of an asychronous FIFO uses a <a href="/wiki/Gray_code" title="Gray code">Gray code</a> (or any unit distance code) for the read and write pointers to ensure reliable flag generation. One further note concerning flag generation is that one must necessarily use pointer arithmetic to generate flags for asynchronous FIFO implementations. Conversely, one may use either a "<a href="/wiki/Leaky_bucket" title="Leaky bucket">leaky bucket</a>" approach or pointer arithmetic to generate flags in synchronous FIFO implementations.</p>
+<p>Examples of FIFO status flags include: full, empty, almost full, or almost empty.</p>
+<p>The first known FIFO implemented in electronics is done by Peter Alfke in 1969 at Fairchild Semiconductors. Peter Alfke is now a Director at <a href="/wiki/Xilinx" title="Xilinx">Xilinx</a>.</p>
+<p><a name="FIFO_FULL.2FEMPTY" id="FIFO_FULL.2FEMPTY"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=FIFO&amp;action=edit&amp;section=7" title="Edit section: FIFO FULL/EMPTY">edit</a>]</span> <span class="mw-headline">FIFO FULL/EMPTY</span></h3>
+<p>In hardware FIFO is used for synchronization purposes. It is often implemented as a <a href="/wiki/Circular_queue" title="Circular queue">circular queue</a>, and thus has two pointers:</p>
+<p>1. Read Pointer/Read Address Register</p>
+<p>2. Write Pointer/Write Address Register</p>
+<p>Read and write addresses are initially both at the first memory location and the FIFO queue is <b>Empty</b>.</p>
+<p><b>FIFO Empty</b>: When read address register reaches to write address register, the FIFO triggers the Empty signal.</p>
+<p><b>FIFO FULL</b>: When write address register reaches to read address register, the FIFO triggers the FULL signal.</p>
+<p><a name="See_also" id="See_also"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=FIFO&amp;action=edit&amp;section=8" title="Edit section: See also">edit</a>]</span> <span class="mw-headline">See also</span></h2>
+<ul>
+<li><a href="/wiki/LIFO" title="LIFO">LIFO</a> (Last in, first out)</li>
+<li><a href="/wiki/Garbage_In%2C_Garbage_Out" title="Garbage In, Garbage Out">Garbage In, Garbage Out</a></li>
+</ul>
+<p><a name="References" id="References"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=FIFO&amp;action=edit&amp;section=9" title="Edit section: References">edit</a>]</span> <span class="mw-headline">References</span></h2>
+<ul>
+<li><a href="http://www.sunburst-design.com/papers/CummingsSNUG2002SJ_FIFO2.pdf" class="external text" title="http://www.sunburst-design.com/papers/CummingsSNUG2002SJ_FIFO2.pdf" rel="nofollow">Cummings et al., Simulation and Synthesis Techniques for Asynchronous FIFO Design with Asynchronous Pointer Comparisons, SNUG San Jose 2002</a></li>
+</ul>
+
+<!-- 
+Pre-expand include size: 1643 bytes
+Post-expand include size: 883 bytes
+Template argument size: 491 bytes
+Maximum: 2048000 bytes
+-->
+
+<!-- Saved in parser cache with key enwiki:pcache:idhash:11347-0!1!0!default!!en!2 and timestamp 20070913131552 -->
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org/wiki/FIFO">http://en.wikipedia.org/wiki/FIFO</a>"</div>
+			<div id="catlinks"><p class='catlinks'><a href="/wiki/Special:Categories" title="Special:Categories">Categories</a>: <span dir='ltr'><a href="/wiki/Category:Scheduling_algorithms" title="Category:Scheduling algorithms">Scheduling algorithms</a></span> | <span dir='ltr'><a href="/wiki/Category:Inter-process_communication" title="Category:Inter-process communication">Inter-process communication</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<div class="pBody">
+			<ul>
+					 <li id="ca-nstab-main" class="selected"><a href="/wiki/FIFO" title="View the content page [c]" accesskey="c">Article</a></li>
+					 <li id="ca-talk"><a href="/wiki/Talk:FIFO" title="Discussion about the content page [t]" accesskey="t">Discussion</a></li>
+					 <li id="ca-edit"><a href="/w/index.php?title=FIFO&amp;action=edit" title="You can edit this page. Please use the preview button before saving. [e]" accesskey="e">Edit this page</a></li>
+					 <li id="ca-history"><a href="/w/index.php?title=FIFO&amp;action=history" title="Past versions of this page [h]" accesskey="h">History</a></li>
+				</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-personal">
+		<h5>Personal tools</h5>
+		<div class="pBody">
+			<ul>
+				<li id="pt-login"><a href="/w/index.php?title=Special:Userlogin&amp;returnto=FIFO" title="You are encouraged to log in, it is not mandatory however. [o]" accesskey="o">Sign in / create account</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-logo">
+		<a style="background-image: url(/images/wiki-en.png);" href="/wiki/Main_Page" title="Visit the Main Page [z]" accesskey="z"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-Main-page"><a href="/wiki/Main_Page">Main page</a></li>
+				<li id="n-Contents"><a href="/wiki/Wikipedia:Contents">Contents</a></li>
+				<li id="n-Featured-content"><a href="/wiki/Wikipedia:Featured_content">Featured content</a></li>
+				<li id="n-currentevents"><a href="/wiki/Portal:Current_events" title="Find background information on current events">Current events</a></li>
+				<li id="n-randompage"><a href="/wiki/Special:Random" title="Load a random page [x]" accesskey="x">Random article</a></li>
+			</ul>
+		</div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+		<h5>interaction</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-About-Wikipedia"><a href="/wiki/Wikipedia:About">About Wikipedia</a></li>
+				<li id="n-portal"><a href="/wiki/Wikipedia:Community_Portal" title="About the project, what you can do, where to find things">Community portal</a></li>
+				<li id="n-recentchanges"><a href="/wiki/Special:Recentchanges" title="The list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li>
+				<li id="n-contact"><a href="/wiki/Wikipedia:Contact_us">Contact Wikipedia</a></li>
+				<li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising" title="Support us">Donate to Wikipedia</a></li>
+				<li id="n-help"><a href="/wiki/Help:Contents" title="Guidance on how to use and edit Wikipedia">Help</a></li>
+			</ul>
+		</div>
+	</div>
+		<div id="p-search" class="portlet">
+		<h5><label for="searchInput">Search</label></h5>
+		<div id="searchBody" class="pBody">
+			<form action="/wiki/Special:Search" id="searchform"><div>
+				<input id="searchInput" name="search" type="text" title="Search Wikipedia [f]" accesskey="f" value="" />
+				<input type='submit' name="go" class="searchButton" id="searchGoButton"	value="Go" />&nbsp;
+				<input type='submit' name="fulltext" class="searchButton" id="mw-searchButton" value="Search" />
+			</div></form>
+		</div>
+	</div>
+	<div class="portlet" id="p-tb">
+		<h5>Toolbox</h5>
+		<div class="pBody">
+			<ul>
+				<li id="t-whatlinkshere"><a href="/wiki/Special:Whatlinkshere/FIFO" title="List of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+				<li id="t-recentchangeslinked"><a href="/wiki/Special:Recentchangeslinked/FIFO" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+<li id="t-upload"><a href="/wiki/Wikipedia:Upload" title="Upload images or media files [u]" accesskey="u">Upload file</a></li>
+<li id="t-specialpages"><a href="/wiki/Special:Specialpages" title="List of all special pages [q]" accesskey="q">Special pages</a></li>
+				<li id="t-print"><a href="/w/index.php?title=FIFO&amp;printable=yes" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>				<li id="t-permalink"><a href="/w/index.php?title=FIFO&amp;oldid=156932848" title="Permanent link to this version of the page">Permanent link</a></li><li id="t-cite"><a href="/w/index.php?title=Special:Cite&amp;page=FIFO&amp;id=156932848">Cite this article</a></li>			</ul>
+		</div>
+	</div>
+	<div id="p-lang" class="portlet">
+		<h5>In other languages</h5>
+		<div class="pBody">
+			<ul>
+				<li class="interwiki-de"><a href="http://de.wikipedia.org/wiki/First_In_%E2%80%93_First_Out">Deutsch</a></li>
+				<li class="interwiki-et"><a href="http://et.wikipedia.org/wiki/First_Come_First_Served">Eesti</a></li>
+				<li class="interwiki-es"><a href="http://es.wikipedia.org/wiki/FIFO">Español</a></li>
+				<li class="interwiki-fr"><a href="http://fr.wikipedia.org/wiki/First_in%2C_first_out">Français</a></li>
+				<li class="interwiki-he"><a href="http://he.wikipedia.org/wiki/%D7%A0%D7%9B%D7%A0%D7%A1_%D7%A8%D7%90%D7%A9%D7%95%D7%9F_%D7%99%D7%95%D7%A6%D7%90_%D7%A8%D7%90%D7%A9%D7%95%D7%9F">עברית</a></li>
+				<li class="interwiki-is"><a href="http://is.wikipedia.org/wiki/FIFO">Íslenska</a></li>
+				<li class="interwiki-it"><a href="http://it.wikipedia.org/wiki/FIFO">Italiano</a></li>
+				<li class="interwiki-lt"><a href="http://lt.wikipedia.org/wiki/FIFO">Lietuvių</a></li>
+				<li class="interwiki-nl"><a href="http://nl.wikipedia.org/wiki/Fifo">Nederlands</a></li>
+				<li class="interwiki-ja"><a href="http://ja.wikipedia.org/wiki/FIFO">日本語</a></li>
+				<li class="interwiki-pl"><a href="http://pl.wikipedia.org/wiki/FIFO">Polski</a></li>
+				<li class="interwiki-pt"><a href="http://pt.wikipedia.org/wiki/FIFO">Português</a></li>
+				<li class="interwiki-sv"><a href="http://sv.wikipedia.org/wiki/FIFO">Svenska</a></li>
+			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="/skins-1.5/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>
+				<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="/images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>
+			<ul id="f-list">
+				<li id="lastmod"> This page was last modified 14:49, 10 September 2007.</li>
+				<li id="copyright">All text is available under the terms of the <a class='internal' href="/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="/wiki/Wikipedia:Copyrights" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a U.S. registered <a class='internal' href="/wiki/501%28c%29#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="/wiki/Non-profit_organization" title="Non-profit organization">nonprofit</a> <a href="/wiki/Charitable_organization" title="Charitable organization">charity</a>.<br /></li>
+				<li id="privacy"><a href="http://wikimediafoundation.org/wiki/Privacy_policy" title="wikimedia:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="/wiki/Wikipedia:About" title="Wikipedia:About">About Wikipedia</a></li>
+				<li id="disclaimer"><a href="/wiki/Wikipedia:General_disclaimer" title="Wikipedia:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+		
+	
+		<script type="text/javascript">if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by srv100 in 0.198 secs. --></body></html>

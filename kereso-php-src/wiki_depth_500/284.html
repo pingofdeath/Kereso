@@ -1,0 +1,271 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="KEYWORDS" content="Path finding in C sharp" />
+<meta name="robots" content="index,follow" />
+<link rel="shortcut icon" href="/favicon.ico" />
+    <title>Path finding in C sharp - TanisWiki</title>
+    <style type="text/css" media="screen,projection">/*<![CDATA[*/ @import "/wiki/skins/monobook/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="/wiki/skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "/wiki/skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "/wiki/skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if gte IE 6]><style type="text/css">@import "/wiki/skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="/wiki/skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="/wiki/index.php?title=-&amp;action=raw&amp;gen=js"></script>    <script type="text/javascript" src="/wiki/skins/common/wikibits.js"></script>
+    <style type="text/css">/*<![CDATA[*/
+@import "/wiki/index.php?title=MediaWiki:Monobook.css&action=raw&ctype=text/css&smaxage=18000";
+@import "/wiki/index.php?title=-&action=raw&gen=css&maxage=18000";
+/*]]>*/</style>              </head>
+  <body                 class="ns-0">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="top"></a>
+	  	  <h1 class="firstHeading">Path finding in C sharp</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From TanisWiki</h3>
+	    <div id="contentSub"></div>
+	    	    	    <!-- start content -->
+	    <table id='toc' class='toc'><tr><td><div id='toctitle'><h2>Contents</h2></div>
+<ul>
+<li class='toclevel-1'><a href="#Introduction"><span class="tocnumber">1</span> <span class="toctext">Introduction</span></a></li>
+<li class='toclevel-1'><a href="#The_A.2A_algorithm"><span class="tocnumber">2</span> <span class="toctext">The A* algorithm</span></a></li>
+<li class='toclevel-1'><a href="#Heuristics"><span class="tocnumber">3</span> <span class="toctext">Heuristics</span></a></li>
+<li class='toclevel-1'><a href="#Data_Structures"><span class="tocnumber">4</span> <span class="toctext">Data Structures</span></a></li>
+<li class='toclevel-1'><a href="#Extensibility"><span class="tocnumber">5</span> <span class="toctext">Extensibility</span></a></li>
+<li class='toclevel-1'><a href="#The_actual_A.2A_algorithm"><span class="tocnumber">6</span> <span class="toctext">The actual A* algorithm</span></a></li>
+<li class='toclevel-1'><a href="#Creating_your_own_AStarNode_class"><span class="tocnumber">7</span> <span class="toctext">Creating your own AStarNode class</span></a></li>
+<li class='toclevel-1'><a href="#Conclusion"><span class="tocnumber">8</span> <span class="toctext">Conclusion</span></a></li>
+<li class='toclevel-1'><a href="#Update"><span class="tocnumber">9</span> <span class="toctext">Update</span></a></li>
+<li class='toclevel-1'><a href="#More_information"><span class="tocnumber">10</span> <span class="toctext">More information</span></a></li>
+</ul>
+</td></tr></table>
+<p><script type="text/javascript"> if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script>
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="/wiki/index.php?title=Path_finding_in_C_sharp&amp;action=edit&amp;section=1" title="Path finding in C sharp">edit</a>]</div><a name="Introduction"></a><h2> Introduction </h2>
+<p>As I was working on my own little game project, I searched the net for implementations of the A* path finding algorithm in C#, but I could not find any.
+</p><p>There were many, in pretty much every other language, but they either used very language specific features (like templates in C++) or were implemented in a way that just didn't seem very extensible, so I decided to write my own in C#.
+</p><p>I will give a brief introduction to the inner workings or the A* algorithm spiced up with some code samples from the actual implementation. I will also spend a little time explaining how to make your own AStarNode class.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="/wiki/index.php?title=Path_finding_in_C_sharp&amp;action=edit&amp;section=2" title="Path finding in C sharp">edit</a>]</div><a name="The_A.2A_algorithm"></a><h2> The A* algorithm </h2>
+<p>There are a few choices in path finding when it comes to algorithms. A* is probably the most popular one, because it is quite flexible.
+</p><p>A* can be used to solve a myriad of different problems, like:
+</p>
+<ul><li> Combinatory puzzles like Rubric's Cube or 8-puzzles.
+</li><li> Route finding.
+</li><li> Robot navigation.
+</li><li> And, of course, path finding in video games, which is what we are going to use it for
+</li></ul>
+<p>The reason the A* algorithm works so well, is that it favors points that are close to the starting point, and points that are close to the goal as well.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="/wiki/index.php?title=Path_finding_in_C_sharp&amp;action=edit&amp;section=3" title="Path finding in C sharp">edit</a>]</div><a name="Heuristics"></a><h2> Heuristics </h2>
+<p>As mentioned earlier, the A* algorithm both favors the distance from the start state (this is called the Cost in the program, traditionally this is called g()) and the estimated distance to the goal (this is called GoalEstimate in the program, traditionally this is called h()).
+</p><p>In my test of the A* class, I let the character move in 8 possible directions on a 2-dimensional map, so I will be using the "Diagonal Distance" approach.
+</p><p>Many different mathematical formulas can be used as heuristic functions when doing an A* search, it all depends on how your character moves.
+</p><p>This <a href="http://theory.stanford.edu/~amitp/GameProgramming/Heuristics.html#S7" class='external text' title="http://theory.stanford.edu/~amitp/GameProgramming/Heuristics.html#S7" rel="nofollow">article</a> discusses which formula is best used for which movement.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="/wiki/index.php?title=Path_finding_in_C_sharp&amp;action=edit&amp;section=4" title="Path finding in C sharp">edit</a>]</div><a name="Data_Structures"></a><h2> Data Structures </h2>
+<p>Internally the A* algorithm has two lists, the OPEN list, which holds all the nodes that are possible ways to the goal, this is also known as the frontier, and the CLOSED list, which holds all the nodes we have expanded.
+</p><p>Many different data structures are possibly good choices for these lists, but to keep complexity down, I have implemented an "always sorted" array list, that I call Heap, it implements both the IList and ICloneable interfaces, even though they are not really used in this project.
+</p><p>The two most important methods relating to the A* search:
+</p>
+<pre>/// &lt;summary&gt;
+/// Returns the topmost object on the list and removes it from the list
+/// &lt;/summary&gt;
+/// &lt;returns&gt;Returns the topmost object on the list&lt;/returns&gt;
+public object Pop();
+ 
+/// &lt;summary&gt;
+/// Pushes an object on list. It will be inserted at the right spot.
+/// &lt;/summary&gt;
+/// &lt;param name=&quot;Object&quot;&gt;Object to add to the list&lt;/param&gt;
+public void Push(object Object);</pre>
+<p>I am considering tuning this part in a later article, possible using a binary heap as the data structure. More on this later.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="/wiki/index.php?title=Path_finding_in_C_sharp&amp;action=edit&amp;section=5" title="Path finding in C sharp">edit</a>]</div><a name="Extensibility"></a><h2> Extensibility </h2>
+<p>The class has been designed to be very extensible. No code in the actual AStarNode class does any calculations relating to coordinates and such, so it should be possible to use this class to solve any A* problem, not just relating to 2-dimensional grids.
+</p><p>Later I will explain how to implement your own child of the AStarNode class.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="/wiki/index.php?title=Path_finding_in_C_sharp&amp;action=edit&amp;section=6" title="Path finding in C sharp">edit</a>]</div><a name="The_actual_A.2A_algorithm"></a><h2> The actual A* algorithm </h2>
+<p>The implementation of the A* main loop is pretty straight forward. I will go through it step-by-step and explain what is going on.
+</p><p>First we assign the starting node and the goal node to private variables. These will be used through-out the entire pathfinding. Then we add the starting node as our initial search state:
+</p>
+<pre>FStartNode = AStartNode;
+FGoalNode = AGoalNode;
+
+FOpenList.Add(FStartNode);</pre>
+<p>Then we start our main loop. We will keep looping as long as there are still nodes on our heap:
+</p>
+<pre>while(FOpenList.Count &gt; 0) 
+{</pre>
+<p>Then we get the node with the lowest TotalCost off the OPEN list. Since the heap is always sorted according to the IComparable interface implementation of the AStarNode class, this happens just by popping the value off the heap:
+</p>
+<pre>// Get the node with the lowest TotalCost
+AStarNode NodeCurrent = (AStarNode)FOpenList.Pop();</pre>
+<p>If the current node is the solution we will now copy the completed path to the Solution list:
+</p>
+<pre>// If the node is the goal copy the path to the solution array
+if(NodeCurrent.IsGoal()) {
+  while(NodeCurrent&nbsp;!= null) {
+    FSolution.Insert(0,NodeCurrent);
+    NodeCurrent = NodeCurrent.Parent;
+  }
+  break;
+}</pre>
+<p>Then we ask the AStarNode descendant to give us all possible successors of the current node (except the parent of the current node of course):
+</p>
+<pre>// Get successors to the current node
+NodeCurrent.GetSuccessors(FSuccessors);</pre>
+<p>Then we loop through the successors and see if they are worth anything:
+</p>
+<pre>foreach(AStarNode NodeSuccessor in FSuccessors)
+{</pre>
+<p>First we see if the successor node is already on the OPEN list, if it is and the TotalCost is higher than the existing one, we will discard this successor node:
+</p>
+<pre>// Test if the currect successor node is on the open list, if it is and
+// the TotalCost is higher, we will throw away the current successor.
+AStarNode NodeOpen = null;
+if(FOpenList.Contains(NodeSuccessor))
+  NodeOpen = (AStarNode)FOpenList[FOpenList.IndexOf(NodeSuccessor)];
+if((NodeOpen&nbsp;!= null) &amp;&amp; (NodeSuccessor.TotalCost &gt; NodeOpen.TotalCost)) 
+  continue;</pre>
+<p>Then we do the exact same thing on the CLOSED list:
+</p>
+<pre>// Test if the currect successor node is on the closed list, if it is and
+// the TotalCost is higher, we will throw away the current successor.
+AStarNode NodeClosed = null;
+if(FClosedList.Contains(NodeSuccessor))
+  NodeClosed = (AStarNode)FClosedList[FClosedList.IndexOf(NodeSuccessor)];
+if((NodeClosed&nbsp;!= null) &amp;&amp; (NodeSuccessor.TotalCost &gt; NodeOpen.TotalCost)) 
+  continue;</pre>
+<p>Then we remove the instances found on the OPEN and CLOSED list:
+</p>
+<pre>// Remove the old successor from the open list
+FOpenList.Remove(NodeSuccessor);
+
+// Remove the old successor from the closed list
+FClosedList.Remove(NodeSuccessor);</pre>
+<p>Then we add the current successor to the OPEN list and end the loop:
+</p>
+<pre>  // Add the current successor to the open list
+  FOpenList.Push(NodeSuccessor);
+}/&lt;pre&gt;
+
+Then last, but not least, we will add the current node to the closed list and end the loop:
+
+&lt;pre&gt;  // Add the current node to the closed list
+  FClosedList.Add(NodeCurrent);
+}</pre>
+<p>This concludes the main loop in the A* algorithm. Note, that there are circumstances where this implementation can enter an end-less loop. If, for example, the goal is unreachable. It is easy to implement ways to exit the loop, but I will leave the refinement of the implementation for a later time.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="/wiki/index.php?title=Path_finding_in_C_sharp&amp;action=edit&amp;section=7" title="Path finding in C sharp">edit</a>]</div><a name="Creating_your_own_AStarNode_class"></a><h2> Creating your own AStarNode class </h2>
+<p>To create your own AStarNode descendant, you need to override all the virtual members of the AStarNode class:
+</p>
+<pre>public virtual bool IsSameState(AStarNode ANode);
+public virtual void Calculate();
+public virtual void GetSuccessors(ArrayList ASuccessors);
+public virtual void PrintNodeInfo();</pre>
+<p>The implementation of the IsSameState() method must check all state information (i.e. coordinates), if it's the same state it should return true, otherwise false.
+</p><p>The implementation of the Calculate() method must calculate the GoalEstimate (the heuristic) according the state information and the GoalNode.
+</p><p>The implementation of the GetSuccessors() method must place all possible successor of the node itself on the ASuccessors ArrayList.
+</p><p>The implementation of the PrintNodeInfo() method should print whatever information is available about the state. The current code calls it from the private method PrintNodeList() on the AStar class to print information about the lists. You can place calls to PrintNodeList() strategic places in the code if you want to see what is going on when the code is path finding.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="/wiki/index.php?title=Path_finding_in_C_sharp&amp;action=edit&amp;section=8" title="Path finding in C sharp">edit</a>]</div><a name="Conclusion"></a><h2> Conclusion </h2>
+<p>With this class you should be able to implement A* path finding to your own C# projects. The implementation allows for any kind of A* search to be done. 
+</p><p>Other people have implemented solving of i.e. 8-puzzles using the same generic algorithm.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="/wiki/index.php?title=Path_finding_in_C_sharp&amp;action=edit&amp;section=9" title="Path finding in C sharp">edit</a>]</div><a name="Update"></a><h2> Update </h2>
+<p>November 16th, 2005: Code update to fix a bug with removing the correct nodes from the open and closed lists.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="/wiki/index.php?title=Path_finding_in_C_sharp&amp;action=edit&amp;section=10" title="Path finding in C sharp">edit</a>]</div><a name="More_information"></a><h2> More information </h2>
+<p>This article was inspired by other peoples work:
+</p>
+<ul><li> <a href="http://www.geocities.com/jheyesjones/astar.html" class='external text' title="http://www.geocities.com/jheyesjones/astar.html" rel="nofollow">Justin Heyes-Jones A* tutorial</a>
+</li><li> <a href="http://www.gamasutra.com/features/19990212/sm_01.htm" class='external text' title="http://www.gamasutra.com/features/19990212/sm 01.htm" rel="nofollow">Brian Stout's pathfinding tutorial from Games Developer</a>
+</li><li> <a href="http://theory.stanford.edu/~amitp/GameProgramming/index.html" class='external text' title="http://theory.stanford.edu/~amitp/GameProgramming/index.html" rel="nofollow">Amit's Thoughts on Path-Finding and A-Star</a>
+</li></ul>
+<p>And for a very interesting graphical look:
+</p>
+<ul><li> <a href="http://www.ccg.leeds.ac.uk/james/aStar" class='external text' title="http://www.ccg.leeds.ac.uk/james/aStar" rel="nofollow">James MacGill's Java based demo</a>
+</li></ul>
+
+<!-- Saved in parser cache with key wiki:pcache:idhash:1278-0!1!0!0!!en!2 and timestamp 20070915044532 -->
+<div class="printfooter">
+Retrieved from "<a href="http://www.tanis.dk/wiki/index.php/Path_finding_in_C_sharp">http://www.tanis.dk/wiki/index.php/Path_finding_in_C_sharp</a>"</div>
+	    <div id="catlinks"><p class='catlinks'><a href="/wiki/index.php?title=Special:Categories&amp;article=Path_finding_in_C_sharp" title="Special:Categories">Categories</a>: <a href="/wiki/index.php?title=Category:Programming&amp;action=edit" class="new" title="Category:Programming">Programming</a> | <a href="/wiki/index.php?title=Category:CSharp&amp;action=edit" class="new" title="Category:CSharp">CSharp</a> | <a href="/wiki/index.php?title=Category:DotNetFramework&amp;action=edit" class="new" title="Category:DotNetFramework">DotNetFramework</a> | <a href="/wiki/index.php?title=Category:Games&amp;action=edit" class="new" title="Category:Games">Games</a></p></div>	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       class="selected"	       ><a href="/wiki/index.php/Path_finding_in_C_sharp">Article</a></li><li id="ca-talk"
+	       class="new"	       ><a href="/wiki/index.php?title=Talk:Path_finding_in_C_sharp&amp;action=edit">Discussion</a></li><li id="ca-edit"
+	       	       ><a href="/wiki/index.php?title=Path_finding_in_C_sharp&amp;action=edit">Edit</a></li><li id="ca-history"
+	       	       ><a href="/wiki/index.php?title=Path_finding_in_C_sharp&amp;action=history">History</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-personal">
+	  <h5>Personal tools</h5>
+	  <div class="pBody">
+	    <ul>
+	    <li id="pt-login"><a href="/wiki/index.php?title=Special:Userlogin&amp;returnto=Path_finding_in_C_sharp">Create an account or log in</a></li>	    </ul>
+	  </div>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(/wiki/skins/common/images/tanis.png);"
+	    href="/wiki/index.php/Main_Page"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-mainpage"><a href="/wiki/index.php/Main_Page">Main Page</a></li>
+	     	      <li id="n-portal"><a href="/wiki/index.php/TanisWiki:Community_Portal">Community portal</a></li>
+	     	      <li id="n-currentevents"><a href="/wiki/index.php/Current_events">Current events</a></li>
+	     	      <li id="n-recentchanges"><a href="/wiki/index.php/Special:Recentchanges">Recent changes</a></li>
+	     	      <li id="n-randompage"><a href="/wiki/index.php/Special:Random">Random page</a></li>
+	     	      <li id="n-help"><a href="/wiki/index.php/Help:Contents">Help</a></li>
+	     	      <li id="n-sitesupport"><a href="/wiki/index.php/TanisWiki:Site_support">Donations</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div class="pBody">
+	    <form name="searchform" action="/wiki/index.php/Special:Search" id="searchform">
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go"
+	        />&nbsp;<input type='submit' name="fulltext"
+	        class="searchButton"
+	        value="Search" />
+	    </form>
+	  </div>
+	</div>
+	<div class="portlet" id="p-tb">
+	  <h5>Toolbox</h5>
+	  <div class="pBody">
+	    <ul>
+		  		  <li id="t-whatlinkshere"><a href="/wiki/index.php/Special:Whatlinkshere/Path_finding_in_C_sharp">What links here</a></li>
+		  		  <li id="t-recentchangeslinked"><a href="/wiki/index.php/Special:Recentchangeslinked/Path_finding_in_C_sharp">Related changes</a></li>
+		                	      	      	      	      	      	      	      <li id="t-upload"><a href="/wiki/index.php/Special:Upload">Upload file</a></li>	      	      <li id="t-specialpages"><a href="/wiki/index.php/Special:Specialpages">Special pages</a></li>	      	      	      <li id="t-print"><a href="/wiki/index.php?title=Path_finding_in_C_sharp&amp;printable=yes">Printable version</a></li>
+	      	    </ul>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="/wiki/skins/common/images/poweredby_mediawiki_88x31.png" alt="MediaWiki" /></a></div>		<ul id="f-list">
+	  <li id="f-lastmod"> This page was last modified 08:15, 23 February 2006.</li>	  <li id="f-viewcount">This page has been accessed 9,851 times.</li>	  	  	  	  <li id="f-about"><a href="/wiki/index.php/TanisWiki:About" title="TanisWiki:About">About TanisWiki</a></li>	  <li id="f-disclaimer"><a href="/wiki/index.php/TanisWiki:General_disclaimer" title="TanisWiki:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+    <!-- Served by tanis in 0.18 secs. -->  </body>
+</html>

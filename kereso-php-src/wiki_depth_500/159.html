@@ -1,0 +1,375 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+				<meta name="keywords" content="Grover's algorithm,Quantum computing,Quantum computing,1996,BQP,Big O notation,Bra-ket notation,Charge qubit,Collision detection,Database,Deutsch-Jozsa algorithm" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="http://www.gnu.org/copyleft/fdl.html" />
+		<title>Grover's algorithm - Wikipedia, the free encyclopedia</title>
+		<style type="text/css" media="screen, projection">/*<![CDATA[*/
+			@import "/skins-1.5/common/shared.css?99";
+			@import "/skins-1.5/monobook/main.css?99";
+		/*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="/skins-1.5/common/commonPrint.css?99" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE50Fixes.css?99";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE55Fixes.css?99";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "/skins-1.5/monobook/IE60Fixes.css?99";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "/skins-1.5/monobook/IE70Fixes.css?99";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="/skins-1.5/common/IEFixes.js?99"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		
+		<script type= "text/javascript">/*<![CDATA[*/
+var skin = "monobook";
+var stylepath = "/skins-1.5";
+var wgArticlePath = "/wiki/$1";
+var wgScriptPath = "/w";
+var wgScript = "/w/index.php";
+var wgServer = "http://en.wikipedia.org";
+var wgCanonicalNamespace = "";
+var wgCanonicalSpecialPageName = false;
+var wgNamespaceNumber = 0;
+var wgPageName = "Grover\'s_algorithm";
+var wgTitle = "Grover\'s algorithm";
+var wgAction = "view";
+var wgRestrictionEdit = [];
+var wgRestrictionMove = [];
+var wgArticleId = "58498";
+var wgIsArticle = true;
+var wgUserName = null;
+var wgUserGroups = null;
+var wgUserLanguage = "en";
+var wgContentLanguage = "en";
+var wgBreakFrames = false;
+var wgCurRevisionId = "157027218";
+/*]]>*/</script>
+                
+		<script type="text/javascript" src="/skins-1.5/common/wikibits.js?99"><!-- wikibits js --></script>
+		<script type="text/javascript" src="/w/index.php?title=-&amp;action=raw&amp;gen=js&amp;useskin=monobook"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "/w/index.php?title=MediaWiki:Common.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=MediaWiki:Monobook.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=-&action=raw&gen=css&maxage=2678400";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+		<script type="text/javascript" src="/skins-1.5/common/ajax.js?99"></script>
+	</head>
+<body  class="mediawiki ns-0 ltr page-Grover_s_algorithm">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">Grover's algorithm</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<p><b>Grover's algorithm</b> is a <a href="/wiki/Quantum_algorithm" title="Quantum algorithm">quantum algorithm</a> for searching an <a href="/wiki/Sorting" title="Sorting">unsorted</a> <a href="/wiki/Database" title="Database">database</a> with <i>N</i> entries in <i>O(N<sup>1/2</sup>)</i> time and using <i>O(</i>log<i>N)</i> storage space (see <a href="/wiki/Big_O_notation" title="Big O notation">big O notation</a>). It was invented by <a href="/wiki/Lov_K._Grover" title="Lov K. Grover">Lov Grover</a> in <a href="/wiki/1996" title="1996">1996</a>.</p>
+<p>Classically, searching an unsorted database requires a <a href="/wiki/Linear_search" title="Linear search">linear search</a>, which is <i>O(N)</i> in time. Grover's algorithm, which takes <i>O(N<sup>1/2</sup>)</i> time, is the fastest possible quantum algorithm for searching an unsorted database.<sup id="_ref-bennett_1997_0" class="reference"><a href="#_note-bennett_1997" title="">[1]</a></sup> It provides "only" a quadratic speedup, unlike other quantum algorithms, which may provide exponential speedup over their classical counterparts. However, even quadratic speedup is considerable when <i>N</i> is large.</p>
+<p>Like many quantum computer algorithms, Grover's algorithm is probabilistic in the sense that it gives the correct answer with high <a href="/wiki/Probability" title="Probability">probability</a>. The probability of failure can be decreased by repeating the algorithm. (An example of a deterministic quantum algorithm is the <a href="/wiki/Deutsch-Jozsa_algorithm" title="Deutsch-Jozsa algorithm">Deutsch-Jozsa algorithm</a>, which always produces the correct answer with probability one.)</p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Applications"><span class="tocnumber">1</span> <span class="toctext">Applications</span></a></li>
+<li class="toclevel-1"><a href="#Setup"><span class="tocnumber">2</span> <span class="toctext">Setup</span></a></li>
+<li class="toclevel-1"><a href="#Algorithm_steps"><span class="tocnumber">3</span> <span class="toctext">Algorithm steps</span></a></li>
+<li class="toclevel-1"><a href="#Extensions"><span class="tocnumber">4</span> <span class="toctext">Extensions</span></a></li>
+<li class="toclevel-1"><a href="#Optimality"><span class="tocnumber">5</span> <span class="toctext">Optimality</span></a></li>
+<li class="toclevel-1"><a href="#References"><span class="tocnumber">6</span> <span class="toctext">References</span></a></li>
+<li class="toclevel-1"><a href="#Notes"><span class="tocnumber">7</span> <span class="toctext">Notes</span></a></li>
+<li class="toclevel-1"><a href="#External_links"><span class="tocnumber">8</span> <span class="toctext">External links</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script>
+<p><a name="Applications" id="Applications"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Grover%27s_algorithm&amp;action=edit&amp;section=1" title="Edit section: Applications">edit</a>]</span> <span class="mw-headline">Applications</span></h2>
+<p>Although the purpose of Grover's algorithm is usually described as "searching a database", it may be more accurate to describe it as "inverting a function". Roughly speaking, if we have a function <i>y=f(x)</i> that can be evaluated on a quantum computer, this algorithm allows us to calculate <i>x</i> when given <i>y</i>. Inverting a function is related to the searching of a database because we could come up with a function that produces a particular value of <i>y</i> if <i>x</i> matches a desired entry in a database, and another value of <i>y</i> for other values of <i>x</i>.</p>
+<p>Grover's algorithm can also be used for estimating the <a href="/wiki/Mean" title="Mean">mean</a> and <a href="/wiki/Median" title="Median">median</a> of a set of numbers, and for solving the <a href="/wiki/Collision_detection" title="Collision detection">collision problem</a>. In addition, it can be used to solve <a href="/wiki/NP-complete" title="NP-complete">NP-complete</a> problems by performing exhaustive searches over the set of possible solutions. This would result in a considerable speed-up over classical solutions, even though it does not provide the "holy grail" of a polynomial-time solution.</p>
+<p>Below, we present the basic form of Grover's algorithm, which searches for a single matching entry. The algorithm can be further optimized if there is more than one matching entry and the number of matches is known beforehand.</p>
+<p><a name="Setup" id="Setup"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Grover%27s_algorithm&amp;action=edit&amp;section=2" title="Edit section: Setup">edit</a>]</span> <span class="mw-headline">Setup</span></h2>
+<p>Consider an unsorted database with N entries. The algorithm requires an <i>N</i>-dimensional <a href="/wiki/Mathematical_formulation_of_quantum_mechanics" title="Mathematical formulation of quantum mechanics">state space</a> <i>H</i>, which can be supplied by log<i><sub>2</sub>N</i> <a href="/wiki/Qubit" title="Qubit">qubits</a>.</p>
+<p>Let us number the database entries by 0, 1, ... , (<i>N</i>-1). Choose an observable, <i>Ω</i>, acting on <i>H</i>, with <i>N</i> distinct <a href="/wiki/Eigenvalue" title="Eigenvalue">eigenvalues</a> whose values are all known. Each of the eigenstates of <i>Ω</i> encode one of the entries in the database, in a manner that we will describe. Denote the eigenstates (using <a href="/wiki/Bra-ket_notation" title="Bra-ket notation">bra-ket notation</a>) as</p>
+<dl>
+<dd><img class="tex" alt="\{|0\rang, |1\rang, \cdots, |N-1\rang\}" src="http://upload.wikimedia.org/math/b/a/0/ba05f86f09be2e36dfc345ecba6aab3c.png" /></dd>
+</dl>
+<p>and the corresponding eigenvalues by</p>
+<dl>
+<dd><img class="tex" alt="\{\lambda_0, \lambda_1, \cdots, \lambda_{N-1} \}" src="http://upload.wikimedia.org/math/4/a/3/4a3d6f2371e106afc4f0f31eae0e1683.png" /></dd>
+</dl>
+<p>We are provided with a <a href="/wiki/Unitary_operator" title="Unitary operator">unitary operator</a>, <i>U<sub>ω</sub></i>, which acts as a <a href="/wiki/Subroutine" title="Subroutine">subroutine</a> that compares database entries according to some search criterion. The algorithm does not specify how this subroutine works, but it must be a <i>quantum</i> subroutine that works with superpositions of states. Furthermore, it must act specially on one of the eigenstates, |<i>ω</i>&gt;, which corresponds to the database entry matching the search criterion. To be precise, we require <i>U<sub>ω</sub></i> to have the following effects:</p>
+<dl>
+<dd><img class="tex" alt=" U_\omega |\omega\rang = - |\omega\rang " src="http://upload.wikimedia.org/math/4/c/4/4c44f88eebd32bb7279de6cc2a4dd940.png" /></dd>
+<dd><img class="tex" alt=" U_\omega |x\rang = |x\rang \qquad \mbox{for all}\ x \ne \omega" src="http://upload.wikimedia.org/math/a/e/5/ae54351d168f68b0efc20062f9954352.png" /></dd>
+</dl>
+<p>or</p>
+<dl>
+<dd><img class="tex" alt=" \langle \omega| \omega\rang =1" src="http://upload.wikimedia.org/math/2/5/0/25071828d6db846d59ba26de0f0a10ef.png" />.</dd>
+<dd><img class="tex" alt=" \langle \omega| x \rang =\langle x| \omega\rang =0" src="http://upload.wikimedia.org/math/4/5/f/45f9e9ab08dc63020b4fbcd1a50f2281.png" />.</dd>
+<dd><img class="tex" alt=" U_\omega |\omega\rang = (I-2| \omega\rangle \langle \omega|)|\omega\rang=|\omega\rang-2| \omega\rangle \langle \omega|\omega\rang=-|\omega\rangle " src="http://upload.wikimedia.org/math/0/3/4/034c3aeb8e59c7178c95d9b3e68d3f34.png" />.</dd>
+<dd><img class="tex" alt=" U_\omega |x\rang = (I-2| \omega\rangle \langle \omega|)|x\rang=|x\rang-2| \omega\rangle \langle \omega|x\rang=|x\rangle " src="http://upload.wikimedia.org/math/1/7/3/1733b3a88f87ee318fc2efa427cbdd65.png" />.</dd>
+</dl>
+<p>Our goal is to identify this eigenstate |ω&gt;, or equivalently the eigenvalue ω, that U<sub>ω</sub> acts specially upon.</p>
+<p>Also we can write:</p>
+<dl>
+<dd><img class="tex" alt=" \lang\omega|s\rang =\lang s|\omega\rang = \frac{1}{\sqrt{N}} " src="http://upload.wikimedia.org/math/4/d/3/4d3b87fcfd0df049fa271b80c1496e79.png" />.</dd>
+<dd><img class="tex" alt=" \langle s| s\rang =N\frac{1}{\sqrt{N}}\cdot \frac{1}{\sqrt{N}}=1" src="http://upload.wikimedia.org/math/d/d/0/dd041d0809f49841e6b0a3874fbad960.png" />.</dd>
+<dd><img class="tex" alt=" U_\omega |s\rang = (I-2| \omega\rangle \langle \omega|)|s\rang=|s\rang-2| \omega\rangle \langle \omega|s\rang=|s\rang-\frac{2}{\sqrt{N}}|\omega\rangle " src="http://upload.wikimedia.org/math/b/f/9/bf95aac37a41a779715b5f2e256eed70.png" />.</dd>
+</dl>
+<p><br /></p>
+<dl>
+<dd><img class="tex" alt="U_s(|s\rang-\frac{2}{\sqrt{N}}|\omega\rangle) = (2 \left|s\right\rangle \left\langle s\right| - I)(|s\rang-\frac{2}{\sqrt{N}}|\omega\rangle)=2 \left|s\right\rangle \left\langle s\right|s\rang-|s\rang-\frac{4}{\sqrt{N}}\left|s\right\rangle \left\langle s\right|\omega\rangle+\frac{2}{\sqrt{N}}|\omega\rangle=" src="http://upload.wikimedia.org/math/d/5/5/d5512235ec469faf1fc15da9ac65c891.png" />.</dd>
+<dd><img class="tex" alt="=2|s\rang-|s\rang-\frac{4}{\sqrt{N}}\cdot\frac{1}{\sqrt{N}}|s\rang+\frac{2}{\sqrt{N}}|\omega\rangle=|s\rang-\frac{4}{N}|s\rang+\frac{2}{\sqrt{N}}|\omega\rangle=\frac{N-4}{N}|s\rang+\frac{2}{\sqrt{N}}|\omega\rangle" src="http://upload.wikimedia.org/math/0/d/a/0dab87a61e11bf68ad0c70877bb696aa.png" />.</dd>
+</dl>
+<p>After that two operators ( <span class="texhtml"><i>U</i><sub>ω</sub></span> and <span class="texhtml"><i>U</i><sub><i>s</i></sub></span> ), amplitude of searched element increase. And this is one Grover iteration <i>r</i>. <i>N</i>=2<i><sup>n</sup></i>, <i>n</i> is number of qubits in blank (zero) state.</p>
+<p><a name="Algorithm_steps" id="Algorithm_steps"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Grover%27s_algorithm&amp;action=edit&amp;section=3" title="Edit section: Algorithm steps">edit</a>]</span> <span class="mw-headline">Algorithm steps</span></h2>
+<p>The steps of Grover's algorithm are as follows:</p>
+<ol>
+<li>Initialize the system to the state
+<dl>
+<dd>
+<dl>
+<dd><img class="tex" alt="|s\rang = \frac{1}{\sqrt{N}} \sum_{x=0}^{N-1} |x\rang " src="http://upload.wikimedia.org/math/5/9/0/5901887c617bf05d2b145e22684a5e9c.png" /></dd>
+</dl>
+</dd>
+</dl>
+</li>
+<li>Perform the following "Grover iteration" <i>r(N)</i> times. The function <i>r(N)</i> is described below.
+<ol>
+<li>Apply the operator <img class="tex" alt="U_\omega=I-2| \omega\rangle \langle \omega|" src="http://upload.wikimedia.org/math/b/1/1/b11b71c193be9db4602274f968d0b2a5.png" />.</li>
+<li>Apply the operator <img class="tex" alt="U_s = 2 \left|s\right\rangle \left\langle s\right| - I" src="http://upload.wikimedia.org/math/8/e/d/8ed990922dad4d419cbcccb9cd20733f.png" />.</li>
+</ol>
+</li>
+<li>Perform the measurement Ω. The measurement result will be λ<sub>ω</sub> with probability approaching 1 for N&gt;&gt;1. From λ<sub>ω</sub>, ω may be obtained.</li>
+</ol>
+<p>Our initial state is</p>
+<dl>
+<dd><img class="tex" alt=" |s\rang = \frac{1}{\sqrt{N}} \sum_{x=0}^{N-1} |x\rang " src="http://upload.wikimedia.org/math/5/9/0/5901887c617bf05d2b145e22684a5e9c.png" /></dd>
+</dl>
+<p>Consider the plane spanned by |s&gt; and |ω&gt;. Let |ω<sup>×</sup>&gt; be a ket in this plane perpendicular to |ω&gt;. Since |ω&gt; is one of the basis vectors, the overlap is</p>
+<dl>
+<dd><img class="tex" alt=" \lang\omega|s\rang =\lang s|\omega\rang = \frac{1}{\sqrt{N}} " src="http://upload.wikimedia.org/math/4/d/3/4d3b87fcfd0df049fa271b80c1496e79.png" /></dd>
+</dl>
+<p>In geometric terms, there is an angle (π/2 - θ/2) between |ω&gt; and |s&gt;, where θ/2 is given by:</p>
+<dl>
+<dd><img class="tex" alt=" \cos \left(\frac{\pi}{2} - \frac{\theta}{2} \right) = \frac{1}{\sqrt{N}} " src="http://upload.wikimedia.org/math/e/1/e/e1ef95bcf4bdeaa8be1a61dcec44ec72.png" /></dd>
+<dd><img class="tex" alt=" \sin \frac{\theta}{2} = \frac{1}{\sqrt{N}} " src="http://upload.wikimedia.org/math/a/1/c/a1ca000c1883a51f25b9ba775b0deced.png" /></dd>
+</dl>
+<p>The operator U<sub>ω</sub> is a reflection at the hyperplane orthogonal to |ω&gt;; for vectors in the plane spanned by |s&gt; and |ω&gt;, it acts as a reflection at the line through |ω<sup>×</sup>&gt;. The operator U<sub>s</sub> is a reflection at the line through |s&gt;. Therefore, the state vector remains in the plane spanned by |s&gt; and |ω&gt; after each application of U<sub>s</sub> and after each application of U<sub>ω</sub>, and it is straightforward to check that the operator U<sub>s</sub>U<sub>ω</sub> of each Grover iteration step rotates the state vector by an angle of θ toward |ω&gt;.</p>
+<p>We need to stop when the state vector passes close to |ω&gt;; after this, subsequent iterations rotate the state vector <i>away</i> from |ω&gt;, reducing the probability of obtaining the correct answer. The number of times to iterate is given by <i>r</i>:</p>
+<dl>
+<dd><img class="tex" alt="r \rightarrow \frac{\pi \sqrt{N}}{4} " src="http://upload.wikimedia.org/math/2/7/b/27b622137c995bafc037723de006e465.png" /></dd>
+<dd><img class="tex" alt="r \rightarrow \frac{\pi \sqrt{2^4}}{4}=\pi \approx 3.141592654 " src="http://upload.wikimedia.org/math/c/4/c/c4c75081c19fb68ed0575c04043b8b25.png" /></dd>
+</dl>
+<p>Furthermore, the probability of obtaining the wrong answer is <span class="texhtml"><i>O</i>(1 / <i>N</i>)</span>, which approaches zero as N increases.</p>
+<p>Probability to measure the correct answer is:</p>
+<dl>
+<dd><img class="tex" alt=" \sin^2( \frac{2r+1}{2} \theta) , " src="http://upload.wikimedia.org/math/f/a/a/faad9a02e80ffa15d97795e881423c5d.png" /></dd>
+</dl>
+<p>where <i>r</i> is number (integer) of Grover iteration,</p>
+<dl>
+<dd><img class="tex" alt=" \theta = 2\arccos( \sqrt{1-\frac{1}{N}} )=2\arcsin \frac{1}{\sqrt{2^n}} ." src="http://upload.wikimedia.org/math/6/9/a/69afbed57d5e1b7f569690c5c6ca0791.png" /></dd>
+<dd><img class="tex" alt=" \theta = 2\arcsin \frac{1}{\sqrt{2^4}} \approx 0.50536051. " src="http://upload.wikimedia.org/math/6/6/2/662ced81c695cddb4e54ccc3b134d69e.png" /></dd>
+<dd><img class="tex" alt=" \sin^2( \frac{2\cdot 3+1}{2} \cdot 0.50536051) =\sin^2(3.5\cdot 0.50536051) \approx 0.98046875^2\approx 0.961318969. " src="http://upload.wikimedia.org/math/b/b/5/bb57501646e79cf894fd7db41b4d19a4.png" /></dd>
+</dl>
+<p>And probability to measure the wrong answer is:</p>
+<dl>
+<dd><img class="tex" alt=" \cos^2( \frac{2r+1}{2} \theta) . " src="http://upload.wikimedia.org/math/6/8/0/68037c194601316b383888ae81bcf5ba.png" /></dd>
+</dl>
+<p><a name="Extensions" id="Extensions"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Grover%27s_algorithm&amp;action=edit&amp;section=4" title="Edit section: Extensions">edit</a>]</span> <span class="mw-headline">Extensions</span></h2>
+<p>If, instead of 1 matching entry, there are <i>k</i> matching entries, the same algorithm works but the number of iterations must be <i>π(N/k)<sup>1/2</sup>/4</i> instead of <i>πN<sup>1/2</sup>/4</i>. There are several ways to handle the case if <i>k</i> is unknown. For example, one could run Grover's algorithm several times, with</p>
+<dl>
+<dd><img class="tex" alt=" \pi \frac{N^{1/2}}{4}, \pi \frac{(N/2)^{1/2}}{4}, 
+\pi \frac{(N/4)^{1/2}}{4}, \ldots " src="http://upload.wikimedia.org/math/4/f/6/4f670611f1f68d82d5d9c9fcf5e73789.png" /></dd>
+</dl>
+<p>iterations. For any <i>k</i>, one of iterations will find a matching entry with a sufficiently high probability. The total number of iterations is at most</p>
+<dl>
+<dd><img class="tex" alt=" \pi \frac{N^{1/2}}{4} \left( 1+ \frac{1}{\sqrt{2}}+\frac{1}{2}+\cdots\right) " src="http://upload.wikimedia.org/math/e/0/0/e00bfb7004602e4ce8a7c5f08f341597.png" /></dd>
+</dl>
+<p>which is still O(<i>N<sup>1/2</sup></i>).</p>
+<p><a name="Optimality" id="Optimality"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Grover%27s_algorithm&amp;action=edit&amp;section=5" title="Edit section: Optimality">edit</a>]</span> <span class="mw-headline">Optimality</span></h2>
+<p>It is known that Grover's algorithm is optimal. That is, any algorithm that accesses the database only by using the operator U<sub>ω</sub> must apply U<sub>ω</sub> at least as many times as Grover's algorithm.<sup id="_ref-bennett_1997_1" class="reference"><a href="#_note-bennett_1997" title="">[1]</a></sup> This result is important in understanding the limits of quantum computation. If the Grover's search problem was solvable with <i>log<sup>c</sup> N</i> applications of U<sub>ω</sub>, that would imply that <a href="/wiki/NP_%28complexity_class%29" title="NP (complexity class)">NP</a> is contained in <a href="/wiki/BQP" title="BQP">BQP</a>, by transforming problems in NP into Grover-type search problems. The optimality of Grover's algorithm suggests (but does not prove) that NP is not contained in BQP.</p>
+<p>The number of iterations for <i>k</i> matching entries, <i>π(N/k)<sup>1/2</sup>/4</i>, is also optimal.</p>
+<p><a name="References" id="References"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Grover%27s_algorithm&amp;action=edit&amp;section=6" title="Edit section: References">edit</a>]</span> <span class="mw-headline">References</span></h2>
+<ul>
+<li>Grover L.K.: <i><a href="http://arxiv.org/abs/quant-ph/9605043" class="external text" title="http://arxiv.org/abs/quant-ph/9605043" rel="nofollow">A fast quantum mechanical algorithm for database search</a></i>, Proceedings, 28th Annual ACM Symposium on the Theory of Computing, (May 1996) p. 212</li>
+<li>Grover L.K.: <i><a href="http://arxiv.org/abs/quant-ph/0109116" class="external text" title="http://arxiv.org/abs/quant-ph/0109116" rel="nofollow">From Schrödinger's equation to quantum search algorithm</a></i>, American Journal of Physics, 69(7): 769-777, 2001. Pedagogical review of the algorithm and its history.</li>
+<li><a href="http://www.bell-labs.com/user/feature/archives/lkgrover/" class="external free" title="http://www.bell-labs.com/user/feature/archives/lkgrover/" rel="nofollow">http://www.bell-labs.com/user/feature/archives/lkgrover/</a></li>
+<li><a href="http://arxiv.org/abs/quant-ph/0301079" class="external free" title="http://arxiv.org/abs/quant-ph/0301079" rel="nofollow">http://arxiv.org/abs/quant-ph/0301079</a> Grover's Algorithm: Quantum Database Search</li>
+</ul>
+<p><a name="Notes" id="Notes"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Grover%27s_algorithm&amp;action=edit&amp;section=7" title="Edit section: Notes">edit</a>]</span> <span class="mw-headline">Notes</span></h2>
+<ol class="references">
+<li id="_note-bennett_1997">^ <a href="#_ref-bennett_1997_0" title=""><sup><i><b>a</b></i></sup></a> <a href="#_ref-bennett_1997_1" title=""><sup><i><b>b</b></i></sup></a> Bennett C.H., Bernstein E., Brassard G., Vazirani U., <i>The strengths and weaknesses of quantum computation</i>. <a href="/wiki/SIAM_Journal_on_Computing" title="SIAM Journal on Computing">SIAM Journal on Computing</a> 26(5): 1510-1523 (1997). Shows the optimality of Grover's algorithm.</li>
+</ol>
+<p><a name="External_links" id="External_links"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Grover%27s_algorithm&amp;action=edit&amp;section=8" title="Edit section: External links">edit</a>]</span> <span class="mw-headline">External links</span></h2>
+<ul>
+<li><a href="http://xstructure.inr.ac.ru/x-bin/theme2.py?arxiv=quant-ph&amp;level=1&amp;index1=1437" class="external text" title="http://xstructure.inr.ac.ru/x-bin/theme2.py?arxiv=quant-ph&amp;level=1&amp;index1=1437" rel="nofollow">Quantum search algorithms on arxiv.org</a></li>
+</ul>
+<table class="navbox collapsible autocollapse nowraplinks" style="margin:auto; background:white;background:white;">
+<tr>
+<th colspan="2" style="text-align:center;width:100%;">
+<div style="float:left; width:6em; text-align:left;">
+<div class="noprint plainlinksneverexpand" style="background-color:transparent; padding:0; font-weight:normal; font-size:xx-small; color: #000; white-space:nowrap;"><a href="/wiki/Template:Quantum_computing" title="Template:Quantum computing"><span title="View this template">v</span></a>&#160;<span style="font-size:80%;">•</span>&#160;<a href="/w/index.php?title=Template_talk:Quantum_computing&amp;action=edit" class="new" title="Template talk:Quantum computing"><span style="color: #002bb8;" title="Discussion about this template">d</span></a>&#160;<span style="font-size:80%;">•</span>&#160;<a href="http://en.wikipedia.org/w/index.php?title=Template:Quantum_computing&amp;action=edit" class="external text" title="http://en.wikipedia.org/w/index.php?title=Template:Quantum_computing&amp;action=edit" rel="nofollow"><span style="color: #002bb8;" title="You can edit this template. Please use the preview button before saving.">e</span></a></div>
+</div>
+<span style="font-size:110%;"><a href="/wiki/Quantum_computing" title="Quantum computing">Quantum computing</a></span></th>
+</tr>
+<tr>
+<th style="white-space:nowrap;background:#ddddff;text-align:right;">General</th>
+<td colspan="1" style="text-align:left;width:100%;font-size:95%;"><a href="/wiki/Qubit" title="Qubit">Qubit</a> • <a href="/wiki/Quantum_circuit" title="Quantum circuit">Quantum circuit</a> • <a href="/wiki/Quantum_computer" title="Quantum computer">Quantum computer</a> • <a href="/wiki/Quantum_cryptography" title="Quantum cryptography">Quantum cryptography</a> • <a href="/wiki/Quantum_information" title="Quantum information">Quantum information</a> • <a href="/wiki/Quantum_programming" title="Quantum programming">Quantum programming</a> • <a href="/wiki/Quantum_teleportation" title="Quantum teleportation">Quantum teleportation</a> • <a href="/wiki/Quantum_virtual_machine" title="Quantum virtual machine">Quantum virtual machine</a> • <a href="/wiki/Timeline_of_quantum_computing" title="Timeline of quantum computing">Timeline of quantum computing</a></td>
+</tr>
+<tr>
+<th style="white-space:nowrap;background:#ddddff;text-align:right;"><a href="/wiki/Category:Quantum_algorithms" title="Category:Quantum algorithms">Quantum algorithms</a></th>
+<td colspan="1" style="text-align:left;width:100%;font-size:95%;background:#f7f7f7;"><a href="/wiki/Deutsch-Jozsa_algorithm" title="Deutsch-Jozsa algorithm">Deutsch-Jozsa algorithm</a> • <strong class="selflink">Grover's search</strong> • <a href="/wiki/Shor%27s_algorithm" title="Shor's algorithm">Shor's factorization</a></td>
+</tr>
+<tr>
+<th style="white-space:nowrap;background:#ddddff;text-align:right;"><a href="/wiki/Nuclear_magnetic_resonance_%28NMR%29_quantum_computing" title="Nuclear magnetic resonance (NMR) quantum computing">Nuclear magnetic resonance (NMR) quantum computing</a></th>
+<td colspan="1" style="text-align:left;width:100%;font-size:95%;"><a href="/w/index.php?title=Liquid-state_NMR_quantum_computer&amp;action=edit" class="new" title="Liquid-state NMR quantum computer">Liquid-state NMR QC</a> • <a href="/w/index.php?title=Solid-state_NMR_quantum_computer&amp;action=edit" class="new" title="Solid-state NMR quantum computer">Solid-state NMR QC</a></td>
+</tr>
+<tr>
+<th style="white-space:nowrap;background:#ddddff;text-align:right;"><a href="/wiki/Photonic_computing" title="Photonic computing">Photonic computing</a></th>
+<td colspan="1" style="text-align:left;width:100%;font-size:95%;background:#f7f7f7;"><a href="/wiki/Nonlinear_optics" title="Nonlinear optics">Nonlinear optics</a> • <a href="/w/index.php?title=Linear_optics_quantum_computer&amp;action=edit" class="new" title="Linear optics quantum computer">Linear optics QC</a> • <a href="/w/index.php?title=Non-linear_optics_quantum_computer&amp;action=edit" class="new" title="Non-linear optics quantum computer">Non-linear optics QC</a> • <a href="/w/index.php?title=Coherent_state_based_quantum_computer&amp;action=edit" class="new" title="Coherent state based quantum computer">Coherent state based QC</a></td>
+</tr>
+<tr>
+<th style="white-space:nowrap;background:#ddddff;text-align:right;"><a href="/wiki/Trapped_ion_quantum_computer" title="Trapped ion quantum computer">Trapped ion quantum computer</a></th>
+<td colspan="1" style="text-align:left;width:100%;font-size:95%;"><a href="/w/index.php?title=NIST-type_ion-trap_quantum_computer&amp;action=edit" class="new" title="NIST-type ion-trap quantum computer">NIST-type ion-trap QC</a> • <a href="/w/index.php?title=Austria-type_ion-trap_quantum_computer&amp;action=edit" class="new" title="Austria-type ion-trap quantum computer">Austria-type ion-trap QC</a></td>
+</tr>
+<tr>
+<th style="white-space:nowrap;background:#ddddff;text-align:right;"><a href="/w/index.php?title=Semiconductor-based_quantum_computing&amp;action=edit" class="new" title="Semiconductor-based quantum computing">Semiconductor-based quantum computing</a></th>
+<td colspan="1" style="text-align:left;width:100%;font-size:95%;background:#f7f7f7;"><a href="/wiki/Kane_quantum_computer" title="Kane quantum computer">Kane QC</a> • <a href="/wiki/Loss-DiVincenzo_quantum_computer" title="Loss-DiVincenzo quantum computer">Loss-DiVincenzo QC</a></td>
+</tr>
+<tr>
+<th style="white-space:nowrap;background:#ddddff;text-align:right;"><a href="/wiki/Superconducting_quantum_computing" title="Superconducting quantum computing">Superconducting quantum computing</a></th>
+<td colspan="1" style="text-align:left;width:100%;font-size:95%;"><a href="/wiki/Charge_qubit" title="Charge qubit">Charge qubit</a> • <a href="/wiki/Flux_qubit" title="Flux qubit">Flux qubit</a> • <a href="/w/index.php?title=Hybrid_qubit&amp;action=edit" class="new" title="Hybrid qubit">Hybrid qubits</a></td>
+</tr>
+</table>
+
+<!-- 
+Pre-expand include size: 18204 bytes
+Post-expand include size: 15520 bytes
+Template argument size: 8321 bytes
+Maximum: 2048000 bytes
+-->
+
+<!-- Saved in parser cache with key enwiki:pcache:idhash:58498-0!1!0!default!!en!2 and timestamp 20070912081911 -->
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org/wiki/Grover%27s_algorithm">http://en.wikipedia.org/wiki/Grover%27s_algorithm</a>"</div>
+			<div id="catlinks"><p class='catlinks'><a href="/wiki/Special:Categories" title="Special:Categories">Categories</a>: <span dir='ltr'><a href="/wiki/Category:Quantum_algorithms" title="Category:Quantum algorithms">Quantum algorithms</a></span> | <span dir='ltr'><a href="/wiki/Category:Search_algorithms" title="Category:Search algorithms">Search algorithms</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<div class="pBody">
+			<ul>
+					 <li id="ca-nstab-main" class="selected"><a href="/wiki/Grover%27s_algorithm" title="View the content page [c]" accesskey="c">Article</a></li>
+					 <li id="ca-talk"><a href="/wiki/Talk:Grover%27s_algorithm" title="Discussion about the content page [t]" accesskey="t">Discussion</a></li>
+					 <li id="ca-edit"><a href="/w/index.php?title=Grover%27s_algorithm&amp;action=edit" title="You can edit this page. Please use the preview button before saving. [e]" accesskey="e">Edit this page</a></li>
+					 <li id="ca-history"><a href="/w/index.php?title=Grover%27s_algorithm&amp;action=history" title="Past versions of this page [h]" accesskey="h">History</a></li>
+				</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-personal">
+		<h5>Personal tools</h5>
+		<div class="pBody">
+			<ul>
+				<li id="pt-login"><a href="/w/index.php?title=Special:Userlogin&amp;returnto=Grover%27s_algorithm" title="You are encouraged to log in, it is not mandatory however. [o]" accesskey="o">Sign in / create account</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-logo">
+		<a style="background-image: url(/images/wiki-en.png);" href="/wiki/Main_Page" title="Visit the Main Page [z]" accesskey="z"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-Main-page"><a href="/wiki/Main_Page">Main page</a></li>
+				<li id="n-Contents"><a href="/wiki/Wikipedia:Contents">Contents</a></li>
+				<li id="n-Featured-content"><a href="/wiki/Wikipedia:Featured_content">Featured content</a></li>
+				<li id="n-currentevents"><a href="/wiki/Portal:Current_events" title="Find background information on current events">Current events</a></li>
+				<li id="n-randompage"><a href="/wiki/Special:Random" title="Load a random page [x]" accesskey="x">Random article</a></li>
+			</ul>
+		</div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+		<h5>interaction</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-About-Wikipedia"><a href="/wiki/Wikipedia:About">About Wikipedia</a></li>
+				<li id="n-portal"><a href="/wiki/Wikipedia:Community_Portal" title="About the project, what you can do, where to find things">Community portal</a></li>
+				<li id="n-recentchanges"><a href="/wiki/Special:Recentchanges" title="The list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li>
+				<li id="n-contact"><a href="/wiki/Wikipedia:Contact_us">Contact Wikipedia</a></li>
+				<li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising" title="Support us">Donate to Wikipedia</a></li>
+				<li id="n-help"><a href="/wiki/Help:Contents" title="Guidance on how to use and edit Wikipedia">Help</a></li>
+			</ul>
+		</div>
+	</div>
+		<div id="p-search" class="portlet">
+		<h5><label for="searchInput">Search</label></h5>
+		<div id="searchBody" class="pBody">
+			<form action="/wiki/Special:Search" id="searchform"><div>
+				<input id="searchInput" name="search" type="text" title="Search Wikipedia [f]" accesskey="f" value="" />
+				<input type='submit' name="go" class="searchButton" id="searchGoButton"	value="Go" />&nbsp;
+				<input type='submit' name="fulltext" class="searchButton" id="mw-searchButton" value="Search" />
+			</div></form>
+		</div>
+	</div>
+	<div class="portlet" id="p-tb">
+		<h5>Toolbox</h5>
+		<div class="pBody">
+			<ul>
+				<li id="t-whatlinkshere"><a href="/wiki/Special:Whatlinkshere/Grover%27s_algorithm" title="List of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+				<li id="t-recentchangeslinked"><a href="/wiki/Special:Recentchangeslinked/Grover%27s_algorithm" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+<li id="t-upload"><a href="/wiki/Wikipedia:Upload" title="Upload images or media files [u]" accesskey="u">Upload file</a></li>
+<li id="t-specialpages"><a href="/wiki/Special:Specialpages" title="List of all special pages [q]" accesskey="q">Special pages</a></li>
+				<li id="t-print"><a href="/w/index.php?title=Grover%27s_algorithm&amp;printable=yes" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>				<li id="t-permalink"><a href="/w/index.php?title=Grover%27s_algorithm&amp;oldid=157027218" title="Permanent link to this version of the page">Permanent link</a></li><li id="t-cite"><a href="/w/index.php?title=Special:Cite&amp;page=Grover%27s_algorithm&amp;id=157027218">Cite this article</a></li>			</ul>
+		</div>
+	</div>
+	<div id="p-lang" class="portlet">
+		<h5>In other languages</h5>
+		<div class="pBody">
+			<ul>
+				<li class="interwiki-de"><a href="http://de.wikipedia.org/wiki/Grover-Algorithmus">Deutsch</a></li>
+				<li class="interwiki-es"><a href="http://es.wikipedia.org/wiki/Algoritmo_de_Grover">Español</a></li>
+				<li class="interwiki-ru"><a href="http://ru.wikipedia.org/wiki/%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC_%D0%93%D1%80%D0%BE%D0%B2%D0%B5%D1%80%D0%B0">Русский</a></li>
+				<li class="interwiki-lt"><a href="http://lt.wikipedia.org/wiki/Groverio_algoritmas">Lietuvių</a></li>
+			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="/skins-1.5/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>
+				<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="/images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>
+			<ul id="f-list">
+				<li id="lastmod"> This page was last modified 22:43, 10 September 2007.</li>
+				<li id="copyright">All text is available under the terms of the <a class='internal' href="/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="/wiki/Wikipedia:Copyrights" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a U.S. registered <a class='internal' href="/wiki/501%28c%29#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="/wiki/Non-profit_organization" title="Non-profit organization">nonprofit</a> <a href="/wiki/Charitable_organization" title="Charitable organization">charity</a>.<br /></li>
+				<li id="privacy"><a href="http://wikimediafoundation.org/wiki/Privacy_policy" title="wikimedia:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="/wiki/Wikipedia:About" title="Wikipedia:About">About Wikipedia</a></li>
+				<li id="disclaimer"><a href="/wiki/Wikipedia:General_disclaimer" title="Wikipedia:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+		
+	
+		<script type="text/javascript">if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by srv128 in 0.068 secs. --></body></html>

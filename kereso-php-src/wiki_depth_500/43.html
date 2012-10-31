@@ -1,0 +1,605 @@
+<html>
+
+<head>
+<meta name="keywords" content="depth first, breadth first, algorithm, thinking about computing, theory">
+<meta name="content" content="Learn how to implement dfs and bfs by taking a complicated problem and breaking it down into smaller steps.">
+<meta name="description" content="Learn how to implement dfs and bfs by taking a complicated problem and breaking it down into smaller steps.">
+
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="Microsoft FrontPage 6.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta name="title" content="kirupa.com - Depth First and Breadth First Search: Page 1">
+<title>kirupa.com - Depth First and Breadth First Search: Page 1</title>
+
+
+<link rel="stylesheet" type="text/css" href="../../text/kirupa_2006_v3.css">
+</head>
+
+<body>
+
+<!--webbot bot="Include" U-Include="../../new_layout/modules/header_module.htm" TAG="BODY" startspan -->
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+	<tr>
+		<td>&nbsp;<div align="center">
+			<table border="0" width="850" cellspacing="0" cellpadding="5" style="border: 1px solid #999999">
+				<tr>
+					<td bgcolor="#FFFFFF" style="background-image: url('../../new_layout/modules/headerBG.png')">
+					<script type="text/javascript" src="http://www.kirupa.com/swfobject.js"></script>
+    				<table style="width: 100%">
+						<tr>
+							<td style="width: 4px">
+							<a href="http://www.kirupa.com/">
+							<img src="../../new_layout/modules/orange.gif" width="17" height="18" border="0"></a></td>
+							<td>
+							<a href="http://www.kirupa.com/">
+							<img src="../../new_layout/modules/kirupaLogoGIF.gif" width="152" height="28" border="0"></a></td>
+							<td style="text-align: right">
+							<form method="get" action="http://www.kirupa.com/search/index.htm" target="_top" style="margin-bottom: 0px">
+								<input name="q" id="sbi" class="InputTextStyle" type="text" style="height: 20px" size="20">
+								<input type="hidden" name="hl" value="en">
+								<input type="hidden" name="cof" value="GALT:#008000;GL:1;DIV:#336699;VLC:663399;AH:center;BGC:FFFFFF;LBGC:336699;ALC:0000FF;LC:0000FF;T:000000;GFNT:0000FF;GIMP:0000FF;FORID:11">
+								<input type="hidden" name="sig" value="adb02o8tB10mAPzI">
+								<input type="hidden" name="flav" value="0000">
+								<input type="hidden" name="oe" value="ISO-8859-1">
+								<input type="hidden" name="ie" value="ISO-8859-1">
+								<input type="hidden" name="forid" value="1">
+								<input type="hidden" name="client" value="pub-0633423995889665">
+								<input type="hidden" name="sitesearch" value="www.kirupa.com">
+								<input type="hidden" name="domains" value="kirupa.com"></input>
+								</form>
+							</td>
+						</tr>
+					</table>
+					</td>
+				</tr>
+			</table>
+		</div>
+		</td>
+	</tr>
+	</table>
+
+<SCRIPT LANGUAGE="JavaScript"> 
+<!-- Begin 
+function Launch(page) { 
+OpenWin = this.open(page, "KirupaStyle", "toolbar=no,menubar=no,location=no,scrollbars=no,resizable=yes,width=670,height=625"); 
+} 
+// End --> 
+</SCRIPT>
+
+<SCRIPT LANGUAGE="JavaScript"> 
+<!-- Begin 
+function LaunchV2(page) { 
+OpenWin = this.open(page, "KirupaStyle", "toolbar=no,menubar=no,location=no,scrollbars=no,resizable=yes,width=670,height=635"); 
+} 
+// End --> 
+</SCRIPT>
+
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-1952673-1";
+urchinTracker();
+</script>
+
+
+<!--webbot bot="Include" i-checksum="16712" endspan --><table border="0" width="100%" cellspacing="0" cellpadding="5">
+	<tr>
+		<td>
+		<!--webbot bot="Include" U-Include="../../new_layout/modules/banner_top.htm" TAG="BODY" startspan -->
+
+<div align="center">
+	<table border="0" width="850" cellspacing="0" cellpadding="0">
+		<tr>
+
+		<script language="javascript">AC_FL_RunContent = 0;</script>
+		<script src="http://www.kirupa.com/AC_RunActiveContent.js" language="javascript"></script>
+
+		<script language="javascript">
+			if (AC_FL_RunContent == 0) {
+				alert("This page requires AC_RunActiveContent.js.");
+			} else {
+				AC_FL_RunContent(
+					'codebase', 'http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,0,0',
+					'width', '850',
+					'height', '27',
+					'src', 'http://www.kirupa.com/supporter/flashloaded_top',
+					'quality', 'high',
+					'pluginspage', 'http://www.macromedia.com/go/getflashplayer',
+					'align', 'middle',
+					'play', 'true',
+					'loop', 'true',
+					'scale', 'showall',
+					'wmode', 'window',
+					'devicefont', 'false',
+					'id', 'temp',
+					'bgcolor', '#ffffff',
+					'name', 'temp',
+					'menu', 'true',
+					'allowFullScreen', 'false',
+					'allowScriptAccess','sameDomain',
+					'movie', 'http://www.kirupa.com/supporter/flashloaded_top',
+					'salign', ''
+					); //end AC code
+			}
+		</script>
+		<noscript>
+			<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,0,0" width="550" height="400" id="temp" align="middle">
+			<param name="allowScriptAccess" value="sameDomain" />
+			<param name="allowFullScreen" value="false" />
+			<param name="movie" value="http://www.kirupa.com/supporter/flashloaded_top.swf" /><param name="quality" value="high" /><param name="bgcolor" value="#ffffff" />	<embed src="http://www.kirupa.com/supporter/flashloaded_top.swf" quality="high" bgcolor="#ffffff" width="550" height="400" name="temp" align="middle" allowScriptAccess="sameDomain" allowFullScreen="false" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />
+			</object>
+		</noscript>
+
+		</tr>
+	</table>
+</div>
+
+<!--webbot bot="Include" i-checksum="47911" endspan --></td>
+	</tr>
+</table>
+<div align="center">
+	<table border="0" width="850" cellspacing="0" cellpadding="0">
+		<tr>
+			<td valign="top">
+			<table border="0" width="100%" cellspacing="0" cellpadding="10">
+				<tr>
+					<td>
+					<!--webbot bot="Include" U-Include="../../new_layout/tutorial_left.htm" TAG="BODY" startspan -->
+
+					
+<table width="100%" cellspacing="0" cellpadding="0" class="style1" border="0">
+	<tr>
+		<td>
+				<img border="0" src="../../new_layout/images/navigation.gif" width="90" height="11" align="left"></td>
+	</tr>
+	<tr>
+		<td>
+		<hr color="#D3D2CB" size="1"></td>
+	</tr>
+</table>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="7">
+	<tr>
+		<td width="14%" height="26" style="border-bottom: 1px solid #F0F0F0; ">
+		<p align="right">
+		<a href="http://www.kirupa.com/developer/flash/index.htm">
+		<img border="0" src="../../mini_icons/page_white.gif" width="16" height="16"></a></td>
+		<td width="74%" height="26" style="border-bottom: 1px solid #F0F0F0; ">
+		<span class="siteLinkSM_Bold">
+		<a href="http://www.kirupa.com/developer/flash/index.htm">
+		<font color="#173C4F">Flash</font></a></span></td>
+	</tr>
+	<tr>
+		<td width="14%" height="13" style="border-bottom: 1px solid #F0F0F0; ">
+		
+
+
+		
+		<p align="right"><a href="../../net/index.htm">
+		<img border="0" src="../../mini_icons/page_white_csharp.gif" width="16" height="16"></a></td>
+		<td width="74%" height="13" style="border-bottom: 1px solid #F0F0F0; ">
+		
+
+		<span class="siteLinkSM_Bold"><a href="../../net/index.htm">
+		<font color="#173C4F">C# / .NET</font></a></span></td>
+	</tr>
+	<tr>
+		<td width="14%" height="13" style="border-bottom: 1px solid #F0F0F0; ">
+		
+
+
+		
+		<p align="right"><a href="../../blend_wpf/index.htm">
+		<img border="0" src="../../mini_icons/page_white_visualstudio.gif" width="16" height="16"></a></p>
+		</td>
+		<td width="74%" height="13" style="border-bottom: 1px solid #F0F0F0; ">
+		
+
+		<a href="../../blend_wpf/index.htm" class="siteLinkSM_Bold">Blend / WPF</a></td>
+	</tr>
+	<tr>
+		<td width="14%" height="13" style="border-bottom: 1px solid #F0F0F0; ">
+		
+
+
+		
+		<a href="http://www.kirupa.com/web/index.htm">
+		<img border="0" src="../../mini_icons/page_white_php.gif" width="16" height="16" align="right" hspace="0"></a></td>
+		<td width="74%" height="13" style="border-bottom: 1px solid #F0F0F0; ">
+		
+
+		<span class="siteLinkSM_Bold">
+		<a href="http://www.kirupa.com/web/index.htm">
+		<font color="#173C4F">PHP</font></a></span></td>
+	</tr>
+	<tr>
+		<td width="14%" height="26" style="border-bottom: 1px solid #F0F0F0; ">
+		<p align="right"><a href="http://www.kirupa.com/photoshop/index.htm">
+		<img border="0" src="../../mini_icons/page_white_paintbrush.gif" width="16" height="16"></a></td>
+		<td width="74%" height="26" style="border-bottom: 1px solid #F0F0F0; ">
+		
+
+		
+		<span class="siteLinkSM_Bold">
+		<a href="http://www.kirupa.com/photoshop/index.htm">
+		<font color="#173C4F">Photoshop</font></a></span></td>
+	</tr>
+	<tr>
+		<td width="14%" height="26" style="border-bottom: 1px solid #F0F0F0; ">
+		<a href="http://www.kirupa.com/css/index.htm">
+		<img border="0" src="../../mini_icons/page_white_code.gif" width="16" height="16" align="right" hspace="0"></a></td>
+		<td width="74%" height="26" style="border-bottom: 1px solid #F0F0F0; ">
+		<span class="siteLinkSM_Bold">
+		<a href="http://www.kirupa.com/css/index.htm">
+		<font color="#173C4F">Web Dev</font></a></span></td>
+	</tr>
+	<tr>
+		<td height="7" colspan="2">
+		<img height="5" src="../../spacer/projec1.gif" width="5" border="0"></td>
+	</tr>
+	<tr>
+		<td height="6" style="border-bottom: 1px solid #F0F0F0; ">
+		<p>
+		<a href="http://www.kirupa.com/forum/">
+		<img border="0" src="../../mini_icons/vcard.gif" width="16" height="16" align="right" hspace="0"></a></p>
+		</td>
+		<td height="6" style="border-bottom: 1px solid #F0F0F0; ">
+		<span class="siteLinkSM_Bold">
+		<font color="#0066CC" style="font-size: 12px">
+		<a href="http://www.kirupa.com/forum/"><font color="#0066CC">Forums</font></a></font></span></td>
+	</tr>
+	<tr>
+		<td height="6" style="border-bottom: 1px solid #F0F0F0; ">
+		<a href="http://blog.kirupa.com/">
+		<img border="0" src="../../mini_icons/user_comment_flip.gif" width="16" height="16" style="float: right"></a></td>
+		<td height="6" style="border-bottom: 1px solid #F0F0F0; ">
+		<span class="siteLinkSM_Bold">
+		<a href="http://blog.kirupa.com">
+		<font color="#0066CC" style="font-size: 12px">Blog</font></a></span></td>
+	</tr>
+	<tr>
+		<td height="26" style="border-bottom: 1px solid #F0F0F0; ">
+		<p align="right"><a href="http://www.kirupa.com/me/index.htm">
+		<img border="0" src="../../mini_icons/user.gif" width="16" height="16"></a></td>
+		<td height="26" style="border-bottom: 1px solid #F0F0F0; ">
+		<span class="siteLinkSM_Bold">
+		<a href="http://www.kirupa.com/me/index.htm">
+		<font color="#0066CC" style="font-size: 12px">About</font></a></span></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+<table border="0" width="100%" cellspacing="0" cellpadding="10">
+	<tr>
+		<td>&nbsp;</td>
+	</tr>
+</table>
+<table border="0" width="100%" cellspacing="0" cellpadding="10">
+	<tr>
+		<td>
+		<table cellspacing="0" cellpadding="0" class="style2">
+			<tr>
+				<td style="border: 1px solid #D8D8D8">
+				<a href="http://www.flashloaded.com/flashcomponents/pageflipper/?id2=kirupapageflipper" target="_blank">
+				<img src="../../supporter/PAGEFLIPPER.gif" width="120" height="240" alt="page flipper" border="0"></a></td>
+			</tr>
+		</table>
+		</td>
+	</tr>
+</table>
+					<div align="center">
+	<table border="0" width="100%" cellspacing="0" cellpadding="10">
+	<tr>
+		<td>&nbsp;</td>
+	</tr>
+</table>
+</div>
+
+		<!--webbot bot="Include" i-checksum="43726" endspan --><p>&nbsp;</p>
+					<p>&nbsp;</td>
+				</tr>
+			</table>
+			</td>
+			<td valign="top">
+			<table border="0" width="100%" cellspacing="0" cellpadding="10">
+				<tr>
+					<td style="border-left: 1px solid #D3D2CB; border-right: 1px solid #D3D2CB">
+					<span class="header">
+			<img height="18" src="http://www.kirupa.com/developer/flash5/images/basic.gif" width="20" border="0">
+			<b>Depth</b> First and Breadth First Search</span><br>
+			<span class="credit_date">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;by kirupa&nbsp; |&nbsp; 
+13 January 2006</span><p class="ktext2">If you want to go from Point A to Point 
+B, you are employing some kind of search. For a direction finder, going from 
+Point A to Point B literally means finding a path between where you are now and 
+your intended destination. For a chess game, Point A to Point B might be two 
+points between its current position and its position 5 moves from now. For a 
+genome sequencer, Points A and B could be a link between two DNA sequences. </p>
+<p class="ktext2">As you can tell, going from Point A to Point B is different 
+for every situation. If there is a vast amount of interconnected data, and you 
+are trying to find a relation between few such pieces of data, you would use 
+search. In this tutorial, you will learn about two forms of searching, depth 
+first and breadth first.</p>
+<p class="ktext2">Searching falls under Artificial 
+Intelligence (AI). A major goal of AI is to give computers the ability to think, 
+or in other words, mimic human behavior. The problem is, unfortunately, 
+computers don't function in the same way our minds do. They require a series of
+<i><b>well-reasoned out</b></i> steps before finding a solution. Your goal, 
+then, is to take a complicated task and convert it into simpler steps that your 
+computer can handle. That conversion from something complex to something simple 
+is what this tutorial is primarily about. Learning how to use two search 
+algorithms is just a welcome side-effect.</p>
+<blockquote>
+	<p class="NoteHeader">Note</p>
+	<p class="NoteBody">Majority of this tutorial goes into detail about how to 
+	solve depth and breadth first searches. Flash-only information is introduced 
+	only in the later pages, therefore non-Flash programmers should find the 
+	information useful also!</p>
+</blockquote>
+<p class="ktext2"><b><font size="3">Our Search Representation</font><br>
+</b>Let's first learn how we humans would solve a search problem. First, we need 
+a representation of how our search problem will exist. 
+The following is an example of our search tree. It is a series of interconnected nodes that 
+we will be searching through:</p>
+<p class="ktext2" align="center">
+<img border="0" src="images/exampleGraphTut.gif" width="258" height="291"></p>
+<p class="ktext2">In our above graph, the path connections are not two-way. All 
+paths go only from top to bottom. In other words, A has a path to B and C, but B 
+and C do not have a path to A. It is basically like a one-way street.</p>
+<p class="ktext2">Each lettered circle in our graph is a node. A node can be 
+connected to other via our edge/path, and those nodes that its connects to are 
+called neighbors. B and C are neighbors of A. E and D are neighbors of B, and B 
+is not a neighbors of D or E because B cannot be reached using either D or E. </p>
+<p class="ktext2">Our search graph also contains depth:</p>
+<p class="ktext2" align="center">
+<img border="0" src="images/exampleGraphDepth.gif" width="320" height="283"></p>
+<p class="ktext2">We now have a way of describing location in our graph. We 
+know how the various nodes (the lettered circles) are related to each other 
+(neighbors), and 
+we have a way of characterizing the depth each belongs in. Knowing 
+this information isn't directly relevant in creating our search algorithm, but 
+they do help us to better understand the problem.</p>
+<p class="ktext2">In the next page, let's use our above representation of our 
+graph to find out how Depth First Search works.</p>
+<p class="ktext2">Onwards to the <a href="depth_breadth_search2.htm"><u>next page</u></a>!</p>
+					<div class="style4">
+					<table border="0" width="100%" cellspacing="0" cellpadding="5">
+						<tr>
+							<td>
+							<p align="right">
+							<img border="0" src="../../new_layout/images/prevPage_inactive.gif" width="150" height="30"></td>
+							<td style="border-left: 1px solid #9FD96C">
+							<a href="depth_breadth_search2.htm">
+							<img border="0" src="../../new_layout/images/nextPage.gif" width="150" height="30"></a></td>
+						</tr>
+						<tr>
+							<td colspan="2">
+							<p align="center">
+							<span class="siteLinkSM_Bold">
+							<a href="depth_breadth_search.htm"><font size="3">1</font></a> |
+							<a href="depth_breadth_search2.htm">
+							<font size="2">2</font></a> |
+							<a href="depth_breadth_search3.htm">3</a> | 
+							<a href="depth_breadth_search4.htm">4</a> |
+							<a href="depth_breadth_search5.htm">5</a> |
+							<a href="depth_breadth_search6.htm">6</a> |
+							<a href="depth_breadth_search7.htm">7</a></span></td>
+						</tr>
+					</table>
+					</div>
+					</td>
+				</tr>
+				<tr>
+					<td style="border-left: 1px solid #D3D2CB; border-right: 1px solid #D3D2CB">
+					<img border="0" src="../../spacer/projec1_wide.gif" width="504" height="18"></td>
+				</tr>
+			</table>
+			</td>
+			<td valign="top">
+			<table border="0" width="100%" cellspacing="0" cellpadding="10">
+				<tr>
+					<td>
+					<!--webbot bot="Include" U-Include="../../new_layout/modules/supporter_module.htm" TAG="BODY" startspan -->
+
+<table width="100%" cellspacing="0" cellpadding="0" class="style1" border="0">
+	<tr>
+		<td>
+				    <a href="../../me/ad.htm">
+    <img border="0" src="../../newdesign/images/ads.ht6.gif" width="78" height="11" align="left"></a></td>
+	</tr>
+	<tr>
+		<td>
+		<hr color="#D3D2CB" size="1"></td>
+	</tr>
+</table>
+
+<table border="0" cellpadding="13" style="border-collapse: collapse" bordercolor="#111111" height="332" align="left" width="100%">
+                  <tr>
+                    <td align="center">
+
+                    <a href="../../mt.html">
+					<img height="36" src="../../supporter/mt.gif" width="74" border="0"></a></td>
+                  </tr>
+                  <tr>
+                    <td align="center">
+                    <a href="http://www.flashloaded.com" target="_blank">
+					<img border="0" src="../../supporter/flashloaded3a.gif" width="99" height="27" alt="flash components"></a></td>
+                  </tr>
+                  <tr>
+                    <td align="center">
+					<a target="_blank" href="http://www.1shoppingcart.com/app/adtrack.asp?AdID=155378">
+					<img border="0" src="../../supporter/learnflash.gif" width="100" height="39"></a></td>
+                  </tr>
+                  <tr>
+                    <td align="center">
+                    <a target="_blank" href="http://www.1shoppingcart.com/app/adtrack.asp?AdID=202050">
+					<img border="0" src="../../supporter/watchlearnphotoshop.gif" width="100" height="39"></a></td>
+                  </tr>
+                  <tr>
+                    <td align="center">
+                    <a target="_blank" href="http://www.flashrelief.com">
+					<img border="0" src="../../supporter/flashrelief.gif" width="100" height="30"></a></td>
+                  </tr>
+                  <tr>
+                    <td align="center">
+                    <a target="_blank" href="http://www.frunder.com/?utm_id=1000&utm_source=kirupa&utm_medium=banner&utm_campaign=Kirupa+Banner">
+					<img border="0" src="../../supporter/frunder3.gif" width="100" height="35"></a></td>
+                  </tr>
+                  <tr>
+                    <td align="center">
+                    <a target="_blank" href="http://www.flashstore.com/">
+					<img alt="Visit Flashstore to sell your Flash Components!" src="../../supporter/flashstore_ad.jpg" width="100" height="40" class="style1" border="0"></a></td>
+                  </tr>
+                  <tr>
+                    <td align="center">
+                    <a target="_blank" href="http://www.flashextension.net/">
+					<img border="0" src="../../sotw/flashextension.gif" width="100" height="40" alt="Check out the great, high-quality flash extensions."></a></td>
+                  </tr>
+                  <tr>
+                    <td align="center">
+                    <a target="_blank" href="http://www.flashden.net/">
+					<img border="0" src="../../supporter/FlashDen.gif" width="100" height="50" alt="Buy or sell stock flash, video, audio and fonts for as little as 50 cents at FlashDen."></a></td>
+                  </tr>
+                  <tr>
+                    <td align="center">
+                    <a target="_blank" href="http://www.gomedia.us/arsenal/affiliates/idevaffiliate.php?id=144">
+					<img border="0" src="../../supporter/gomedia-button.jpg" width="100" height="45" alt="Check out our high quality vector-based design packs!"></a></td>
+                  </tr>
+                  <tr>
+                    <td class="style3">
+                    <a href="http://flash-filter.net/">
+					<img src="../../supporter/flash-filter.gif" width="100" height="45" alt="flash-filter.net - stylish and easy to use effect components for flash" class="style2" border="0"></a></td>
+                  </tr>
+                  <tr>
+                    <td align="center">
+                    <a target="_blank" href="http://www.hitsinmotion.com/default.aspx">
+					<img alt="HitsInMotion.com - Awesome Flash Menu Components and Templates" src="../../supporter/hitsinmotion_kirupa.gif" border="0" width="100" height="45" class="style1"></a></td>
+                  </tr>
+                  <tr>
+                    <td align="center">
+                    <a href="http://www.adriantnt.com/">
+					<img alt="flash menus, buttons and components" src="../../supporter/adrianTNT_V2.gif" width="97" height="40" border="0" class="style1"></a></td>
+                  </tr>
+                  <tr>
+                    <td align="center">
+                    <a target="_blank" href="http://www.noahx.com/ads/landingpage.asp?f=kirupa">
+					<img alt="NOAH allows you to create interactive Flash-based characters for your web sites." src="../../supporter/NOAHKirupa.jpg" width="100" height="50" class="noBorder"></a></td>
+                  </tr>
+                  <tr>
+                    <td align="center">
+                    <a target="_blank" href="http://www.digicrafts.com.hk/components/">
+					<img alt="Digicrafts Components" src="../../supporter/icon_100x40.gif" width="100" height="40" class="noBorder"></a></td>
+                  </tr>
+                  <tr>
+                    <td align="center">
+                    <a target="_blank" href="http://www.jumpeyecomponents.com/">
+					<img src="../../supporter/jumpeye.png" width="100" height="40" class="noBorder" alt="The best flash components ever!"></a></td>
+                  </tr>
+                  <tr>
+                    <td align="center">
+                    <a target="_blank" href="http://templates.entheosweb.com/flash_website_templates/">
+					<img src="../../supporter/entheos_banner.gif" width="100" height="45" class="noBorder" alt="Entheos Flash Website Templates"></a></td>
+                  </tr>
+                  <tr>
+                    <td align="center">
+                    <a target="_blank" href="http://www.pluginsforflash.com/kirupa.htm">
+					<img alt="Check out our flash text effect component bundles!" src="../../supporter/texteffects.gif" width="91" height="36" class="noBorder"></a></td>
+                  </tr>
+                  <tr>
+                    <td align="center">
+                    <a href="http://www.kirupa.com/me/ad.htm">
+					<img border="0" src="../../supporter/kir.gif" width="99" height="35" alt="Learn how to advertise on kirupa.com"></a></td>
+                  </tr>
+                  <tr>
+                    <td align="center">
+                    <p>
+                    <a target="_blank" href="http://www.thehungersite.com/">
+					<img border="0" src="../../supporter/ths.gif" width="92" height="27"></a></td>
+                  </tr>
+                  </table>
+       
+<!--webbot bot="Include" i-checksum="50300" endspan --></td>
+				</tr>
+			</table>
+			</td>
+		</tr>
+	</table>
+</div>
+
+<div align="center">
+	<table border="0" width="850" cellspacing="0" cellpadding="0">
+		<tr>
+			<td>
+		<!--webbot bot="Include" U-Include="../../new_layout/modules/footer_module.htm" TAG="BODY" startspan -->
+
+<div align="center">
+		<hr color="#D3D2CB" size="1">
+		<table border="0" id="table1" cellspacing="0" cellpadding="10" width="850">
+			<tr>
+				<td class="style1">
+<p align="center">
+<a target="_blank" href="http://www.flashloaded.com/flashcomponents/photoflow/?id2=kirupahorizontal">
+<img src="../../supporter/kirupa_horizontal.jpg" width="728" height="90" class="noBorder" alt="flash components"></a></p>
+				</td>
+			</tr>
+		</table>
+	</div>
+
+<table border="0" width="100%" cellspacing="0">
+	<tr>
+		<td>
+		<hr color="#D3D2CB" size="1"></td>
+	</tr>
+</table>
+				<div align="center">
+				<table border="0" width="850" cellspacing="0" cellpadding="3">
+					<tr>
+						<td style="border-right: 1px solid #D3D2CB" align="center" width="44">
+						<span class="homeLinkSM">
+						<a href="http://www.kirupa.com"><font color="#0066CC">
+						Home</font></a></span></td>
+						<td style="border-right: 1px solid #D3D2CB" align="center" width="137">
+						<span class="homeLinkSM"><a href="../../me/index.htm">
+						<font color="#0066CC">About kirupa.com</font></a></span></td>
+						<td style="border-right: 1px solid #D3D2CB" align="center" width="154">
+						<span class="homeLinkSM">
+						<a href="http://www.kirupa.com/me/mods.htm">
+						<font color="#0066CC">Meet the Moderators</font></a></span></td>
+						<td style="border-right: 1px solid #D3D2CB" align="center" width="69">
+						<span class="homeLinkSM">
+						<a href="http://www.kirupa.com/me/ad.htm">
+						<font color="#0066CC">Advertise</font></a></span></td>
+						<td style="border-right: 1px solid #D3D2CB" align="center" width="78">
+						<p align="center"><span class="homeLinkSM">
+						<font color="#0066CC">&nbsp;</font><a href="http://www.kirupa.com/me/link.htm"><font color="#0066CC">Link 
+						to Us</font></a></span></td>
+						<td style="border-right: 1px solid #D3D2CB" align="center" width="70">
+						<span class="homeLinkSM"><font color="#0066CC">&nbsp;</font><a href="http://www.kirupa.com/me/credits.htm"><font color="#0066CC">Credits</font></a></span></td>
+						<td style="border-right: 1px solid #D3D2CB" align="center" width="24">
+						<a href="http://www.kirupa.com/modular/rss.htm">
+						<img border="0" src="../../mini_icons/rssfeed.gif" width="16" height="16"></a></td>
+						<td width="219">
+						<p align="right" class="kCaption" style="text-align: right">
+						<span class="homeLinkSM">Copyright
+						<font face="Times New Roman">©</font> 1999 - 2007&nbsp;&nbsp;
+						</span></td>
+					</tr>
+					<tr>
+						<td colspan="8">&nbsp;<p>&nbsp;</td>
+					</tr>
+				</table>
+															
+</div>
+															
+<!--webbot bot="Include" i-checksum="10307" endspan --></td>
+		</tr>
+	</table>
+</div>
+
+</body>
+
+</html>

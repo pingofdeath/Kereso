@@ -1,0 +1,377 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+				<meta name="keywords" content="Binary search algorithm,Algorithm function,Big O notation,Binary search tree,Bisection method,C++,COBOL,C (programming language),Cache,Clock Game,Collation" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="http://www.gnu.org/copyleft/fdl.html" />
+		<title>Binary search algorithm - Wikipedia, the free encyclopedia</title>
+		<style type="text/css" media="screen, projection">/*<![CDATA[*/
+			@import "/skins-1.5/common/shared.css?99";
+			@import "/skins-1.5/monobook/main.css?99";
+		/*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="/skins-1.5/common/commonPrint.css?99" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE50Fixes.css?99";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE55Fixes.css?99";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "/skins-1.5/monobook/IE60Fixes.css?99";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "/skins-1.5/monobook/IE70Fixes.css?99";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="/skins-1.5/common/IEFixes.js?99"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		
+		<script type= "text/javascript">/*<![CDATA[*/
+var skin = "monobook";
+var stylepath = "/skins-1.5";
+var wgArticlePath = "/wiki/$1";
+var wgScriptPath = "/w";
+var wgScript = "/w/index.php";
+var wgServer = "http://en.wikipedia.org";
+var wgCanonicalNamespace = "";
+var wgCanonicalSpecialPageName = false;
+var wgNamespaceNumber = 0;
+var wgPageName = "Binary_search_algorithm";
+var wgTitle = "Binary search algorithm";
+var wgAction = "view";
+var wgRestrictionEdit = [];
+var wgRestrictionMove = [];
+var wgArticleId = "4266";
+var wgIsArticle = true;
+var wgUserName = null;
+var wgUserGroups = null;
+var wgUserLanguage = "en";
+var wgContentLanguage = "en";
+var wgBreakFrames = false;
+var wgCurRevisionId = "156439813";
+/*]]>*/</script>
+                
+		<script type="text/javascript" src="/skins-1.5/common/wikibits.js?99"><!-- wikibits js --></script>
+		<script type="text/javascript" src="/w/index.php?title=-&amp;action=raw&amp;gen=js&amp;useskin=monobook"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "/w/index.php?title=MediaWiki:Common.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=MediaWiki:Monobook.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=-&action=raw&gen=css&maxage=2678400";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+		<script type="text/javascript" src="/skins-1.5/common/ajax.js?99"></script>
+	</head>
+<body  class="mediawiki ns-0 ltr page-Binary_search_algorithm">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">Binary search algorithm</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+			<div id="contentSub">(Redirected from <a href="/w/index.php?title=Binary_search&amp;redirect=no" title="Binary search">Binary search</a>)</div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<p>A <b>binary search algorithm</b> (or <b>binary chop</b>) is a technique for finding a particular value in a <a href="/wiki/Collation" title="Collation">sorted list</a>. It makes progressively better guesses, and closes in on the sought value, by comparing an element halfway with what has been determined to be an element too low in the list and one too high in the list. A binary search finds the <a href="/wiki/Median" title="Median">median</a> element in a list, compares its value to the one you are searching for, and determines if it’s greater than, less than, or equal to the one you want. A guess that turns out to be too high becomes the new top of the list, and one too low the new bottom of the list. The binary search's next guess is halfway between the new list's top and bottom. Pursuing this strategy iteratively, it narrows the search by a factor 2 each time, and finds your value. A binary search is an example of a <a href="/wiki/Divide_and_conquer_algorithm" title="Divide and conquer algorithm">divide and conquer algorithm</a> (more specifically a decrease and conquer algorithm) and a <a href="/wiki/Dichotomic_search" title="Dichotomic search">dichotomic search</a> (more at <a href="/wiki/Search_algorithm" title="Search algorithm">Search algorithm</a>).</p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#The_algorithm"><span class="tocnumber">1</span> <span class="toctext">The algorithm</span></a></li>
+<li class="toclevel-1"><a href="#Equal_elements"><span class="tocnumber">2</span> <span class="toctext">Equal elements</span></a></li>
+<li class="toclevel-1"><a href="#Sort_key"><span class="tocnumber">3</span> <span class="toctext">Sort key</span></a></li>
+<li class="toclevel-1"><a href="#Correctness_and_testing"><span class="tocnumber">4</span> <span class="toctext">Correctness and testing</span></a></li>
+<li class="toclevel-1"><a href="#Performance"><span class="tocnumber">5</span> <span class="toctext">Performance</span></a></li>
+<li class="toclevel-1"><a href="#Examples"><span class="tocnumber">6</span> <span class="toctext">Examples</span></a></li>
+<li class="toclevel-1"><a href="#Language_support"><span class="tocnumber">7</span> <span class="toctext">Language support</span></a></li>
+<li class="toclevel-1"><a href="#Applications_to_complexity_theory"><span class="tocnumber">8</span> <span class="toctext">Applications to complexity theory</span></a></li>
+<li class="toclevel-1"><a href="#See_also"><span class="tocnumber">9</span> <span class="toctext">See also</span></a></li>
+<li class="toclevel-1"><a href="#External_links"><span class="tocnumber">10</span> <span class="toctext">External links</span></a></li>
+<li class="toclevel-1"><a href="#References"><span class="tocnumber">11</span> <span class="toctext">References</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script>
+<p><a name="The_algorithm" id="The_algorithm"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Binary_search_algorithm&amp;action=edit&amp;section=1" title="Edit section: The algorithm">edit</a>]</span> <span class="mw-headline">The algorithm</span></h2>
+<p>The most common application of binary search is to find a specific value in a <a href="/wiki/Sorting_algorithm" title="Sorting algorithm">sorted list</a>. To cast this in the frame of the guessing game (see Example below), realize that we are now guessing the <i>index</i>, or numbered place, of the value in the list. This is useful because, given the index, other data structures will contain associated information. Suppose a data structure containing the classic collection of name, address, telephone number and so forth has been accumulated, and an array is prepared containing the names, numbered from one to <i>N</i>. A query might be: what is the telephone number for a given name <i>X</i>. To answer this the array would be searched and the index (if any) corresponding to that name determined, whereupon it would be used to report the associated telephone number and so forth. Appropriate provision must be made for the name not being in the list (typically by returning an <i>index</i> value of zero), indeed the question of interest might be only whether <i>X</i> is in the list or not.</p>
+<p>If the list of names is in sorted order, a binary search will find a given name with far fewer probes than the simple procedure of probing each name in the list, one after the other in a <a href="/wiki/Linear_search" title="Linear search">linear search</a>, and the procedure is much simpler than organising a <a href="/wiki/Hash_table" title="Hash table">hash table</a> though that would be faster still, typically averaging just over one probe. This applies for a uniform distribution of search items but if it is known that some few items are <i>much</i> more likely to be sought for than the majority then a linear search with the list ordered so that the most popular items are first may do better.</p>
+<p>The binary search begins by comparing the sought value <i>X</i> to the value in the middle of the list; because the values are sorted, it is clear whether the sought value would belong before or after that middle value, and the search then continues through the correct half in the same way. Only the sign of the difference is inspected: there is no attempt at an <a href="/wiki/Interpolation_search" title="Interpolation search">interpolation search</a> based on the size of the differences.</p>
+<p>The most straightforward implementation is recursive, which recursively searches the subrange dictated by the comparison:</p>
+<pre>
+   BinarySearch(A[0..N-1], value, low, high) {
+       if (high &lt; low)
+           return not_found
+       mid = (low + high) / 2
+       if (A[mid] &gt; value)
+           return BinarySearch(A, value, low, mid-1)
+       else if (A[mid] &lt; value)
+           return BinarySearch(A, value, mid+1, high)
+       else
+           return mid
+   }
+</pre>
+<p>It is invoked with initial <code>low</code> and <code>high</code> values of <code>0</code> and <code>N-1</code>. We can eliminate the <a href="/wiki/Tail_recursion" title="Tail recursion">tail recursion</a> above and convert this to an iterative implementation:</p>
+<pre>
+   BinarySearch(A[0..N-1], value) {
+       low = 0
+       high = N - 1
+       while (low &lt;= high) {
+           mid = (low + high) / 2
+           if (A[mid] &gt; value)
+               high = mid - 1
+           else if (A[mid] &lt; value)
+               low = mid + 1
+           else
+               return mid
+       }
+       return not_found
+   }
+</pre>
+<p>Some implementations may not include the early termination branch, preferring to check at the end if the value was found, shown below. Checking to see if the value was found <i>during</i> the search (as opposed to at the <i>end</i> of the search) may seem a good idea, but there are extra computations involved in each iteration of the search. Also, with an array of length <i>N</i> using the <i>low</i> and <i>high</i> indices, the probability of actually finding the value on the first iteration is 1 / <i>N</i>, and the probability of finding it later on (before the end) is the about 1 / (<i>high</i> - <i>low</i>). The following checks for the value at the end of the search:</p>
+<pre>
+       while (low &lt; high) {
+           mid = (low + high)/2;
+           if (A[mid] &lt; value){ 
+               low = mid + 1; 
+           }
+           else {
+                high = mid; //can't be high = mid-1: here A[mid] &gt;= value,
+                            //  so high can't be &lt; mid if A[mid] == value
+           }   
+       }
+       if (low &lt; N) and (A[low] == value)
+           return low
+       else
+           return not_found                 
+</pre>
+<p>This algorithm has two other advantages. At the end of the loop, <i>low</i> points to the first entry greater than or equal to <i>value</i>, so a new entry can be inserted if no match is found. Moreover, it only requires one comparison; which could be significant for complex keys in languages which do not allow the result of a comparison to be saved.</p>
+<p>In practice, one frequently uses a <a href="/wiki/Three-way_comparison" title="Three-way comparison">three-way comparison</a> instead of two comparisons per loop. Also, real implementations using fixed-width integers with modular arithmetic need to account for the possibility of overflow. One frequently-used technique for this is to compute mid differently:</p>
+<pre>
+           mid = low + ((high - low) / 2)
+</pre>
+<p><a name="Equal_elements" id="Equal_elements"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Binary_search_algorithm&amp;action=edit&amp;section=2" title="Edit section: Equal elements">edit</a>]</span> <span class="mw-headline">Equal elements</span></h2>
+<p>The elements of the list are not necessarily all unique. If one searches for a value that occurs multiple times in the list, the index returned will be of the first-encountered equal element, and this will not necessarily be that of the first, last, or middle element of the run of equal-key elements but will depend on the positions of the values. Modifying the list even in seemingly unrelated ways such as adding elements elsewhere in the list may change the result.</p>
+<p>To find all equal elements an upward and downward linear search can be carried out from the initial result, stopping each search when the element is no longer equal. Thus, e.g. in a table of cities sorted by country, we can find all cities in a given country.</p>
+<p><a name="Sort_key" id="Sort_key"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Binary_search_algorithm&amp;action=edit&amp;section=3" title="Edit section: Sort key">edit</a>]</span> <span class="mw-headline">Sort key</span></h2>
+<p>A list of pairs (p,q) can be sorted based on just p. Then the comparisons in the algorithm need only consider the values of p, not those of q. For example, in a table of cities sorted on a column "country" we can find cities in Germany by comparing country names with "Germany", instead of comparing whole rows. Such partial content is called a sort key.</p>
+<p><a name="Correctness_and_testing" id="Correctness_and_testing"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Binary_search_algorithm&amp;action=edit&amp;section=4" title="Edit section: Correctness and testing">edit</a>]</span> <span class="mw-headline">Correctness and testing</span></h2>
+<p>Binary search is one of the trickiest "simple" algorithms to program correctly. A study has shown that an astounding 90 percent of professional programmers fail to code a binary search correctly after a whole hour of working on it, and another study shows that accurate code for it is only found in five out of twenty textbooks. (Kruse, 1999) Given this insight, it is important to remember that the best way to verify the correctness of a binary search algorithm is to thoroughly test it on a computer. It is difficult to visually analyze the code without making a mistake.</p>
+<p>To that end, the following code will thoroughly test a binary search at every index for many multiple lengths of arrays:</p>
+<pre>
+<code>int offset, value, index, length;               
+boolean passed=true;
+for(offset=1; offset&lt;5; offset++){ //tests with an offset between 1 and 2 for various amounts.
+        for(length = 1; length &lt; 2049; length++){ //make array longer on each iteration
+                int []A = new int[length];
+                for(int i = 0; i &lt; length; i++)          //init array values from 0 to length-1
+                        A[i] = i*offset;
+                for(value = 0; value &lt; length; value++){     //search for every array value
+                        index = binarySearch(A, value*offset);
+                        if (!(index==value))
+                        passed=false;   //if this line executes, BUG in binary search
+                }
+        }
+}
+</code>
+</pre>
+<p>In the above test-code if <i>passed</i> is ever false, then the binary search function has a bug. Note that this code assumes that you are returning index of search value with array; in addition it does not test for values not within the array, proper handeling of duplicate values within your array, or errors that could be caused by more randomly distributed values. As such this should not be considered a complete proof of correctness mearly an add for testing.</p>
+<p><a name="Performance" id="Performance"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Binary_search_algorithm&amp;action=edit&amp;section=5" title="Edit section: Performance">edit</a>]</span> <span class="mw-headline">Performance</span></h2>
+<p>Binary search is a <a href="/wiki/Logarithmic_algorithm" title="Logarithmic algorithm">logarithmic algorithm</a> and executes in <a href="/wiki/Big_O_notation" title="Big O notation">O</a>(log n) time. Specifically, <span class="texhtml">1 + log<sub>2</sub><i>N</i></span> iterations are needed to return an answer. In most cases it is considerably faster than a <a href="/wiki/Linear_search" title="Linear search">linear search</a>. It can be implemented using <a href="/wiki/Recursion" title="Recursion">recursion</a> or <a href="/wiki/Iteration" title="Iteration">iteration</a>, as shown above. In some languages it is more elegantly expressed recursively; however, in some C-based languages tail recursion is not eliminated and the recursive version requires more stack space.</p>
+<p>Binary search can interact poorly with the memory hierarchy (i.e. <a href="/wiki/Cache" title="Cache">caching</a>), because of its random-access nature. For in-memory searching, if the interval to be searched is small, a linear search may have superior performance simply because it exhibits better locality of reference. For external searching, care must be taken or each of the first several probes will lead to a disk seek. A common technique is to abandon binary searching for linear searching as soon as the size of the remaining interval falls below a small value such as 8 or 16.</p>
+<p><a name="Examples" id="Examples"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Binary_search_algorithm&amp;action=edit&amp;section=6" title="Edit section: Examples">edit</a>]</span> <span class="mw-headline">Examples</span></h2>
+<p>An example of binary search in action is a simple guessing game in which a player has to guess a positive integer, between 1 and <i>N</i>, selected by another player, using only questions answered with yes or no. Supposing <i>N</i> is 16 and the number 11 is selected, the game might proceed as follows.</p>
+<ul>
+<li>Is the number greater than 8? (Yes).</li>
+<li>Is the number greater than 12? (No)</li>
+<li>Is the number greater than 10? (Yes)</li>
+<li>Is the number greater than 11? (No)</li>
+</ul>
+<p>Therefore, the number must be 11. At each step, we choose a number right in the middle of the range of possible values for the number. For example, once we know the number is greater than 8, but less than or equal to 12, we know to choose a number in the middle of the range [9, 12] (in this case 10 is optimal).</p>
+<p>At most <img class="tex" alt="\lceil\log_2 N\rceil" src="http://upload.wikimedia.org/math/0/9/e/09e4fd8229e9ee576b4e8e6339c5e59f.png" /> questions are required to determine the number, since each question halves the search space. Note that one less question (iteration) is required than for the general algorithm, since the number is constrained to a particular range.</p>
+<p>Even if the number we're guessing can be arbitrarily large, in which case there is no upper bound <i>N</i>, we can still find the number in at most <img class="tex" alt="2\lceil \log_2 k \rceil" src="http://upload.wikimedia.org/math/1/c/e/1ce4822393603b990eb9f15a52191e92.png" /> steps (where k is the (unknown) selected number) by first finding an upper bound by repeated doubling. For example, if the number were 11, we could use the following sequence of guesses to find it:</p>
+<ul>
+<li>Is the number greater than 1? (Yes)</li>
+<li>Is the number greater than 2? (Yes)</li>
+<li>Is the number greater than 4? (Yes)</li>
+<li>Is the number greater than 8? (Yes)</li>
+<li>Is the number greater than 16? (No, N=16, proceed as above)</li>
+</ul>
+<p>( We know the number is greater than 8 )</p>
+<ul>
+<li>Is the number greater than 12? (No)</li>
+<li>Is the number greater than 10? (Yes)</li>
+<li>Is the number greater than 11? (No)</li>
+</ul>
+<p>As one simple example, in <a href="/wiki/Revision_control" title="Revision control">revision control</a> systems, it is possible to use a binary search to see in which revision a piece of content was added to a file. We simply do a binary search through the entire version history; if the content is not present in a particular version, it appeared later, while if it is present it appeared at that version or sooner. This is far quicker than checking every difference.</p>
+<p>There are many occasions unrelated to computers when a binary search is the quickest way to isolate a solution we seek. In troubleshooting a single problem with many possible causes, we can change half the suspects, see if the problem remains and deduce in which half the culprit is; change half the remaining suspects, and so on. See: <a href="/wiki/Shotgun_debugging" title="Shotgun debugging">Shotgun debugging</a>.</p>
+<p>People typically use a mixture of the binary search and interpolative search algorithms when searching a <a href="/wiki/Telephone_book" title="Telephone book">telephone book</a>, after the initial guess we exploit the fact that the entries are sorted and can rapidly find the required entry. For example when searching for Smith, if Rogers and Thomas have been found, one can flip to the page halfway between the previous guesses, if this shows Samson, we know that Smith is somewhere between the Samson and Thomas pages so we can bisect these.</p>
+<p><a name="Language_support" id="Language_support"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Binary_search_algorithm&amp;action=edit&amp;section=7" title="Edit section: Language support">edit</a>]</span> <span class="mw-headline">Language support</span></h2>
+<p>Many standard libraries provide a way to do binary search. <a href="/wiki/C_%28programming_language%29" title="C (programming language)">C</a> provides <code>bsearch</code> in its standard library. <a href="/wiki/C%2B%2B" title="C++">C++</a>'s <a href="/wiki/Standard_Template_Library" title="Standard Template Library">STL</a> provides <a href="/wiki/Algorithm_function" title="Algorithm function">algorithm functions</a> <code><a href="/wiki/Lower_bound" title="Lower bound">lower_bound</a></code> and <code><a href="/wiki/Upper_bound" title="Upper bound">upper_bound</a></code>. <a href="/wiki/Java_%28sun%29" title="Java (sun)">Java</a> offers a set of overloaded <code>binarySearch()</code> static methods in the classes <code><a href="http://java.sun.com/javase/6/docs/api/java/util/Arrays.html" class="external text" title="http://java.sun.com/javase/6/docs/api/java/util/Arrays.html" rel="nofollow">Arrays</a></code> and <code><a href="http://java.sun.com/javase/6/docs/api/java/util/Collections.html" class="external text" title="http://java.sun.com/javase/6/docs/api/java/util/Collections.html" rel="nofollow">Collections</a></code> for performing binary searches on Java arrays and Lists, respectively. They must be arrays of primitives, or the arrays or Lists must be of a type that implements the <code>Comparable</code> interface, or you must specify a custom Comparator object. <a href="/wiki/Microsoft" title="Microsoft">Microsoft</a>'s <a href="/wiki/Microsoft_.NET_Framework" title="Microsoft .NET Framework">.NET Framework</a> 2.0 offers static <a href="/wiki/Generic_programming" title="Generic programming">generic</a> versions of the Binary Search algorithm in its collection base classes. An example would be <a href="/w/index.php?title=System.Array&amp;action=edit" class="new" title="System.Array">System.Array</a>'s method BinarySearch&lt;T&gt;(T[] array, T value). <a href="/wiki/Python_%28programming_language%29" title="Python (programming language)">Python</a> provides the <code>bisect</code> module. <a href="/wiki/COBOL" title="COBOL">COBOL</a> can perform binary search on internal tables using the <code>SEARCH ALL</code> statement.</p>
+<p><a name="Applications_to_complexity_theory" id="Applications_to_complexity_theory"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Binary_search_algorithm&amp;action=edit&amp;section=8" title="Edit section: Applications to complexity theory">edit</a>]</span> <span class="mw-headline">Applications to <a href="/wiki/Computational_complexity_theory" title="Computational complexity theory">complexity theory</a></span></h2>
+<p>Even if we do not know a fixed range the number <i>k</i> falls in, we can still determine its value by asking <img class="tex" alt="2\lceil\log_2k\rceil" src="http://upload.wikimedia.org/math/1/c/e/1ce4822393603b990eb9f15a52191e92.png" /> simple yes/no questions of the form "Is <i>k</i> greater than <i>x</i>?" for some number <i>x</i>. As a simple consequence of this, if you can answer the question "Is this integer property <i>k</i> greater than a given value?" in some amount of time then you can find the value of that property in the same amount of time with an added factor of log <i>k</i>. This is called a <i><a href="/wiki/Reduction_%28complexity%29" title="Reduction (complexity)">reduction</a></i>, and it is because of this kind of reduction that most complexity theorists concentrate on <a href="/wiki/Decision_problem" title="Decision problem">decision problems</a>, algorithms that produce a simple yes/no answer.</p>
+<p>For example, suppose we could answer "Does this <i>n</i> x <i>n</i> matrix have <a href="/wiki/Determinant" title="Determinant">determinant</a> larger than <i>k</i>?" in O(<i>n</i><sup>2</sup>) time. Then, by using binary search, we could find the (ceiling of the) determinant itself in O(<i>n</i><sup>2</sup>log <i>d</i>) time, where <i>d</i> is the determinant; notice that <i>d</i> is not the size of the input, but the size of the output.</p>
+<p><a name="See_also" id="See_also"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Binary_search_algorithm&amp;action=edit&amp;section=9" title="Edit section: See also">edit</a>]</span> <span class="mw-headline">See also</span></h2>
+<ul>
+<li><a href="/wiki/Ternary_search" title="Ternary search">Ternary search</a></li>
+<li><a href="/wiki/Uniform_binary_search" title="Uniform binary search">Uniform binary search</a></li>
+<li><a href="/wiki/Interpolation_search" title="Interpolation search">Interpolation search</a></li>
+<li><a href="/wiki/Binary_search_tree" title="Binary search tree">Binary search tree</a></li>
+<li><a href="/wiki/Big_O_notation" title="Big O notation">Big O notation</a></li>
+<li><a href="/wiki/Clock_Game" title="Clock Game">Clock Game</a></li>
+<li><a href="/wiki/Golden_section_search" title="Golden section search">Golden section search</a></li>
+<li><a href="/wiki/Bisection_method" title="Bisection method">Bisection method</a></li>
+</ul>
+<p><a name="External_links" id="External_links"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Binary_search_algorithm&amp;action=edit&amp;section=10" title="Edit section: External links">edit</a>]</span> <span class="mw-headline">External links</span></h2>
+<ul>
+<li><a href="http://www.nist.gov/dads/HTML/binarySearch.html" class="external text" title="http://www.nist.gov/dads/HTML/binarySearch.html" rel="nofollow">NIST Dictionary of Algorithms and Data Structures: binary search</a></li>
+<li><a href="http://www.sparknotes.com/cs/searching/binarysearch/" class="external text" title="http://www.sparknotes.com/cs/searching/binarysearch/" rel="nofollow">Sparknotes: Binary search</a>. Simplified overview of binary search.</li>
+<li><a href="http://blogs.netindonesia.net/adrian/articles/6288.aspx" class="external text" title="http://blogs.netindonesia.net/adrian/articles/6288.aspx" rel="nofollow">Binary Search Implementation in Visual Basic .NET (partially in English)</a></li>
+<li><a href="http://msdn2.microsoft.com/en-us/library/2cy9f6wb.aspx" class="external text" title="http://msdn2.microsoft.com/en-us/library/2cy9f6wb.aspx" rel="nofollow">msdn2.microsoft.com/en-us/library/2cy9f6wb.aspx</a> .NET Framework Class Library Array.BinarySearch Generic Method (T[], T)</li>
+<li><a href="http://googleresearch.blogspot.com/2006/06/extra-extra-read-all-about-it-nearly.html" class="external text" title="http://googleresearch.blogspot.com/2006/06/extra-extra-read-all-about-it-nearly.html" rel="nofollow">Google Research: Nearly All Binary Searches and Mergesorts are Broken</a>.</li>
+<li><a href="http://en.literateprograms.org/Category:Binary_search" class="external text" title="http://en.literateprograms.org/Category:Binary_search" rel="nofollow">Implementations of binary search on LiteratePrograms</a>.</li>
+<li><a href="http://www.datastructures.info/what-is-a-binary-seach-algorithm-and-how-does-it-work/" class="external text" title="http://www.datastructures.info/what-is-a-binary-seach-algorithm-and-how-does-it-work/" rel="nofollow">Explained and commented Binary search algorithm in C++</a></li>
+<li><a href="http://www.paked.net/subject_pages/computer_science/prog1.htm" class="external text" title="http://www.paked.net/subject_pages/computer_science/prog1.htm" rel="nofollow">Binary Search using C++</a></li>
+</ul>
+<p><br /></p>
+<p><a name="References" id="References"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Binary_search_algorithm&amp;action=edit&amp;section=11" title="Edit section: References">edit</a>]</span> <span class="mw-headline">References</span></h2>
+<ul>
+<li><a href="/wiki/Donald_Knuth" title="Donald Knuth">Donald Knuth</a>. <i>The Art of Computer Programming</i>, Volume 3: <i>Sorting and Searching</i>, Third Edition. Addison-Wesley, 1997. <a href="/w/index.php?title=Special:Booksources&amp;isbn=0201896850" class="internal">ISBN 0-201-89685-0</a>. Section 6.2.1: Searching an Ordered Table, pp.409–426.</li>
+<li>Kruse, Robert L.: "Data Structures and Program Design in C++", Prentice-Hall, 1999, <a href="/w/index.php?title=Special:Booksources&amp;isbn=0137689950" class="internal">ISBN 0-13-768995-0</a>, page 280.</li>
+</ul>
+
+<!-- 
+Pre-expand include size: 2967 bytes
+Post-expand include size: 523 bytes
+Template argument size: 230 bytes
+Maximum: 2048000 bytes
+-->
+
+<!-- Saved in parser cache with key enwiki:pcache:idhash:4266-0!1!0!default!!en!2 and timestamp 20070912154219 -->
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org/wiki/Binary_search_algorithm">http://en.wikipedia.org/wiki/Binary_search_algorithm</a>"</div>
+			<div id="catlinks"><p class='catlinks'><a href="/wiki/Special:Categories" title="Special:Categories">Category</a>: <span dir='ltr'><a href="/wiki/Category:Search_algorithms" title="Category:Search algorithms">Search algorithms</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<div class="pBody">
+			<ul>
+					 <li id="ca-nstab-main" class="selected"><a href="/wiki/Binary_search_algorithm" title="View the content page [c]" accesskey="c">Article</a></li>
+					 <li id="ca-talk"><a href="/wiki/Talk:Binary_search_algorithm" title="Discussion about the content page [t]" accesskey="t">Discussion</a></li>
+					 <li id="ca-edit"><a href="/w/index.php?title=Binary_search_algorithm&amp;action=edit" title="You can edit this page. Please use the preview button before saving. [e]" accesskey="e">Edit this page</a></li>
+					 <li id="ca-history"><a href="/w/index.php?title=Binary_search_algorithm&amp;action=history" title="Past versions of this page [h]" accesskey="h">History</a></li>
+				</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-personal">
+		<h5>Personal tools</h5>
+		<div class="pBody">
+			<ul>
+				<li id="pt-login"><a href="/w/index.php?title=Special:Userlogin&amp;returnto=Binary_search_algorithm" title="You are encouraged to log in, it is not mandatory however. [o]" accesskey="o">Sign in / create account</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-logo">
+		<a style="background-image: url(/images/wiki-en.png);" href="/wiki/Main_Page" title="Visit the Main Page [z]" accesskey="z"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-Main-page"><a href="/wiki/Main_Page">Main page</a></li>
+				<li id="n-Contents"><a href="/wiki/Wikipedia:Contents">Contents</a></li>
+				<li id="n-Featured-content"><a href="/wiki/Wikipedia:Featured_content">Featured content</a></li>
+				<li id="n-currentevents"><a href="/wiki/Portal:Current_events" title="Find background information on current events">Current events</a></li>
+				<li id="n-randompage"><a href="/wiki/Special:Random" title="Load a random page [x]" accesskey="x">Random article</a></li>
+			</ul>
+		</div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+		<h5>interaction</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-About-Wikipedia"><a href="/wiki/Wikipedia:About">About Wikipedia</a></li>
+				<li id="n-portal"><a href="/wiki/Wikipedia:Community_Portal" title="About the project, what you can do, where to find things">Community portal</a></li>
+				<li id="n-recentchanges"><a href="/wiki/Special:Recentchanges" title="The list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li>
+				<li id="n-contact"><a href="/wiki/Wikipedia:Contact_us">Contact Wikipedia</a></li>
+				<li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising" title="Support us">Donate to Wikipedia</a></li>
+				<li id="n-help"><a href="/wiki/Help:Contents" title="Guidance on how to use and edit Wikipedia">Help</a></li>
+			</ul>
+		</div>
+	</div>
+		<div id="p-search" class="portlet">
+		<h5><label for="searchInput">Search</label></h5>
+		<div id="searchBody" class="pBody">
+			<form action="/wiki/Special:Search" id="searchform"><div>
+				<input id="searchInput" name="search" type="text" title="Search Wikipedia [f]" accesskey="f" value="" />
+				<input type='submit' name="go" class="searchButton" id="searchGoButton"	value="Go" />&nbsp;
+				<input type='submit' name="fulltext" class="searchButton" id="mw-searchButton" value="Search" />
+			</div></form>
+		</div>
+	</div>
+	<div class="portlet" id="p-tb">
+		<h5>Toolbox</h5>
+		<div class="pBody">
+			<ul>
+				<li id="t-whatlinkshere"><a href="/wiki/Special:Whatlinkshere/Binary_search_algorithm" title="List of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+				<li id="t-recentchangeslinked"><a href="/wiki/Special:Recentchangeslinked/Binary_search_algorithm" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+<li id="t-upload"><a href="/wiki/Wikipedia:Upload" title="Upload images or media files [u]" accesskey="u">Upload file</a></li>
+<li id="t-specialpages"><a href="/wiki/Special:Specialpages" title="List of all special pages [q]" accesskey="q">Special pages</a></li>
+				<li id="t-print"><a href="/w/index.php?title=Binary_search_algorithm&amp;printable=yes" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>				<li id="t-permalink"><a href="/w/index.php?title=Binary_search_algorithm&amp;oldid=156439813" title="Permanent link to this version of the page">Permanent link</a></li><li id="t-cite"><a href="/w/index.php?title=Special:Cite&amp;page=Binary_search_algorithm&amp;id=156439813">Cite this article</a></li>			</ul>
+		</div>
+	</div>
+	<div id="p-lang" class="portlet">
+		<h5>In other languages</h5>
+		<div class="pBody">
+			<ul>
+				<li class="interwiki-cs"><a href="http://cs.wikipedia.org/wiki/Bin%C3%A1rn%C3%AD_vyhled%C3%A1v%C3%A1n%C3%AD">Česky</a></li>
+				<li class="interwiki-de"><a href="http://de.wikipedia.org/wiki/Bin%C3%A4re_Suche">Deutsch</a></li>
+				<li class="interwiki-es"><a href="http://es.wikipedia.org/wiki/B%C3%BAsqueda_binaria">Español</a></li>
+				<li class="interwiki-fr"><a href="http://fr.wikipedia.org/wiki/Dichotomie">Français</a></li>
+				<li class="interwiki-it"><a href="http://it.wikipedia.org/wiki/Ricerca_dicotomica">Italiano</a></li>
+				<li class="interwiki-he"><a href="http://he.wikipedia.org/wiki/%D7%97%D7%99%D7%A4%D7%95%D7%A9_%D7%91%D7%99%D7%A0%D7%90%D7%A8%D7%99">עברית</a></li>
+				<li class="interwiki-ja"><a href="http://ja.wikipedia.org/wiki/%E4%BA%8C%E5%88%86%E6%8E%A2%E7%B4%A2">日本語</a></li>
+				<li class="interwiki-no"><a href="http://no.wikipedia.org/wiki/Bin%C3%A6rs%C3%B8k">‪Norsk (bokmål)‬</a></li>
+				<li class="interwiki-pl"><a href="http://pl.wikipedia.org/wiki/Wyszukiwanie_binarne">Polski</a></li>
+				<li class="interwiki-pt"><a href="http://pt.wikipedia.org/wiki/Pesquisa_bin%C3%A1ria">Português</a></li>
+				<li class="interwiki-ru"><a href="http://ru.wikipedia.org/wiki/%D0%94%D0%B2%D0%BE%D0%B8%D1%87%D0%BD%D1%8B%D0%B9_%D0%BF%D0%BE%D0%B8%D1%81%D0%BA">Русский</a></li>
+				<li class="interwiki-sk"><a href="http://sk.wikipedia.org/wiki/Bin%C3%A1rne_vyh%C4%BEad%C3%A1vanie">Slovenčina</a></li>
+				<li class="interwiki-sl"><a href="http://sl.wikipedia.org/wiki/Binarno_iskanje">Slovenščina</a></li>
+				<li class="interwiki-fi"><a href="http://fi.wikipedia.org/wiki/Puolitushaku">Suomi</a></li>
+				<li class="interwiki-uk"><a href="http://uk.wikipedia.org/wiki/%D0%94%D0%B2%D1%96%D0%B9%D0%BA%D0%BE%D0%B2%D0%B8%D0%B9_%D0%BF%D0%BE%D1%88%D1%83%D0%BA">Українська</a></li>
+			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="/skins-1.5/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>
+				<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="/images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>
+			<ul id="f-list">
+				<li id="lastmod"> This page was last modified 07:23, 8 September 2007.</li>
+				<li id="copyright">All text is available under the terms of the <a class='internal' href="/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="/wiki/Wikipedia:Copyrights" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a U.S. registered <a class='internal' href="/wiki/501%28c%29#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="/wiki/Non-profit_organization" title="Non-profit organization">nonprofit</a> <a href="/wiki/Charitable_organization" title="Charitable organization">charity</a>.<br /></li>
+				<li id="privacy"><a href="http://wikimediafoundation.org/wiki/Privacy_policy" title="wikimedia:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="/wiki/Wikipedia:About" title="Wikipedia:About">About Wikipedia</a></li>
+				<li id="disclaimer"><a href="/wiki/Wikipedia:General_disclaimer" title="Wikipedia:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+		
+	
+		<script type="text/javascript">if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by srv153 in 0.086 secs. --></body></html>

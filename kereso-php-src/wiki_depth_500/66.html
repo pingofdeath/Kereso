@@ -1,0 +1,232 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+				<meta name="keywords" content="Algorithme de parcours en profondeur,Algorithme de parcours en largeur,Arbre (informatique),Booléen,Graphe (théorie des graphes),Last in, first out,Pile (informatique)" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipédia (Français)" />
+		<link rel="copyright" href="http://www.gnu.org/copyleft/fdl.html" />
+		<title>Algorithme de parcours en profondeur - Wikipédia</title>
+		<style type="text/css" media="screen, projection">/*<![CDATA[*/
+			@import "/skins-1.5/common/shared.css?99";
+			@import "/skins-1.5/monobook/main.css?99";
+		/*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="/skins-1.5/common/commonPrint.css?99" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE50Fixes.css?99";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE55Fixes.css?99";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "/skins-1.5/monobook/IE60Fixes.css?99";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "/skins-1.5/monobook/IE70Fixes.css?99";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="/skins-1.5/common/IEFixes.js?99"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		
+		<script type= "text/javascript">/*<![CDATA[*/
+var skin = "monobook";
+var stylepath = "/skins-1.5";
+var wgArticlePath = "/wiki/$1";
+var wgScriptPath = "/w";
+var wgScript = "/w/index.php";
+var wgServer = "http://fr.wikipedia.org";
+var wgCanonicalNamespace = "";
+var wgCanonicalSpecialPageName = false;
+var wgNamespaceNumber = 0;
+var wgPageName = "Algorithme_de_parcours_en_profondeur";
+var wgTitle = "Algorithme de parcours en profondeur";
+var wgAction = "view";
+var wgRestrictionEdit = [];
+var wgRestrictionMove = [];
+var wgArticleId = "228735";
+var wgIsArticle = true;
+var wgUserName = null;
+var wgUserGroups = null;
+var wgUserLanguage = "fr";
+var wgContentLanguage = "fr";
+var wgBreakFrames = false;
+var wgCurRevisionId = "14372625";
+/*]]>*/</script>
+                
+		<script type="text/javascript" src="/skins-1.5/common/wikibits.js?99"><!-- wikibits js --></script>
+		<script type="text/javascript" src="/w/index.php?title=-&amp;action=raw&amp;gen=js&amp;useskin=monobook"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "/w/index.php?title=MediaWiki:Common.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=MediaWiki:Monobook.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=-&action=raw&gen=css&maxage=2678400";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+		<script type="text/javascript" src="/skins-1.5/common/ajax.js?99"></script>
+	</head>
+<body  class="mediawiki ns-0 ltr page-Algorithme_de_parcours_en_profondeur">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+		<div id="siteNotice"><script type="text/javascript" language="JavaScript">
+<!--
+document.writeln("\x3cdiv style=\"text-align:right; font-size:80%\"\x3eVos dons permettent à Wikipédia de continuer à exister\x26nbsp;! Merci de \x3ca href=\"http://wikimediafoundation.org/wiki/Faire_un_don\" class=\"extiw\" title=\"wikimedia:Faire_un_don\"\x3evotre soutien\x3c/a\x3e.\x26nbsp;\x26nbsp;\x26nbsp;\x26nbsp;\x3c/div\x3e\n");
+-->
+</script></div>		<h1 class="firstHeading">Algorithme de parcours en profondeur</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">Un article de Wikipédia, l'encyclopédie libre.</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Aller à : <a href="#column-one">Navigation</a>, <a href="#searchInput">Rechercher</a></div>			<!-- start content -->
+			<p>L'<b>algorithme de parcours en profondeur</b> (ou DFS, pour <i>Depth First Search</i>) permet le parcours récursif d'un <a href="/wiki/Graphe_%28th%C3%A9orie_des_graphes%29" title="Graphe (théorie des graphes)">graphe</a> quelconque.</p>
+<p><a name="Principe" id="Principe"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Algorithme_de_parcours_en_profondeur&amp;action=edit&amp;section=1" title="Modifier la section&#160;: Principe">modifier</a>]</span> <span class="mw-headline">Principe</span></h2>
+<p>C'est un algorithme de recherche qui progresse à partir d'un sommet S en s'appelant récursivement pour chaque sommet voisin de S.</p>
+<p>Le nom d'algorithme en profondeur est du au fait que, contrairement à l'<a href="/wiki/Algorithme_de_parcours_en_largeur" title="Algorithme de parcours en largeur">algorithme de parcours en largeur</a>, il explore en fait «&#160;à fond&#160;» les chemins un par un: pour chaque sommet, il prend le premier sommet voisin jusqu'à ce qu'un sommet n'aie plus de voisins (ou que tout ses voisins soient marqués), et revient alors au sommet père.</p>
+<p>Si G n'est pas un <a href="/wiki/Arbre_%28informatique%29" title="Arbre (informatique)">arbre</a>, l'algorithme pourrait tourner indéfiniment, c'est pour cela que l'on doit en outre marquer chaque sommet déjà parcouru, et ne parcourir que les sommets non encore marqués.</p>
+<p>Enfin, on notera qu'il est tout à fait possible de l'implémenter itérativement à l'aide d'une <a href="/wiki/Pile_%28informatique%29" title="Pile (informatique)">pile</a> <a href="/wiki/Last_in%2C_first_out" title="Last in, first out">LIFO</a> contenant les sommets à explorer: on dépile un sommet et on empile ses voisins non encore explorés.</p>
+<p><a name="Impl.C3.A9mentation_r.C3.A9cursive" id="Impl.C3.A9mentation_r.C3.A9cursive"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Algorithme_de_parcours_en_profondeur&amp;action=edit&amp;section=2" title="Modifier la section&#160;: Implémentation récursive">modifier</a>]</span> <span class="mw-headline">Implémentation récursive</span></h2>
+<pre>
+<b>DFS</b> (graphe G, sommet s):
+{
+<b>Marquer</b>(S);
+<i>debut</i>
+<i>POUR CHAQUE</i> élément sfils de Voisin(s) <i>FAIRE</i>
+   <i>SI</i> <b>NonMarqué</b>(sfils)
+    <i>ALORS</i> <b>DFS</b>(<b>G</b>,sfils);
+   <i>FIN-SI</i>
+<i>FIN-POUR</i>
+<i>fin</i>
+}
+</pre>
+<p>Voisin(s)&#160;: renvoie la liste des sommets adjacents à s.</p>
+<p>Marquer(Nœud )&#160;: marque un nœud, de manière à ne pas le considérer plusieurs fois.</p>
+<p>SousArbre(nœud u)&#160;: retourne le sous-arbre de racine u.</p>
+<p><a name="Exemple" id="Exemple"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Algorithme_de_parcours_en_profondeur&amp;action=edit&amp;section=3" title="Modifier la section&#160;: Exemple">modifier</a>]</span> <span class="mw-headline">Exemple</span></h2>
+<p>Voyons concrètement le fonctionnement de cet algorithme sur le graphe suivant:</p>
+<p><a href="/wiki/Image:Graphes.dfs-bfs.exemple.png" class="image" title="Image:Graphes.dfs-bfs.exemple.png"><img alt="Image:Graphes.dfs-bfs.exemple.png" src="http://upload.wikimedia.org/wikipedia/fr/b/b2/Graphes.dfs-bfs.exemple.png" width="187" height="147" border="0" /></a></p>
+<p>L'algorithme DFS commence au sommet A, nous conviendrons que les sommets à gauche sur ce graphe seront choisis avant ceux de droite. Si l'algorithme utilise effectivement un marquage des sommets pour éviter de tourner indéfiniment en boucle, on aura alors l'ordre de visite suivant: A, B, D, F, C, G, E.</p>
+<p>Supposons maintenant que nous n'utilisions pas la méthode de marquage, on aurait alors la visite des sommets suivants dans l'ordre: A, B, D, F, E, A, B, D, F, E, etc indéfiniment, puisque l'algorithme ne peut sortir de la boucle A, B, D, F, E et n'atteindra donc jamais C ou G.</p>
+<p>Ou encore:</p>
+<pre>
+Profondeur(G,s)
+ Pour chaque u dans N faire
+   vu[u] := faux
+ rp(G,s)
+
+rp(G,u)
+ vu[u] := vrai
+ pour chaque arete dans (u,v) dans A faire
+    si vu[v] := faux alors
+       rp(G,v)
+</pre>
+<p>G=(N,A), N étant les sommets et A les arêtes d'un graphe et s un sommet de depart.</p>
+<p>vu est un tableau de <a href="/wiki/Bool%C3%A9en" title="Booléen">booléen</a> vu[i]&#160;:= vrai si et seulement si le sommet est accessible de s.</p>
+
+
+<!-- Saved in parser cache with key frwiki:pcache:idhash:228735-0!1!0!!fr!2 and timestamp 20070915224532 -->
+<div class="printfooter">
+Récupérée de « <a href="http://fr.wikipedia.org/wiki/Algorithme_de_parcours_en_profondeur">http://fr.wikipedia.org/wiki/Algorithme_de_parcours_en_profondeur</a> »</div>
+			<div id="catlinks"><p class='catlinks'><a href="/wiki/Cat%C3%A9gorie:Accueil" title="Catégorie:Accueil">Catégories </a>: <span dir='ltr'><a href="/wiki/Cat%C3%A9gorie:Algorithme_de_recherche" title="Catégorie:Algorithme de recherche">Algorithme de recherche</a></span> • <span dir='ltr'><a href="/wiki/Cat%C3%A9gorie:Arbre_%28structure_de_donn%C3%A9es%29" title="Catégorie:Arbre (structure de données)">Arbre (structure de données)</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Affichages</h5>
+		<div class="pBody">
+			<ul>
+					 <li id="ca-nstab-main" class="selected"><a href="/wiki/Algorithme_de_parcours_en_profondeur" title="Voir l’article [c]" accesskey="c">Article</a></li>
+					 <li id="ca-talk"><a href="/wiki/Discuter:Algorithme_de_parcours_en_profondeur" title="Discussion à propos de cette page [t]" accesskey="t">Discussion</a></li>
+					 <li id="ca-edit"><a href="/w/index.php?title=Algorithme_de_parcours_en_profondeur&amp;action=edit" title="Vous pouvez modifier cette page. Merci de prévisualiser avant d’enregistrer. [e]" accesskey="e">Modifier</a></li>
+					 <li id="ca-history"><a href="/w/index.php?title=Algorithme_de_parcours_en_profondeur&amp;action=history" title="Les auteurs et versions précédentes de cette page. [h]" accesskey="h">Historique</a></li>
+				</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-personal">
+		<h5>Outils personnels</h5>
+		<div class="pBody">
+			<ul>
+				<li id="pt-login"><a href="/w/index.php?title=Special:Userlogin&amp;returnto=Algorithme_de_parcours_en_profondeur" title="Vous êtes invité à vous identifier, mais ce n’est pas obligatoire. [o]" accesskey="o">Créer un compte ou se connecter</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-logo">
+		<a style="background-image: url(http://upload.wikimedia.org/wikipedia/fr/b/bc/Wiki.png);" href="/wiki/Accueil" title="Visitez la page principale [z]" accesskey="z"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="/wiki/Accueil" title="Visitez la page principale [z]" accesskey="z">Accueil</a></li>
+				<li id="n-thema"><a href="/wiki/Portail:Accueil">Portails thématiques</a></li>
+				<li id="n-alphindex"><a href="/wiki/Special:Allpages">Index alphabétique</a></li>
+				<li id="n-randompage"><a href="/wiki/Special:Random" title="Afficher une page au hasard [x]" accesskey="x">Une page au hasard</a></li>
+				<li id="n-contact"><a href="/wiki/Wikip%C3%A9dia:Contact">Contacter Wikipédia</a></li>
+			</ul>
+		</div>
+	</div>
+		<div class='portlet' id='p-Contribuer'>
+		<h5>Contribuer</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-help"><a href="/wiki/Aide:Sommaire" title="Aide">Aide</a></li>
+				<li id="n-portal"><a href="/wiki/Wikip%C3%A9dia:Accueil" title="À propos du projet">Communauté</a></li>
+				<li id="n-recentchanges"><a href="/wiki/Special:Recentchanges" title="Liste des modifications récentes sur le wiki [r]" accesskey="r">Modifications récentes</a></li>
+				<li id="n-aboutwp"><a href="/wiki/Wikip%C3%A9dia:Accueil_des_nouveaux_arrivants">Accueil des nouveaux arrivants</a></li>
+				<li id="n-sitesupport"><a href="http://meta.wikimedia.org/wiki/Faire_un_don:_explication" title="Soutenez le projet">Faire un don</a></li>
+			</ul>
+		</div>
+	</div>
+		<div id="p-search" class="portlet">
+		<h5><label for="searchInput">Rechercher</label></h5>
+		<div id="searchBody" class="pBody">
+			<form action="/wiki/Special:Search" id="searchform"><div>
+				<input id="searchInput" name="search" type="text" title="Rechercher dans Wikipédia [C]" accesskey="C" value="" />
+				<input type='submit' name="go" class="searchButton" id="searchGoButton"	value="Consulter" />&nbsp;
+				<input type='submit' name="fulltext" class="searchButton" id="mw-searchButton" value="Rechercher" />
+			</div></form>
+		</div>
+	</div>
+	<div class="portlet" id="p-tb">
+		<h5>Boîte à outils</h5>
+		<div class="pBody">
+			<ul>
+				<li id="t-whatlinkshere"><a href="/wiki/Special:Whatlinkshere/Algorithme_de_parcours_en_profondeur" title="Liste des pages liées à celle-ci [j]" accesskey="j">Pages liées</a></li>
+				<li id="t-recentchangeslinked"><a href="/wiki/Special:Recentchangeslinked/Algorithme_de_parcours_en_profondeur" title="Liste des modifications récentes des pages liées à celle-ci [k]" accesskey="k">Suivi des liens</a></li>
+<li id="t-upload"><a href="http://fr.wikipedia.org/wiki/Aide:Importer_un_fichier" title="Importer une image ou fichier média sur le serveur [u]" accesskey="u">Importer une image ou un son</a></li>
+<li id="t-specialpages"><a href="/wiki/Special:Specialpages" title="Liste de toutes les pages spéciales [q]" accesskey="q">Pages spéciales</a></li>
+				<li id="t-print"><a href="/w/index.php?title=Algorithme_de_parcours_en_profondeur&amp;printable=yes" title="Version imprimable de cette page [p]" accesskey="p">Version imprimable</a></li>				<li id="t-permalink"><a href="/w/index.php?title=Algorithme_de_parcours_en_profondeur&amp;oldid=14372625" title="Lien permanent vers cette version de la page">Adresse de cette version</a></li><li id="t-cite"><a href="/w/index.php?title=Special:Cite&amp;page=Algorithme_de_parcours_en_profondeur&amp;id=14372625">Citer cet article</a></li>			</ul>
+		</div>
+	</div>
+	<div id="p-lang" class="portlet">
+		<h5>Autres langues</h5>
+		<div class="pBody">
+			<ul>
+				<li class="interwiki-ca"><a href="http://ca.wikipedia.org/wiki/Cerca_en_profunditat">Català</a></li>
+				<li class="interwiki-de"><a href="http://de.wikipedia.org/wiki/Tiefensuche">Deutsch</a></li>
+				<li class="interwiki-en"><a href="http://en.wikipedia.org/wiki/Depth-first_search">English</a></li>
+				<li class="interwiki-es"><a href="http://es.wikipedia.org/wiki/B%C3%BAsqueda_en_profundidad">Español</a></li>
+				<li class="interwiki-he"><a href="http://he.wikipedia.org/wiki/%D7%90%D7%9C%D7%92%D7%95%D7%A8%D7%99%D7%AA%D7%9D_%D7%97%D7%99%D7%A4%D7%95%D7%A9_%D7%9C%D7%A2%D7%95%D7%9E%D7%A7">עברית</a></li>
+				<li class="interwiki-ja"><a href="http://ja.wikipedia.org/wiki/%E6%B7%B1%E3%81%95%E5%84%AA%E5%85%88%E6%8E%A2%E7%B4%A2">日本語</a></li>
+				<li class="interwiki-lt"><a href="http://lt.wikipedia.org/wiki/Paie%C5%A1ka_%C4%AF_gyl%C4%AF">Lietuvių</a></li>
+				<li class="interwiki-pl"><a href="http://pl.wikipedia.org/wiki/Przeszukiwanie_w_g%C5%82%C4%85b">Polski</a></li>
+				<li class="interwiki-pt"><a href="http://pt.wikipedia.org/wiki/Busca_em_profundidade">Português</a></li>
+				<li class="interwiki-ru"><a href="http://ru.wikipedia.org/wiki/%D0%9F%D0%BE%D0%B8%D1%81%D0%BA_%D0%B2_%D0%B3%D0%BB%D1%83%D0%B1%D0%B8%D0%BD%D1%83">Русский</a></li>
+				<li class="interwiki-vi"><a href="http://vi.wikipedia.org/wiki/T%C3%ACm_ki%E1%BA%BFm_theo_chi%E1%BB%81u_s%C3%A2u">Tiếng Việt</a></li>
+			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="/skins-1.5/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>
+				<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="/images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>
+			<ul id="f-list">
+				<li id="lastmod"> Dernière modification de cette page le 22 février 2007 à 04:01.<br /></li>
+				<li id="copyright"><span style="white-space:normal"><a class="internal" href="http://fr.wikipedia.org/wiki/Wikip%C3%A9dia:Copyright" title="Copyright">Copyright</a> : Tous les textes sont disponibles sous les termes de la <a class="internal" href="http://fr.wikipedia.org/wiki/Wikip%C3%A9dia:Licence_de_documentation_libre_GNU" title="GFDL">licence de documentation libre GNU</a> (GFDL).<br/>
+Wikipedia® est une marque déposée de la <a href="http://www.wikimediafoundation.org" title="Fondation Wikimedia">Wikimedia Foundation, Inc.</a>, association de bienfaisance régie par le paragraphe <a class="internal" href="http://en.wikipedia.org/wiki/501(c)" title="501(c)">501(c)(3)</a> du code fiscal des États-Unis.</span><br/></li>
+				<li id="privacy"><a href="http://wikimediafoundation.org/wiki/Politique_de_confidentialit%C3%A9" title="wikimedia:Politique de confidentialité">Politique de confidentialité</a></li>
+				<li id="about"><a href="/wiki/Wikip%C3%A9dia:%C3%80_propos" title="Wikipédia:À propos">À propos de Wikipédia</a></li>
+				<li id="disclaimer"><a href="/wiki/Wikip%C3%A9dia:Avertissements_g%C3%A9n%C3%A9raux" title="Wikipédia:Avertissements généraux">Avertissements</a></li>
+			</ul>
+		</div>
+		
+	
+		<script type="text/javascript">if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by srv149 in 0.132 secs. --></body></html>

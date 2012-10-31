@@ -1,0 +1,327 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+				<meta name="keywords" content="String searching algorithm,Aho-Corasick algorithm,Algorithm,Alphabet (computer science),Big O notation,Bioinformatics,Bitap algorithm,Boyer-Moore string search algorithm,Charles E. Leiserson,Clifford Stein,Deterministic finite automaton" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="http://www.gnu.org/copyleft/fdl.html" />
+		<title>String searching algorithm - Wikipedia, the free encyclopedia</title>
+		<style type="text/css" media="screen, projection">/*<![CDATA[*/
+			@import "/skins-1.5/common/shared.css?99";
+			@import "/skins-1.5/monobook/main.css?99";
+		/*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="/skins-1.5/common/commonPrint.css?99" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE50Fixes.css?99";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE55Fixes.css?99";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "/skins-1.5/monobook/IE60Fixes.css?99";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "/skins-1.5/monobook/IE70Fixes.css?99";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="/skins-1.5/common/IEFixes.js?99"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		
+		<script type= "text/javascript">/*<![CDATA[*/
+var skin = "monobook";
+var stylepath = "/skins-1.5";
+var wgArticlePath = "/wiki/$1";
+var wgScriptPath = "/w";
+var wgScript = "/w/index.php";
+var wgServer = "http://en.wikipedia.org";
+var wgCanonicalNamespace = "";
+var wgCanonicalSpecialPageName = false;
+var wgNamespaceNumber = 0;
+var wgPageName = "String_searching_algorithm";
+var wgTitle = "String searching algorithm";
+var wgAction = "view";
+var wgRestrictionEdit = [];
+var wgRestrictionMove = [];
+var wgArticleId = "28648";
+var wgIsArticle = true;
+var wgUserName = null;
+var wgUserGroups = null;
+var wgUserLanguage = "en";
+var wgContentLanguage = "en";
+var wgBreakFrames = false;
+var wgCurRevisionId = "148652294";
+/*]]>*/</script>
+                
+		<script type="text/javascript" src="/skins-1.5/common/wikibits.js?99"><!-- wikibits js --></script>
+		<script type="text/javascript" src="/w/index.php?title=-&amp;action=raw&amp;gen=js&amp;useskin=monobook"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "/w/index.php?title=MediaWiki:Common.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=MediaWiki:Monobook.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=-&action=raw&gen=css&maxage=2678400";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+		<script type="text/javascript" src="/skins-1.5/common/ajax.js?99"></script>
+	</head>
+<body  class="mediawiki ns-0 ltr page-String_searching_algorithm">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">String searching algorithm</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<p><b>String searching algorithms</b>, sometimes called <b>string matching algorithms</b>, are an important class of <a href="/wiki/String_algorithm" title="String algorithm">string algorithms</a> that try to find a place where one or several <a href="/wiki/String_%28computer_science%29" title="String (computer science)">strings</a> (also called <a href="/wiki/Pattern" title="Pattern">patterns</a>) are found within a larger string or text.</p>
+<p>Let Σ be an <a href="/wiki/Alphabet_%28computer_science%29" title="Alphabet (computer science)">alphabet</a> (finite set). Formally, both the pattern and searched text are concatenations of elements of Σ. The Σ may be a usual human alphabet (for example, the letters A through Z in English). Other applications may use <i>binary alphabet</i> (Σ = {0,1}) or <i>DNA alphabet</i> (Σ = {A,C,G,T}) in <a href="/wiki/Bioinformatics" title="Bioinformatics">bioinformatics</a>.</p>
+<p>In practice how the string is encoded can affect the feasible string search algorithms. In particular if a <a href="/wiki/Variable_width_encoding" title="Variable width encoding">variable width encoding</a> is in use then it is slow (time proportional to N) to find the Nth character. This will significantly slow down many of the more advanced search algorithms. A possible solution is to search for the sequence of code units instead but unless the encoding is specifically designed to avoid it doing so may produce false matches.</p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Basic_classification"><span class="tocnumber">1</span> <span class="toctext">Basic classification</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Single_pattern_algorithms"><span class="tocnumber">1.1</span> <span class="toctext">Single pattern algorithms</span></a></li>
+<li class="toclevel-2"><a href="#Algorithms_using_finite_set_of_patterns"><span class="tocnumber">1.2</span> <span class="toctext">Algorithms using finite set of patterns</span></a></li>
+<li class="toclevel-2"><a href="#Algorithms_using_infinite_number_of_patterns"><span class="tocnumber">1.3</span> <span class="toctext">Algorithms using infinite number of patterns</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Other_classification"><span class="tocnumber">2</span> <span class="toctext">Other classification</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Na.C3.AFve_string_search"><span class="tocnumber">2.1</span> <span class="toctext">Naïve string search</span></a></li>
+<li class="toclevel-2"><a href="#Finite_state_automaton_based_search"><span class="tocnumber">2.2</span> <span class="toctext">Finite state automaton based search</span></a></li>
+<li class="toclevel-2"><a href="#Stubs"><span class="tocnumber">2.3</span> <span class="toctext">Stubs</span></a></li>
+<li class="toclevel-2"><a href="#Index_methods"><span class="tocnumber">2.4</span> <span class="toctext">Index methods</span></a></li>
+<li class="toclevel-2"><a href="#Other_variants"><span class="tocnumber">2.5</span> <span class="toctext">Other variants</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#External_links"><span class="tocnumber">3</span> <span class="toctext">External links</span></a></li>
+<li class="toclevel-1"><a href="#References"><span class="tocnumber">4</span> <span class="toctext">References</span></a></li>
+<li class="toclevel-1"><a href="#See_also"><span class="tocnumber">5</span> <span class="toctext">See also</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script>
+<p><a name="Basic_classification" id="Basic_classification"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=String_searching_algorithm&amp;action=edit&amp;section=1" title="Edit section: Basic classification">edit</a>]</span> <span class="mw-headline">Basic classification</span></h2>
+<p>The various <a href="/wiki/Algorithm" title="Algorithm">algorithms</a> can be classified by the number of patterns each uses.</p>
+<p><a name="Single_pattern_algorithms" id="Single_pattern_algorithms"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=String_searching_algorithm&amp;action=edit&amp;section=2" title="Edit section: Single pattern algorithms">edit</a>]</span> <span class="mw-headline">Single pattern algorithms</span></h3>
+<p>Let <i>m</i> be the length of the pattern and let <i>n</i> be the length of the searchable text.</p>
+<table border="2" cellpadding="4" cellspacing="0" style="margin: 1em 1em 1em 0; background: #f9f9f9; border: 1px #aaa solid; border-collapse: collapse; font-size: 95%;">
+<tr>
+<td><b>Algorithm</b></td>
+<td><b>Preprocessing time</b></td>
+<td><b>Matching time</b><sup>1</sup></td>
+</tr>
+<tr>
+<td><b>Naïve string search algorithm</b></td>
+<td>0 (no preprocessing)</td>
+<td>Θ(n m)</td>
+</tr>
+<tr>
+<td><b><a href="/wiki/Rabin-Karp_string_search_algorithm" title="Rabin-Karp string search algorithm">Rabin-Karp string search algorithm</a></b></td>
+<td>Θ(m)</td>
+<td>average Θ(n+m),<br />
+worst Θ(n m)</td>
+</tr>
+<tr>
+<td><b><a href="/wiki/Finite_state_automaton" title="Finite state automaton">Finite state automaton</a> based search</b></td>
+<td>Θ(m |Σ|)</td>
+<td>Θ(n)</td>
+</tr>
+<tr>
+<td><b><a href="/wiki/Knuth-Morris-Pratt_algorithm" title="Knuth-Morris-Pratt algorithm">Knuth-Morris-Pratt algorithm</a></b></td>
+<td>Θ(m)</td>
+<td>Θ(n)</td>
+</tr>
+<tr>
+<td><b><a href="/wiki/Boyer-Moore_string_search_algorithm" title="Boyer-Moore string search algorithm">Boyer-Moore string search algorithm</a></b></td>
+<td>Θ(m + |Σ|)</td>
+<td>Ω(n/m), O(n)</td>
+</tr>
+<tr>
+<td><b><a href="/wiki/Bitap_algorithm" title="Bitap algorithm">Bitap algorithm</a></b> (<i>shift-or</i>, <i>shift-and</i>, <i>Baeza-Yates-Gonnet</i>)</td>
+<td>Θ(m + |Σ|)</td>
+<td>Θ(n)</td>
+</tr>
+</table>
+<p><sup>1</sup>Asymptotic times are expressed using <a href="/wiki/Big_O_notation" title="Big O notation">O, Ω, and Θ notation</a></p>
+<p><a name="Algorithms_using_finite_set_of_patterns" id="Algorithms_using_finite_set_of_patterns"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=String_searching_algorithm&amp;action=edit&amp;section=3" title="Edit section: Algorithms using finite set of patterns">edit</a>]</span> <span class="mw-headline">Algorithms using finite set of patterns</span></h3>
+<ul>
+<li><a href="/wiki/Aho-Corasick_algorithm" title="Aho-Corasick algorithm">Aho-Corasick algorithm</a></li>
+<li><a href="/w/index.php?title=Commentz-Walter_algorithm&amp;action=edit" class="new" title="Commentz-Walter algorithm">Commentz-Walter algorithm</a></li>
+<li><a href="/wiki/Rabin-Karp_string_search_algorithm" title="Rabin-Karp string search algorithm">Rabin-Karp string search algorithm</a></li>
+</ul>
+<p><a name="Algorithms_using_infinite_number_of_patterns" id="Algorithms_using_infinite_number_of_patterns"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=String_searching_algorithm&amp;action=edit&amp;section=4" title="Edit section: Algorithms using infinite number of patterns">edit</a>]</span> <span class="mw-headline">Algorithms using infinite number of patterns</span></h3>
+<p>Naturally, the patterns can not be enumerated in this case. They are represented usually by a <a href="/wiki/Regular_grammar" title="Regular grammar">regular grammar</a> or <a href="/wiki/Regular_expression" title="Regular expression">regular expression</a>.</p>
+<p><a name="Other_classification" id="Other_classification"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=String_searching_algorithm&amp;action=edit&amp;section=5" title="Edit section: Other classification">edit</a>]</span> <span class="mw-headline">Other classification</span></h2>
+<p>Other classification approaches are possible. One of the most common uses preprocessing as main criteria.</p>
+<table border="2" cellpadding="4" cellspacing="0" style="margin: 1em 1em 1em 0; background: #f9f9f9; border: 1px #aaa solid; border-collapse: collapse; font-size: 95%;">
+<caption>Classes of string searching algorithms</caption>
+<tr>
+<th></th>
+<th>Text not preprocessed</th>
+<th>Text preprocessed</th>
+</tr>
+<tr>
+<td><b>Patterns not preprocessed</b></td>
+<td>Elementary algorithms</td>
+<td>Index methods</td>
+</tr>
+<tr>
+<td><b>Patterns preprocessed</b></td>
+<td>Constructed search engines</td>
+<td>Signature methods</td>
+</tr>
+</table>
+<p><a name="Na.C3.AFve_string_search" id="Na.C3.AFve_string_search"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=String_searching_algorithm&amp;action=edit&amp;section=6" title="Edit section: Naïve string search">edit</a>]</span> <span class="mw-headline">Naïve string search</span></h3>
+<p>The simplest and least efficient way to see where one string occurs inside another is to check each place it could be, one by one, to see if it's there. So first we see if there's a copy of the needle in the first few characters of the haystack; if not, we look to see if there's a copy of the needle starting at the second character of the haystack; if not, we look starting at the third character, and so forth. In the normal case, we only have to look at one or two characters for each wrong position to see that it is a wrong position, so in the average case, this takes <a href="/wiki/Big_O_notation" title="Big O notation">O</a>(<i>n</i> + <i>m</i>) steps, where <i>n</i> is the length of the haystack and <i>m</i> is the length of the needle; but in the worst case, searching for a string like "aaaab" in a string like "aaaaaaaaab", it takes <a href="/wiki/Big_O_notation" title="Big O notation">O</a>(<i>nm</i>) steps.</p>
+<p><a name="Finite_state_automaton_based_search" id="Finite_state_automaton_based_search"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=String_searching_algorithm&amp;action=edit&amp;section=7" title="Edit section: Finite state automaton based search">edit</a>]</span> <span class="mw-headline">Finite state automaton based search</span></h3>
+<div class="floatright"><span><a href="/wiki/Image:DFA_search_mommy.svg" class="image" title="DFA search mommy.svg"><img alt="" src="http://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/DFA_search_mommy.svg/200px-DFA_search_mommy.svg.png" width="200" height="289" border="0" /></a></span></div>
+<p>In this approach, we avoid backtracking by constructing a <a href="/wiki/Deterministic_finite_automaton" title="Deterministic finite automaton">deterministic finite automaton</a> that recognizes strings containing the desired search string. These are expensive to construct — they are usually created using the <a href="/wiki/Powerset_construction" title="Powerset construction">powerset construction</a> — but very quick to use. For example, the DFA shown to the right recognizes the word "MOMMY". This approach is frequently generalized in practice to search for arbitrary <a href="/wiki/Regular_expression" title="Regular expression">regular expressions</a>.</p>
+<p><a name="Stubs" id="Stubs"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=String_searching_algorithm&amp;action=edit&amp;section=8" title="Edit section: Stubs">edit</a>]</span> <span class="mw-headline">Stubs</span></h3>
+<p>KMP computes a <a href="/wiki/Deterministic_finite_automaton" title="Deterministic finite automaton">deterministic finite automaton</a> that recognizes inputs with the string to search for as a suffix, so it doesn't need to back up. Boyer-Moore starts searching from the end of the needle, so it can usually jump ahead a whole needle-length at each step. Baeza-Yates and Gonnet uses bits in a word to keep track of whether the previous <i>j</i> characters were a prefix of the search string, and is therefore adaptable to <a href="/wiki/Fuzzy_string_searching" title="Fuzzy string searching">fuzzy string searching</a>. The <a href="/wiki/Bitap_algorithm" title="Bitap algorithm">bitap algorithm</a> is an application of Baeza-Yates' approach.</p>
+<p><a name="Index_methods" id="Index_methods"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=String_searching_algorithm&amp;action=edit&amp;section=9" title="Edit section: Index methods">edit</a>]</span> <span class="mw-headline">Index methods</span></h3>
+<p>Faster search algorithms are based on preprocessing of the text. After building an <a href="/wiki/Substring_index" title="Substring index">substring index</a>, for example a <a href="/wiki/Suffix_tree" title="Suffix tree">suffix tree</a> or <a href="/wiki/Suffix_array" title="Suffix array">suffix array</a>, the occurrences of a pattern can be found quickly. As an example can a suffix tree be built in <span class="texhtml">Θ(<i>n</i>)</span> time, and all <span class="texhtml"><i>z</i></span> occurrences of a pattern can be found in <span class="texhtml"><i>O</i>(<i>m</i> + <i>z</i>)</span> time (if the alphabet size is viewed as a constant).</p>
+<p><a name="Other_variants" id="Other_variants"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=String_searching_algorithm&amp;action=edit&amp;section=10" title="Edit section: Other variants">edit</a>]</span> <span class="mw-headline">Other variants</span></h3>
+<p>Some search methods, for instance <a href="/wiki/Trigram_search" title="Trigram search">trigram search</a>, are intended to find a "closeness" score between the search string and the text rather than a "match/non-match". These are sometimes called "fuzzy" searches.</p>
+<p><a name="External_links" id="External_links"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=String_searching_algorithm&amp;action=edit&amp;section=11" title="Edit section: External links">edit</a>]</span> <span class="mw-headline">External links</span></h2>
+<ul>
+<li><a href="http://www.cs.ucr.edu/%7Estelo/pattern.html" class="external text" title="http://www.cs.ucr.edu/%7Estelo/pattern.html" rel="nofollow">Huge (maintained) list of pattern matching links</a></li>
+<li><a href="http://johannburkard.de/software/stringsearch/" class="external text" title="http://johannburkard.de/software/stringsearch/" rel="nofollow">StringSearch – high-performance pattern matching algorithms in Java</a> – Implementations of many String-Matching-Algorithms in Java (BNDM, Boyer-Moore-Horspool, Boyer-Moore-Horspool-Raita, Shift-Or)</li>
+<li><a href="http://www-igm.univ-mlv.fr/~lecroq/string/index.html" class="external text" title="http://www-igm.univ-mlv.fr/~lecroq/string/index.html" rel="nofollow">Exact String Matching Algorithms—Animation in Java</a></li>
+<li><a href="http://www.dcs.shef.ac.uk/~sam/stringmetrics.html" class="external text" title="http://www.dcs.shef.ac.uk/~sam/stringmetrics.html" rel="nofollow">String similarity metrics</a></li>
+<li>Project Dedupe <a href="http://dedupe.sourceforge.net" class="external free" title="http://dedupe.sourceforge.net" rel="nofollow">http://dedupe.sourceforge.net</a></li>
+<li><a href="http://www.concentric.net/~Ttwang/tech/stringscan.htm" class="external text" title="http://www.concentric.net/~Ttwang/tech/stringscan.htm" rel="nofollow">Boyer-Moore-Raita-Thomas</a></li>
+</ul>
+<p><a name="References" id="References"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=String_searching_algorithm&amp;action=edit&amp;section=12" title="Edit section: References">edit</a>]</span> <span class="mw-headline">References</span></h2>
+<ul>
+<li><a href="/wiki/Thomas_H._Cormen" title="Thomas H. Cormen">Thomas H. Cormen</a>, <a href="/wiki/Charles_E._Leiserson" title="Charles E. Leiserson">Charles E. Leiserson</a>, <a href="/wiki/Ronald_L._Rivest" title="Ronald L. Rivest">Ronald L. Rivest</a>, and <a href="/wiki/Clifford_Stein" title="Clifford Stein">Clifford Stein</a>. <i><a href="/wiki/Introduction_to_Algorithms" title="Introduction to Algorithms">Introduction to Algorithms</a></i>, Second Edition. MIT Press and McGraw-Hill, 2001. <a href="/w/index.php?title=Special:Booksources&amp;isbn=0262032937" class="internal">ISBN 0-262-03293-7</a>. Chapter 32: String Matching, pp.906–932.</li>
+</ul>
+<p><a name="See_also" id="See_also"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=String_searching_algorithm&amp;action=edit&amp;section=13" title="Edit section: See also">edit</a>]</span> <span class="mw-headline">See also</span></h2>
+<ul>
+<li><a href="/wiki/Algorithm" title="Algorithm">Algorithm</a></li>
+</ul>
+
+
+<!-- Saved in parser cache with key enwiki:pcache:idhash:28648-0!1!0!default!!en!2 and timestamp 20070913083416 -->
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org/wiki/String_searching_algorithm">http://en.wikipedia.org/wiki/String_searching_algorithm</a>"</div>
+			<div id="catlinks"><p class='catlinks'><a href="/wiki/Special:Categories" title="Special:Categories">Categories</a>: <span dir='ltr'><a href="/wiki/Category:Algorithms_on_strings" title="Category:Algorithms on strings">Algorithms on strings</a></span> | <span dir='ltr'><a href="/wiki/Category:Search_algorithms" title="Category:Search algorithms">Search algorithms</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<div class="pBody">
+			<ul>
+					 <li id="ca-nstab-main" class="selected"><a href="/wiki/String_searching_algorithm" title="View the content page [c]" accesskey="c">Article</a></li>
+					 <li id="ca-talk"><a href="/wiki/Talk:String_searching_algorithm" title="Discussion about the content page [t]" accesskey="t">Discussion</a></li>
+					 <li id="ca-edit"><a href="/w/index.php?title=String_searching_algorithm&amp;action=edit" title="You can edit this page. Please use the preview button before saving. [e]" accesskey="e">Edit this page</a></li>
+					 <li id="ca-history"><a href="/w/index.php?title=String_searching_algorithm&amp;action=history" title="Past versions of this page [h]" accesskey="h">History</a></li>
+				</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-personal">
+		<h5>Personal tools</h5>
+		<div class="pBody">
+			<ul>
+				<li id="pt-login"><a href="/w/index.php?title=Special:Userlogin&amp;returnto=String_searching_algorithm" title="You are encouraged to log in, it is not mandatory however. [o]" accesskey="o">Sign in / create account</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-logo">
+		<a style="background-image: url(/images/wiki-en.png);" href="/wiki/Main_Page" title="Visit the Main Page [z]" accesskey="z"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-Main-page"><a href="/wiki/Main_Page">Main page</a></li>
+				<li id="n-Contents"><a href="/wiki/Wikipedia:Contents">Contents</a></li>
+				<li id="n-Featured-content"><a href="/wiki/Wikipedia:Featured_content">Featured content</a></li>
+				<li id="n-currentevents"><a href="/wiki/Portal:Current_events" title="Find background information on current events">Current events</a></li>
+				<li id="n-randompage"><a href="/wiki/Special:Random" title="Load a random page [x]" accesskey="x">Random article</a></li>
+			</ul>
+		</div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+		<h5>interaction</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-About-Wikipedia"><a href="/wiki/Wikipedia:About">About Wikipedia</a></li>
+				<li id="n-portal"><a href="/wiki/Wikipedia:Community_Portal" title="About the project, what you can do, where to find things">Community portal</a></li>
+				<li id="n-recentchanges"><a href="/wiki/Special:Recentchanges" title="The list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li>
+				<li id="n-contact"><a href="/wiki/Wikipedia:Contact_us">Contact Wikipedia</a></li>
+				<li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising" title="Support us">Donate to Wikipedia</a></li>
+				<li id="n-help"><a href="/wiki/Help:Contents" title="Guidance on how to use and edit Wikipedia">Help</a></li>
+			</ul>
+		</div>
+	</div>
+		<div id="p-search" class="portlet">
+		<h5><label for="searchInput">Search</label></h5>
+		<div id="searchBody" class="pBody">
+			<form action="/wiki/Special:Search" id="searchform"><div>
+				<input id="searchInput" name="search" type="text" title="Search Wikipedia [f]" accesskey="f" value="" />
+				<input type='submit' name="go" class="searchButton" id="searchGoButton"	value="Go" />&nbsp;
+				<input type='submit' name="fulltext" class="searchButton" id="mw-searchButton" value="Search" />
+			</div></form>
+		</div>
+	</div>
+	<div class="portlet" id="p-tb">
+		<h5>Toolbox</h5>
+		<div class="pBody">
+			<ul>
+				<li id="t-whatlinkshere"><a href="/wiki/Special:Whatlinkshere/String_searching_algorithm" title="List of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+				<li id="t-recentchangeslinked"><a href="/wiki/Special:Recentchangeslinked/String_searching_algorithm" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+<li id="t-upload"><a href="/wiki/Wikipedia:Upload" title="Upload images or media files [u]" accesskey="u">Upload file</a></li>
+<li id="t-specialpages"><a href="/wiki/Special:Specialpages" title="List of all special pages [q]" accesskey="q">Special pages</a></li>
+				<li id="t-print"><a href="/w/index.php?title=String_searching_algorithm&amp;printable=yes" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>				<li id="t-permalink"><a href="/w/index.php?title=String_searching_algorithm&amp;oldid=148652294" title="Permanent link to this version of the page">Permanent link</a></li><li id="t-cite"><a href="/w/index.php?title=Special:Cite&amp;page=String_searching_algorithm&amp;id=148652294">Cite this article</a></li>			</ul>
+		</div>
+	</div>
+	<div id="p-lang" class="portlet">
+		<h5>In other languages</h5>
+		<div class="pBody">
+			<ul>
+				<li class="interwiki-de"><a href="http://de.wikipedia.org/wiki/String-Matching-Algorithmus">Deutsch</a></li>
+				<li class="interwiki-es"><a href="http://es.wikipedia.org/wiki/Algoritmos_de_b%C3%BAsqueda_en_textos">Español</a></li>
+				<li class="interwiki-fi"><a href="http://fi.wikipedia.org/wiki/Merkkijonohakualgoritmi">Suomi</a></li>
+				<li class="interwiki-fr"><a href="http://fr.wikipedia.org/wiki/Algorithme_de_recherche_de_sous-cha%C3%AEne">Français</a></li>
+				<li class="interwiki-ja"><a href="http://ja.wikipedia.org/wiki/%E6%96%87%E5%AD%97%E5%88%97%E6%8E%A2%E7%B4%A2">日本語</a></li>
+				<li class="interwiki-zh"><a href="http://zh.wikipedia.org/wiki/%E5%AD%97%E4%B8%B2%E6%90%9C%E5%B0%8B%E6%BC%94%E7%AE%97%E6%B3%95">中文</a></li>
+			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="/skins-1.5/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>
+				<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="/images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>
+			<ul id="f-list">
+				<li id="lastmod"> This page was last modified 04:57, 2 August 2007.</li>
+				<li id="copyright">All text is available under the terms of the <a class='internal' href="/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="/wiki/Wikipedia:Copyrights" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a U.S. registered <a class='internal' href="/wiki/501%28c%29#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="/wiki/Non-profit_organization" title="Non-profit organization">nonprofit</a> <a href="/wiki/Charitable_organization" title="Charitable organization">charity</a>.<br /></li>
+				<li id="privacy"><a href="http://wikimediafoundation.org/wiki/Privacy_policy" title="wikimedia:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="/wiki/Wikipedia:About" title="Wikipedia:About">About Wikipedia</a></li>
+				<li id="disclaimer"><a href="/wiki/Wikipedia:General_disclaimer" title="Wikipedia:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+		
+	
+		<script type="text/javascript">if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by srv114 in 0.104 secs. --></body></html>

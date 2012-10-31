@@ -1,0 +1,260 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de" lang="de" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+				<meta name="keywords" content="Johnson-Algorithmus,Graphentheorie,Iteration,Prozessor,Scheduling,Technische Informatik,David Johnson" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (Deutsch)" />
+		<link rel="copyright" href="http://www.gnu.org/copyleft/fdl.html" />
+		<title>Johnson-Algorithmus - Wikipedia</title>
+		<style type="text/css" media="screen, projection">/*<![CDATA[*/
+			@import "/skins-1.5/common/shared.css?99";
+			@import "/skins-1.5/monobook/main.css?99";
+		/*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="/skins-1.5/common/commonPrint.css?99" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE50Fixes.css?99";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE55Fixes.css?99";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "/skins-1.5/monobook/IE60Fixes.css?99";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "/skins-1.5/monobook/IE70Fixes.css?99";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="/skins-1.5/common/IEFixes.js?99"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		
+		<script type= "text/javascript">/*<![CDATA[*/
+var skin = "monobook";
+var stylepath = "/skins-1.5";
+var wgArticlePath = "/wiki/$1";
+var wgScriptPath = "/w";
+var wgScript = "/w/index.php";
+var wgServer = "http://de.wikipedia.org";
+var wgCanonicalNamespace = "";
+var wgCanonicalSpecialPageName = false;
+var wgNamespaceNumber = 0;
+var wgPageName = "Johnson-Algorithmus";
+var wgTitle = "Johnson-Algorithmus";
+var wgAction = "view";
+var wgRestrictionEdit = [];
+var wgRestrictionMove = [];
+var wgArticleId = "564737";
+var wgIsArticle = true;
+var wgUserName = null;
+var wgUserGroups = null;
+var wgUserLanguage = "de";
+var wgContentLanguage = "de";
+var wgBreakFrames = false;
+var wgCurRevisionId = "35129864";
+/*]]>*/</script>
+                
+		<script type="text/javascript" src="/skins-1.5/common/wikibits.js?99"><!-- wikibits js --></script>
+		<script type="text/javascript" src="/w/index.php?title=-&amp;action=raw&amp;gen=js&amp;useskin=monobook"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "/w/index.php?title=MediaWiki:Common.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=MediaWiki:Monobook.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=-&action=raw&gen=css&maxage=2678400";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+		<script type="text/javascript" src="/skins-1.5/common/ajax.js?99"></script>
+	</head>
+<body  class="mediawiki ns-0 ltr page-Johnson-Algorithmus">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+		<div id="siteNotice"><script type="text/javascript" language="JavaScript">
+<!--
+document.writeln("\x3cdiv style=\"position:absolute; z-index:100; right:5px; top:-20px;\" class=\"metadata\" id=\"donate\"\x3e\n\x3cdiv style=\"text-align:right; font-size:80%\"\x3e\x3ca href=\"http://wikimediafoundation.org/wiki/Spenden\" class=\"extiw\" title=\"wikimedia:Spenden\"\x3eIhre \x3cb\x3eSpenden\x3c/b\x3e\x3c/a\x3e helfen, Wikipedia zu betreiben. \n\x3c/div\x3e\x3c/div\x3e\n");
+-->
+</script></div>		<h1 class="firstHeading">Johnson-Algorithmus</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">aus Wikipedia, der freien Enzyklopädie</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Wechseln zu: <a href="#column-one">Navigation</a>, <a href="#searchInput">Suche</a></div>			<!-- start content -->
+			<p>Der <b>Johnson-Algorithmus</b> ist ein Verfahren zur <a href="/wiki/Scheduling" title="Scheduling">Reihenfolgeplanung</a> in den Bereichen Produktionswirtschaft und <a href="/wiki/Technische_Informatik" title="Technische Informatik">technische Informatik</a> und geht zurück auf <a href="/w/index.php?title=David_Johnson&amp;action=edit" class="new" title="David Johnson">David Johnson</a>, 1976. Der mathematische Ansatz gründet auf der <a href="/wiki/Graphentheorie" title="Graphentheorie">Graphentheorie</a>.</p>
+<table id="toc" class="toc" summary="Inhaltsverzeichnis">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Inhaltsverzeichnis</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Problem"><span class="tocnumber">1</span> <span class="toctext">Problem</span></a></li>
+<li class="toclevel-1"><a href="#Der_Algorithmus"><span class="tocnumber">2</span> <span class="toctext">Der Algorithmus</span></a></li>
+<li class="toclevel-1"><a href="#Ergebnis"><span class="tocnumber">3</span> <span class="toctext">Ergebnis</span></a></li>
+<li class="toclevel-1"><a href="#Beispiel"><span class="tocnumber">4</span> <span class="toctext">Beispiel</span></a></li>
+<li class="toclevel-1"><a href="#Weblinks"><span class="tocnumber">5</span> <span class="toctext">Weblinks</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "Anzeigen"; var tocHideText = "Verbergen"; showTocToggle(); } 
+//]]>
+</script>
+<p><a name="Problem" id="Problem"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Johnson-Algorithmus&amp;action=edit&amp;section=1" title="Abschnitt bearbeiten: Problem">Bearbeiten</a>]</span> <span class="mw-headline">Problem</span></h2>
+<p>Es existiert ein Stapel mit unbestimmt vielen Aufträgen <span class="texhtml"><i>A</i><sub><i>n</i></sub></span>, die in einer optimalen Reihenfolge bezüglich der Durchlaufzeit <b>auf genau zwei</b> Maschinen / <a href="/wiki/Prozessor" title="Prozessor">Prozessoren</a>, <span class="texhtml"><i>M</i><sub><i>j</i></sub></span> nacheinander bearbeitet werden sollen.</p>
+<p><a name="Der_Algorithmus" id="Der_Algorithmus"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Johnson-Algorithmus&amp;action=edit&amp;section=2" title="Abschnitt bearbeiten: Der Algorithmus">Bearbeiten</a>]</span> <span class="mw-headline">Der Algorithmus</span></h2>
+<p>Das Problem kann mit folgender <a href="/wiki/Iteration" title="Iteration">iterativer</a> Vorschrift gelöst werden.</p>
+<ol>
+<li>Suche den Auftrag <span class="texhtml"><i>A</i><sub><i>i</i></sub></span> mit der absolut kürzesten Bearbeitungszeit</li>
+<li>Entscheide:
+<ul>
+<li>Falls <span class="texhtml"><i>j</i> = 1</span>: Ordne den Auftrag <span class="texhtml"><i>A</i><sub><i>i</i></sub></span> so weit <b>vorn</b> wie möglich in der Reihenfolge an</li>
+<li>Falls <span class="texhtml"><i>j</i> = 2</span>: Ordne den Auftrag <span class="texhtml"><i>A</i><sub><i>i</i></sub></span> so weit <b>hinten</b> wie möglich in der Reihenfolge an</li>
+</ul>
+</li>
+<li>fahre fort bei 1. solange bis jeder Auftrag zugeordnet ist.</li>
+</ol>
+<p><a name="Ergebnis" id="Ergebnis"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Johnson-Algorithmus&amp;action=edit&amp;section=3" title="Abschnitt bearbeiten: Ergebnis">Bearbeiten</a>]</span> <span class="mw-headline">Ergebnis</span></h2>
+<p>Der Johnson-Algorithmus liefert die Durchlaufzeit-optimale Reihenfolge der Aufträge.</p>
+<p><a name="Beispiel" id="Beispiel"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Johnson-Algorithmus&amp;action=edit&amp;section=4" title="Abschnitt bearbeiten: Beispiel">Bearbeiten</a>]</span> <span class="mw-headline">Beispiel</span></h2>
+<p>Fünf Aufträge mit unterschiedlichen Bearbeitungszeiten auf den Maschinen <span class="texhtml"><i>M</i><sub>1</sub></span> und <span class="texhtml"><i>M</i><sub>2</sub></span> sollen Durchlaufzeit-optimal bearbeitet werden.</p>
+<p>Die Folgende Tabelle gibt an, wie viel Zeit (in ZE) ein Auftrag <span class="texhtml"><i>A</i><sub><i>i</i></sub></span> auf einer Maschine <span class="texhtml"><i>M</i><sub><i>j</i></sub></span> benötigt.</p>
+<table class="prettytable">
+<tr>
+<th></th>
+<th align="center"><span class="texhtml"><i>A</i><sub>1</sub></span></th>
+<th align="center"><span class="texhtml"><i>A</i><sub>2</sub></span></th>
+<th align="center"><span class="texhtml"><i>A</i><sub>3</sub></span></th>
+<th align="center"><span class="texhtml"><i>A</i><sub>4</sub></span></th>
+<th align="center"><span class="texhtml"><i>A</i><sub>5</sub></span></th>
+</tr>
+<tr>
+<th valign="middle"><span class="texhtml"><i>M</i><sub>1</sub></span></th>
+<td align="center">14</td>
+<td align="center">12</td>
+<td align="center">7</td>
+<td align="center">13</td>
+<td align="center">11</td>
+</tr>
+<tr>
+<th valign="middle"><span class="texhtml"><i>M</i><sub>2</sub></span></th>
+<td align="center">3</td>
+<td align="center">27</td>
+<td align="center">8</td>
+<td align="center">9</td>
+<td align="center">30</td>
+</tr>
+</table>
+<p>Der Johnson-Algorithmus sucht sich jetzt den kürzesten Auftrag, also <span class="texhtml"><i>A</i><sub>1</sub></span> mit 3 ZE. Da <span class="texhtml"><i>A</i><sub>1</sub></span> auf <span class="texhtml"><i>M</i><sub>2</sub></span> (j=2) am wenigsten Zeit benötigt, wird er in der neuen Reihenfolge so weit wie möglich hinten eingeordnet.</p>
+<p>Der nächst-kürzeste Auftrag ist <span class="texhtml"><i>A</i><sub>3</sub></span> mit 7 ZE. Da <span class="texhtml"><i>A</i><sub>3</sub></span> auf <span class="texhtml"><i>M</i><sub>1</sub></span> am wenigsten Zeit benötigt, wird er in der neuen Reihenfolge so weit vorn wie möglich eingeordnet.</p>
+<p>Usw.</p>
+<p>Die durchlaufzeitoptimale Reihenfolge für dieses Beispiel ist demnach:</p>
+<pre>
+<span class="texhtml"><i>A</i><sub>3</sub></span> -&gt; <span class="texhtml"><i>A</i><sub>5</sub></span> -&gt; <span class="texhtml"><i>A</i><sub>2</sub></span> -&gt; <span class="texhtml"><i>A</i><sub>4</sub></span> -&gt; <span class="texhtml"><i>A</i><sub>1</sub></span>
+</pre>
+<p><a name="Weblinks" id="Weblinks"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Johnson-Algorithmus&amp;action=edit&amp;section=5" title="Abschnitt bearbeiten: Weblinks">Bearbeiten</a>]</span> <span class="mw-headline">Weblinks</span></h2>
+<p><a href="http://www.nist.gov/dads/HTML/johnsonsAlgorithm.html" class="external free" title="http://www.nist.gov/dads/HTML/johnsonsAlgorithm.html" rel="nofollow">http://www.nist.gov/dads/HTML/johnsonsAlgorithm.html</a></p>
+<p><a href="http://www.ielm.ust.hk/dfaculty/ajay/courses/ieem513/GT/johnson.html" class="external free" title="http://www.ielm.ust.hk/dfaculty/ajay/courses/ieem513/GT/johnson.html" rel="nofollow">http://www.ielm.ust.hk/dfaculty/ajay/courses/ieem513/GT/johnson.html</a></p>
+
+
+<!-- Saved in parser cache with key dewiki:pcache:idhash:564737-0!1!0!!de!2 and timestamp 20070914172940 -->
+<div class="printfooter">
+Von „<a href="http://de.wikipedia.org/wiki/Johnson-Algorithmus">http://de.wikipedia.org/wiki/Johnson-Algorithmus</a>“</div>
+			<div id="catlinks"><p class='catlinks'><a href="/wiki/Spezial:Categories" title="Spezial:Categories">Kategorien</a>: <span dir='ltr'><a href="/wiki/Kategorie:Produktionstheorie" title="Kategorie:Produktionstheorie">Produktionstheorie</a></span> | <span dir='ltr'><a href="/wiki/Kategorie:Betriebssystemtheorie" title="Kategorie:Betriebssystemtheorie">Betriebssystemtheorie</a></span> | <span dir='ltr'><a href="/wiki/Kategorie:Optimierungsalgorithmus" title="Kategorie:Optimierungsalgorithmus">Optimierungsalgorithmus</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Ansichten</h5>
+		<div class="pBody">
+			<ul>
+					 <li id="ca-nstab-main" class="selected"><a href="/wiki/Johnson-Algorithmus" title="Seiteninhalt anzeigen [c]" accesskey="c">Artikel</a></li>
+					 <li id="ca-talk" class="new"><a href="/w/index.php?title=Diskussion:Johnson-Algorithmus&amp;action=edit" title="Diskussion zum Seiteninhalt [t]" accesskey="t">Diskussion</a></li>
+					 <li id="ca-edit"><a href="/w/index.php?title=Johnson-Algorithmus&amp;action=edit" title="Seite bearbeiten. Bitte vor dem Speichern die Vorschaufunktion benutzen. [e]" accesskey="e">Seite bearbeiten</a></li>
+					 <li id="ca-history"><a href="/w/index.php?title=Johnson-Algorithmus&amp;action=history" title="Frühere Versionen dieser Seite [h]" accesskey="h">Versionen/Autoren</a></li>
+				</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-personal">
+		<h5>Persönliche Werkzeuge</h5>
+		<div class="pBody">
+			<ul>
+				<li id="pt-login"><a href="/w/index.php?title=Spezial:Anmelden&amp;returnto=Johnson-Algorithmus" title="Sich einzuloggen wird zwar gerne gesehen, ist aber keine Pflicht. [o]" accesskey="o">Anmelden</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-logo">
+		<a style="background-image: url(http://upload.wikimedia.org/wikipedia/de/b/bc/Wiki.png);" href="/wiki/Hauptseite" title="Hauptseite anzeigen [z]" accesskey="z"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="/wiki/Hauptseite" title="Hauptseite anzeigen [z]" accesskey="z">Hauptseite</a></li>
+				<li id="n-aboutsite"><a href="/wiki/Wikipedia:%C3%9Cber_Wikipedia">Über Wikipedia</a></li>
+				<li id="n-topics"><a href="/wiki/Portal:Wikipedia_nach_Themen">Themenportale</a></li>
+				<li id="n-alphindex"><a href="/wiki/Spezial:Alle_Seiten">Von A bis Z</a></li>
+				<li id="n-randompage"><a href="/wiki/Spezial:Zuf%C3%A4llige_Seite" title="Zufällige Seite [x]" accesskey="x">Zufälliger Artikel</a></li>
+			</ul>
+		</div>
+	</div>
+		<div class='portlet' id='p-Mitmachen'>
+		<h5>Mitmachen</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-help"><a href="/wiki/Wikipedia:Hilfe" title="Hilfeseite anzeigen">Hilfe</a></li>
+				<li id="n-portal"><a href="/wiki/Wikipedia:Autorenportal" title="Über das Portal, was du tun kannst, wo was zu finden ist">Autorenportal</a></li>
+				<li id="n-recentchanges"><a href="/wiki/Spezial:Letzte_%C3%84nderungen" title="Liste der letzten Änderungen in Wikipedia. [r]" accesskey="r">Letzte Änderungen</a></li>
+				<li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Spenden" title="Unterstützen Sie uns">Spenden</a></li>
+			</ul>
+		</div>
+	</div>
+		<div id="p-search" class="portlet">
+		<h5><label for="searchInput">Suche</label></h5>
+		<div id="searchBody" class="pBody">
+			<form action="/wiki/Spezial:Suche" id="searchform"><div>
+				<input id="searchInput" name="search" type="text" title="Durchsuche die Wikipedia [f]" accesskey="f" value="" />
+				<input type='submit' name="go" class="searchButton" id="searchGoButton"	value="Artikel" />&nbsp;
+				<input type='submit' name="fulltext" class="searchButton" id="mw-searchButton" value="Volltext" />
+			</div></form>
+		</div>
+	</div>
+	<div class="portlet" id="p-tb">
+		<h5>Werkzeuge</h5>
+		<div class="pBody">
+			<ul>
+				<li id="t-whatlinkshere"><a href="/wiki/Spezial:Linkliste/Johnson-Algorithmus" title="Liste aller Seiten, die hierher zeigen [j]" accesskey="j">Links auf diese Seite</a></li>
+				<li id="t-recentchangeslinked"><a href="/wiki/Spezial:%C3%84nderungen_an_verlinkten_Seiten/Johnson-Algorithmus" title="Letzte Änderungen an Seiten, die von hier verlinkt sind [k]" accesskey="k">Änderungen an verlinkten Seiten</a></li>
+<li id="t-upload"><a href="/wiki/Spezial:Hochladen" title="Dateien hochladen [u]" accesskey="u">Hochladen</a></li>
+<li id="t-specialpages"><a href="/wiki/Spezial:Spezialseiten" title="Liste aller Spezialseiten [q]" accesskey="q">Spezialseiten</a></li>
+				<li id="t-print"><a href="/w/index.php?title=Johnson-Algorithmus&amp;printable=yes" title="Druckansicht dieser Seite [p]" accesskey="p">Druckversion</a></li>				<li id="t-permalink"><a href="/w/index.php?title=Johnson-Algorithmus&amp;oldid=35129864" title="Dauerhafter Link zu dieser Seitenversion">Permanentlink</a></li><li id="t-cite"><a href="/w/index.php?title=Spezial:Cite&amp;page=Johnson-Algorithmus&amp;id=35129864">Artikel zitieren</a></li>			</ul>
+		</div>
+	</div>
+	<div id="p-lang" class="portlet">
+		<h5>Andere Sprachen</h5>
+		<div class="pBody">
+			<ul>
+				<li class="interwiki-en"><a href="http://en.wikipedia.org/wiki/Johnson%27s_algorithm">English</a></li>
+				<li class="interwiki-he"><a href="http://he.wikipedia.org/wiki/%D7%94%D7%90%D7%9C%D7%92%D7%95%D7%A8%D7%99%D7%AA%D7%9D_%D7%A9%D7%9C_%D7%92%27%D7%95%D7%A0%D7%A1%D7%95%D7%9F">עברית</a></li>
+				<li class="interwiki-pl"><a href="http://pl.wikipedia.org/wiki/Algorytm_Johnsona">Polski</a></li>
+				<li class="interwiki-it"><a href="http://it.wikipedia.org/wiki/Regola_di_Johnson">Italiano</a></li>
+			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="/skins-1.5/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>
+				<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="/images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>
+			<ul id="f-list">
+				<li id="lastmod"> Diese Seite wurde zuletzt am 3. August 2007 um 13:32 Uhr geändert.</li>
+				<li id="copyright">Ihr Inhalt steht unter der <a class='internal' href="/wiki/Wikipedia:GNU_Free_Documentation_License">GNU-Lizenz für freie Dokumentation</a>.<br />
+Wikipedia® ist eine eingetragene Marke der Wikimedia Foundation Inc.<br /></li>
+				<li id="privacy"><a href="/wiki/Wikipedia:Datenschutz" title="Wikipedia:Datenschutz">Datenschutz</a></li>
+				<li id="about"><a href="/wiki/Wikipedia:%C3%9Cber_Wikipedia" title="Wikipedia:Über Wikipedia">Über Wikipedia</a></li>
+				<li id="disclaimer"><a href="/wiki/Wikipedia:Impressum" title="Wikipedia:Impressum">Impressum</a></li>
+			</ul>
+		</div>
+		
+	
+		<script type="text/javascript">if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by srv161 in 0.073 secs. --></body></html>

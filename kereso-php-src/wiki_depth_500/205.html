@@ -1,0 +1,206 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fi" lang="fi" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+				<meta name="keywords" content="Hakualgoritmi,AVL-puu,Algoritmi,Binäärihakupuu,Englannin kieli,Graafi,Graafiteoria,Hakurakenne,Lajittelualgoritmi,Linkitetty lista,Ohjelmointi" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (Suomi)" />
+		<link rel="copyright" href="http://www.gnu.org/copyleft/fdl.html" />
+		<title>Hakualgoritmi – Wikipedia</title>
+		<style type="text/css" media="screen, projection">/*<![CDATA[*/
+			@import "/skins-1.5/common/shared.css?99";
+			@import "/skins-1.5/monobook/main.css?99";
+		/*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="/skins-1.5/common/commonPrint.css?99" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE50Fixes.css?99";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE55Fixes.css?99";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "/skins-1.5/monobook/IE60Fixes.css?99";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "/skins-1.5/monobook/IE70Fixes.css?99";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="/skins-1.5/common/IEFixes.js?99"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		
+		<script type= "text/javascript">/*<![CDATA[*/
+var skin = "monobook";
+var stylepath = "/skins-1.5";
+var wgArticlePath = "/wiki/$1";
+var wgScriptPath = "/w";
+var wgScript = "/w/index.php";
+var wgServer = "http://fi.wikipedia.org";
+var wgCanonicalNamespace = "";
+var wgCanonicalSpecialPageName = false;
+var wgNamespaceNumber = 0;
+var wgPageName = "Hakualgoritmi";
+var wgTitle = "Hakualgoritmi";
+var wgAction = "view";
+var wgRestrictionEdit = [];
+var wgRestrictionMove = [];
+var wgArticleId = "13253";
+var wgIsArticle = true;
+var wgUserName = null;
+var wgUserGroups = null;
+var wgUserLanguage = "fi";
+var wgContentLanguage = "fi";
+var wgBreakFrames = false;
+var wgCurRevisionId = "2610816";
+/*]]>*/</script>
+                
+		<script type="text/javascript" src="/skins-1.5/common/wikibits.js?99"><!-- wikibits js --></script>
+		<script type="text/javascript" src="/w/index.php?title=-&amp;action=raw&amp;gen=js&amp;useskin=monobook"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "/w/index.php?title=J%C3%A4rjestelm%C3%A4viesti:Common.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=J%C3%A4rjestelm%C3%A4viesti:Monobook.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=-&action=raw&gen=css&maxage=2678400";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+		<script type="text/javascript" src="/skins-1.5/common/ajax.js?99"></script>
+	</head>
+<body  class="mediawiki ns-0 ltr page-Hakualgoritmi">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">Hakualgoritmi</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">Wikipedia</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Loikkaa: <a href="#column-one">valikkoon</a>, <a href="#searchInput">hakuun</a></div>			<!-- start content -->
+			<p><b>Hakualgoritmilla</b> voidaan tarkoittaa mitä tahansa <a href="/wiki/Algoritmi" title="Algoritmi">algoritmia</a>, jolle kerrotaan ongelma ja joka etsii siihen vastauksen. Yleensä merkitys on suppeampi, ja haulla tarkoitetaan arvon etsimistä <a href="/wiki/Tietorakenne" title="Tietorakenne">tietorakenteesta</a>. Tällaiset hakualgoritmit ovat keskeisiä <a href="/wiki/Ohjelmointi" title="Ohjelmointi">ohjelmoinnissa</a> ja <a href="/wiki/Tietojenk%C3%A4sittelytiede" title="Tietojenkäsittelytiede">tietojenkäsittelytieteessä</a>, ja niitä on hyvinkin monenlaisia käytettävästä <a href="/wiki/Tietorakenne" title="Tietorakenne">tietorakenteesta</a> riippuen.</p>
+<p>Yksinkertaisin ja yleiskäyttöisin hakualgoritmi on <a href="/wiki/Per%C3%A4kk%C3%A4ishaku" title="Peräkkäishaku">peräkkäishaku</a>, joka etsii etsii arvoa <a href="/w/index.php?title=S%C3%A4ili%C3%B6&amp;action=edit" class="new" title="Säiliö">säiliöstä</a> käymällä peräkkäin läpi jokaisen alkion. Se toimii jokaisessa tietorakenteessa, joka sallii alkioiden läpikäynnin ja yhtäsuuruusvertailun. Tyypillisesti sitä käytetään järjestämättömiin <a href="/wiki/Taulukko_%28tietorakenne%29" title="Taulukko (tietorakenne)">taulukoihin</a> ja <a href="/wiki/Linkitetty_lista" title="Linkitetty lista">linkitettyihin listoihin</a>.</p>
+<p>Jos tietorakenteen alkioista tiedetään jotakin erityistä, algoritmi voi käyttää tätä tietoa hyväkseen. Suuruusjärjestyksessä olevaan <a href="/wiki/Taulukko_%28tietorakenne%29" title="Taulukko (tietorakenne)">taulukkoon</a> puree <a href="/wiki/Puolitushaku" title="Puolitushaku">puolitushaku</a> eli binäärihaku (<a href="/wiki/Englannin_kieli" title="Englannin kieli">engl.</a> <span lang="en" xml:lang="en"><i>binary search</i></span>). Jos alkiot ovat vielä jakautuneet jokseenkin säännöllisesti, <a href="/w/index.php?title=Interpolaatiohaku&amp;action=edit" class="new" title="Interpolaatiohaku">interpolaatiohaku</a> (<a href="/wiki/Englannin_kieli" title="Englannin kieli">engl.</a> <span lang="en" xml:lang="en"><i>interpolation search</i></span>) voi nopeuttaa hakua entisestään.</p>
+<p><a href="/w/index.php?title=Puun_l%C3%A4pik%C3%A4yntialgoritmi&amp;action=edit" class="new" title="Puun läpikäyntialgoritmi">Puun läpikäyntialgoritmit</a> liittyvät kiinteästi kyseisiin <a href="/wiki/Tietorakenne" title="Tietorakenne">tietorakenteisiin</a>. Alkeellisin esimerkki on <a href="/wiki/Bin%C3%A4%C3%A4rihakupuu" title="Binäärihakupuu">binäärihakupuu</a>, jossa jokaisessa solmussa on kaksi alipuuta: vasemmassa on vain solmua pienempiä alkioita ja oikeassa solmua suurempia alkioita. Tämä mahdollistaa nopean hakualgoritmin, jos puu on <a href="/w/index.php?title=Tasapainoinen_hakupuu&amp;action=edit" class="new" title="Tasapainoinen hakupuu">tasapainoinen</a>.</p>
+<ul>
+<li><a href="/wiki/Bin%C3%A4%C3%A4rihakupuu" title="Binäärihakupuu">Binäärihakupuu</a></li>
+<li><a href="/wiki/Punamusta_puu" title="Punamusta puu">Punamusta puu</a></li>
+<li><a href="/wiki/AVL-puu" title="AVL-puu">AVL-puu</a></li>
+<li><a href="/w/index.php?title=B-puu&amp;action=edit" class="new" title="B-puu">B-puu</a></li>
+</ul>
+<p><a href="/wiki/Graafi" title="Graafi">Graafin</a> eli verkon <a href="/w/index.php?title=Graafin_l%C3%A4pik%C3%A4yntialgoritmi&amp;action=edit" class="new" title="Graafin läpikäyntialgoritmi">läpikäyntialgoritmit</a> etsivät arvon lisäksi lyhimmän polun lähtösolmun ja etsittävään solmun välille. Ne ovat siis samalla <a href="/w/index.php?title=Polunhakualgoritmi&amp;action=edit" class="new" title="Polunhakualgoritmi">polunhakualgoritmeja</a>. Koska puutkin ovat verkkoja, niiden läpikäyntialgoritmeissa on paljon yhteistä.</p>
+<ul>
+<li><a href="/wiki/Syvyyssuuntainen_l%C3%A4pik%C3%A4ynti" title="Syvyyssuuntainen läpikäynti">Syvyyssuuntainen läpikäynti</a> eli syvyysetsintä (<a href="/wiki/Englannin_kieli" title="Englannin kieli">engl.</a> <span lang="en" xml:lang="en"><i>depth-first search</i></span>, DFS)</li>
+<li><a href="/w/index.php?title=Leveyssuuntainen_l%C3%A4pik%C3%A4ynti&amp;action=edit" class="new" title="Leveyssuuntainen läpikäynti">Leveyssuuntainen läpikäynti</a> eli leveysetsintä (<a href="/wiki/Englannin_kieli" title="Englannin kieli">engl.</a> <span lang="en" xml:lang="en"><i>breadth-first search</i></span>, BFS)</li>
+</ul>
+<p><a name="Katso_my.C3.B6s" id="Katso_my.C3.B6s"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Hakualgoritmi&amp;action=edit&amp;section=1" title="Muokkaa osiota Katso myös">muokkaa</a>]</span> <span class="mw-headline">Katso myös</span></h2>
+<ul>
+<li><a href="/wiki/Graafiteoria" title="Graafiteoria">Graafiteoria</a></li>
+<li><a href="/wiki/Hakurakenne" title="Hakurakenne">Hakurakenne</a></li>
+<li><a href="/wiki/Lajittelualgoritmi" title="Lajittelualgoritmi">Lajittelualgoritmi</a></li>
+<li><a href="/wiki/Tietorakenne" title="Tietorakenne">Tietorakenne</a></li>
+</ul>
+<p><br /></p>
+<table id="stub" class="noprint" style="background-color: #f9f9f9; border-top: 1px solid #aaaaaa; margin-top: 0.5em; clear: both; width: 100%;">
+<tr>
+<td style="padding-right: 4px; padding-left: 4px;"><a href="/wiki/Kuva:Computer.svg" class="image" title="Computer.svg"><img alt="" src="http://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Computer.svg/30px-Computer.svg.png" width="30" height="30" border="0" /></a></td>
+<td><i>Tämä <a href="/wiki/Tietotekniikka" title="Tietotekniikka">tietotekniikkaan</a> liittyvä artikkeli on <a href="/wiki/Wikipedia:Tynk%C3%A4" title="Wikipedia:Tynkä">tynkä</a>. Voit auttaa Wikipediaa <span class="plainlinks"><a href="http://fi.wikipedia.org/w/index.php?title=Hakualgoritmi&amp;action=edit" class="external text" title="http://fi.wikipedia.org/w/index.php?title=Hakualgoritmi&amp;action=edit" rel="nofollow">laajentamalla artikkelia</a></span>.</i></td>
+</tr>
+</table>
+
+<!-- 
+Pre-expand include size: 3220 bytes
+Post-expand include size: 2329 bytes
+Template argument size: 369 bytes
+Maximum: 2048000 bytes
+-->
+
+<!-- Saved in parser cache with key fiwiki:pcache:idhash:13253-0!1!0!!fi!2 and timestamp 20070914064332 -->
+<div class="printfooter">
+Haettu osoitteesta <a href="http://fi.wikipedia.org/wiki/Hakualgoritmi">http://fi.wikipedia.org/wiki/Hakualgoritmi</a></div>
+			<div id="catlinks"><p class='catlinks'><a href="/wiki/Toiminnot:Categories" title="Toiminnot:Categories">Luokat</a>: <span dir='ltr'><a href="/wiki/Luokka:Tietotekniikkatyng%C3%A4t" title="Luokka:Tietotekniikkatyngät">Tietotekniikkatyngät</a></span> | <span dir='ltr'><a href="/wiki/Luokka:Algoritmit" title="Luokka:Algoritmit">Algoritmit</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Näkymät</h5>
+		<div class="pBody">
+			<ul>
+					 <li id="ca-nstab-main" class="selected"><a href="/wiki/Hakualgoritmi" title="Näytä sisältösivu [c]" accesskey="c">Artikkeli</a></li>
+					 <li id="ca-talk" class="new"><a href="/w/index.php?title=Keskustelu:Hakualgoritmi&amp;action=edit" title="Keskustele sisällöstä [t]" accesskey="t">Keskustelu</a></li>
+					 <li id="ca-edit"><a href="/w/index.php?title=Hakualgoritmi&amp;action=edit" title="Muokkaa tätä sivua [e]" accesskey="e">Muokkaa</a></li>
+					 <li id="ca-history"><a href="/w/index.php?title=Hakualgoritmi&amp;action=history" title="Sivun aikaisemmat versiot [h]" accesskey="h">Historia</a></li>
+				</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-personal">
+		<h5>Henkilökohtaiset työkalut</h5>
+		<div class="pBody">
+			<ul>
+				<li id="pt-login"><a href="/w/index.php?title=Toiminnot:Kirjaudu_sis%C3%A4%C3%A4n&amp;returnto=Hakualgoritmi" title="Kirjaudu sisään tai luo tunnus [o]" accesskey="o">Kirjaudu sisään tai luo tunnus</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-logo">
+		<a style="background-image: url(/images/wiki-fi.png);" href="/wiki/Wikipedia:Etusivu" title="Mene etusivulle [z]" accesskey="z"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Valikko</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-Etusivu"><a href="/wiki/Wikipedia:Etusivu">Etusivu</a></li>
+				<li id="n-portal"><a href="/wiki/Wikipedia:Kahvihuone" title="Keskustelua projektista">Kahvihuone</a></li>
+				<li id="n-currentevents"><a href="/wiki/Wikipedia:Ajankohtaista" title="Taustatietoa tämänhetkisistä tapahtumista">Ajankohtaista</a></li>
+				<li id="n-recentchanges"><a href="/wiki/Toiminnot:Tuoreet_muutokset" title="Lista tuoreista muutoksista [r]" accesskey="r">Tuoreet muutokset</a></li>
+				<li id="n-randompage"><a href="/wiki/Toiminnot:Satunnainen_sivu" title="Avaa satunnainen sivu [x]" accesskey="x">Satunnainen artikkeli</a></li>
+				<li id="n-help"><a href="/wiki/Wikipedia:Ohje" title="Ohjeita">Ohje</a></li>
+				<li id="n-Yhteystiedot"><a href="/wiki/Wikipedia:Yhteystiedot">Yhteystiedot</a></li>
+				<li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Lahjoitukset#Tee_lahjoitus" title="Tue sivuston toimintaa">Lahjoitukset</a></li>
+			</ul>
+		</div>
+	</div>
+		<div id="p-search" class="portlet">
+		<h5><label for="searchInput">Haku</label></h5>
+		<div id="searchBody" class="pBody">
+			<form action="/wiki/Toiminnot:Haku" id="searchform"><div>
+				<input id="searchInput" name="search" type="text" title="Etsi Wikipediasta [f]" accesskey="f" value="" />
+				<input type='submit' name="go" class="searchButton" id="searchGoButton"	value="Siirry" />&nbsp;
+				<input type='submit' name="fulltext" class="searchButton" id="mw-searchButton" value="Etsi" />
+			</div></form>
+		</div>
+	</div>
+	<div class="portlet" id="p-tb">
+		<h5>Työkalut</h5>
+		<div class="pBody">
+			<ul>
+				<li id="t-whatlinkshere"><a href="/wiki/Toiminnot:T%C3%A4nne_viittaavat_sivut/Hakualgoritmi" title="Lista sivuista, jotka viittaavat tänne [j]" accesskey="j">Tänne viittaavat sivut</a></li>
+				<li id="t-recentchangeslinked"><a href="/wiki/Toiminnot:Linkitetyt_muutokset/Hakualgoritmi" title="Viimeisimmät muokkaukset sivuissa, joille viitataan tältä sivulta [k]" accesskey="k">Linkitettyjen sivujen muutokset</a></li>
+<li id="t-upload"><a href="/wiki/Toiminnot:Tallenna" title="Tallenna kuvia tai muita mediatiedostoja [u]" accesskey="u">Tallenna tiedosto</a></li>
+<li id="t-specialpages"><a href="/wiki/Toiminnot:Toimintosivut" title="Näytä toimintosivut [q]" accesskey="q">Toimintosivut</a></li>
+				<li id="t-print"><a href="/w/index.php?title=Hakualgoritmi&amp;printable=yes" title="Tulostettava versio [p]" accesskey="p">Tulostettava versio</a></li>				<li id="t-permalink"><a href="/w/index.php?title=Hakualgoritmi&amp;oldid=2610816" title="Ikilinkki sivun tähän versioon">Ikilinkki</a></li><li id="t-cite"><a href="/w/index.php?title=Toiminnot:Cite&amp;page=Hakualgoritmi&amp;id=2610816">Viitetiedot</a></li>			</ul>
+		</div>
+	</div>
+	<div id="p-lang" class="portlet">
+		<h5>Muilla kielillä</h5>
+		<div class="pBody">
+			<ul>
+				<li class="interwiki-id"><a href="http://id.wikipedia.org/wiki/Algoritma_pencarian">Bahasa Indonesia</a></li>
+				<li class="interwiki-de"><a href="http://de.wikipedia.org/wiki/Suchverfahren">Deutsch</a></li>
+				<li class="interwiki-en"><a href="http://en.wikipedia.org/wiki/Search_algorithm">English</a></li>
+				<li class="interwiki-fr"><a href="http://fr.wikipedia.org/wiki/Algorithme_de_recherche">Français</a></li>
+				<li class="interwiki-it"><a href="http://it.wikipedia.org/wiki/Algoritmo_di_ricerca">Italiano</a></li>
+				<li class="interwiki-nl"><a href="http://nl.wikipedia.org/wiki/Zoekalgoritme">Nederlands</a></li>
+				<li class="interwiki-ja"><a href="http://ja.wikipedia.org/wiki/%E6%A4%9C%E7%B4%A2">日本語</a></li>
+				<li class="interwiki-pt"><a href="http://pt.wikipedia.org/wiki/Algoritmo_de_busca">Português</a></li>
+				<li class="interwiki-vi"><a href="http://vi.wikipedia.org/wiki/Gi%E1%BA%A3i_thu%E1%BA%ADt_t%C3%ACm_ki%E1%BA%BFm">Tiếng Việt</a></li>
+			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="/skins-1.5/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>
+				<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="/images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>
+			<ul id="f-list">
+				<li id="lastmod"> Sivua on viimeksi muutettu 3. huhtikuuta 2007 kello 05.34.</li>
+				<li id="copyright">Sisältö on käytettävissä lisenssillä <a href="http://www.gnu.org/copyleft/fdl.html" class="external " title="http://www.gnu.org/copyleft/fdl.html" rel="nofollow">GNU Free Documentation License</a>. Wikipedia &reg; on Wikimedia-säätiön rekisteröimä tavaramerkki.<br /><a href="http://fi.wikipedia.org/wiki/Wikipedia:Artikkelien_ongelmat">Ongelma artikkelissa?</a></li>
+				<li id="privacy"><a href="/wiki/Wikipedia:Yksityisyydensuoja" title="Wikipedia:Yksityisyydensuoja">Yksityisyydensuoja</a></li>
+				<li id="about"><a href="/wiki/Wikipedia:Tietoja" title="Wikipedia:Tietoja">Tietoja Wikipediasta</a></li>
+				<li id="disclaimer"><a href="/wiki/Wikipedia:Vastuuvapaus" title="Wikipedia:Vastuuvapaus">Vastuuvapaus</a></li>
+			</ul>
+		</div>
+		
+	
+		<script type="text/javascript">if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by srv104 in 0.284 secs. --></body></html>

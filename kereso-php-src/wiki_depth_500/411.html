@@ -1,0 +1,341 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+				<meta name="keywords" content="Floyd–Warshall algorithm,1959,A* search algorithm,Algorithm,Bellman-Ford algorithm,Best-first search,Bidirectional search,Bipartite graph,Breadth-first search,C++,Charles E. Leiserson" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="http://www.gnu.org/copyleft/fdl.html" />
+		<title>Floyd–Warshall algorithm - Wikipedia, the free encyclopedia</title>
+		<style type="text/css" media="screen, projection">/*<![CDATA[*/
+			@import "/skins-1.5/common/shared.css?99";
+			@import "/skins-1.5/monobook/main.css?99";
+		/*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="/skins-1.5/common/commonPrint.css?99" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE50Fixes.css?99";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE55Fixes.css?99";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "/skins-1.5/monobook/IE60Fixes.css?99";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "/skins-1.5/monobook/IE70Fixes.css?99";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="/skins-1.5/common/IEFixes.js?99"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		
+		<script type= "text/javascript">/*<![CDATA[*/
+var skin = "monobook";
+var stylepath = "/skins-1.5";
+var wgArticlePath = "/wiki/$1";
+var wgScriptPath = "/w";
+var wgScript = "/w/index.php";
+var wgServer = "http://en.wikipedia.org";
+var wgCanonicalNamespace = "";
+var wgCanonicalSpecialPageName = false;
+var wgNamespaceNumber = 0;
+var wgPageName = "Floyd–Warshall_algorithm";
+var wgTitle = "Floyd–Warshall algorithm";
+var wgAction = "view";
+var wgRestrictionEdit = [];
+var wgRestrictionMove = [];
+var wgArticleId = "230401";
+var wgIsArticle = true;
+var wgUserName = null;
+var wgUserGroups = null;
+var wgUserLanguage = "en";
+var wgContentLanguage = "en";
+var wgBreakFrames = false;
+var wgCurRevisionId = "146455095";
+/*]]>*/</script>
+                
+		<script type="text/javascript" src="/skins-1.5/common/wikibits.js?99"><!-- wikibits js --></script>
+		<script type="text/javascript" src="/w/index.php?title=-&amp;action=raw&amp;gen=js&amp;useskin=monobook"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "/w/index.php?title=MediaWiki:Common.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=MediaWiki:Monobook.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=-&action=raw&gen=css&maxage=2678400";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+		<script type="text/javascript" src="/skins-1.5/common/ajax.js?99"></script>
+	</head>
+<body  class="mediawiki ns-0 ltr page-Floyd–Warshall_algorithm">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">Floyd–Warshall algorithm</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<div class="dablink">“Floyd's algorithm” redirects here. For cycle detection, see <a href="/wiki/Floyd%27s_cycle-finding_algorithm" title="Floyd's cycle-finding algorithm">Floyd's cycle-finding algorithm</a>.</div>
+<table align="right" class="toccolours" style="padding: 0px; width: 170px; margin: 0 0 1em 1em;">
+<tr>
+<th style="background: #ccf;"><a href="/wiki/Graph_search_algorithm" title="Graph search algorithm">Graph search algorithms</a></th>
+</tr>
+<tr>
+<td><b>Search</b>
+<ul>
+<li><a href="/wiki/A%2A_search_algorithm" title="A* search algorithm">A*</a></li>
+<li><a href="/wiki/Bellman-Ford_algorithm" title="Bellman-Ford algorithm">Bellman-Ford algorithm</a></li>
+<li><a href="/wiki/Best-first_search" title="Best-first search">Best-first search</a></li>
+<li><a href="/wiki/Bidirectional_search" title="Bidirectional search">Bidirectional search</a></li>
+<li><a href="/wiki/Breadth-first_search" title="Breadth-first search">Breadth-first search</a></li>
+<li><a href="/wiki/Depth-first_search" title="Depth-first search">Depth-first search</a></li>
+<li><a href="/wiki/Depth-limited_search" title="Depth-limited search">Depth-limited search</a></li>
+<li><a href="/wiki/Dijkstra%27s_algorithm" title="Dijkstra's algorithm">Dijkstra's algorithm</a></li>
+<li><a href="/wiki/Floyd-Warshall_algorithm" title="Floyd-Warshall algorithm">Floyd-Warshall algorithm</a></li>
+<li><a href="/wiki/Hill_climbing" title="Hill climbing">Hill climbing</a></li>
+<li><a href="/wiki/Iterative_deepening_depth-first_search" title="Iterative deepening depth-first search">Iterative deepening depth-first search</a></li>
+<li><a href="/wiki/Johnson%27s_algorithm" title="Johnson's algorithm">Johnson's algorithm</a></li>
+<li><a href="/wiki/Uniform-cost_search" title="Uniform-cost search">Uniform-cost search</a></li>
+</ul>
+</td>
+</tr>
+</table>
+<p>In <a href="/wiki/Computer_science" title="Computer science">computer science</a>, the <b>Floyd–Warshall algorithm</b> (sometimes known as the <b>Roy–Floyd algorithm</b>, since <a href="/w/index.php?title=Bernard_Roy&amp;action=edit" class="new" title="Bernard Roy">Bernard Roy</a> described this algorithm in <a href="/wiki/1959" title="1959">1959</a>) is a <a href="/wiki/Graph_%28mathematics%29" title="Graph (mathematics)">graph</a> analysis <a href="/wiki/Algorithm" title="Algorithm">algorithm</a> for finding <a href="/wiki/Shortest_path_problem" title="Shortest path problem">shortest paths</a> in a weighted, directed graph. A single execution of the algorithm will find the shortest path between all pairs of vertices. It does so in <span class="texhtml"><i>V</i><sup>3</sup></span> <a href="/wiki/Complexity" title="Complexity">time</a>, where <i>V</i> is the number of vertices in the graph. The <b>Floyd–Warshall algorithm</b> is an example of <a href="/wiki/Dynamic_programming" title="Dynamic programming">dynamic programming</a>.</p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Algorithm"><span class="tocnumber">1</span> <span class="toctext">Algorithm</span></a></li>
+<li class="toclevel-1"><a href="#Pseudocode"><span class="tocnumber">2</span> <span class="toctext">Pseudocode</span></a></li>
+<li class="toclevel-1"><a href="#Drawbacks"><span class="tocnumber">3</span> <span class="toctext">Drawbacks</span></a></li>
+<li class="toclevel-1"><a href="#Analysis"><span class="tocnumber">4</span> <span class="toctext">Analysis</span></a></li>
+<li class="toclevel-1"><a href="#Applications_and_generalizations"><span class="tocnumber">5</span> <span class="toctext">Applications and generalizations</span></a></li>
+<li class="toclevel-1"><a href="#Implementations"><span class="tocnumber">6</span> <span class="toctext">Implementations</span></a></li>
+<li class="toclevel-1"><a href="#References"><span class="tocnumber">7</span> <span class="toctext">References</span></a></li>
+<li class="toclevel-1"><a href="#See_Also"><span class="tocnumber">8</span> <span class="toctext">See Also</span></a></li>
+<li class="toclevel-1"><a href="#External_links"><span class="tocnumber">9</span> <span class="toctext">External links</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script>
+<p><a name="Algorithm" id="Algorithm"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Floyd%E2%80%93Warshall_algorithm&amp;action=edit&amp;section=1" title="Edit section: Algorithm">edit</a>]</span> <span class="mw-headline">Algorithm</span></h2>
+<p>The Floyd-Warshall algorithm compares all possible paths through the graph between each pair of vertices. Amazingly, it is able to do this with only <span class="texhtml"><i>V</i><sup>3</sup></span> comparisons (this is remarkable considering that there may be up to <span class="texhtml"><i>V</i><sup>2</sup></span> edges in the graph, and every combination of edges is tested). It does so by incrementally improving an estimate on the shortest path between two vertices, until the estimate is known to be optimal.</p>
+<p>Consider a graph <span class="texhtml"><i>G</i></span> with vertices <span class="texhtml"><i>V</i></span>, each numbered 1 through N. Further consider a function <span class="texhtml"><i>s</i><i>h</i><i>o</i><i>r</i><i>t</i><i>e</i><i>s</i><i>t</i><i>P</i><i>a</i><i>t</i><i>h</i>(<i>i</i>,<i>j</i>,<i>k</i>)</span> that returns the shortest possible path from <span class="texhtml"><i>i</i></span> to <span class="texhtml"><i>j</i></span> using only vertices 1 through <span class="texhtml"><i>k</i></span> as intermediate points along the way. Now, given this function, our goal is to find the shortest path from each <span class="texhtml"><i>i</i></span> to each <span class="texhtml"><i>j</i></span> using only nodes 1 through <span class="texhtml"><i>k</i> + 1</span>.</p>
+<p>There are two candidates for this path: either the true shortest path only uses nodes in the set <span class="texhtml">(1...<i>k</i>)</span>; or there exists some path that goes from <span class="texhtml"><i>i</i></span> to <span class="texhtml"><i>k</i> + 1</span>, then from <span class="texhtml"><i>k</i> + 1</span> to <span class="texhtml"><i>j</i></span> that is better. We know that the best path from <span class="texhtml"><i>i</i></span> to <span class="texhtml"><i>j</i></span> that only uses nodes 1 through <span class="texhtml"><i>k</i></span> is defined by <span class="texhtml"><i>s</i><i>h</i><i>o</i><i>r</i><i>t</i><i>e</i><i>s</i><i>t</i><i>P</i><i>a</i><i>t</i><i>h</i>(<i>i</i>,<i>j</i>,<i>k</i>)</span>, and it is clear that if there were a better path from <span class="texhtml"><i>i</i></span> to <span class="texhtml"><i>k</i> + 1</span> to <span class="texhtml"><i>j</i></span>, then the length of this path would be the concatenation of the shortest path from <span class="texhtml"><i>i</i></span> to <span class="texhtml"><i>k</i> + 1</span> (using vertices in <span class="texhtml">(1...<i>k</i>)</span>) and the shortest path from <span class="texhtml"><i>k</i> + 1</span> to <span class="texhtml"><i>j</i></span> (also using vertices in <span class="texhtml">(1...<i>k</i>)</span>).</p>
+<p>Therefore, we can define <span class="texhtml"><i>s</i><i>h</i><i>o</i><i>r</i><i>t</i><i>e</i><i>s</i><i>t</i><i>P</i><i>a</i><i>t</i><i>h</i>(<i>i</i>,<i>j</i>,<i>k</i>)</span> in terms of the following <a href="/wiki/Recursive" title="Recursive">recursive</a> formula:</p>
+<p><img class="tex" alt="shortestPath(i,j,k) = min(shortestPath(i,j,k-1),shortestPath(i,k,k-1)+shortestPath(k,j,k-1));\,\!" src="http://upload.wikimedia.org/math/c/7/8/c78d75e376ea1f0a74cda20fa958a93a.png" /></p>
+<p><img class="tex" alt="shortestPath(i,j,0) = edgeCost(i,j);\,\!" src="http://upload.wikimedia.org/math/1/b/3/1b30783458d787c5c2d0c5c8f5c93b69.png" /></p>
+<p>This formula is the heart of Floyd Warshall. The algorithm works by first computing <span class="texhtml"><i>s</i><i>h</i><i>o</i><i>r</i><i>t</i><i>e</i><i>s</i><i>t</i><i>P</i><i>a</i><i>t</i><i>h</i>(<i>i</i>,<i>j</i>,1)</span> for all (i,j) pairs, then using that to find <span class="texhtml"><i>s</i><i>h</i><i>o</i><i>r</i><i>t</i><i>e</i><i>s</i><i>t</i><i>P</i><i>a</i><i>t</i><i>h</i>(<i>i</i>,<i>j</i>,2)</span> for all <span class="texhtml">(<i>i</i>,<i>j</i>)</span> pairs, etc. This process continues until k=n, and we have found the shortest path for all <span class="texhtml">(<i>i</i>,<i>j</i>)</span> pairs using any number of intermediate vertices.</p>
+<p><a name="Pseudocode" id="Pseudocode"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Floyd%E2%80%93Warshall_algorithm&amp;action=edit&amp;section=2" title="Edit section: Pseudocode">edit</a>]</span> <span class="mw-headline">Pseudocode</span></h2>
+<p>Conveniently, when calculating the <span class="texhtml"><i>k</i></span>th case, one can overwrite the information saved from the computation of <span class="texhtml"><i>k</i> − 1</span>. This means the algorithm uses linear memory. Be careful to note the initialization conditions:</p>
+<pre>
+ 1 /* Assume a function <i>edgeCost</i>(i,j) which returns the cost of the edge from i to j
+ 2    (infinity if there is none).
+ 3    Also assume that <b>n</b> is the number of vertices and <i>edgeCost</i>(i,i)=0
+ 4 */
+ 5
+ 6 <b>int</b> path[][];
+ 7 /* A 2-Dimensional matrix. At each step in the algorithm, path[i][j] is the shortest path
+ 8    from i to j using intermediate values in (1..k-1).  Each path[i][j] is initialized to
+ 9    <i>edgeCost</i>(i,j).
+10 */
+11
+12 <b>procedure</b> <i>FloydWarshall</i> ()
+13    <b>for</b> <span class="texhtml"><i>k</i>: = 1</span> <b>to</b> <span class="texhtml"><i>n</i></span>
+14    <b>begin</b>
+15       <b>for each</b> <span class="texhtml">(<i>i</i>,<i>j</i>)</span> <b>in</b> <span class="texhtml">(1..<i>n</i>)</span>
+16       <b>begin</b>
+17          path[i][j] = min ( path[i][j], path[i][k]+path[k][j] );
+18       <b>end</b>
+19    <b>end</b>
+20 <b>endproc</b>
+</pre>
+<p><a name="Drawbacks" id="Drawbacks"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Floyd%E2%80%93Warshall_algorithm&amp;action=edit&amp;section=3" title="Edit section: Drawbacks">edit</a>]</span> <span class="mw-headline">Drawbacks</span></h2>
+<p>While Floyd–Warshall works on graphs with negative edges, negative cycles will cause it to fail. In this case, the solution may not be optimal. If this happens, the matrix will end with a negative diagonal.</p>
+<div class="boilerplate metadata plainlinks" id="stub">
+<table cellpadding="0" cellspacing="0" style="background-color:transparent;">
+<tr>
+<td><a href="/wiki/Image:Wiki_letter_w.svg" class="image" title="Wiki letter w.svg"><img alt="" src="http://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Wiki_letter_w.svg/17px-Wiki_letter_w.svg.png" width="17" height="17" border="0" /></a></td>
+<td><i>&#160;<sup>This short section requires <a href="http://en.wikipedia.org/w/index.php?title=Floyd%E2%80%93Warshall_algorithm&amp;action=edit" class="external text" title="http://en.wikipedia.org/w/index.php?title=Floyd%E2%80%93Warshall_algorithm&amp;action=edit" rel="nofollow">expansion</a>.</sup></i></td>
+</tr>
+</table>
+</div>
+<p><a name="Analysis" id="Analysis"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Floyd%E2%80%93Warshall_algorithm&amp;action=edit&amp;section=4" title="Edit section: Analysis">edit</a>]</span> <span class="mw-headline">Analysis</span></h2>
+<p>To find all <span class="texhtml"><i>n</i><sup>2</sup></span> of <img class="tex" alt="\mathcal{W}_k" src="http://upload.wikimedia.org/math/0/d/8/0d804aab30eaed1fd888c21e2c3bfafd.png" /> from those of <img class="tex" alt="\mathcal{W}_{\mathit{k}-1}" src="http://upload.wikimedia.org/math/e/7/4/e74bff284bb24a77796238d2388c959e.png" /> requires <span class="texhtml">2<i>n</i><sup>2</sup></span> bit operations. Since we begin with <img class="tex" alt="\mathcal{W}_0 = \mathcal{W}_\mathcal{R}" src="http://upload.wikimedia.org/math/f/8/a/f8a7ec40fde16a883ed02aab09cdec6d.png" /> and compute the sequence of <span class="texhtml"><i>n</i></span> zero-one matrices <img class="tex" alt="\mathcal{W}_1" src="http://upload.wikimedia.org/math/a/8/2/a82511c5ca649647f98653890d061780.png" />, <img class="tex" alt="\mathcal{W}_2" src="http://upload.wikimedia.org/math/0/b/b/0bb01936634c1af7334ef0b345dbbf8e.png" />, <span class="texhtml">...</span>, <img class="tex" alt="\mathcal{W}_\mathit{n} = \mathcal{M}_{\mathcal{R}^*}" src="http://upload.wikimedia.org/math/d/0/c/d0cb78f739aef1c2aeed5524132384fa.png" />, the total number of bit operations used is <img class="tex" alt="\mathit{n} \times 2\mathit{n}^2 = 2\mathit{n}^3" src="http://upload.wikimedia.org/math/2/3/3/233f1e993e7f1fc25c58258508673a86.png" />.</p>
+<div class="boilerplate metadata plainlinks" id="stub">
+<table cellpadding="0" cellspacing="0" style="background-color:transparent;">
+<tr>
+<td><a href="/wiki/Image:Wiki_letter_w.svg" class="image" title="Wiki letter w.svg"><img alt="" src="http://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Wiki_letter_w.svg/17px-Wiki_letter_w.svg.png" width="17" height="17" border="0" /></a></td>
+<td><i>&#160;<sup>This short section requires <a href="http://en.wikipedia.org/w/index.php?title=Floyd%E2%80%93Warshall_algorithm&amp;action=edit" class="external text" title="http://en.wikipedia.org/w/index.php?title=Floyd%E2%80%93Warshall_algorithm&amp;action=edit" rel="nofollow">expansion</a>.</sup></i></td>
+</tr>
+</table>
+</div>
+<p><a name="Applications_and_generalizations" id="Applications_and_generalizations"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Floyd%E2%80%93Warshall_algorithm&amp;action=edit&amp;section=5" title="Edit section: Applications and generalizations">edit</a>]</span> <span class="mw-headline">Applications and generalizations</span></h2>
+<p>The Floyd–Warshall algorithm can be used to solve the following problems, among others:</p>
+<ul>
+<li>Shortest paths in directed graphs (Floyd's algorithm).</li>
+<li><a href="/wiki/Transitive_closure" title="Transitive closure">Transitive closure</a> of directed graphs (Warshall's algorithm). In Warshall's original formulation of the algorithm, the graph is unweighted and represented by a Boolean adjacency matrix. Then the addition operation is replaced by <a href="/wiki/Logical_conjunction" title="Logical conjunction">logical conjunction</a> (AND) and the minimum operation by <a href="/wiki/Logical_disjunction" title="Logical disjunction">logical disjunction</a> (OR).</li>
+<li>Finding a <a href="/wiki/Regular_expression" title="Regular expression">regular expression</a> denoting the <a href="/wiki/Regular_language" title="Regular language">regular language</a> accepted by a <a href="/wiki/Finite_automaton" title="Finite automaton">finite automaton</a> (Kleene's algorithm)</li>
+<li><a href="/wiki/Invertible_matrix" title="Invertible matrix">Inversion</a> of <a href="/wiki/Real_number" title="Real number">real</a> <a href="/wiki/Matrix_%28mathematics%29" title="Matrix (mathematics)">matrices</a> (<a href="/wiki/Gauss-Jordan_elimination" title="Gauss-Jordan elimination">Gauss-Jordan algorithm</a>).</li>
+<li>Optimal routing. In this application one is interested in finding the path with the maximum flow between two vertices. This means that, rather than taking minima as in the pseudocode above, one instead takes maxima. The edge weights represent fixed constraints on flow. Path weights represent bottlenecks; so the addition operation above is replaced by the minimum operation.</li>
+<li>Testing whether an <a href="/wiki/Undirected_graph" title="Undirected graph">undirected graph</a> is <a href="/wiki/Bipartite_graph" title="Bipartite graph">bipartite</a>.</li>
+</ul>
+<p><a name="Implementations" id="Implementations"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Floyd%E2%80%93Warshall_algorithm&amp;action=edit&amp;section=6" title="Edit section: Implementations">edit</a>]</span> <span class="mw-headline">Implementations</span></h2>
+<ul>
+<li>A <a href="/wiki/Perl" title="Perl">Perl</a> implementation is available in the <a href="http://search.cpan.org/search?query=Graph&amp;mode=all" class="external text" title="http://search.cpan.org/search?query=Graph&amp;mode=all" rel="nofollow">Graph</a> module</li>
+<li>A <a href="/wiki/Javascript" title="Javascript">Javascript</a> implementation is available at <a href="http://alexle.net/stuff/floyd-algorithm/" class="external text" title="http://alexle.net/stuff/floyd-algorithm/" rel="nofollow">Alex Le's Blog</a></li>
+<li>A <a href="/wiki/Python_%28programming_language%29" title="Python (programming language)">Python</a> implementation is available in the <a href="https://networkx.lanl.gov/" class="external text" title="https://networkx.lanl.gov/" rel="nofollow">NetworkX</a> package</li>
+<li>A <a href="/wiki/C%2B%2B" title="C++">C++</a> implementation is available at <a href="http://www.ece.rice.edu/~jpr/research/fwarsh.html" class="external text" title="http://www.ece.rice.edu/~jpr/research/fwarsh.html" rel="nofollow">ece.rice.edu</a></li>
+</ul>
+<p><a name="References" id="References"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Floyd%E2%80%93Warshall_algorithm&amp;action=edit&amp;section=7" title="Edit section: References">edit</a>]</span> <span class="mw-headline">References</span></h2>
+<ul>
+<li><cite class="book" style="font-style:normal"><a href="/wiki/Thomas_H._Cormen" title="Thomas H. Cormen">Cormen, Thomas H.</a>; <a href="/wiki/Charles_E._Leiserson" title="Charles E. Leiserson">Leiserson, Charles E.</a>; <a href="/wiki/Ronald_L._Rivest" title="Ronald L. Rivest">Rivest, Ronald L.</a> (1990). <i><a href="/wiki/Introduction_to_Algorithms" title="Introduction to Algorithms">Introduction to Algorithms</a></i>, first edition, MIT Press and McGraw-Hill. <a href="/w/index.php?title=Special:Booksources&amp;isbn=0262031418" class="internal">ISBN 0-262-03141-8</a>.</cite><span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=%5B%5BIntroduction+to+Algorithms%5D%5D&amp;rft.aulast=Cormen&amp;rft.aufirst=Thomas+H.&amp;rft.date=1990&amp;rft.edition=first+edition&amp;rft.pub=MIT+Press+and+McGraw-Hill">&#160;</span>
+<ul>
+<li>Section 26.2, "The Floyd–Warshall algorithm", pp. 558–565;</li>
+<li>Section 26.4, "A general framework for solving path problems in directed graphs", pp. 570–576.</li>
+</ul>
+</li>
+<li><cite style="font-style:normal"><a href="/wiki/Robert_W._Floyd" title="Robert W. Floyd">Floyd, Robert W.</a> (June 1962). "Algorithm 97: Shortest Path". <i><a href="/wiki/Communications_of_the_ACM" title="Communications of the ACM">Communications of the ACM</a></i> <b>5</b> (6): 345. <a href="/wiki/Digital_object_identifier" title="Digital object identifier">doi</a>:<a href="http://dx.doi.org/10.1145/367766.368168" class="external text" title="http://dx.doi.org/10.1145/367766.368168" rel="nofollow">10.1145/367766.368168</a>.</cite><span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.atitle=Algorithm+97%3A+Shortest+Path&amp;rft.jtitle=%5B%5BCommunications+of+the+ACM%5D%5D&amp;rft.date=June+1962&amp;rft.volume=5&amp;rft.issue=6&amp;rft.aulast=Floyd&amp;rft.aufirst=Robert+W.&amp;rft.pages=345">&#160;</span></li>
+<li><cite class="book" style="font-style:normal"><a href="/wiki/Stephen_Cole_Kleene" title="Stephen Cole Kleene">Kleene, S. C.</a> (1956). "Representation of events in nerve nets and finite automata", in <a href="/wiki/Claude_Elwood_Shannon" title="Claude Elwood Shannon">C. E. Shannon</a> and <a href="/wiki/John_McCarthy_%28computer_scientist%29" title="John McCarthy (computer scientist)">J. McCarthy</a>: <i>Automata Studies</i>. Princeton University Press, pp. 3–42.</cite><span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Automata+Studies&amp;rft.atitle=Representation+of+events+in+nerve+nets+and+finite+automata&amp;rft.aulast=Kleene&amp;rft.aufirst=S.+C.&amp;rft.date=1956&amp;rft.pub=Princeton+University+Press&amp;rft.pages=pp.+3%E2%80%9342">&#160;</span></li>
+<li><cite style="font-style:normal">Warshall, Stephen (January 1962). "A theorem on Boolean matrices". <i><a href="/wiki/Journal_of_the_ACM" title="Journal of the ACM">Journal of the ACM</a></i> <b>9</b> (1): 11–12. <a href="/wiki/Digital_object_identifier" title="Digital object identifier">doi</a>:<a href="http://dx.doi.org/10.1145/321105.321107" class="external text" title="http://dx.doi.org/10.1145/321105.321107" rel="nofollow">10.1145/321105.321107</a>.</cite><span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.atitle=A+theorem+on+Boolean+matrices&amp;rft.jtitle=%5B%5BJournal+of+the+ACM%5D%5D&amp;rft.date=January+1962&amp;rft.volume=9&amp;rft.issue=1&amp;rft.aulast=Warshall&amp;rft.aufirst=Stephen&amp;rft.pages=11%E2%80%9312">&#160;</span></li>
+<li><cite class="book" style="font-style:normal">Kenneth H. Rosen (2003). <i>Discrete Mathematics and Its Applications, 5th Edition.</i>. Addison Wesley. <a href="/w/index.php?title=Special:Booksources&amp;isbn=0071198814" class="internal">ISBN 0-07-119881-4</a> (ISE).</cite><span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Discrete+Mathematics+and+Its+Applications%2C+5th+Edition.&amp;rft.au=Kenneth+H.+Rosen&amp;rft.pub=Addison+Wesley&amp;rft.isbn=0-07-119881-4 (ISE)">&#160;</span></li>
+</ul>
+<p><a name="See_Also" id="See_Also"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Floyd%E2%80%93Warshall_algorithm&amp;action=edit&amp;section=8" title="Edit section: See Also">edit</a>]</span> <span class="mw-headline">See Also</span></h2>
+<ul>
+<li><a href="/wiki/Robert_Floyd" title="Robert Floyd">Robert Floyd</a></li>
+<li><a href="/wiki/Stephen_Warshall" title="Stephen Warshall">Stephen Warshall</a></li>
+</ul>
+<p><a name="External_links" id="External_links"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Floyd%E2%80%93Warshall_algorithm&amp;action=edit&amp;section=9" title="Edit section: External links">edit</a>]</span> <span class="mw-headline">External links</span></h2>
+<ul>
+<li><a href="http://tide4javascript.com/?s=Floyd" class="external text" title="http://tide4javascript.com/?s=Floyd" rel="nofollow">Analyze Floyd's algorithm in an online Javascript IDE</a></li>
+<li><a href="http://www.pms.informatik.uni-muenchen.de/lehre/compgeometry/Gosper/shortest_path/shortest_path.html#visualization" class="external text" title="http://www.pms.informatik.uni-muenchen.de/lehre/compgeometry/Gosper/shortest_path/shortest_path.html#visualization" rel="nofollow">Interactive animation of Floyd–Warshall algorithm</a></li>
+</ul>
+
+<!-- 
+Pre-expand include size: 33522 bytes
+Post-expand include size: 9853 bytes
+Template argument size: 5991 bytes
+Maximum: 2048000 bytes
+-->
+
+<!-- Saved in parser cache with key enwiki:pcache:idhash:230401-0!1!0!default!!en!2 and timestamp 20070914012903 -->
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org/wiki/Floyd%E2%80%93Warshall_algorithm">http://en.wikipedia.org/wiki/Floyd%E2%80%93Warshall_algorithm</a>"</div>
+			<div id="catlinks"><p class='catlinks'><a href="/wiki/Special:Categories" title="Special:Categories">Categories</a>: <span dir='ltr'><a href="/wiki/Category:Articles_with_sections_needing_expansion" title="Category:Articles with sections needing expansion">Articles with sections needing expansion</a></span> | <span dir='ltr'><a href="/wiki/Category:Graph_algorithms" title="Category:Graph algorithms">Graph algorithms</a></span> | <span dir='ltr'><a href="/wiki/Category:Routing_algorithms" title="Category:Routing algorithms">Routing algorithms</a></span> | <span dir='ltr'><a href="/wiki/Category:Polynomial-time_problems" title="Category:Polynomial-time problems">Polynomial-time problems</a></span> | <span dir='ltr'><a href="/wiki/Category:Articles_with_example_pseudocode" title="Category:Articles with example pseudocode">Articles with example pseudocode</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<div class="pBody">
+			<ul>
+					 <li id="ca-nstab-main" class="selected"><a href="/wiki/Floyd%E2%80%93Warshall_algorithm" title="View the content page [c]" accesskey="c">Article</a></li>
+					 <li id="ca-talk"><a href="/wiki/Talk:Floyd%E2%80%93Warshall_algorithm" title="Discussion about the content page [t]" accesskey="t">Discussion</a></li>
+					 <li id="ca-edit"><a href="/w/index.php?title=Floyd%E2%80%93Warshall_algorithm&amp;action=edit" title="You can edit this page. Please use the preview button before saving. [e]" accesskey="e">Edit this page</a></li>
+					 <li id="ca-history"><a href="/w/index.php?title=Floyd%E2%80%93Warshall_algorithm&amp;action=history" title="Past versions of this page [h]" accesskey="h">History</a></li>
+				</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-personal">
+		<h5>Personal tools</h5>
+		<div class="pBody">
+			<ul>
+				<li id="pt-login"><a href="/w/index.php?title=Special:Userlogin&amp;returnto=Floyd%E2%80%93Warshall_algorithm" title="You are encouraged to log in, it is not mandatory however. [o]" accesskey="o">Sign in / create account</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-logo">
+		<a style="background-image: url(/images/wiki-en.png);" href="/wiki/Main_Page" title="Visit the Main Page [z]" accesskey="z"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-Main-page"><a href="/wiki/Main_Page">Main page</a></li>
+				<li id="n-Contents"><a href="/wiki/Wikipedia:Contents">Contents</a></li>
+				<li id="n-Featured-content"><a href="/wiki/Wikipedia:Featured_content">Featured content</a></li>
+				<li id="n-currentevents"><a href="/wiki/Portal:Current_events" title="Find background information on current events">Current events</a></li>
+				<li id="n-randompage"><a href="/wiki/Special:Random" title="Load a random page [x]" accesskey="x">Random article</a></li>
+			</ul>
+		</div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+		<h5>interaction</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-About-Wikipedia"><a href="/wiki/Wikipedia:About">About Wikipedia</a></li>
+				<li id="n-portal"><a href="/wiki/Wikipedia:Community_Portal" title="About the project, what you can do, where to find things">Community portal</a></li>
+				<li id="n-recentchanges"><a href="/wiki/Special:Recentchanges" title="The list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li>
+				<li id="n-contact"><a href="/wiki/Wikipedia:Contact_us">Contact Wikipedia</a></li>
+				<li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising" title="Support us">Donate to Wikipedia</a></li>
+				<li id="n-help"><a href="/wiki/Help:Contents" title="Guidance on how to use and edit Wikipedia">Help</a></li>
+			</ul>
+		</div>
+	</div>
+		<div id="p-search" class="portlet">
+		<h5><label for="searchInput">Search</label></h5>
+		<div id="searchBody" class="pBody">
+			<form action="/wiki/Special:Search" id="searchform"><div>
+				<input id="searchInput" name="search" type="text" title="Search Wikipedia [f]" accesskey="f" value="" />
+				<input type='submit' name="go" class="searchButton" id="searchGoButton"	value="Go" />&nbsp;
+				<input type='submit' name="fulltext" class="searchButton" id="mw-searchButton" value="Search" />
+			</div></form>
+		</div>
+	</div>
+	<div class="portlet" id="p-tb">
+		<h5>Toolbox</h5>
+		<div class="pBody">
+			<ul>
+				<li id="t-whatlinkshere"><a href="/wiki/Special:Whatlinkshere/Floyd%E2%80%93Warshall_algorithm" title="List of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+				<li id="t-recentchangeslinked"><a href="/wiki/Special:Recentchangeslinked/Floyd%E2%80%93Warshall_algorithm" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+<li id="t-upload"><a href="/wiki/Wikipedia:Upload" title="Upload images or media files [u]" accesskey="u">Upload file</a></li>
+<li id="t-specialpages"><a href="/wiki/Special:Specialpages" title="List of all special pages [q]" accesskey="q">Special pages</a></li>
+				<li id="t-print"><a href="/w/index.php?title=Floyd%E2%80%93Warshall_algorithm&amp;printable=yes" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>				<li id="t-permalink"><a href="/w/index.php?title=Floyd%E2%80%93Warshall_algorithm&amp;oldid=146455095" title="Permanent link to this version of the page">Permanent link</a></li><li id="t-cite"><a href="/w/index.php?title=Special:Cite&amp;page=Floyd%E2%80%93Warshall_algorithm&amp;id=146455095">Cite this article</a></li>			</ul>
+		</div>
+	</div>
+	<div id="p-lang" class="portlet">
+		<h5>In other languages</h5>
+		<div class="pBody">
+			<ul>
+				<li class="interwiki-de"><a href="http://de.wikipedia.org/wiki/Algorithmus_von_Floyd_und_Warshall">Deutsch</a></li>
+				<li class="interwiki-es"><a href="http://es.wikipedia.org/wiki/Algoritmo_de_Floyd-Warshall">Español</a></li>
+				<li class="interwiki-fr"><a href="http://fr.wikipedia.org/wiki/Algorithme_de_Floyd-Warshall">Français</a></li>
+				<li class="interwiki-ko"><a href="http://ko.wikipedia.org/wiki/%ED%94%8C%EB%A1%9C%EC%9D%B4%EB%93%9C-%EC%99%80%EC%85%9C_%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98">한국어</a></li>
+				<li class="interwiki-id"><a href="http://id.wikipedia.org/wiki/Algoritma_Floyd-Warshall">Bahasa Indonesia</a></li>
+				<li class="interwiki-it"><a href="http://it.wikipedia.org/wiki/Algoritmo_di_Floyd-Warshall">Italiano</a></li>
+				<li class="interwiki-he"><a href="http://he.wikipedia.org/wiki/%D7%90%D7%9C%D7%92%D7%95%D7%A8%D7%99%D7%AA%D7%9D_%D7%A4%D7%9C%D7%95%D7%99%D7%93-%D7%95%D7%95%D7%A8%D7%A9%D7%90%D7%9C">עברית</a></li>
+				<li class="interwiki-ja"><a href="http://ja.wikipedia.org/wiki/%E3%83%AF%E3%83%BC%E3%82%B7%E3%83%A3%E3%83%AB-%E3%83%95%E3%83%AD%E3%82%A4%E3%83%89%E6%B3%95">日本語</a></li>
+				<li class="interwiki-pl"><a href="http://pl.wikipedia.org/wiki/Algorytm_Floyda-Warshalla">Polski</a></li>
+				<li class="interwiki-pt"><a href="http://pt.wikipedia.org/wiki/Algoritmo_de_Floyd-Warshall">Português</a></li>
+				<li class="interwiki-sr"><a href="http://sr.wikipedia.org/wiki/%D0%A4%D0%BB%D0%BE%D1%98%D0%B4-%D0%92%D0%BE%D1%80%D1%88%D0%B0%D0%BB%D0%BE%D0%B2_%D0%B0%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%B0%D0%BC">Српски / Srpski</a></li>
+				<li class="interwiki-zh"><a href="http://zh.wikipedia.org/wiki/Floyd-Warshall%E7%AE%97%E6%B3%95">中文</a></li>
+			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="/skins-1.5/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>
+				<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="/images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>
+			<ul id="f-list">
+				<li id="lastmod"> This page was last modified 04:09, 23 July 2007.</li>
+				<li id="copyright">All text is available under the terms of the <a class='internal' href="/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="/wiki/Wikipedia:Copyrights" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a U.S. registered <a class='internal' href="/wiki/501%28c%29#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="/wiki/Non-profit_organization" title="Non-profit organization">nonprofit</a> <a href="/wiki/Charitable_organization" title="Charitable organization">charity</a>.<br /></li>
+				<li id="privacy"><a href="http://wikimediafoundation.org/wiki/Privacy_policy" title="wikimedia:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="/wiki/Wikipedia:About" title="Wikipedia:About">About Wikipedia</a></li>
+				<li id="disclaimer"><a href="/wiki/Wikipedia:General_disclaimer" title="Wikipedia:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+		
+	
+		<script type="text/javascript">if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by srv47 in 0.661 secs. --></body></html>

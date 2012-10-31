@@ -1,0 +1,213 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+				<meta name="keywords" content="山登り法,アルゴリズム,コンピュータ,局所探索法,擬似コード,極値,関数 (プログラミング),スタブ,コンピュータ" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (日本語)" />
+		<link rel="copyright" href="http://www.gnu.org/copyleft/fdl.html" />
+		<title>山登り法 - Wikipedia</title>
+		<style type="text/css" media="screen, projection">/*<![CDATA[*/
+			@import "/skins-1.5/common/shared.css?99";
+			@import "/skins-1.5/monobook/main.css?99";
+		/*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="/skins-1.5/common/commonPrint.css?99" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE50Fixes.css?99";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE55Fixes.css?99";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "/skins-1.5/monobook/IE60Fixes.css?99";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "/skins-1.5/monobook/IE70Fixes.css?99";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="/skins-1.5/common/IEFixes.js?99"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		
+		<script type= "text/javascript">/*<![CDATA[*/
+var skin = "monobook";
+var stylepath = "/skins-1.5";
+var wgArticlePath = "/wiki/$1";
+var wgScriptPath = "/w";
+var wgScript = "/w/index.php";
+var wgServer = "http://ja.wikipedia.org";
+var wgCanonicalNamespace = "";
+var wgCanonicalSpecialPageName = false;
+var wgNamespaceNumber = 0;
+var wgPageName = "山登り法";
+var wgTitle = "山登り法";
+var wgAction = "view";
+var wgRestrictionEdit = [];
+var wgRestrictionMove = [];
+var wgArticleId = "683800";
+var wgIsArticle = true;
+var wgUserName = null;
+var wgUserGroups = null;
+var wgUserLanguage = "ja";
+var wgContentLanguage = "ja";
+var wgBreakFrames = false;
+var wgCurRevisionId = "13733042";
+/*]]>*/</script>
+                
+		<script type="text/javascript" src="/skins-1.5/common/wikibits.js?99"><!-- wikibits js --></script>
+		<script type="text/javascript" src="/w/index.php?title=-&amp;action=raw&amp;gen=js&amp;useskin=monobook"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "/w/index.php?title=MediaWiki:Common.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=MediaWiki:Monobook.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=-&action=raw&gen=css&maxage=2678400";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+		<script type="text/javascript" src="/skins-1.5/common/ajax.js?99"></script>
+	</head>
+<body  class="mediawiki ns-0 ltr page-山登り法">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">山登り法</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">出典: フリー百科事典『ウィキペディア（Wikipedia）』</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">移動: <a href="#column-one">ナビゲーション</a>, <a href="#searchInput">検索</a></div>			<!-- start content -->
+			<p><b>山登り法</b>（やまのぼりほう、英 hill climbing HCと略記）とは<a href="/wiki/%E3%82%A2%E3%83%AB%E3%82%B4%E3%83%AA%E3%82%BA%E3%83%A0" title="アルゴリズム">アルゴリズム</a>の一種である。最も代表的な<a href="/wiki/%E5%B1%80%E6%89%80%E6%8E%A2%E7%B4%A2%E6%B3%95" title="局所探索法">局所探索法</a>として知られている。</p>
+<p><a name=".E6.A6.82.E8.A6.81"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=%E5%B1%B1%E7%99%BB%E3%82%8A%E6%B3%95&amp;action=edit&amp;section=1" title="節を編集: 概要">編集</a>]</span> <span class="mw-headline">概要</span></h2>
+<p>山登り法とは「現在の解の近傍の内で最も成績の良い解」を近傍解として選び、「現在の解より近傍解の成績の方が良い場合」に近傍解と現在の解を入れ換える局所探索法のことを指す。局所探索法の最も単純かつ代表的な方法であり、しばしば局所探索法と同一視される。</p>
+<p>この方法は<a href="/wiki/%E6%A5%B5%E5%80%A4" title="極値">極値</a>で必ず探索が収束してしまうため、探索手法としては不完全である。しかし実装が単純であり、解の探索が非常に高速であるため、しばしば用いられる。探索が収束したときは新たに初期解を選び直してから再び探索を開始することで短時間で精度の良い近似解を得ることができる。</p>
+<p><a name=".E6.93.AC.E4.BC.BC.E3.82.B3.E3.83.BC.E3.83.89"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=%E5%B1%B1%E7%99%BB%E3%82%8A%E6%B3%95&amp;action=edit&amp;section=2" title="節を編集: 擬似コード">編集</a>]</span> <span class="mw-headline">擬似コード</span></h2>
+<p><a href="/wiki/%E6%93%AC%E4%BC%BC%E3%82%B3%E3%83%BC%E3%83%89" title="擬似コード">擬似コード</a>を以下に示す。ここでは現在の解を currentNode、近傍の集合を L とし EVAL(node) は node の成績を出力する<a href="/wiki/%E9%96%A2%E6%95%B0_%28%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0%29" title="関数 (プログラミング)">関数</a>である。</p>
+<pre>
+Algo (Hill Climbing)
+  bestEval = -INF;
+  currentNode = startNode;
+  bestNode = NULL;
+  for MAX times
+     if (EVAL(currentNode) &gt; bestEval)
+         bestEval = EVAL(currentNode);
+         bestNode = currentNode;
+     L = NEIGHBORS(currentNode);
+     nextEval = -INF;
+     for all x in L
+        if (EVAL(x) &gt; nextEval)
+             currentNode = x;
+             nextEval = EVAL(x);
+  return currentNode;
+</pre>
+<p><a name=".E9.96.A2.E9.80.A3.E9.A0.85.E7.9B.AE"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=%E5%B1%B1%E7%99%BB%E3%82%8A%E6%B3%95&amp;action=edit&amp;section=3" title="節を編集: 関連項目">編集</a>]</span> <span class="mw-headline">関連項目</span></h2>
+<ul>
+<li><a href="/wiki/%E5%B1%80%E6%89%80%E6%8E%A2%E7%B4%A2%E6%B3%95" title="局所探索法">局所探索法</a></li>
+</ul>
+<div class="boilerplate metadata" id="stub">
+<table cellspacing="2" cellpadding="3" style="width:80%;border:solid #999 1px;background:#F8F8F8;margin:0.5em auto;clear:both">
+<tr>
+<td style="width:10%;text-align:right"><a href="/wiki/%E7%94%BB%E5%83%8F:Computer-blue.svg" class="image" title="まだ仕上げていません"><img alt="まだ仕上げていません" src="http://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Computer-blue.svg/50px-Computer-blue.svg.png" width="50" height="50" border="0" /></a></td>
+<td style="color:black">この「<b>山登り法</b>」は、<a href="/wiki/%E3%82%B3%E3%83%B3%E3%83%94%E3%83%A5%E3%83%BC%E3%82%BF" title="コンピュータ">コンピュータ</a>に関連した<b><a href="/wiki/Wikipedia:%E3%82%B9%E3%82%BF%E3%83%96" title="Wikipedia:スタブ">書きかけ項目</a></b>です。<a href="http://ja.wikipedia.org/w/index.php?title=%E5%B1%B1%E7%99%BB%E3%82%8A%E6%B3%95&amp;action=edit" class="external text" title="http://ja.wikipedia.org/w/index.php?title=%E5%B1%B1%E7%99%BB%E3%82%8A%E6%B3%95&amp;action=edit" rel="nofollow">この記事を加筆</a>して下さる人を求めています。<small>（<a href="/wiki/Portal:%E3%82%B3%E3%83%B3%E3%83%94%E3%83%A5%E3%83%BC%E3%82%BF" title="Portal:コンピュータ">Portal:コンピュータ</a>）</small></td>
+</tr>
+</table>
+</div>
+
+
+<!-- Saved in parser cache with key jawiki:pcache:idhash:683800-0!1!0!!ja!2 and timestamp 20070914072550 -->
+<div class="printfooter">
+ "<a href="http://ja.wikipedia.org/wiki/%E5%B1%B1%E7%99%BB%E3%82%8A%E6%B3%95">http://ja.wikipedia.org/wiki/%E5%B1%B1%E7%99%BB%E3%82%8A%E6%B3%95</a>" より作成</div>
+			<div id="catlinks"><p class='catlinks'><a href="/wiki/%E7%89%B9%E5%88%A5:Categories" title="特別:Categories">カテゴリ</a>: <span dir='ltr'><a href="/wiki/Category:%E3%82%B3%E3%83%B3%E3%83%94%E3%83%A5%E3%83%BC%E3%82%BF%E9%96%A2%E9%80%A3%E3%81%AE%E3%82%B9%E3%82%BF%E3%83%96%E9%A0%85%E7%9B%AE" title="Category:コンピュータ関連のスタブ項目">コンピュータ関連のスタブ項目</a></span> | <span dir='ltr'><a href="/wiki/Category:%E6%9C%80%E9%81%A9%E5%8C%96%E3%82%A2%E3%83%AB%E3%82%B4%E3%83%AA%E3%82%BA%E3%83%A0" title="Category:最適化アルゴリズム">最適化アルゴリズム</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>表示</h5>
+		<div class="pBody">
+			<ul>
+					 <li id="ca-nstab-main" class="selected"><a href="/wiki/%E5%B1%B1%E7%99%BB%E3%82%8A%E6%B3%95" title="本文を表示 [c]" accesskey="c">本文</a></li>
+					 <li id="ca-talk" class="new"><a href="/w/index.php?title=%E3%83%8E%E3%83%BC%E3%83%88:%E5%B1%B1%E7%99%BB%E3%82%8A%E6%B3%95&amp;action=edit" title="項目のノート [t]" accesskey="t">ノート</a></li>
+					 <li id="ca-edit"><a href="/w/index.php?title=%E5%B1%B1%E7%99%BB%E3%82%8A%E6%B3%95&amp;action=edit" title="このページを編集できます。投稿の前に「プレビューを実行」ボタンを使ってください。 [e]" accesskey="e">編集</a></li>
+					 <li id="ca-history"><a href="/w/index.php?title=%E5%B1%B1%E7%99%BB%E3%82%8A%E6%B3%95&amp;action=history" title="このページの過去の版 [h]" accesskey="h">履歴</a></li>
+				</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-personal">
+		<h5>個人用ツール</h5>
+		<div class="pBody">
+			<ul>
+				<li id="pt-login"><a href="/w/index.php?title=%E7%89%B9%E5%88%A5:Userlogin&amp;returnto=%E5%B1%B1%E7%99%BB%E3%82%8A%E6%B3%95" title="ログインすることが推奨されますが、しなくても構いません。 [o]" accesskey="o">ログインまたはアカウント作成</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-logo">
+		<a style="background-image: url(http://upload.wikimedia.org/wikipedia/ja/b/bc/Wiki.png);" href="/wiki/%E3%83%A1%E3%82%A4%E3%83%B3%E3%83%9A%E3%83%BC%E3%82%B8" title="メインページに移動 [z]" accesskey="z"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>ナビゲーション</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="/wiki/%E3%83%A1%E3%82%A4%E3%83%B3%E3%83%9A%E3%83%BC%E3%82%B8" title="メインページに移動 [z]" accesskey="z">メインページ</a></li>
+				<li id="n-portal"><a href="/wiki/Wikipedia:%E3%82%B3%E3%83%9F%E3%83%A5%E3%83%8B%E3%83%86%E3%82%A3%E3%83%BB%E3%83%9D%E3%83%BC%E3%82%BF%E3%83%AB" title="このプロジェクトについて、あなたのできることを探す場所です">コミュニティ・ポータル</a></li>
+				<li id="n-currentevents"><a href="/wiki/Portal:%E6%9C%80%E8%BF%91%E3%81%AE%E5%87%BA%E6%9D%A5%E4%BA%8B" title="最近の出来事">最近の出来事</a></li>
+				<li id="n-recentchanges"><a href="/wiki/%E7%89%B9%E5%88%A5:Recentchanges" title="最近更新が行われたページの一覧 [r]" accesskey="r">最近更新したページ</a></li>
+				<li id="n-randompage"><a href="/wiki/%E7%89%B9%E5%88%A5:Random" title="ランダムに記事を選んで表示 [x]" accesskey="x">おまかせ表示</a></li>
+				<li id="n-commonsupload"><a href="http://commons.wikimedia.org/wiki/Special:Upload?uselang=ja">アップロード (ウィキメディア・コモンズ)</a></li>
+				<li id="n-contact"><a href="/wiki/Wikipedia:%E9%80%A3%E7%B5%A1%E5%85%88">ウィキペディアに関するお問い合わせ</a></li>
+			</ul>
+		</div>
+	</div>
+		<div class='portlet' id='p-help'>
+		<h5>ヘルプ</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-help"><a href="/wiki/Help:%E7%9B%AE%E6%AC%A1" title="ヘルプ・使い方">ヘルプ</a></li>
+				<li id="n-villagepump"><a href="/wiki/Wikipedia:%E4%BA%95%E6%88%B8%E7%AB%AF">井戸端</a></li>
+				<li id="n-.E3.81.8A.E7.9F.A5.E3.82.89.E3.81.9B"><a href="/wiki/Wikipedia:%E3%81%8A%E7%9F%A5%E3%82%89%E3%81%9B">お知らせ</a></li>
+				<li id="n-bugreports"><a href="/wiki/Wikipedia:%E3%83%90%E3%82%B0%E3%81%AE%E5%A0%B1%E5%91%8A">バグの報告</a></li>
+				<li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/%E5%AF%84%E4%BB%98" title="私たちをサポートしてください">寄付</a></li>
+			</ul>
+		</div>
+	</div>
+		<div id="p-search" class="portlet">
+		<h5><label for="searchInput">検索</label></h5>
+		<div id="searchBody" class="pBody">
+			<form action="/wiki/%E7%89%B9%E5%88%A5:Search" id="searchform"><div>
+				<input id="searchInput" name="search" type="text" title="ウィキ内を検索 [f]" accesskey="f" value="" />
+				<input type='submit' name="go" class="searchButton" id="searchGoButton"	value="表示" />&nbsp;
+				<input type='submit' name="fulltext" class="searchButton" id="mw-searchButton" value="検索" />
+			</div></form>
+		</div>
+	</div>
+	<div class="portlet" id="p-tb">
+		<h5>ツールボックス</h5>
+		<div class="pBody">
+			<ul>
+				<li id="t-whatlinkshere"><a href="/wiki/%E7%89%B9%E5%88%A5:Whatlinkshere/%E5%B1%B1%E7%99%BB%E3%82%8A%E6%B3%95" title="このページにリンクしているページの一覧 [j]" accesskey="j">リンク元</a></li>
+				<li id="t-recentchangeslinked"><a href="/wiki/%E7%89%B9%E5%88%A5:Recentchangeslinked/%E5%B1%B1%E7%99%BB%E3%82%8A%E6%B3%95" title="最近更新が行われたこのページのリンク先 [k]" accesskey="k">リンク先の更新状況</a></li>
+<li id="t-upload"><a href="/wiki/%E7%89%B9%E5%88%A5:Upload" title="画像やメディアファイルをアップロード [u]" accesskey="u">アップロード</a></li>
+<li id="t-specialpages"><a href="/wiki/%E7%89%B9%E5%88%A5:Specialpages" title="特別ページの一覧 [q]" accesskey="q">特別ページ</a></li>
+				<li id="t-print"><a href="/w/index.php?title=%E5%B1%B1%E7%99%BB%E3%82%8A%E6%B3%95&amp;printable=yes" title="このページの印刷用バージョン [p]" accesskey="p">印刷用バージョン</a></li>				<li id="t-permalink"><a href="/w/index.php?title=%E5%B1%B1%E7%99%BB%E3%82%8A%E6%B3%95&amp;oldid=13733042" title="この版への固定リンク">この版への固定リンク</a></li><li id="t-cite"><a href="/w/index.php?title=%E7%89%B9%E5%88%A5:Cite&amp;page=%E5%B1%B1%E7%99%BB%E3%82%8A%E6%B3%95&amp;id=13733042">この項目を引用</a></li>			</ul>
+		</div>
+	</div>
+	<div id="p-lang" class="portlet">
+		<h5>他の言語</h5>
+		<div class="pBody">
+			<ul>
+				<li class="interwiki-de"><a href="http://de.wikipedia.org/wiki/Bergsteigeralgorithmus">Deutsch</a></li>
+				<li class="interwiki-en"><a href="http://en.wikipedia.org/wiki/Hill_climbing">English</a></li>
+				<li class="interwiki-zh"><a href="http://zh.wikipedia.org/wiki/%E7%88%AC%E5%B1%B1%E7%AE%97%E6%B3%95">中文</a></li>
+			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="/skins-1.5/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>
+				<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="/images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>
+			<ul id="f-list">
+				<li id="lastmod"> 最終更新 2007年7月18日 (水) 01:53。</li>
+				<li id="copyright">All text is available under the terms of the <a href="/wiki/Wikipedia:Text_of_GNU_Free_Documentation_License" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (詳細は <b><a href="/wiki/Wikipedia:%E8%91%97%E4%BD%9C%E6%A8%A9" title="Wikipedia:著作権">著作権</a></b> を参照)<br />Wikipedia&reg; は <a href="http://wikimediafoundation.org/wiki/%E3%83%A1%E3%82%A4%E3%83%B3%E3%83%9A%E3%83%BC%E3%82%B8">Wikimedia Foundation, Inc.</a> の米国およびその他の国における登録商標です。<br /></li>
+				<li id="privacy"><a href="http://wikimediafoundation.org/wiki/%E3%83%97%E3%83%A9%E3%82%A4%E3%83%90%E3%82%B7%E3%83%BC%E3%83%BB%E3%83%9D%E3%83%AA%E3%82%B7%E3%83%BC" title="wikimedia:プライバシー・ポリシー">プライバシー・ポリシー</a></li>
+				<li id="about"><a href="/wiki/Wikipedia:%E3%82%A6%E3%82%A3%E3%82%AD%E3%83%9A%E3%83%87%E3%82%A3%E3%82%A2%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6" title="Wikipedia:ウィキペディアについて">ウィキペディアについて</a></li>
+				<li id="disclaimer"><a href="/wiki/Wikipedia:%E5%85%8D%E8%B2%AC%E4%BA%8B%E9%A0%85" title="Wikipedia:免責事項">免責事項</a></li>
+			</ul>
+		</div>
+		
+	
+		<script type="text/javascript">if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by srv166 in 0.165 secs. --></body></html>

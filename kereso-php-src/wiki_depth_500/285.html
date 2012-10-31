@@ -1,0 +1,985 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+<title>LS Grimoire: A* Search Algorithm</title>
+<link rel="stylesheet" href="/css/general.css" type="text/css" />
+<link rel="icon" href="/images/logo16.ico" />
+<link title="Lost Souls" type="application/opensearchdescription+xml" rel="search" href="http://lostsouls.org/search.xml" />
+<script type="text/javascript" src="/js/mouseover.js"></script>
+<script type="text/javascript" src="/js/ie_nav_hover.js"></script>
+</head>
+<body>
+<div id="content">
+<div id="outer">
+<div id="top">
+<div class="icon">
+<a href="/"><img alt="Lost Souls" title="Lost Souls" width="180" height="50" src="/images/logo_horiz_bgw_180x50_tr.gif" /></a>
+</div>
+<div class="login">
+not logged in
+<br />
+<a href="/login.php?auth_target=%2Fgrimoire_astar">log in</a><div class="break"></div>
+</div>
+<div class="break"></div>
+</div>
+<div id="nav">
+  <span class="b1"></span><span class="b2"></span><span class="b3"></span><span class="b4"></span><span class="b5"></span>
+  <div class="section">
+    <a href="/">Game</a>    <div class="children">
+      <div class="child"><a href="/changelog">Changelog</a></div>
+      <div class="child"><a href="/gallery">Gallery</a></div>
+      <div class="child"><a href="/grimoire">Grimoire</a></div>
+      <div class="child"><a href="telnet://lostsouls.org/">Connect</a></div>
+    </div>
+  </div>
+  <div class="section">
+    <a href="/web_overview">Web</a>    <div class="children">
+      <div class="child"><a href="/on_the_web">On the Web</a></div>
+      <div class="child"><a href="/web_resources">Resources</a></div>
+      <div class="child"><a href="/wiki">Wiki</a></div>
+    </div>
+  </div>
+  <span class="b5b"></span><span class="b4b"></span><span class="b3b"></span><span class="b2b"></span><span class="b1b"></span>
+</div>
+<div class="break"></div>
+<div id="bread">
+    <span class="crumb"><a href="/">Home</a> &raquo;</span>
+    <span class="crumb"><a href="/grimoire">Grimoire</a> &raquo;</span>
+    <span class="crumb last">A*</span>
+</div>
+<div class="break"></div>
+<div id="page">
+<h2>Grimoire: A* Search Algorithm</h2>
+<div class="right_wide_skyscraper">
+<script type="text/javascript"><!--
+google_ad_client = "pub-0120443619746507";
+google_ad_width = 120;
+google_ad_height = 600;
+google_ad_format = "120x600_as";
+google_ad_type = "text_image";
+//2007-09-11: Grimoire
+google_ad_channel = "2472230275";
+google_color_border = "FFFFFF";
+google_color_bg = "000000";
+google_color_link = "0000FF";
+google_color_text = "CACAFF";
+google_color_url = "DF66FF";
+google_ui_features = "rc:6";
+//-->
+</script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+<br />
+<script type="text/javascript"><!--
+google_ad_client = "pub-0120443619746507";
+google_ad_width = 120;
+google_ad_height = 600;
+google_ad_format = "120x600_as";
+google_ad_type = "text_image";
+//2007-09-11: Grimoire
+google_ad_channel = "2472230275";
+google_color_border = "FFFFFF";
+google_color_bg = "000000";
+google_color_link = "0000FF";
+google_color_text = "CACAFF";
+google_color_url = "DF66FF";
+google_ui_features = "rc:6";
+//-->
+</script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+<br />
+<script type="text/javascript"><!--
+google_ad_client = "pub-0120443619746507";
+google_ad_width = 120;
+google_ad_height = 600;
+google_ad_format = "120x600_as";
+google_ad_type = "text_image";
+//2007-09-11: Grimoire
+google_ad_channel = "2472230275";
+google_color_border = "FFFFFF";
+google_color_bg = "000000";
+google_color_link = "0000FF";
+google_color_text = "CACAFF";
+google_color_url = "DF66FF";
+google_ui_features = "rc:6";
+//-->
+</script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div>
+<p class="code_disclaimer">
+This information is provided <b>AS IS</b> and any express or implied warranties, including, but not limited to, the implied
+warranties of merchantability and fitness for a particular purpose are <b>disclaimed</b>.  In no event shall the author or
+publisher be liable for any damages of any kind, however caused and on any theory of liability, arising in any way out of
+the use of this information, even if advised of the possibility of such damage.
+</p>
+<p class="code_archive">
+Tarball: <a href="code/lpc-astar-1.5.1.tar.gz">lpc-astar-1.5.1.tar.gz</a>
+</p>
+<p class="code_file">
+Source File: <a href="code/astar.c">astar.c</a>
+</p>
+<p class="code">
+// A* Search Algorithm Module
+//
+// Provides a fairly general implementation of the A* search algorithm
+// that can be used to search arbitrary problem spaces.  A* search is a
+// modification of best-first search that uses a heuristic to determine
+// which paths to preferentially search, frequently based on coordinate-space
+// distance from the path endpoint to the goal.  It is commonly regarded as
+// the best general algorithm for pathfinding within a Cartesian space.
+// See http://en.wikipedia.org/wiki/A*_search_algorithm for more.
+//
+// This module's official home: http://lostsouls.org/grimoire_astar
+// New versions will be posted there.
+//
+// You may do anything you like with this code so long as these two lines,
+// the thirteen preceding and the nine following are retained intact.
+// 
+// v1.0   2007-05-11, Chaos of Lost Souls, http://lostsouls.org/
+// v1.1   2007-05-29, Chaos; factored astar.h out of astar.c
+// v1.2   2007-06-13, Chaos; moved all state to pathfind data structure
+// v1.3   2007-07-09, Chaos; added delta costs, code cleanup
+// v1.4   2007-08-12, Chaos; added active delta to pathfind structure
+// v1.4.1 2007-08-31, Chaos; improved comments
+// v1.5   2007-09-03, Chaos; made locus not considered visited until valid
+// v1.5.1 2007-09-04, Chaos: improved comments
+
+// This module is written for LPC as implemented by the LDMud driver,
+// http://www.bearnip.com/lars/proj/ldmud.html.  An effort has been made
+// to avoid highly driver-specific features, and the module should be
+// portable to e.g. MudOS with moderate effort.
+
+// This is not a toy or demonstration version of A* search; it is a module
+// written to be used (and in active use) in a production environment that
+// needs to deploy A* in a variety of contexts.  I've worked to make it
+// clear and well-documented, but its primary purpose is not to explain A*
+// search, it is to provide a clear, well-documented module that implements
+// a working practical version of the algorithm.  In Lost Souls, the module
+// is presently used to perform pathfinding in 2D and 3D coordinate-space
+// and hybrid coordinate-space/arbitrary-linkage MUD areas, as well as
+// searching in the problem space made up of A* results from those instances.
+
+// In order to work properly with A* search as implemented by this module,
+// your situation needs to be describable in terms of a few crucial concepts.
+//
+// The first concept is 'loci': there need to be things resembling locations,
+// states, options, or the like that can be represented in some consistent
+// fashion.  One common kind of locus is a point in a Cartesian coordinate
+// space, an X, Y or X, Y, Z location; another is a MUD room filename.  The
+// concept of a locus isn't limited to describing location; loci could as
+// easily be behaviors, frames of mind, geometrical arrangements, goals, or
+// anything else.  You should be able to generally figure out some sort of
+// distance (more generally, a cost-to-reach estimate) between two loci
+// without any other information; a Cartesian space works well for this part.
+// It's okay if there are some loci you can find a distance for and some 
+// you can't, as with a MUD area that has some rooms on a Cartesian grid and
+// some off of it -- this module is set up to deal with that -- but if you 
+// can't find a distance for anything and all of your loci have the same
+// cost to move between them, then you're not getting any benefit out of
+// the A* algorithm and may as well just do an exhaustive search.
+//
+// The second concept is 'deltas': there need to be quantifiable ways to
+// move between adjacent loci.  These might be simply lists of offsets in
+// a coordinate space, e.g. ({ 0, 1, 0 }), they may be directions like
+// &quot;north&quot; or commands like &quot;enter portal&quot;, or for more esoteric loci they
+// may be abstract link identifiers or other ways of describing change.
+//
+// The third concept is 'costs'.  Deltas have an associated cost; the lower
+// the cost of the delta, the more desirable it is to use it.  This may
+// represent relative difficulty of terrain, varying time delays between
+// exits, or anything else that affects the desirability of using a delta.
+// If all deltas are equally desirable, just use 1 for their cost.
+//
+// The information you *must* be able to provide the algorithm in order for
+// it to function is the answer to the question &quot;which loci are adjacent
+// to this locus and how do I get to them from here?&quot;  Everything else is
+// optional.
+//
+// A sample implementation might look like this:
+//
+// #include &lt;astar.h&gt;
+//
+// inherit &quot;/mod/algorithm/astar&quot;;           // this module
+//
+// #define Map_Min_X    1
+// #define Map_Max_X    20
+// #define Map_Min_Y    1
+// #define Map_Max_Y    10
+// #define X            0
+// #define Y            1
+//
+// // Neighbors rule produces loci and deltas for the points adjacent to us.
+//
+// mixed * astar_neighbors_rule(mixed * pathfind) {
+//     int * locus = pathfind[Astar_Pathfind_Active_Locus];
+//     mixed * out = ({});
+//     if(locus[X] &gt; Map_Min_X)
+//         out += ({({
+//             ({ locus[X] - 1, locus[Y] }), // Adjacent locus
+//             ({ -1, 0 }),                  // Delta to adjacent locus
+//             1,                            // Cost of delta
+//         })});
+//     if(locus[X] &lt; Map_Max_X)
+//         out += ({({
+//             ({ locus[X] + 1, locus[Y] }), // Adjacent locus
+//             ({ 1, 0 }),                   // Delta to adjacent locus
+//             1,                            // Cost of delta
+//         })});
+//     if(locus[Y] &gt; Map_Min_Y)
+//         out += ({({
+//             ({ locus[X], locus[Y] - 1 }), // Adjacent locus
+//             ({ 0, -1 }),                  // Delta to adjacent locus
+//             1,                            // Cost of delta
+//         })});
+//     if(locus[Y] &lt; Map_Max_Y)
+//         out += ({({
+//             ({ locus[X], locus[Y] + 1 }), // Adjacent locus
+//             ({ 0, 1 }),                   // Delta to adjacent locus
+//             1,                            // Cost of delta
+//         })});
+//     return out;
+// }
+//
+// // Distance rule calculates the distance from a point to the target
+// // locus.  Using the Pythagorean Theorem, yo.
+//
+// float astar_distance_rule(mixed * pathfind) {
+//     int * a = pathfind[Astar_Pathfind_Active_Locus];
+//     int * b = pathfind[Astar_Pathfind_To];
+//     int dx = a[X] - b[X];
+//     int dy = a[Y] - b[Y];
+//     return sqrt(dx * dx + dy * dy);
+// }
+//
+// // Locus key rule gives us a unique value corresponding to a locus that
+// // can be reliably used as a mapping key.  Since we're using arbitrary
+// // two-element arrays as loci, and arrays are pointers that will give
+// // unpredictable behavior when used as mapping keys, we need to use this
+// // so the algorithm can tell where it's been.
+//
+// int astar_locus_key_rule(int * locus) {
+//     return (locus[X] &lt;&lt; 16) | locus[Y];
+// }
+//
+// // Run limit rule tells the algorithm when to stop running and continue
+// // on a call_out.
+//
+// int astar_run_limit_rule(mixed * pathfind) {
+//     return get_eval_cost() &lt; __MAX_EVAL_COST__ / 2;
+// }
+//
+// // Set up the A* module.
+//
+// void create() {
+//     set_astar_neighbors_rule(#'astar_neighbors_rule);
+//     set_astar_distance_rule(#'astar_distance_rule);
+//     set_astar_locus_key_rule(#'astar_locus_key_rule);
+//     set_astar_run_limit_rule(#'astar_run_limit_rule);
+//     set_astar_caching(1);
+// }
+//
+// // This is our callback when pathfinding completes (for better or worse);
+// // it displays the path to this_player().
+//
+// void end_random_pathfind(mixed * path) {
+//     if(path) {
+//         mixed * loci = path[Astar_Path_Loci];
+//         write(&quot;Path from &quot; + loci[0][X] + &quot;,&quot; + loci[0][Y] + &quot; to &quot; +
+//             loci[&lt;1][X] + &quot;,&quot; + loci[&lt;1][Y] + &quot;:\n&quot;);
+//         foreach(mixed * locus : loci)
+//             write(&quot;    &quot; + locus[X] + &quot;,&quot; + locus[Y] + &quot;\n&quot;);
+//     } else {
+//         write(&quot;Cannot find path.\n&quot;);
+//     }
+// }
+//
+// // Picks two random points in our coordinate space and pathfinds between
+// // them.
+//
+// void start_random_pathfind() {
+//     int * start = ({ Map_Min_X + random(Map_Max_X - Map_Min_X + 1),
+//         Map_Min_Y + random(Map_Max_Y - Map_Min_Y + 1) });
+//     int * target = ({ Map_Min_X + random(Map_Max_X - Map_Min_X + 1),
+//         Map_Min_Y + random(Map_Max_Y - Map_Min_Y + 1) });
+//     astar_find_path(start, target, 0, #'end_random_pathfind);
+// }
+
+// This module uses macros from the file astar.h, which should be found
+// accompanying this code, for its 'path' and 'pathfind' data structures
+// and its result codes.  astar.h should be placed in a suitable include
+// directory.
+
+#include &lt;astar.h&gt;
+
+// SECTION: Instance configuration
+//
+// These configuration functions are used by an application of the astar
+// module to define its behavior and allow it to retrieve the information
+// it works with.  Most of them are passed a closure (function pointer)
+// pointing to a function you have defined (as shown in the example
+// implementation above) that the astar module then calls when it needs to.
+
+// Neighbors rule
+//
+// The neighbors rule is used to retrieve all loci adjacent to a specified
+// locus and the deltas used to reach them.  It is called with an astar
+// pathfind data structure (as defined by the Astar_Pathfind_* macros in
+// astar.h) as argument; this data structure is the same one used by the
+// algorithm for tracking the pathfinding attempt in general, which means
+// that 1) the fields in it all contain valid information and can be used
+// to examine the pathfind, and 2) the fields in it should not be changed
+// or you will almost certainly cause errors.  Some fields in the data
+// structure will be set specifically for this retrieval:
+//
+//     pathfind[Astar_Pathfind_Active_Locus]
+//         Will be set to the locus whose neighbors we want to retrieve.
+//     pathfind[Astar_Pathfind_Active_Delta]
+//         Will be set to the delta from the previous locus in the path
+//         to the active locus.  Set to 0 at the beginning of a path.
+//     pathfind[Astar_Pathfind_Active_Path]
+//         Will be set to the entire path leading to the active locus.
+//         This is a path data structure as defined by the Astar_Path_*
+//         macros in astar.h.
+//
+// The return value that the neighbors rule should provide is an array of
+// three-element arrays in which the first element is a locus, the second
+// element is the delta used to reach it, and the third element is the cost
+// of the delta.  That means something like this:
+//
+//     return ({({
+//         FIRST_LOCUS,
+//         FIRST_DELTA,
+//         COST_OF_FIRST_DELTA,
+//     }), ({
+//         SECOND_LOCUS,
+//         SECOND_DELTA,
+//         COST_OF_SECOND_DELTA,
+//     })});
+//
+// Alternately, the neighbors rule may return Astar_Result_Processing,
+// which tells the algorithm to retry the request on a call_out slightly
+// later.
+//
+// A neighbors rule is required for the algorithm to function.
+
+private closure neighbors_rule;
+
+void set_astar_neighbors_rule(closure val) {
+    neighbors_rule = val;
+}
+
+closure query_astar_neighbors_rule() {
+    return neighbors_rule;
+}
+
+// Distance rule
+//
+// The distance rule is used to determine the distance (for non-locational
+// problem spaces, think of it as a cost estimate) from a specified locus
+// to the target locus.  It is called with the astar pathfind data structure
+// structure; see the notes on the neighbors rule for more on this.  Fields
+// of particular concern to the distance rule are:
+//
+//     pathfind[Astar_Pathfind_To]
+//         The destination locus of the pathfind; we are trying to find
+//         the distance from the active locus to here.
+//     pathfind[Astar_Pathfind_Active_Locus]
+//         The locus whose distance from the destination locus we want to
+//         know.
+//
+// The return value needed is a int or float value indicating the distance
+// (or estimating the cost), or -1 if the distance cannot be determined.
+//
+// Using a distance rule is optional but strongly encouraged.
+
+private closure distance_rule;
+
+void set_astar_distance_rule(closure val) {
+    distance_rule = val;
+}
+
+closure query_astar_distance_rule() {
+    return distance_rule;
+}
+
+// Locus rule
+//
+// The locus rule is used to convert the representation of a locus into the
+// form you want.  If, for instance, the pathfinder routine might wind up
+// called with a string filename or an object for its loci, and you want to
+// use the filename for how you're going to work with loci internally, you
+// can define this hook in order to perform the conversion.  It is called
+// with a locus representation as its argument; this is provided by the code
+// requesting the pathfind and can be anything at all.  The return value
+// needed is the final desired representation for the locus.  Optional.
+
+private closure locus_rule;
+
+void set_astar_locus_rule(closure val) {
+    locus_rule = val;
+}
+
+closure query_astar_locus_rule() {
+    return locus_rule;
+}
+
+// Locus key rule
+//
+// The locus key rule is used to represent a locus for purposes of checking
+// whether it has been visited.  You will usually need to use this if your
+// loci aare normally represented as pointers (arrays or mappings), unless
+// the pointers for a given locus can be guaranteed to always be the same.
+// Otherwise, the system can't tell which loci it's visited.  It is called
+// with a locus as argument.  The return value needed is the &quot;flat&quot;
+// representation to use for the locus, most typically a string or int.
+// Optional.
+
+private closure locus_key_rule;
+
+void set_astar_locus_key_rule(closure val) {
+    locus_key_rule = val;
+}
+
+closure query_astar_locus_key_rule() {
+    return locus_key_rule;
+}
+
+// Completion rule
+//
+// The completion rule can be used to determine whether an acceptable path
+// destination has been found; if one is not supplied, equivalency between
+// the locus keys of the prospective completion locus and the target locus
+// is checked.  It is called with the astar pathfind data structure as
+// argument; see the notes on the neighbor rule for more about this.  Fields
+// of particular relevance to this rule are:
+//
+//     pathfind[Astar_Pathfind_To]
+//         The destination locus of the pathfind.
+//     pathfind[Astar_Pathfind_Active_Locus]
+//         The locus being checked.
+//
+// It should return true if the locus is a valid completion locus.
+
+private closure completion_rule;
+
+void set_astar_completion_rule(closure val) {
+    completion_rule = val;
+}
+
+closure query_astar_completion_rule() {
+    return completion_rule;
+}
+
+// Run limit rule
+//
+// The run limit rule is used to check whether the algorithm has run for too
+// long and should be rescheduled or aborted.  It is called with the astar
+// pathfind data structure as argument.  The return value needed is any true
+// value if the run limit has been exceeded, false if not.  Optional.
+
+private closure run_limit_rule;
+
+void set_astar_run_limit_rule(closure val) {
+    run_limit_rule = val;
+}
+
+closure query_astar_run_limit_rule() {
+    return run_limit_rule;
+}
+
+// Caching
+//
+// The cache retains the pathfinding results that have been obtained so they
+// do not have to be recalculated after being requested once, at the cost of
+// some memory usage.  One would use set_astar_caching(1) in the instance to
+// turn on caching.
+//
+// If your neighbors rule does not always return the same results for a given
+// locus, for instance if you use extra arguments to provide varying results
+// as with terrain difficulty varies by the person traversing it, then you
+// should generally not turn on caching, because the cached paths may not
+// remain valid and could be returned in inappropriate circumstances.
+
+private mapping cache;
+
+void set_astar_caching(int val) {
+    if(val)
+        cache = ([]);
+    else
+        cache = 0;
+}
+
+int query_astar_caching() {
+    return cache &amp;&amp; 1;
+}
+
+// Validate key rule
+//
+// The validate key rule is only meaningful if you have caching turned on.
+// It can be used to provide mapping-key-usable representations of 'validate'
+// closures passed to astar_find_path().  A common way to construct the rule
+// is to return the to_string() of the closure; this implies that a particular
+// 'validate' closure will always return the same way for a particular locus.
+// This is used for caching pathfinding results with 'validate' rules.  If you
+// cannot guarantee consistent results for a given 'validate' function, you
+// should return 0 from the validate key rule so that the system knows not to
+// cache the path using it.  If this rule is not defined, paths generated with
+// 'validate' rules will not be cached.  The validate key rule is called with
+// the astar pathfind data structure as argument, with the most relevant
+// field being:
+//
+//     pathfind[Astar_Pathfind_Validate]
+//         The 'validate' closure provided for the pathfinding attempt
+// 
+// The validate key rule should return the representation to use for the
+// 'validate' closure -- usually a string or int, or 0 if no representation is
+// appropriate or available.  Optional.
+
+private closure validate_key_rule;
+
+void set_astar_validate_key_rule(closure val) {
+    validate_key_rule = val;
+}
+
+closure query_astar_validate_key_rule() {
+    return validate_key_rule;
+}
+
+// SECTION: Internal support functions
+//
+// These are functions used by the A* module.  Instances do not need to
+// interact with them.
+
+// astar_path_sort()
+//
+// Sorting function for paths, based on their cost.  Sorts low-cost paths
+// to the end of the list.
+//
+// Portability note: this function provides return values suitable for a
+// quicksort-style sorting algorithm; porting to drivers that implement
+// sort_array() as other algorithms will require changes to this function.
+// The version of this function that would be appropriate to the original
+// LPMud sort_array(), which expects only 0 or 1 as return value, would be:
+// 
+// private int astar_path_sort(mixed * a, mixed * b) {
+//     return a[Astar_Path_Cost] &lt; b[Astar_Path_Cost];
+// }
+
+private int astar_path_sort(mixed * a, mixed * b) {
+    float cost_a = a[Astar_Path_Cost];
+    float cost_b = b[Astar_Path_Cost];
+    if(cost_a &gt; cost_b)
+        return -1;
+    else if(cost_a &lt; cost_b)
+        return 1;
+    else
+        return 0;
+}
+
+// astar_distance()
+//
+// Distance retrieval process.  The distance rule is allowed to return -1
+// if, for whatever reason, it doesn't know how far it is between loci;
+// the cost of the new path is set to be one greater than the cost of the
+// path it extends.
+
+private float astar_distance(mixed * pathfind) {
+    if(!distance_rule)
+        return pathfind[Astar_Pathfind_Active_Path][Astar_Path_Distance] + 1.0;
+    mixed res = funcall(distance_rule, pathfind);
+    if(res == -1)
+        return pathfind[Astar_Pathfind_Active_Path][Astar_Path_Distance] + 1.0;
+    else
+        return res;
+}
+
+// astar_key()
+//
+// Locus key retrieval process.  Finds the representation to use for the
+// locus in checking visited status.
+
+private mixed astar_key(mixed locus) {
+    return locus_key_rule ? funcall(locus_key_rule, locus) : locus;
+}
+
+// astar_cached_path()
+//
+// Cached path retrieval.
+
+private mixed astar_cached_path(mixed * pathfind) {
+    if(!cache)
+        return 0;
+    closure validate = pathfind[Astar_Pathfind_Validate];
+    mixed validate_key = validate &amp;&amp; validate_key_rule &amp;&amp;
+        funcall(validate_key_rule, pathfind);
+    if(!validate || validate_key) {
+        mapping validate_cache = cache[validate_key];
+        if(validate_cache) {
+            mixed from_key = astar_key(pathfind[Astar_Pathfind_From]);
+            mapping from_cache = validate_cache[from_key];
+            if(from_cache) {
+                mixed to_key = astar_key(pathfind[Astar_Pathfind_To]);
+                mixed path = from_cache[to_key];
+                if(path)
+                    return path;
+            }
+        }
+    }
+    return 0;
+}
+
+// astar_pathfinder()
+//
+// Performs the actual work of path calculation; it takes a fully
+// initialized (and maybe partially processed) pathfind data structure
+// as argument.  It can resume from any point in the pathfinding
+// process, which is what lets the algorithm suspend activity when
+// a run limit is reached and resume via a call_out.
+
+private mixed astar_pathfinder(mixed * pathfind) {
+    if(pathfind[Astar_Pathfind_Iteration]) {
+        mixed path = astar_cached_path(pathfind);
+        if(path) {
+            if(path == -1)
+                path = 0;
+            if(pathfind[Astar_Pathfind_Callback])
+                apply(pathfind[Astar_Pathfind_Callback], path,
+                    pathfind[Astar_Pathfind_Extra]);
+            return path;
+        }
+    }
+    mixed to_key = astar_key(pathfind[Astar_Pathfind_To]);
+    for(;;) {
+        if(run_limit_rule &amp;&amp; funcall(run_limit_rule, pathfind)) {
+            if(pathfind[Astar_Pathfind_Callback]) {
+                pathfind[Astar_Pathfind_Iteration]++;
+                call_out(#'astar_pathfinder, 2, pathfind);
+                return Astar_Result_Processing;
+            } else {
+                return Astar_Result_Terminated;
+            }
+        }
+        mixed * extended = ({});
+        // Sort the paths on their cost; we only want to deal with the
+        // lowest-cost paths out of the ones we have
+        mixed * paths = sort_array(pathfind[Astar_Pathfind_Paths],
+            #'astar_path_sort);
+        // Get the cost of the best path on hand; we only want paths with
+        // this cost
+        float cost = paths[&lt;1][Astar_Path_Cost];
+        int ix;
+        // Check for possible extensions on as many paths as we have that
+        // are at our best cost
+        for(ix = sizeof(paths) - 1; ix &gt;= 0 &amp;&amp;
+                paths[ix][Astar_Path_Cost] &lt;= cost; ix--) {
+            mixed * path = paths[ix];
+            pathfind[Astar_Pathfind_Active_Path] = path;
+            pathfind[Astar_Pathfind_Active_Locus] =
+                path[Astar_Path_Loci][&lt;1];
+            mixed * deltas = path[Astar_Path_Deltas];
+            pathfind[Astar_Pathfind_Active_Delta] =
+                sizeof(deltas) ? deltas[&lt;1] : 0;
+            // Retrieve the list of neighbor loci and deltas to reach them
+            mixed neighbors = funcall(neighbors_rule, pathfind);
+            if(!pointerp(neighbors)) {
+                if(neighbors == Astar_Result_Processing) {
+                    if(pathfind[Astar_Pathfind_Callback]) {
+                        pathfind[Astar_Pathfind_Iteration]++;
+                        call_out(#'astar_pathfinder, 2, pathfind);
+                        return Astar_Result_Processing;
+                    } else {
+                        return Astar_Result_Cannot_Continue;
+                    }
+                } else {
+                    raise_error(&quot;Invalid return value from neighbors rule&quot;);
+                }
+            }
+            foreach(mixed * neighbor : neighbors) {
+                mixed locus = neighbor[0];
+                mixed delta = neighbor[1];
+                mixed cost = neighbor[2];
+                // If we've already been here, never mind
+                mixed key = astar_key(locus);
+                if(pathfind[Astar_Pathfind_Visited][key])
+                    continue;
+                // Register locus and delta in pathfind struct
+                pathfind[Astar_Pathfind_Active_Locus] = locus;
+                pathfind[Astar_Pathfind_Active_Delta] = delta;
+                // If we have a validation rule for loci, check against it
+                if(pathfind[Astar_Pathfind_Validate] &amp;&amp;
+                    !funcall(pathfind[Astar_Pathfind_Validate], pathfind))
+                    continue;
+                // Okay, then, now we've been here
+                pathfind[Astar_Pathfind_Visited][key] = 1;
+                // Otherwise, it's a valid extension.  Assemble the extended
+                // path with this locus added to it, and calculate the
+                // distance and cost
+                mixed * path = pathfind[Astar_Pathfind_Active_Path];
+                mixed * ext_path = copy(path);
+                ext_path[Astar_Path_Loci] += ({ locus });
+                ext_path[Astar_Path_Deltas] += ({ delta });
+                ext_path[Astar_Path_Distance] = astar_distance(pathfind);
+                // The cost of the extended path is its distance from the
+                // target locus, plus the portion of the base path's cost
+                // that is not based on its distance, plus the cost of the
+                // delta.
+                ext_path[Astar_Path_Cost] =
+                    path[Astar_Path_Cost] - path[Astar_Path_Distance] +
+                    ext_path[Astar_Path_Distance] + cost;
+                // If the locus we just reached is the target, we're done
+                int done = 0;
+                if(completion_rule)
+                    done = funcall(completion_rule, pathfind);
+                else if(key == to_key)
+                    done = 1;
+                if(done) {
+                    if(pathfind[Astar_Pathfind_Callback])
+                        apply(pathfind[Astar_Pathfind_Callback], ext_path,
+                            pathfind[Astar_Pathfind_Extra]);
+                    if(cache) {
+                        closure validate = pathfind[Astar_Pathfind_Validate];
+                        mixed validate_key = validate &amp;&amp; validate_key_rule &amp;&amp;
+                            funcall(validate_key_rule, pathfind);
+                        if(!validate || validate_key) {
+                            mapping validate_cache =
+                                cache[validate_key] ||= ([]);
+                            mixed from_key =
+                                astar_key(pathfind[Astar_Pathfind_From]);
+                            mapping from_cache =
+                                validate_cache[from_key] ||= ([]);
+                            from_cache[to_key] = ext_path;
+                        }
+                    }
+                    return ext_path;
+                }
+                // Keep track of the extended path
+                extended += ({ ext_path });
+            }
+        }
+        // Get rid of the paths that we extended, and add the newly extended
+        // paths to our list
+        paths = paths[0 .. ix] + extended;
+        // If we no longer have any paths to examine, we're out of luck
+        if(!sizeof(paths)) {
+            if(pathfind[Astar_Pathfind_Callback])
+                apply(pathfind[Astar_Pathfind_Callback], 0,
+                    pathfind[Astar_Pathfind_Extra]);
+            if(cache) {
+                closure validate = pathfind[Astar_Pathfind_Validate];
+                mixed validate_key = validate &amp;&amp; validate_key_rule &amp;&amp;
+                    funcall(validate_key_rule, pathfind);
+                if(!validate || validate_key) {
+                    mapping validate_cache =
+                        cache[validate_key] ||= ([]);
+                    mixed from_key =
+                        astar_key(pathfind[Astar_Pathfind_From]);
+                    mapping from_cache =
+                        validate_cache[from_key] ||= ([]);
+                    from_cache[to_key] = -1;
+                }
+            }
+            return Astar_Result_Impossible;
+        }
+        pathfind[Astar_Pathfind_Paths] = paths;
+    }
+}
+
+// SECTION: Operational interface
+
+// astar_find_path()
+//
+// Performs pathfinding starting with the 'from' locus, searching for the
+// 'to' locus.
+//
+// 'validate' can be used to provide a closure that checks whether a locus
+// is valid to include in the path.  It is called with the astar pathfind
+// data structure as argument; see the notes on the neighbor rule for more
+// on this.  Fields of particular concern for the validation call are:
+// 
+//     pathfind[Astar_Pathfind_Active_Locus]
+//         Set to the locus being examined.
+//     pathfind[Astar_Pathfind_Active_Delta]
+//         The delta to reach the active locus from the previous locus.
+//     pathfind[Astar_Pathfind_Active_Path]
+//         The entire path leading to the previous locus; this is a path
+//         data structure as defined by the Astar_Path_* macros in astar.h.
+//
+// The 'validate' function should return true if the locus being examined
+// should be included in the path.
+//
+// 'callback' can be used to provide a closure to be called at the completion
+// of pathfinding.  The first argument to it will be the path found (an A*
+// path data structure from astar.h), if pathfinding was successful, or 0 if
+// no path could be found.  Providing a callback allows pathfinding to be
+// carried out across call_outs; if no callback is provided, then pathfinding
+// will execute until it reaches the run limit defined by the instance, if
+// any, or it hits the eval limit.  With a callback, pathfinding runs until
+// it reaches the run limit, then continues via call_out two seconds later,
+// continuing in this fashion until a path is found or all possible paths
+// have been searched.
+//
+// Any additional arguments sent after 'callback' become subsequent arguments
+// to be passed to 'callback' after the path argument; these are kept in an
+// array located at Astar_Pathfind_Extra in the pathfind data structure.
+//
+// If pathfinding is successful immediately, the return value is an A* path
+// structure from astar.h; otherwise, an appropriate A* result code from
+// astar.h is returned.
+
+varargs mixed astar_find_path(mixed from, mixed to, closure validate,
+    closure callback, varargs mixed * extra) {
+    // Constrain our representation of our 'from' and 'to' loci
+    if(locus_rule) {
+        from = funcall(locus_rule, from);
+        to = funcall(locus_rule, to);
+    }
+    // Set up pathfinding data structure
+    mixed * pathfind = allocate(Astar_Pathfind_Fields);
+    pathfind[Astar_Pathfind_From] = from;
+    pathfind[Astar_Pathfind_To] = to;
+    pathfind[Astar_Pathfind_Validate] = validate;
+    pathfind[Astar_Pathfind_Callback] = callback;
+    pathfind[Astar_Pathfind_Extra] = extra;
+    pathfind[Astar_Pathfind_Start_Time] = time();
+    pathfind[Astar_Pathfind_Iteration] = 0;
+    pathfind[Astar_Pathfind_Active_Locus] = from;
+    pathfind[Astar_Pathfind_Active_Delta] = 0;
+    // Check for a cached path
+    mixed path = astar_cached_path(pathfind);
+    if(path) {
+        if(path == -1)
+            path = 0;
+        if(callback)
+            apply(callback, path, extra);
+        return path;
+    }
+    // Set up our starting point based on the 'from' locus
+    mixed * start = allocate(Astar_Path_Fields);
+    pathfind[Astar_Pathfind_Active_Path] = start;
+    start[Astar_Path_Loci] = ({ from });
+    start[Astar_Path_Deltas] = ({});
+    start[Astar_Path_Distance] = astar_distance(pathfind);
+    start[Astar_Path_Cost] = start[Astar_Path_Distance];
+    // Starting point becomes our path list, mapping to track where we've
+    // visited starts out populated with starting locus
+    pathfind[Astar_Pathfind_Paths] = ({ start });
+    pathfind[Astar_Pathfind_Visited] = ([ astar_key(from) : 1 ]);
+    return astar_pathfinder(pathfind);
+}
+
+// astar_clear_cache()
+//
+// Clears out the contents of the cache.  This can be useful for allowing
+// caching in spaces that you otherwise couldn't use caching with because
+// some sort of dynamicism in them (changing exits, shifting graph
+// connectivity, etc.) would invalidate cached paths.  Using this, you can
+// call astar_clear_cache() when changes occur, so that no outdated paths
+// will be returned.
+
+void astar_clear_cache() {
+    if(!cache)
+        raise_error(&quot;astar_clear_cache() called with caching off&quot;);
+    cache = ([]);
+}
+</p>
+<p class="code_file">
+Source File: <a href="code/astar.h">astar.h</a>
+</p>
+<p class="code">
+#ifndef _Astar_Included
+#define _Astar_Included
+
+// A* Path Data Structure
+//
+// Tracks a path as modeled by the A* algorithm.
+//
+// Usage: if you have a variable 'path' with an A* path data structure
+// in it, such as is returned by an immediately successful pathfinding
+// attempt or passed to a notification callback, you would access the
+// data stored in it as path[Astar_Path_Loci], path[Astar_Path_Deltas],
+// and so on.
+
+// The list of loci making up the path.
+#define Astar_Path_Loci                        0
+// The deltas between loci in the path.  Each delta in the list represents
+// the change necessary to move from the locus in the corresponding position
+// in the list of loci to the next locus.
+#define Astar_Path_Deltas                      1
+// The path's distance from its target.
+#define Astar_Path_Distance                    2
+// The accumulated cost of the path.
+#define Astar_Path_Cost                        3
+
+#define Astar_Path_Fields                      4
+
+// A* Pathfind Data Structure
+//
+// Tracks the information defining a pathfinding attempt.
+//
+// Usage: if you have a variable 'pathfind' with an A* pathfind data
+// structure in it, such as is passed as an argument to most of the behavioral
+// control rules in the module, you would access the data stored in it as
+// pathfind[Astar_Pathfind_Active_Locus], pathfind[Astar_Pathfind_To], and
+// so on.
+
+// The starting locus of the pathfinding attempt
+#define Astar_Pathfind_From                    0
+// The target locus of the pathfinding attempt
+#define Astar_Pathfind_To                      1
+// The 'validate' argument astar_find_path() was called with, if any
+#define Astar_Pathfind_Validate                2
+// The 'callback' argument astar_find_path() was called with, if any
+#define Astar_Pathfind_Callback                3
+// An array of any extra arguments astar_find_path() was called with
+#define Astar_Pathfind_Extra                   4
+// A mapping of the loci visited
+#define Astar_Pathfind_Visited                 5
+// The time the pathfinding attempt started
+#define Astar_Pathfind_Start_Time              6
+// The number of times the pathfinding attempt has continued via call_out()
+#define Astar_Pathfind_Iteration               7
+// An array of the working path list for the pathfinding attempt
+#define Astar_Pathfind_Paths                   8
+// Set to the current path being worked with
+#define Astar_Pathfind_Active_Path             9
+// Set to the current locus being worked with
+#define Astar_Pathfind_Active_Locus            10
+// Set to the current delta being worked with
+#define Astar_Pathfind_Active_Delta            11
+
+#define Astar_Pathfind_Fields                  12
+
+// A* Result Codes
+
+// Result of astar_find_path() if pathfinding was moved to call_out(),
+// either by the run limit being reached or by the neighbors rule needing
+// ongoing processing, with a callback available
+#define Astar_Result_Processing                1
+// Result of astar_find_path() if pathfinding was found to be impossible
+#define Astar_Result_Impossible                2
+// Result of astar_find_path() if the run limit was encountered and
+// no callback was available
+#define Astar_Result_Terminated                3
+// Result of astar_find_path() if the neighbors rule needed ongoing
+// processing and no callback was available
+#define Astar_Result_Cannot_Continue           4
+
+#endif
+</p>
+</div>
+</div>
+</div>
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-2473039-1";
+urchinTracker();
+</script>
+</body>
+</html>

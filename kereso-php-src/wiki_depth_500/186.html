@@ -1,0 +1,394 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+				<meta name="keywords" content="Simulated annealing,Harmony search,Cross-entropy method,Stochastic optimization,Ant colony optimization,Genetic algorithms,Stochastic tunneling,Quantum annealing,Tabu search,Taboo,Stochastic gradient descent" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="http://www.gnu.org/copyleft/fdl.html" />
+		<title>Simulated annealing - Wikipedia, the free encyclopedia</title>
+		<style type="text/css" media="screen, projection">/*<![CDATA[*/
+			@import "/skins-1.5/common/shared.css?99";
+			@import "/skins-1.5/monobook/main.css?99";
+		/*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="/skins-1.5/common/commonPrint.css?99" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE50Fixes.css?99";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE55Fixes.css?99";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "/skins-1.5/monobook/IE60Fixes.css?99";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "/skins-1.5/monobook/IE70Fixes.css?99";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="/skins-1.5/common/IEFixes.js?99"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		
+		<script type= "text/javascript">/*<![CDATA[*/
+var skin = "monobook";
+var stylepath = "/skins-1.5";
+var wgArticlePath = "/wiki/$1";
+var wgScriptPath = "/w";
+var wgScript = "/w/index.php";
+var wgServer = "http://en.wikipedia.org";
+var wgCanonicalNamespace = "";
+var wgCanonicalSpecialPageName = false;
+var wgNamespaceNumber = 0;
+var wgPageName = "Simulated_annealing";
+var wgTitle = "Simulated annealing";
+var wgAction = "view";
+var wgRestrictionEdit = [];
+var wgRestrictionMove = [];
+var wgArticleId = "172244";
+var wgIsArticle = true;
+var wgUserName = null;
+var wgUserGroups = null;
+var wgUserLanguage = "en";
+var wgContentLanguage = "en";
+var wgBreakFrames = false;
+var wgCurRevisionId = "157852863";
+/*]]>*/</script>
+                
+		<script type="text/javascript" src="/skins-1.5/common/wikibits.js?99"><!-- wikibits js --></script>
+		<script type="text/javascript" src="/w/index.php?title=-&amp;action=raw&amp;gen=js&amp;useskin=monobook"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "/w/index.php?title=MediaWiki:Common.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=MediaWiki:Monobook.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=-&action=raw&gen=css&maxage=2678400";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+		<script type="text/javascript" src="/skins-1.5/common/ajax.js?99"></script>
+	</head>
+<body  class="mediawiki ns-0 ltr page-Simulated_annealing">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">Simulated annealing</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<div class="dablink">For other uses, see <a href="/wiki/Annealing" title="Annealing">Annealing</a>.</div>
+<p><b>Simulated annealing</b> (SA) is a generic <a href="/wiki/Probabilistic_algorithm" title="Probabilistic algorithm">probabilistic</a> <a href="/wiki/Meta-algorithm" title="Meta-algorithm">meta-algorithm</a> for the <a href="/wiki/Global_optimization" title="Global optimization">global optimization</a> problem, namely locating a good approximation to the <a href="/wiki/Global_optimum" title="Global optimum">global optimum</a> of a given <a href="/wiki/Function_%28mathematics%29" title="Function (mathematics)">function</a> in a large <a href="/wiki/Search_space" title="Search space">search space</a>. It was independently presented by S. Kirkpatrick, C. D. Gelatt and M. P. Vecchi in 1983, and by V. Černý in 1985. It originated as a generalisation of a <a href="/wiki/Monte_Carlo_method" title="Monte Carlo method">Monte Carlo method</a> for examining the equations of state and frozen states of n-body systems, invented by N. Metropolis et al in 1953.</p>
+<p>The name and inspiration come from <a href="/wiki/Annealing_%28metallurgy%29" title="Annealing (metallurgy)">annealing</a> in <a href="/wiki/Metallurgy" title="Metallurgy">metallurgy</a>, a technique involving heating and controlled cooling of a material to increase the size of its <a href="/wiki/Crystal" title="Crystal">crystals</a> and reduce their <a href="/wiki/Crystallographic_defect" title="Crystallographic defect">defects</a>. The heat causes the <a href="/wiki/Atom" title="Atom">atoms</a> to become unstuck from their initial positions (a local minimum of the <a href="/wiki/Internal_energy" title="Internal energy">internal energy</a>) and wander randomly through states of higher energy; the slow cooling gives them more chances of finding configurations with lower internal energy than the initial one.</p>
+<p>By analogy with this physical process, each step of the SA algorithm replaces the current solution by a random "nearby" solution; if the new solution is better, it is chosen, whereas if it is worse, it can still be chosen with a probability that depends on the difference between the corresponding function values and on a global parameter <i>T</i> (called the <i>temperature</i>), that is gradually decreased during the process. The dependency is such that the current solution changes almost randomly when <i>T</i> is large, but increasingly "downhill" as <i>T</i> goes to zero. The allowance for "uphill" moves saves the method from becoming stuck at <a href="/wiki/Local_minimum" title="Local minimum">local minima</a>—which are the bane of <a href="/wiki/Greedy_algorithm" title="Greedy algorithm">greedier</a> methods.</p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Overview"><span class="tocnumber">1</span> <span class="toctext">Overview</span></a>
+<ul>
+<li class="toclevel-2"><a href="#The_basic_iteration"><span class="tocnumber">1.1</span> <span class="toctext">The basic iteration</span></a></li>
+<li class="toclevel-2"><a href="#The_neighbours_of_a_state"><span class="tocnumber">1.2</span> <span class="toctext">The neighbours of a state</span></a></li>
+<li class="toclevel-2"><a href="#Transition_probabilities"><span class="tocnumber">1.3</span> <span class="toctext">Transition probabilities</span></a></li>
+<li class="toclevel-2"><a href="#The_annealing_schedule"><span class="tocnumber">1.4</span> <span class="toctext">The annealing schedule</span></a></li>
+<li class="toclevel-2"><a href="#Convergence_to_optimum"><span class="tocnumber">1.5</span> <span class="toctext">Convergence to optimum</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#In_plain_English"><span class="tocnumber">2</span> <span class="toctext">In plain English</span></a></li>
+<li class="toclevel-1"><a href="#Pseudo-code"><span class="tocnumber">3</span> <span class="toctext">Pseudo-code</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Saving_the_best_solution_seen"><span class="tocnumber">3.1</span> <span class="toctext">Saving the best solution seen</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Selecting_the_parameters"><span class="tocnumber">4</span> <span class="toctext">Selecting the parameters</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Transition_probabilities_2"><span class="tocnumber">4.1</span> <span class="toctext">Transition probabilities</span></a></li>
+<li class="toclevel-2"><a href="#Annealing_schedule"><span class="tocnumber">4.2</span> <span class="toctext">Annealing schedule</span></a>
+<ul>
+<li class="toclevel-3"><a href="#Simulated_quenching_and_tuning"><span class="tocnumber">4.2.1</span> <span class="toctext">Simulated quenching and tuning</span></a></li>
+<li class="toclevel-3"><a href="#Thermodynamic_Simulated_Annealing"><span class="tocnumber">4.2.2</span> <span class="toctext">Thermodynamic Simulated Annealing</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2"><a href="#State_neighbours"><span class="tocnumber">4.3</span> <span class="toctext">State neighbours</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Restarts"><span class="tocnumber">5</span> <span class="toctext">Restarts</span></a></li>
+<li class="toclevel-1"><a href="#Related_methods"><span class="tocnumber">6</span> <span class="toctext">Related methods</span></a></li>
+<li class="toclevel-1"><a href="#See_also"><span class="tocnumber">7</span> <span class="toctext">See also</span></a></li>
+<li class="toclevel-1"><a href="#References"><span class="tocnumber">8</span> <span class="toctext">References</span></a></li>
+<li class="toclevel-1"><a href="#External_links"><span class="tocnumber">9</span> <span class="toctext">External links</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script>
+<p><a name="Overview" id="Overview"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Simulated_annealing&amp;action=edit&amp;section=1" title="Edit section: Overview">edit</a>]</span> <span class="mw-headline">Overview</span></h2>
+<p>In the simulated annealing (SA) method, each point <i>s</i> of the search space is compared to a <a href="/wiki/State_%28physics%29" title="State (physics)">state</a> of some <a href="/wiki/Physical_system" title="Physical system">physical system</a>, and the function <i>E</i>(<i>s</i>) to be minimized is interpreted as the <a href="/wiki/Internal_energy" title="Internal energy">internal energy</a> of the system in that state. Therefore the goal is to bring the system, from an arbitrary <i>initial state</i>, to a state with the minimum possible energy.</p>
+<p><a name="The_basic_iteration" id="The_basic_iteration"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Simulated_annealing&amp;action=edit&amp;section=2" title="Edit section: The basic iteration">edit</a>]</span> <span class="mw-headline">The basic iteration</span></h3>
+<p>At each step, the SA heuristic considers some neighbour <i>s'</i> of the current state <i>s</i>, and <a href="/wiki/Probabilistic" title="Probabilistic">probabilistically</a> decides between moving the system to state <i>s'</i> or staying put in state <i>s</i>. The probabilities are chosen so that the system ultimately tends to move to states of lower energy. Typically this step is repeated until the system reaches a state which is good enough for the application, or until a given computation budget has been exhausted.</p>
+<p><a name="The_neighbours_of_a_state" id="The_neighbours_of_a_state"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Simulated_annealing&amp;action=edit&amp;section=3" title="Edit section: The neighbours of a state">edit</a>]</span> <span class="mw-headline">The neighbours of a state</span></h3>
+<p>The neighbours of a state are derived by applying all possible instances of a problem- and implementation- specific "move" to the given state. For example in the <a href="/wiki/Traveling_salesman_problem" title="Traveling salesman problem">traveling salesman problem</a> where a state can be defined as the order according to which the "salesman" will visit the cities, a "move" that can be used is the interchange of the order that two cities must be visited. The neighbours are all those states that are derived by applying the aforementioned "move" to a given state for all possible pairs of cities.</p>
+<p><a name="Transition_probabilities" id="Transition_probabilities"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Simulated_annealing&amp;action=edit&amp;section=4" title="Edit section: Transition probabilities">edit</a>]</span> <span class="mw-headline">Transition probabilities</span></h3>
+<p>The probability of making the <a href="/wiki/State_transition" title="State transition">transition</a> from the current state: <span class="texhtml"><i>s</i></span> to a candidate new state: <span class="texhtml"><i>s</i>'</span> is a function <span class="texhtml"><i>P</i>(<i>e</i>,<i>e</i>',<i>T</i>)</span> of the energies <span class="texhtml"><i>e</i> = <i>E</i>(<i>s</i>)</span> and <span class="texhtml"><i>e</i>' = <i>E</i>(<i>s</i>')</span> of the two states, and of a global time-varying parameter <span class="texhtml"><i>T</i></span> called the <i>temperature</i>.</p>
+<p>One essential requirement for the transition probability <span class="texhtml"><i>P</i></span> is that it must be nonzero when <span class="texhtml"><i>e</i>' &gt; <i>e</i></span>, meaning that the system may move to the new state even when it is <i>worse</i> (has a higher energy) than the current one. It is this feature that prevents the method from becoming stuck in a <i>local minimum</i> — a state less ideal than the global minimum, but deceptively attractive because it is more ideal than any immediate neighbor.</p>
+<p>On the other hand, when <span class="texhtml"><i>T</i></span> goes to zero, the probability <span class="texhtml"><i>P</i>(<i>e</i>,<i>e</i>',<i>T</i>)</span> must tend to zero if <span class="texhtml"><i>e</i>' &gt; <i>e</i></span>, and to a positive value if <span class="texhtml"><i>e</i>' &lt; <i>e</i></span>. That way, for sufficiently small values of <span class="texhtml"><i>T</i></span>, the system will increasingly favor moves that go "downhill" (to lower energy values), and avoid those that go "uphill". In particular, when <span class="texhtml"><i>T</i></span> becomes 0, the procedure will reduce to the <a href="/wiki/Greedy_algorithm" title="Greedy algorithm">greedy algorithm</a> — which makes the move only if it goes downhill.</p>
+<p>The <span class="texhtml"><i>P</i></span> function is usually chosen so that the probability of accepting a move decreases when the difference <span class="texhtml"><i>e</i>' − <i>e</i></span> increases — that is, small uphill moves are more likely than large ones. However, this requirement is not strictly necessary, provided that the above requirements are met.</p>
+<p>Given these properties, the evolution of the state <span class="texhtml"><i>s</i></span> depends crucially on the temperature <span class="texhtml"><i>T</i></span>. Roughly speaking, the evolution of <span class="texhtml"><i>s</i></span> is sensitive only to coarser energy variations when <span class="texhtml"><i>T</i></span> is large, and to finer variations when <span class="texhtml"><i>T</i></span> is small.</p>
+<p><a name="The_annealing_schedule" id="The_annealing_schedule"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Simulated_annealing&amp;action=edit&amp;section=5" title="Edit section: The annealing schedule">edit</a>]</span> <span class="mw-headline">The annealing schedule</span></h3>
+<div class="thumb tright">
+<div class="thumbinner" style="width:252px;"><a href="/wiki/Image:SimulatedAnnealingFast.jpg" class="image" title="An image with random pixels, using simulated annealing to swap pairs of pixels. Similar colours attract at short range and repel at slightly less short range. Fast cooling schedule. Possibly resembles an amorphous solid."><img alt="An image with random pixels, using simulated annealing to swap pairs of pixels. Similar colours attract at short range and repel at slightly less short range. Fast cooling schedule. Possibly resembles an amorphous solid." src="http://upload.wikimedia.org/wikipedia/en/thumb/8/82/SimulatedAnnealingFast.jpg/250px-SimulatedAnnealingFast.jpg" width="250" height="250" border="0" class="thumbimage" /></a>
+<div class="thumbcaption">
+<div class="magnify" style="float:right"><a href="/wiki/Image:SimulatedAnnealingFast.jpg" class="internal" title="Enlarge"><img src="/skins-1.5/common/images/magnify-clip.png" width="15" height="11" alt="" /></a></div>
+An image with random pixels, using simulated annealing to swap pairs of pixels. Similar colours attract at short range and repel at slightly less short range. Fast cooling schedule. Possibly resembles an amorphous solid.</div>
+</div>
+</div>
+<div class="thumb tright">
+<div class="thumbinner" style="width:252px;"><a href="/wiki/Image:SimulatedAnnealingSlow.jpg" class="image" title="An image with random pixels, using simulated annealing to swap pairs of pixels. Similar colours attract at short range and repel at slightly less short range. Slow cooling schedule. Possibly resembles a crystalline solid."><img alt="An image with random pixels, using simulated annealing to swap pairs of pixels. Similar colours attract at short range and repel at slightly less short range. Slow cooling schedule. Possibly resembles a crystalline solid." src="http://upload.wikimedia.org/wikipedia/en/thumb/8/8d/SimulatedAnnealingSlow.jpg/250px-SimulatedAnnealingSlow.jpg" width="250" height="250" border="0" class="thumbimage" /></a>
+<div class="thumbcaption">
+<div class="magnify" style="float:right"><a href="/wiki/Image:SimulatedAnnealingSlow.jpg" class="internal" title="Enlarge"><img src="/skins-1.5/common/images/magnify-clip.png" width="15" height="11" alt="" /></a></div>
+An image with random pixels, using simulated annealing to swap pairs of pixels. Similar colours attract at short range and repel at slightly less short range. Slow cooling schedule. Possibly resembles a crystalline solid.</div>
+</div>
+</div>
+<p>Another essential feature of the SA method is that the temperature is gradually reduced as the simulation proceeds. Initially, <span class="texhtml"><i>T</i></span> is set to a high value (or infinity), and it is decreased at each step according to some <i>annealing schedule</i> — which may be specified by the user, but must end with <span class="texhtml"><i>T</i> = 0</span> towards the end of the allotted time budget. In this way, the system is expected to wander initially towards a broad region of the search space containing good solutions, ignoring small features of the energy function; then drift towards low-energy regions that become narrower and narrower; and finally move downhill according to the <a href="/wiki/Steepest_descent" title="Steepest descent">steepest descent</a> heuristic.</p>
+<p><a name="Convergence_to_optimum" id="Convergence_to_optimum"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Simulated_annealing&amp;action=edit&amp;section=6" title="Edit section: Convergence to optimum">edit</a>]</span> <span class="mw-headline">Convergence to optimum</span></h3>
+<p>It can be shown that, for any given finite problem, the probability that the simulated annealing algorithm terminates with the <a href="/wiki/Global_optimum" title="Global optimum">global optimal</a> solution approaches 1 as the annealing schedule is extended. This theoretical result is, however, not particularly helpful, since the annealing time required to ensure a significant probability of success will usually exceed the time required for a complete search of the <a href="/wiki/Solution_space" title="Solution space">solution space</a>.</p>
+<p><a name="In_plain_English" id="In_plain_English"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Simulated_annealing&amp;action=edit&amp;section=7" title="Edit section: In plain English">edit</a>]</span> <span class="mw-headline">In plain English</span></h2>
+<p>Given a problem for which no better solution is known than an extensive <a href="/wiki/Brute-force_search" title="Brute-force search">brute-force search</a>, such as finding a set of 100 numbers that fit some characteristic, this technique attempts to quickly find an approximative solution by adjusting the current set (in this case some random sequence of 100 numbers) until a better answer is found (the way the adjustment is done depends on the problem). The new set of numbers, or "neighbour", if better, is then used as the current set and the process is repeated.</p>
+<p>Sometimes a problem may arise when one approaches what is known as a local minimum, in this case, a set of numbers that is the best solution for its current region. In an attempt to find a better solution, this technique may use various methods to jump out of the current pit, such as searching for better solutions randomly by a factor of the inverse amount of the previous adjustment.</p>
+<p>Keep in mind that implementations of this method are strictly problem specific, and so the way in which one finds a solution will vary from problem to problem.</p>
+<p><a name="Pseudo-code" id="Pseudo-code"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Simulated_annealing&amp;action=edit&amp;section=8" title="Edit section: Pseudo-code">edit</a>]</span> <span class="mw-headline">Pseudo-code</span></h2>
+<p>The following pseudo-code implements the simulated annealing heuristic, as described above, starting from state <i>s0</i> and continuing to a maximum of <i>kmax</i> steps or until a state with energy <i>emax</i> or less is found. The call neighbour(<i>s</i>) should generate a randomly chosen neighbour of a given state s; the call random() should return a random value in the range <span class="texhtml">[0,1)</span>. The annealing schedule is defined by the call temp(r), which should yield the temperature to use, given the fraction <i>r</i> of the time budget that has been expended so far.</p>
+<pre>
+<code>s := s0; e := E(s)                           // <i>Initial state, energy.</i>
+k := 0                                       // <i>Energy evaluation count.</i>
+<b>while</b> k &lt; kmax <b>and</b> e &gt; emax                  // <i>While time remains &amp; not good enough:</i>
+  sn := neighbour(s)                         //   <i>Pick some neighbour.</i>
+  en := E(sn)                                //   <i>Compute its energy.</i>
+  <b>if</b> random() &lt; P(e, en, temp(k/kmax)) <b>then</b>  //   <i>Should we move to it?</i>
+    s := sn; e := en                         //     <i>Yes, change state.</i>
+  k := k + 1                                 //   <i>One more evaluation done</i>
+<b>return</b> s                                     // <i>Return current solution</i>
+</code>
+</pre>
+<p><a name="Saving_the_best_solution_seen" id="Saving_the_best_solution_seen"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Simulated_annealing&amp;action=edit&amp;section=9" title="Edit section: Saving the best solution seen">edit</a>]</span> <span class="mw-headline">Saving the best solution seen</span></h3>
+<p>As in any metaheuristic, one should keep track of the best solution seen so far, in a separate state variable. Namely:</p>
+<pre>
+<code>s := s0; e := E(s)                           // <i>Initial state, energy.</i>
+sb := s; eb := e                             // <i>Initial "best" solution</i>
+k := 0                                       // <i>Energy evaluation count.</i>
+<b>while</b> k &lt; kmax <b>and</b> e &gt; emax                  // <i>While time remains &amp; not good enough:</i>
+  sn := neighbour(s)                         //   <i>Pick some neighbour.</i>
+  en := E(sn)                                //   <i>Compute its energy.</i>
+  <b>if</b> en &lt; eb <b>then</b>                            //   <i>Is this a new best?</i>
+    sb := sn; eb := en                       //     <i>Yes, save it.</i>
+  <b>if</b> random() &lt; P(e, en, temp(k/kmax)) <b>then</b>  //   <i>Should we move to it?</i>
+    s := sn; e := en                         //     <i>Yes, change state.</i>
+  k := k + 1                                 //   <i>One more evaluation done</i>
+<b>return</b> sb                                    // <i>Return the best solution found.</i>
+</code>
+</pre>
+<p>While copying the state may be an expensive operation, this step happens only on a small fraction of the moves, so the change is usually worth the cost.</p>
+<p><a name="Selecting_the_parameters" id="Selecting_the_parameters"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Simulated_annealing&amp;action=edit&amp;section=10" title="Edit section: Selecting the parameters">edit</a>]</span> <span class="mw-headline">Selecting the parameters</span></h2>
+<p>In order to apply the SA method to a specific problem, one must specify the state space, the neighbour selection method (which enumerates the candidates for the next state <span class="texhtml"><i>s</i>'</span>), the probability transition function, and the annealing schedule. These choices can have a significant impact on the method's effectiveness. Unfortunately, there are no choices that will be good for all problems, and there is no general way to find the best choices for a given problem. About the only guidance available is that choices that maximize the correlation between the energies of neighbouring states can lead to better solutions. It has therefore been observed that applying the SA method is more an art than a science.</p>
+<p><br /></p>
+<p><a name="Transition_probabilities_2" id="Transition_probabilities_2"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Simulated_annealing&amp;action=edit&amp;section=11" title="Edit section: Transition probabilities">edit</a>]</span> <span class="mw-headline">Transition probabilities</span></h3>
+<p>The <a href="/w/index.php?title=Transition_probability&amp;action=edit" class="new" title="Transition probability">transition probability</a> function <span class="texhtml"><i>P</i></span> follows the general requirements of the SA method stated before. Since the probabilities depend on the temperature <span class="texhtml"><i>T</i></span>, in practice the same probability function is used for all problems, and the annealing schedule is adjusted accordingly.</p>
+<p>In the original formulation of the method by Kirkpatrick <i>et. al</i>, the transition probability <span class="texhtml"><i>P</i>(<i>e</i>,<i>e</i>',<i>T</i>)</span> was defined as 1 if <span class="texhtml"><i>e</i>' &lt; <i>e</i></span> (i.e., downhill moves were always performed); otherwise, the probability would be: <span class="texhtml">exp((<i>e</i> − <i>e</i>') / <i>T</i>)</span>.</p>
+<p>This formula was said to come from the <a href="/wiki/Metropolis-Hastings_algorithm" title="Metropolis-Hastings algorithm">Metropolis-Hastings algorithm</a>, used here to generate samples from the <a href="/wiki/Maxwell-Boltzmann_distribution" title="Maxwell-Boltzmann distribution">Maxwell-Boltzmann distribution</a> governing the distribution of energies of molecules in a gas. However, there is no mathematical justification for using this particular formula in SA. Even the physical analogy is misleading: since the neighbours are tested sequentially in the SA algorithm, the actual probability of the SA algorithm moving from a state <span class="texhtml"><i>s</i></span> to a state <span class="texhtml"><i>s</i>'</span> definitely is <i>not</i> given by that formula.</p>
+<p><a name="Annealing_schedule" id="Annealing_schedule"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Simulated_annealing&amp;action=edit&amp;section=12" title="Edit section: Annealing schedule">edit</a>]</span> <span class="mw-headline">Annealing schedule</span></h3>
+<p>The annealing schedule must be chosen with care. The initial temperature must be large enough to make the uphill and downhill transition probabilities about the same. To do that, one must have some estimate of the difference <span class="texhtml"><i>e</i>' − <i>e</i></span> for a random state and its neighbours.</p>
+<p>The temperature must then decrease so that it is zero, or nearly zero, at the end of the allotted time. A popular choice is the exponential schedule, where the temperature decreases by a fixed factor <span class="texhtml">α &lt; 1</span> at each step.</p>
+<p><a name="Simulated_quenching_and_tuning" id="Simulated_quenching_and_tuning"></a></p>
+<h4><span class="editsection">[<a href="/w/index.php?title=Simulated_annealing&amp;action=edit&amp;section=13" title="Edit section: Simulated quenching and tuning">edit</a>]</span> <span class="mw-headline">Simulated quenching and tuning</span></h4>
+<p>A reference to the use of SA does not always mean that SA is the algorithm being used. Any true SA algorithm has an associated proof of (weak) ergodicity, which means that theoretically one can actually find a global optimum. Many SA algorithms are quite slow, so in practice many users simply speed up the algorithm, but in the process they also void their SA proof. A modified approach, such as Simulated Quenching (SQ), can work well but is not strictly SA. Mathematically-correct SA is often used for very hard problems where the danger of being trapped in local minima is high. SA also is used in problems with complex constraints, since the method of rejection can be made to exclude constrained regions. In practice, when the need is clear to use a sampling technique, it is best to do at least a few long runs with SA, and then use SQ modifications to speed up calculations as long as the same results are achieved. To apply any generic sampling technique like SA over many classes of nonlinear problems, it should be expected that tuning of some basic search parameters will be required</p>
+<p><a name="Thermodynamic_Simulated_Annealing" id="Thermodynamic_Simulated_Annealing"></a></p>
+<h4><span class="editsection">[<a href="/w/index.php?title=Simulated_annealing&amp;action=edit&amp;section=14" title="Edit section: Thermodynamic Simulated Annealing">edit</a>]</span> <span class="mw-headline">Thermodynamic Simulated Annealing</span></h4>
+<p>One of the theoretical bases on SA (Simulated Annealing) consists of reaching equilibrium at each temperature. In order to achieve this goal, the annealing schedule of SA goes along a sequence of temperatures for cooling the system, while a number of rearrangements are attempted to recover equilibrium at each one. Commonly, both the cooling rule and the number of movements per temperature are experimentally adjusted to provide high performance in a specific problem. Thermodynamic Simulated Annealing (TSA) provides an alternative method to perform the cooling close to equilibrium. The temperature in TSA is free to evolve (i.e. not controlled), but continuously updated from the variation of state functions as the internal energy and entropy according to the thermodynamic laws. Thereby, TSA achieves straightforward the high quality results of fine-tuned SA tools.</p>
+<p><a name="State_neighbours" id="State_neighbours"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Simulated_annealing&amp;action=edit&amp;section=15" title="Edit section: State neighbours">edit</a>]</span> <span class="mw-headline">State neighbours</span></h3>
+<p>In practice, one tries to perform the movements by using a search graph where the neighbours of s are initially widespread to the whole solution space. Due to the high initial temperature used in the probability of acceptance, all initial movements are expected to be accepted. As the search progresses the neighborhood of s must be narrowed according to the temperature fall to maintain a high rate of movement acceptance. Thus, in the traveling salesman problem above, generating the neighbour by swapping two arbitrary cities is expected to be accepted at the beginning of the search due to the high initial temperature value. As the search progresses the temperature falls, so that the length of the movements must be shortened accordingly to avoid low acceptance rates.</p>
+<p><a name="Restarts" id="Restarts"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Simulated_annealing&amp;action=edit&amp;section=16" title="Edit section: Restarts">edit</a>]</span> <span class="mw-headline">Restarts</span></h2>
+<p>Sometimes it is better to move back to a solution that was significantly better rather than always moving from the current state. This is called <i>restarting</i>. To do this we set <code>s</code> and <code>e</code> to <code>sb</code> and <code>eb</code> and perhaps restart the annealing schedule. The decision to restart could be based on a fixed number of steps, or based on the current energy being too high from the best energy so far.</p>
+<p><a name="Related_methods" id="Related_methods"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Simulated_annealing&amp;action=edit&amp;section=17" title="Edit section: Related methods">edit</a>]</span> <span class="mw-headline">Related methods</span></h2>
+<p><a href="/wiki/Quantum_annealing" title="Quantum annealing">Quantum annealing</a> is a method which uses <i>quantum fluctuations</i> instead of thermal fluctuations to explore the state space. It has been demonstrated experimentally as well as theoretically, that quantum annealing can indeed outperform thermal annealing in certain cases, specifically, where the potential energy (cost) landscape consists of very high but thin barriers surrounding shallow local minima. Since thermal transition probabilities are proportional to <span class="texhtml">exp( − Δ / <i>k</i><sub><i>B</i></sub><i>T</i>)</span> , (where <span class="texhtml"><i>T</i></span> is temperature and <span class="texhtml"><i>k</i><sub><i>B</i></sub></span> is Boltzmann's constant) and depend only on the height <span class="texhtml">Δ</span> of the barriers, it is very difficult for thermal fluctuations to get the system out from such local minima. But quantum tunneling probabilities through a barrier depend not only the height <span class="texhtml">Δ</span> of the barrier, but also on its width <span class="texhtml"><i>w</i></span>; if the barriers are thin enough, quantum fluctuations may bring the system out of the shallow local minima surrounded by them.</p>
+<p><a href="/wiki/Stochastic_tunneling" title="Stochastic tunneling">Stochastic tunneling</a> is a particular successful attempt to overcome the increasing difficulty simulated annealing runs have in escaping from local minima as the temperature decreases. Stochastic tunneling pushes the optimization run out of local minima, 'tunneling' through barriers.</p>
+<p><a href="/wiki/Tabu_search" title="Tabu search">Tabu search</a> (TS) is similar to simulated annealing, in that both traverse the solution space by testing neighbours of the current solution. In order to prevent cycling, the TS algorithm maintains a "<a href="/wiki/Taboo" title="Taboo">tabu</a> list" of solutions already seen, and moves to those solutions are suppressed.</p>
+<p><a href="/wiki/Stochastic_gradient_descent" title="Stochastic gradient descent">Stochastic hill climbing</a> (SH) runs many hill-climbing searches from random initial locations.</p>
+<p><a href="/wiki/Genetic_algorithms" title="Genetic algorithms">Genetic algorithms</a> (GA) maintain a pool of solutions rather than just one. New candidate solutions are generated not only by "mutation" (as in SA), but also by "combination" of two solutions from the pool. Probabilistic criteria, similar to those used in SA, are used to select the candidates for mutation or combination, and for discarding excess solutions from the pool.</p>
+<p><a href="/wiki/Ant_colony_optimization" title="Ant colony optimization">Ant colony optimization</a> (ACO) uses many ants (or agents) to traverse the solution space and find locally productive areas.</p>
+<p>The <a href="/wiki/Cross-entropy_method" title="Cross-entropy method">cross-entropy method</a> (CE) generates candidates solutions via a parameterized probability distribution. The parameters are updated via cross-entropy minimization, so as to generate better samples in the next iteration.</p>
+<p><a href="/wiki/Harmony_search" title="Harmony search">Harmony search</a> (HS) mimics musicians in improvisation process where each musician plays a note for finding a best harmony all together.</p>
+<p><a href="/wiki/Stochastic_optimization" title="Stochastic optimization">Stochastic optimization</a> is an umbrella set of methods that includes simulated annealing and numerous other approaches.</p>
+<p><a name="See_also" id="See_also"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Simulated_annealing&amp;action=edit&amp;section=18" title="Edit section: See also">edit</a>]</span> <span class="mw-headline">See also</span></h2>
+<ul>
+<li><a href="/wiki/Adaptive_simulated_annealing" title="Adaptive simulated annealing">Adaptive simulated annealing</a></li>
+<li><a href="/wiki/Markov_chain" title="Markov chain">Markov chain</a></li>
+<li><a href="/wiki/Combinatorial_optimization" title="Combinatorial optimization">Combinatorial optimization</a></li>
+<li><a href="/wiki/Genetic_algorithm" title="Genetic algorithm">Genetic algorithm</a></li>
+<li><a href="/wiki/Tabu_search" title="Tabu search">Tabu search</a></li>
+<li><a href="/wiki/Ant_colony_optimization" title="Ant colony optimization">Ant colony optimization</a></li>
+<li><a href="/wiki/Automatic_label_placement" title="Automatic label placement">Automatic label placement</a></li>
+<li><a href="/wiki/Multidisciplinary_optimization" title="Multidisciplinary optimization">Multidisciplinary optimization</a></li>
+<li><a href="/wiki/Place_and_route" title="Place and route">Place and route</a></li>
+<li><a href="/wiki/Traveling_salesman_problem" title="Traveling salesman problem">Traveling salesman problem</a></li>
+<li><a href="/wiki/Reactive_search" title="Reactive search">Reactive search</a></li>
+<li><a href="/wiki/Quantum_annealing" title="Quantum annealing">Quantum annealing</a></li>
+<li><a href="/wiki/Stochastic_tunneling" title="Stochastic tunneling">Stochastic tunneling</a></li>
+<li><a href="/wiki/Cross-entropy_method" title="Cross-entropy method">Cross-entropy method</a></li>
+<li><a href="/wiki/Stochastic_optimization" title="Stochastic optimization">Stochastic optimization</a></li>
+<li><a href="/wiki/Graph_cuts_in_computer_vision" title="Graph cuts in computer vision">Graph cuts in computer vision</a></li>
+</ul>
+<p><a name="References" id="References"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Simulated_annealing&amp;action=edit&amp;section=19" title="Edit section: References">edit</a>]</span> <span class="mw-headline">References</span></h2>
+<ul>
+<li>S. Kirkpatrick and C. D. Gelatt and M. P. Vecchi, Optimization by Simulated Annealing, Science, Vol 220, Number 4598, pages 671-680, 1983. <a href="http://citeseer.ist.psu.edu/kirkpatrick83optimization.html" class="external free" title="http://citeseer.ist.psu.edu/kirkpatrick83optimization.html" rel="nofollow">http://citeseer.ist.psu.edu/kirkpatrick83optimization.html</a>.</li>
+<li>V. Cerny, A thermodynamical approach to the travelling salesman problem: an efficient simulation algorithm. Journal of Optimization Theory and Applications, 45:41-51, 1985</li>
+<li>N. Metropolis, A.W. Rosenbluth, M.N. Rosenbluth, A.H. Teller, and E. Teller. "Equations of State Calculations by Fast Computing Machines". <i>Journal of Chemical Physics</i>, 21(6):1087-1092, 1953. <a href="http://dx.doi.org/10.1063/1.1699114" class="external autonumber" title="http://dx.doi.org/10.1063/1.1699114" rel="nofollow">[1]</a></li>
+<li>A. Das and B. K. Chakrabarti (Eds.), <i>Quantum Annealing and Related Optimization Methods,</i> Lecture Note in Physics, Vol. 679, Springer, Heidelberg (2005)</li>
+<li>E. Weinberger, Correlated and Uncorrelated Fitness Landscapes and How to Tell the Difference, Biological Cybernetics, 63, No. 5, 325-336 (1990).</li>
+<li>J. De Vicente, J. Lanchares, R. Hermida, "Placement by Thermodynamic Simulated Annealing”, Physics Letters A,Vol. 317, Issue 5-6, pp.415-423, 2003.</li>
+<li>J. M. Ware and N. Thomas, "Automated cartographic map generalisation with multiple operators: a simulated annealing approach", The International Journal of Geographical Information Science (Taylor and Francis), 17(8), 743-769 (2003)</li>
+</ul>
+<p><a name="External_links" id="External_links"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Simulated_annealing&amp;action=edit&amp;section=20" title="Edit section: External links">edit</a>]</span> <span class="mw-headline">External links</span></h2>
+<ul>
+<li><a href="http://www.heatonresearch.com/articles/64/page1.html" class="external text" title="http://www.heatonresearch.com/articles/64/page1.html" rel="nofollow">Simulated Annealing</a> A Java applet that allows you to experiment with simulated annealing. Source code included.</li>
+<li><a href="http://www.mathworks.com/matlabcentral/fileexchange/loadFile.do?objectId=10548&amp;objectType=file" class="external text" title="http://www.mathworks.com/matlabcentral/fileexchange/loadFile.do?objectId=10548&amp;objectType=file" rel="nofollow">"General Simulated Annealing Algorithm"</a> An open-source MATLAB program for general simulated annealing exercices. Can be adapted as needed.</li>
+<li><a href="http://www.visualbots.com/index.htm" class="external text" title="http://www.visualbots.com/index.htm" rel="nofollow">VisualBots</a> - Freeware multi-agent simulator in Microsoft Excel. Sample programs include genetic algorithm, ACO, and simulated annealing solutions to TSP.</li>
+<li><a href="http://www.grc.nasa.gov/WWW/RT1998/5000/5620wilson1.html" class="external text" title="http://www.grc.nasa.gov/WWW/RT1998/5000/5620wilson1.html" rel="nofollow">Technique Developed for Optimizing Traveling-Wave Tubes</a> A page showing the uses of this method in the space program for long distance communications.</li>
+<li><a href="/wiki/Adaptive_Simulated_Annealing" title="Adaptive Simulated Annealing">Adaptive Simulated Annealing</a> (ASA) <a href="http://www.ingber.com/#ASA" class="external autonumber" title="http://www.ingber.com/#ASA" rel="nofollow">[2]</a> is a free C-language code developed to statistically find the best global fit of a nonlinear constrained non-convex cost-function over a D-dimensional space. This algorithm permits an annealing schedule for "temperature" T decreasing exponentially in annealing-time k, <span class="texhtml"><i>T</i> = <i>T</i><sub>0</sub><i>e</i><i>x</i><i>p</i>( − <i>c</i><i>k</i><sup>1 / <i>D</i></sup>)</span> and has more than 100 options to provide robust tuning over many classes of nonlinear stochastic systems.</li>
+<li><a href="http://www.drnathanthomas.info/sa.html" class="external text" title="http://www.drnathanthomas.info/sa.html" rel="nofollow">Resolving Graphic Conflict In Scale-Reduced Maps: A Simulated Annealing Approach</a> Outlines the use of simulated annealing applied to Map Generalization to solve graphic conflict with spatial objects.</li>
+<li><a href="http://en.wikiversity.org/wiki/Simulated_Annealing_Project" class="external text" title="http://en.wikiversity.org/wiki/Simulated_Annealing_Project" rel="nofollow">Self-Guided Lesson on Simulated Annealing</a> Go to the Wikiversity and teach yourself how to create a simulated annealing program.</li>
+</ul>
+
+<!-- 
+Pre-expand include size: 1890 bytes
+Post-expand include size: 858 bytes
+Template argument size: 184 bytes
+Maximum: 2048000 bytes
+-->
+
+<!-- Saved in parser cache with key enwiki:pcache:idhash:172244-0!1!0!default!!en!2 and timestamp 20070914143243 -->
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org/wiki/Simulated_annealing">http://en.wikipedia.org/wiki/Simulated_annealing</a>"</div>
+			<div id="catlinks"><p class='catlinks'><a href="/wiki/Special:Categories" title="Special:Categories">Categories</a>: <span dir='ltr'><a href="/wiki/Category:Heuristics" title="Category:Heuristics">Heuristics</a></span> | <span dir='ltr'><a href="/wiki/Category:Optimization_algorithms" title="Category:Optimization algorithms">Optimization algorithms</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<div class="pBody">
+			<ul>
+					 <li id="ca-nstab-main" class="selected"><a href="/wiki/Simulated_annealing" title="View the content page [c]" accesskey="c">Article</a></li>
+					 <li id="ca-talk"><a href="/wiki/Talk:Simulated_annealing" title="Discussion about the content page [t]" accesskey="t">Discussion</a></li>
+					 <li id="ca-edit"><a href="/w/index.php?title=Simulated_annealing&amp;action=edit" title="You can edit this page. Please use the preview button before saving. [e]" accesskey="e">Edit this page</a></li>
+					 <li id="ca-history"><a href="/w/index.php?title=Simulated_annealing&amp;action=history" title="Past versions of this page [h]" accesskey="h">History</a></li>
+				</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-personal">
+		<h5>Personal tools</h5>
+		<div class="pBody">
+			<ul>
+				<li id="pt-login"><a href="/w/index.php?title=Special:Userlogin&amp;returnto=Simulated_annealing" title="You are encouraged to log in, it is not mandatory however. [o]" accesskey="o">Sign in / create account</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-logo">
+		<a style="background-image: url(/images/wiki-en.png);" href="/wiki/Main_Page" title="Visit the Main Page [z]" accesskey="z"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-Main-page"><a href="/wiki/Main_Page">Main page</a></li>
+				<li id="n-Contents"><a href="/wiki/Wikipedia:Contents">Contents</a></li>
+				<li id="n-Featured-content"><a href="/wiki/Wikipedia:Featured_content">Featured content</a></li>
+				<li id="n-currentevents"><a href="/wiki/Portal:Current_events" title="Find background information on current events">Current events</a></li>
+				<li id="n-randompage"><a href="/wiki/Special:Random" title="Load a random page [x]" accesskey="x">Random article</a></li>
+			</ul>
+		</div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+		<h5>interaction</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-About-Wikipedia"><a href="/wiki/Wikipedia:About">About Wikipedia</a></li>
+				<li id="n-portal"><a href="/wiki/Wikipedia:Community_Portal" title="About the project, what you can do, where to find things">Community portal</a></li>
+				<li id="n-recentchanges"><a href="/wiki/Special:Recentchanges" title="The list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li>
+				<li id="n-contact"><a href="/wiki/Wikipedia:Contact_us">Contact Wikipedia</a></li>
+				<li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising" title="Support us">Donate to Wikipedia</a></li>
+				<li id="n-help"><a href="/wiki/Help:Contents" title="Guidance on how to use and edit Wikipedia">Help</a></li>
+			</ul>
+		</div>
+	</div>
+		<div id="p-search" class="portlet">
+		<h5><label for="searchInput">Search</label></h5>
+		<div id="searchBody" class="pBody">
+			<form action="/wiki/Special:Search" id="searchform"><div>
+				<input id="searchInput" name="search" type="text" title="Search Wikipedia [f]" accesskey="f" value="" />
+				<input type='submit' name="go" class="searchButton" id="searchGoButton"	value="Go" />&nbsp;
+				<input type='submit' name="fulltext" class="searchButton" id="mw-searchButton" value="Search" />
+			</div></form>
+		</div>
+	</div>
+	<div class="portlet" id="p-tb">
+		<h5>Toolbox</h5>
+		<div class="pBody">
+			<ul>
+				<li id="t-whatlinkshere"><a href="/wiki/Special:Whatlinkshere/Simulated_annealing" title="List of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+				<li id="t-recentchangeslinked"><a href="/wiki/Special:Recentchangeslinked/Simulated_annealing" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+<li id="t-upload"><a href="/wiki/Wikipedia:Upload" title="Upload images or media files [u]" accesskey="u">Upload file</a></li>
+<li id="t-specialpages"><a href="/wiki/Special:Specialpages" title="List of all special pages [q]" accesskey="q">Special pages</a></li>
+				<li id="t-print"><a href="/w/index.php?title=Simulated_annealing&amp;printable=yes" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>				<li id="t-permalink"><a href="/w/index.php?title=Simulated_annealing&amp;oldid=157852863" title="Permanent link to this version of the page">Permanent link</a></li><li id="t-cite"><a href="/w/index.php?title=Special:Cite&amp;page=Simulated_annealing&amp;id=157852863">Cite this article</a></li>			</ul>
+		</div>
+	</div>
+	<div id="p-lang" class="portlet">
+		<h5>In other languages</h5>
+		<div class="pBody">
+			<ul>
+				<li class="interwiki-de"><a href="http://de.wikipedia.org/wiki/Simulierte_Abk%C3%BChlung">Deutsch</a></li>
+				<li class="interwiki-es"><a href="http://es.wikipedia.org/wiki/Simulated_annealing">Español</a></li>
+				<li class="interwiki-fr"><a href="http://fr.wikipedia.org/wiki/Recuit_simul%C3%A9">Français</a></li>
+				<li class="interwiki-ko"><a href="http://ko.wikipedia.org/wiki/%EB%8B%B4%EA%B8%88%EC%A7%88_%EA%B8%B0%EB%B2%95">한국어</a></li>
+				<li class="interwiki-id"><a href="http://id.wikipedia.org/wiki/Simulated_annealing">Bahasa Indonesia</a></li>
+				<li class="interwiki-it"><a href="http://it.wikipedia.org/wiki/Simulated_Annealing">Italiano</a></li>
+				<li class="interwiki-nl"><a href="http://nl.wikipedia.org/wiki/Simulated_annealing">Nederlands</a></li>
+				<li class="interwiki-ja"><a href="http://ja.wikipedia.org/wiki/%E7%84%BC%E3%81%8D%E3%81%AA%E3%81%BE%E3%81%97%E6%B3%95">日本語</a></li>
+				<li class="interwiki-pl"><a href="http://pl.wikipedia.org/wiki/Symulowane_wy%C5%BCarzanie">Polski</a></li>
+				<li class="interwiki-pt"><a href="http://pt.wikipedia.org/wiki/Simulated_annealing">Português</a></li>
+				<li class="interwiki-ru"><a href="http://ru.wikipedia.org/wiki/%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC_%D0%B8%D0%BC%D0%B8%D1%82%D0%B0%D1%86%D0%B8%D0%B8_%D0%BE%D1%82%D0%B6%D0%B8%D0%B3%D0%B0">Русский</a></li>
+				<li class="interwiki-zh"><a href="http://zh.wikipedia.org/wiki/%E6%A8%A1%E6%8B%9F%E9%80%80%E7%81%AB">中文</a></li>
+			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="/skins-1.5/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>
+				<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="/images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>
+			<ul id="f-list">
+				<li id="lastmod"> This page was last modified 15:33, 27 August 2007.</li>
+				<li id="copyright">All text is available under the terms of the <a class='internal' href="/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="/wiki/Wikipedia:Copyrights" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a U.S. registered <a class='internal' href="/wiki/501%28c%29#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="/wiki/Non-profit_organization" title="Non-profit organization">nonprofit</a> <a href="/wiki/Charitable_organization" title="Charitable organization">charity</a>.<br /></li>
+				<li id="privacy"><a href="http://wikimediafoundation.org/wiki/Privacy_policy" title="wikimedia:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="/wiki/Wikipedia:About" title="Wikipedia:About">About Wikipedia</a></li>
+				<li id="disclaimer"><a href="/wiki/Wikipedia:General_disclaimer" title="Wikipedia:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+		
+	
+		<script type="text/javascript">if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by srv60 in 0.116 secs. --></body></html>

@@ -1,0 +1,171 @@
+<html>
+
+<head>
+<title> Sven Koenig: Research Project </title>
+<link href="stylesheet.css" type="text/css" rel="stylesheet" />
+</head>
+
+<body class="content">
+
+<p class="title"> Demonstration of Lifelong Planning A* (Java Applet) </p>
+
+<p>
+<center>
+<applet code="LPA_Applet.class" codebase="applet" width="630" height="400"> </applet>
+</center>
+</p>
+
+<!-- <P>
+<A HREF="http://www.gameai.com/" TARGET=_top>Gameai.com</A> chose to
+use this page as a resource on its web page on <A
+HREF="http://www.gameai.com/pathfinding.html" TARGET=_top>
+Game AI Resources: Pathfinding</A>. Thanks!
+</P> -->
+
+<p class="subtitle"> Short Instructions </p>
+
+<p> The above Java applet allows you to compare the searches performed by
+Lifelong Planning A* and A*. Both search algorithms find shortest paths and,
+in the Java applet, break ties in favor of vertices with smaller g-values.
+Lifelong Planning A* generalizes A*. Like A*, it uses heuristics to speed up
+the current search. Different from A*, it also uses information from previous
+searches to speed up the current one. Press the "Run" button to start a
+Lifelong Planning A* search in the left gridworld and an A* search in the
+right gridworld. Then click on cells in the gridworlds to make them blocked or
+empty and watch the search effort (green and blue cells) of the two search
+algorithms as they find shortest paths from the start cell (S) to the goal
+cell (G). The search effort of Lifelong Planning A* is especially small if
+the changes occur close to the goal cell. It is usually much smaller than the
+search effort of A* although it can also be larger (especially if the changes
+occur close to the start cell). Longer instructions are given below. </p>
+
+<p class="centeredcontent"> <img align="left" height="75" width="100"
+src="figs/rover1.jpg"> <img align="right" height="75" width="100"
+src="figs/rover2.jpg"> The version of Lifelong Planning A* for moving robots
+is called Dynamic A* Lite (= D* Lite). D* Lite has been extended at Carnegie
+Mellon University for use on their robots. For example, Dave Ferguson and Tony
+Stentz from Carnegie Mellon University used elements of D* Lite in a highly
+optimized version of their Field D* system. Joseph Carsten and Art Rankin from
+NASA's Jet Propulsion Laboratory installed this version of Field D* on the
+Mars rovers "Spirit" and "Opportunity" (without any involvement by us) and
+first let it control a rover on Mars in February 2007 after testing it on a
+rover on Mars in November 2006. More information on D* Lite and our fast
+replanning methods can be found on our project pages on <a
+href="project-a.html" target="_top">fast replanning</a>. More information on
+Field D* and how it relates to D* Lite can be found in D. Ferguson and
+A. Stentz, <a href="http://www.ri.cmu.edu/pubs/pub_5379.html" target="_top">
+Using Interpolation to Improve Path Planning: The Field D* Algorithm </a>,
+Journal of Field Robotics, 23(2), 2006, pages 79-101. If you like their Field
+D* system, then you will likely also like our <a
+href="http://idm-lab.org/bib/abstracts/Koen07f.html">Theta* algorithm</a>.
+(Images courtesy of NASA/JPL-Caltech.) (Images courtesy of
+NASA/JPL-Caltech.) </p>
+
+<p class="subtitle"> Additional Information </p>
+
+<p> There are two identical gridworlds. The left one shows the search
+performed by Lifelong Planning A* and the right one shows the search performed
+by A*. In both cases, the cell marked S is the start cell of the search and
+the cell marked G is the goal cell. One can move from any cell to any of its
+eight neighboring cells as long as it is empty. Thus, one can squeeze
+diagonally through two blocked cells. The cost of each move (including
+diagonal moves) is one. Both Lifelong Planning A* and A* use the maximum of
+the absolute differences of the x and y coordinates of two cells as an
+approximation of their distance. </p>
+
+<p> White, green, and blue cells are empty and black cells are blocked.  You
+can click on an empty cell to make it blocked and vice versa. A white cell was
+not expanded during the search, a green cell was expanded once, and a blue
+cell was expanded twice. Each cell (except for the start cell and goal cell)
+contains its g-value at the end of the search, which approximates the length
+of a shortest path from the start cell to that cell. A dash means
+infinity. The shortest path from the start cell to the goal cell is shown by a
+line. The line is missing if there is no path from the start cell to the goal
+cell. </p>
+
+<p> Initially, no searches are performed to allow you to make some cells
+blocked by clicking on them. Once you press the "Run" button, a Lifelong
+Planning A* search is performed in the left gridworld and an A* search is
+performed in the right gridworld and the results are shown. The results of the
+first search should be completely identical. You can then continue to make
+empty cells blocked and blocked cells empty by clicking on them. After every
+change, another search is performed and the results are shown. The shortest
+paths should always be identical but in many cases Lifelong Planning A* now
+expands many fewer cells than A*. It might not even expand any cells at all!
+In general, the search effort of Lifelong Planning A* is especially small if
+the changes occur close to the goal cell. If you want to make several changes
+at once, you can press the "Stop" button to suspend the searches and make all
+changes. Once you press the "Run" button again, the searches continue, as
+before. The "Reset" button resets the applet into its initial state. (Note
+that you need to press the "Run" button again after pressing the "Reset"
+button.)  </p>
+
+<p class="subtitle"> Truth in Advertizing </p>
+
+<p> The applet compares the number of cell expansions of Lifelong Planning A*
+and A* with the same tie-breaking rule. However, it is important to note that
+A* expands cells faster than Lifelong Planning A*. Also, Lifelong Planning A*
+and A* can break ties in favor of vertices with larger g-values and then tend
+to expand fewer cells (especially in empty gridworlds, where the number of
+ties is large). These issues are discussed in the papers given below. </p>
+
+<p> The programming was done by Colin Bauer as part of a student project.
+Please send bug reports to <A HREF="MAILTO:skoenig@usc.edu">Sven Koenig</A>,
+after checking that you have indeed enabled Java in your preferences. Note
+that the code is not efficient and thus not what you want to use as a starting
+point for an implementation! Better code is given below. Note that this code
+still breaks ties in favor of vertices with smaller g-values, but the papers
+given below explain how to change the tie-breaking rule. </p>
+
+<p> The <a href="http://en.wikipedia.org/wiki/A-star_search_algorithm"
+target="_top">Wikipedia webpages on "A* Search" </a> link to this page. (The
+Wikipedia changes quickly, though.) </p>
+
+<p class="subtitle"> Overview Publications </p>
+<UL><p><li>S. Koenig, M. Likhachev, Y. Liu and D. Furcy. <a href="http://idm-lab.org/bib/abstracts/Koen04c.html">Incremental Heuristic Search in Artificial Intelligence</a>. <i>Artificial Intelligence Magazine, </i>25, (2), 99-112, 2004. <b>[downloadable]</b><br></UL>
+<p class="subtitle"> Technical Publications </p>
+<UL><p><li>M. Likhachev and S. Koenig. <a href="http://idm-lab.org/bib/abstracts/Koen06c.html">Incremental Heuristic Search in Games: The Quest for Speed [Poster Abstract]</a>. In<i> Proceedings of the Artificial Intelligence and Interactive Digital Entertainment Conference (AIIDE),</i> 118-120, 2006. <b>[downloadable]</b><br><p><li>M. Likhachev and S. Koenig. <a href="http://idm-lab.org/bib/abstracts/Koen05h.html">A Generalized Framework for Lifelong Planning A*</a>. In<i> Proceedings of the International Conference on Automated Planning and Scheduling (ICAPS),</i> 99-108, 2005. <b>[downloadable]</b><br><p><li>S. Koenig, M. Likhachev and D. Furcy. <a href="http://idm-lab.org/bib/abstracts/Koen04a.html">Lifelong Planning A*</a>. <i>Artificial Intelligence Journal, </i>155, (1-2), 93-146, 2004. <b>[downloadable]</b><br></UL>
+<p class="subtitle"> Code </p>
+
+<ul>
+
+<p> <li> <a href="code/lpastar1.tar" target="_top">Lifelong Planning A* on
+Grids with Random Costs </a> (clean code)
+
+<p> <li> <a href="code/lpastar2.tar" target="_top">Lifelong Planning A* on
+Mazes with Random Obstacles</a>
+
+<p> <li> <a href="code/dstarlite.tar" target="_top">D* Lite with ASCII Interface </a> (mostly untested)
+
+</ul>
+
+<p class="subtitle"> Additional Information </p>
+
+<ul>
+
+<p> <li> <a href="project-a.html" target="_top">Fast Replanning Webpage</a>
+
+</ul>
+
+<p>
+Many publishers do not want authors to make their papers available
+electronically after the papers have been published. Please use the
+electronic versions provided here only if hardcopies are not yet
+available. If you have comments on any of these papers, please send me an
+email! Also, please send me your papers if we have common interests.
+</p>
+
+<p> 
+This page was automatically created by a bibliography maintenance system that
+was developed as part of an undergraduate research project, advised by <a
+href="index.html" target="_top">Sven Koenig</a>.
+</p>
+
+<hr />
+
+<p align="center">
+<a href="index.html" target="_top">Home Page of Sven Koenig</a>
+</p>
+
+</html>
+

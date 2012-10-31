@@ -1,0 +1,357 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+				<meta name="keywords" content="Tree (data structure),2-3 tree,AA tree,AVL tree,Acyclic,Acyclic graph,Array,B*-tree,B+ tree,B-tree,Binary heap" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="http://www.gnu.org/copyleft/fdl.html" />
+		<title>Tree (data structure) - Wikipedia, the free encyclopedia</title>
+		<style type="text/css" media="screen, projection">/*<![CDATA[*/
+			@import "/skins-1.5/common/shared.css?99";
+			@import "/skins-1.5/monobook/main.css?99";
+		/*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="/skins-1.5/common/commonPrint.css?99" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE50Fixes.css?99";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE55Fixes.css?99";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "/skins-1.5/monobook/IE60Fixes.css?99";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "/skins-1.5/monobook/IE70Fixes.css?99";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="/skins-1.5/common/IEFixes.js?99"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		
+		<script type= "text/javascript">/*<![CDATA[*/
+var skin = "monobook";
+var stylepath = "/skins-1.5";
+var wgArticlePath = "/wiki/$1";
+var wgScriptPath = "/w";
+var wgScript = "/w/index.php";
+var wgServer = "http://en.wikipedia.org";
+var wgCanonicalNamespace = "";
+var wgCanonicalSpecialPageName = false;
+var wgNamespaceNumber = 0;
+var wgPageName = "Tree_(data_structure)";
+var wgTitle = "Tree (data structure)";
+var wgAction = "view";
+var wgRestrictionEdit = [];
+var wgRestrictionMove = [];
+var wgArticleId = "30806";
+var wgIsArticle = true;
+var wgUserName = null;
+var wgUserGroups = null;
+var wgUserLanguage = "en";
+var wgContentLanguage = "en";
+var wgBreakFrames = false;
+var wgCurRevisionId = "156072830";
+/*]]>*/</script>
+                
+		<script type="text/javascript" src="/skins-1.5/common/wikibits.js?99"><!-- wikibits js --></script>
+		<script type="text/javascript" src="/w/index.php?title=-&amp;action=raw&amp;gen=js&amp;useskin=monobook"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "/w/index.php?title=MediaWiki:Common.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=MediaWiki:Monobook.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=-&action=raw&gen=css&maxage=2678400";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+		<script type="text/javascript" src="/skins-1.5/common/ajax.js?99"></script>
+	</head>
+<body  class="mediawiki ns-0 ltr page-Tree_data_structure">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">Tree (data structure)</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+			<div id="contentSub">(Redirected from <a href="/w/index.php?title=Tree_data_structure&amp;redirect=no" title="Tree data structure">Tree data structure</a>)</div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<div class="thumb tright">
+<div class="thumbinner" style="width:182px;"><a href="/wiki/Image:Binary_tree.svg" class="image" title="A simple example unordered tree"><img alt="A simple example unordered tree" src="http://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Binary_tree.svg/180px-Binary_tree.svg.png" width="180" height="158" border="0" class="thumbimage" /></a>
+<div class="thumbcaption">
+<div class="magnify" style="float:right"><a href="/wiki/Image:Binary_tree.svg" class="internal" title="Enlarge"><img src="/skins-1.5/common/images/magnify-clip.png" width="15" height="11" alt="" /></a></div>
+A simple example unordered tree</div>
+</div>
+</div>
+<p>In <a href="/wiki/Computer_science" title="Computer science">computer science</a>, a <b>tree</b> is a widely-used <a href="/wiki/Data_structure" title="Data structure">data structure</a> that emulates a <a href="/wiki/Tree_structure" title="Tree structure">tree structure</a> with a set of linked nodes.</p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Nodes"><span class="tocnumber">1</span> <span class="toctext">Nodes</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Root_nodes"><span class="tocnumber">1.1</span> <span class="toctext">Root nodes</span></a></li>
+<li class="toclevel-2"><a href="#Leaf_nodes"><span class="tocnumber">1.2</span> <span class="toctext">Leaf nodes</span></a></li>
+<li class="toclevel-2"><a href="#Internal_nodes"><span class="tocnumber">1.3</span> <span class="toctext">Internal nodes</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Subtrees"><span class="tocnumber">2</span> <span class="toctext">Subtrees</span></a></li>
+<li class="toclevel-1"><a href="#Tree_ordering"><span class="tocnumber">3</span> <span class="toctext">Tree ordering</span></a></li>
+<li class="toclevel-1"><a href="#Forest:"><span class="tocnumber">4</span> <span class="toctext">Forest:</span></a></li>
+<li class="toclevel-1"><a href="#Tree_representations"><span class="tocnumber">5</span> <span class="toctext">Tree representations</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Trees_as_graphs"><span class="tocnumber">5.1</span> <span class="toctext">Trees as graphs</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Traversal_methods"><span class="tocnumber">6</span> <span class="toctext">Traversal methods</span></a></li>
+<li class="toclevel-1"><a href="#Common_operations"><span class="tocnumber">7</span> <span class="toctext">Common operations</span></a></li>
+<li class="toclevel-1"><a href="#Common_uses"><span class="tocnumber">8</span> <span class="toctext">Common uses</span></a></li>
+<li class="toclevel-1"><a href="#See_also"><span class="tocnumber">9</span> <span class="toctext">See also</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Popular_tree_data_structures"><span class="tocnumber">9.1</span> <span class="toctext">Popular tree data structures</span></a>
+<ul>
+<li class="toclevel-3"><a href="#Self_balancing_binary_search_trees"><span class="tocnumber">9.1.1</span> <span class="toctext">Self balancing binary search trees</span></a></li>
+<li class="toclevel-3"><a href="#Other_trees"><span class="tocnumber">9.1.2</span> <span class="toctext">Other trees</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#References"><span class="tocnumber">10</span> <span class="toctext">References</span></a></li>
+<li class="toclevel-1"><a href="#External_links"><span class="tocnumber">11</span> <span class="toctext">External links</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script>
+<p><a name="Nodes" id="Nodes"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Tree_%28data_structure%29&amp;action=edit&amp;section=1" title="Edit section: Nodes">edit</a>]</span> <span class="mw-headline">Nodes</span></h2>
+<p>A node may contain a value or a condition or represent a separate data structure or a tree of its own. Each node in a tree has zero or more <b>child nodes</b>, which are below it in the tree (by convention, trees grow down, not up as they do in nature). A node that has a child is called the child's <b>parent node</b> (or <i>ancestor node</i>, or <a href="/wiki/Superior_%28hierarchy%29" title="Superior (hierarchy)">superior</a>). A node has at most one parent. The height of a node is the length of the longest path to a leaf from that node. The height of the root is the <i>height</i> of the tree. The depth of a node is the length of the path to its root (i.e., its <i>root path</i>).</p>
+<p><a name="Root_nodes" id="Root_nodes"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Tree_%28data_structure%29&amp;action=edit&amp;section=2" title="Edit section: Root nodes">edit</a>]</span> <span class="mw-headline">Root nodes</span></h3>
+<p>The topmost node in a tree is called the <b>root node</b>. Being the topmost node, the root node will not have parents. It is the node at which operations on the tree commonly begin (although some algorithms begin with the leaf nodes and work up ending at the root). All other nodes can be reached from it by following edges or links. (In the formal definition, each such path is also unique). In diagrams, it is typically drawn at the top. In some trees, such as <a href="/wiki/Heap_%28data_structure%29" title="Heap (data structure)">heaps</a>, the root node has special properties. Every node in a tree can be seen as the root node of the subtree rooted at that node.</p>
+<p><a name="Leaf_nodes" id="Leaf_nodes"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Tree_%28data_structure%29&amp;action=edit&amp;section=3" title="Edit section: Leaf nodes">edit</a>]</span> <span class="mw-headline">Leaf nodes</span></h3>
+<p>Nodes at the bottommost level of the tree are called <a href="/wiki/Leaf_node" title="Leaf node">leaf nodes</a>. Since they are at the bottommost level, they do not have any children.</p>
+<p><a name="Internal_nodes" id="Internal_nodes"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Tree_%28data_structure%29&amp;action=edit&amp;section=4" title="Edit section: Internal nodes">edit</a>]</span> <span class="mw-headline">Internal nodes</span></h3>
+<p>An <b>internal node</b> or <b>inner node</b> is any <a href="/wiki/Node_%28computer_science%29" title="Node (computer science)">node</a> of a tree that has <a href="/wiki/Child_node" title="Child node">child nodes</a> and is thus not a <a href="/wiki/Leaf_node" title="Leaf node">leaf node</a>.</p>
+<p><a name="Subtrees" id="Subtrees"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Tree_%28data_structure%29&amp;action=edit&amp;section=5" title="Edit section: Subtrees">edit</a>]</span> <span class="mw-headline">Subtrees</span></h2>
+<p>A <b>subtree</b> is a portion of a tree data structure that can be viewed as a complete tree in itself. Any node in a tree <i>T</i>, together with all the nodes below it, comprise a subtree of <i>T</i>. The subtree corresponding to the root node is the entire tree; the subtree corresponding to any other node is called a <b>proper subtree</b> (in analogy to the term <a href="/wiki/Proper_subset" title="Proper subset">proper subset</a>).</p>
+<p><a name="Tree_ordering" id="Tree_ordering"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Tree_%28data_structure%29&amp;action=edit&amp;section=6" title="Edit section: Tree ordering">edit</a>]</span> <span class="mw-headline">Tree ordering</span></h2>
+<p>There are two basic types of trees. In an <b>unordered tree</b>, a tree is a tree in a purely structural sense — that is to say, given a node, there is no order for the children of that node. A tree on which an order is imposed — for example, by assigning different <a href="/wiki/Natural_numbers" title="Natural numbers">natural numbers</a> to each edge leading to a node's children — is called an <b>edge-labeled tree</b> or an <b>ordered tree</b> with data structures built upon them being called <b>ordered tree data structures</b>. Ordered trees are by far the most common form of tree data structure. <a href="/wiki/Binary_search_tree" title="Binary search tree">Binary search trees</a> are one kind of ordered tree.</p>
+<p><a name="Forest:" id="Forest:"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Tree_%28data_structure%29&amp;action=edit&amp;section=7" title="Edit section: Forest:">edit</a>]</span> <span class="mw-headline">Forest:</span></h2>
+<p>a Forest is an ordered set of ordered trees. inorder,preorder and post order traversals are defined recursively for forests.</p>
+<p>1.inorder- a.traverse inorder the forest formed by the subtrees of the first tree in the forest,if any b.visit the root of the first tree. c. traverse inorder the forest formed by the remaining trees in the forest,if any</p>
+<p>2.preorder- a.visit the root of the first tree. b.traverse preorder the forest formed by the subtrees of the first tree in the forest,if any c.traverse preorder the forest formed by the remaining trees in the forest,if any</p>
+<p>3.postorder- a.traverse postorder the forest formed by the subtrees of the first tree in the forest,if any b.traverse preorder the forest formed by the remaining trees in the forest,if any c.visit the root of the first tree.</p>
+<p><a name="Tree_representations" id="Tree_representations"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Tree_%28data_structure%29&amp;action=edit&amp;section=8" title="Edit section: Tree representations">edit</a>]</span> <span class="mw-headline">Tree representations</span></h2>
+<p>There are many different ways to represent trees; common representations represent the nodes as records allocated on the <a href="/wiki/Heap_%28programming%29" title="Heap (programming)">heap</a> (not to be confused with the <a href="/wiki/Heap_%28data_structure%29" title="Heap (data structure)">heap data structure</a>) with pointers to their children, their parents, or both, or as items in an <a href="/wiki/Array" title="Array">array</a>, with relationships between them determined by their positions in the array (e.g., <a href="/wiki/Binary_heap" title="Binary heap">binary heap</a>).</p>
+<p><a name="Trees_as_graphs" id="Trees_as_graphs"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Tree_%28data_structure%29&amp;action=edit&amp;section=9" title="Edit section: Trees as graphs">edit</a>]</span> <span class="mw-headline">Trees as graphs</span></h3>
+<p>In <a href="/wiki/Graph_theory" title="Graph theory">graph theory</a>, a <a href="/wiki/Tree_%28graph_theory%29" title="Tree (graph theory)">tree</a> is a connected <a href="/wiki/Acyclic" title="Acyclic">acyclic</a> <a href="/wiki/Graph_%28data_structure%29" title="Graph (data structure)">graph</a>. A rooted tree is such a graph with a <a href="/wiki/Vertex_%28graph_theory%29" title="Vertex (graph theory)">vertex</a> singled out as the root. In this case, any two vertices connected by an edge inherit a parent-child relationship. An <a href="/wiki/Acyclic_graph" title="Acyclic graph">acyclic graph</a> with multiple connected components or a set of rooted trees is sometimes called a <b>forest</b>.</p>
+<p><a name="Traversal_methods" id="Traversal_methods"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Tree_%28data_structure%29&amp;action=edit&amp;section=10" title="Edit section: Traversal methods">edit</a>]</span> <span class="mw-headline">Traversal methods</span></h2>
+<dl>
+<dd>
+<div class="noprint"><i>Main article: <a href="/wiki/Tree_traversal" title="Tree traversal">Tree traversal</a></i></div>
+</dd>
+</dl>
+<p>Stepping through the items of a tree, by means of the connections between parents and children, is called <b>walking the tree</b>, and the action is a <b>walk</b> of the tree. Often, an operation might be performed when a pointer arrives at a particular node. A walk in which each parent node is traversed before its children is called a <b>pre-order walk</b>; a walk in which the children are traversed before their respective parents are traversed is called a <b>post-order walk</b>.</p>
+<p><a name="Common_operations" id="Common_operations"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Tree_%28data_structure%29&amp;action=edit&amp;section=11" title="Edit section: Common operations">edit</a>]</span> <span class="mw-headline">Common operations</span></h2>
+<ul>
+<li>Enumerating all the items</li>
+<li>Searching for an item</li>
+<li>Adding a new item at a certain position on the tree</li>
+<li>Deleting an item</li>
+<li>Removing a whole section of a tree (called <b><a href="/wiki/Pruning_%28algorithm%29" title="Pruning (algorithm)">pruning</a></b>)</li>
+<li>Adding a whole section to a tree (called <b><a href="/w/index.php?title=Grafting_%28algorithm%29&amp;action=edit" class="new" title="Grafting (algorithm)">grafting</a></b>)</li>
+<li>Finding the root for any node</li>
+</ul>
+<p><a name="Common_uses" id="Common_uses"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Tree_%28data_structure%29&amp;action=edit&amp;section=12" title="Edit section: Common uses">edit</a>]</span> <span class="mw-headline">Common uses</span></h2>
+<ul>
+<li>Manipulate <a href="/wiki/Hierarchical" title="Hierarchical">hierarchical</a> data</li>
+<li>Make information easy to <a href="/wiki/Search_algorithm" title="Search algorithm">search</a> (see <a href="/wiki/Tree_traversal" title="Tree traversal">tree traversal</a>)</li>
+<li>Manipulate <a href="/wiki/Sorting_algorithm" title="Sorting algorithm">sorted lists</a> of data</li>
+</ul>
+<p><a name="See_also" id="See_also"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Tree_%28data_structure%29&amp;action=edit&amp;section=13" title="Edit section: See also">edit</a>]</span> <span class="mw-headline">See also</span></h2>
+<ul>
+<li><a href="/wiki/Binary_space_partitioning" title="Binary space partitioning">Binary space partitioning</a></li>
+<li><a href="/wiki/Heap_%28data_structure%29" title="Heap (data structure)">heap</a></li>
+<li><a href="/wiki/Tree_%28graph_theory%29" title="Tree (graph theory)">Tree (graph theory)</a></li>
+<li><a href="/wiki/Tree_%28set_theory%29" title="Tree (set theory)">Tree (set theory)</a></li>
+<li><a href="/wiki/Tree_structure" title="Tree structure">Tree structure</a></li>
+<li><a href="/wiki/Trie" title="Trie">Trie</a></li>
+<li><a href="/wiki/Exponential_tree" title="Exponential tree">Exponential tree</a></li>
+</ul>
+<p><a name="Popular_tree_data_structures" id="Popular_tree_data_structures"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Tree_%28data_structure%29&amp;action=edit&amp;section=14" title="Edit section: Popular tree data structures">edit</a>]</span> <span class="mw-headline">Popular tree data structures</span></h3>
+<p><a name="Self_balancing_binary_search_trees" id="Self_balancing_binary_search_trees"></a></p>
+<h4><span class="editsection">[<a href="/w/index.php?title=Tree_%28data_structure%29&amp;action=edit&amp;section=15" title="Edit section: Self balancing binary search trees">edit</a>]</span> <span class="mw-headline">Self balancing binary search trees</span></h4>
+<p><a href="/wiki/Self-balancing_binary_search_tree" title="Self-balancing binary search tree">Self-balancing binary search trees:</a></p>
+<ul>
+<li><a href="/wiki/AA_tree" title="AA tree">AA tree</a></li>
+<li><a href="/wiki/AVL_tree" title="AVL tree">AVL tree</a></li>
+<li><a href="/wiki/Red-black_tree" title="Red-black tree">Red-black tree</a></li>
+<li><a href="/wiki/Splay_tree" title="Splay tree">Splay tree</a></li>
+<li><a href="/wiki/Scapegoat_tree" title="Scapegoat tree">Scapegoat tree</a></li>
+</ul>
+<p><a name="Other_trees" id="Other_trees"></a></p>
+<h4><span class="editsection">[<a href="/w/index.php?title=Tree_%28data_structure%29&amp;action=edit&amp;section=16" title="Edit section: Other trees">edit</a>]</span> <span class="mw-headline">Other trees</span></h4>
+<ul>
+<li><a href="/wiki/B-tree" title="B-tree">B-tree</a> (<a href="/wiki/2-3_tree" title="2-3 tree">2-3 tree</a>, <a href="/wiki/B%2B_tree" title="B+ tree">B+ tree</a>, <a href="/wiki/B%2A-tree" title="B*-tree">B*-tree</a>, <a href="/wiki/UB-tree" title="UB-tree">UB-tree</a>)</li>
+<li><a href="/wiki/DSW_algorithm" title="DSW algorithm">DSW algorithm</a></li>
+<li><a href="/wiki/Dancing_tree" title="Dancing tree">Dancing tree</a></li>
+<li><a href="/wiki/Fusion_tree" title="Fusion tree">Fusion tree</a></li>
+<li><a href="/wiki/Kd-tree" title="Kd-tree">kd-tree</a></li>
+<li><a href="/wiki/Octree" title="Octree">Octree</a></li>
+<li><a href="/wiki/Quadtree" title="Quadtree">Quadtree</a></li>
+<li><a href="/wiki/R-tree" title="R-tree">R-tree</a></li>
+<li><a href="/wiki/Radix_tree" title="Radix tree">Radix tree</a></li>
+<li><a href="/wiki/Skip_list" title="Skip list">Skip list</a></li>
+<li><a href="/wiki/T-tree" title="T-tree">T-tree</a></li>
+<li><a href="/wiki/T-pyramid" title="T-pyramid">T-pyramid</a></li>
+<li><a href="/wiki/Top_Trees" title="Top Trees">Top Trees</a></li>
+</ul>
+<p><a name="References" id="References"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Tree_%28data_structure%29&amp;action=edit&amp;section=17" title="Edit section: References">edit</a>]</span> <span class="mw-headline">References</span></h2>
+<ul>
+<li><a href="/wiki/Donald_Knuth" title="Donald Knuth">Donald Knuth</a>. <i>The Art of Computer Programming: Fundamental Algorithms</i>, Third Edition. Addison-Wesley, 1997. <a href="/w/index.php?title=Special:Booksources&amp;isbn=0201896834" class="internal">ISBN 0-201-89683-4</a> . Section 2.3: Trees, pp.308–423.</li>
+<li><a href="/wiki/Thomas_H._Cormen" title="Thomas H. Cormen">Thomas H. Cormen</a>, <a href="/wiki/Charles_E._Leiserson" title="Charles E. Leiserson">Charles E. Leiserson</a>, <a href="/wiki/Ronald_L._Rivest" title="Ronald L. Rivest">Ronald L. Rivest</a>, and <a href="/wiki/Clifford_Stein" title="Clifford Stein">Clifford Stein</a>. <i><a href="/wiki/Introduction_to_Algorithms" title="Introduction to Algorithms">Introduction to Algorithms</a></i>, Second Edition. MIT Press and McGraw-Hill, 2001. <a href="/w/index.php?title=Special:Booksources&amp;isbn=0262032937" class="internal">ISBN 0-262-03293-7</a> . Section 10.4: Representing rooted trees, pp.214–217. Chapters 12–14 (Binary Search Trees, Red-Black Trees, Augmenting Data Structures), pp.253–320.</li>
+</ul>
+<p><a name="External_links" id="External_links"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Tree_%28data_structure%29&amp;action=edit&amp;section=18" title="Edit section: External links">edit</a>]</span> <span class="mw-headline">External links</span></h2>
+<ul>
+<li><a href="http://www.nist.gov/dads/HTML/tree.html" class="external text" title="http://www.nist.gov/dads/HTML/tree.html" rel="nofollow">Description</a> from the <a href="/wiki/Dictionary_of_Algorithms_and_Data_Structures" title="Dictionary of Algorithms and Data Structures">Dictionary of Algorithms and Data Structures</a></li>
+<li><a href="http://www.aei.mpg.de/~peekas/tree/" class="external text" title="http://www.aei.mpg.de/~peekas/tree/" rel="nofollow">STL-like C++ tree class</a></li>
+<li><a href="http://www2.informatik.uni-halle.de/lehre/leda/MANUAL/List_data_structures.html" class="external text" title="http://www2.informatik.uni-halle.de/lehre/leda/MANUAL/List_data_structures.html" rel="nofollow">List of data structures</a> from <a href="/w/index.php?title=LEDA&amp;action=edit" class="new" title="LEDA">LEDA</a></li>
+<li><a href="http://www.codeplex.com/NGenerics" class="external text" title="http://www.codeplex.com/NGenerics" rel="nofollow">NGenerics&#160;: implementation in C#</a></li>
+</ul>
+
+<!-- 
+Pre-expand include size: 1114 bytes
+Post-expand include size: 194 bytes
+Template argument size: 236 bytes
+Maximum: 2048000 bytes
+-->
+
+<!-- Saved in parser cache with key enwiki:pcache:idhash:30806-0!1!0!default!!en!2 and timestamp 20070906155711 -->
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org/wiki/Tree_%28data_structure%29">http://en.wikipedia.org/wiki/Tree_%28data_structure%29</a>"</div>
+			<div id="catlinks"><p class='catlinks'><a href="/wiki/Special:Categories" title="Special:Categories">Category</a>: <span dir='ltr'><a href="/wiki/Category:Trees_%28structure%29" title="Category:Trees (structure)">Trees (structure)</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<div class="pBody">
+			<ul>
+					 <li id="ca-nstab-main" class="selected"><a href="/wiki/Tree_%28data_structure%29" title="View the content page [c]" accesskey="c">Article</a></li>
+					 <li id="ca-talk"><a href="/wiki/Talk:Tree_%28data_structure%29" title="Discussion about the content page [t]" accesskey="t">Discussion</a></li>
+					 <li id="ca-edit"><a href="/w/index.php?title=Tree_%28data_structure%29&amp;action=edit" title="You can edit this page. Please use the preview button before saving. [e]" accesskey="e">Edit this page</a></li>
+					 <li id="ca-history"><a href="/w/index.php?title=Tree_%28data_structure%29&amp;action=history" title="Past versions of this page [h]" accesskey="h">History</a></li>
+				</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-personal">
+		<h5>Personal tools</h5>
+		<div class="pBody">
+			<ul>
+				<li id="pt-login"><a href="/w/index.php?title=Special:Userlogin&amp;returnto=Tree_(data_structure)" title="You are encouraged to log in, it is not mandatory however. [o]" accesskey="o">Sign in / create account</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-logo">
+		<a style="background-image: url(/images/wiki-en.png);" href="/wiki/Main_Page" title="Visit the Main Page [z]" accesskey="z"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-Main-page"><a href="/wiki/Main_Page">Main page</a></li>
+				<li id="n-Contents"><a href="/wiki/Wikipedia:Contents">Contents</a></li>
+				<li id="n-Featured-content"><a href="/wiki/Wikipedia:Featured_content">Featured content</a></li>
+				<li id="n-currentevents"><a href="/wiki/Portal:Current_events" title="Find background information on current events">Current events</a></li>
+				<li id="n-randompage"><a href="/wiki/Special:Random" title="Load a random page [x]" accesskey="x">Random article</a></li>
+			</ul>
+		</div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+		<h5>interaction</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-About-Wikipedia"><a href="/wiki/Wikipedia:About">About Wikipedia</a></li>
+				<li id="n-portal"><a href="/wiki/Wikipedia:Community_Portal" title="About the project, what you can do, where to find things">Community portal</a></li>
+				<li id="n-recentchanges"><a href="/wiki/Special:Recentchanges" title="The list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li>
+				<li id="n-contact"><a href="/wiki/Wikipedia:Contact_us">Contact Wikipedia</a></li>
+				<li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising" title="Support us">Donate to Wikipedia</a></li>
+				<li id="n-help"><a href="/wiki/Help:Contents" title="Guidance on how to use and edit Wikipedia">Help</a></li>
+			</ul>
+		</div>
+	</div>
+		<div id="p-search" class="portlet">
+		<h5><label for="searchInput">Search</label></h5>
+		<div id="searchBody" class="pBody">
+			<form action="/wiki/Special:Search" id="searchform"><div>
+				<input id="searchInput" name="search" type="text" title="Search Wikipedia [f]" accesskey="f" value="" />
+				<input type='submit' name="go" class="searchButton" id="searchGoButton"	value="Go" />&nbsp;
+				<input type='submit' name="fulltext" class="searchButton" id="mw-searchButton" value="Search" />
+			</div></form>
+		</div>
+	</div>
+	<div class="portlet" id="p-tb">
+		<h5>Toolbox</h5>
+		<div class="pBody">
+			<ul>
+				<li id="t-whatlinkshere"><a href="/wiki/Special:Whatlinkshere/Tree_%28data_structure%29" title="List of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+				<li id="t-recentchangeslinked"><a href="/wiki/Special:Recentchangeslinked/Tree_%28data_structure%29" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+<li id="t-upload"><a href="/wiki/Wikipedia:Upload" title="Upload images or media files [u]" accesskey="u">Upload file</a></li>
+<li id="t-specialpages"><a href="/wiki/Special:Specialpages" title="List of all special pages [q]" accesskey="q">Special pages</a></li>
+				<li id="t-print"><a href="/w/index.php?title=Tree_%28data_structure%29&amp;printable=yes" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>				<li id="t-permalink"><a href="/w/index.php?title=Tree_%28data_structure%29&amp;oldid=156072830" title="Permanent link to this version of the page">Permanent link</a></li><li id="t-cite"><a href="/w/index.php?title=Special:Cite&amp;page=Tree_%28data_structure%29&amp;id=156072830">Cite this article</a></li>			</ul>
+		</div>
+	</div>
+	<div id="p-lang" class="portlet">
+		<h5>In other languages</h5>
+		<div class="pBody">
+			<ul>
+				<li class="interwiki-cs"><a href="http://cs.wikipedia.org/wiki/Strom_%28datov%C3%A1_struktura%29">Česky</a></li>
+				<li class="interwiki-da"><a href="http://da.wikipedia.org/wiki/Tr%C3%A6_%28datastruktur%29">Dansk</a></li>
+				<li class="interwiki-de"><a href="http://de.wikipedia.org/wiki/Baum_%28Graphentheorie%29">Deutsch</a></li>
+				<li class="interwiki-es"><a href="http://es.wikipedia.org/wiki/%C3%81rbol_%28estructura_de_datos%29">Español</a></li>
+				<li class="interwiki-fa"><a href="http://fa.wikipedia.org/wiki/%D8%AF%D8%B1%D8%AE%D8%AA">فارسی</a></li>
+				<li class="interwiki-fr"><a href="http://fr.wikipedia.org/wiki/Arbre_%28informatique%29">Français</a></li>
+				<li class="interwiki-id"><a href="http://id.wikipedia.org/wiki/Pohon_%28struktur_data%29">Bahasa Indonesia</a></li>
+				<li class="interwiki-it"><a href="http://it.wikipedia.org/wiki/Albero_%28informatica%29">Italiano</a></li>
+				<li class="interwiki-lt"><a href="http://lt.wikipedia.org/wiki/Medis_%28duomen%C5%B3_strukt%C5%ABra%29">Lietuvių</a></li>
+				<li class="interwiki-nl"><a href="http://nl.wikipedia.org/wiki/Tree">Nederlands</a></li>
+				<li class="interwiki-ja"><a href="http://ja.wikipedia.org/wiki/%E6%9C%A8%E6%A7%8B%E9%80%A0_%28%E3%83%87%E3%83%BC%E3%82%BF%E6%A7%8B%E9%80%A0%29">日本語</a></li>
+				<li class="interwiki-no"><a href="http://no.wikipedia.org/wiki/Tre_%28datastruktur%29">‪Norsk (bokmål)‬</a></li>
+				<li class="interwiki-pl"><a href="http://pl.wikipedia.org/wiki/Drzewo_%28informatyka%29">Polski</a></li>
+				<li class="interwiki-pt"><a href="http://pt.wikipedia.org/wiki/%C3%81rvore_%28estrutura_de_dados%29">Português</a></li>
+				<li class="interwiki-uk"><a href="http://uk.wikipedia.org/wiki/%D0%94%D0%B5%D1%80%D0%B5%D0%B2%D0%BE_%28%D1%81%D1%82%D1%80%D1%83%D0%BA%D1%82%D1%83%D1%80%D0%B0_%D0%B4%D0%B0%D0%BD%D0%B8%D1%85%29">Українська</a></li>
+				<li class="interwiki-zh"><a href="http://zh.wikipedia.org/wiki/%E6%A0%91_%28%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%29">中文</a></li>
+			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="/skins-1.5/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>
+				<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="/images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>
+			<ul id="f-list">
+				<li id="lastmod"> This page was last modified 15:56, 6 September 2007.</li>
+				<li id="copyright">All text is available under the terms of the <a class='internal' href="/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="/wiki/Wikipedia:Copyrights" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a U.S. registered <a class='internal' href="/wiki/501%28c%29#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="/wiki/Non-profit_organization" title="Non-profit organization">nonprofit</a> <a href="/wiki/Charitable_organization" title="Charitable organization">charity</a>.<br /></li>
+				<li id="privacy"><a href="http://wikimediafoundation.org/wiki/Privacy_policy" title="wikimedia:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="/wiki/Wikipedia:About" title="Wikipedia:About">About Wikipedia</a></li>
+				<li id="disclaimer"><a href="/wiki/Wikipedia:General_disclaimer" title="Wikipedia:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+		
+	
+		<script type="text/javascript">if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by srv164 in 0.118 secs. --></body></html>

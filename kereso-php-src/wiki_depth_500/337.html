@@ -1,0 +1,241 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+				<meta name="keywords" content="Algorithme de parcours en largeur,Algorithme de parcours en profondeur,File,First in, first out,Graphe (théorie des graphes),Parcours (graphe)" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipédia (Français)" />
+		<link rel="copyright" href="http://www.gnu.org/copyleft/fdl.html" />
+		<title>Algorithme de parcours en largeur - Wikipédia</title>
+		<style type="text/css" media="screen, projection">/*<![CDATA[*/
+			@import "/skins-1.5/common/shared.css?99";
+			@import "/skins-1.5/monobook/main.css?99";
+		/*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="/skins-1.5/common/commonPrint.css?99" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE50Fixes.css?99";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE55Fixes.css?99";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "/skins-1.5/monobook/IE60Fixes.css?99";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "/skins-1.5/monobook/IE70Fixes.css?99";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="/skins-1.5/common/IEFixes.js?99"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		
+		<script type= "text/javascript">/*<![CDATA[*/
+var skin = "monobook";
+var stylepath = "/skins-1.5";
+var wgArticlePath = "/wiki/$1";
+var wgScriptPath = "/w";
+var wgScript = "/w/index.php";
+var wgServer = "http://fr.wikipedia.org";
+var wgCanonicalNamespace = "";
+var wgCanonicalSpecialPageName = false;
+var wgNamespaceNumber = 0;
+var wgPageName = "Algorithme_de_parcours_en_largeur";
+var wgTitle = "Algorithme de parcours en largeur";
+var wgAction = "view";
+var wgRestrictionEdit = [];
+var wgRestrictionMove = [];
+var wgArticleId = "228740";
+var wgIsArticle = true;
+var wgUserName = null;
+var wgUserGroups = null;
+var wgUserLanguage = "fr";
+var wgContentLanguage = "fr";
+var wgBreakFrames = false;
+var wgCurRevisionId = "14383460";
+/*]]>*/</script>
+                
+		<script type="text/javascript" src="/skins-1.5/common/wikibits.js?99"><!-- wikibits js --></script>
+		<script type="text/javascript" src="/w/index.php?title=-&amp;action=raw&amp;gen=js&amp;useskin=monobook"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "/w/index.php?title=MediaWiki:Common.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=MediaWiki:Monobook.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=-&action=raw&gen=css&maxage=2678400";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+		<script type="text/javascript" src="/skins-1.5/common/ajax.js?99"></script>
+	</head>
+<body  class="mediawiki ns-0 ltr page-Algorithme_de_parcours_en_largeur">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+		<div id="siteNotice"><script type="text/javascript" language="JavaScript">
+<!--
+document.writeln("\x3cdiv style=\"text-align:right; font-size:80%\"\x3eVos dons permettent à Wikipédia de continuer à exister\x26nbsp;! Merci de \x3ca href=\"http://wikimediafoundation.org/wiki/Faire_un_don\" class=\"extiw\" title=\"wikimedia:Faire_un_don\"\x3evotre soutien\x3c/a\x3e.\x26nbsp;\x26nbsp;\x26nbsp;\x26nbsp;\x3c/div\x3e\n");
+-->
+</script></div>		<h1 class="firstHeading">Algorithme de parcours en largeur</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">Un article de Wikipédia, l'encyclopédie libre.</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Aller à : <a href="#column-one">Navigation</a>, <a href="#searchInput">Rechercher</a></div>			<!-- start content -->
+			<p>L'<b>algorithme de parcours en largeur</b> (ou BFS, pour <i>Breadth First Search</i>) permet le <a href="/wiki/Parcours_%28graphe%29" title="Parcours (graphe)">parcours</a> d'un <a href="/wiki/Graphe_%28th%C3%A9orie_des_graphes%29" title="Graphe (théorie des graphes)">graphe</a> de manière itérative, en utilisant une <a href="/wiki/File" title="File">file</a>. Il peut par exemple servir à déterminer la connexité d'un graphe.</p>
+<p><a name="Principe" id="Principe"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Algorithme_de_parcours_en_largeur&amp;action=edit&amp;section=1" title="Modifier la section&#160;: Principe">modifier</a>]</span> <span class="mw-headline">Principe</span></h2>
+<p>Cet algorithme diffère de l'<a href="/wiki/Algorithme_de_parcours_en_profondeur" title="Algorithme de parcours en profondeur">algorithme de parcours en profondeur</a> par le fait que, à partir d'un sommet S, il liste d'abord les voisins de S pour ensuite les explorer un par un. Ce mode de fonctionnement utilise donc une file <a href="/wiki/First_in%2C_first_out" title="First in, first out">FIFO</a> dans laquelle il prend le premier sommet et place en dernier ses voisins non encore explorés.</p>
+<p>Si le graphe est cyclique, il faudra en outre marquer les sommets déjà visités pour que l'algorithme puisse se terminer.</p>
+<p><br /></p>
+<ol>
+<li>Mettre le nœud de départ dans la file.</li>
+<li>Retirer le nœud du début de la file pour l'examiner.</li>
+<li>Mettre tous les voisins non examinés dans la file (à la fin).</li>
+<li>Si la file n'est pas vide reprendre à l'étape 2.</li>
+</ol>
+<p><a name="Impl.C3.A9mentation" id="Impl.C3.A9mentation"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Algorithme_de_parcours_en_largeur&amp;action=edit&amp;section=2" title="Modifier la section&#160;: Implémentation">modifier</a>]</span> <span class="mw-headline">Implémentation</span></h2>
+<pre>
+<b>BFS</b>(graphe G, sommet s):
+{
+f=<b>CreerFile</b>();
+<b>Enfiler</b>(f, s);
+<i>debut</i>
+<i>TANT-QUE</i> <i>NON</i> FileVide(f) <i>FAIRE</i>
+   x=<b>Défiler</b>(f);
+   <b>Marquer</b>(x)
+   <i>TANT-QUE</i> <b>ExisteFils</b>(x) <i>FAIRE</i>
+            z=<b>FilsSuivant</b>(x);
+            <i>SI</i> <b>NonMarqué</b>(z) <b>Enfiler</b>(f, z);
+   <i>FIN-TANT-QUE</i>
+<i>FIN-TANT-QUE</i>
+<i>fin</i>
+}
+</pre>
+<p><br />
+Rq&#160;: L'algorithme précèdent doit boucler si on l'applique sur une grille.</p>
+<pre>
+<b>BFS2</b>(graphe G, sommet s):
+{
+f= CreerFile();
+Enfiler(f, s);
+debut
+TANT-QUE NON FileVide(f) FAIRE
+   x = Défiler(f);
+   <s><b>Marquer</b>(x)</s>
+   TANT-QUE ExisteFils(x) FAIRE
+            z = FilsSuivant(x);
+            SI NonMarqué(z) ALORS 
+                  <b>Marquer(z);</b>
+                  Enfiler(f, z);
+            FIN-SI
+   FIN-TANT-QUE
+FIN-TANT-QUE
+fin
+}
+</pre>
+<p><a name="Exemple" id="Exemple"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Algorithme_de_parcours_en_largeur&amp;action=edit&amp;section=3" title="Modifier la section&#160;: Exemple">modifier</a>]</span> <span class="mw-headline">Exemple</span></h2>
+<p>Sur le graphe suivant, cet algorithme va alors fonctionner ainsi:</p>
+<p><a href="/wiki/Image:Graphes.dfs-bfs.exemple.png" class="image" title="Image:Graphes.dfs-bfs.exemple.png"><img alt="Image:Graphes.dfs-bfs.exemple.png" src="http://upload.wikimedia.org/wikipedia/fr/b/b2/Graphes.dfs-bfs.exemple.png" width="187" height="147" border="0" /></a></p>
+<p>Il explore dans l'ordre les sommets A, B, C, E, D, F, G, contrairement à l'<a href="/wiki/Algorithme_de_parcours_en_profondeur" title="Algorithme de parcours en profondeur">algorithme de parcours en profondeur</a> qui cherche dans cet ordre&#160;: A, B, D, F, C, G, E.</p>
+
+
+<!-- Saved in parser cache with key frwiki:pcache:idhash:228740-0!1!0!!fr!2 and timestamp 20070915171608 -->
+<div class="printfooter">
+Récupérée de « <a href="http://fr.wikipedia.org/wiki/Algorithme_de_parcours_en_largeur">http://fr.wikipedia.org/wiki/Algorithme_de_parcours_en_largeur</a> »</div>
+			<div id="catlinks"><p class='catlinks'><a href="/wiki/Cat%C3%A9gorie:Accueil" title="Catégorie:Accueil">Catégories </a>: <span dir='ltr'><a href="/wiki/Cat%C3%A9gorie:Algorithme_de_recherche" title="Catégorie:Algorithme de recherche">Algorithme de recherche</a></span> • <span dir='ltr'><a href="/wiki/Cat%C3%A9gorie:Arbre_%28structure_de_donn%C3%A9es%29" title="Catégorie:Arbre (structure de données)">Arbre (structure de données)</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Affichages</h5>
+		<div class="pBody">
+			<ul>
+					 <li id="ca-nstab-main" class="selected"><a href="/wiki/Algorithme_de_parcours_en_largeur" title="Voir l’article [c]" accesskey="c">Article</a></li>
+					 <li id="ca-talk"><a href="/wiki/Discuter:Algorithme_de_parcours_en_largeur" title="Discussion à propos de cette page [t]" accesskey="t">Discussion</a></li>
+					 <li id="ca-edit"><a href="/w/index.php?title=Algorithme_de_parcours_en_largeur&amp;action=edit" title="Vous pouvez modifier cette page. Merci de prévisualiser avant d’enregistrer. [e]" accesskey="e">Modifier</a></li>
+					 <li id="ca-history"><a href="/w/index.php?title=Algorithme_de_parcours_en_largeur&amp;action=history" title="Les auteurs et versions précédentes de cette page. [h]" accesskey="h">Historique</a></li>
+				</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-personal">
+		<h5>Outils personnels</h5>
+		<div class="pBody">
+			<ul>
+				<li id="pt-login"><a href="/w/index.php?title=Special:Userlogin&amp;returnto=Algorithme_de_parcours_en_largeur" title="Vous êtes invité à vous identifier, mais ce n’est pas obligatoire. [o]" accesskey="o">Créer un compte ou se connecter</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-logo">
+		<a style="background-image: url(http://upload.wikimedia.org/wikipedia/fr/b/bc/Wiki.png);" href="/wiki/Accueil" title="Visitez la page principale [z]" accesskey="z"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="/wiki/Accueil" title="Visitez la page principale [z]" accesskey="z">Accueil</a></li>
+				<li id="n-thema"><a href="/wiki/Portail:Accueil">Portails thématiques</a></li>
+				<li id="n-alphindex"><a href="/wiki/Special:Allpages">Index alphabétique</a></li>
+				<li id="n-randompage"><a href="/wiki/Special:Random" title="Afficher une page au hasard [x]" accesskey="x">Une page au hasard</a></li>
+				<li id="n-contact"><a href="/wiki/Wikip%C3%A9dia:Contact">Contacter Wikipédia</a></li>
+			</ul>
+		</div>
+	</div>
+		<div class='portlet' id='p-Contribuer'>
+		<h5>Contribuer</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-help"><a href="/wiki/Aide:Sommaire" title="Aide">Aide</a></li>
+				<li id="n-portal"><a href="/wiki/Wikip%C3%A9dia:Accueil" title="À propos du projet">Communauté</a></li>
+				<li id="n-recentchanges"><a href="/wiki/Special:Recentchanges" title="Liste des modifications récentes sur le wiki [r]" accesskey="r">Modifications récentes</a></li>
+				<li id="n-aboutwp"><a href="/wiki/Wikip%C3%A9dia:Accueil_des_nouveaux_arrivants">Accueil des nouveaux arrivants</a></li>
+				<li id="n-sitesupport"><a href="http://meta.wikimedia.org/wiki/Faire_un_don:_explication" title="Soutenez le projet">Faire un don</a></li>
+			</ul>
+		</div>
+	</div>
+		<div id="p-search" class="portlet">
+		<h5><label for="searchInput">Rechercher</label></h5>
+		<div id="searchBody" class="pBody">
+			<form action="/wiki/Special:Search" id="searchform"><div>
+				<input id="searchInput" name="search" type="text" title="Rechercher dans Wikipédia [C]" accesskey="C" value="" />
+				<input type='submit' name="go" class="searchButton" id="searchGoButton"	value="Consulter" />&nbsp;
+				<input type='submit' name="fulltext" class="searchButton" id="mw-searchButton" value="Rechercher" />
+			</div></form>
+		</div>
+	</div>
+	<div class="portlet" id="p-tb">
+		<h5>Boîte à outils</h5>
+		<div class="pBody">
+			<ul>
+				<li id="t-whatlinkshere"><a href="/wiki/Special:Whatlinkshere/Algorithme_de_parcours_en_largeur" title="Liste des pages liées à celle-ci [j]" accesskey="j">Pages liées</a></li>
+				<li id="t-recentchangeslinked"><a href="/wiki/Special:Recentchangeslinked/Algorithme_de_parcours_en_largeur" title="Liste des modifications récentes des pages liées à celle-ci [k]" accesskey="k">Suivi des liens</a></li>
+<li id="t-upload"><a href="http://fr.wikipedia.org/wiki/Aide:Importer_un_fichier" title="Importer une image ou fichier média sur le serveur [u]" accesskey="u">Importer une image ou un son</a></li>
+<li id="t-specialpages"><a href="/wiki/Special:Specialpages" title="Liste de toutes les pages spéciales [q]" accesskey="q">Pages spéciales</a></li>
+				<li id="t-print"><a href="/w/index.php?title=Algorithme_de_parcours_en_largeur&amp;printable=yes" title="Version imprimable de cette page [p]" accesskey="p">Version imprimable</a></li>				<li id="t-permalink"><a href="/w/index.php?title=Algorithme_de_parcours_en_largeur&amp;oldid=14383460" title="Lien permanent vers cette version de la page">Adresse de cette version</a></li><li id="t-cite"><a href="/w/index.php?title=Special:Cite&amp;page=Algorithme_de_parcours_en_largeur&amp;id=14383460">Citer cet article</a></li>			</ul>
+		</div>
+	</div>
+	<div id="p-lang" class="portlet">
+		<h5>Autres langues</h5>
+		<div class="pBody">
+			<ul>
+				<li class="interwiki-de"><a href="http://de.wikipedia.org/wiki/Breitensuche">Deutsch</a></li>
+				<li class="interwiki-en"><a href="http://en.wikipedia.org/wiki/Breadth-first_search">English</a></li>
+				<li class="interwiki-es"><a href="http://es.wikipedia.org/wiki/B%C3%BAsqueda_en_anchura">Español</a></li>
+				<li class="interwiki-he"><a href="http://he.wikipedia.org/wiki/%D7%90%D7%9C%D7%92%D7%95%D7%A8%D7%99%D7%AA%D7%9D_%D7%97%D7%99%D7%A4%D7%95%D7%A9_%D7%9C%D7%A8%D7%95%D7%97%D7%91">עברית</a></li>
+				<li class="interwiki-ja"><a href="http://ja.wikipedia.org/wiki/%E5%B9%85%E5%84%AA%E5%85%88%E6%8E%A2%E7%B4%A2">日本語</a></li>
+				<li class="interwiki-lt"><a href="http://lt.wikipedia.org/wiki/Paie%C5%A1ka_%C4%AF_plot%C4%AF">Lietuvių</a></li>
+				<li class="interwiki-pl"><a href="http://pl.wikipedia.org/wiki/Przeszukiwanie_wszerz">Polski</a></li>
+				<li class="interwiki-pt"><a href="http://pt.wikipedia.org/wiki/Busca_em_largura">Português</a></li>
+			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="/skins-1.5/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>
+				<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="/images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>
+			<ul id="f-list">
+				<li id="lastmod"> Dernière modification de cette page le 22 février 2007 à 15:19.<br /></li>
+				<li id="copyright"><span style="white-space:normal"><a class="internal" href="http://fr.wikipedia.org/wiki/Wikip%C3%A9dia:Copyright" title="Copyright">Copyright</a> : Tous les textes sont disponibles sous les termes de la <a class="internal" href="http://fr.wikipedia.org/wiki/Wikip%C3%A9dia:Licence_de_documentation_libre_GNU" title="GFDL">licence de documentation libre GNU</a> (GFDL).<br/>
+Wikipedia® est une marque déposée de la <a href="http://www.wikimediafoundation.org" title="Fondation Wikimedia">Wikimedia Foundation, Inc.</a>, association de bienfaisance régie par le paragraphe <a class="internal" href="http://en.wikipedia.org/wiki/501(c)" title="501(c)">501(c)(3)</a> du code fiscal des États-Unis.</span><br/></li>
+				<li id="privacy"><a href="http://wikimediafoundation.org/wiki/Politique_de_confidentialit%C3%A9" title="wikimedia:Politique de confidentialité">Politique de confidentialité</a></li>
+				<li id="about"><a href="/wiki/Wikip%C3%A9dia:%C3%80_propos" title="Wikipédia:À propos">À propos de Wikipédia</a></li>
+				<li id="disclaimer"><a href="/wiki/Wikip%C3%A9dia:Avertissements_g%C3%A9n%C3%A9raux" title="Wikipédia:Avertissements généraux">Avertissements</a></li>
+			</ul>
+		</div>
+		
+	
+		<script type="text/javascript">if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by srv168 in 0.060 secs. --></body></html>

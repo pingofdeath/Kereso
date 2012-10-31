@@ -1,0 +1,1323 @@
+<html>
+
+<head>
+<title>SQL Server Forums - Dijkstra's Shortest Path Algorithm</title>
+<LINK REL=STYLESHEET HREF="/SqlTeam.css" TYPE="text/css" />
+<meta name="copyright" content="This Forum code is Copyright (C) 2000-02 Michael Anderson, Pierre Gorissen, Huw Reddick and Richard Kinser, Non-Forum Related code is Copyright (C) SQLTeam.com 2007">
+<script language="JavaScript" type="text/javascript">
+<!-- hide from JavaScript-challenged browsers
+function openWindow(url) {
+	popupWin = window.open(url,'new_page','width=400,height=400')
+}
+function openWindow2(url) {
+	popupWin = window.open(url,'new_page','width=400,height=450')
+}
+function openWindow3(url) {
+	popupWin = window.open(url,'new_page','width=400,height=450,scrollbars=yes')
+}
+function openWindow4(url) {
+	popupWin = window.open(url,'new_page','width=400,height=525')
+}
+function openWindow5(url) {
+	popupWin = window.open(url,'new_page','width=450,height=525,scrollbars=yes,toolbars=yes,menubar=yes,resizable=yes')
+}
+function openWindow6(url) {
+	popupWin = window.open(url,'new_page','width=500,height=450,scrollbars=yes')
+}
+function openWindowHelp(url) {
+	popupWin = window.open(url,'new_page','width=470,height=200,scrollbars=yes')
+}
+// done hiding -->
+</script>
+<style type="text/css">
+<!--
+a:link    {color:darkblue;text-decoration:underline}
+a:visited {color:blue;text-decoration:underline}
+a:hover   {color:red;text-decoration:underline}
+a:active  {color:red;text-decoration:underline}
+.spnMessageText a:link    {color:darkblue;text-decoration:underline}
+.spnMessageText a:visited {color:blue;text-decoration:underline}
+.spnMessageText a:hover   {color:red;text-decoration:underline}
+.spnMessageText a:active  {color:red;text-decoration:underline}
+.spnSearchHighlight {background-color:yellow}
+input.radio {background:#9FAFDF;color:#000000}
+-->
+</style>
+</head>
+
+<body bgColor="white" text="midnightblue" link="darkblue" aLink="red" vLink="blue">
+<a name="top"></a><font face="Verdana, Arial, Helvetica">
+
+<div id="site_header">
+<!-- ================================  Site Master ========================================= -->
+
+<!-- Logo and banner -->
+<table>
+	<tr>
+		<td class="site_header_cell">
+		    <a id="ctl00_ctl00_TopHomePage" href="/">
+		        <img src="/images2/SqlTeamHDR2.jpg" alt="SQLTeam.com Logo" width="123" height="80"/>
+		   </a>
+		</td>
+		<td class="site_header_cell">
+		
+		
+    
+
+<!-- Begin -  Site: SQLTeam.com Zone: SiteBanner -->
+<script language="javascript"  type="text/javascript">
+<!--
+var browName = navigator.appName;
+var SiteID = 1;
+var ZoneID = 10;
+var browDateTime = (new Date()).getTime();
+if (browName=='Netscape')
+{
+document.write('<s'+'cript lang' + 'uage="jav' + 'ascript" src="http://bulldog.sqlteam.com/a.aspx?ZoneID=' + ZoneID + '&amp;Task=Get&amp;IFR=False&amp;Browser=NETSCAPE4&amp;PageID=30521&amp;SiteID=' + SiteID + '&amp;Random=' + browDateTime + '">'); document.write('</'+'scr'+'ipt>');
+}
+if (browName!='Netscape')
+{
+document.write('<s'+'cript lang' + 'uage="jav' + 'ascript" src="http://bulldog.sqlteam.com/a.aspx?ZoneID=' + ZoneID + '&amp;Task=Get&amp;IFR=False&amp;PageID=30521&amp;SiteID=' + SiteID + '&amp;Random=' + browDateTime + '">'); document.write('</'+'scr'+'ipt>');
+}
+// --> 
+</script>
+<noscript>
+    <a href="http://bulldog.sqlteam.com/a.aspx?ZoneID=1&amp;Task=Click&amp;Mode=HTML&amp;SiteID=1&amp;PageID=30521" target="_blank">
+    <img src="http://bulldog.sqlteam.com/a.aspx?ZoneID=1&amp;Task=Get&amp;Mode=HTML&amp;SiteID=1&amp;PageID=30521" width="468" height="60" border="0"  alt=""></a>
+</noscript>
+<!-- End -  Site: SQLTeam.com Zone: SiteBanner -->
+   
+     
+	   
+		
+		</td>
+				
+		<!-- Begin PASS plug -->
+		<td style="vertical-align:middle; font-size: small;">
+		<a href="http://www.sqlpass.org"><img style="float:left;" src="http://www.sqlteam.com/images2/passlogo.gif" width="133" height="74"/></a>
+		<p>Join me at the <strong><a href="http://www.sqlpass.org/summit/Pages/default.aspx">PASS Conference</a></strong> in Denver Sept 18-21, 2007!  
+		<a href="http://www.sqlpass.org/summit/Pages/Register.aspx">Register now</a> for <strong>discounts</strong>.  
+		Use the Source Code "<strong>SQLT</strong>".</p></td>
+		<!-- End PASS Plug -->
+		
+	</tr>
+</table>
+
+<!-- End Logo and Banner -->
+
+
+<div class="site_header_menu1">
+
+<table width="100%" class="site_header_menu1">
+    <tr>  
+        <td>
+       <a id="ctl00_ctl00_hypHome" href="/"> Home </a> | 
+    <a id="ctl00_ctl00_hypWeblogs" href="http://weblogs.sqlteam.com"> Weblogs </a> | 
+    <a id="ctl00_ctl00_hypForums" href="/forums/"> Forums </a> | 
+   <a id="ctl00_ctl00_hypSearch" href="/search.aspx"> Site Search </a> 
+   
+    
+        </td> 
+       
+        
+       <td style="text-align: right; padding-right: 20px;"><!-- <input name="ctl00$ctl00$q" type="text" maxlength="512" id="ctl00_ctl00_q" style="font-size:X-Small;width:200px;" />
+
+<input type="submit" name="ctl00$ctl00$btnSearch" value="Search" onclick="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$ctl00$btnSearch&quot;, &quot;&quot;, true, &quot;SearchValidationGroup&quot;, &quot;&quot;, false, false))" id="ctl00_ctl00_btnSearch" />
+<span id="ctl00_ctl00__rfvQ" style="color:Red;visibility:hidden;"></span>
+
+<input type="hidden" name="ctl00$ctl00$cx" id="ctl00_ctl00_cx" value="011171816663894899992:aow51lf_dim" />
+<input type="hidden" name="ctl00$ctl00$cof" id="ctl00_ctl00_cof" value="FORID:9" />
+  
+  <script type="text/javascript" src="http://www.google.com/coop/cse/brand?form=searchbox_011171816663894899992%3Aaow51lf_dim"></script>
+  
+  -->
+       </td> 
+    </tr>
+</table>
+</div> 
+
+<div id="site_header_menu2">
+    <a href="http://feeds.sqlteam.com/Sqlteam">&nbsp;RSS Feed (Subscribe)&nbsp;</a> <a href="http://feeds.sqlteam.com/Sqlteam"><img src="/images2/feed-icon-12x12.gif" style="vertical-align: middle; " /></a> | 
+    <a href="http://jobs.sqlteam.com/1003/browse.aspx">&nbsp;Jobs&nbsp;</a> | 
+	<a id="ctl00_ctl00_HyperLink3" href="/writeforus.aspx"> Write an Article </a> |  
+	<a id="ctl00_ctl00_HyperLink4" href="/newsletter.aspx"> Newsletter </a> |  
+	<a id="ctl00_ctl00_HyperLink5" href="/store.aspx"> Books </a> |  
+	<!-- &nbsp;Resources&nbsp; | 
+	&nbsp;Books&nbsp; | -->
+
+	<a id="ctl00_ctl00_hypAdvertise" href="/advertise.aspx"> Advertise </a> |  
+	<a id="ctl00_ctl00_hypContact" href="/contactus.aspx"> Contact Us </a>  | 
+	<a id="ctl00_ctl00_HyperLink2" href="/about.aspx"> About </a>
+	
+</div>
+
+<!-- Site Sponsorship -->	
+
+    
+<!-- Begin -  Site: SQLTeam.com Zone: SiteSponsor -->
+<script language="javascript"  type="text/javascript">
+<!--
+var browName = navigator.appName;
+var SiteID = 1;
+var ZoneID = 7;
+var browDateTime = (new Date()).getTime();
+if (browName=='Netscape')
+{
+document.write('<s'+'cript lang' + 'uage="jav' + 'ascript" src="http://bulldog.sqlteam.com/a.aspx?ZoneID=' + ZoneID + '&amp;Task=Get&amp;IFR=False&amp;Browser=NETSCAPE4&amp;PageID=42851&amp;SiteID=' + SiteID + '&amp;Random=' + browDateTime + '">'); document.write('</'+'scr'+'ipt>');
+}
+if (browName!='Netscape')
+{
+document.write('<s'+'cript lang' + 'uage="jav' + 'ascript" src="http://bulldog.sqlteam.com/a.aspx?ZoneID=' + ZoneID + '&amp;Task=Get&amp;IFR=False&amp;PageID=42851&amp;SiteID=' + SiteID + '&amp;Random=' + browDateTime + '">'); document.write('</'+'scr'+'ipt>');
+}
+// --> 
+</script>
+<noscript>
+    <a href="http://bulldog.sqlteam.com/a.aspx?ZoneID=7&amp;Task=Click&amp;Mode=HTML&amp;SiteID=1&amp;PageID=42851" target="_blank">
+    <img src="http://bulldog.sqlteam.com/a.aspx?ZoneID=7&amp;Task=Get&amp;Mode=HTML&amp;SiteID=1&amp;PageID=42851" width="100" height="20" border="0"  alt=""></a>
+
+</noscript>
+<!-- End -  Site: SQLTeam.com Zone: SiteSponsor -->
+  
+	   
+
+</div><table align="center" border="0" cellPadding="0" cellSpacing="0" width="95%">
+  <tr>
+    <td align="center" valign="top" width="50%">
+      <table border="0" cellPadding="2" cellSpacing="0">
+        <tr>
+          <td align="center"><font face="Verdana, Arial, Helvetica" size="2"><b>SQL Server Forums</b></font></td>
+        </tr>
+        <tr>
+          <td align="center"><font face="Verdana, Arial, Helvetica" size="1">
+          <a href="pop_profile.asp?mode=Edit" onMouseOver="(window.status='Edit your personal profile...'); return true" onMouseOut="(window.status=''); return true" tabindex="-1"><acronym title="Edit your personal profile...">Profile</acronym></a>
+          |
+          <a href="policy.asp" onMouseOver="(window.status='Register to post to our forum...'); return true" onMouseOut="(window.status=''); return true" tabindex="-1"><acronym title="Register to post to our forum...">Register</acronym></a>
+          |
+          <a href="active.asp" onMouseOver="(window.status='See what topics have been active since your last visit...'); return true" onMouseOut="(window.status=''); return true" tabindex="-1"><acronym title="See what topics have been active since your last visit...">Active&nbsp;Topics</acronym></a>
+          |
+          <a href="members.asp" onMouseOver="(window.status='Current members of these forums...'); return true" onMouseOut="(window.status=''); return true" tabindex="-1"><acronym title="Current members of these forums...">Members</acronym></a>
+          |
+          <a href="search.asp" onMouseOver="(window.status='Perform a search by keyword, date, and/or name...'); return true" onMouseOut="(window.status=''); return true" tabindex="-1"><acronym title="Perform a search by keyword, date, and/or name...">Search</acronym></a>
+          |
+          <a href="faq.asp" onMouseOver="(window.status='Answers to Frequently Asked Questions...'); return true" onMouseOut="(window.status=''); return true" tabindex="-1"><acronym title="Answers to Frequently Asked Questions...">Forum&nbsp;FAQ</acronym></a></font></td>
+        </tr>
+<tr><td>&nbsp;</td><tr><tr><td style="text-align: center; padding: 5 20 5 20; font-size: 12pt; background: silver; border: dotted 1px black; background-image: url(http://www.sqlteam.com/images2/article-tag-graduated.png);"><a href="policy.asp" onMouseOver="(window.status='Register to post to our forum...'); return true" onMouseOut="(window.status=''); return true" tabindex="-1"><acronym title="Register to post to our forum..."><strong>Register Now</strong></acronym></a> and get your question answered!</td></tr>      </table>
+    </td>
+    <td align="center" valign="top" width="50%">
+      <table border="0" cellPadding="2" cellSpacing="0">
+        <form action="/forums/topic.asp" method="post" id="form1" name="form1">
+        <input type="hidden" name="Method_Type" value="login">
+        <tr>
+          <td align="center">
+            <table>
+              <tr>
+                <td><font face="Verdana, Arial, Helvetica" size="1"><b>Username:</b></font><br />
+                <input type="text" name="Name" size="10" maxLength="25" value=""></td>
+                <td><font face="Verdana, Arial, Helvetica" size="1"><b>Password:</b></font><br />
+                <input type="password" name="Password" size="10" maxLength="25" value=""></td>
+                <td valign="bottom">
+                <input src="images/button_login.gif" type="image" border="0" value="Login" id="submit1" name="Login">
+                </td>
+              </tr>
+              <tr>
+                <td colspan="3" align="left"><font face="Verdana, Arial, Helvetica" size="1">
+                <input type="checkbox" name="SavePassWord" value="true" tabindex="-1" CHECKED><b> Save Password</b></font></td>
+              </tr>
+              <tr>
+                <td colspan="3" align="left"><font face="Verdana, Arial, Helvetica" size="1">
+                <a href="password.asp" onMouseOver="(window.status='Choose a new password if you have forgotten your current one...'); return true" onMouseOut="(window.status=''); return true" tabindex="-1">Forgot your Password?</a>
+                <br /><br /></font></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        </form>
+      </table>
+    </td>
+  </tr>
+</table>
+<table align="center" border="0" cellPadding="0" cellSpacing="0" width="95%">
+  <tr>
+    <td>
+    <script language="JavaScript" type="text/javascript">
+    <!--
+    function unsub_confirm(link){
+    	var where_to= confirm("Do you really want to Unsubscribe?");
+       if (where_to== true) {
+       	popupWin = window.open(link,'new_page','width=400,height=400')
+       }
+    }
+    //-->
+    </script>
+    <script language="JavaScript" type="text/javascript">
+    function ChangePage(fnum){
+    	if (fnum == 1) {
+    		document.PageNum1.submit();
+    	}
+    	else {
+    		document.PageNum2.submit();
+    	}
+    }
+    </script>
+    <script language="JavaScript" type="text/javascript">
+    <!--
+    function jumpTo(s) {if (s.selectedIndex != 0) location.href = s.options[s.selectedIndex].value;return 1;}
+    // -->
+    </script>
+      <table border="0" width="100%">
+        <tr>
+          <td width="50%" align="left" nowrap><font face="Verdana, Arial, Helvetica" size="2">
+          <img src="images/icon_folder_open.gif" width="15" height="15" border="0" alt="" title="" align="absmiddle" />&nbsp;<a href="default.asp">All Forums</a><br />
+          <img src="images/icon_bar.gif" width="15" height="15" border="0" alt="" title="" align="absmiddle" /><img src="images/icon_folder_open.gif" width="15" height="15" border="0" alt="" title="" align="absmiddle" />&nbsp;<a href="default.asp?CAT_ID=3">General SQL Server Forums</a><br />
+          <img src="images/icon_blank.gif" width="15" height="15" border="0" alt="" title="" align="absmiddle" /><img src="images/icon_bar.gif" width="15" height="15" border="0" alt="" title="" align="absmiddle" /><img src="images/icon_folder_open.gif" width="15" height="15" border="0" alt="" title="" align="absmiddle" />&nbsp;<a href="forum.asp?FORUM_ID=11">Script Library</a><br />
+          <img src="images/icon_blank.gif" width="15" height="15" border="0" alt="" title="" align="absmiddle" /><img src="images/icon_blank.gif" width="15" height="15" border="0" alt="" title="" align="absmiddle" /><img src="images/icon_bar.gif" width="15" height="15" border="0" alt="" title="" align="absmiddle" /><img src="images/icon_folder_open_topic.gif" width="15" height="15" border="0" alt="" title="" align="absmiddle" />&nbsp;Dijkstra's Shortest Path Algorithm</font></td>
+          <td align="center" width="50%">
+          <font face="Verdana, Arial, Helvetica" size="2">
+          <a href="post.asp?method=Topic&FORUM_ID=11"><img src="images/icon_folder_new_topic.gif" width="15" height="15" border="0" alt="" title="" align="absmiddle" /></a>&nbsp;<a href="post.asp?method=Topic&FORUM_ID=11">New Topic</a>
+          <a href="post.asp?method=Reply&TOPIC_ID=77262&FORUM_ID=11"><img src="images/icon_reply_topic.gif" width="15" height="15" border="0" alt="" title="" align="absmiddle" /></a>&nbsp;<a href="post.asp?method=Reply&TOPIC_ID=77262&FORUM_ID=11">Reply to Topic</a>
+          <br /><a href="JavaScript:openWindow5('pop_printer_friendly.asp?TOPIC_ID=77262')"><img src="images/icon_print.gif" width="16" height="17" border="0" alt="" title="" align="absmiddle" /></a>&nbsp;<a href="JavaScript:openWindow5('pop_printer_friendly.asp?TOPIC_ID=77262')">Printer Friendly</a>
+          </font></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table align="center" border="0" cellPadding="0" cellSpacing="1" width="95%">
+  <tr>
+    <td align="right" valign="top"><font face="Verdana, Arial, Helvetica" size="1"><a href="topic.asp?TOPIC_ID=77262&whichpage=2" title="Goto the Next page in this Topic" onMouseOver="(window.status='Goto the Next page in this Topic'); return true" onMouseOut="(window.status=''); return true">Next Page</a></td>
+  </tr>
+</table>
+<table align="center" border="0" cellPadding="0" cellSpacing="0" width="95%">
+  <tr>
+    <td>
+      <table border="0" width="100%" cellspacing="0" cellpadding="0" align="center">
+        <tr>
+          <td bgcolor="black">
+            <table border="0" width="100%" cellspacing="1" cellpadding="4">
+              <tr>
+                <td align="center" bgcolor="#343399" width="100" nowrap><b><font face="Verdana, Arial, Helvetica" size="2" color="mintcream">Author</font></b></td>
+                <td align="center" bgcolor="#343399" width="100%"><b><font face="Verdana, Arial, Helvetica" size="2" color="mintcream">
+                <img src="images/icon_blank.gif" width="15" height="15" border="0" alt="" title="" align="top" hspace="6" /><b><font face="Verdana, Arial, Helvetica" size="2" color="mintcream">&nbsp;Topic&nbsp;</font></b><a href="topic.asp?TOPIC_ID=81254"><img src="images/icon_go_right.gif" width="15" height="15" border="0" alt="Next Topic" title="Next Topic" align="top" hspace="6" /></a></font></b></td>
+                <form name="PageNum1" action="topic.asp">
+                <td bgcolor="#343399" nowrap><font face="Verdana, Arial, Helvetica" size="2" color="mintcream">
+                <input type="hidden" name="TOPIC_ID" value="77262">
+                <b>Page: </b><select name="whichpage" size="1" onchange="ChangePage(1);">
+                	<option selected value="1">1</option>
+                	<option value="2">2</option>
+                </select><b> of 2</b>
+                </font></td>
+                </form>
+              </tr>
+              <tr>
+                <td bgcolor="whitesmoke" valign="top" width="100" nowrap>
+                <p><font color="midnightblue" face="Verdana, Arial, Helvetica" size="2"><b><span class="spnMessageText"><a href="pop_profile.asp?mode=display&id=22680" title="View Peso's Profile" onMouseOver="(window.status='View Peso\'s Profile'); return true" onMouseOut="(window.status=''); return true">Peso</a></span></b></font><br />
+                <font color="midnightblue" face="Verdana, Arial, Helvetica" size="1"><small>Patron Saint of Lost Yaks</small></font><br />
+                </p>
+                <p>
+                <font color="midnightblue" face="Verdana, Arial, Helvetica" size="1"><small>Sweden</small></font><br />
+                <font color="midnightblue" face="Verdana, Arial, Helvetica" size="1"><small>10916 Posts</small></font></p></td>
+                <td bgcolor="whitesmoke" width="100%" colspan="2" valign="top">
+                  <table width="100%" height="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                      <td valign="top">
+                      <img src="images/icon_posticon.gif" width="15" height="15" border="0" alt="" title="" hspace="3" /><font color="midnightblue" face="Verdana, Arial, Helvetica" size="1">Posted&nbsp;-&nbsp;01/08/2007&nbsp;:&nbsp; 08:19:48</font>
+                      &nbsp;<a href="pop_profile.asp?mode=display&id=22680"><img src="images/icon_profile.gif" width="15" height="15" border="0" alt="Show Profile" title="Show Profile" align="absmiddle" hspace="6" /></a>
+                      &nbsp;<a href="post.asp?method=TopicQuote&TOPIC_ID=77262&FORUM_ID=11"><img src="images/icon_reply_topic.gif" width="15" height="15" border="0" alt="Reply with Quote" title="Reply with Quote" align="absmiddle" hspace="6" /></a>
+                      <hr noshade size="1"></td>
+                    </tr>
+                    <tr>
+                      <td valign="top" height="100%"><font face="Verdana, Arial, Helvetica" size="2" color="midnightblue"><span class="spnMessageText" id="msg"> Here it is, the long lasted algorithm I promised.., <img src="images/icon_smile_big.gif" width="15" height="15" border="0" alt="" title="" align="middle" /><pre id="code"><font face="courier" size="2" id="code"><font color="green">-- delete previous map</font id="green">
+exec dbo.uspdijkstrainitializemap
+
+<font color="green">-- create a new map</font id="green">
+exec dbo.uspdijkstraaddpath 'a', 'b',  4
+exec dbo.uspdijkstraaddpath 'a', 'd',  1
+exec dbo.uspdijkstraaddpath 'b', 'a', 74
+exec dbo.uspdijkstraaddpath 'b', 'c',  2
+exec dbo.uspdijkstraaddpath 'b', 'e', 12
+exec dbo.uspdijkstraaddpath 'c', 'b', 12
+exec dbo.uspdijkstraaddpath 'c', 'f', 74
+exec dbo.uspdijkstraaddpath 'c', 'j', 12
+exec dbo.uspdijkstraaddpath 'd', 'e', 32
+exec dbo.uspdijkstraaddpath 'd', 'g', 22
+exec dbo.uspdijkstraaddpath 'e', 'd', 66
+exec dbo.uspdijkstraaddpath 'e', 'f', 76
+exec dbo.uspdijkstraaddpath 'e', 'h', 33
+exec dbo.uspdijkstraaddpath 'f', 'i', 11
+exec dbo.uspdijkstraaddpath 'f', 'j', 21
+exec dbo.uspdijkstraaddpath 'g', 'd', 12
+exec dbo.uspdijkstraaddpath 'g', 'h', 10
+exec dbo.uspdijkstraaddpath 'h', 'g',  2
+exec dbo.uspdijkstraaddpath 'h', 'i', 72
+exec dbo.uspdijkstraaddpath 'i', 'f', 31
+exec dbo.uspdijkstraaddpath 'i', 'j',  7
+exec dbo.uspdijkstraaddpath 'i', 'h', 18
+exec dbo.uspdijkstraaddpath 'j', 'f',  8
+
+<font color="green">-- resolve route</font id="green">
+exec dbo.uspdijkstraresolve 'a', 'i'</font id="code"></pre id="code">This is the output<pre id="code"><font face="courier" size="2" id="code">From	To	Cost
+----	--	----
+a	b	 4
+b	c	 6
+c	j	18
+j	f	26
+f	i	37</font id="code"></pre id="code"><br /><br />Peter Larsson<br />Helsingborg, Sweden</span id="msg"></font></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td bgcolor="gainsboro" valign="top" width="100" nowrap>
+                <p><font face="Verdana, Arial, Helvetica" size="2"><b><span class="spnMessageText"><a href="pop_profile.asp?mode=display&id=22680" title="View Peso's Profile" onMouseOver="(window.status='View Peso\'s Profile'); return true" onMouseOut="(window.status=''); return true">Peso</a></span></b></font><br />
+                <font color="midnightblue" face="Verdana, Arial, Helvetica" size="1"><small>Patron Saint of Lost Yaks</small></font><br />
+                </p>
+                <p>
+                <font color="midnightblue" face="Verdana, Arial, Helvetica" size="1"><small>Sweden</small></font><br />
+                <font color="midnightblue" face="Verdana, Arial, Helvetica" size="1"><small>10916 Posts</small></font></p></td>
+                <td bgcolor="gainsboro" height="100%" width="100%" colspan="2" valign="top"><a name="280316"></a>
+                  <table width="100%" height="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                      <td valign="top">
+                      <img src="images/icon_posticon.gif" width="15" height="15" border="0" alt="" title="" hspace="3" /><font color="midnightblue" face="Verdana, Arial, Helvetica" size="1">Posted&nbsp;-&nbsp;01/08/2007&nbsp;:&nbsp; 08:21:46</font>
+                      &nbsp;<a href="pop_profile.asp?mode=display&id=22680"><img src="images/icon_profile.gif" width="15" height="15" border="0" alt="Show Profile" title="Show Profile" align="absmiddle" hspace="6" /></a>
+                      &nbsp;<a href="post.asp?method=ReplyQuote&REPLY_ID=280316&TOPIC_ID=77262&FORUM_ID=11"><img src="images/icon_reply_topic.gif" width="15" height="15" border="0" alt="Reply with Quote" title="Reply with Quote" align="absmiddle" hspace="6" /></a>
+                      <hr noshade size="1"></td>
+                    </tr>
+                    <tr>
+                      <td valign="top" height="100%"><font face="Verdana, Arial, Helvetica" size="2" color="midnightblue"><span class="spnMessageText" id="msg"> Here is the DDL...<pre id="code"><font face="courier" size="2" id="code">CREATE TABLE [dbo].[Nodes] (
+	[NodeID] [int] IDENTITY (1, 1) NOT NULL ,
+	[NodeName] [varchar] (20) COLLATE Finnish_Swedish_CI_AS NOT NULL ,
+	[Cost] [int] NULL ,
+	[PathID] [int] NULL ,
+	[Calculated] [tinyint] NOT NULL 
+) ON [PRIMARY]
+GO
+
+CREATE TABLE [dbo].[Paths] (
+	[PathID] [int] IDENTITY (1, 1) NOT NULL ,
+	[FromNodeID] [int] NOT NULL ,
+	[ToNodeID] [int] NOT NULL ,
+	[Cost] [int] NOT NULL 
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[Nodes] WITH NOCHECK ADD 
+	CONSTRAINT [PK_Nodes] PRIMARY KEY  CLUSTERED 
+	(
+		[NodeID]
+	)  ON [PRIMARY] 
+GO
+
+ALTER TABLE [dbo].[Paths] WITH NOCHECK ADD 
+	CONSTRAINT [PK_Paths] PRIMARY KEY  CLUSTERED 
+	(
+		[PathID]
+	)  ON [PRIMARY] 
+GO
+
+ALTER TABLE [dbo].[Paths] ADD 
+	CONSTRAINT [FK_Paths_FromNodes] FOREIGN KEY 
+	(
+		[FromNodeID]
+	) REFERENCES [dbo].[Nodes] (
+		[NodeID]
+	),
+	CONSTRAINT [FK_Paths_ToNodes] FOREIGN KEY 
+	(
+		[ToNodeID]
+	) REFERENCES [dbo].[Nodes] (
+		[NodeID]
+	)
+GO</font id="code"></pre id="code"><br />Peter Larsson<br />Helsingborg, Sweden</span id="msg"></font></td>
+                    </tr>
+                    <tr>
+                      <td valign="bottom"><hr noshade size="1" color="gainsboro"><font face="Verdana, Arial, Helvetica" size="1" color="midnightblue">Edited by - Peso on 03/24/2007  15:00:41</font></td>
+                    </tr>
+                    <tr>
+                      <td valign="bottom" align="right" height="20"><a href="#top"><img src="images/icon_go_up.gif" width="15" height="15" border="0" alt="Go to Top of Page" title="Go to Top of Page" align="right" /></a></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td bgcolor="whitesmoke" valign="top" width="100" nowrap>
+                <p><font face="Verdana, Arial, Helvetica" size="2"><b><span class="spnMessageText"><a href="pop_profile.asp?mode=display&id=22680" title="View Peso's Profile" onMouseOver="(window.status='View Peso\'s Profile'); return true" onMouseOut="(window.status=''); return true">Peso</a></span></b></font><br />
+                <font color="midnightblue" face="Verdana, Arial, Helvetica" size="1"><small>Patron Saint of Lost Yaks</small></font><br />
+                </p>
+                <p>
+                <font color="midnightblue" face="Verdana, Arial, Helvetica" size="1"><small>Sweden</small></font><br />
+                <font color="midnightblue" face="Verdana, Arial, Helvetica" size="1"><small>10916 Posts</small></font></p></td>
+                <td bgcolor="whitesmoke" height="100%" width="100%" colspan="2" valign="top"><a name="280317"></a>
+                  <table width="100%" height="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                      <td valign="top">
+                      <img src="images/icon_posticon.gif" width="15" height="15" border="0" alt="" title="" hspace="3" /><font color="midnightblue" face="Verdana, Arial, Helvetica" size="1">Posted&nbsp;-&nbsp;01/08/2007&nbsp;:&nbsp; 08:24:49</font>
+                      &nbsp;<a href="pop_profile.asp?mode=display&id=22680"><img src="images/icon_profile.gif" width="15" height="15" border="0" alt="Show Profile" title="Show Profile" align="absmiddle" hspace="6" /></a>
+                      &nbsp;<a href="post.asp?method=ReplyQuote&REPLY_ID=280317&TOPIC_ID=77262&FORUM_ID=11"><img src="images/icon_reply_topic.gif" width="15" height="15" border="0" alt="Reply with Quote" title="Reply with Quote" align="absmiddle" hspace="6" /></a>
+                      <hr noshade size="1"></td>
+                    </tr>
+                    <tr>
+                      <td valign="top" height="100%"><font face="Verdana, Arial, Helvetica" size="2" color="midnightblue"><span class="spnMessageText" id="msg"> Here are some stored procedures...<pre id="code"><font face="courier" size="2" id="code">CREATE PROCEDURE dbo.uspDijkstraInitializeMap
+AS
+
+DELETE
+FROM	Paths
+
+DBCC CHECKIDENT (Paths, RESEED, 0)
+
+DELETE
+FROM	Nodes
+
+DBCC CHECKIDENT (Nodes, RESEED, 0)
+GO
+
+CREATE PROCEDURE dbo.uspDijkstraClearMap
+AS
+
+UPDATE	Nodes
+SET	PathID = NULL,
+	Cost = NULL,
+	Calculated = 0
+GO
+
+CREATE PROCEDURE dbo.uspDijkstraAddPath
+(
+	@FromNodeName VARCHAR(20),
+	@ToNodeName VARCHAR(20),
+	@Cost INT
+)
+AS
+
+SET NOCOUNT ON
+
+DECLARE	@FromNodeID INT,
+	@ToNodeID INT,
+	@PathID INT
+
+SELECT	@FromNodeID = NodeID
+FROM	Nodes
+WHERE	NodeName = @FromNodeName
+
+IF @FromNodeID IS NULL
+	BEGIN
+		INSERT	Nodes
+			(
+				NodeName,
+				Calculated
+			)
+		VALUES	(
+				@FromNodeName,
+				0
+			)
+
+		SELECT	@FromNodeID = SCOPE_IDENTITY()
+	END
+
+SELECT	@ToNodeID = NodeID
+FROM	Nodes
+WHERE	NodeName = @ToNodeName
+
+IF @ToNodeID IS NULL
+	BEGIN
+		INSERT	Nodes
+			(
+				NodeName,
+				Calculated
+			)
+		VALUES	(
+				@ToNodeName,
+				0
+			)
+
+		SELECT	@ToNodeID = SCOPE_IDENTITY()
+	END
+
+SELECT	@PathID = PathID
+FROM	Paths
+WHERE	FromNodeID = @FromNodeID
+	AND ToNodeID = @ToNodeID
+
+IF @PathID IS NULL
+	INSERT	Paths
+		(
+			FromNodeID,
+			ToNodeID,
+			Cost
+		)
+	VALUES	(
+			@FromNodeID,
+			@ToNodeID,
+			@Cost
+		)
+ELSE
+	UPDATE	Paths
+	SET	Cost = @Cost
+	WHERE	FromNodeID = @FromNodeID
+		AND ToNodeID = @ToNodeID
+GO</font id="code"></pre id="code"><br /><br />Peter Larsson<br />Helsingborg, Sweden</span id="msg"></font></td>
+                    </tr>
+                    <tr>
+                      <td valign="bottom" align="right" height="20"><a href="#top"><img src="images/icon_go_up.gif" width="15" height="15" border="0" alt="Go to Top of Page" title="Go to Top of Page" align="right" /></a></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td bgcolor="gainsboro" valign="top" width="100" nowrap>
+                <p><font face="Verdana, Arial, Helvetica" size="2"><b><span class="spnMessageText"><a href="pop_profile.asp?mode=display&id=22680" title="View Peso's Profile" onMouseOver="(window.status='View Peso\'s Profile'); return true" onMouseOut="(window.status=''); return true">Peso</a></span></b></font><br />
+                <font color="midnightblue" face="Verdana, Arial, Helvetica" size="1"><small>Patron Saint of Lost Yaks</small></font><br />
+                </p>
+                <p>
+                <font color="midnightblue" face="Verdana, Arial, Helvetica" size="1"><small>Sweden</small></font><br />
+                <font color="midnightblue" face="Verdana, Arial, Helvetica" size="1"><small>10916 Posts</small></font></p></td>
+                <td bgcolor="gainsboro" height="100%" width="100%" colspan="2" valign="top"><a name="280320"></a>
+                  <table width="100%" height="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                      <td valign="top">
+                      <img src="images/icon_posticon.gif" width="15" height="15" border="0" alt="" title="" hspace="3" /><font color="midnightblue" face="Verdana, Arial, Helvetica" size="1">Posted&nbsp;-&nbsp;01/08/2007&nbsp;:&nbsp; 08:27:50</font>
+                      &nbsp;<a href="pop_profile.asp?mode=display&id=22680"><img src="images/icon_profile.gif" width="15" height="15" border="0" alt="Show Profile" title="Show Profile" align="absmiddle" hspace="6" /></a>
+                      &nbsp;<a href="post.asp?method=ReplyQuote&REPLY_ID=280320&TOPIC_ID=77262&FORUM_ID=11"><img src="images/icon_reply_topic.gif" width="15" height="15" border="0" alt="Reply with Quote" title="Reply with Quote" align="absmiddle" hspace="6" /></a>
+                      <hr noshade size="1"></td>
+                    </tr>
+                    <tr>
+                      <td valign="top" height="100%"><font face="Verdana, Arial, Helvetica" size="2" color="midnightblue"><span class="spnMessageText" id="msg"> And of course the route resolving algorithm...<pre id="code"><font face="courier" size="2" id="code">CREATE PROCEDURE dbo.uspDijkstraResolve
+(
+	@FromNodeName VARCHAR(20),
+	@ToNodeName VARCHAR(20)
+)
+AS
+
+SET NOCOUNT ON
+
+EXEC dbo.uspDijkstraClearMap
+
+DECLARE	@FromNodeID INT,
+	@ToNodeID INT,
+	@NodeID INT,
+	@Cost INT,
+	@PathID INT
+
+SELECT	@FromNodeID = NodeID,
+	@NodeID = NodeID
+FROM	Nodes
+WHERE	NodeName = @FromNodeName
+
+IF @FromNodeID IS NULL
+	BEGIN
+		SELECT	@FromNodeName = ISNULL(@FromNodeName, '')
+		RAISERROR ('From node name ''%s'' can not be found.', 16, 1, @FromNodeName) 
+		RETURN
+	END
+
+SELECT	@ToNodeID = NodeID
+FROM	Nodes
+WHERE	NodeName = @ToNodeName
+
+IF @ToNodeID IS NULL
+	BEGIN
+		SELECT	@ToNodeName = ISNULL(@ToNodeName, '')
+		RAISERROR ('To node name ''%s'' can not be found.', 16, 1, @ToNodeName) 
+		RETURN
+	END
+
+UPDATE	Nodes
+SET	Cost = 0
+WHERE	NodeID = @FromNodeID
+
+WHILE @NodeID IS NOT NULL
+	BEGIN
+		UPDATE		ToNodes
+		SET		ToNodes.Cost =	CASE
+							WHEN ToNodes.Cost IS NULL THEN FromNodes.Cost + Paths.Cost
+							WHEN FromNodes.Cost + Paths.Cost &lt; ToNodes.Cost THEN FromNodes.Cost + Paths.Cost
+							ELSE ToNodes.Cost
+						END,
+				ToNodes.PathID = Paths.PathID
+		FROM		Nodes AS FromNodes
+		INNER JOIN	Paths ON Paths.FromNodeID = FromNodes.NodeID
+		INNER JOIN	Nodes AS ToNodes ON ToNodes.NodeID = Paths.ToNodeID
+		WHERE		FromNodes.NodeID = @NodeID
+				AND (ToNodes.Cost IS NULL OR FromNodes.Cost + Paths.Cost &lt; ToNodes.Cost)
+				AND ToNodes.Calculated = 0
+
+		UPDATE	FromNodes
+		SET	FromNodes.Calculated = 1
+		FROM	Nodes AS FromNodes
+		WHERE	FromNodes.NodeID = @NodeID
+
+		SELECT	@NodeID = NULL
+
+		SELECT TOP 1	@NodeID = Nodes.NodeID
+		FROM		Nodes
+		WHERE		Nodes.Calculated = 0
+				AND Nodes.Cost IS NOT NULL
+		ORDER BY	Nodes.Cost
+	END
+
+CREATE TABLE	#Map
+		(
+			RowID INT IDENTITY(-1, -1),
+			FromNodeName VARCHAR(20),
+			ToNodeName VARCHAR(20),
+			Cost INT
+		)
+
+IF EXISTS (SELECT NULL FROM Nodes WHERE NodeID = @ToNodeID AND Cost IS NULL)
+	BEGIN
+		SELECT	FromNodeName,
+			ToNodeName,
+			Cost
+		FROM	#Map
+
+		DROP TABLE #Map
+
+		RETURN
+	END
+
+WHILE @FromNodeID &lt;&gt; @ToNodeID
+	BEGIN
+		SELECT		@FromNodeName = FromNodes.NodeName,
+				@ToNodeName = ToNodes.NodeName,
+				@Cost = ToNodes.Cost,
+				@PathID = ToNodes.PathID
+		FROM		Nodes AS ToNodes
+		INNER JOIN	Paths ON Paths.PathID = ToNodes.PathID
+		INNER JOIN	Nodes AS FromNodes ON FromNodes.NodeID = Paths.FromNodeID
+		WHERE		ToNodes.NodeID = @ToNodeID
+
+		INSERT	#Map
+			(
+				FromNodeName,
+				ToNodeName,
+				Cost
+			)
+		VALUES	(
+				@FromNodeName,
+				@ToNodeName,
+				@Cost
+			)
+
+		SELECT	@ToNodeID = Paths.FromNodeID
+		FROM	Paths
+		WHERE	Paths.PathID = @PathID
+	END
+
+SELECT		FromNodeName,
+		ToNodeName,
+		Cost
+FROM		#Map
+ORDER BY	RowID
+
+DROP TABLE #Map
+GO</font id="code"></pre id="code"><br />Peter Larsson<br />Helsingborg, Sweden</span id="msg"></font></td>
+                    </tr>
+                    <tr>
+                      <td valign="bottom"><hr noshade size="1" color="gainsboro"><font face="Verdana, Arial, Helvetica" size="1" color="midnightblue">Edited by - Peso on 01/09/2007  16:01:13</font></td>
+                    </tr>
+                    <tr>
+                      <td valign="bottom" align="right" height="20"><a href="#top"><img src="images/icon_go_up.gif" width="15" height="15" border="0" alt="Go to Top of Page" title="Go to Top of Page" align="right" /></a></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td bgcolor="whitesmoke" valign="top" width="100" nowrap>
+                <p><font face="Verdana, Arial, Helvetica" size="2"><b><span class="spnMessageText"><a href="pop_profile.asp?mode=display&id=22680" title="View Peso's Profile" onMouseOver="(window.status='View Peso\'s Profile'); return true" onMouseOut="(window.status=''); return true">Peso</a></span></b></font><br />
+                <font color="midnightblue" face="Verdana, Arial, Helvetica" size="1"><small>Patron Saint of Lost Yaks</small></font><br />
+                </p>
+                <p>
+                <font color="midnightblue" face="Verdana, Arial, Helvetica" size="1"><small>Sweden</small></font><br />
+                <font color="midnightblue" face="Verdana, Arial, Helvetica" size="1"><small>10916 Posts</small></font></p></td>
+                <td bgcolor="whitesmoke" height="100%" width="100%" colspan="2" valign="top"><a name="280350"></a>
+                  <table width="100%" height="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                      <td valign="top">
+                      <img src="images/icon_posticon.gif" width="15" height="15" border="0" alt="" title="" hspace="3" /><font color="midnightblue" face="Verdana, Arial, Helvetica" size="1">Posted&nbsp;-&nbsp;01/08/2007&nbsp;:&nbsp; 09:02:41</font>
+                      &nbsp;<a href="pop_profile.asp?mode=display&id=22680"><img src="images/icon_profile.gif" width="15" height="15" border="0" alt="Show Profile" title="Show Profile" align="absmiddle" hspace="6" /></a>
+                      &nbsp;<a href="post.asp?method=ReplyQuote&REPLY_ID=280350&TOPIC_ID=77262&FORUM_ID=11"><img src="images/icon_reply_topic.gif" width="15" height="15" border="0" alt="Reply with Quote" title="Reply with Quote" align="absmiddle" hspace="6" /></a>
+                      <hr noshade size="1"></td>
+                    </tr>
+                    <tr>
+                      <td valign="top" height="100%"><font face="Verdana, Arial, Helvetica" size="2" color="midnightblue"><span class="spnMessageText" id="msg"> You can use this page <a href="http://www.dgp.toronto.edu/people/JamesStewart/270/9798s/Laffra/DijkstraApplet.html" target="_blank">http://www.dgp.toronto.edu/people/JamesStewart/270/9798s/Laffra/DijkstraApplet.html</a> to verify the result or calculating a new route.<br /><br /><br />Peter Larsson<br />Helsingborg, Sweden</span id="msg"></font></td>
+                    </tr>
+                    <tr>
+                      <td valign="bottom" align="right" height="20"><a href="#top"><img src="images/icon_go_up.gif" width="15" height="15" border="0" alt="Go to Top of Page" title="Go to Top of Page" align="right" /></a></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td bgcolor="gainsboro" valign="top" width="100" nowrap>
+                <p><font face="Verdana, Arial, Helvetica" size="2"><b><span class="spnMessageText"><a href="pop_profile.asp?mode=display&id=22680" title="View Peso's Profile" onMouseOver="(window.status='View Peso\'s Profile'); return true" onMouseOut="(window.status=''); return true">Peso</a></span></b></font><br />
+                <font color="midnightblue" face="Verdana, Arial, Helvetica" size="1"><small>Patron Saint of Lost Yaks</small></font><br />
+                </p>
+                <p>
+                <font color="midnightblue" face="Verdana, Arial, Helvetica" size="1"><small>Sweden</small></font><br />
+                <font color="midnightblue" face="Verdana, Arial, Helvetica" size="1"><small>10916 Posts</small></font></p></td>
+                <td bgcolor="gainsboro" height="100%" width="100%" colspan="2" valign="top"><a name="280357"></a>
+                  <table width="100%" height="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                      <td valign="top">
+                      <img src="images/icon_posticon.gif" width="15" height="15" border="0" alt="" title="" hspace="3" /><font color="midnightblue" face="Verdana, Arial, Helvetica" size="1">Posted&nbsp;-&nbsp;01/08/2007&nbsp;:&nbsp; 09:16:50</font>
+                      &nbsp;<a href="pop_profile.asp?mode=display&id=22680"><img src="images/icon_profile.gif" width="15" height="15" border="0" alt="Show Profile" title="Show Profile" align="absmiddle" hspace="6" /></a>
+                      &nbsp;<a href="post.asp?method=ReplyQuote&REPLY_ID=280357&TOPIC_ID=77262&FORUM_ID=11"><img src="images/icon_reply_topic.gif" width="15" height="15" border="0" alt="Reply with Quote" title="Reply with Quote" align="absmiddle" hspace="6" /></a>
+                      <hr noshade size="1"></td>
+                    </tr>
+                    <tr>
+                      <td valign="top" height="100%"><font face="Verdana, Arial, Helvetica" size="2" color="midnightblue"><span class="spnMessageText" id="msg"> Yes, I know<br /><br /><b>exec dbo.uspdijkstraresolve 'e', 'c'</b><br /><b>exec dbo.uspdijkstraresolve 'g', 'b'</b><br /><br />will produce an empty resultset, but that is because the route is not solvable.<br /><br /><br />Peter Larsson<br />Helsingborg, Sweden</span id="msg"></font></td>
+                    </tr>
+                    <tr>
+                      <td valign="bottom"><hr noshade size="1" color="gainsboro"><font face="Verdana, Arial, Helvetica" size="1" color="midnightblue">Edited by - Peso on 01/08/2007  09:33:38</font></td>
+                    </tr>
+                    <tr>
+                      <td valign="bottom" align="right" height="20"><a href="#top"><img src="images/icon_go_up.gif" width="15" height="15" border="0" alt="Go to Top of Page" title="Go to Top of Page" align="right" /></a></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td bgcolor="whitesmoke" valign="top" width="100" nowrap>
+                <p><font face="Verdana, Arial, Helvetica" size="2"><b><span class="spnMessageText"><a href="pop_profile.asp?mode=display&id=10539" title="View Kristen's Profile" onMouseOver="(window.status='View Kristen\'s Profile'); return true" onMouseOut="(window.status=''); return true">Kristen</a></span></b></font><br />
+                <font color="midnightblue" face="Verdana, Arial, Helvetica" size="1"><small>Test</small></font><br />
+                </p>
+                <p>
+                <font color="midnightblue" face="Verdana, Arial, Helvetica" size="1"><small>United Kingdom</small></font><br />
+                <font color="midnightblue" face="Verdana, Arial, Helvetica" size="1"><small>13511 Posts</small></font></p></td>
+                <td bgcolor="whitesmoke" height="100%" width="100%" colspan="2" valign="top"><a name="280418"></a>
+                  <table width="100%" height="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                      <td valign="top">
+                      <img src="images/icon_posticon.gif" width="15" height="15" border="0" alt="" title="" hspace="3" /><font color="midnightblue" face="Verdana, Arial, Helvetica" size="1">Posted&nbsp;-&nbsp;01/08/2007&nbsp;:&nbsp; 12:29:25</font>
+                      &nbsp;<a href="pop_profile.asp?mode=display&id=10539"><img src="images/icon_profile.gif" width="15" height="15" border="0" alt="Show Profile" title="Show Profile" align="absmiddle" hspace="6" /></a>
+                      &nbsp;<a href="post.asp?method=ReplyQuote&REPLY_ID=280418&TOPIC_ID=77262&FORUM_ID=11"><img src="images/icon_reply_topic.gif" width="15" height="15" border="0" alt="Reply with Quote" title="Reply with Quote" align="absmiddle" hspace="6" /></a>
+                      <hr noshade size="1"></td>
+                    </tr>
+                    <tr>
+                      <td valign="top" height="100%"><font face="Verdana, Arial, Helvetica" size="2" color="midnightblue"><span class="spnMessageText" id="msg"> I was just about to point that out ... <img src="images/icon_smile_big.gif" width="15" height="15" border="0" alt="" title="" align="middle" /></span id="msg"></font></td>
+                    </tr>
+                    <tr>
+                      <td valign="bottom" align="right" height="20"><a href="#top"><img src="images/icon_go_up.gif" width="15" height="15" border="0" alt="Go to Top of Page" title="Go to Top of Page" align="right" /></a></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td bgcolor="gainsboro" valign="top" width="100" nowrap>
+                <p><font face="Verdana, Arial, Helvetica" size="2"><b><span class="spnMessageText"><a href="pop_profile.asp?mode=display&id=10839" title="View spirit1's Profile" onMouseOver="(window.status='View spirit1\'s Profile'); return true" onMouseOut="(window.status=''); return true">spirit1</a></span></b></font><br />
+                <font color="midnightblue" face="Verdana, Arial, Helvetica" size="1"><small>Cybernetic Yak Master</small></font><br />
+                </p>
+                <p>
+                <font color="midnightblue" face="Verdana, Arial, Helvetica" size="1"><small>Slovenia</small></font><br />
+                <font color="midnightblue" face="Verdana, Arial, Helvetica" size="1"><small>8431 Posts</small></font></p></td>
+                <td bgcolor="gainsboro" height="100%" width="100%" colspan="2" valign="top"><a name="280428"></a>
+                  <table width="100%" height="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                      <td valign="top">
+                      <img src="images/icon_posticon.gif" width="15" height="15" border="0" alt="" title="" hspace="3" /><font color="midnightblue" face="Verdana, Arial, Helvetica" size="1">Posted&nbsp;-&nbsp;01/08/2007&nbsp;:&nbsp; 12:52:22</font>
+                      &nbsp;<a href="pop_profile.asp?mode=display&id=10839"><img src="images/icon_profile.gif" width="15" height="15" border="0" alt="Show Profile" title="Show Profile" align="absmiddle" hspace="6" /></a>
+                      &nbsp;<a href="http://weblogs.sqlteam.com/mladenp/" target="_blank"><img src="images/icon_homepage.gif" width="15" height="15" border="0" alt="Visit spirit1's Homepage" title="Visit spirit1's Homepage" align="absmiddle" hspace="6" /></a>
+                      &nbsp;<a href="JavaScript:openWindow('pop_messengers.asp?mode=MSN&ID=10839')"><img src="images/icon_msnm.gif" width="15" height="15" border="0" alt="Click to see spirit1's MSN Messenger address" title="Click to see spirit1's MSN Messenger address" align="absmiddle" hspace="6" /></a>
+                      &nbsp;<a href="http://edit.yahoo.com/config/send_webmesg?.target=spirit1%5Ffe&.src=pg" target="_blank"><img src="images/icon_yahoo.gif" width="16" height="15" border="0" alt="Send spirit1 a Yahoo! Message" title="Send spirit1 a Yahoo! Message" align="absmiddle" hspace="6" /></a>
+                      &nbsp;<a href="post.asp?method=ReplyQuote&REPLY_ID=280428&TOPIC_ID=77262&FORUM_ID=11"><img src="images/icon_reply_topic.gif" width="15" height="15" border="0" alt="Reply with Quote" title="Reply with Quote" align="absmiddle" hspace="6" /></a>
+                      <hr noshade size="1"></td>
+                    </tr>
+                    <tr>
+                      <td valign="top" height="100%"><font face="Verdana, Arial, Helvetica" size="2" color="midnightblue"><span class="spnMessageText" id="msg"> AWSOME!!!<br /><br /><br /><br />Go with the flow & have fun! Else fight the flow <img src="images/icon_smile_wink.gif" width="15" height="15" border="0" alt="" title="" align="middle" /><br />blog thingie: <a href="http://weblogs.sqlteam.com/mladenp" target="_blank">http://weblogs.sqlteam.com/mladenp</a></span id="msg"></font></td>
+                    </tr>
+                    <tr>
+                      <td valign="bottom" align="right" height="20"><a href="#top"><img src="images/icon_go_up.gif" width="15" height="15" border="0" alt="Go to Top of Page" title="Go to Top of Page" align="right" /></a></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td bgcolor="whitesmoke" valign="top" width="100" nowrap>
+                <p><font face="Verdana, Arial, Helvetica" size="2"><b><span class="spnMessageText"><a href="pop_profile.asp?mode=display&id=22680" title="View Peso's Profile" onMouseOver="(window.status='View Peso\'s Profile'); return true" onMouseOut="(window.status=''); return true">Peso</a></span></b></font><br />
+                <font color="midnightblue" face="Verdana, Arial, Helvetica" size="1"><small>Patron Saint of Lost Yaks</small></font><br />
+                </p>
+                <p>
+                <font color="midnightblue" face="Verdana, Arial, Helvetica" size="1"><small>Sweden</small></font><br />
+                <font color="midnightblue" face="Verdana, Arial, Helvetica" size="1"><small>10916 Posts</small></font></p></td>
+                <td bgcolor="whitesmoke" height="100%" width="100%" colspan="2" valign="top"><a name="280439"></a>
+                  <table width="100%" height="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                      <td valign="top">
+                      <img src="images/icon_posticon.gif" width="15" height="15" border="0" alt="" title="" hspace="3" /><font color="midnightblue" face="Verdana, Arial, Helvetica" size="1">Posted&nbsp;-&nbsp;01/08/2007&nbsp;:&nbsp; 13:12:36</font>
+                      &nbsp;<a href="pop_profile.asp?mode=display&id=22680"><img src="images/icon_profile.gif" width="15" height="15" border="0" alt="Show Profile" title="Show Profile" align="absmiddle" hspace="6" /></a>
+                      &nbsp;<a href="post.asp?method=ReplyQuote&REPLY_ID=280439&TOPIC_ID=77262&FORUM_ID=11"><img src="images/icon_reply_topic.gif" width="15" height="15" border="0" alt="Reply with Quote" title="Reply with Quote" align="absmiddle" hspace="6" /></a>
+                      <hr noshade size="1"></td>
+                    </tr>
+                    <tr>
+                      <td valign="top" height="100%"><font face="Verdana, Arial, Helvetica" size="2" color="midnightblue"><span class="spnMessageText" id="msg"> Thanks.<br />I hope you like it Spirit, becuase you asked for the algorithm.<br /><br /><br />Peter Larsson<br />Helsingborg, Sweden</span id="msg"></font></td>
+                    </tr>
+                    <tr>
+                      <td valign="bottom" align="right" height="20"><a href="#top"><img src="images/icon_go_up.gif" width="15" height="15" border="0" alt="Go to Top of Page" title="Go to Top of Page" align="right" /></a></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td bgcolor="gainsboro" valign="top" width="100" nowrap>
+                <p><font face="Verdana, Arial, Helvetica" size="2"><b><span class="spnMessageText"><a href="pop_profile.asp?mode=display&id=10839" title="View spirit1's Profile" onMouseOver="(window.status='View spirit1\'s Profile'); return true" onMouseOut="(window.status=''); return true">spirit1</a></span></b></font><br />
+                <font color="midnightblue" face="Verdana, Arial, Helvetica" size="1"><small>Cybernetic Yak Master</small></font><br />
+                </p>
+                <p>
+                <font color="midnightblue" face="Verdana, Arial, Helvetica" size="1"><small>Slovenia</small></font><br />
+                <font color="midnightblue" face="Verdana, Arial, Helvetica" size="1"><small>8431 Posts</small></font></p></td>
+                <td bgcolor="gainsboro" height="100%" width="100%" colspan="2" valign="top"><a name="280440"></a>
+                  <table width="100%" height="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                      <td valign="top">
+                      <img src="images/icon_posticon.gif" width="15" height="15" border="0" alt="" title="" hspace="3" /><font color="midnightblue" face="Verdana, Arial, Helvetica" size="1">Posted&nbsp;-&nbsp;01/08/2007&nbsp;:&nbsp; 13:21:27</font>
+                      &nbsp;<a href="pop_profile.asp?mode=display&id=10839"><img src="images/icon_profile.gif" width="15" height="15" border="0" alt="Show Profile" title="Show Profile" align="absmiddle" hspace="6" /></a>
+                      &nbsp;<a href="http://weblogs.sqlteam.com/mladenp/" target="_blank"><img src="images/icon_homepage.gif" width="15" height="15" border="0" alt="Visit spirit1's Homepage" title="Visit spirit1's Homepage" align="absmiddle" hspace="6" /></a>
+                      &nbsp;<a href="JavaScript:openWindow('pop_messengers.asp?mode=MSN&ID=10839')"><img src="images/icon_msnm.gif" width="15" height="15" border="0" alt="Click to see spirit1's MSN Messenger address" title="Click to see spirit1's MSN Messenger address" align="absmiddle" hspace="6" /></a>
+                      &nbsp;<a href="http://edit.yahoo.com/config/send_webmesg?.target=spirit1%5Ffe&.src=pg" target="_blank"><img src="images/icon_yahoo.gif" width="16" height="15" border="0" alt="Send spirit1 a Yahoo! Message" title="Send spirit1 a Yahoo! Message" align="absmiddle" hspace="6" /></a>
+                      &nbsp;<a href="post.asp?method=ReplyQuote&REPLY_ID=280440&TOPIC_ID=77262&FORUM_ID=11"><img src="images/icon_reply_topic.gif" width="15" height="15" border="0" alt="Reply with Quote" title="Reply with Quote" align="absmiddle" hspace="6" /></a>
+                      <hr noshade size="1"></td>
+                    </tr>
+                    <tr>
+                      <td valign="top" height="100%"><font face="Verdana, Arial, Helvetica" size="2" color="midnightblue"><span class="spnMessageText" id="msg"> maybe my enthusiasm wasn't clear enough:<br />AAAAAAAAAA WWWWWWWWWWW SSSSSSSSSSS OOOOOOOO MMMMMMMM EEEEEEEEEE !!!!!!!!!!!!!!!!<br /><br /><img src="images/icon_smile_big.gif" width="15" height="15" border="0" alt="" title="" align="middle" /><img src="images/icon_smile_big.gif" width="15" height="15" border="0" alt="" title="" align="middle" /><img src="images/icon_smile_big.gif" width="15" height="15" border="0" alt="" title="" align="middle" /><br /><br /><br /><br />Go with the flow & have fun! Else fight the flow <img src="images/icon_smile_wink.gif" width="15" height="15" border="0" alt="" title="" align="middle" /><br />blog thingie: <a href="http://weblogs.sqlteam.com/mladenp" target="_blank">http://weblogs.sqlteam.com/mladenp</a></span id="msg"></font></td>
+                    </tr>
+                    <tr>
+                      <td valign="bottom" align="right" height="20"><a href="#top"><img src="images/icon_go_up.gif" width="15" height="15" border="0" alt="Go to Top of Page" title="Go to Top of Page" align="right" /></a></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td bgcolor="whitesmoke" valign="top" width="100" nowrap>
+                <p><font face="Verdana, Arial, Helvetica" size="2"><b><span class="spnMessageText"><a href="pop_profile.asp?mode=display&id=14811" title="View Michael Valentine Jones's Profile" onMouseOver="(window.status='View Michael Valentine Jones\'s Profile'); return true" onMouseOut="(window.status=''); return true">Michael Valentine Jones</a></span></b></font><br />
+                <font color="midnightblue" face="Verdana, Arial, Helvetica" size="1"><small>Yak DBA Kernel (pronounced Colonel)</small></font><br />
+                </p>
+                <p>
+                <font color="midnightblue" face="Verdana, Arial, Helvetica" size="1"><small>USA</small></font><br />
+                <font color="midnightblue" face="Verdana, Arial, Helvetica" size="1"><small>4382 Posts</small></font></p></td>
+                <td bgcolor="whitesmoke" height="100%" width="100%" colspan="2" valign="top"><a name="280446"></a>
+                  <table width="100%" height="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                      <td valign="top">
+                      <img src="images/icon_posticon.gif" width="15" height="15" border="0" alt="" title="" hspace="3" /><font color="midnightblue" face="Verdana, Arial, Helvetica" size="1">Posted&nbsp;-&nbsp;01/08/2007&nbsp;:&nbsp; 13:42:49</font>
+                      &nbsp;<a href="pop_profile.asp?mode=display&id=14811"><img src="images/icon_profile.gif" width="15" height="15" border="0" alt="Show Profile" title="Show Profile" align="absmiddle" hspace="6" /></a>
+                      &nbsp;<a href="post.asp?method=ReplyQuote&REPLY_ID=280446&TOPIC_ID=77262&FORUM_ID=11"><img src="images/icon_reply_topic.gif" width="15" height="15" border="0" alt="Reply with Quote" title="Reply with Quote" align="absmiddle" hspace="6" /></a>
+                      <hr noshade size="1"></td>
+                    </tr>
+                    <tr>
+                      <td valign="top" height="100%"><font face="Verdana, Arial, Helvetica" size="2" color="midnightblue"><span class="spnMessageText" id="msg"> So, what would you use this for?<br /><br /><br /><font color="blue"><font face="Courier New"><b><i>CODO ERGO SUM</i></b></font id="Courier New"></font id="blue"></span id="msg"></font></td>
+                    </tr>
+                    <tr>
+                      <td valign="bottom" align="right" height="20"><a href="#top"><img src="images/icon_go_up.gif" width="15" height="15" border="0" alt="Go to Top of Page" title="Go to Top of Page" align="right" /></a></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td bgcolor="gainsboro" valign="top" width="100" nowrap>
+                <p><font face="Verdana, Arial, Helvetica" size="2"><b><span class="spnMessageText"><a href="pop_profile.asp?mode=display&id=22680" title="View Peso's Profile" onMouseOver="(window.status='View Peso\'s Profile'); return true" onMouseOut="(window.status=''); return true">Peso</a></span></b></font><br />
+                <font color="midnightblue" face="Verdana, Arial, Helvetica" size="1"><small>Patron Saint of Lost Yaks</small></font><br />
+                </p>
+                <p>
+                <font color="midnightblue" face="Verdana, Arial, Helvetica" size="1"><small>Sweden</small></font><br />
+                <font color="midnightblue" face="Verdana, Arial, Helvetica" size="1"><small>10916 Posts</small></font></p></td>
+                <td bgcolor="gainsboro" height="100%" width="100%" colspan="2" valign="top"><a name="280448"></a>
+                  <table width="100%" height="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                      <td valign="top">
+                      <img src="images/icon_posticon.gif" width="15" height="15" border="0" alt="" title="" hspace="3" /><font color="midnightblue" face="Verdana, Arial, Helvetica" size="1">Posted&nbsp;-&nbsp;01/08/2007&nbsp;:&nbsp; 13:57:17</font>
+                      &nbsp;<a href="pop_profile.asp?mode=display&id=22680"><img src="images/icon_profile.gif" width="15" height="15" border="0" alt="Show Profile" title="Show Profile" align="absmiddle" hspace="6" /></a>
+                      &nbsp;<a href="post.asp?method=ReplyQuote&REPLY_ID=280448&TOPIC_ID=77262&FORUM_ID=11"><img src="images/icon_reply_topic.gif" width="15" height="15" border="0" alt="Reply with Quote" title="Reply with Quote" align="absmiddle" hspace="6" /></a>
+                      <hr noshade size="1"></td>
+                    </tr>
+                    <tr>
+                      <td valign="top" height="100%"><font face="Verdana, Arial, Helvetica" size="2" color="midnightblue"><span class="spnMessageText" id="msg"> One of the purposes I have used this for is in a contact management system (with some changes of course) to see how far apart people are, or know each other, like "friend-of-a-friend-of-a-friend".<br /><br />More specialized attempts are found here<br /><a href="http://www.sqlteam.com/forums/topic.asp?TOPIC_ID=72097" target="_blank">http://www.sqlteam.com/forums/topic.asp?TOPIC_ID=72097</a><br /><a href="http://www.sqlteam.com/forums/topic.asp?TOPIC_ID=73079" target="_blank">http://www.sqlteam.com/forums/topic.asp?TOPIC_ID=73079</a><br /><br />The difference with these two examples are that all paths always has a cost of 1 and treated as "two-way" path (If person A knows person B, then person B also knows person A).<br /><br />With the general algorithm above, not only is it possible to enter connections as "person A knows person B, but person B does not know person A". Also, you can enter how well people know each other.<br /><br />Person A is brother to person B, then enter "cost" of 1 (know very well).<br />Person C went to same high school as person D. Enter a cost of 10 (know of).<br /><br />Cost can also be a source of trust level!<br />Person A trust person B very much (cost is 1), but person B does not trust person A very much (cost is 5), even if they know each other.<br /><br /><br />Peter Larsson<br />Helsingborg, Sweden</span id="msg"></font></td>
+                    </tr>
+                    <tr>
+                      <td valign="bottom"><hr noshade size="1" color="gainsboro"><font face="Verdana, Arial, Helvetica" size="1" color="midnightblue">Edited by - Peso on 01/08/2007  19:11:38</font></td>
+                    </tr>
+                    <tr>
+                      <td valign="bottom" align="right" height="20"><a href="#top"><img src="images/icon_go_up.gif" width="15" height="15" border="0" alt="Go to Top of Page" title="Go to Top of Page" align="right" /></a></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td bgcolor="whitesmoke" valign="top" width="100" nowrap>
+                <p><font face="Verdana, Arial, Helvetica" size="2"><b><span class="spnMessageText"><a href="pop_profile.asp?mode=display&id=24731" title="View jezemine's Profile" onMouseOver="(window.status='View jezemine\'s Profile'); return true" onMouseOut="(window.status=''); return true">jezemine</a></span></b></font><br />
+                <font color="midnightblue" face="Verdana, Arial, Helvetica" size="1"><small>Flowing Fount of Yak Knowledge</small></font><br />
+                </p>
+                <p>
+                <font color="midnightblue" face="Verdana, Arial, Helvetica" size="1"><small>USA</small></font><br />
+                <font color="midnightblue" face="Verdana, Arial, Helvetica" size="1"><small>1290 Posts</small></font></p></td>
+                <td bgcolor="whitesmoke" height="100%" width="100%" colspan="2" valign="top"><a name="280491"></a>
+                  <table width="100%" height="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                      <td valign="top">
+                      <img src="images/icon_posticon.gif" width="15" height="15" border="0" alt="" title="" hspace="3" /><font color="midnightblue" face="Verdana, Arial, Helvetica" size="1">Posted&nbsp;-&nbsp;01/08/2007&nbsp;:&nbsp; 19:07:23</font>
+                      &nbsp;<a href="pop_profile.asp?mode=display&id=24731"><img src="images/icon_profile.gif" width="15" height="15" border="0" alt="Show Profile" title="Show Profile" align="absmiddle" hspace="6" /></a>
+                      &nbsp;<a href="http://www.elsasoft.org" target="_blank"><img src="images/icon_homepage.gif" width="15" height="15" border="0" alt="Visit jezemine's Homepage" title="Visit jezemine's Homepage" align="absmiddle" hspace="6" /></a>
+                      &nbsp;<a href="post.asp?method=ReplyQuote&REPLY_ID=280491&TOPIC_ID=77262&FORUM_ID=11"><img src="images/icon_reply_topic.gif" width="15" height="15" border="0" alt="Reply with Quote" title="Reply with Quote" align="absmiddle" hspace="6" /></a>
+                      <hr noshade size="1"></td>
+                    </tr>
+                    <tr>
+                      <td valign="top" height="100%"><font face="Verdana, Arial, Helvetica" size="2" color="midnightblue"><span class="spnMessageText" id="msg"> That's quite something!  I've implemented this algorithm before in C++, but I never would have thought to do it in SQL.  <br /><br /><br /><hr noshade size="1"><a href="http://www.elsasoft.org" target="_blank">www.elsasoft.org</a></span id="msg"></font></td>
+                    </tr>
+                    <tr>
+                      <td valign="bottom" align="right" height="20"><a href="#top"><img src="images/icon_go_up.gif" width="15" height="15" border="0" alt="Go to Top of Page" title="Go to Top of Page" align="right" /></a></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td bgcolor="gainsboro" valign="top" width="100" nowrap>
+                <p><font face="Verdana, Arial, Helvetica" size="2"><b><span class="spnMessageText"><a href="pop_profile.asp?mode=display&id=23446" title="View harsh_athalye's Profile" onMouseOver="(window.status='View harsh_athalye\'s Profile'); return true" onMouseOut="(window.status=''); return true">harsh_athalye</a></span></b></font><br />
+                <font color="midnightblue" face="Verdana, Arial, Helvetica" size="1"><small>Flowing Fount of Yak Knowledge</small></font><br />
+                </p>
+                <p>
+                <font color="midnightblue" face="Verdana, Arial, Helvetica" size="1"><small>India</small></font><br />
+                <font color="midnightblue" face="Verdana, Arial, Helvetica" size="1"><small>3605 Posts</small></font></p></td>
+                <td bgcolor="gainsboro" height="100%" width="100%" colspan="2" valign="top"><a name="280542"></a>
+                  <table width="100%" height="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                      <td valign="top">
+                      <img src="images/icon_posticon.gif" width="15" height="15" border="0" alt="" title="" hspace="3" /><font color="midnightblue" face="Verdana, Arial, Helvetica" size="1">Posted&nbsp;-&nbsp;01/09/2007&nbsp;:&nbsp; 01:08:28</font>
+                      &nbsp;<a href="pop_profile.asp?mode=display&id=23446"><img src="images/icon_profile.gif" width="15" height="15" border="0" alt="Show Profile" title="Show Profile" align="absmiddle" hspace="6" /></a>
+                      &nbsp;<a href="JavaScript:openWindow('pop_messengers.asp?mode=MSN&ID=23446')"><img src="images/icon_msnm.gif" width="15" height="15" border="0" alt="Click to see harsh_athalye's MSN Messenger address" title="Click to see harsh_athalye's MSN Messenger address" align="absmiddle" hspace="6" /></a>
+                      &nbsp;<a href="http://edit.yahoo.com/config/send_webmesg?.target=harshathalye&.src=pg" target="_blank"><img src="images/icon_yahoo.gif" width="16" height="15" border="0" alt="Send harsh_athalye a Yahoo! Message" title="Send harsh_athalye a Yahoo! Message" align="absmiddle" hspace="6" /></a>
+                      &nbsp;<a href="post.asp?method=ReplyQuote&REPLY_ID=280542&TOPIC_ID=77262&FORUM_ID=11"><img src="images/icon_reply_topic.gif" width="15" height="15" border="0" alt="Reply with Quote" title="Reply with Quote" align="absmiddle" hspace="6" /></a>
+                      <hr noshade size="1"></td>
+                    </tr>
+                    <tr>
+                      <td valign="top" height="100%"><font face="Verdana, Arial, Helvetica" size="2" color="midnightblue"><span class="spnMessageText" id="msg"> Amazing!!<br /><br />Found that this topic is already linked to Wikipedia.<br /><a href="http://en.wikipedia.org/wiki/Dijkstra%27s_algorithm" target="_blank"><a href="http://en.wikipedia.org/wiki/Dijkstra%27s_algorithm" target="_blank">http://en.wikipedia.org/wiki/Dijkstra%27s_algorithm</a></a><br /><br />So what's next, Peter? Graph algorithms? <img src="images/icon_smile_big.gif" width="15" height="15" border="0" alt="" title="" align="middle" /><br /><br />Harsh Athalye<br />India.<br />"The IMPOSSIBLE is often UNTRIED"</span id="msg"></font></td>
+                    </tr>
+                    <tr>
+                      <td valign="bottom" align="right" height="20"><a href="#top"><img src="images/icon_go_up.gif" width="15" height="15" border="0" alt="Go to Top of Page" title="Go to Top of Page" align="right" /></a></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td bgcolor="whitesmoke" valign="top" width="100" nowrap>
+                <p><font face="Verdana, Arial, Helvetica" size="2"><b><span class="spnMessageText"><a href="pop_profile.asp?mode=display&id=22680" title="View Peso's Profile" onMouseOver="(window.status='View Peso\'s Profile'); return true" onMouseOut="(window.status=''); return true">Peso</a></span></b></font><br />
+                <font color="midnightblue" face="Verdana, Arial, Helvetica" size="1"><small>Patron Saint of Lost Yaks</small></font><br />
+                </p>
+                <p>
+                <font color="midnightblue" face="Verdana, Arial, Helvetica" size="1"><small>Sweden</small></font><br />
+                <font color="midnightblue" face="Verdana, Arial, Helvetica" size="1"><small>10916 Posts</small></font></p></td>
+                <td bgcolor="whitesmoke" height="100%" width="100%" colspan="2" valign="top"><a name="280570"></a>
+                  <table width="100%" height="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                      <td valign="top">
+                      <img src="images/icon_posticon.gif" width="15" height="15" border="0" alt="" title="" hspace="3" /><font color="midnightblue" face="Verdana, Arial, Helvetica" size="1">Posted&nbsp;-&nbsp;01/09/2007&nbsp;:&nbsp; 04:44:34</font>
+                      &nbsp;<a href="pop_profile.asp?mode=display&id=22680"><img src="images/icon_profile.gif" width="15" height="15" border="0" alt="Show Profile" title="Show Profile" align="absmiddle" hspace="6" /></a>
+                      &nbsp;<a href="post.asp?method=ReplyQuote&REPLY_ID=280570&TOPIC_ID=77262&FORUM_ID=11"><img src="images/icon_reply_topic.gif" width="15" height="15" border="0" alt="Reply with Quote" title="Reply with Quote" align="absmiddle" hspace="6" /></a>
+                      <hr noshade size="1"></td>
+                    </tr>
+                    <tr>
+                      <td valign="top" height="100%"><font face="Verdana, Arial, Helvetica" size="2" color="midnightblue"><span class="spnMessageText" id="msg"> You mean like Fourier transformations?<br /><br /><br />Peter Larsson<br />Helsingborg, Sweden</span id="msg"></font></td>
+                    </tr>
+                    <tr>
+                      <td valign="bottom" align="right" height="20"><a href="#top"><img src="images/icon_go_up.gif" width="15" height="15" border="0" alt="Go to Top of Page" title="Go to Top of Page" align="right" /></a></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td bgcolor="gainsboro" valign="top" width="100" nowrap>
+                <p><font face="Verdana, Arial, Helvetica" size="2"><b><span class="spnMessageText"><a href="pop_profile.asp?mode=display&id=23446" title="View harsh_athalye's Profile" onMouseOver="(window.status='View harsh_athalye\'s Profile'); return true" onMouseOut="(window.status=''); return true">harsh_athalye</a></span></b></font><br />
+                <font color="midnightblue" face="Verdana, Arial, Helvetica" size="1"><small>Flowing Fount of Yak Knowledge</small></font><br />
+                </p>
+                <p>
+                <font color="midnightblue" face="Verdana, Arial, Helvetica" size="1"><small>India</small></font><br />
+                <font color="midnightblue" face="Verdana, Arial, Helvetica" size="1"><small>3605 Posts</small></font></p></td>
+                <td bgcolor="gainsboro" height="100%" width="100%" colspan="2" valign="top"><a name="280573"></a>
+                  <table width="100%" height="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                      <td valign="top">
+                      <img src="images/icon_posticon.gif" width="15" height="15" border="0" alt="" title="" hspace="3" /><font color="midnightblue" face="Verdana, Arial, Helvetica" size="1">Posted&nbsp;-&nbsp;01/09/2007&nbsp;:&nbsp; 04:54:27</font>
+                      &nbsp;<a href="pop_profile.asp?mode=display&id=23446"><img src="images/icon_profile.gif" width="15" height="15" border="0" alt="Show Profile" title="Show Profile" align="absmiddle" hspace="6" /></a>
+                      &nbsp;<a href="JavaScript:openWindow('pop_messengers.asp?mode=MSN&ID=23446')"><img src="images/icon_msnm.gif" width="15" height="15" border="0" alt="Click to see harsh_athalye's MSN Messenger address" title="Click to see harsh_athalye's MSN Messenger address" align="absmiddle" hspace="6" /></a>
+                      &nbsp;<a href="http://edit.yahoo.com/config/send_webmesg?.target=harshathalye&.src=pg" target="_blank"><img src="images/icon_yahoo.gif" width="16" height="15" border="0" alt="Send harsh_athalye a Yahoo! Message" title="Send harsh_athalye a Yahoo! Message" align="absmiddle" hspace="6" /></a>
+                      &nbsp;<a href="post.asp?method=ReplyQuote&REPLY_ID=280573&TOPIC_ID=77262&FORUM_ID=11"><img src="images/icon_reply_topic.gif" width="15" height="15" border="0" alt="Reply with Quote" title="Reply with Quote" align="absmiddle" hspace="6" /></a>
+                      <hr noshade size="1"></td>
+                    </tr>
+                    <tr>
+                      <td valign="top" height="100%"><font face="Verdana, Arial, Helvetica" size="2" color="midnightblue"><span class="spnMessageText" id="msg"> I don't know. But frankly will anybody choose T-SQL as a language for its implementation, because it is purely mathematical topic and can be best handled in procedural languages.<br /><br />Harsh Athalye<br />India.<br />"The IMPOSSIBLE is often UNTRIED"</span id="msg"></font></td>
+                    </tr>
+                    <tr>
+                      <td valign="bottom" align="right" height="20"><a href="#top"><img src="images/icon_go_up.gif" width="15" height="15" border="0" alt="Go to Top of Page" title="Go to Top of Page" align="right" /></a></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td bgcolor="whitesmoke" valign="top" width="100" nowrap>
+                <p><font face="Verdana, Arial, Helvetica" size="2"><b><span class="spnMessageText"><a href="pop_profile.asp?mode=display&id=22680" title="View Peso's Profile" onMouseOver="(window.status='View Peso\'s Profile'); return true" onMouseOut="(window.status=''); return true">Peso</a></span></b></font><br />
+                <font color="midnightblue" face="Verdana, Arial, Helvetica" size="1"><small>Patron Saint of Lost Yaks</small></font><br />
+                </p>
+                <p>
+                <font color="midnightblue" face="Verdana, Arial, Helvetica" size="1"><small>Sweden</small></font><br />
+                <font color="midnightblue" face="Verdana, Arial, Helvetica" size="1"><small>10916 Posts</small></font></p></td>
+                <td bgcolor="whitesmoke" height="100%" width="100%" colspan="2" valign="top"><a name="280577"></a>
+                  <table width="100%" height="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                      <td valign="top">
+                      <img src="images/icon_posticon.gif" width="15" height="15" border="0" alt="" title="" hspace="3" /><font color="midnightblue" face="Verdana, Arial, Helvetica" size="1">Posted&nbsp;-&nbsp;01/09/2007&nbsp;:&nbsp; 05:07:52</font>
+                      &nbsp;<a href="pop_profile.asp?mode=display&id=22680"><img src="images/icon_profile.gif" width="15" height="15" border="0" alt="Show Profile" title="Show Profile" align="absmiddle" hspace="6" /></a>
+                      &nbsp;<a href="post.asp?method=ReplyQuote&REPLY_ID=280577&TOPIC_ID=77262&FORUM_ID=11"><img src="images/icon_reply_topic.gif" width="15" height="15" border="0" alt="Reply with Quote" title="Reply with Quote" align="absmiddle" hspace="6" /></a>
+                      <hr noshade size="1"></td>
+                    </tr>
+                    <tr>
+                      <td valign="top" height="100%"><font face="Verdana, Arial, Helvetica" size="2" color="midnightblue"><span class="spnMessageText" id="msg"> I think that depends on the implementation.<br />A good implementaition in SQL will outperform a bad implementation in front-end application.<br /><br />There are a number of regression methods that easily can be implemented in SQL, and better I think than front-end, since SQL Server is setbased.<br /><br />I think I will try to implement a easiest one, the linear regression.<br /><br /><br />Peter Larsson<br />Helsingborg, Sweden</span id="msg"></font></td>
+                    </tr>
+                    <tr>
+                      <td valign="bottom" align="right" height="20"><a href="#top"><img src="images/icon_go_up.gif" width="15" height="15" border="0" alt="Go to Top of Page" title="Go to Top of Page" align="right" /></a></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td bgcolor="gainsboro" valign="top" width="100" nowrap>
+                <p><font face="Verdana, Arial, Helvetica" size="2"><b><span class="spnMessageText"><a href="pop_profile.asp?mode=display&id=22680" title="View Peso's Profile" onMouseOver="(window.status='View Peso\'s Profile'); return true" onMouseOut="(window.status=''); return true">Peso</a></span></b></font><br />
+                <font color="midnightblue" face="Verdana, Arial, Helvetica" size="1"><small>Patron Saint of Lost Yaks</small></font><br />
+                </p>
+                <p>
+                <font color="midnightblue" face="Verdana, Arial, Helvetica" size="1"><small>Sweden</small></font><br />
+                <font color="midnightblue" face="Verdana, Arial, Helvetica" size="1"><small>10916 Posts</small></font></p></td>
+                <td bgcolor="gainsboro" height="100%" width="100%" colspan="2" valign="top"><a name="280595"></a>
+                  <table width="100%" height="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                      <td valign="top">
+                      <img src="images/icon_posticon.gif" width="15" height="15" border="0" alt="" title="" hspace="3" /><font color="midnightblue" face="Verdana, Arial, Helvetica" size="1">Posted&nbsp;-&nbsp;01/09/2007&nbsp;:&nbsp; 08:03:36</font>
+                      &nbsp;<a href="pop_profile.asp?mode=display&id=22680"><img src="images/icon_profile.gif" width="15" height="15" border="0" alt="Show Profile" title="Show Profile" align="absmiddle" hspace="6" /></a>
+                      &nbsp;<a href="post.asp?method=ReplyQuote&REPLY_ID=280595&TOPIC_ID=77262&FORUM_ID=11"><img src="images/icon_reply_topic.gif" width="15" height="15" border="0" alt="Reply with Quote" title="Reply with Quote" align="absmiddle" hspace="6" /></a>
+                      <hr noshade size="1"></td>
+                    </tr>
+                    <tr>
+                      <td valign="top" height="100%"><font face="Verdana, Arial, Helvetica" size="2" color="midnightblue"><span class="spnMessageText" id="msg"> Now it's done here <a href="http://www.sqlteam.com/forums/topic.asp?TOPIC_ID=77311" target="_blank">http://www.sqlteam.com/forums/topic.asp?TOPIC_ID=77311</a><br /><br />It wasn't that difficult and I included three more types.<br /><br /><br />Peter Larsson<br />Helsingborg, Sweden</span id="msg"></font></td>
+                    </tr>
+                    <tr>
+                      <td valign="bottom"><hr noshade size="1" color="gainsboro"><font face="Verdana, Arial, Helvetica" size="1" color="midnightblue">Edited by - Peso on 01/09/2007  08:04:40</font></td>
+                    </tr>
+                    <tr>
+                      <td valign="bottom" align="right" height="20"><a href="#top"><img src="images/icon_go_up.gif" width="15" height="15" border="0" alt="Go to Top of Page" title="Go to Top of Page" align="right" /></a></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td bgcolor="whitesmoke" valign="top" width="100" nowrap>
+                <p><font face="Verdana, Arial, Helvetica" size="2"><b><span class="spnMessageText"><a href="pop_profile.asp?mode=display&id=24731" title="View jezemine's Profile" onMouseOver="(window.status='View jezemine\'s Profile'); return true" onMouseOut="(window.status=''); return true">jezemine</a></span></b></font><br />
+                <font color="midnightblue" face="Verdana, Arial, Helvetica" size="1"><small>Flowing Fount of Yak Knowledge</small></font><br />
+                </p>
+                <p>
+                <font color="midnightblue" face="Verdana, Arial, Helvetica" size="1"><small>USA</small></font><br />
+                <font color="midnightblue" face="Verdana, Arial, Helvetica" size="1"><small>1290 Posts</small></font></p></td>
+                <td bgcolor="whitesmoke" height="100%" width="100%" colspan="2" valign="top"><a name="280648"></a>
+                  <table width="100%" height="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                      <td valign="top">
+                      <img src="images/icon_posticon.gif" width="15" height="15" border="0" alt="" title="" hspace="3" /><font color="midnightblue" face="Verdana, Arial, Helvetica" size="1">Posted&nbsp;-&nbsp;01/09/2007&nbsp;:&nbsp; 12:16:55</font>
+                      &nbsp;<a href="pop_profile.asp?mode=display&id=24731"><img src="images/icon_profile.gif" width="15" height="15" border="0" alt="Show Profile" title="Show Profile" align="absmiddle" hspace="6" /></a>
+                      &nbsp;<a href="http://www.elsasoft.org" target="_blank"><img src="images/icon_homepage.gif" width="15" height="15" border="0" alt="Visit jezemine's Homepage" title="Visit jezemine's Homepage" align="absmiddle" hspace="6" /></a>
+                      &nbsp;<a href="post.asp?method=ReplyQuote&REPLY_ID=280648&TOPIC_ID=77262&FORUM_ID=11"><img src="images/icon_reply_topic.gif" width="15" height="15" border="0" alt="Reply with Quote" title="Reply with Quote" align="absmiddle" hspace="6" /></a>
+                      <hr noshade size="1"></td>
+                    </tr>
+                    <tr>
+                      <td valign="top" height="100%"><font face="Verdana, Arial, Helvetica" size="2" color="midnightblue"><span class="spnMessageText" id="msg"> <blockquote id="quote"><font size="1" face="Verdana, Arial, Helvetica" id="quote">quote:<hr height="1" noshade id="quote"><i>Originally posted by Peso</i><br /><br />You mean like Fourier transformations?<br /><br /><br />Peter Larsson<br />Helsingborg, Sweden<br /><hr height="1" noshade id="quote"></blockquote id="quote"></font id="quote"><br /><br />eh, that's child's play.  I think you better do the Traveling Salesman next.  <br />It ought to be close to your heart: <br /><a href="http://www.tsp.gatech.edu/sweden/index.html" target="_blank">http://www.tsp.gatech.edu/sweden/index.html</a> <img src="images/icon_smile.gif" width="15" height="15" border="0" alt="" title="" align="middle" /><br /><br /><hr noshade size="1"><a href="http://www.elsasoft.org" target="_blank">www.elsasoft.org</a></span id="msg"></font></td>
+                    </tr>
+                    <tr>
+                      <td valign="bottom"><hr noshade size="1" color="whitesmoke"><font face="Verdana, Arial, Helvetica" size="1" color="midnightblue">Edited by - jezemine on 01/09/2007  12:23:36</font></td>
+                    </tr>
+                    <tr>
+                      <td valign="bottom" align="right" height="20"><a href="#top"><img src="images/icon_go_up.gif" width="15" height="15" border="0" alt="Go to Top of Page" title="Go to Top of Page" align="right" /></a></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td bgcolor="gainsboro" valign="top" width="100" nowrap>
+                <p><font face="Verdana, Arial, Helvetica" size="2"><b><span class="spnMessageText"><a href="pop_profile.asp?mode=display&id=22680" title="View Peso's Profile" onMouseOver="(window.status='View Peso\'s Profile'); return true" onMouseOut="(window.status=''); return true">Peso</a></span></b></font><br />
+                <font color="midnightblue" face="Verdana, Arial, Helvetica" size="1"><small>Patron Saint of Lost Yaks</small></font><br />
+                </p>
+                <p>
+                <font color="midnightblue" face="Verdana, Arial, Helvetica" size="1"><small>Sweden</small></font><br />
+                <font color="midnightblue" face="Verdana, Arial, Helvetica" size="1"><small>10916 Posts</small></font></p></td>
+                <td bgcolor="gainsboro" height="100%" width="100%" colspan="2" valign="top"><a name="282054"></a>
+                  <table width="100%" height="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                      <td valign="top">
+                      <img src="images/icon_posticon.gif" width="15" height="15" border="0" alt="" title="" hspace="3" /><font color="midnightblue" face="Verdana, Arial, Helvetica" size="1">Posted&nbsp;-&nbsp;01/17/2007&nbsp;:&nbsp; 07:49:07</font>
+                      &nbsp;<a href="pop_profile.asp?mode=display&id=22680"><img src="images/icon_profile.gif" width="15" height="15" border="0" alt="Show Profile" title="Show Profile" align="absmiddle" hspace="6" /></a>
+                      &nbsp;<a href="post.asp?method=ReplyQuote&REPLY_ID=282054&TOPIC_ID=77262&FORUM_ID=11"><img src="images/icon_reply_topic.gif" width="15" height="15" border="0" alt="Reply with Quote" title="Reply with Quote" align="absmiddle" hspace="6" /></a>
+                      <hr noshade size="1"></td>
+                    </tr>
+                    <tr>
+                      <td valign="top" height="100%"><font face="Verdana, Arial, Helvetica" size="2" color="midnightblue"><span class="spnMessageText" id="msg"> Jezemine, this should be evidence of that the orignal Travelling Salesman problem is not solvable for all types of paths, ie has no general algorithm to solve all paths.<br /><br />According to the original TSP, each and one city can only be visited once.<br /><pre id="code"><font face="courier" size="2" id="code">
+    A
+    |
+B - C - D</font id="code"></pre id="code"><br /><br />Peter Larsson<br />Helsingborg, Sweden</span id="msg"></font></td>
+                    </tr>
+                    <tr>
+                      <td valign="bottom" align="right" height="20"><a href="#top"><img src="images/icon_go_up.gif" width="15" height="15" border="0" alt="Go to Top of Page" title="Go to Top of Page" align="right" /></a></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td bgcolor="whitesmoke" valign="top" width="100" nowrap>
+                <p><font face="Verdana, Arial, Helvetica" size="2"><b><span class="spnMessageText"><a href="pop_profile.asp?mode=display&id=24731" title="View jezemine's Profile" onMouseOver="(window.status='View jezemine\'s Profile'); return true" onMouseOut="(window.status=''); return true">jezemine</a></span></b></font><br />
+                <font color="midnightblue" face="Verdana, Arial, Helvetica" size="1"><small>Flowing Fount of Yak Knowledge</small></font><br />
+                </p>
+                <p>
+                <font color="midnightblue" face="Verdana, Arial, Helvetica" size="1"><small>USA</small></font><br />
+                <font color="midnightblue" face="Verdana, Arial, Helvetica" size="1"><small>1290 Posts</small></font></p></td>
+                <td bgcolor="whitesmoke" height="100%" width="100%" colspan="2" valign="top"><a name="282077"></a>
+                  <table width="100%" height="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                      <td valign="top">
+                      <img src="images/icon_posticon.gif" width="15" height="15" border="0" alt="" title="" hspace="3" /><font color="midnightblue" face="Verdana, Arial, Helvetica" size="1">Posted&nbsp;-&nbsp;01/17/2007&nbsp;:&nbsp; 09:56:49</font>
+                      &nbsp;<a href="pop_profile.asp?mode=display&id=24731"><img src="images/icon_profile.gif" width="15" height="15" border="0" alt="Show Profile" title="Show Profile" align="absmiddle" hspace="6" /></a>
+                      &nbsp;<a href="http://www.elsasoft.org" target="_blank"><img src="images/icon_homepage.gif" width="15" height="15" border="0" alt="Visit jezemine's Homepage" title="Visit jezemine's Homepage" align="absmiddle" hspace="6" /></a>
+                      &nbsp;<a href="post.asp?method=ReplyQuote&REPLY_ID=282077&TOPIC_ID=77262&FORUM_ID=11"><img src="images/icon_reply_topic.gif" width="15" height="15" border="0" alt="Reply with Quote" title="Reply with Quote" align="absmiddle" hspace="6" /></a>
+                      <hr noshade size="1"></td>
+                    </tr>
+                    <tr>
+                      <td valign="top" height="100%"><font face="Verdana, Arial, Helvetica" size="2" color="midnightblue"><span class="spnMessageText" id="msg"> First of all, I was only kidding.  To try and solve TSP in SQL would not be an efficient use of your time.  I have some experience in computational mathematics, I am pretty sure SQL is NOT the optimal language for this type of problem.  :)<br /><br />You are right about not all graphs having a sol'n in TSP.  In real world applications of tsp however, you often have more freedom on how you are allowed to traverse the nodes.  Like for a drill that needs to put millions of holes in a printed circuit board, what's the optimal way to visit each hole?  the drill can move however it likes.  it could go from a-&gt;b for example.<br /><br />also, usually there is more than one way to get to a town.  I guess if there is only one way, that town would be happily free of traveling salesmen!<br /><br /><br /><br /><hr noshade size="1"><a href="http://www.elsasoft.org" target="_blank">www.elsasoft.org</a></span id="msg"></font></td>
+                    </tr>
+                    <tr>
+                      <td valign="bottom" align="right" height="20"><a href="#top"><img src="images/icon_go_up.gif" width="15" height="15" border="0" alt="Go to Top of Page" title="Go to Top of Page" align="right" /></a></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <form name="PageNum2" action="topic.asp">
+                <td bgcolor="#343399" nowrap><font face="Verdana, Arial, Helvetica" size="2" color="mintcream">
+                <input type="hidden" name="TOPIC_ID" value="77262">
+                <b>Page: </b><select name="whichpage" size="1" onchange="ChangePage(2);">
+                	<option selected value="1">1</option>
+                	<option value="2">2</option>
+                </select><b> of 2</b>
+                </font></td>
+                </form>
+                <td align="center" bgcolor="#343399" width="100%"><b><font face="Verdana, Arial, Helvetica" size="2" color="mintcream">
+                <img src="images/icon_blank.gif" width="15" height="15" border="0" alt="" title="" align="top" hspace="6" /><b><font face="Verdana, Arial, Helvetica" size="2" color="mintcream">&nbsp;Topic&nbsp;</font></b><a href="topic.asp?TOPIC_ID=81254"><img src="images/icon_go_right.gif" width="15" height="15" border="0" alt="Next Topic" title="Next Topic" align="top" hspace="6" /></a></font></b></td>
+                <td align="right" bgcolor="#343399" nowrap><font face="Verdana, Arial, Helvetica" size="2">&nbsp;</font></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table align="center" border="0" cellPadding="0" cellSpacing="1" width="95%">
+  <tr>
+    <td align="left" valign="top"><font face="Verdana, Arial, Helvetica" size="1"><a href="topic.asp?TOPIC_ID=77262&whichpage=2" title="Goto the Next page in this Topic" onMouseOver="(window.status='Goto the Next page in this Topic'); return true" onMouseOut="(window.status=''); return true">Next Page</a></td>
+  </tr>
+</table>
+<table align="center" border="0" cellPadding="0" cellSpacing="0" width="95%">
+  <tr>
+    <td>
+      <table width="100%">
+        <tr>
+          <td align="center" valign="top" width="50%">
+          <font face="Verdana, Arial, Helvetica" size="2">
+          <a href="post.asp?method=Topic&FORUM_ID=11"><img src="images/icon_folder_new_topic.gif" width="15" height="15" border="0" alt="" title="" align="absmiddle" /></a>&nbsp;<a href="post.asp?method=Topic&FORUM_ID=11">New Topic</a>
+          <a href="post.asp?method=Reply&TOPIC_ID=77262&FORUM_ID=11"><img src="images/icon_reply_topic.gif" width="15" height="15" border="0" alt="" title="" align="absmiddle" /></a>&nbsp;<a href="post.asp?method=Reply&TOPIC_ID=77262&FORUM_ID=11">Reply to Topic</a>
+          <br /><a href="JavaScript:openWindow5('pop_printer_friendly.asp?TOPIC_ID=77262')"><img src="images/icon_print.gif" width="16" height="17" border="0" alt="" title="" align="absmiddle" /></a>&nbsp;<a href="JavaScript:openWindow5('pop_printer_friendly.asp?TOPIC_ID=77262')">Printer Friendly</a>
+          </font></td>
+          <td align="right" valign="top" width="50%" nowrap>
+          <!-- START JUMP TO -->
+          <form name="Stuff">
+          <font face="Verdana, Arial, Helvetica" size="2"><b>Jump To:</b></font>
+          <select name="SelectMenu" size="1" onchange="if(this.options[this.selectedIndex].value != '' ){ jumpTo(this) }">
+          	<option value="">Select Forum</option>
+          	<option value="default.asp?CAT_ID=3">General SQL Server Forums</option>
+          	<option value="forum.asp?FORUM_ID=23">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;New to SQL Server</option>
+          	<option value="forum.asp?FORUM_ID=11">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Script Library</option>
+          	<option value="forum.asp?FORUM_ID=22">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Data Corruption Issues</option>
+          	<option value="forum.asp?FORUM_ID=32">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Database Design and Application Architecture</option>
+          	<option value="default.asp?CAT_ID=6">SQL Server 2005 Forums</option>
+          	<option value="forum.asp?FORUM_ID=30">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Transact-SQL (2005)</option>
+          	<option value="forum.asp?FORUM_ID=36">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SQL Server Administration (2005)</option>
+          	<option value="forum.asp?FORUM_ID=31">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.NET Inside SQL Server (2005)</option>
+          	<option value="forum.asp?FORUM_ID=34">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SSIS and Import/Export (2005)</option>
+          	<option value="forum.asp?FORUM_ID=25">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Service Broker (2005)</option>
+          	<option value="forum.asp?FORUM_ID=33">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Replication (2005)</option>
+          	<option value="forum.asp?FORUM_ID=26">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;High Availability (2005)</option>
+          	<option value="forum.asp?FORUM_ID=35">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Analysis Server and Reporting Services (2005)</option>
+          	<option value="forum.asp?FORUM_ID=20">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Express Edition and Compact Edition (2005)</option>
+          	<option value="forum.asp?FORUM_ID=37">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Other SQL Server Topics (2005)</option>
+          	<option value="default.asp?CAT_ID=9">SQL Server 2008 Forums</option>
+          	<option value="forum.asp?FORUM_ID=39">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;General SQL Server 2008 Topics</option>
+          	<option value="default.asp?CAT_ID=7">SQL Server 2000 Forums</option>
+          	<option value="forum.asp?FORUM_ID=5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SQL Server Development (2000)</option>
+          	<option value="forum.asp?FORUM_ID=6">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SQL Server Administration (2000)</option>
+          	<option value="forum.asp?FORUM_ID=13">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Import/Export (DTS) and Replication (2000)</option>
+          	<option value="forum.asp?FORUM_ID=12">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Transact-SQL (2000)</option>
+          	<option value="forum.asp?FORUM_ID=14">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Analysis Services (2000)</option>
+          	<option value="forum.asp?FORUM_ID=16">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MSDE (2000)</option>
+          	<option value="default.asp?CAT_ID=5">Development Tools</option>
+          	<option value="forum.asp?FORUM_ID=17">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ASP.NET</option>
+          	<option value="forum.asp?FORUM_ID=21">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Reporting Services Development</option>
+          	<option value="forum.asp?FORUM_ID=18">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Other Development Tools</option>
+          	<option value="default.asp?CAT_ID=2">Site Related Forums</option>
+          	<option value="forum.asp?FORUM_ID=2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Site Related Discussions</option>
+          	<option value="forum.asp?FORUM_ID=10">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Article Discussion</option>
+          	<option value="forum.asp?FORUM_ID=9">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Poll Discussion</option>
+          	<option value="forum.asp?FORUM_ID=15">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The Yak Corral</option>
+          	<option value="default.asp?CAT_ID=4">Other Forums</option>
+          	<option value="forum.asp?FORUM_ID=29">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SQL Server 6.5 \ SQL Server 7.0</option>
+          	<option value="forum.asp?FORUM_ID=7">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Other Topics</option>
+          	<option value="forum.asp?FORUM_ID=3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MS Access</option>
+          	<option value="forum.asp?FORUM_ID=27">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ClearTrace Support Forum</option>
+          	<option value="default.asp?CAT_ID=8">Old Forums</option>
+          	<option value="forum.asp?FORUM_ID=4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CLOSED - General SQL Server</option>
+          	<option value="forum.asp?FORUM_ID=19">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CLOSED - SQL Server 2005/Yukon</option>
+          	<option value="">&nbsp;--------------------</option>
+		<option value="http://www.sqlteam.com/">Home</option>
+		<option value="active.asp">Active Topics</option>
+		<option value="faq.asp">Frequently Asked Questions</option>
+		<option value="members.asp">Member Information</option>
+		<option value="search.asp">Search Page</option>
+          </select>
+          </form>
+          <!-- END JUMP TO -->
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table width="95%" align="center" border="0" bgcolor="whitesmoke" cellpadding="0" cellspacing="1">
+  <tr>
+    <td>
+      <table border="0" width="100%" align="center" cellpadding="4" cellspacing="0">
+        <tr>
+          <td bgcolor="whitesmoke" align="left" valign="top" nowrap><font face="Verdana, Arial, Helvetica" size="1" color="midnightblue">SQL Server Forums</font></td>
+          <td bgcolor="whitesmoke" align="right" valign="top" nowrap><font face="Verdana, Arial, Helvetica" size="1" color="midnightblue">&copy; SQLTeam.com 2007</font></td>
+          <td bgcolor="whitesmoke" width="10" nowrap><a href="#top" onMouseOver="(window.status='Go To Top Of Page...'); return true" onMouseOut="(window.status=''); return true" tabindex="-1"><img src="images/icon_go_up.gif" width="15" height="15" border="0" alt="Go To Top Of Page" title="Go To Top Of Page" align="right" /></a></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table border="0" width="95%" align="center" cellpadding="4" cellspacing="0">
+  <tr valign="top">
+    <td align="left"><font face="Verdana, Arial, Helvetica" size="1">This page was generated in 0.12 seconds.</font></td>
+    <td align="right"><font face="Verdana, Arial, Helvetica" size="1"><a href="http://forum.snitz.com" target="_blank" tabindex="-1"><acronym title="Powered By: Snitz Forums 2000 Version 3.4.03"><img src="images/logo_powered_by.gif" border="0" alt="Powered By: Snitz Forums 2000 Version 3.4.03" title="Powered By: Snitz Forums 2000 Version 3.4.03" /></acronym></a></font></td>
+  </tr>
+</table>
+</font>
+
+
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-222470-2";
+urchinTracker();
+</script>
+
+</body>
+</html>

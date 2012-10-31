@@ -1,0 +1,387 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+				<meta name="keywords" content="Talk:Dijkstra's algorithm,C,Al1412,AnthonySteele,B^4,Bombastic,Dcoetzee,Mgreenbe,Philomathoholic,Shinjiman,132.227.103.90" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="http://www.gnu.org/copyleft/fdl.html" />
+		<title>Talk:Dijkstra's algorithm - Wikipedia, the free encyclopedia</title>
+		<style type="text/css" media="screen, projection">/*<![CDATA[*/
+			@import "/skins-1.5/common/shared.css?99";
+			@import "/skins-1.5/monobook/main.css?99";
+		/*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="/skins-1.5/common/commonPrint.css?99" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE50Fixes.css?99";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE55Fixes.css?99";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "/skins-1.5/monobook/IE60Fixes.css?99";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "/skins-1.5/monobook/IE70Fixes.css?99";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="/skins-1.5/common/IEFixes.js?99"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		
+		<script type= "text/javascript">/*<![CDATA[*/
+var skin = "monobook";
+var stylepath = "/skins-1.5";
+var wgArticlePath = "/wiki/$1";
+var wgScriptPath = "/w";
+var wgScript = "/w/index.php";
+var wgServer = "http://en.wikipedia.org";
+var wgCanonicalNamespace = "Talk";
+var wgCanonicalSpecialPageName = false;
+var wgNamespaceNumber = 1;
+var wgPageName = "Talk:Dijkstra\'s_algorithm";
+var wgTitle = "Dijkstra\'s algorithm";
+var wgAction = "view";
+var wgRestrictionEdit = [];
+var wgRestrictionMove = [];
+var wgArticleId = "69824";
+var wgIsArticle = true;
+var wgUserName = null;
+var wgUserGroups = null;
+var wgUserLanguage = "en";
+var wgContentLanguage = "en";
+var wgBreakFrames = false;
+var wgCurRevisionId = "152723395";
+/*]]>*/</script>
+                
+		<script type="text/javascript" src="/skins-1.5/common/wikibits.js?99"><!-- wikibits js --></script>
+		<script type="text/javascript" src="/w/index.php?title=-&amp;action=raw&amp;gen=js&amp;useskin=monobook"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "/w/index.php?title=MediaWiki:Common.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=MediaWiki:Monobook.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=-&action=raw&gen=css&maxage=2678400";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+		<script type="text/javascript" src="/skins-1.5/common/ajax.js?99"></script>
+	</head>
+<body  class="mediawiki ns-1 ltr page-Talk_Dijkstra_s_algorithm">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">Talk:Dijkstra's algorithm</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<table class="messagebox standard-talk">
+<tr>
+<td>
+<div class="floatnone"><span><a href="/wiki/Image:LampFlowchart.svg" class="image" title="LampFlowchart.svg"><img alt="" src="http://upload.wikimedia.org/wikipedia/commons/thumb/9/91/LampFlowchart.svg/50px-LampFlowchart.svg.png" width="50" height="68" border="0" /></a></span></div>
+</td>
+<td align="left">This article is within the scope of <a href="/wiki/Wikipedia:WikiProject_Computer_science" title="Wikipedia:WikiProject Computer science">WikiProject Computer science</a>.</td>
+</tr>
+<tr>
+<td style="background: #ffaa66; text-align: center;"><b><a href="/wiki/Category:Start-Class_articles" title="Category:Start-Class articles">Start</a></b></td>
+<td align="left"><b><a href="/wiki/Wikipedia:WikiProject_Computer_science/Assessment" title="Wikipedia:WikiProject Computer science/Assessment">rated</a></b> as <b>Start-Class</b> on the <a href="/wiki/Wikipedia:Version_1.0_Editorial_Team/Assessment" title="Wikipedia:Version 1.0 Editorial Team/Assessment">assessment scale</a></td>
+</tr>
+<tr>
+<td style="background: #ffccff; text-align: center;"><b>Mid</b></td>
+<td align="left"><b><a href="/wiki/Wikipedia:WikiProject_Computer_science/Assessment#Importance_assessment" title="Wikipedia:WikiProject Computer science/Assessment">rated</a></b> as <b>Mid-importance</b> on the <a href="/wiki/Wikipedia:Version_1.0_Editorial_Team/Assessment" title="Wikipedia:Version 1.0 Editorial Team/Assessment">assessment scale</a></td>
+</tr>
+</table>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Bad_grammar_and_is_it_even_true.3F"><span class="tocnumber">1</span> <span class="toctext">Bad grammar and is it even true?</span></a></li>
+<li class="toclevel-1"><a href="#EWD_would_have_cried"><span class="tocnumber">2</span> <span class="toctext">EWD would have cried</span></a></li>
+<li class="toclevel-1"><a href="#Author_credit"><span class="tocnumber">3</span> <span class="toctext">Author credit</span></a></li>
+<li class="toclevel-1"><a href="#Diagram"><span class="tocnumber">4</span> <span class="toctext">Diagram</span></a></li>
+<li class="toclevel-1"><a href="#Sample_Input_Data"><span class="tocnumber">5</span> <span class="toctext">Sample Input Data</span></a></li>
+<li class="toclevel-1"><a href="#Finding_out_the_path_in_C_implementation"><span class="tocnumber">6</span> <span class="toctext">Finding out the path in C implementation</span></a></li>
+<li class="toclevel-1"><a href="#Set_S_not_needed_in_implementation"><span class="tocnumber">7</span> <span class="toctext">Set S not needed in implementation</span></a></li>
+<li class="toclevel-1"><a href="#Pseudocode_incorrect.3F"><span class="tocnumber">8</span> <span class="toctext">Pseudocode incorrect?</span></a></li>
+<li class="toclevel-1"><a href="#What_about_non_directed_graphs.3F"><span class="tocnumber">9</span> <span class="toctext">What about non directed graphs?</span></a></li>
+<li class="toclevel-1"><a href="#Proof_of_correctness"><span class="tocnumber">10</span> <span class="toctext">Proof of correctness</span></a></li>
+<li class="toclevel-1"><a href="#Negative_Edge-weights"><span class="tocnumber">11</span> <span class="toctext">Negative Edge-weights</span></a></li>
+<li class="toclevel-1"><a href="#Another_interpretation_of_Dijkstra.27s_Algorithm"><span class="tocnumber">12</span> <span class="toctext">Another interpretation of Dijkstra's Algorithm</span></a></li>
+<li class="toclevel-1"><a href="#Another_interpretation_of_Dijkstra.27s_Algorithm_2"><span class="tocnumber">13</span> <span class="toctext">Another interpretation of Dijkstra's Algorithm</span></a></li>
+<li class="toclevel-1"><a href="#Djikstra_Implementation_With_PHP"><span class="tocnumber">14</span> <span class="toctext">Djikstra Implementation With PHP</span></a></li>
+<li class="toclevel-1"><a href="#Dijkstra.27s_Algorithm_Cannot_Be_Implemented_With_Priority_Queues"><span class="tocnumber">15</span> <span class="toctext">Dijkstra's Algorithm Cannot Be Implemented With Priority Queues</span></a></li>
+<li class="toclevel-1"><a href="#Set_S_during_the_algorithm"><span class="tocnumber">16</span> <span class="toctext">Set S during the algorithm</span></a></li>
+<li class="toclevel-1"><a href="#Initialization_of_d.5B.5D"><span class="tocnumber">17</span> <span class="toctext">Initialization of d[]</span></a></li>
+<li class="toclevel-1"><a href="#It.27s_not_greedy.2C_is_it.3F"><span class="tocnumber">18</span> <span class="toctext">It's not greedy, is it?</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script>
+<p><a name="Bad_grammar_and_is_it_even_true.3F" id="Bad_grammar_and_is_it_even_true.3F"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Talk:Dijkstra%27s_algorithm&amp;action=edit&amp;section=1" title="Edit section: Bad grammar and is it even true?">edit</a>]</span> <span class="mw-headline">Bad grammar and is it even true?</span></h2>
+<p>The article states "This algorithm was latter approved logically by Dr Saiful Islam, a Phd Advanced researcher from Greenwich in 2007 after conducting many studies within the feild of computer networking." Seems like this chap added this himself- surely it should be removed. 18:27, 20 May 2007 (UTC)</p>
+<p><a name="EWD_would_have_cried" id="EWD_would_have_cried"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Talk:Dijkstra%27s_algorithm&amp;action=edit&amp;section=2" title="Edit section: EWD would have cried">edit</a>]</span> <span class="mw-headline">EWD would have cried</span></h2>
+<p>The links to the animations are extremely questionable. If the king had seen an an animation of Pythagoras' theorem would that have made him a master of Geometry? "There is no royal road to Geometry", Edsger W Dijkstra [EWD xxxx]</p>
+<p><a href="/w/index.php?title=User:62.251.121.16&amp;action=edit" class="new" title="User:62.251.121.16">62.251.121.16</a> 21:02, 9 March 2007 (UTC)</p>
+<p><a name="Author_credit" id="Author_credit"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Talk:Dijkstra%27s_algorithm&amp;action=edit&amp;section=3" title="Edit section: Author credit">edit</a>]</span> <span class="mw-headline">Author credit</span></h2>
+<p>This may be a little controversial, but I think code should not include author credit or license in the same way ordinary article text does not. Any interested person can consult the edit history to learn the person who added it and e-mail them. For this reason I've removed the author credit. The code may also be edited by other persons, and so no longer be "owned" by the original author, or subject to their stated license. If you don't want to place your uncredited code in the article, I would be happy to replace it in its entirety with new code. <a href="/wiki/User:Dcoetzee" title="User:Dcoetzee">Derrick Coetzee</a> 17:55, 29 Oct 2004 (UTC)</p>
+<dl>
+<dd>There's nothing controversial about that. It's Wikipedia policy that articles should not contain attributions to wikipedia contributors. (Obviously quotations of third party sources should be properly cited and attributed — but they should also follow proper guidelines regarding how much is quoted.</dd>
+</dl>
+<p><a name="Diagram" id="Diagram"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Talk:Dijkstra%27s_algorithm&amp;action=edit&amp;section=4" title="Edit section: Diagram">edit</a>]</span> <span class="mw-headline">Diagram</span></h2>
+<p>I think this article could use a diagram, showing a simple edge relaxation or two. I'll make one sometime if nobody beats me to it. <a href="/wiki/User:Dcoetzee" title="User:Dcoetzee">Deco</a> 00:48, 9 Nov 2004 (UTC)</p>
+<p><a name="Sample_Input_Data" id="Sample_Input_Data"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Talk:Dijkstra%27s_algorithm&amp;action=edit&amp;section=5" title="Edit section: Sample Input Data">edit</a>]</span> <span class="mw-headline">Sample Input Data</span></h2>
+<p>It would be nice if the code examples were all written to parse a common data sample and give consistent results; and if the data sample (something small like five nodes) was included and discussed in the text with a "desk check" walk through the algorithm.</p>
+<p>I'll have to think about that.</p>
+<p><a name="Finding_out_the_path_in_C_implementation" id="Finding_out_the_path_in_C_implementation"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Talk:Dijkstra%27s_algorithm&amp;action=edit&amp;section=6" title="Edit section: Finding out the path in C implementation">edit</a>]</span> <span class="mw-headline">Finding out the path in C implementation</span></h2>
+<p>It would be great if we can find out the path details inside the C code. The code that currently provided is only can calculate the shortest distance between the source and destination. --<a href="/wiki/User:Shinjiman" title="User:Shinjiman">Shinjiman</a> ⇔ <a href="/wiki/User_talk:Shinjiman" title="User talk:Shinjiman">♨</a> 05:29, 31 May 2005 (UTC)</p>
+<p><a name="Set_S_not_needed_in_implementation" id="Set_S_not_needed_in_implementation"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Talk:Dijkstra%27s_algorithm&amp;action=edit&amp;section=7" title="Edit section: Set S not needed in implementation">edit</a>]</span> <span class="mw-headline">Set S not needed in implementation</span></h2>
+<p>The set S containing the vertices with known distances to the source is needed in the proof of correctness, but not needed in the actual implementation of the algorithm. Therefore, the two lines in the pseudocode initializing S and adding a vertex to S can be removed.</p>
+<p><a name="Pseudocode_incorrect.3F" id="Pseudocode_incorrect.3F"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Talk:Dijkstra%27s_algorithm&amp;action=edit&amp;section=8" title="Edit section: Pseudocode incorrect?">edit</a>]</span> <span class="mw-headline">Pseudocode incorrect?</span></h2>
+<p>Perhaps I got something wrong, but I think the given algorithm doesn't really work in this way. When we first reach line no. 9, then all <b>d[u]</b>s are equal to infinity, except for <b>d[s]</b>. How can I choose the one from <b>Q</b> with the least <b>d[u]</b>? There must be at least an initialization step missing for those vertices that are adjacent to <b>s</b>.</p>
+<p>Another point is that I can remember that there was a set containing vertices 1.) that are adjacent to a vertex for which the shortest path has been found and 2.) for which the shortest path has not been found yet.</p>
+<p>I can't find it here...</p>
+<dl>
+<dd>I'm adding the question back in, as it's an easy enough question to ask and it can't hurt to have an answer. <b>s</b> will be the first to be removed from the heap in the iterative step (note that s is included in the set of all vertices, Q). Each of its children will be updated, and the one reached by the lightest edge will be next from the heap...and so on.</dd>
+<dd>As for the second question, there's no need: each vertex is tested when it's reached. The conditional on line twelve will <i>never</i> be true if the shortest path has already been found. On the other hand, what you suggest is a possible optimization of the conditional: whenever a vertex is extracted from the heap, it is removed from the adjacency list of its predecessors. It's not clear whether this would be beneficial; in any case, doesn't change the worst-case time. --<a href="/wiki/User:Mgreenbe" title="User:Mgreenbe">Mgreenbe</a> 22:38, 27 January 2006 (UTC)</dd>
+</dl>
+<p><br />
+In addition to the above, the pseudocode appears to be inconsistent with the above description. It looks like the v's and u's are used in the opposite manner to what they are in the description. I'm still trying to get my head around the algorithm and I'm finding the inconsistencies quite confusing. --<a href="/wiki/User:Bombastic" title="User:Bombastic">Bombastic</a> 01:53, 18 October 2006 (UTC)</p>
+<p>I think that one of the ways for the algorithm to be more understandable and for the article to appear more like the kruskal's algorithm and the prim's algorithm articles (which is a good thing) is to put the algorithm into a bullet format (in the introduction), rather than the inline text. <a href="/wiki/User:Philomathoholic" title="User:Philomathoholic">Philomathoholic</a> 05:39, 13 December 2006 (UTC)</p>
+<p><a name="What_about_non_directed_graphs.3F" id="What_about_non_directed_graphs.3F"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Talk:Dijkstra%27s_algorithm&amp;action=edit&amp;section=9" title="Edit section: What about non directed graphs?">edit</a>]</span> <span class="mw-headline">What about non directed graphs?</span></h2>
+<p>I'm not sure that this algorithm couldn't be used on non directed graphs... For me it's quite obvious this algorithm can solve a problem like "shortest way between two towns"... And highways are rarely "one way", right? Can someone suggest a counterexample? --<a href="/w/index.php?title=User:132.227.103.90&amp;action=edit" class="new" title="User:132.227.103.90">132.227.103.90</a> 15:26, 28 March 2006 (UTC) Pronk</p>
+<dl>
+<dd>An undirected graph is simply a directed graph with vertices connected by two edges, one for each direction. In geographic data sets, bi-directional roads are always represented as two seperate roads, one for each direction. So, it doesn't matter.</dd>
+</dl>
+<p><a href="/wiki/User:AnthonySteele" title="User:AnthonySteele">Anthony Steele</a> I've implemented the pseudocode in <a href="/wiki/C" title="C">c#</a>, it works for me. The initialisation seems correct despite <a href="/wiki/User:Mgreenbe" title="User:Mgreenbe">User:Mgreenbe</a>'s protestations, the start node will be the first node selected in line nine, since it has distance zero and the rest have +Infinity. The first set of outgoing edges followed will be from the start node, as it should be.</p>
+<p>"previous[v]" is not needed if you just need the path length, not the actual route. Some error checking has been omittted, i.e. after line 9 you will have to check if there was any min node found. This will not be the case if the route you are trying to find does not exist. e.g. if the nodeas and paths are A-&gt;B and C-&gt;D, and you want a route from A-&gt;D.</p>
+<p><a name="Proof_of_correctness" id="Proof_of_correctness"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Talk:Dijkstra%27s_algorithm&amp;action=edit&amp;section=10" title="Edit section: Proof of correctness">edit</a>]</span> <span class="mw-headline">Proof of correctness</span></h2>
+<p>I think that this article lacks the proof of correctness of the algorithm; more exactly, 'This vertex is chosen as the vertex with lowest value of d[u].' doesn't look so correct to me: it should be something like 'We know that we can move the vertex with the lowest value of d[u] from Q to S because...'. --<a href="/w/index.php?title=User:Danmaz74&amp;action=edit" class="new" title="User:Danmaz74">Danmaz74</a> 08:32, 3 April 2006 (UTC)</p>
+<p><a name="Negative_Edge-weights" id="Negative_Edge-weights"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Talk:Dijkstra%27s_algorithm&amp;action=edit&amp;section=11" title="Edit section: Negative Edge-weights">edit</a>]</span> <span class="mw-headline">Negative Edge-weights</span></h2>
+<p>I think there is a problem with the following sentences:</p>
+<p>"Unlike Dijkstra's algorithm, the Bellman-Ford algorithm can be used on graphs with negative edge weights, as long as the graph contains no negative cycle reachable from the source vertex s. (The presence of such cycles means there is no shortest path, since the total weight becomes lower each time the cycle is traversed.)"</p>
+<p>I think there could be a shortest path from s to t even if there is such a cycle reachable from s, namely if there is NO path whatsoever from this cycle to the sink t.</p>
+<p><a name="Another_interpretation_of_Dijkstra.27s_Algorithm" id="Another_interpretation_of_Dijkstra.27s_Algorithm"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Talk:Dijkstra%27s_algorithm&amp;action=edit&amp;section=12" title="Edit section: Another interpretation of Dijkstra's Algorithm">edit</a>]</span> <span class="mw-headline">Another interpretation of Dijkstra's Algorithm</span></h2>
+<p>Here is one way to find the shortest distance from s to every other vertex in the graph:</p>
+<p>Let v be in G, and define o[v] to be the number of outgoing edges of v. Put o[v] little men on each each vertex v. These men are going to run a relay race. You fire the gun, and all the men on s start running at unit speed, one along each outgoing edge. Whenever a man reaches a vertex, all the men at that vertex run along the outing edges at unit speed. Notice that we are traversing all possible paths in the graph, and that the first man to get to vertex v gets there in the shortest time possible. Thus we've solved the problem.</p>
+<p>Dijkstra's algorithm just simulates this process in discrete time intervals. The nth vertex added to S in Dijkstra's algorithm is the nth vertex reached by a little man.</p>
+<p>I think this interpretation is very helpful in understanding the correctness of the algorithm. Should it be included in the article?</p>
+<dl>
+<dd>Josh Brown Kramer <a href="/w/index.php?title=User:129.93.181.31&amp;action=edit" class="new" title="User:129.93.181.31">129.93.181.31</a> 21:11, 9 November 2006 (UTC)</dd>
+</dl>
+<p><a name="Another_interpretation_of_Dijkstra.27s_Algorithm_2" id="Another_interpretation_of_Dijkstra.27s_Algorithm_2"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Talk:Dijkstra%27s_algorithm&amp;action=edit&amp;section=13" title="Edit section: Another interpretation of Dijkstra's Algorithm">edit</a>]</span> <span class="mw-headline">Another interpretation of Dijkstra's Algorithm</span></h2>
+<p>Here is one way to find the shortest distance from s to every other vertex in the graph:</p>
+<p>Let v be in G, and define o[v] to be the number of outgoing edges of v. Put o[v] little men on each each vertex v. These men are going to run a relay race. You fire the gun, and all the men on s start running at unit speed, one along each outgoing edge. Whenever a man reaches a vertex, all the men at that vertex run along the outing edges at unit speed. Notice that we are traversing all possible paths in the graph, and that the first man to get to vertex v gets there in the shortest time possible. Thus we've solved the problem.</p>
+<p>Dijkstra's algorithm just simulates this process in discrete time intervals. The nth vertex added to S in Dijkstra's algorithm is the nth vertex reached by a little man.</p>
+<p>I think this interpretation is very helpful in understanding the correctness of the algorithm. Should it be included in the article?</p>
+<dl>
+<dd>-Josh Brown Kramer <a href="/w/index.php?title=User:129.93.181.31&amp;action=edit" class="new" title="User:129.93.181.31">129.93.181.31</a> 21:11, 9 November 2006 (UTC)</dd>
+</dl>
+<p><a name="Djikstra_Implementation_With_PHP" id="Djikstra_Implementation_With_PHP"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Talk:Dijkstra%27s_algorithm&amp;action=edit&amp;section=14" title="Edit section: Djikstra Implementation With PHP">edit</a>]</span> <span class="mw-headline">Djikstra Implementation With PHP</span></h2>
+<p>I'm trying to create Djikstra Algorithm implementation with php. I've made djikstra function which input parameters are&#160;:</p>
+<p>1. $G as array of graph weight<br />
+2. $s as initial node<br />
+3. $f as final node<br /></p>
+<p>and the output is assosiative array Array["length"] and Array["path"]</p>
+<p>And the function is&#160;:</p>
+<pre>
+&lt;?php
+function djikstra($G,$s,$f){
+        $d = array();
+        $prev = array();
+        $Q = array();
+        foreach($G[$s] as $key=&gt;$b){
+                $prev[$key] = 0;
+                $d[$key] = $G[$s][$key];
+                $Q[]=$b.":".$key;
+        }
+        $d[$s]=0;
+        $S = array();
+        while(count($Q)&gt;0){
+                asort($Q);
+                $u = array_shift($Q);
+                $u = explode(":",$u);
+                $S[] = implode(":",$u);
+                foreach($G as $k=&gt;$z){
+                        foreach($z as $l=&gt;$w){
+                                if($d[$k] + $w &lt; $d[$l]){
+                                        $d[$l] = $d[$k] + $w;
+                                        $prev[$l] = $k;
+                                }
+                        }
+                }
+        }
+        $stop = false;
+        $jalur = array();
+        while(!$stop){
+                if($f == $prev[$f]){
+                        $stop = true;
+                }else{
+                        $jalur[] = $f;
+                        $f = $prev[$f];
+                }
+        }
+        $jalur = array_reverse($jalur);
+        array_unshift($jalur,$f);
+        return array("length"=&gt;$d,"path"=&gt;$jalur);
+}
+?&gt;
+</pre>
+<p>And below is the example of implementation of the function</p>
+<pre>
+&lt;?php
+$L = array(
+                        0 =&gt; array(999,      1,      4,      999,    999,    999),
+                        1 =&gt; array(1,        999,    2,      7,      5,      999),
+                        2 =&gt; array(4,        2,      999,    999,    1,      999),
+                        3 =&gt; array(999,      7,      999,    999,    3,      2),
+                        4 =&gt; array(999,      5,      1,      3,      999,    6),
+                        5 =&gt; array(999,      999,    999,    2,      6,      999)
+                        );
+$d = djikstra( $L, 0, 5);
+print_r($d);
+?&gt;
+</pre>
+<p>Comments and suggestion will be gladly accepted. Contact me at al1412 [at] gmail [dot] com<br />
+--<a href="/wiki/User:Al1412" title="User:Al1412">Al1412</a> 10:19, 31 December 2006 (UTC)</p>
+<p><a name="Dijkstra.27s_Algorithm_Cannot_Be_Implemented_With_Priority_Queues" id="Dijkstra.27s_Algorithm_Cannot_Be_Implemented_With_Priority_Queues"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Talk:Dijkstra%27s_algorithm&amp;action=edit&amp;section=15" title="Edit section: Dijkstra's Algorithm Cannot Be Implemented With Priority Queues">edit</a>]</span> <span class="mw-headline">Dijkstra's Algorithm Cannot Be Implemented With Priority Queues</span></h2>
+<p>Many books on data structures &amp; algorithms state that Dijkstra's Algorithm can be implemented using priority queues. This is not true. The problem is that items that are stored in the priority queue need to have their priorities changed dynamically as the algorithm progresses. A priority queue, the kind that is implied by these books, does not allow dynamic modification of priorities. Only certain types of heaps allow incremental change to priorities of elements in the heap.</p>
+<p><br />
+J.C. Jones 02:26, 8 January 2007 (UTC)</p>
+<dl>
+<dd>According to "Data structures and problem solving using Java" (by M. A. Weiss), you can use a standard priority queue by systematically queuing a vertex each time its value is lowered. Then, when you dequeue, you skip any vertex which has already been processed. Since the size of the queue is bounded by |E|, and there are at most |E| insertions / deletions, the running time is O(|E| log |E|) -- Olivier 16:21, 27 February 2007 (UTC)</dd>
+</dl>
+<p><a name="Set_S_during_the_algorithm" id="Set_S_during_the_algorithm"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Talk:Dijkstra%27s_algorithm&amp;action=edit&amp;section=16" title="Edit section: Set S during the algorithm">edit</a>]</span> <span class="mw-headline">Set S during the algorithm</span></h2>
+<p><i>The algorithm maintains two sets of vertices</i> S <i>and</i> Q<i>. Set</i> S <i>contains all vertices for which we know that the value</i> d<i>[</i>v<i>] is already the cost of the shortest path</i></p>
+<p>Hmm, really? To me, it rather looks like the following is true:</p>
+<p>The set <i>S</i> is such that, after each finished for-loop (line 11-14), for any vertex <i>v</i> in <i>S</i>, the value <i>d</i>[<i>v</i>] is the cost of the shortest path to this vertex which lies inside <i>S</i> (e. g. of the shortest among all paths all of whose vertices belong to <i>S</i>).</p>
+<p>But there may be a shorter path containing some vertices not in <i>S</i>. Of course, at the end of the algorithm, all vertices are in <i>S</i>, so we really know the shortest paths to each of them - but only at the end of the algorithm, not before. Thus, we can not stop in the first moment we reach the destination vertex - well, we can stop, but the path we obtain will not necessarily be the optimal one.</p>
+<p>Do I misunderstand something about the algorithm? - darij</p>
+<p>Ok, I was. It was in the meaning of u&#160;:= Extract_Min(Q). Still I'd say this should be somewhat precised in the pseudocode, e. g. by saying u&#160;:= Extract_Min(Q,d). - darij</p>
+<p><a name="Initialization_of_d.5B.5D" id="Initialization_of_d.5B.5D"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Talk:Dijkstra%27s_algorithm&amp;action=edit&amp;section=17" title="Edit section: Initialization of d[]">edit</a>]</span> <span class="mw-headline">Initialization of d[]</span></h2>
+<p>"Initially, this value is 0 for the source vertex s (d[s]=0), and infinity for all other vertices, representing the fact that we do not know any path leading to those vertices (d[v]=∞ for every v in V, except s). "</p>
+<p>That's not quite true - the path from s to s is not necessarily 0. Z</p>
+<dl>
+<dd>No? Could you give an example where the shortest path from a point to itself is not 0?--<a href="/wiki/User:B%5E4" title="User:B^4">bb</a> 17:00, 21 August 2007 (UTC)</dd>
+</dl>
+<p><a name="It.27s_not_greedy.2C_is_it.3F" id="It.27s_not_greedy.2C_is_it.3F"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Talk:Dijkstra%27s_algorithm&amp;action=edit&amp;section=18" title="Edit section: It's not greedy, is it?">edit</a>]</span> <span class="mw-headline">It's not greedy, is it?</span></h2>
+<p>Hi, all. In the begining it is said that the Dijkstra's algorithm is a greedy one. But I don't think so. Dijkstra's algorithm is an algorithm with dynamic programming approach. When finding which path to go from the ith node to the destination, it's considered that which path from the ith node to the destination is the shortest. But in greedy approach, it is considered that which neighboring node is nearest. -- Ephesians 4:31, 8 June 2007 (UTC)</p>
+
+<!-- 
+Pre-expand include size: 7209 bytes
+Post-expand include size: 2334 bytes
+Template argument size: 358 bytes
+Maximum: 2048000 bytes
+-->
+
+<!-- Saved in parser cache with key enwiki:pcache:idhash:69824-0!1!0!default!!en!2 and timestamp 20070914055028 -->
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org/wiki/Talk:Dijkstra%27s_algorithm">http://en.wikipedia.org/wiki/Talk:Dijkstra%27s_algorithm</a>"</div>
+			<div id="catlinks"><p class='catlinks'><a href="/wiki/Special:Categories" title="Special:Categories">Categories</a>: <span dir='ltr'><a href="/wiki/Category:Start-Class_Computer_science_articles" title="Category:Start-Class Computer science articles">Start-Class Computer science articles</a></span> | <span dir='ltr'><a href="/wiki/Category:Mid-importance_Computer_science_articles" title="Category:Mid-importance Computer science articles">Mid-importance Computer science articles</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<div class="pBody">
+			<ul>
+					 <li id="ca-nstab-main"><a href="/wiki/Dijkstra%27s_algorithm" title="View the content page [c]" accesskey="c">Article</a></li>
+					 <li id="ca-talk" class="selected"><a href="/wiki/Talk:Dijkstra%27s_algorithm" title="Discussion about the content page [t]" accesskey="t">Discussion</a></li>
+					 <li id="ca-edit" class=" istalk"><a href="/w/index.php?title=Talk:Dijkstra%27s_algorithm&amp;action=edit" title="You can edit this page. Please use the preview button before saving. [e]" accesskey="e">Edit this page</a></li>
+					 <li id="ca-addsection"><a href="/w/index.php?title=Talk:Dijkstra%27s_algorithm&amp;action=edit&amp;section=new" title="Start a new section on this discussion page. [+]" accesskey="+">+</a></li>
+					 <li id="ca-history"><a href="/w/index.php?title=Talk:Dijkstra%27s_algorithm&amp;action=history" title="Past versions of this page [h]" accesskey="h">History</a></li>
+				</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-personal">
+		<h5>Personal tools</h5>
+		<div class="pBody">
+			<ul>
+				<li id="pt-login"><a href="/w/index.php?title=Special:Userlogin&amp;returnto=Talk:Dijkstra%27s_algorithm" title="You are encouraged to log in, it is not mandatory however. [o]" accesskey="o">Sign in / create account</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-logo">
+		<a style="background-image: url(/images/wiki-en.png);" href="/wiki/Main_Page" title="Visit the Main Page [z]" accesskey="z"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-Main-page"><a href="/wiki/Main_Page">Main page</a></li>
+				<li id="n-Contents"><a href="/wiki/Wikipedia:Contents">Contents</a></li>
+				<li id="n-Featured-content"><a href="/wiki/Wikipedia:Featured_content">Featured content</a></li>
+				<li id="n-currentevents"><a href="/wiki/Portal:Current_events" title="Find background information on current events">Current events</a></li>
+				<li id="n-randompage"><a href="/wiki/Special:Random" title="Load a random page [x]" accesskey="x">Random article</a></li>
+			</ul>
+		</div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+		<h5>interaction</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-About-Wikipedia"><a href="/wiki/Wikipedia:About">About Wikipedia</a></li>
+				<li id="n-portal"><a href="/wiki/Wikipedia:Community_Portal" title="About the project, what you can do, where to find things">Community portal</a></li>
+				<li id="n-recentchanges"><a href="/wiki/Special:Recentchanges" title="The list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li>
+				<li id="n-contact"><a href="/wiki/Wikipedia:Contact_us">Contact Wikipedia</a></li>
+				<li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising" title="Support us">Donate to Wikipedia</a></li>
+				<li id="n-help"><a href="/wiki/Help:Contents" title="Guidance on how to use and edit Wikipedia">Help</a></li>
+			</ul>
+		</div>
+	</div>
+		<div id="p-search" class="portlet">
+		<h5><label for="searchInput">Search</label></h5>
+		<div id="searchBody" class="pBody">
+			<form action="/wiki/Special:Search" id="searchform"><div>
+				<input id="searchInput" name="search" type="text" title="Search Wikipedia [f]" accesskey="f" value="" />
+				<input type='submit' name="go" class="searchButton" id="searchGoButton"	value="Go" />&nbsp;
+				<input type='submit' name="fulltext" class="searchButton" id="mw-searchButton" value="Search" />
+			</div></form>
+		</div>
+	</div>
+	<div class="portlet" id="p-tb">
+		<h5>Toolbox</h5>
+		<div class="pBody">
+			<ul>
+				<li id="t-whatlinkshere"><a href="/wiki/Special:Whatlinkshere/Talk:Dijkstra%27s_algorithm" title="List of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+				<li id="t-recentchangeslinked"><a href="/wiki/Special:Recentchangeslinked/Talk:Dijkstra%27s_algorithm" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+<li id="t-upload"><a href="/wiki/Wikipedia:Upload" title="Upload images or media files [u]" accesskey="u">Upload file</a></li>
+<li id="t-specialpages"><a href="/wiki/Special:Specialpages" title="List of all special pages [q]" accesskey="q">Special pages</a></li>
+				<li id="t-print"><a href="/w/index.php?title=Talk:Dijkstra%27s_algorithm&amp;printable=yes" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>				<li id="t-permalink"><a href="/w/index.php?title=Talk:Dijkstra%27s_algorithm&amp;oldid=152723395" title="Permanent link to this version of the page">Permanent link</a></li>			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="/skins-1.5/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>
+				<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="/images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>
+			<ul id="f-list">
+				<li id="lastmod"> This page was last modified 17:01, 21 August 2007.</li>
+				<li id="copyright">All text is available under the terms of the <a class='internal' href="/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="/wiki/Wikipedia:Copyrights" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a U.S. registered <a class='internal' href="/wiki/501%28c%29#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="/wiki/Non-profit_organization" title="Non-profit organization">nonprofit</a> <a href="/wiki/Charitable_organization" title="Charitable organization">charity</a>.<br /></li>
+				<li id="privacy"><a href="http://wikimediafoundation.org/wiki/Privacy_policy" title="wikimedia:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="/wiki/Wikipedia:About" title="Wikipedia:About">About Wikipedia</a></li>
+				<li id="disclaimer"><a href="/wiki/Wikipedia:General_disclaimer" title="Wikipedia:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+		
+	
+		<script type="text/javascript">if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by srv156 in 0.216 secs. --></body></html>

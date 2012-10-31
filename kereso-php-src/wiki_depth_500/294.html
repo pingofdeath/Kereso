@@ -1,0 +1,264 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+				<meta name="keywords" content="A*,1968年,CPU,ダイクストラ法,ヒューリスティック,主記憶装置,均一コスト探索,探索アルゴリズム,最良優先探索,集合,計算負荷" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (日本語)" />
+		<link rel="copyright" href="http://www.gnu.org/copyleft/fdl.html" />
+		<title>A* - Wikipedia</title>
+		<style type="text/css" media="screen, projection">/*<![CDATA[*/
+			@import "/skins-1.5/common/shared.css?99";
+			@import "/skins-1.5/monobook/main.css?99";
+		/*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="/skins-1.5/common/commonPrint.css?99" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE50Fixes.css?99";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE55Fixes.css?99";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "/skins-1.5/monobook/IE60Fixes.css?99";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "/skins-1.5/monobook/IE70Fixes.css?99";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="/skins-1.5/common/IEFixes.js?99"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		
+		<script type= "text/javascript">/*<![CDATA[*/
+var skin = "monobook";
+var stylepath = "/skins-1.5";
+var wgArticlePath = "/wiki/$1";
+var wgScriptPath = "/w";
+var wgScript = "/w/index.php";
+var wgServer = "http://ja.wikipedia.org";
+var wgCanonicalNamespace = "";
+var wgCanonicalSpecialPageName = false;
+var wgNamespaceNumber = 0;
+var wgPageName = "A*";
+var wgTitle = "A*";
+var wgAction = "view";
+var wgRestrictionEdit = [];
+var wgRestrictionMove = [];
+var wgArticleId = "157096";
+var wgIsArticle = true;
+var wgUserName = null;
+var wgUserGroups = null;
+var wgUserLanguage = "ja";
+var wgContentLanguage = "ja";
+var wgBreakFrames = false;
+var wgCurRevisionId = "11101528";
+/*]]>*/</script>
+                
+		<script type="text/javascript" src="/skins-1.5/common/wikibits.js?99"><!-- wikibits js --></script>
+		<script type="text/javascript" src="/w/index.php?title=-&amp;action=raw&amp;gen=js&amp;useskin=monobook"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "/w/index.php?title=MediaWiki:Common.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=MediaWiki:Monobook.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=-&action=raw&gen=css&maxage=2678400";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+		<script type="text/javascript" src="/skins-1.5/common/ajax.js?99"></script>
+	</head>
+<body  class="mediawiki ns-0 ltr page-A">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">A*</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">出典: フリー百科事典『ウィキペディア（Wikipedia）』</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">移動: <a href="#column-one">ナビゲーション</a>, <a href="#searchInput">検索</a></div>			<!-- start content -->
+			<p><b>A*（A-star, エースター） 探索アルゴリズム</b>は、<a href="/w/index.php?title=%E7%B5%8C%E8%B7%AF&amp;action=edit" class="new" title="経路">経路</a><a href="/wiki/%E6%8E%A2%E7%B4%A2%E3%82%A2%E3%83%AB%E3%82%B4%E3%83%AA%E3%82%BA%E3%83%A0" title="探索アルゴリズム">探索アルゴリズム</a>の一つ。</p>
+<p>スタートノードからゴールノードまでのパスを計算する、このとき求めるパスが最短であることを保証しているアルゴリズムである。</p>
+<table id="toc" class="toc" summary="目次">
+<tr>
+<td>
+<div id="toctitle">
+<h2>目次</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#.E6.A6.82.E8.A6.81"><span class="tocnumber">1</span> <span class="toctext">概要</span></a></li>
+<li class="toclevel-1"><a href="#.E3.82.A2.E3.83.AB.E3.82.B4.E3.83.AA.E3.82.BA.E3.83.A0.E3.81.AE.E6.B5.81.E3.82.8C"><span class="tocnumber">2</span> <span class="toctext">アルゴリズムの流れ</span></a></li>
+<li class="toclevel-1"><a href="#.E9.96.A2.E9.80.A3.E9.A0.85.E7.9B.AE"><span class="tocnumber">3</span> <span class="toctext">関連項目</span></a></li>
+<li class="toclevel-1"><a href="#.E5.8F.82.E8.80.83.E6.96.87.E7.8C.AE"><span class="tocnumber">4</span> <span class="toctext">参考文献</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "表示"; var tocHideText = "非表示"; showTocToggle(); } 
+//]]>
+</script>
+<p><a name=".E6.A6.82.E8.A6.81"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=A%2A&amp;action=edit&amp;section=1" title="節を編集: 概要">編集</a>]</span> <span class="mw-headline">概要</span></h2>
+<p>A* は<a href="/wiki/1968%E5%B9%B4" title="1968年">1968年</a>にPeter Hart、Nils Nilsson、Bertram Raphael の三人が発表した論文の中で最初に記述された。A* というこの一風変わった名前は、この論文でスタートからゴールまでの最短経路を確実に見つけるアルゴリズムを許容的 (Admissible) と呼び、論文の数式中に 許容的なアルゴリズムの<a href="/wiki/%E9%9B%86%E5%90%88" title="集合">集合</a>を <b>A</b> と表し、その<b>A</b>の中でも評価回数が最適になる物を <b>A<sup>*</sup></b> と表記していためであるといわれている。</p>
+<p>A* の内容は次の通り、スタートノードから、あるノード <i>n</i> を通って、ゴールノードまでたどり着くときの最短経路を考える。このときこの最短経路のコストを <i>f (n)</i> とおくと、</p>
+<dl>
+<dd><i>f (n) = g (n) + h (n)</i></dd>
+</dl>
+<p>と置くことが出来る。ここで <i>g (n)</i> はスタートノードから <i>n</i> までの最小コスト、<i>h (n)</i> は<i>n</i> からゴールノードまでの最小コストである。もし <i>g (n)</i> と <i>h (n)</i> が一意に決まるのなら全体の最短経路は容易に求まる。しかしながら実際には <i>g (n)</i> と <i>h (n)</i> をあらかじめ与えることは出来ない、そこで <i>f (n)</i> を次のような推定値 <i>f<sup>*</sup> (n)</i> に置き換える。</p>
+<dl>
+<dd><span class="texhtml"><i>f</i> <sup>*</sup> (<i>n</i>) = <i>g</i> <sup>*</sup> (<i>n</i>) + <i>h</i> <sup>*</sup> (<i>n</i>)</span></dd>
+</dl>
+<p>ここで <i>g<sup>*</sup> (n)</i> はスタートノードから <i>n</i> までの最小コストの推定値、<i>h<sup>*</sup> (n)</i> は<i>n</i> からゴールノードまでの最小コストの推定値である。この場合 <i>g<sup>*</sup> (n)</i> に関しては探索の課程で推定値を求めていくことができるが、 <i>h<sup>*</sup> (n)</i> を推定することはできない。そこで <i>h<sup>*</sup> (n)</i> には適当な推定値を与え <i>g<sup>*</sup> (n)</i> は探索しながら適宜更新することで経路を求めることを考える。このアルゴリズムを <b>A探索アルゴリズム</b>という。</p>
+<p>このとき <i>h<sup>*</sup> (n)</i> のことを<a href="/wiki/%E3%83%92%E3%83%A5%E3%83%BC%E3%83%AA%E3%82%B9%E3%83%86%E3%82%A3%E3%83%83%E3%82%AF" title="ヒューリスティック">ヒューリスティック</a>関数という。このアルゴリズムは <i>h<sup>*</sup> (n)</i> が以下の条件</p>
+<dl>
+<dd><img class="tex" alt="\forall n,0 \le h^*(n) \le h(n)" src="http://upload.wikimedia.org/math/8/8/7/887cf9a4ada6c933a4aa3f3a0da25583.png" /></dd>
+</dl>
+<p>を満たすとき、求まる経路がスタートからゴールまでの最短経路であることが保証されている。これを<b>A*探索アルゴリズム</b>という。</p>
+<p>このアルゴリズムは<a href="/wiki/CPU" title="CPU">CPU</a>の使用率、<a href="/wiki/%E4%B8%BB%E8%A8%98%E6%86%B6%E8%A3%85%E7%BD%AE" title="主記憶装置">メモリ</a>の使用率など、<a href="/w/index.php?title=%E8%A8%88%E7%AE%97%E8%B2%A0%E8%8D%B7&amp;action=edit" class="new" title="計算負荷">計算負荷</a>は高いが、ヒューリスティック関数のヒント項を用いることにより、問題に対しての最適化が可能である。</p>
+<p>もし各ノード間の最小のコストが既知であるとするならば、<i>h<sup>*</sup>(n)</i> をその最小コストを返す定数にすれば与えられた経路の状態に関係なく最短経路を求めることが可能になる。あるいは最小コストがわからないとしても上記の条件は <i>h<sup>*</sup>(n) = 0</i> とするならば、常に成り立つことになる。この方法は<a href="/wiki/%E3%83%80%E3%82%A4%E3%82%AF%E3%82%B9%E3%83%88%E3%83%A9%E6%B3%95" title="ダイクストラ法">ダイクストラ法</a>と呼ばれており、汎用的にはこちらの方法が使われている。</p>
+<p>ただし</p>
+<dl>
+<dd><img class="tex" alt="\forall n,h_1^*(n) &lt; h_2^*(n) \le h(n)" src="http://upload.wikimedia.org/math/c/4/f/c4f9781333208fb5d258bfc1db28fb4b.png" /></dd>
+</dl>
+<p>というヒューリスティック関数が存在する場合は <i>h<sub>1</sub><sup>*</sup></i> を用いるより <i>h<sub>2</sub><sup>*</sup></i> を用いるほうが計算負荷は少なくてすむ。このため、そのようなヒューリスティックの存在がわかっている場合は A* アルゴリズムの方が有利になる。</p>
+<p><a name=".E3.82.A2.E3.83.AB.E3.82.B4.E3.83.AA.E3.82.BA.E3.83.A0.E3.81.AE.E6.B5.81.E3.82.8C"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=A%2A&amp;action=edit&amp;section=2" title="節を編集: アルゴリズムの流れ">編集</a>]</span> <span class="mw-headline">アルゴリズムの流れ</span></h2>
+<p>A* のアルゴリズムの実装を以下に示す。</p>
+<ol>
+<li>ゴールノード（<i>G</i> ）とスタートノード（<i>S</i> ）を作成する。また計算中のノードを格納しておくためのリスト（Openリスト）と、計算済みのノードを格納しておくリスト（Closeリスト）を用意する。</li>
+<li>スタートノードをOpenリストに追加する、このとき <i>g<sup>*</sup>(S)</i> = <i>0</i> であり <i>f<sup>*</sup>(S)</i> = <i>h<sup>*</sup>(S)</i> となる。また Closeリストは空にする。</li>
+<li>Openリストが空なら探索は失敗とする（スタートからゴールにたどり着くような経路が存在しなかったことになる）。</li>
+<li>Openリストに格納されているノードの内、最小の <i>f<sup>*</sup>(n)</i> を持つノード <i>n</i> を取り出す。</li>
+<li><i>n</i> = <i>G</i> であるなら探索を終了する。それ以外の場合は <i>n</i> を Closeリストに移す。</li>
+<li><i>n</i> に隣接している全てのノード（ここでは隣接ノードを <i>m</i> とおく）に対して以下の操作を行う
+<ol>
+<li><i>f '(m)</i> = <i>g<sup>*</sup>(n)</i> + <i>h<sup>*</sup>(m)</i> + COST<i>(n,m)</i> を計算する、ここで COST<i>(n,m)</i> はノード <i>n</i> から <i>m</i> へ移動するときのコストである。また <i>g<sup>*</sup>(n)</i> は <i>g<sup>*</sup>(n)</i> = <i>f<sup>*</sup>(n)</i> - <i>h<sup>*</sup>(n)</i> で求めることができる。</li>
+<li><i>m</i> の状態に応じて以下の操作を行う
+<ul>
+<li><i>m</i> が Openリストにも Closeリストにも含まれていない場合 <i>f<sup>*</sup>(m)</i> = <i>f '(m)</i> とし <i>m</i> を Openリストに追加する。このとき <i>m</i> の親を <i>n</i> として記録する。</li>
+<li><i>m</i> が Openリストにある場合、<i>f '(m)</i> &lt; <i>f<sup>*</sup>(m)</i> であるなら <i>f<sup>*</sup>(m)</i> = <i>f '(m)</i> に置き換える。このとき記録してある <i>m</i> の親を <i>n</i> に置き換える。</li>
+<li><i>m</i> が Closeリストにある場合、<i>f '(m)</i> &lt; <i>f<sup>*</sup>(m)</i> であるなら <i>f<sup>*</sup>(m)</i> = <i>f '(m)</i> として <i>m</i> を Openリストに移動する。また記録してある　<i>m</i> の親を<i>n</i> に置き換える。</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>3 以降を繰り返す。</li>
+<li>探索終了後 <i>G</i> から親を順次たどっていくと <i>S</i> から <i>G</i> までの最短経路が得られる。</li>
+</ol>
+<p><a name=".E9.96.A2.E9.80.A3.E9.A0.85.E7.9B.AE"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=A%2A&amp;action=edit&amp;section=3" title="節を編集: 関連項目">編集</a>]</span> <span class="mw-headline">関連項目</span></h2>
+<ul>
+<li><a href="/wiki/%E6%9C%80%E8%89%AF%E5%84%AA%E5%85%88%E6%8E%A2%E7%B4%A2" title="最良優先探索">最良優先探索</a></li>
+<li><a href="/wiki/%E3%83%80%E3%82%A4%E3%82%AF%E3%82%B9%E3%83%88%E3%83%A9%E6%B3%95" title="ダイクストラ法">ダイクストラ法</a></li>
+<li><a href="/wiki/%E5%9D%87%E4%B8%80%E3%82%B3%E3%82%B9%E3%83%88%E6%8E%A2%E7%B4%A2" title="均一コスト探索">均一コスト探索</a></li>
+</ul>
+<p><a name=".E5.8F.82.E8.80.83.E6.96.87.E7.8C.AE"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=A%2A&amp;action=edit&amp;section=4" title="節を編集: 参考文献">編集</a>]</span> <span class="mw-headline">参考文献</span></h2>
+<ul>
+<li>Hart, P. E.; Nilsson, N. J.; Raphael, B. (1968). "A Formal Basis for the Heuristic Determination of Minimum Cost Paths". IEEE Transactions on Systems Science and Cybernetics SSC4 (2): pp. 100–107. [<a href="http://ai.stanford.edu/users/nilsson/OnlinePubs-Nils/PublishedPapers/astar.pdf" class="external text" title="http://ai.stanford.edu/users/nilsson/OnlinePubs-Nils/PublishedPapers/astar.pdf" rel="nofollow">PDF</a>]</li>
+</ul>
+
+
+<!-- Saved in parser cache with key jawiki:pcache:idhash:157096-0!1!0!!ja!2 and timestamp 20070915014557 -->
+<div class="printfooter">
+ "<a href="http://ja.wikipedia.org/wiki/A%2A">http://ja.wikipedia.org/wiki/A%2A</a>" より作成</div>
+			<div id="catlinks"><p class='catlinks'><a href="/wiki/%E7%89%B9%E5%88%A5:Categories" title="特別:Categories">カテゴリ</a>: <span dir='ltr'><a href="/wiki/Category:%E6%A4%9C%E7%B4%A2%E3%82%A2%E3%83%AB%E3%82%B4%E3%83%AA%E3%82%BA%E3%83%A0" title="Category:検索アルゴリズム">検索アルゴリズム</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>表示</h5>
+		<div class="pBody">
+			<ul>
+					 <li id="ca-nstab-main" class="selected"><a href="/wiki/A%2A" title="本文を表示 [c]" accesskey="c">本文</a></li>
+					 <li id="ca-talk" class="new"><a href="/w/index.php?title=%E3%83%8E%E3%83%BC%E3%83%88:A%2A&amp;action=edit" title="項目のノート [t]" accesskey="t">ノート</a></li>
+					 <li id="ca-edit"><a href="/w/index.php?title=A%2A&amp;action=edit" title="このページを編集できます。投稿の前に「プレビューを実行」ボタンを使ってください。 [e]" accesskey="e">編集</a></li>
+					 <li id="ca-history"><a href="/w/index.php?title=A%2A&amp;action=history" title="このページの過去の版 [h]" accesskey="h">履歴</a></li>
+				</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-personal">
+		<h5>個人用ツール</h5>
+		<div class="pBody">
+			<ul>
+				<li id="pt-login"><a href="/w/index.php?title=%E7%89%B9%E5%88%A5:Userlogin&amp;returnto=A%2A" title="ログインすることが推奨されますが、しなくても構いません。 [o]" accesskey="o">ログインまたはアカウント作成</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-logo">
+		<a style="background-image: url(http://upload.wikimedia.org/wikipedia/ja/b/bc/Wiki.png);" href="/wiki/%E3%83%A1%E3%82%A4%E3%83%B3%E3%83%9A%E3%83%BC%E3%82%B8" title="メインページに移動 [z]" accesskey="z"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>ナビゲーション</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="/wiki/%E3%83%A1%E3%82%A4%E3%83%B3%E3%83%9A%E3%83%BC%E3%82%B8" title="メインページに移動 [z]" accesskey="z">メインページ</a></li>
+				<li id="n-portal"><a href="/wiki/Wikipedia:%E3%82%B3%E3%83%9F%E3%83%A5%E3%83%8B%E3%83%86%E3%82%A3%E3%83%BB%E3%83%9D%E3%83%BC%E3%82%BF%E3%83%AB" title="このプロジェクトについて、あなたのできることを探す場所です">コミュニティ・ポータル</a></li>
+				<li id="n-currentevents"><a href="/wiki/Portal:%E6%9C%80%E8%BF%91%E3%81%AE%E5%87%BA%E6%9D%A5%E4%BA%8B" title="最近の出来事">最近の出来事</a></li>
+				<li id="n-recentchanges"><a href="/wiki/%E7%89%B9%E5%88%A5:Recentchanges" title="最近更新が行われたページの一覧 [r]" accesskey="r">最近更新したページ</a></li>
+				<li id="n-randompage"><a href="/wiki/%E7%89%B9%E5%88%A5:Random" title="ランダムに記事を選んで表示 [x]" accesskey="x">おまかせ表示</a></li>
+				<li id="n-commonsupload"><a href="http://commons.wikimedia.org/wiki/Special:Upload?uselang=ja">アップロード (ウィキメディア・コモンズ)</a></li>
+				<li id="n-contact"><a href="/wiki/Wikipedia:%E9%80%A3%E7%B5%A1%E5%85%88">ウィキペディアに関するお問い合わせ</a></li>
+			</ul>
+		</div>
+	</div>
+		<div class='portlet' id='p-help'>
+		<h5>ヘルプ</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-help"><a href="/wiki/Help:%E7%9B%AE%E6%AC%A1" title="ヘルプ・使い方">ヘルプ</a></li>
+				<li id="n-villagepump"><a href="/wiki/Wikipedia:%E4%BA%95%E6%88%B8%E7%AB%AF">井戸端</a></li>
+				<li id="n-.E3.81.8A.E7.9F.A5.E3.82.89.E3.81.9B"><a href="/wiki/Wikipedia:%E3%81%8A%E7%9F%A5%E3%82%89%E3%81%9B">お知らせ</a></li>
+				<li id="n-bugreports"><a href="/wiki/Wikipedia:%E3%83%90%E3%82%B0%E3%81%AE%E5%A0%B1%E5%91%8A">バグの報告</a></li>
+				<li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/%E5%AF%84%E4%BB%98" title="私たちをサポートしてください">寄付</a></li>
+			</ul>
+		</div>
+	</div>
+		<div id="p-search" class="portlet">
+		<h5><label for="searchInput">検索</label></h5>
+		<div id="searchBody" class="pBody">
+			<form action="/wiki/%E7%89%B9%E5%88%A5:Search" id="searchform"><div>
+				<input id="searchInput" name="search" type="text" title="ウィキ内を検索 [f]" accesskey="f" value="" />
+				<input type='submit' name="go" class="searchButton" id="searchGoButton"	value="表示" />&nbsp;
+				<input type='submit' name="fulltext" class="searchButton" id="mw-searchButton" value="検索" />
+			</div></form>
+		</div>
+	</div>
+	<div class="portlet" id="p-tb">
+		<h5>ツールボックス</h5>
+		<div class="pBody">
+			<ul>
+				<li id="t-whatlinkshere"><a href="/wiki/%E7%89%B9%E5%88%A5:Whatlinkshere/A%2A" title="このページにリンクしているページの一覧 [j]" accesskey="j">リンク元</a></li>
+				<li id="t-recentchangeslinked"><a href="/wiki/%E7%89%B9%E5%88%A5:Recentchangeslinked/A%2A" title="最近更新が行われたこのページのリンク先 [k]" accesskey="k">リンク先の更新状況</a></li>
+<li id="t-upload"><a href="/wiki/%E7%89%B9%E5%88%A5:Upload" title="画像やメディアファイルをアップロード [u]" accesskey="u">アップロード</a></li>
+<li id="t-specialpages"><a href="/wiki/%E7%89%B9%E5%88%A5:Specialpages" title="特別ページの一覧 [q]" accesskey="q">特別ページ</a></li>
+				<li id="t-print"><a href="/w/index.php?title=A%2A&amp;printable=yes" title="このページの印刷用バージョン [p]" accesskey="p">印刷用バージョン</a></li>				<li id="t-permalink"><a href="/w/index.php?title=A%2A&amp;oldid=11101528" title="この版への固定リンク">この版への固定リンク</a></li><li id="t-cite"><a href="/w/index.php?title=%E7%89%B9%E5%88%A5:Cite&amp;page=A%2A&amp;id=11101528">この項目を引用</a></li>			</ul>
+		</div>
+	</div>
+	<div id="p-lang" class="portlet">
+		<h5>他の言語</h5>
+		<div class="pBody">
+			<ul>
+				<li class="interwiki-de"><a href="http://de.wikipedia.org/wiki/A%2A-Algorithmus">Deutsch</a></li>
+				<li class="interwiki-en"><a href="http://en.wikipedia.org/wiki/A%2A_search_algorithm">English</a></li>
+				<li class="interwiki-es"><a href="http://es.wikipedia.org/wiki/Algoritmo_de_b%C3%BAsqueda_A%2A">Español</a></li>
+				<li class="interwiki-fi"><a href="http://fi.wikipedia.org/wiki/A%2A-algoritmi">Suomi</a></li>
+				<li class="interwiki-fr"><a href="http://fr.wikipedia.org/wiki/Algorithme_A%2A">Français</a></li>
+				<li class="interwiki-it"><a href="http://it.wikipedia.org/wiki/A%2A">Italiano</a></li>
+				<li class="interwiki-nl"><a href="http://nl.wikipedia.org/wiki/A%2A-algoritme">Nederlands</a></li>
+				<li class="interwiki-pl"><a href="http://pl.wikipedia.org/wiki/Algorytm_A%2A">Polski</a></li>
+				<li class="interwiki-pt"><a href="http://pt.wikipedia.org/wiki/Algoritmo_A%2A">Português</a></li>
+				<li class="interwiki-vi"><a href="http://vi.wikipedia.org/wiki/Gi%E1%BA%A3i_thu%E1%BA%ADt_t%C3%ACm_ki%E1%BA%BFm_A%2A">Tiếng Việt</a></li>
+			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="/skins-1.5/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>
+				<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="/images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>
+			<ul id="f-list">
+				<li id="lastmod"> 最終更新 2007年3月7日 (水) 15:18。</li>
+				<li id="copyright">All text is available under the terms of the <a href="/wiki/Wikipedia:Text_of_GNU_Free_Documentation_License" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (詳細は <b><a href="/wiki/Wikipedia:%E8%91%97%E4%BD%9C%E6%A8%A9" title="Wikipedia:著作権">著作権</a></b> を参照)<br />Wikipedia&reg; は <a href="http://wikimediafoundation.org/wiki/%E3%83%A1%E3%82%A4%E3%83%B3%E3%83%9A%E3%83%BC%E3%82%B8">Wikimedia Foundation, Inc.</a> の米国およびその他の国における登録商標です。<br /></li>
+				<li id="privacy"><a href="http://wikimediafoundation.org/wiki/%E3%83%97%E3%83%A9%E3%82%A4%E3%83%90%E3%82%B7%E3%83%BC%E3%83%BB%E3%83%9D%E3%83%AA%E3%82%B7%E3%83%BC" title="wikimedia:プライバシー・ポリシー">プライバシー・ポリシー</a></li>
+				<li id="about"><a href="/wiki/Wikipedia:%E3%82%A6%E3%82%A3%E3%82%AD%E3%83%9A%E3%83%87%E3%82%A3%E3%82%A2%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6" title="Wikipedia:ウィキペディアについて">ウィキペディアについて</a></li>
+				<li id="disclaimer"><a href="/wiki/Wikipedia:%E5%85%8D%E8%B2%AC%E4%BA%8B%E9%A0%85" title="Wikipedia:免責事項">免責事項</a></li>
+			</ul>
+		</div>
+		
+	
+		<script type="text/javascript">if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by srv165 in 0.064 secs. --></body></html>

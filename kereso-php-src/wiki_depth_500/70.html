@@ -1,0 +1,384 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh" lang="zh" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+				<meta name="keywords" content="深度优先搜索,C++,STL,堆疊,广度优先搜索,算法,图,搜索演算法,格式指南,Wikify" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (中文)" />
+		<link rel="copyright" href="http://www.gnu.org/copyleft/fdl.html" />
+		<title>深度优先搜索 - Wikipedia</title>
+		<style type="text/css" media="screen, projection">/*<![CDATA[*/
+			@import "/skins-1.5/common/shared.css?99";
+			@import "/skins-1.5/monobook/main.css?99";
+		/*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="/skins-1.5/common/commonPrint.css?99" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE50Fixes.css?99";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE55Fixes.css?99";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "/skins-1.5/monobook/IE60Fixes.css?99";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "/skins-1.5/monobook/IE70Fixes.css?99";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="/skins-1.5/common/IEFixes.js?99"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		
+		<script type= "text/javascript">/*<![CDATA[*/
+var skin = "monobook";
+var stylepath = "/skins-1.5";
+var wgArticlePath = "/wiki/$1";
+var wgScriptPath = "/w";
+var wgScript = "/w/index.php";
+var wgServer = "http://zh.wikipedia.org";
+var wgCanonicalNamespace = "";
+var wgCanonicalSpecialPageName = false;
+var wgNamespaceNumber = 0;
+var wgPageName = "深度优先搜索";
+var wgTitle = "深度优先搜索";
+var wgAction = "view";
+var wgRestrictionEdit = [];
+var wgRestrictionMove = [];
+var wgArticleId = "500847";
+var wgIsArticle = true;
+var wgUserName = null;
+var wgUserGroups = null;
+var wgUserLanguage = "zh";
+var wgContentLanguage = "zh";
+var wgBreakFrames = false;
+var wgCurRevisionId = "4257713";
+/*]]>*/</script>
+                
+		<script type="text/javascript" src="/skins-1.5/common/wikibits.js?99"><!-- wikibits js --></script>
+		<script type="text/javascript" src="/w/index.php?title=-&amp;action=raw&amp;gen=js&amp;useskin=monobook"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "/w/index.php?title=MediaWiki:Common.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=MediaWiki:Monobook.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=-&action=raw&gen=css&maxage=2678400";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+		<script type="text/javascript" src="/skins-1.5/common/ajax.js?99"></script>
+<style type="text/css">/*<![CDATA[*/
+.source-c {line-height: normal;}
+.source-c li {line-height: normal;}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for c
+ * CSS class: source-c, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie (http://qbnz.com/highlighter)
+ */
+.source-c .de1, .source-c .de2 {font-family: 'Courier New', Courier, monospace; font-weight: normal;}
+.source-c  {}
+.source-c .head {}
+.source-c .foot {}
+.source-c .imp {font-weight: bold; color: red;}
+.source-c .ln-xtra {color: #cc0; background-color: #ffc;}
+.source-c li {font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;}
+.source-c li.li2 {font-weight: bold;}
+.source-c .kw1 {color: #b1b100;}
+.source-c .kw2 {color: #000000; font-weight: bold;}
+.source-c .kw3 {color: #000066;}
+.source-c .kw4 {color: #993333;}
+.source-c .co1 {color: #808080; font-style: italic;}
+.source-c .co2 {color: #339933;}
+.source-c .coMULTI {color: #808080; font-style: italic;}
+.source-c .es0 {color: #000099; font-weight: bold;}
+.source-c .br0 {color: #66cc66;}
+.source-c .st0 {color: #ff0000;}
+.source-c .nu0 {color: #cc66cc;}
+.source-c .me1 {color: #202020;}
+.source-c .me2 {color: #202020;}
+
+/*]]>*/
+</style>
+<style type="text/css">/*<![CDATA[*/
+@import "/w/index.php?title=MediaWiki:Geshi.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+/*]]>*/
+</style><style type="text/css">/*<![CDATA[*/
+.source-cpp {line-height: normal;}
+.source-cpp li {line-height: normal;}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for cpp
+ * CSS class: source-cpp, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie (http://qbnz.com/highlighter)
+ */
+.source-cpp .de1, .source-cpp .de2 {font-family: 'Courier New', Courier, monospace; font-weight: normal;}
+.source-cpp  {}
+.source-cpp .head {}
+.source-cpp .foot {}
+.source-cpp .imp {font-weight: bold; color: red;}
+.source-cpp .ln-xtra {color: #cc0; background-color: #ffc;}
+.source-cpp li {font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;}
+.source-cpp li.li2 {font-weight: bold;}
+.source-cpp .kw1 {color: #0000ff;}
+.source-cpp .kw2 {color: #0000ff;}
+.source-cpp .kw3 {color: #0000dd;}
+.source-cpp .kw4 {color: #0000ff;}
+.source-cpp .co1 {color: #ff0000;}
+.source-cpp .co2 {color: #339900;}
+.source-cpp .coMULTI {color: #ff0000; font-style: italic;}
+.source-cpp .es0 {color: #666666; font-weight: bold;}
+.source-cpp .br0 {color: #000000;}
+.source-cpp .st0 {color: #666666;}
+.source-cpp .nu0 {color: #0000dd;}
+.source-cpp .me1 {color: #00eeff;}
+.source-cpp .me2 {color: #00eeff;}
+
+/*]]>*/
+</style>
+<style type="text/css">/*<![CDATA[*/
+@import "/w/index.php?title=MediaWiki:Geshi.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+/*]]>*/
+</style>	</head>
+<body  class="mediawiki ns-0 ltr page-深度优先搜索">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+		<div id="siteNotice"><script type="text/javascript" language="JavaScript">
+<!--
+document.writeln("\x3cdiv style=\"text-align:right;margin:0 auto;font-size: 90%;\"\x3e\x3ca href=\"/w/index.php?title=Wikipedia:%E9%97%9C%E6%96%BC%E7%B6%AD%E5%9F%BA%E7%99%BE%E7%A7%91%E4%BD%A0%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84%E5%8D%81%E4%BB%B6%E4%BA%8B\x26amp;variant=zh-cn\" title=\"Wikipedia:關於維基百科你不知道的十件事\"\x3e关于维基百科你不知道的十件事...\x3c/a\x3e\x3c/div\x3e\n\x3cdiv style=\"text-align:center;margin:0 auto;\"\x3e若您来自中国大陆，并能顺利浏览维基百科，请\x3ca href=\"/w/index.php?title=Special:Userlogin\x26amp;variant=zh-cn\" title=\"Special:Userlogin\"\x3e登入\x3c/a\x3e后至\x3ca href=\"/w/index.php?title=Wikipedia:%E7%8B%80%E6%B3%81%E5%9B%9E%E5%A0%B1\x26amp;variant=zh-cn\" title=\"Wikipedia:狀況回報\"\x3e状况回报\x3c/a\x3e。（注意：若未\x3ca href=\"/w/index.php?title=Special:Userlogin\x26amp;variant=zh-cn\" title=\"Special:Userlogin\"\x3e注册或登入\x3c/a\x3e，您的\x3ca href=\"/w/index.php?title=IP%E5%9C%B0%E5%9D%80\x26amp;variant=zh-cn\" title=\"IP地址\"\x3eIP地址\x3c/a\x3e会被显露。）\x3c/div\x3e\n");
+-->
+</script></div>		<h1 class="firstHeading">深度优先搜索</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">维基百科，自由的百科全书</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">跳转到： <a href="#column-one">导航</a>, <a href="#searchInput">搜索</a></div>			<!-- start content -->
+			<div class="messagebox cleanup metadata">
+<table style="width: 100%; text-align: center; background: #efefff;">
+<tr>
+<td><b>本條目需要被<a href="/wiki/Help:Wikify" title="Help:Wikify">修正為維基格式</a>。</b><br />
+<small>請參照<a href="/wiki/Wikipedia:%E6%A0%BC%E5%BC%8F%E6%8C%87%E5%8D%97" title="Wikipedia:格式指南">維基百科格式指南</a>進行修訂，並在完成後移除本提示。</small></td>
+</tr>
+</table>
+</div>
+<table border="1" cellspacing="0" style="float:right;margin-left:0.5em">
+<tr>
+<th align="center" bgcolor="#FFC0C0">深度优先搜索</th>
+</tr>
+<tr>
+<td align="center">
+<div class="floatnone"><span><a href="/wiki/Image:Deep-first_tree.svg" class="image" title="節點搜索的順序"><img alt="節點搜索的順序" src="http://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Deep-first_tree.svg/300px-Deep-first_tree.svg.png" width="300" height="199" border="0" /></a></span></div>
+<small>節點進行深度优先搜索的順序</small></td>
+</tr>
+<tr>
+<th align="center" bgcolor="#FFC0C0"><b>一般資訊</b></th>
+</tr>
+<tr>
+<td>
+<table border="0">
+<tr>
+<td>類別：</td>
+<td><a href="/w/index.php?title=%E6%90%9C%E7%B4%A2%E6%BC%94%E7%AE%97%E6%B3%95&amp;action=edit" class="new" title="搜索演算法">搜索演算法</a></td>
+</tr>
+<tr>
+<td>資料結構：</td>
+<td><a href="/wiki/%E5%9B%BE" title="图">圖</a></td>
+</tr>
+<tr>
+<td>時間複雜度：</td>
+<td><span class="texhtml"><i>O</i>(<i>b</i><sup><i>m</i></sup>)</span></td>
+</tr>
+<tr>
+<td>空間複雜度：</td>
+<td><span class="texhtml"><i>O</i>(<i>b</i><i>m</i>)</span></td>
+</tr>
+<tr>
+<td>最佳解：</td>
+<td>否</td>
+</tr>
+<tr>
+<td>完全性：</td>
+<td>是</td>
+</tr>
+<tr>
+<td>其他：</td>
+<td><sub><i>b - 分支係數</i></sub><br />
+<sub><i>m - 圖的最大深度</i></sub></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<p><b>深度优先搜索算法</b>（Depth-First-Search），是搜索<a href="/wiki/%E7%AE%97%E6%B3%95" title="算法">算法</a>的一种。是沿着树的深度遍历树的节点，如果发现目标，则算法中止，属于盲目搜索。</p>
+<p><a name="C.2B.2B.E7.9A.84.E5.AF.A6.E4.BD.9C" id="C.2B.2B.E7.9A.84.E5.AF.A6.E4.BD.9C"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2&amp;action=edit&amp;section=1" title="编辑本节">编辑</a>]</span> <span class="mw-headline">C++的實作</span></h2>
+<p>定义一个结构体来表达一个NODE的结构：</p>
+<div dir="ltr">
+<pre class="source-c">
+<span class="kw4">struct</span> node 
+ <span class="br0">{</span>
+    <span class="kw4">int</span> self; <span class="co1">//数据 </span>
+    node *left; <span class="co1">//左节点 </span>
+    node *right; <span class="co1">//右节点 </span>
+ <span class="br0">}</span>;
+</pre></div>
+<p>那么我们在搜索一个树的时候，从一个节点开始，能首先获取的是它的两个子节点。例如：</p>
+<pre>
+                 A
+           B           C
+         D   E       F   G
+</pre>
+<p>A是第一个访问的，然后顺序是B和D、然后是E。然后再是F、C、G。那么我们怎么来保证这个顺序呢？</p>
+<p>这里就应该用<a href="/wiki/%E5%A0%86%E7%96%8A" title="堆疊">堆疊</a>的结构，因为堆疊是一个先进后出的顺序。通过使用<a href="/wiki/C%2B%2B" title="C++">C++</a>的<a href="/wiki/STL" title="STL">STL</a>，下面的程序能帮助理解：</p>
+<div dir="ltr">
+<pre class="source-cpp">
+std::<span class="me2">stack</span>&lt;node*&gt; visited, unvisited; node nodes<span class="br0">[</span><span class="nu0">9</span><span class="br0">]</span>; node* current;
+ 
+ unvisited.<span class="me1">push</span><span class="br0">(</span>&amp;nodes<span class="br0">[</span><span class="nu0">0</span><span class="br0">]</span><span class="br0">)</span>;
+ 
+ unvisited.<span class="me1">push</span><span class="br0">(</span>&amp;nodes<span class="br0">[</span><span class="nu0">0</span><span class="br0">]</span><span class="br0">)</span>; <span class="co1">//先把0放入UNVISITED stack</span>
+ 
+ <span class="kw1">while</span><span class="br0">(</span>!unvisited.<span class="me1">empty</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span> <span class="co1">//只有UNVISITED不空</span>
+ 
+ <span class="br0">{</span>
+    current=<span class="br0">(</span>unvisited.<span class="me1">top</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span>; <span class="co1">//当前应该访问的</span>
+    unvisited.<span class="me1">pop</span><span class="br0">(</span><span class="br0">)</span>; 
+ 
+    <span class="kw1">if</span><span class="br0">(</span>current-&gt;right!=<span class="kw2">NULL</span><span class="br0">)</span> 
+    unvisited.<span class="me1">push</span><span class="br0">(</span>current-&gt;right<span class="br0">)</span>; <span class="co1">// 把右边压入 因为右边的访问次序是在左边之后</span>
+ 
+    <span class="kw1">if</span><span class="br0">(</span>current-&gt;left!=<span class="kw2">NULL</span><span class="br0">)</span> 
+    unvisited.<span class="me1">push</span><span class="br0">(</span>current-&gt;left<span class="br0">)</span>;
+ 
+    visited.<span class="me1">push</span><span class="br0">(</span>current<span class="br0">)</span>;
+ 
+    cout&lt;&lt;current-&gt;self&lt;&lt;endl;
+ 
+ <span class="br0">}</span>
+</pre></div>
+<p><a name=".E5.8F.83.E8.A6.8B"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2&amp;action=edit&amp;section=2" title="编辑本节">编辑</a>]</span> <span class="mw-headline">參見</span></h2>
+<ul>
+<li><a href="/wiki/%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2" title="广度优先搜索">广度优先搜索</a></li>
+</ul>
+
+<!-- 
+Pre-expand include size: 1743 bytes
+Post-expand include size: 1136 bytes
+Template argument size: 379 bytes
+Maximum: 2048000 bytes
+-->
+
+<!-- Saved in parser cache with key zhwiki:pcache:idhash:500847-0!1!0!!zh!2!zh and timestamp 20070916064948 -->
+<div class="printfooter">
+来自“<a href="http://zh.wikipedia.org/wiki/%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2">http://zh.wikipedia.org/wiki/%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2</a>”</div>
+			<div id="catlinks"><p class='catlinks'><a href="/wiki/Special:Categories" title="Special:Categories">3个分类</a>: <span dir='ltr'><a href="/wiki/Category:%E9%9C%80%E8%A6%81%E7%BB%B4%E5%9F%BA%E5%8C%96%E7%9A%84%E9%A1%B5%E9%9D%A2" title="Category:需要维基化的页面">需要维基化的页面</a></span> | <span dir='ltr'><a href="/wiki/Category:%E5%9B%BE%E7%AE%97%E6%B3%95" title="Category:图算法">图算法</a></span> | <span dir='ltr'><a href="/wiki/Category:%E6%90%9C%E5%B0%8B%E6%BC%94%E7%AE%97%E6%B3%95" title="Category:搜尋演算法">搜尋演算法</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>查看</h5>
+		<div class="pBody">
+			<ul>
+					 <li id="ca-nstab-main" class="selected"><a href="/wiki/%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2" title="查看页面内容 [c]" accesskey="c">条目</a></li>
+					 <li id="ca-talk" class="new"><a href="/w/index.php?title=Talk:%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2&amp;action=edit" title="关于条目正文的讨论 [t]" accesskey="t">讨论</a></li>
+					 <li id="ca-edit"><a href="/w/index.php?title=%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2&amp;action=edit" title="你可编辑此页。请在保存前先预览一下。 [e]" accesskey="e">编辑本页</a></li>
+					 <li id="ca-history"><a href="/w/index.php?title=%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2&amp;action=history" title="本页面的早前版本。 [h]" accesskey="h">历史</a></li>
+					 <li id="ca-varlang-0" class="selected"><a href="/w/index.php?title=%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2&amp;variant=zh">不转换</a></li>
+					 <li id="ca-varlang-1"><a href="/w/index.php?title=%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2&amp;variant=zh-cn">大陆简体</a></li>
+					 <li id="ca-varlang-2"><a href="/w/index.php?title=%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2&amp;variant=zh-tw">台灣正體</a></li>
+					 <li id="ca-varlang-3"><a href="/w/index.php?title=%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2&amp;variant=zh-sg">马新简体</a></li>
+					 <li id="ca-varlang-4"><a href="/w/index.php?title=%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2&amp;variant=zh-hk">港澳繁體</a></li>
+				</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-personal">
+		<h5>个人工具</h5>
+		<div class="pBody">
+			<ul>
+				<li id="pt-login"><a href="/w/index.php?title=Special:Userlogin&amp;returnto=%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2" title="建议你登录，尽管并非必须。 [o]" accesskey="o">登录或创建账户</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-logo">
+		<a style="background-image: url(http://upload.wikimedia.org/wikipedia/zh/b/bc/Wiki.png);" href="/wiki/%E9%A6%96%E9%A1%B5" title="访问首页 [z]" accesskey="z"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>导航</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="/wiki/%E9%A6%96%E9%A1%B5" title="访问首页 [z]" accesskey="z">首页</a></li>
+				<li id="n-portal"><a href="/wiki/Wikipedia:%E7%A4%BE%E5%8C%BA%E4%B8%BB%E9%A1%B5" title="关于本计划、你可以做什么、应该如何做">社区主页</a></li>
+				<li id="n-currentevents"><a href="/wiki/Portal:%E6%96%B0%E8%81%9E%E5%8B%95%E6%85%8B" title="提供当前新闻事件的背景资料">新闻动态</a></li>
+				<li id="n-recentchanges"><a href="/wiki/Special:Recentchanges" title="列出维基百科中的最近修改 [r]" accesskey="r">最近更改</a></li>
+				<li id="n-Featured_content"><a href="/wiki/Wikipedia:%E7%89%B9%E8%89%B2%E5%85%A7%E5%AE%B9">特色内容</a></li>
+				<li id="n-randompage"><a href="/wiki/Special:Random" title="随机载入一个页面 [x]" accesskey="x">随机条目</a></li>
+			</ul>
+		</div>
+	</div>
+		<div class='portlet' id='p-help'>
+		<h5>帮助</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-help"><a href="/wiki/Help:%E7%9B%AE%E5%BD%95" title="寻求帮助">帮助</a></li>
+				<li id="n-villagepump"><a href="/wiki/Wikipedia:%E4%BA%92%E5%8A%A9%E5%AE%A2%E6%A0%88">互助客栈</a></li>
+				<li id="n-policy"><a href="/wiki/Wikipedia:%E6%96%B9%E9%87%9D%E8%88%87%E6%8C%87%E5%BC%95">方针与指引</a></li>
+				<li id="n-Information_desk"><a href="/wiki/Wikipedia:%E8%A9%A2%E5%95%8F%E8%99%95">询问处</a></li>
+				<li id="n-conversion"><a href="/wiki/Wikipedia:%E7%B9%81%E7%AE%80%E4%BD%93%E8%BD%AC%E6%8D%A2%E8%AF%B7%E6%B1%82">繁简转换</a></li>
+				<li id="n-allpages"><a href="/wiki/Special:Allpages">所有页面</a></li>
+				<li id="n-contact"><a href="/wiki/Wikipedia:%E8%81%94%E7%B3%BB%E6%88%91%E4%BB%AC">联系我们</a></li>
+				<li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/%E8%B5%84%E5%8A%A9" title="如果您在維基百科受益良多，您可以考慮資助我們">资助维基百科</a></li>
+			</ul>
+		</div>
+	</div>
+		<div id="p-search" class="portlet">
+		<h5><label for="searchInput">搜索</label></h5>
+		<div id="searchBody" class="pBody">
+			<form action="/wiki/Special:Search" id="searchform"><div>
+				<input id="searchInput" name="search" type="text" title="搜索维基百科 [f]" accesskey="f" value="" />
+				<input type='submit' name="go" class="searchButton" id="searchGoButton"	value="进入" />&nbsp;
+				<input type='submit' name="fulltext" class="searchButton" id="mw-searchButton" value="搜索" />
+			</div></form>
+		</div>
+	</div>
+	<div class="portlet" id="p-tb">
+		<h5>工具</h5>
+		<div class="pBody">
+			<ul>
+				<li id="t-whatlinkshere"><a href="/wiki/Special:Whatlinkshere/%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2" title="列出所有与本页相链的页面 [j]" accesskey="j">链入页面</a></li>
+				<li id="t-recentchangeslinked"><a href="/wiki/Special:Recentchangeslinked/%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2" title="页面链出所有页面的更改 [k]" accesskey="k">链出更改</a></li>
+<li id="t-upload"><a href="http://zh.wikipedia.org/wiki/Project:%E4%B8%8A%E4%BC%A0" title="上传图像或多媒体文件 [&nbsp;]" accesskey="&nbsp;">上传文件</a></li>
+<li id="t-specialpages"><a href="/wiki/Special:Specialpages" title="全部特殊页面的列表 [q]" accesskey="q">特殊页面</a></li>
+				<li id="t-print"><a href="/w/index.php?title=%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2&amp;printable=yes" title="这个页面的可打印版本 [p]" accesskey="p">打印页面</a></li>				<li id="t-permalink"><a href="/w/index.php?title=%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2&amp;oldid=4257713" title="这个页面版本的永久链接">永久链接</a></li><li id="t-cite"><a href="/w/index.php?title=Special:Cite&amp;page=%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2&amp;id=4257713">引用此文</a></li>			</ul>
+		</div>
+	</div>
+	<div id="p-lang" class="portlet">
+		<h5>其他语言</h5>
+		<div class="pBody">
+			<ul>
+				<li class="interwiki-ca"><a href="http://ca.wikipedia.org/wiki/Cerca_en_profunditat">Català</a></li>
+				<li class="interwiki-de"><a href="http://de.wikipedia.org/wiki/Tiefensuche">Deutsch</a></li>
+				<li class="interwiki-en"><a href="http://en.wikipedia.org/wiki/Depth-first_search">English</a></li>
+				<li class="interwiki-es"><a href="http://es.wikipedia.org/wiki/B%C3%BAsqueda_en_profundidad">Español</a></li>
+				<li class="interwiki-fr"><a href="http://fr.wikipedia.org/wiki/Algorithme_de_parcours_en_profondeur">Français</a></li>
+				<li class="interwiki-he"><a href="http://he.wikipedia.org/wiki/%D7%90%D7%9C%D7%92%D7%95%D7%A8%D7%99%D7%AA%D7%9D_%D7%97%D7%99%D7%A4%D7%95%D7%A9_%D7%9C%D7%A2%D7%95%D7%9E%D7%A7">עברית</a></li>
+				<li class="interwiki-lt"><a href="http://lt.wikipedia.org/wiki/Paie%C5%A1ka_%C4%AF_gyl%C4%AF">Lietuvių</a></li>
+				<li class="interwiki-ja"><a href="http://ja.wikipedia.org/wiki/%E6%B7%B1%E3%81%95%E5%84%AA%E5%85%88%E6%8E%A2%E7%B4%A2">日本語</a></li>
+				<li class="interwiki-pl"><a href="http://pl.wikipedia.org/wiki/Przeszukiwanie_w_g%C5%82%C4%85b">Polski</a></li>
+				<li class="interwiki-pt"><a href="http://pt.wikipedia.org/wiki/Busca_em_profundidade">Português</a></li>
+				<li class="interwiki-ru"><a href="http://ru.wikipedia.org/wiki/%D0%9F%D0%BE%D0%B8%D1%81%D0%BA_%D0%B2_%D0%B3%D0%BB%D1%83%D0%B1%D0%B8%D0%BD%D1%83">Русский</a></li>
+				<li class="interwiki-vi"><a href="http://vi.wikipedia.org/wiki/T%C3%ACm_ki%E1%BA%BFm_theo_chi%E1%BB%81u_s%C3%A2u">Tiếng Việt</a></li>
+			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="/skins-1.5/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>
+				<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="/images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>
+			<ul id="f-list">
+				<li id="lastmod"> 最后更改 2007年5月25日 (星期五) 05:36。</li>
+				<li id="copyright">本站的全部文本内容在<a class="internal" href="/wiki/Wikipedia:GNU%E8%87%AA%E7%94%B1%E6%96%87%E6%A1%A3%E8%AE%B8%E5%8F%AF%E8%AF%81%E6%96%87%E6%9C%AC" title="Wikipedia:GNU自由文档许可证文本">GNU自由文档许可证</a>之条款下提供（<b><a class="internal" href="/wiki/Wikipedia:%E7%89%88%E6%9D%83%E4%BF%A1%E6%81%AF">详情</a></b>）。<br />
+Wikipedia&reg;是<a href="http://www.wikimediafoundation.org">维基媒体基金会</a>的注册商标；維基&trade;是維基媒體基金會的商標。<br />維基媒體基金會是在美國佛羅里達州登記的501(c)(3)<a href="http://wikimediafoundation.org/wiki/%E8%B5%84%E5%8A%A9%E7%9A%84%E5%85%8D%E7%A8%8E%E6%94%BF%E7%AD%96">免稅</a>、非營利、慈善機構。<br /></li>
+				<li id="privacy"><a href="http://wikimediafoundation.org/wiki/%E9%9A%90%E7%A7%81%E6%94%BF%E7%AD%96" title="wikimedia:隐私政策">隐私政策</a></li>
+				<li id="about"><a href="/wiki/Wikipedia:%E5%85%B3%E4%BA%8E" title="Wikipedia:关于">关于维基百科</a></li>
+				<li id="disclaimer"><a href="/wiki/Wikipedia:%E5%85%8D%E8%B4%A3%E5%A3%B0%E6%98%8E" title="Wikipedia:免责声明">免责声明</a></li>
+			</ul>
+		</div>
+		
+	
+		<script type="text/javascript">if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by srv128 in 0.327 secs. --></body></html>

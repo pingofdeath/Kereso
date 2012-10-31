@@ -1,0 +1,292 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+				<meta name="keywords" content="Apriori algorithm,AAAI,Association rule,Association rule mining,Breadth-first search,Computer science,Data mining,Database,Hash table,Hash tree,SIGKDD" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="http://www.gnu.org/copyleft/fdl.html" />
+		<title>Apriori algorithm - Wikipedia, the free encyclopedia</title>
+		<style type="text/css" media="screen, projection">/*<![CDATA[*/
+			@import "/skins-1.5/common/shared.css?99";
+			@import "/skins-1.5/monobook/main.css?99";
+		/*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="/skins-1.5/common/commonPrint.css?99" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE50Fixes.css?99";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE55Fixes.css?99";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "/skins-1.5/monobook/IE60Fixes.css?99";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "/skins-1.5/monobook/IE70Fixes.css?99";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="/skins-1.5/common/IEFixes.js?99"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		
+		<script type= "text/javascript">/*<![CDATA[*/
+var skin = "monobook";
+var stylepath = "/skins-1.5";
+var wgArticlePath = "/wiki/$1";
+var wgScriptPath = "/w";
+var wgScript = "/w/index.php";
+var wgServer = "http://en.wikipedia.org";
+var wgCanonicalNamespace = "";
+var wgCanonicalSpecialPageName = false;
+var wgNamespaceNumber = 0;
+var wgPageName = "Apriori_algorithm";
+var wgTitle = "Apriori algorithm";
+var wgAction = "view";
+var wgRestrictionEdit = [];
+var wgRestrictionMove = [];
+var wgArticleId = "608194";
+var wgIsArticle = true;
+var wgUserName = null;
+var wgUserGroups = null;
+var wgUserLanguage = "en";
+var wgContentLanguage = "en";
+var wgBreakFrames = false;
+var wgCurRevisionId = "150212749";
+/*]]>*/</script>
+                
+		<script type="text/javascript" src="/skins-1.5/common/wikibits.js?99"><!-- wikibits js --></script>
+		<script type="text/javascript" src="/w/index.php?title=-&amp;action=raw&amp;gen=js&amp;useskin=monobook"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "/w/index.php?title=MediaWiki:Common.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=MediaWiki:Monobook.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=-&action=raw&gen=css&maxage=2678400";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+		<script type="text/javascript" src="/skins-1.5/common/ajax.js?99"></script>
+	</head>
+<body  class="mediawiki ns-0 ltr page-Apriori_algorithm">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">Apriori algorithm</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<div class="messagebox cleanup metadata plainlinks">
+<table style="background:none;">
+<tr>
+<td style="width:60px;text-align:center;vertical-align:top;padding:.3em;"><a href="/wiki/Image:Questionmark.svg" class="image" title="Info icon"><img alt="Info icon" src="http://upload.wikimedia.org/wikipedia/en/thumb/0/02/Questionmark.svg/40px-Questionmark.svg.png" width="40" height="40" border="0" /></a></td>
+<td style="width:100%;text-align:center;vertical-align:center;"><b>This article or section may be <a href="/wiki/Wikipedia:Please_clarify" title="Wikipedia:Please clarify">confusing or unclear</a> for some readers.</b><br />
+<small>Please <span class="plainlinks"><a href="http://en.wikipedia.org/w/index.php?title=Apriori_algorithm&amp;action=edit" class="external text" title="http://en.wikipedia.org/w/index.php?title=Apriori_algorithm&amp;action=edit" rel="nofollow">improve the article</a></span> or discuss this issue on the <a href="/wiki/Talk:Apriori_algorithm" title="Talk:Apriori algorithm">talk page</a>. This article has been tagged since <b>December 2006</b>.</small></td>
+</tr>
+</table>
+</div>
+<p>In <a href="/wiki/Computer_science" title="Computer science">computer science</a> and <a href="/wiki/Data_mining" title="Data mining">data mining</a>, <b>Apriori</b> is a classic algorithm for learning <a href="/wiki/Association_rule" title="Association rule">association rules</a>. Apriori is designed to operate on <a href="/wiki/Database" title="Database">databases</a> containing transactions (for example, collections of items bought by customers, or details of a website frequentation). Other algorithms are designed for finding association rules in data having no transactions (Winepi and Minepi), or having no timestamps (DNA sequencing).</p>
+<p>As is common in <a href="/wiki/Association_rule_mining" title="Association rule mining">association rule mining</a>, given a set of <i>itemsets</i> (for instance, sets of retail transactions each listing individual items purchased), the algorithm attempts to find subsets which are common to at least a minimum number C (the cutoff, or confidence threshold) of the itemsets. Apriori uses a "bottom up" approach, where frequent subsets are extended one item at a time (a step known as <i>candidate generation</i>, and groups of candidates are tested against the data. The algorithm terminates when no further successful extensions are found.</p>
+<p>Apriori uses <a href="/wiki/Breadth-first_search" title="Breadth-first search">breadth-first search</a> and a <a href="/wiki/Hash_tree" title="Hash tree">hash tree</a> structure to count candidate item sets efficiently. It generates candidate item sets of length <span class="texhtml"><i>k</i></span> from item sets of length <span class="texhtml"><i>k</i> − 1</span>. Then it prunes the candidates which have an infrequent sub pattern. According to the <a href="/w/index.php?title=Downward_closure_lemma&amp;action=edit" class="new" title="Downward closure lemma">downward closure lemma</a>, the candidate set contains all frequent <span class="texhtml"><i>k</i></span>-length item sets. After that, it scans the transaction database to determine frequent item sets among the candidates. For determining frequent items quickly, the algorithm uses a hash tree to store candidate itemsets. This hash tree has item sets at the leaves and <a href="/wiki/Hash_table" title="Hash table">hash tables</a> at internal nodes (Zaki, 99). Note that this is not the same kind of <a href="/wiki/Hash_tree" title="Hash tree">hash tree</a> used in for instance p2p systems</p>
+<p>Apriori, while historically significant, suffers from a number of inefficiencies or trade-offs, which have spawned other algorithms. Candidate generation generates large numbers of subsets (the algorithm attempts to load up the candidate set with as many as possible before each scan). Bottom-up subset exploration (essentially a breadth-first traversal of the subset lattice) finds any maximal subset S only after all <span class="texhtml">2 <sup>| <i>S</i> |</sup> − 1</span> of its proper subsets.</p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Example"><span class="tocnumber">1</span> <span class="toctext">Example</span></a></li>
+<li class="toclevel-1"><a href="#Algorithm"><span class="tocnumber">2</span> <span class="toctext">Algorithm</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Apriori_Pseudocode"><span class="tocnumber">2.1</span> <span class="toctext">Apriori Pseudocode</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#References"><span class="tocnumber">3</span> <span class="toctext">References</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script>
+<p><a name="Example" id="Example"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Apriori_algorithm&amp;action=edit&amp;section=1" title="Edit section: Example">edit</a>]</span> <span class="mw-headline">Example</span></h2>
+<p>This example suggests the process of selecting or generating a list of likely ordered serial candidate item sets. The techniques goal is to construct a set of <span class="texhtml"><i>k</i></span> node ordered serial item sets from <span class="texhtml"><i>k</i> − 1</span> length item sets. For example, with <span class="texhtml"><i>k</i> = 4</span>, suppose there are two such sets of length <span class="texhtml"><i>k</i> − 1</span>...</p>
+<dl>
+<dd><img class="tex" alt="A \rightarrow B \rightarrow C" src="http://upload.wikimedia.org/math/e/7/7/e77f2c325e9f046c2c9624451bdb7692.png" />,</dd>
+</dl>
+<p>and</p>
+<dl>
+<dd><img class="tex" alt="A \rightarrow B \rightarrow D" src="http://upload.wikimedia.org/math/f/3/4/f34f719e07c43705ee1416f7ccdd782b.png" />,</dd>
+</dl>
+<p>two candidate item sets are generated, namely</p>
+<dl>
+<dd><img class="tex" alt="A \rightarrow B \rightarrow C \rightarrow D" src="http://upload.wikimedia.org/math/d/f/6/df6a24cb948cb552e5d757e91dc4fc99.png" /></dd>
+</dl>
+<p>and</p>
+<dl>
+<dd><img class="tex" alt="A \rightarrow B \rightarrow D \rightarrow C" src="http://upload.wikimedia.org/math/c/b/1/cb1ea5d0e11c698518ddd38dceb4eff1.png" />.</dd>
+</dl>
+<p><a name="Algorithm" id="Algorithm"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Apriori_algorithm&amp;action=edit&amp;section=2" title="Edit section: Algorithm">edit</a>]</span> <span class="mw-headline">Algorithm</span></h2>
+<p>Association rule mining is to find out association rules that satisfy the predefined minimum support and confidence from a given database. The problem is usually decomposed into two subproblems. One is to find those itemsets whose occurrences exceed a predefined threshold in the database; those itemsets are called frequent or large itemsets. The second problem is to generate association rules from those large itemsets with the constraints of minimal confidence. Suppose one of the large itemsets is Lk, Lk = {I1, I2, … , Ik}, association rules with this itemsets are generated in the following way: the first rule is {I1, I2, … , Ik-1}⇒ {Ik}, by checking the confidence this rule can be determined as interesting or not. Then other rule are generated by deleting the last items in the antecedent and inserting it to the consequent, further the confidences of the new rules are checked to determine the interestingness of them. Those processes iterated until the antecedent becomes empty. Since the second subproblem is quite straight forward, most of the researches focus on the first subproblem. The Apriori algorithm finds the frequent sets <span class="texhtml"><i>L</i></span> In Database <span class="texhtml"><i>D</i></span>.</p>
+<p><br /></p>
+<ul>
+<li>Find frequent set <span class="texhtml"><i>L</i><sub><i>k</i> − 1</sub></span>.</li>
+<li>Join Step.
+<ul>
+<li><span class="texhtml"><i>C</i><sub><i>k</i></sub></span> is generated by joining <span class="texhtml"><i>L</i><sub><i>k</i> − 1</sub></span>with itself</li>
+</ul>
+</li>
+<li>Prune Step.
+<ul>
+<li>Any <span class="texhtml">(<i>k</i> − 1)</span> -itemset that is not frequent cannot be a subset of a frequent <span class="texhtml"><i>k</i></span> -itemset, hence should be removed.</li>
+</ul>
+</li>
+</ul>
+<p>where</p>
+<ul>
+<li>(<span class="texhtml"><i>C</i><sub><i>k</i></sub></span>: Candidate itemset of size <span class="texhtml"><i>k</i></span>)</li>
+<li>(<span class="texhtml"><i>L</i><sub><i>k</i></sub></span>: frequent itemset of size <span class="texhtml"><i>k</i></span>)</li>
+</ul>
+<p><br /></p>
+<p><a name="Apriori_Pseudocode" id="Apriori_Pseudocode"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Apriori_algorithm&amp;action=edit&amp;section=3" title="Edit section: Apriori Pseudocode">edit</a>]</span> <span class="mw-headline">Apriori Pseudocode</span></h3>
+<p><i>Apriori</i> <img class="tex" alt="(T,\varepsilon)" src="http://upload.wikimedia.org/math/8/7/1/87117ec0ed168f8eed4deb5df1887585.png" /></p>
+<dl>
+<dd><img class="tex" alt="L_1 \gets \{ " src="http://upload.wikimedia.org/math/e/f/7/ef7c9b162a1778a341ad96f78fe98c2f.png" /> <i>large 1-itemsets</i> <span class="texhtml">}</span></dd>
+<dd><img class="tex" alt="k \gets 2" src="http://upload.wikimedia.org/math/f/8/a/f8a721e9aa91bf367a4daa263d0e0351.png" />
+<dl>
+<dd><i>while</i> <img class="tex" alt=" L_{k-1} \neq \varnothing " src="http://upload.wikimedia.org/math/5/f/6/5f6e01268077a5f03a4a2ccf19f8480f.png" />
+<dl>
+<dd><img class="tex" alt="C_k \gets " src="http://upload.wikimedia.org/math/b/5/9/b5902094b3f7dfd8a1a7b106ff32633d.png" /><i>Generate</i><span class="texhtml">(<i>L</i><sub><i>k</i> − 1</sub>)</span></dd>
+<dd><i>for transactions</i> <img class="tex" alt="t \in T" src="http://upload.wikimedia.org/math/5/a/5/5a580b07cd6a1ab7e4e4d0647b3010d5.png" />
+<dl>
+<dd><img class="tex" alt="C_t \gets " src="http://upload.wikimedia.org/math/9/8/1/981a13390dc114f423907a78a6e5017e.png" />Subset<span class="texhtml">(<i>C</i><sub><i>k</i></sub>,<i>t</i>)</span></dd>
+<dd><i>for candidates</i> <img class="tex" alt="c \in C_t" src="http://upload.wikimedia.org/math/c/a/1/ca192686a9866fcf8e31998ec0f28577.png" />
+<dl>
+<dd><img class="tex" alt="\mathrm{count}[c] \gets \mathrm{count}[c]+1" src="http://upload.wikimedia.org/math/f/b/f/fbf3b2b3ed53598ed2bb75b9dc313839.png" /></dd>
+</dl>
+</dd>
+</dl>
+</dd>
+<dd><img class="tex" alt="L_k \gets \{ c \in C_k | ~ \mathrm{count}[c] \geq \varepsilon \}" src="http://upload.wikimedia.org/math/e/2/5/e253ec74177267730cc9561eca5366ba.png" /></dd>
+<dd><img class="tex" alt="k \gets k+1 " src="http://upload.wikimedia.org/math/6/e/c/6ec9915069526f8bb09ccae0687f62b6.png" /></dd>
+</dl>
+</dd>
+</dl>
+</dd>
+<dd><i>return</i> <img class="tex" alt="\bigcup_k L_k" src="http://upload.wikimedia.org/math/b/5/7/b570b637c3eb69c4f2c46cdf37dcacd6.png" /></dd>
+</dl>
+<p><a name="References" id="References"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Apriori_algorithm&amp;action=edit&amp;section=4" title="Edit section: References">edit</a>]</span> <span class="mw-headline">References</span></h2>
+<ul>
+<li>Agrawal R, Imielinski T, Swami AN. "Mining Association Rules between Sets of Items in Large Databases." <i><a href="/wiki/SIGMOD" title="SIGMOD">SIGMOD</a></i>. June 1993, <b>22</b>(2):207-16, <a href="http://portal.acm.org/ft_gateway.cfm?id=170072&amp;type=pdf&amp;coll=GUIDE&amp;dl=portal,ACM&amp;CFID=11111111&amp;CFTOKEN=2222222" class="external text" title="http://portal.acm.org/ft_gateway.cfm?id=170072&amp;type=pdf&amp;coll=GUIDE&amp;dl=portal,ACM&amp;CFID=11111111&amp;CFTOKEN=2222222" rel="nofollow">pdf</a>.</li>
+<li>Agrawal R, Srikant R. "Fast Algorithms for Mining Association Rules", <i><a href="/wiki/VLDB" title="VLDB">VLDB</a></i>. Sep 12-15 1994, Chile, 487-99, <a href="http://www.acm.org/sigmod/vldb/conf/1994/P487.PDF" class="external text" title="http://www.acm.org/sigmod/vldb/conf/1994/P487.PDF" rel="nofollow">pdf</a>, <a href="/w/index.php?title=Special:Booksources&amp;isbn=1558601538" class="internal">ISBN 1-55860-153-8</a>.</li>
+<li>Mannila H, Toivonen H, Verkamo AI. "Efficient algorithms for discovering association rules." <i><a href="/wiki/AAAI" title="AAAI">AAAI</a> Workshop on Knowledge Discovery in Databases (<a href="/wiki/SIGKDD" title="SIGKDD">SIGKDD</a>)</i>. July 1994, Seattle, 181-92, <a href="http://www.softlab.ntua.gr/facilities/public/AD/DM/Efficient_Algorithms_for_Discovering_Association_Rules.ps" class="external text" title="http://www.softlab.ntua.gr/facilities/public/AD/DM/Efficient_Algorithms_for_Discovering_Association_Rules.ps" rel="nofollow">ps</a>.</li>
+<li>S. Kotsiantis, D. Kanellopoulos, Association Rules Mining: A Recent Overview, GESTS International Transactions on Computer Science and Engineering, Vol.32 (1), 2006, pp. 71-82 (<a href="http://www.math.upatras.gr/~esdlab/en/members/kotsiantis/association%20rules%20kotsiantis.pdf" class="external free" title="http://www.math.upatras.gr/~esdlab/en/members/kotsiantis/association%20rules%20kotsiantis.pdf" rel="nofollow">http://www.math.upatras.gr/~esdlab/en/members/kotsiantis/association%20rules%20kotsiantis.pdf</a>)</li>
+</ul>
+
+<!-- 
+Pre-expand include size: 1659 bytes
+Post-expand include size: 1149 bytes
+Template argument size: 254 bytes
+Maximum: 2048000 bytes
+-->
+
+<!-- Saved in parser cache with key enwiki:pcache:idhash:608194-0!1!0!default!!en!2 and timestamp 20070914175302 -->
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org/wiki/Apriori_algorithm">http://en.wikipedia.org/wiki/Apriori_algorithm</a>"</div>
+			<div id="catlinks"><p class='catlinks'><a href="/wiki/Special:Categories" title="Special:Categories">Categories</a>: <span dir='ltr'><a href="/wiki/Category:Cleanup_from_December_2006" title="Category:Cleanup from December 2006">Cleanup from December 2006</a></span> | <span dir='ltr'><a href="/wiki/Category:Wikipedia_articles_needing_clarification" title="Category:Wikipedia articles needing clarification">Wikipedia articles needing clarification</a></span> | <span dir='ltr'><a href="/wiki/Category:Data_mining" title="Category:Data mining">Data mining</a></span> | <span dir='ltr'><a href="/wiki/Category:Search_algorithms" title="Category:Search algorithms">Search algorithms</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<div class="pBody">
+			<ul>
+					 <li id="ca-nstab-main" class="selected"><a href="/wiki/Apriori_algorithm" title="View the content page [c]" accesskey="c">Article</a></li>
+					 <li id="ca-talk"><a href="/wiki/Talk:Apriori_algorithm" title="Discussion about the content page [t]" accesskey="t">Discussion</a></li>
+					 <li id="ca-edit"><a href="/w/index.php?title=Apriori_algorithm&amp;action=edit" title="You can edit this page. Please use the preview button before saving. [e]" accesskey="e">Edit this page</a></li>
+					 <li id="ca-history"><a href="/w/index.php?title=Apriori_algorithm&amp;action=history" title="Past versions of this page [h]" accesskey="h">History</a></li>
+				</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-personal">
+		<h5>Personal tools</h5>
+		<div class="pBody">
+			<ul>
+				<li id="pt-login"><a href="/w/index.php?title=Special:Userlogin&amp;returnto=Apriori_algorithm" title="You are encouraged to log in, it is not mandatory however. [o]" accesskey="o">Sign in / create account</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-logo">
+		<a style="background-image: url(/images/wiki-en.png);" href="/wiki/Main_Page" title="Visit the Main Page [z]" accesskey="z"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-Main-page"><a href="/wiki/Main_Page">Main page</a></li>
+				<li id="n-Contents"><a href="/wiki/Wikipedia:Contents">Contents</a></li>
+				<li id="n-Featured-content"><a href="/wiki/Wikipedia:Featured_content">Featured content</a></li>
+				<li id="n-currentevents"><a href="/wiki/Portal:Current_events" title="Find background information on current events">Current events</a></li>
+				<li id="n-randompage"><a href="/wiki/Special:Random" title="Load a random page [x]" accesskey="x">Random article</a></li>
+			</ul>
+		</div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+		<h5>interaction</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-About-Wikipedia"><a href="/wiki/Wikipedia:About">About Wikipedia</a></li>
+				<li id="n-portal"><a href="/wiki/Wikipedia:Community_Portal" title="About the project, what you can do, where to find things">Community portal</a></li>
+				<li id="n-recentchanges"><a href="/wiki/Special:Recentchanges" title="The list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li>
+				<li id="n-contact"><a href="/wiki/Wikipedia:Contact_us">Contact Wikipedia</a></li>
+				<li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising" title="Support us">Donate to Wikipedia</a></li>
+				<li id="n-help"><a href="/wiki/Help:Contents" title="Guidance on how to use and edit Wikipedia">Help</a></li>
+			</ul>
+		</div>
+	</div>
+		<div id="p-search" class="portlet">
+		<h5><label for="searchInput">Search</label></h5>
+		<div id="searchBody" class="pBody">
+			<form action="/wiki/Special:Search" id="searchform"><div>
+				<input id="searchInput" name="search" type="text" title="Search Wikipedia [f]" accesskey="f" value="" />
+				<input type='submit' name="go" class="searchButton" id="searchGoButton"	value="Go" />&nbsp;
+				<input type='submit' name="fulltext" class="searchButton" id="mw-searchButton" value="Search" />
+			</div></form>
+		</div>
+	</div>
+	<div class="portlet" id="p-tb">
+		<h5>Toolbox</h5>
+		<div class="pBody">
+			<ul>
+				<li id="t-whatlinkshere"><a href="/wiki/Special:Whatlinkshere/Apriori_algorithm" title="List of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+				<li id="t-recentchangeslinked"><a href="/wiki/Special:Recentchangeslinked/Apriori_algorithm" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+<li id="t-upload"><a href="/wiki/Wikipedia:Upload" title="Upload images or media files [u]" accesskey="u">Upload file</a></li>
+<li id="t-specialpages"><a href="/wiki/Special:Specialpages" title="List of all special pages [q]" accesskey="q">Special pages</a></li>
+				<li id="t-print"><a href="/w/index.php?title=Apriori_algorithm&amp;printable=yes" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>				<li id="t-permalink"><a href="/w/index.php?title=Apriori_algorithm&amp;oldid=150212749" title="Permanent link to this version of the page">Permanent link</a></li><li id="t-cite"><a href="/w/index.php?title=Special:Cite&amp;page=Apriori_algorithm&amp;id=150212749">Cite this article</a></li>			</ul>
+		</div>
+	</div>
+	<div id="p-lang" class="portlet">
+		<h5>In other languages</h5>
+		<div class="pBody">
+			<ul>
+				<li class="interwiki-it"><a href="http://it.wikipedia.org/wiki/Algoritmo_apriori">Italiano</a></li>
+				<li class="interwiki-ru"><a href="http://ru.wikipedia.org/wiki/Apriori">Русский</a></li>
+			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="/skins-1.5/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>
+				<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="/images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>
+			<ul id="f-list">
+				<li id="lastmod"> This page was last modified 17:20, 9 August 2007.</li>
+				<li id="copyright">All text is available under the terms of the <a class='internal' href="/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="/wiki/Wikipedia:Copyrights" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a U.S. registered <a class='internal' href="/wiki/501%28c%29#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="/wiki/Non-profit_organization" title="Non-profit organization">nonprofit</a> <a href="/wiki/Charitable_organization" title="Charitable organization">charity</a>.<br /></li>
+				<li id="privacy"><a href="http://wikimediafoundation.org/wiki/Privacy_policy" title="wikimedia:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="/wiki/Wikipedia:About" title="Wikipedia:About">About Wikipedia</a></li>
+				<li id="disclaimer"><a href="/wiki/Wikipedia:General_disclaimer" title="Wikipedia:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+		
+	
+		<script type="text/javascript">if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by srv163 in 0.943 secs. --></body></html>

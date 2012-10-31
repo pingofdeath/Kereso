@@ -1,0 +1,414 @@
+
+    
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" class="">
+<head id="ctl00_ctl00_ctl00_Head1"><meta name="Description" content="QuickGraph 2.0 provides *generic* directed graph datastructures and algorithms for them. It also comes with algorithms such as depth first seach, breath first search, shortest path, network flow etc..." /><meta name="WT.pi" content="quickgraph" /><link href="../App_Themes/CodePlex/CodePlex.css" type="text/css" rel="stylesheet" /><link href="../App_Themes/CodePlex/CodeStudio.css" type="text/css" rel="stylesheet" /><link href="../App_Themes/CodePlex/Forums.css" type="text/css" rel="stylesheet" /><link href="../App_Themes/CodePlex/IssueTracker.css" type="text/css" rel="stylesheet" /><link href="../App_Themes/CodePlex/NewsFeeds.css" type="text/css" rel="stylesheet" /><link href="../App_Themes/CodePlex/PeopleManage.css" type="text/css" rel="stylesheet" /><link href="../App_Themes/CodePlex/Project.css" type="text/css" rel="stylesheet" /><link href="../App_Themes/CodePlex/Releases.css" type="text/css" rel="stylesheet" /><link href="../App_Themes/CodePlex/SourceControl.css" type="text/css" rel="stylesheet" /><link href="../App_Themes/CodePlex/Wiki.css" type="text/css" rel="stylesheet" /><link href="http://www.codeplex.com/favicon.ico" rel="SHORTCUT ICON" /><link rel="alternate" type="application/rss+xml" title="QuickGraph, Graph Data Structures And Algorithms for .Net" href="http://www.codeplex.com/quickgraph/Project/ProjectRss.aspx" /><link rel="alternate" type="application/rss+xml" title="QuickGraph, Graph Data Structures And Algorithms for .Net-Discussions" href="http://www.codeplex.com/quickgraph/Project/ProjectRss.aspx?ProjectRSSFeed=codeplex%3a%2f%2fforum%2fquickgraph" /><link rel="alternate" type="application/rss+xml" title="QuickGraph, Graph Data Structures And Algorithms for .Net-Issue Tracker" href="http://www.codeplex.com/quickgraph/Project/ProjectRss.aspx?ProjectRSSFeed=codeplex%3a%2f%2fworkitem%2fquickgraph" /><link rel="alternate" type="application/rss+xml" title="QuickGraph, Graph Data Structures And Algorithms for .Net-Releases" href="http://www.codeplex.com/quickgraph/Project/ProjectRss.aspx?ProjectRSSFeed=codeplex%3a%2f%2frelease%2fquickgraph" /><link rel="alternate" type="application/rss+xml" title="QuickGraph, Graph Data Structures And Algorithms for .Net-Source Code" href="http://www.codeplex.com/quickgraph/Project/ProjectRss.aspx?ProjectRSSFeed=codeplex%3a%2f%2fsourcecontrol%2fquickgraph" /><link rel="alternate" type="application/rss+xml" title="QuickGraph, Graph Data Structures And Algorithms for .Net-Wiki" href="http://www.codeplex.com/quickgraph/Project/ProjectRss.aspx?ProjectRSSFeed=codeplex%3a%2f%2fwiki%2fquickgraph" /><title>
+	QuickGraph, Graph Data Structures And Algorithms for .Net - Home
+</title></head>
+<body>
+    <form name="aspnetForm" method="POST" action="/quickgraph" id="aspnetForm" autocomplete="off" enctype="multipart/form-data">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUKLTY4MTM0OTQ2NA9kFgJmD2QWAmYPZBYCZg9kFgRmD2QWBGYPFgIeB1Zpc2libGVnZAIBDxYCHwBnZAIBD2QWBgICD2QWAgICD2QWBGYPZBYCZg9kFgICAQ8PFgIeC05hdmlnYXRlVXJsBTJodHRwczovL3d3dy5jb2RlcGxleC5jb20vVXNlckFjY291bnQvUmVnaXN0ZXIuYXNweGRkAgQPDxYCHg1Mb2dvdXRQYWdlVXJsBRdodHRwOi8vd3d3LmNvZGVwbGV4LmNvbWRkAgMPZBYEAgEPDxYCHwBoZBYCAg8PFgIfAGhkAgUPZBYEAgEPDxYCHwEFImh0dHA6Ly93d3cuY29kZXBsZXguY29tL3F1aWNrZ3JhcGhkFgZmDw8WAh8AaGRkAgEPDxYEHghJbWFnZVVybAVNaHR0cDovL3d3dy5jb2RlcGxleC5jb20vcXVpY2tncmFwaC9Qcm9qZWN0L0ZpbGVEb3dubG9hZC5hc3B4P0Rvd25sb2FkSWQ9MTA5NDcfAGdkZAICDw8WAh4EVGV4dAU5UXVpY2tHcmFwaCwgR3JhcGggRGF0YSBTdHJ1Y3R1cmVzIEFuZCBBbGdvcml0aG1zIGZvciAuTmV0ZGQCAw8WAh8AaBYCAgMPDxYCHwEFQmh0dHA6Ly93d3cuY29kZXBsZXguY29tL3F1aWNrZ3JhcGgvUHJvamVjdC9FZGl0UHJvamVjdERldGFpbHMuYXNweGRkAgQPZBYEAgEPFgIfAGhkAgMPZBYGAgMPZBYQAgEPDxYEHwMFKi9BcHBfVGhlbWVzL0NvZGVQbGV4L2ltYWdlcy90YWJfaG9tZV9hLmdpZh8BBSJodHRwOi8vd3d3LmNvZGVwbGV4LmNvbS9xdWlja2dyYXBoZGQCAw8PFgIfAQU/aHR0cDovL3d3dy5jb2RlcGxleC5jb20vcXVpY2tncmFwaC9SZWxlYXNlL1Byb2plY3RSZWxlYXNlcy5hc3B4ZGQCBQ8PFgIfAQUzaHR0cDovL3d3dy5jb2RlcGxleC5jb20vcXVpY2tncmFwaC9UaHJlYWQvTGlzdC5hc3B4ZGQCBw8PFgIfAQU1aHR0cDovL3d3dy5jb2RlcGxleC5jb20vcXVpY2tncmFwaC9Xb3JrSXRlbS9MaXN0LmFzcHhkZAIJDw8WAh8BBU1odHRwOi8vd3d3LmNvZGVwbGV4LmNvbS9xdWlja2dyYXBoL1NvdXJjZUNvbnRyb2wvTGlzdERvd25sb2FkYWJsZUNvbW1pdHMuYXNweGRkAgsPDxYCHwEFPWh0dHA6Ly93d3cuY29kZXBsZXguY29tL3F1aWNrZ3JhcGgvUHJvamVjdC9Qcm9qZWN0UGVvcGxlLmFzcHhkZAINDw8WAh8BBTdodHRwOi8vd3d3LmNvZGVwbGV4LmNvbS9xdWlja2dyYXBoL1Byb2plY3QvTGljZW5zZS5hc3B4ZGQCDw9kFgQCAg9kFgICAQ9kFgICAQ8PFgIfAQU6aHR0cDovL3d3dy5jb2RlcGxleC5jb20vcXVpY2tncmFwaC9Qcm9qZWN0L1Byb2plY3RSc3MuYXNweGRkAgQPZBYMAgEPZBYCAgMPDxYEHwEFOmh0dHA6Ly93d3cuY29kZXBsZXguY29tL3F1aWNrZ3JhcGgvUHJvamVjdC9Qcm9qZWN0UnNzLmFzcHgfBAU5UXVpY2tHcmFwaCwgR3JhcGggRGF0YSBTdHJ1Y3R1cmVzIEFuZCBBbGdvcml0aG1zIGZvciAuTmV0ZGQCAw9kFgICAw8PFgIfAQVtaHR0cDovL3d3dy5jb2RlcGxleC5jb20vcXVpY2tncmFwaC9Qcm9qZWN0L1Byb2plY3RSc3MuYXNweD9Qcm9qZWN0UlNTRmVlZD1jb2RlcGxleCUzYSUyZiUyZmZvcnVtJTJmcXVpY2tncmFwaGRkAgUPZBYCAgMPDxYCHwEFcGh0dHA6Ly93d3cuY29kZXBsZXguY29tL3F1aWNrZ3JhcGgvUHJvamVjdC9Qcm9qZWN0UnNzLmFzcHg/UHJvamVjdFJTU0ZlZWQ9Y29kZXBsZXglM2ElMmYlMmZ3b3JraXRlbSUyZnF1aWNrZ3JhcGhkZAIHD2QWAgIDDw8WAh8BBW9odHRwOi8vd3d3LmNvZGVwbGV4LmNvbS9xdWlja2dyYXBoL1Byb2plY3QvUHJvamVjdFJzcy5hc3B4P1Byb2plY3RSU1NGZWVkPWNvZGVwbGV4JTNhJTJmJTJmcmVsZWFzZSUyZnF1aWNrZ3JhcGhkZAIJD2QWAgIDDw8WAh8BBXVodHRwOi8vd3d3LmNvZGVwbGV4LmNvbS9xdWlja2dyYXBoL1Byb2plY3QvUHJvamVjdFJzcy5hc3B4P1Byb2plY3RSU1NGZWVkPWNvZGVwbGV4JTNhJTJmJTJmc291cmNlY29udHJvbCUyZnF1aWNrZ3JhcGhkZAILD2QWAgIDDw8WAh8BBWxodHRwOi8vd3d3LmNvZGVwbGV4LmNvbS9xdWlja2dyYXBoL1Byb2plY3QvUHJvamVjdFJzcy5hc3B4P1Byb2plY3RSU1NGZWVkPWNvZGVwbGV4JTNhJTJmJTJmd2lraSUyZnF1aWNrZ3JhcGhkZAIFD2QWDAIDD2QWCgIBDw8WBB8BBWdodHRwOi8vd3d3LmNvZGVwbGV4LmNvbS9xdWlja2dyYXBoL1dpa2kvRWRpdC5hc3B4P3RpdGxlPUhvbWUmYWN0aW9uPUVkaXQmdmVyc2lvbj0xOSZyZWZlcnJpbmdUaXRsZT1Ib21lHwBoZGQCAw8PFgIfAGhkZAIJDw8WAh8BBXpqYXZhc2NyaXB0Om9wZW5QcmV2aWV3V2lraVdpbmRvdygnaHR0cDovL3d3dy5jb2RlcGxleC5jb20vcXVpY2tncmFwaC9XaWtpL1ByaW50LmFzcHg/dGl0bGU9SG9tZSZ2ZXJzaW9uPTE5JmFjdGlvbj1QcmludCcpO2RkAg0PDxYCHwEFSGh0dHA6Ly93d3cuY29kZXBsZXguY29tL3F1aWNrZ3JhcGgvV2lraS9JbmZvLmFzcHg/dGl0bGU9SG9tZSZhY3Rpb249SW5mb2RkAhEPDxYCHwEFM2h0dHA6Ly93d3cuY29kZXBsZXguY29tL3F1aWNrZ3JhcGgvV2lraS9SZWNlbnQuYXNweGRkAggPFgIeC18hSXRlbUNvdW50AgEWAgIBD2QWAgIBDw8WBB8EBQRIb21lHwEFMWh0dHA6Ly93d3cuY29kZXBsZXguY29tL3F1aWNrZ3JhcGgvV2lraS9WaWV3LmFzcHhkZAIKDw8WAh8EBZMOPGRpdiBjbGFzcz0id2lraWRvYyI+DQo8aW1nIHNyYz0iaHR0cDovL3d3dy5jb2RlcGxleC5jb20vcXVpY2tncmFwaC9Qcm9qZWN0L0ZpbGVEb3dubG9hZC5hc3B4P0Rvd25sb2FkSWQ9MTA5MzAiIGFsdD0icXVpY2tncmFwaC5iYW5uZXIucG5nIiAvPjxiciAvPiA8YnIgLz48aDU+DQpRdWlja0dyYXBoIDIuMDogR2VuZXJpYyBHcmFwaCBEYXRhIFN0cnVjdHVyZXMgYW5kIEFsZ29yaXRobXMgZm9yIC5OZXQuDQo8L2g1PiA8YnIgLz48Yj5RdWlja0dyYXBoIDIuMDwvYj4gcHJvdmlkZXMgPGk+Z2VuZXJpYzwvaT4gZGlyZWN0ZWQgZ3JhcGggZGF0YXN0cnVjdHVyZXMgYW5kIGFsZ29yaXRobXMgZm9yIC5OZXQgMi4wLiBRdWlja0dyYXBoIGNvbWVzIHdpdGggYWxnb3JpdGhtcyBzdWNoIGFzIGRlcHRoIGZpcnN0IHNlYWNoLCBicmVhdGggZmlyc3Qgc2VhcmNoLCBzaG9ydGVzdCBwYXRoLCBuZXR3b3JrIGZsb3cgZXRjLi4uIFF1aWNrR3JhcGggc3VwcG9ydHMgPGEgaHJlZj0iaHR0cDovL3d3dy5jb2RlcGxleC5jb20vcXVpY2tncmFwaC9XaWtpL1ZpZXcuYXNweD90aXRsZT1HTEVFJmFtcDtyZWZlcnJpbmdUaXRsZT1Ib21lIj5HTEVFPC9hPiBhbmQgPGEgaHJlZj0iaHR0cDovL3d3dy5jb2RlcGxleC5jb20vcXVpY2tncmFwaC9XaWtpL1ZpZXcuYXNweD90aXRsZT1HcmFwaHZpeiZhbXA7cmVmZXJyaW5nVGl0bGU9SG9tZSI+R3JhcGh2aXo8L2E+IHRvIHJlbmRlciB0aGUgZ3JhcGhzLjxiciAvPiA8YnIgLz48aDU+DQpIaXN0b3J5IA0KPC9oNT4gPGJyIC8+VGhlIG9yaWdpbmFsIFF1aWNrR3JhcGggZm9yIC5uZXQgMS4wIHdhcyBwb3N0ZWQgb24gPGEgaHJlZj0iaHR0cDovL3d3dy5jb2RlcHJvamVjdC5jb20vY3MvbWlzY2N0cmwvcXVpY2tncmFwaC5hc3AiIGNsYXNzPSJleHRlcm5hbExpbmsiPkNvZGVQcm9qZWN0PHNwYW4gY2xhc3M9ImV4dGVybmFsTGlua0ljb24iPjwvc3Bhbj48L2E+IGluICA4IERlYyAyMDAzLiBJdCB3YXMgdGltZSB0byBkbyBhIHJlZnJlc2ggYW5kIG1ha2UgdGhlIGdyYXBoIGdlbmVyaWMuPGJyIC8+IDxiciAvPlRoZSBkZXNpZ24gb2YgUXVpY2tHcmFwaCBpcyBpbnNwaXJlZCBmcm9tIHRoZSA8YSBocmVmPSJodHRwOi8vd3d3LmNvZGVwbGV4LmNvbS9xdWlja2dyYXBoL1dpa2kvVmlldy5hc3B4P3RpdGxlPUJvb3N0JTIwR3JhcGglMjBMaWJyYXJ5JmFtcDtyZWZlcnJpbmdUaXRsZT1Ib21lIj5Cb29zdCBHcmFwaCBMaWJyYXJ5PC9hPi48YnIgLz4gPGJyIC8+PGg1Pg0KV2hlcmUgdG8gZ28gbmV4dD8NCjwvaDU+IDxiciAvPjx1bD4NCjxsaT48YSBocmVmPSJodHRwOi8vd3d3LmNvZGVwbGV4LmNvbS9xdWlja2dyYXBoL1dpa2kvVmlldy5hc3B4P3RpdGxlPVVzZXIlMjBNYW51YWwmYW1wO3JlZmVycmluZ1RpdGxlPUhvbWUiPlVzZXIgTWFudWFsPC9hPjwvbGk+PGxpPjxhIGhyZWY9Imh0dHA6Ly93d3cuY29kZXBsZXguY29tL3F1aWNrZ3JhcGgvV2lraS9WaWV3LmFzcHg/dGl0bGU9RkFRJmFtcDtyZWZlcnJpbmdUaXRsZT1Ib21lIj5GQVE8L2E+PC9saT48bGk+PGEgaHJlZj0iaHR0cDovL2Jsb2cuZG90bmV0d2lraS5vcmciIGNsYXNzPSJleHRlcm5hbExpbmsiPlBlbGkncyBibG9nPHNwYW4gY2xhc3M9ImV4dGVybmFsTGlua0ljb24iPjwvc3Bhbj48L2E+PC9saT4NCjwvdWw+IDxiciAvPjxiPlBsZWFzZSB1c2UgdGhlIGRpc2N1c3Npb25zIHNlY3Rpb24gdG8gbGVhdmUgbWVzc2FnZXMuIFNpbmNlIHRoZXJlIGFyZSBubyBub3RpZmljYXRpb25zIGZvciB3aWtpIGNvbW1lbnRzLCB0aGV5IHdpbGwgbGlrZWx5IG5ldmVyIGJlIHJlYWQ8L2I+PGJyIC8+DQo8L2Rpdj5kZAIMD2QWBgIBDw8WAh4NRGF0ZVRpbWVWYWx1ZQbww5jj81nJCGRkAgMPDxYEHwQFCHBlbGlraGFuHwEFLy9Vc2VyQWNjb3VudC9Vc2VyUHJvZmlsZS5hc3B4P1VzZXJOYW1lPXBlbGlraGFuZGQCBQ8WAh8EBQIxOWQCEA9kFgQCAQ8WAh8EBSRUaGUgd2lraSBwYWdlICdIb21lJyBkb2VzIG5vdCBleGlzdC5kAgMPFgIfAGhkAhQPZBYCAgEPZBYCAgEPZBYCZg9kFgQCAQ8WAh8FZmQCAw8WAh8AZxYCAgEPDxYCHwEFd2h0dHBzOi8vd3d3LmNvZGVwbGV4LmNvbS9Vc2VyQWNjb3VudC9Mb2dpbi5hc3B4P1JldHVyblVybD1odHRwJTNhJTJmJTJmd3d3LmNvZGVwbGV4LmNvbSUyZnF1aWNrZ3JhcGglMmZXaWtpJTJmVmlldy5hc3B4ZGQCBw9kFggCAQ9kFgJmD2QWAgIDD2QWAgIBD2QWBAIBD2QWBAIBDw8WBB8EBQwyLjAuMzA4MjQuMDAfAQVOaHR0cDovL3d3dy5jb2RlcGxleC5jb20vcXVpY2tncmFwaC9SZWxlYXNlL1Byb2plY3RSZWxlYXNlcy5hc3B4P1JlbGVhc2VJZD02NjMxZGQCAw8PFgIfBgYAQDrZ+LPJCGRkAgMPDxYCHwBoZGQCAw9kFgJmD2QWAmYPZBYCAgEPZBYEAgEPZBYCAgEPZBYGAgIPDxYCHwBoZGQCBA8PFgIfAGhkZAIHDw8WAh8AaGRkAgMPZBYCAgEPZBYKAgEPDxYCHwQFBDE5ODBkZAIDDw8WAh8EBQMzNDFkZAIFDw8WAh8EBQQ1LjgxZGQCBw8PFgIfBAUBMGRkAgkPDxYCHwQFAThkZAIFDw8WAh8AaGRkAgcPDxYCHwBoZBYCZg9kFgICAw9kFgICAQ9kFgICAQ88KwAJAGQYAQUeX19Db250cm9sc1JlcXVpcmVQb3N0QmFja0tleV9fFgQFMGN0bDAwJGN0bDAwJGN0bDAwJFBhZ2VCYW5uZXIkU2lnbkluJFN0YXR1cyRjdGwwMQUwY3RsMDAkY3RsMDAkY3RsMDAkUGFnZUJhbm5lciRTaWduSW4kU3RhdHVzJGN0bDAzBT5jdGwwMCRjdGwwMCRjdGwwMCRQYWdlQmFubmVyJFByb2plY3RTZWFyY2hDb250cm9sJFNlYXJjaEJ1dHRvbgVUY3RsMDAkY3RsMDAkY3RsMDAkQ29udGVudCRQcm9qZWN0QmFzZU1haW4kUHJvamVjdE1haW4kc2VhcmNoV2lraUNvbnRyb2wkU2VhcmNoQnV0dG9uRuwCrvSTAbGLVzsP7PWImc91DfQ=" />
+
+
+<script src="/scripts/SmartDate.js" type="text/javascript"></script>
+<script src="/scripts/common.js" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=6VVu5Ke4gBJTR09B2ii6Tac7w6QonJsNhqV-zFLEkl201tdOB1dC_alofJpP-UnS0&amp;t=633190765360000000" type="text/javascript"></script>
+<script src="/scripts/CodePlexUI.js" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=togFfVZxLbWCAP1l02vlqFlYIy4SiijSQo8sBXF1u0KFgpEP-MO1V1XrMnq7jYKrIacK8jkRLgXhqd7-RtRrWw2&amp;t=633190765340000000" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=togFfVZxLbWCAP1l02vlqFlYIy4SiijSQo8sBXF1u0LQwM7UH1FISMMUN850N0EOz4dYx2XL8170nP8fwnfjqOzO3Lfso92FL1DBdWhrQLI1&amp;t=633190765340000000" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=togFfVZxLbWCAP1l02vlqFlYIy4SiijSQo8sBXF1u0JX7apTGDqtgxoNNV5Gnvx4Qg95dMJaEfyikSZR_L3ApMJR3GHb4theA51pDlRbk641&amp;t=633190765340000000" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=togFfVZxLbWCAP1l02vlqFlYIy4SiijSQo8sBXF1u0L9aMmsNQdgtmjRHa4gCFmLFYs7yonYuCI2BLsvcaokBw2&amp;t=633190765340000000" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=togFfVZxLbWCAP1l02vlqFlYIy4SiijSQo8sBXF1u0ISawgJYLm1b5JezkQf8ft8eqhwBcWIavRiw16DiL48tsVWCxdPJzXQNv0qeHKij6sztV3Yw6laJtK4bHcqEznP0&amp;t=633190765340000000" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=togFfVZxLbWCAP1l02vlqFlYIy4SiijSQo8sBXF1u0Jin6y9zjKGnrDH7FTOvkCL3vC8waGbgrnEp3fkimhn_7RXxXIP5nPAY8qCTPjXc0w1&amp;t=633190765340000000" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=togFfVZxLbWCAP1l02vlqFlYIy4SiijSQo8sBXF1u0IkLii_blVJpevYfCikJ6Lbu9E6MHX4ZUEZVVezePhIVMMI6r5ruu8QDXv5sAiU-Z01&amp;t=633190765340000000" type="text/javascript"></script>
+<script src="/Services/TaggingService.asmx/js" type="text/javascript"></script>
+        
+        <table style="height:100%;width:100%" cellpadding="0" cellspacing="0">
+            <tr><td style="height:100%;" valign="top">
+            <table style="height:100%;width:100%" cellpadding="0" cellspacing="0">
+                <tr>
+                    <td id="leftColumn"><img id="ctl00_ctl00_ctl00_LeftColumnImage" src="../App_Themes/CodePlex/images/bkgd_left_column.gif" border="0" /></td>
+                    <td style="height:100%" valign="top">
+                      <table id="ContentTable" style="height:100%;width:100%;" cellpadding="0" cellspacing="0">
+                        <tr valign="top"><td>
+                        
+    <table id="bannerTable" cellpadding="0" cellspacing="0">
+        <tr>
+            <td valign="top"><a href='http://www.codeplex.com'><img id="ctl00_ctl00_ctl00_PageBanner_Image1" title="CodePlex" src="../App_Themes/CodePlex/images/banner_toplogo_project.jpg" alt="CodePlex" border="0" style="border:0px;" /></a></td>
+            <td valign="top"><img id="ctl00_ctl00_ctl00_PageBanner_Image2" src="../App_Themes/CodePlex/images/banner_top_project.jpg" border="0" style="border:0px;" /></td>
+            <td id="expandableCellProject" align="right" valign="top">
+                <div style="font-size:.9em;">
+                    <table cellpadding="0" cellspacing="0">
+                        <tr>
+                            <td><div class="White">
+                                <table cellpadding="2" cellspacing="0">
+                                    <tr>
+                                        <td align="right" style="white-space:nowrap;padding-top:3px;">
+                                            
+            <a id="ctl00_ctl00_ctl00_PageBanner_SignIn_LoginView_RegisterLink" href="https://www.codeplex.com/UserAccount/Register.aspx">Register</a>
+        
+<span id="ctl00_ctl00_ctl00_PageBanner_SignIn_Separator"> | </span>
+<a id="ctl00_ctl00_ctl00_PageBanner_SignIn_Status" href="javascript:__doPostBack('ctl00$ctl00$ctl00$PageBanner$SignIn$Status$ctl02','')">Sign In</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="right" style="white-space:nowrap;">
+                                            <span id="SearchText">Search Projects</span>
+                                            <div id="ctl00_ctl00_ctl00_PageBanner_ProjectSearchControl_searchPanel" style="display: inline;">
+	<input name="ctl00$ctl00$ctl00$PageBanner$ProjectSearchControl$searchTextBox" type="text" id="ctl00_ctl00_ctl00_PageBanner_ProjectSearchControl_searchTextBox" class="SearchBoxTextBox" /><input type="image" name="ctl00$ctl00$ctl00$PageBanner$ProjectSearchControl$SearchButton" id="ctl00_ctl00_ctl00_PageBanner_ProjectSearchControl_SearchButton" class="smallSearchButton" src="../App_Themes/CodePlex/images/headerprojectsearchbutton.gif" alt="Search" align="middle" border="0" />
+</div>
+                                        </td>
+                                    </tr>
+                                </table>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </td>
+        </tr>
+    </table>
+
+                        
+    <div id="pageHeaderContentProject">
+        <div></div>
+        
+        
+
+<div>
+<div class="ProjectHeader">
+    <a id="ctl00_ctl00_ctl00_PageHeader_ProjectTitleControl1_ProjectTitleLink" href="http://www.codeplex.com/quickgraph"><img id="ctl00_ctl00_ctl00_PageHeader_ProjectTitleControl1_ProjectLogo" src="http://www.codeplex.com/quickgraph/Project/FileDownload.aspx?DownloadId=10947" border="0" /><span id="ctl00_ctl00_ctl00_PageHeader_ProjectTitleControl1_TitleLabel" class="ProjectTitleLabel">QuickGraph, Graph Data Structures And Algorithms for .Net</span></a>
+</div>
+
+</div>
+
+    </div>
+
+                        
+    <div style="padding:4px 18px">
+        <table id="contentTable" cellspacing="0">
+            
+            <tr>
+                
+    <td valign="top" width="100%">
+        <div style="padding-right:18px; margin-bottom: 1em;">
+            
+            
+
+<table id="tabnav" cellpadding="0" cellspacing="0" border="0">
+    <tr>
+        <td align="left"><a id="ctl00_ctl00_ctl00_Content_ProjectBaseMain_tabs_homeTab" title="Home" AlternateText="Home" href="http://www.codeplex.com/quickgraph"><img title="Home" src="/App_Themes/CodePlex/images/tab_home_a.gif" border="0" /></a></td><td><a id="ctl00_ctl00_ctl00_Content_ProjectBaseMain_tabs_releasesTab" title="Releases" AlternateText="Releases" href="http://www.codeplex.com/quickgraph/Release/ProjectReleases.aspx"><img title="Releases" src="../App_Themes/CodePlex/images/tab_releases.gif" border="0" /></a></td><td><a id="ctl00_ctl00_ctl00_Content_ProjectBaseMain_tabs_discussionTab" title="Discussions" AlternateText="Discussions" href="http://www.codeplex.com/quickgraph/Thread/List.aspx"><img title="Discussions" src="../App_Themes/CodePlex/images/tab_disc.gif" border="0" /></a></td><td><a id="ctl00_ctl00_ctl00_Content_ProjectBaseMain_tabs_workItemsTab" title="Issue Tracker" AlternateText="Issue Tracker" href="http://www.codeplex.com/quickgraph/WorkItem/List.aspx"><img title="Issue Tracker" src="../App_Themes/CodePlex/images/tab_issuetracker.gif" border="0" /></a></td><td><a id="ctl00_ctl00_ctl00_Content_ProjectBaseMain_tabs_sourceTab" title="Source Code" AlternateText="Source Code" href="http://www.codeplex.com/quickgraph/SourceControl/ListDownloadableCommits.aspx"><img title="Source Code" src="../App_Themes/CodePlex/images/tab_sourcecode.gif" border="0" /></a></td><td><a id="ctl00_ctl00_ctl00_Content_ProjectBaseMain_tabs_peopleTab" title="People" AlternateText="People" href="http://www.codeplex.com/quickgraph/Project/ProjectPeople.aspx"><img title="People" src="../App_Themes/CodePlex/images/tab_ppl.gif" border="0" /></a></td><td><a id="ctl00_ctl00_ctl00_Content_ProjectBaseMain_tabs_licenseTab" title="License" AlternateText="License" href="http://www.codeplex.com/quickgraph/Project/License.aspx"><img title="License" src="../App_Themes/CodePlex/images/tab_lic.gif" border="0" /></a></td><td width="100%"></td>
+        <td align="right" nowrap="nowrap">
+            
+    
+<div id="ctl00_ctl00_ctl00_Content_ProjectBaseMain_tabs_rssFeeds_RssLabel" class="RssFeedsLabel">
+	
+    <span id="ctl00_ctl00_ctl00_Content_ProjectBaseMain_tabs_rssFeeds_FeedsLabel"><img id="ctl00_ctl00_ctl00_Content_ProjectBaseMain_tabs_rssFeeds_rssFeedImage" title="RSS Feed" class="RssImage" src="../App_Themes/CodePlex/images/icon.rss.gif" alt="RSS Feed" align="absmiddle" border="0" /><a id="ctl00_ctl00_ctl00_Content_ProjectBaseMain_tabs_rssFeeds_MainRssLink" href="http://www.codeplex.com/quickgraph/Project/ProjectRss.aspx">RSS</a><img id="ctl00_ctl00_ctl00_Content_ProjectBaseMain_tabs_rssFeeds_rssDownArrow" hspace="5" src="../App_Themes/CodePlex/images/arrow_dsc.gif" align="absmiddle" height="5" width="9" border="0" style="border: 0px; align: baseline;" /></span>
+
+</div>
+        <div id="ctl00_ctl00_ctl00_Content_ProjectBaseMain_tabs_rssFeeds_FeedsPanel" class="RssFeedsPanel" style="display:none;">
+	
+            <div id="ctl00_ctl00_ctl00_Content_ProjectBaseMain_tabs_rssFeeds_ProjectPanel">
+		
+                <img hspace="5" src="../App_Themes/CodePlex/images/arrow_sm.gif" height="7" width="4" border="0" style="border: 0px; align: baseline;" />
+                <a id="ctl00_ctl00_ctl00_Content_ProjectBaseMain_tabs_rssFeeds_ProjectRssLink" title="All project updates" href="http://www.codeplex.com/quickgraph/Project/ProjectRss.aspx">QuickGraph, Graph Data Structures And Algorithms for .Net</a>
+            
+	</div>
+            <div id="ctl00_ctl00_ctl00_Content_ProjectBaseMain_tabs_rssFeeds_DiscussionsPanel">
+		
+                <img hspace="5" src="../App_Themes/CodePlex/images/arrow_sm.gif" height="7" width="4" border="0" style="border: 0px; align: baseline;" />
+                <a id="ctl00_ctl00_ctl00_Content_ProjectBaseMain_tabs_rssFeeds_DiscussionsRssLink" title="New threads and posts" href="http://www.codeplex.com/quickgraph/Project/ProjectRss.aspx?ProjectRSSFeed=codeplex%3a%2f%2fforum%2fquickgraph">Discussions</a>
+            
+	</div>
+            <div id="ctl00_ctl00_ctl00_Content_ProjectBaseMain_tabs_rssFeeds_IssueTrackerPanel">
+		
+                <img hspace="5" src="../App_Themes/CodePlex/images/arrow_sm.gif" height="7" width="4" border="0" style="border: 0px; align: baseline;" />
+                <a id="ctl00_ctl00_ctl00_Content_ProjectBaseMain_tabs_rssFeeds_IssueTrackerRssLink" title="New and updated work items" href="http://www.codeplex.com/quickgraph/Project/ProjectRss.aspx?ProjectRSSFeed=codeplex%3a%2f%2fworkitem%2fquickgraph">Issue Tracker</a>
+            
+	</div>
+            <div id="ctl00_ctl00_ctl00_Content_ProjectBaseMain_tabs_rssFeeds_ReleasesPanel">
+		
+                <img hspace="5" src="../App_Themes/CodePlex/images/arrow_sm.gif" height="7" width="4" border="0" style="border: 0px; align: baseline;" />
+                <a id="ctl00_ctl00_ctl00_Content_ProjectBaseMain_tabs_rssFeeds_ReleasesRssLink" title="New and updated releases" href="http://www.codeplex.com/quickgraph/Project/ProjectRss.aspx?ProjectRSSFeed=codeplex%3a%2f%2frelease%2fquickgraph">Releases</a>
+            
+	</div>            
+            <div id="ctl00_ctl00_ctl00_Content_ProjectBaseMain_tabs_rssFeeds_SourceControlPanel">
+		
+                <img hspace="5" src="../App_Themes/CodePlex/images/arrow_sm.gif" height="7" width="4" border="0" style="border: 0px; align: baseline;" />
+                <a id="ctl00_ctl00_ctl00_Content_ProjectBaseMain_tabs_rssFeeds_SourceControlRssLink" title="New check-ins" href="http://www.codeplex.com/quickgraph/Project/ProjectRss.aspx?ProjectRSSFeed=codeplex%3a%2f%2fsourcecontrol%2fquickgraph">Source Code</a>
+            
+	</div>
+            <div id="ctl00_ctl00_ctl00_Content_ProjectBaseMain_tabs_rssFeeds_WikiPanel">
+		
+                <img hspace="5" src="../App_Themes/CodePlex/images/arrow_sm.gif" height="7" width="4" border="0" style="border: 0px; align: baseline;" />
+                <a id="ctl00_ctl00_ctl00_Content_ProjectBaseMain_tabs_rssFeeds_WikiRssLink" title="New and updated wiki pages" href="http://www.codeplex.com/quickgraph/Project/ProjectRss.aspx?ProjectRSSFeed=codeplex%3a%2f%2fwiki%2fquickgraph">Wiki</a>
+            
+	</div>
+        
+</div>
+
+        </td>
+    </tr>
+</table>
+            <div class="ProjectPageContent">
+                
+    <script language="javascript" src="/scripts/wiki.js"></script>
+
+    <input name="ctl00$ctl00$ctl00$Content$ProjectBaseMain$ProjectMain$ReferringTitleHidden" type="hidden" id="ctl00_ctl00_ctl00_Content_ProjectBaseMain_ProjectMain_ReferringTitleHidden" value="Home" />
+    
+    <table cellpadding="0" cellspacing="0" style="width: 100%">
+        <tr id="wikiTop" width="100%">
+            <td align="left" style="padding-left:7px;padding-right:2px;" nowrap="nowrap">
+                <div id="ctl00_ctl00_ctl00_Content_ProjectBaseMain_ProjectMain_wikiLinksPanel">
+	
+                    
+                    
+                    <a id="ctl00_ctl00_ctl00_Content_ProjectBaseMain_ProjectMain_CommentsHyperLink" href="#CommentsAnchor">Comments</a>
+                    <span id="ctl00_ctl00_ctl00_Content_ProjectBaseMain_ProjectMain_CommentsPipe">|</span>
+                    <a id="ctl00_ctl00_ctl00_Content_ProjectBaseMain_ProjectMain_printerFriendlyHyperLink" href="javascript:openPreviewWikiWindow('http://www.codeplex.com/quickgraph/Wiki/Print.aspx?title=Home&amp;version=19&amp;action=Print');">Print</a>
+                    <span id="ctl00_ctl00_ctl00_Content_ProjectBaseMain_ProjectMain_printerPipe">|</span> 
+                    <a id="ctl00_ctl00_ctl00_Content_ProjectBaseMain_ProjectMain_pageInfoHyperLink" href="http://www.codeplex.com/quickgraph/Wiki/Info.aspx?title=Home&amp;action=Info">Page Info</a>
+                    <span id="ctl00_ctl00_ctl00_Content_ProjectBaseMain_ProjectMain_changesPipe">|</span> 
+                    <a id="ctl00_ctl00_ctl00_Content_ProjectBaseMain_ProjectMain_changesHyperlink" href="http://www.codeplex.com/quickgraph/Wiki/Recent.aspx">Change History (all pages)</a>
+                
+</div>
+            </td>
+            <td align="right" nowrap="nowrap" style="padding-left:2px;padding-right:7px;">
+                <span id="ctl00_ctl00_ctl00_Content_ProjectBaseMain_ProjectMain_searchTextLabel">Search Wiki: </span><span id="ctl00_ctl00_ctl00_Content_ProjectBaseMain_ProjectMain_searchWikiControl"><div id="ctl00_ctl00_ctl00_Content_ProjectBaseMain_ProjectMain_searchWikiControl_searchPanel" style="display: inline;">
+	<input name="ctl00$ctl00$ctl00$Content$ProjectBaseMain$ProjectMain$searchWikiControl$searchTextBox" type="text" id="ctl00_ctl00_ctl00_Content_ProjectBaseMain_ProjectMain_searchWikiControl_searchTextBox" class="SearchBoxTextBox" /><input type="image" name="ctl00$ctl00$ctl00$Content$ProjectBaseMain$ProjectMain$searchWikiControl$SearchButton" id="ctl00_ctl00_ctl00_Content_ProjectBaseMain_ProjectMain_searchWikiControl_SearchButton" class="smallSearchButton" src="../App_Themes/CodePlex/images/headerprojectsearchbutton.gif" alt="Search" align="middle" border="0" />
+</div></span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" align="left" style="text-align: left">
+                
+                        <div class="breadcrumbs">
+                    
+                            <a href="http://www.codeplex.com/quickgraph/Wiki/View.aspx">Home</a>
+                    
+                        </div>
+                    
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" class="wikiSource">
+                <span id="ctl00_ctl00_ctl00_Content_ProjectBaseMain_ProjectMain_wikiSourceLabel"><div class="wikidoc">
+<img src="http://www.codeplex.com/quickgraph/Project/FileDownload.aspx?DownloadId=10930" alt="quickgraph.banner.png" /><br /> <br /><h5>
+QuickGraph 2.0: Generic Graph Data Structures and Algorithms for .Net.
+</h5> <br /><b>QuickGraph 2.0</b> provides <i>generic</i> directed graph datastructures and algorithms for .Net 2.0. QuickGraph comes with algorithms such as depth first seach, breath first search, shortest path, network flow etc... QuickGraph supports <a href="http://www.codeplex.com/quickgraph/Wiki/View.aspx?title=GLEE&amp;referringTitle=Home">GLEE</a> and <a href="http://www.codeplex.com/quickgraph/Wiki/View.aspx?title=Graphviz&amp;referringTitle=Home">Graphviz</a> to render the graphs.<br /> <br /><h5>
+History 
+</h5> <br />The original QuickGraph for .net 1.0 was posted on <a href="http://www.codeproject.com/cs/miscctrl/quickgraph.asp" class="externalLink">CodeProject<span class="externalLinkIcon"></span></a> in  8 Dec 2003. It was time to do a refresh and make the graph generic.<br /> <br />The design of QuickGraph is inspired from the <a href="http://www.codeplex.com/quickgraph/Wiki/View.aspx?title=Boost%20Graph%20Library&amp;referringTitle=Home">Boost Graph Library</a>.<br /> <br /><h5>
+Where to go next?
+</h5> <br /><ul>
+<li><a href="http://www.codeplex.com/quickgraph/Wiki/View.aspx?title=User%20Manual&amp;referringTitle=Home">User Manual</a></li><li><a href="http://www.codeplex.com/quickgraph/Wiki/View.aspx?title=FAQ&amp;referringTitle=Home">FAQ</a></li><li><a href="http://blog.dotnetwiki.org" class="externalLink">Peli's blog<span class="externalLinkIcon"></span></a></li>
+</ul> <br /><b>Please use the discussions section to leave messages. Since there are no notifications for wiki comments, they will likely never be read</b><br />
+</div></span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" class="wikiSource">
+                <div id="ctl00_ctl00_ctl00_Content_ProjectBaseMain_ProjectMain_editedInfoPanel">
+	
+                    <span class="SubText">
+                        Last edited <span class="smartDate" LocalTimeTicks="1178041065">May 1 at 5:37 PM<abbr>
+
+	</abbr></span>&nbsp;by&nbsp;<a id="ctl00_ctl00_ctl00_Content_ProjectBaseMain_ProjectMain_wikiEditByLink" href="/UserAccount/UserProfile.aspx?UserName=pelikhan">pelikhan</a>, version 19
+                    </span>
+                
+</div>
+                
+                
+                
+            </td>
+        </tr>
+        <tr>
+        <td colspan="2">
+            
+    
+<div>
+    <div id="CommentsAnchor" class="CommentsHeader">Comments</div>
+    <div style="padding:.5em;">
+        <div id="ctl00_ctl00_ctl00_Content_ProjectBaseMain_ProjectMain_newCollapse_content" style="display:inline">
+            <div id="ctl00_ctl00_ctl00_Content_ProjectBaseMain_ProjectMain_newCollapse_CommentUpdatePanel">
+	
+                    
+                    <div id="ctl00_ctl00_ctl00_Content_ProjectBaseMain_ProjectMain_newCollapse_addComment">
+                        <a id="ctl00_ctl00_ctl00_Content_ProjectBaseMain_ProjectMain_newCollapse_SignInToAddCommentLink" href="https://www.codeplex.com/UserAccount/Login.aspx?ReturnUrl=http%3a%2f%2fwww.codeplex.com%2fquickgraph%2fWiki%2fView.aspx">Sign in to add a comment</a>
+                    </div>
+                    
+                
+</div>
+        </div>
+    </div>
+</div>
+        </td>
+        </tr>
+    </table>
+
+            </div>
+        </div>
+    </td>
+    <td valign="top">
+        <div class="rightSidebarNoPadding">
+            
+    
+<div class="CodePlexPanel">
+    <div id="ctl00_ctl00_ctl00_Content_ProjectBaseMain_ProjectSidebar_CurrentRelease1_Sidebar_HeaderDiv" class="CodePlexPanelHeaderGray">
+        Current Release
+    </div>
+    <div id="ctl00_ctl00_ctl00_Content_ProjectBaseMain_ProjectSidebar_CurrentRelease1_Sidebar_ContentDiv" class="CodePlexPanelSidebarContent">
+        
+        <div id="ctl00_ctl00_ctl00_Content_ProjectBaseMain_ProjectSidebar_CurrentRelease1_Sidebar_ReleasePanel">
+	
+            <div class="StandardPadding"><a id="ctl00_ctl00_ctl00_Content_ProjectBaseMain_ProjectSidebar_CurrentRelease1_Sidebar_releaseLink" href="http://www.codeplex.com/quickgraph/Release/ProjectReleases.aspx?ReleaseId=6631">2.0.30824.00</a></div>
+            <div><span class="smartDate full" LocalTimeTicks="1187938800"><font size="2">Fri Aug 24 2007 at 7:00 AM<abbr>
+
+	</abbr></font></span></div>
+        
+</div>
+        
+    
+    </div>
+    <div id="ctl00_ctl00_ctl00_Content_ProjectBaseMain_ProjectSidebar_CurrentRelease1_Sidebar_FooterDiv" class="CodePlexPanelFooterGray">
+        
+        <a id="ctl00_ctl00_ctl00_Content_ProjectBaseMain_ProjectSidebar_CurrentRelease1_Sidebar_AllReleaseLink" href="http://www.codeplex.com/quickgraph/Release/ProjectReleases.aspx">All Releases</a><img id="ctl00_ctl00_ctl00_Content_ProjectBaseMain_ProjectSidebar_CurrentRelease1_Sidebar_Image3" hspace="5" src="../App_Themes/CodePlex/images/arrow_sm.gif" height="7" width="4" border="0" style="border: 0px; align: baseline;" />
+    
+    </div>
+</div>
+
+
+    <div id="ctl00_ctl00_ctl00_Content_ProjectBaseMain_ProjectSidebar_ProjectActivity1_ActivityUpdatePanel">
+	
+        
+<div class="CodePlexPanel">
+    <div id="ctl00_ctl00_ctl00_Content_ProjectBaseMain_ProjectSidebar_ProjectActivity1_Sidebar_HeaderDiv" class="CodePlexPanelHeaderGray">
+        
+                <span class="CodePlexPanelHeaderSmall" style="float: right;vertical-align:bottom;margin-top:.25em;">
+                    <span id="ctl00_ctl00_ctl00_Content_ProjectBaseMain_ProjectSidebar_ProjectActivity1_Sidebar_SevenLabel">7</span>
+                    <a id="ctl00_ctl00_ctl00_Content_ProjectBaseMain_ProjectSidebar_ProjectActivity1_Sidebar_ThirtyLink" href="javascript:__doPostBack('ctl00$ctl00$ctl00$Content$ProjectBaseMain$ProjectSidebar$ProjectActivity1$Sidebar$ThirtyLink','')">30</a>
+                    <a id="ctl00_ctl00_ctl00_Content_ProjectBaseMain_ProjectSidebar_ProjectActivity1_Sidebar_AllLink" href="javascript:__doPostBack('ctl00$ctl00$ctl00$Content$ProjectBaseMain$ProjectSidebar$ProjectActivity1$Sidebar$AllLink','')">All</a>
+                    days
+                </span>
+                Activity
+            
+    </div>
+    <div id="ctl00_ctl00_ctl00_Content_ProjectBaseMain_ProjectSidebar_ProjectActivity1_Sidebar_ContentDiv" class="CodePlexPanelSidebarContent">
+        
+                <table cellspacing="0" cellpadding="0" width="100%">
+                    <tr class="GridRow">
+                        <td><div class="StandardPadding">Page Views</div></td>
+                        <td><div class="SidebarValue StandardPadding"><span id="ctl00_ctl00_ctl00_Content_ProjectBaseMain_ProjectSidebar_ProjectActivity1_Sidebar_pageViews">1980</span></div></td>
+                    </tr>
+                    <tr class="GridAltRow">
+                        <td><div class="StandardPadding">Visits</div></td>
+                        <td><div class="SidebarValue StandardPadding"><span id="ctl00_ctl00_ctl00_Content_ProjectBaseMain_ProjectSidebar_ProjectActivity1_Sidebar_visits">341</span></div></td>
+                    </tr>
+                    <tr class="GridRow">
+                        <td><div class="StandardPadding">Pages Per Visit</div></td>
+                        <td><div class="SidebarValue StandardPadding"><span id="ctl00_ctl00_ctl00_Content_ProjectBaseMain_ProjectSidebar_ProjectActivity1_Sidebar_pagesPerVisit">5.81</span></div></td>
+                    </tr>
+                    <tr class="GridAltRow">
+                        <td><div class="StandardPadding">Work Items Closed</div></td>
+                        <td><div class="SidebarValue StandardPadding"><span id="ctl00_ctl00_ctl00_Content_ProjectBaseMain_ProjectSidebar_ProjectActivity1_Sidebar_workItemsClosed">0</span></div></td>
+                    </tr>        
+                    <tr class="GridRow">
+                        <td><div class="StandardPadding">Discussion Posts</div></td>
+                        <td><div class="SidebarValue StandardPadding"><span id="ctl00_ctl00_ctl00_Content_ProjectBaseMain_ProjectSidebar_ProjectActivity1_Sidebar_forumPosts">8</span></div></td>
+                    </tr> 
+                </table>    
+            
+    </div>
+    <div id="ctl00_ctl00_ctl00_Content_ProjectBaseMain_ProjectSidebar_ProjectActivity1_Sidebar_FooterDiv" class="CodePlexPanelFooterGray">
+        
+                <img id="ctl00_ctl00_ctl00_Content_ProjectBaseMain_ProjectSidebar_ProjectActivity1_Sidebar_WebTrendsLogo" src="../App_Themes/CodePlex/images/WT_logo_180x20.gif" border="0" />
+            
+    </div>
+</div>
+
+    
+</div>
+
+    
+    
+
+        </div>
+    </td>
+
+            </tr>
+        </table>
+    </div>
+
+                        <!-- Footer -->
+                        </td></tr>
+                        <tr><td valign="bottom">
+                        <div id="footer" class="White">
+                            <span id="leftContent">© 2006-2007 Microsoft
+                                <a href='http://privacy.microsoft.com'>Privacy Statement</a>
+                                <a href='/Legal/Terms.aspx'>Terms of Use</a>
+                                <a href='/Legal/Conduct.aspx'>Code of Conduct</a>
+                            </span><span id="rightContent">Version
+                                7.7.3.11238
+                            </span>
+                        </div>
+                        </td></tr>
+                        <!-- End Footer -->
+                      </table>
+                    </td>
+                    <td id="rightColumn"><img id="ctl00_ctl00_ctl00_RightColumn" src="../App_Themes/CodePlex/images/bkgd_right_column.gif" border="0" /></td>
+                </tr>
+            </table>
+            <div id="ctl00_ctl00_ctl00_UpdateProgressPanel" style="display:block;">
+	
+                    <div class="FullPanel">
+                        <div class="ModalBackground FullPanel"></div>
+                        <table id="UpdateProgressTable" class="FullPanel">
+                            <tr>
+                                <td align="center" valign="middle">
+                                    <div id="UpdateProgressMessage" class="UpdateProgress"><span class="UpdateProgressText">Updating...</span></div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                
+</div>
+        </td></tr>
+    </table>
+    
+<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEWCQLsrMqlDQL52cq9DQLhpMOwBQL0rOjRBgL60YvOBQKD6qm7BQKHm6m3BQKXn/AfArr/5YQIo50M1CdfRWoLJs/A5wAJ+DBV7OQ=" />
+
+<script type="text/javascript">
+<!--
+Sys.Application.initialize();
+Sys.Application.add_init(function() {
+    $create(AjaxControlToolkit.HoverMenuBehavior, {"DynamicServicePath":"/Wiki/View.aspx","OffsetY":18,"id":"ctl00_ctl00_ctl00_Content_ProjectBaseMain_tabs_rssFeeds_HoverMenu","popupElement":$get("ctl00_ctl00_ctl00_Content_ProjectBaseMain_tabs_rssFeeds_FeedsPanel")}, null, null, $get("ctl00_ctl00_ctl00_Content_ProjectBaseMain_tabs_rssFeeds_RssLabel"));
+});
+// -->
+</script>
+</form>
+
+<script type="text/javascript" src="/Scripts/UpdateProgress.js" xonload="if(typeof(CodePlex)!='undefined'&&CodePlex.UpdateProgress)CodePlex.UpdateProgress.initialize('ctl00_ctl00_ctl00_UpdateProgressPanel');"></script>
+<script type="text/javascript">
+    if(typeof(CodePlex)!='undefined'&&CodePlex.UpdateProgress)CodePlex.UpdateProgress.initialize('ctl00_ctl00_ctl00_UpdateProgressPanel');
+</script>
+
+<script type="text/javascript">
+    SmartDate_Load(); // Fixup GMT dates
+    Sys.WebForms.PageRequestManager.getInstance().add_pageLoaded(SmartDate_Load);
+</script>
+
+<SCRIPT TYPE="text/javascript">
+var ProductionDomains="codeplex.com";
+var gDomain="m.webtrends.com";
+var gTrackEvents=1;
+var a=ProductionDomains.split(',');var b=0;for(var i=0;i<a.length;i++){if(window.location.host.indexOf(a[i])!=-1){b++;}}if(b!=0){var gDcsId="dcsnbepko00000c1t09pkmw6c_3y7n";}if(b==0){var gDcsId="dcseyn9uo100004ncoak1iy6c_3p2y";}
+var gFpc="WT_FPC";if(document.cookie.indexOf(gFpc+"=")==-1){document.write("<SCR"+"IPT TYPE='text/javascript' SRC='"+"http"+(window.location.protocol.indexOf('https:')==0?'s':'')+"://"+gDomain+"/"+gDcsId+"/wtid.js"+"'><\/SCR"+"IPT>");}
+</SCRIPT>
+<SCRIPT SRC='/scripts/Codeplex_webtrends_040706.js' TYPE="text/javascript"></SCRIPT>
+
+<NOSCRIPT>
+<IMG ALT="" BORDER="0" ID="DCSIMG" WIDTH="1" HEIGHT="1" SRC="http://m.webtrends.com/dcsnbepko00000c1t09pkmw6c_3y7n/njs.gif?dcsuri=/nojavascript&amp;WT.js=No">
+</NOSCRIPT>
+
+</body>
+</html>

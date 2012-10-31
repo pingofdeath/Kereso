@@ -1,0 +1,108 @@
+<HTML>
+<HEAD>
+<TITLE>Floyd-Warshall C++ Implementation</TITLE>
+</HEAD>
+
+<BODY>
+
+<P STYLE="margin-bottom: 0in"><FONT SIZE=4 STYLE="font-size: 16pt">
+<B>Floyd-Warshall Algorithm in C++</B></FONT>
+<BR>by <A HREF="http://www.ece.rice.edu/~jpr/">Joshua Robinson</A> (jpr at rice.edu)<BR>
+<FONT SIZE=2>Please send me any comments, questions, suggestions, or corrections</FONT><BR>
+<HR>
+
+The following is a C++ implementation of the <A HREF="http://en.wikipedia.org/wiki/Floyd-Warshall_algorithm">Floyd-Warshall algorithm</A> for
+solving the all-pairs <A HREF="http://en.wikipedia.org/wiki/Shortest_path_problem">shortest path problem</A>.  The code is not guaranteed to run correctly in all cases as I have only tested it on my system, but if it does not, please let me know! 
+
+<PRE>
+// Floyd-Warshall algorithm
+// 
+//  solves the all-pairs shortest path problem using Floyd-Warshall algorithm
+//  inputs:  nn, number of nodes
+//           connectivity matrix cmat, where 0 means disconnected
+//             and distances are all positive.  array of doubles of
+//             length (nn*nn).
+//  outputs: 
+//           dist_mat - shortest path distances(the answer)
+//           pred_mat - predicate matrix, useful in reconstructing shortest routes
+//           Note that the caller should provide empty pointers as this 
+//           function will handle the malloc() calls.
+void fwarsh(int nn, double *cmat, double **dist_mat, int **pred_mat)
+{
+  double *dist;
+  int *pred;
+  int i,j,k; //loop counters
+
+  //initialize data structures
+  dist = (double *)malloc(sizeof(double) * nn * nn);
+  pred = (int *)malloc(sizeof(int) * nn * nn);
+  memset(dist, 0, sizeof(double)*nn*nn);
+  memset(pred, 0, sizeof(int)*nn*nn);
+
+  //algorithm initialization
+  for (i=0; i &lt nn; i++) {
+    for (j=0; j &lt nn; j++) {
+      if (cmat[i*nn+j] != 0.0)
+	dist[i*nn+j] = cmat[i*nn + j];
+      else
+	dist[i*nn+j] = HUGE_VAL; //disconnected
+
+      if (i==j)  //diagonal case
+	dist[i*nn+j] = 0;
+
+      if ((dist[i*nn + j] &gt 0.0) && (dist[i*nn+j] &lt HUGE_VAL))
+	pred[i*nn+j] = i;
+    }
+  }
+ 
+  //Main loop of the algorithm
+  for (k=0; k &lt nn; k++) {
+    for (i=0; i &lt nn; i++) {
+      for (j=0; j &lt nn; j++) {
+	if (dist[i*nn+j] &gt (dist[i*nn+k] + dist[k*nn+j])) {
+	  dist[i*nn+j] = dist[i*nn+k] + dist[k*nn+j];
+	  pred[i*nn+j] = pred[k*nn+j];
+	  //printf("updated entry %d,%d with %d\n", i,j, dist[i*nn+j]);
+	}
+      }
+    }
+  }
+
+  /* //Print out the results table of shortest distances
+  for (i=0; i &lt nn; i++) {
+    for (j=0; j &lt nn; j++)
+      printf("%g ", dist[i*nn+j]);
+    printf("\n");
+    } */
+  
+  //now set the dist and pred matrices for the calling function
+  //but do some checks because we allow NULL to be passed if the user
+  //doesn't care about one of the results.
+  if (dist_mat)
+    *dist_mat = dist;
+  else
+    free(dist);
+
+  if (pred_mat)
+    *pred_mat = pred;
+  else
+    free(pred);
+
+  return;
+}  //end of fwarsh()
+</PRE>
+
+
+<!-- Start of StatCounter Code -->
+<script type="text/javascript" language="javascript">
+var sc_project=2272700; 
+var sc_invisible=1; 
+var sc_partition=20; 
+var sc_security="aa1e2c07"; 
+</script>
+
+<script type="text/javascript" language="javascript" src="http://www.statcounter.com/counter/counter.js"></script><noscript><a href="http://www.statcounter.com/" target="_blank"><img  src="http://c21.statcounter.com/counter.php?sc_project=2272700&java=0&security=aa1e2c07&invisible=1" alt="counter customizable free hit" border="0"></a> </noscript>
+<!-- End of StatCounter Code -->
+
+</BODY>
+</HTML>

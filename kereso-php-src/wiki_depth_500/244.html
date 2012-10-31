@@ -1,0 +1,565 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+				<meta name="keywords" content="Travelling salesman problem,1954,A. H. G. Rinnooy Kan,Alpha processor,Ant colony optimization,Approximation algorithm,Artificial intelligence,Assignment problem,Bottleneck traveling salesman problem,Branch and bound,Brute force search" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="http://www.gnu.org/copyleft/fdl.html" />
+		<title>Travelling salesman problem - Wikipedia, the free encyclopedia</title>
+		<style type="text/css" media="screen, projection">/*<![CDATA[*/
+			@import "/skins-1.5/common/shared.css?99";
+			@import "/skins-1.5/monobook/main.css?99";
+		/*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="/skins-1.5/common/commonPrint.css?99" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE50Fixes.css?99";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE55Fixes.css?99";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "/skins-1.5/monobook/IE60Fixes.css?99";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "/skins-1.5/monobook/IE70Fixes.css?99";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="/skins-1.5/common/IEFixes.js?99"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		
+		<script type= "text/javascript">/*<![CDATA[*/
+var skin = "monobook";
+var stylepath = "/skins-1.5";
+var wgArticlePath = "/wiki/$1";
+var wgScriptPath = "/w";
+var wgScript = "/w/index.php";
+var wgServer = "http://en.wikipedia.org";
+var wgCanonicalNamespace = "";
+var wgCanonicalSpecialPageName = false;
+var wgNamespaceNumber = 0;
+var wgPageName = "Travelling_salesman_problem";
+var wgTitle = "Travelling salesman problem";
+var wgAction = "view";
+var wgRestrictionEdit = [];
+var wgRestrictionMove = [];
+var wgArticleId = "31248";
+var wgIsArticle = true;
+var wgUserName = null;
+var wgUserGroups = null;
+var wgUserLanguage = "en";
+var wgContentLanguage = "en";
+var wgBreakFrames = false;
+var wgCurRevisionId = "157267816";
+/*]]>*/</script>
+                
+		<script type="text/javascript" src="/skins-1.5/common/wikibits.js?99"><!-- wikibits js --></script>
+		<script type="text/javascript" src="/w/index.php?title=-&amp;action=raw&amp;gen=js&amp;useskin=monobook"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "/w/index.php?title=MediaWiki:Common.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=MediaWiki:Monobook.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=-&action=raw&gen=css&maxage=2678400";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+		<script type="text/javascript" src="/skins-1.5/common/ajax.js?99"></script>
+	</head>
+<body  class="mediawiki ns-0 ltr page-Travelling_salesman_problem">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">Travelling salesman problem</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+			<div id="contentSub">(Redirected from <a href="/w/index.php?title=Traveling_salesman_problem&amp;redirect=no" title="Traveling salesman problem">Traveling salesman problem</a>)</div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<div class="thumb tright">
+<div class="thumbinner" style="width:182px;"><a href="/wiki/Image:Salesman.PNG" class="image" title="If a salesman starts at point A, and if the distances between every pair of points are known, what is the shortest route which visits all points and returns to point A?"><img alt="If a salesman starts at point A, and if the distances between every pair of points are known, what is the shortest route which visits all points and returns to point A?" src="http://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Salesman.PNG/180px-Salesman.PNG" width="180" height="157" border="0" class="thumbimage" /></a>
+<div class="thumbcaption">
+<div class="magnify" style="float:right"><a href="/wiki/Image:Salesman.PNG" class="internal" title="Enlarge"><img src="/skins-1.5/common/images/magnify-clip.png" width="15" height="11" alt="" /></a></div>
+If a salesman starts at point A, and if the distances between every pair of points are known, what is the shortest route which visits all points and returns to point A?</div>
+</div>
+</div>
+<p>The <b>travelling salesman problem</b> (<b>TSP</b>) is a problem in <a href="/wiki/Discrete_optimization" title="Discrete optimization">discrete</a> or <a href="/wiki/Combinatorial_optimization" title="Combinatorial optimization">combinatorial optimization</a>. It is a prominent illustration of a class of problems in <a href="/wiki/Computational_complexity_theory" title="Computational complexity theory">computational complexity theory</a> which are classified as <a href="/wiki/NP-hard" title="NP-hard">NP-hard</a>. Mathematical problems related to the travelling salesman problem were treated in the 1800s by the Irish mathematician Sir <a href="/wiki/William_Rowan_Hamilton" title="William Rowan Hamilton">William Rowan Hamilton</a> and by the British mathematician <a href="/wiki/Thomas_Penyngton_Kirkman" title="Thomas Penyngton Kirkman">Thomas Penyngton Kirkman</a>. A discussion of the early work of Hamilton and Kirkman can be found in <i>Graph Theory 1736-1936</i>. <sup id="_ref-0" class="reference"><a href="#_note-0" title="">[1]</a></sup> The general form of the TSP appears to have been first studied by mathematicians during the 1930s in Vienna and at Harvard, notably by <a href="/wiki/Karl_Menger" title="Karl Menger">Karl Menger</a>. The problem was later undertaken by <a href="/wiki/Hassler_Whitney" title="Hassler Whitney">Hassler Whitney</a> and <a href="/wiki/Merrill_Flood" title="Merrill Flood">Merrill Flood</a> at Princeton. A detailed treatment of the connection between Menger and Whitney as well as the growth in the study of TSP can be found in <a href="/w/index.php?title=Alexander_Schrijver&amp;action=edit" class="new" title="Alexander Schrijver">Alexander Schrijver</a>'s 2005 paper "On the history of combinatorial optimization (till 1960)".<sup id="_ref-1" class="reference"><a href="#_note-1" title="">[2]</a></sup></p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Problem_statement"><span class="tocnumber">1</span> <span class="toctext">Problem statement</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Related_problems"><span class="tocnumber">1.1</span> <span class="toctext">Related problems</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Computational_complexity"><span class="tocnumber">2</span> <span class="toctext">Computational complexity</span></a></li>
+<li class="toclevel-1"><a href="#NP-hardness"><span class="tocnumber">3</span> <span class="toctext">NP-hardness</span></a></li>
+<li class="toclevel-1"><a href="#Algorithms"><span class="tocnumber">4</span> <span class="toctext">Algorithms</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Exact_algorithms"><span class="tocnumber">4.1</span> <span class="toctext">Exact algorithms</span></a></li>
+<li class="toclevel-2"><a href="#Heuristics"><span class="tocnumber">4.2</span> <span class="toctext">Heuristics</span></a>
+<ul>
+<li class="toclevel-3"><a href="#Constructive_heuristics"><span class="tocnumber">4.2.1</span> <span class="toctext">Constructive heuristics</span></a></li>
+<li class="toclevel-3"><a href="#Iterative_improvement"><span class="tocnumber">4.2.2</span> <span class="toctext">Iterative improvement</span></a></li>
+<li class="toclevel-3"><a href="#Randomised_improvement"><span class="tocnumber">4.2.3</span> <span class="toctext">Randomised improvement</span></a>
+<ul>
+<li class="toclevel-4"><a href="#Example_letting_the_inversion_operator_find_a_good_solution"><span class="tocnumber">4.2.3.1</span> <span class="toctext">Example letting the inversion operator find a good solution</span></a></li>
+<li class="toclevel-4"><a href="#Ant_colony_optimization"><span class="tocnumber">4.2.3.2</span> <span class="toctext">Ant colony optimization</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-2"><a href="#Special_cases"><span class="tocnumber">4.3</span> <span class="toctext">Special cases</span></a>
+<ul>
+<li class="toclevel-3"><a href="#Triangle_inequality_and_the_Christofides_algorithm"><span class="tocnumber">4.3.1</span> <span class="toctext">Triangle inequality and the Christofides algorithm</span></a></li>
+<li class="toclevel-3"><a href="#Euclidean_TSP"><span class="tocnumber">4.3.2</span> <span class="toctext">Euclidean TSP</span></a></li>
+<li class="toclevel-3"><a href="#Asymmetric_TSP"><span class="tocnumber">4.3.3</span> <span class="toctext">Asymmetric TSP</span></a>
+<ul>
+<li class="toclevel-4"><a href="#Solving_by_conversion_to_Symmetric_TSP"><span class="tocnumber">4.3.3.1</span> <span class="toctext">Solving by conversion to Symmetric TSP</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Human_performance_on_TSP"><span class="tocnumber">5</span> <span class="toctext">Human performance on TSP</span></a></li>
+<li class="toclevel-1"><a href="#TSP_path_length"><span class="tocnumber">6</span> <span class="toctext">TSP path length</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Lower_bound"><span class="tocnumber">6.1</span> <span class="toctext">Lower bound</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Notes"><span class="tocnumber">7</span> <span class="toctext">Notes</span></a></li>
+<li class="toclevel-1"><a href="#References"><span class="tocnumber">8</span> <span class="toctext">References</span></a></li>
+<li class="toclevel-1"><a href="#See_also"><span class="tocnumber">9</span> <span class="toctext">See also</span></a></li>
+<li class="toclevel-1"><a href="#External_links"><span class="tocnumber">10</span> <span class="toctext">External links</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script>
+<p><a name="Problem_statement" id="Problem_statement"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Travelling_salesman_problem&amp;action=edit&amp;section=1" title="Edit section: Problem statement">edit</a>]</span> <span class="mw-headline">Problem statement</span></h2>
+<p>Given a number of cities and the costs of travelling from any city to any other city, what is the cheapest round-trip route that visits each city exactly once and then returns to the starting city?</p>
+<p><b>Observation:</b> the size of the solution space is <img class="tex" alt="\tfrac{1}{2}(n-1)!" src="http://upload.wikimedia.org/math/0/4/c/04c38cf161d92b2caaa4bb1504073b4a.png" /> for <i>n</i> &gt; 2, where <i>n</i> is the number of cities. This is the number of <a href="/wiki/Hamiltonian_cycle" title="Hamiltonian cycle">Hamiltonian cycles</a> in a <a href="/wiki/Complete_graph" title="Complete graph">complete graph</a> of <i>n</i> nodes, that is, closed <a href="/wiki/Path_%28graph_theory%29" title="Path (graph theory)">paths</a> that visit all nodes exactly once.</p>
+<p><a name="Related_problems" id="Related_problems"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Travelling_salesman_problem&amp;action=edit&amp;section=2" title="Edit section: Related problems">edit</a>]</span> <span class="mw-headline">Related problems</span></h3>
+<ol>
+<li>An equivalent formulation in terms of <a href="/wiki/Graph_theory" title="Graph theory">graph theory</a> is: Given a <a href="/wiki/Glossary_of_graph_theory" title="Glossary of graph theory">complete weighted graph</a> (where the vertices would represent the cities, the edges would represent the roads, and the weights would be the cost or distance of that road), find a <a href="/wiki/Hamiltonian_path" title="Hamiltonian path">Hamiltonian cycle</a> with the least weight. It can be shown that the requirement of returning to the starting city does not change the <a href="/wiki/Computational_complexity" title="Computational complexity">computational complexity</a> of the problem.<sup class="noprint Template-Fact"><span title="This claim needs references to reliable sources&#160;since August 2007" style="white-space: nowrap;">[<i><a href="/wiki/Wikipedia:Citing_sources" title="Wikipedia:Citing sources">citation needed</a></i>]</span></sup></li>
+<li>Another related problem is the <a href="/wiki/Bottleneck_traveling_salesman_problem" title="Bottleneck traveling salesman problem">bottleneck travelling salesman problem</a> (bottleneck TSP): Find a <a href="/wiki/Hamiltonian_path" title="Hamiltonian path">Hamiltonian cycle</a> in a <a href="/wiki/Glossary_of_graph_theory" title="Glossary of graph theory">weighted graph</a> with the minimal length of the longest <a href="/wiki/Edge_%28graph_theory%29" title="Edge (graph theory)">edge</a>. The problem is of considerable practical importance, apart from evident transportation and logistics areas. A classic example is in <a href="/wiki/Printed_circuit_board" title="Printed circuit board">printed circuit</a> manufacturing: scheduling of a route of the drill machine to drill holes in a PCB. In robotic machining or drilling applications, the "cities" are parts to machine or holes (of different sizes) to drill, and the "cost of travel" includes time for retooling the robot (single machine job sequencing problem).</li>
+<li>The generalised travelling salesman problem deals with "states" that have (one or more) "cities" and the salesman has to visit exactly one "city" from each "state". Also known as the "travelling politician problem". One application is encountered in ordering a solution to the <a href="/wiki/Cutting_stock_problem" title="Cutting stock problem">cutting stock problem</a> in order to minimise knife changes. Another is concerned with drilling in semiconductor manufacturing, see e.g. US patent 7054798. Surprisingly, Behzad and Modarres <sup id="_ref-2" class="reference"><a href="#_note-2" title="">[3]</a></sup> demonstrated that the generalised travelling salesman problem can be transformed into a standard travelling salesman problem with the same number of cities, but a modified distance matrix.</li>
+</ol>
+<p><a name="Computational_complexity" id="Computational_complexity"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Travelling_salesman_problem&amp;action=edit&amp;section=3" title="Edit section: Computational complexity">edit</a>]</span> <span class="mw-headline">Computational complexity</span></h2>
+<p>The most direct solution would be to try all the <a href="/wiki/Permutation" title="Permutation">permutations</a> (ordered combinations) and see which one is cheapest (using <a href="/wiki/Brute_force_search" title="Brute force search">brute force search</a>), but given that the number of permutations is <i>n</i>! (the <a href="/wiki/Factorial" title="Factorial">factorial</a> of the number of cities, <i>n</i>), this solution rapidly becomes impractical. Using the techniques of <a href="/wiki/Dynamic_programming" title="Dynamic programming">dynamic programming</a>, one can solve the problem exactly in time <span class="texhtml"><i>O</i>(<i>n</i><sup>2</sup>2<sup><i>n</i></sup>))</span><sup id="_ref-3" class="reference"><a href="#_note-3" title="">[4]</a></sup>. Although this is exponential, it is still much better than <span class="texhtml"><i>O</i>(<i>n</i>!)</span>.</p>
+<p><a name="NP-hardness" id="NP-hardness"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Travelling_salesman_problem&amp;action=edit&amp;section=4" title="Edit section: NP-hardness">edit</a>]</span> <span class="mw-headline">NP-hardness</span></h2>
+<p>The problem has been shown to be <a href="/wiki/NP-hard" title="NP-hard">NP-hard</a> (more precisely, it is complete for the <a href="/wiki/Complexity_class" title="Complexity class">complexity class</a> FP<sup>NP</sup>; see the <a href="/wiki/Function_problem" title="Function problem">function problem</a> article), and the <a href="/wiki/Decision_problem" title="Decision problem">decision problem</a> version ("given the costs and a number <i>x</i>, decide whether there is a roundtrip route cheaper than <i>x</i>") is <a href="/wiki/NP-complete" title="NP-complete">NP-complete</a>. The <a href="/wiki/Bottleneck_traveling_salesman_problem" title="Bottleneck traveling salesman problem">bottleneck travelling salesman problem</a> is also NP-hard. The problem remains NP-hard even for the case when the cities are in the plane with <a href="/wiki/Euclidean_distance" title="Euclidean distance">Euclidean distances</a>, as well as in a number of other restrictive cases. Removing the condition of visiting each city "only once" does not remove the NP-hardness, since it is easily seen that in the planar case an optimal tour visits cities only once (otherwise, by the <a href="/wiki/Triangle_inequality" title="Triangle inequality">triangle inequality</a>, a shortcut that skips a repeated visit would decrease the tour length).</p>
+<p><a name="Algorithms" id="Algorithms"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Travelling_salesman_problem&amp;action=edit&amp;section=5" title="Edit section: Algorithms">edit</a>]</span> <span class="mw-headline">Algorithms</span></h2>
+<p>The traditional lines of attack for the NP-hard problems are the following:</p>
+<ul>
+<li>Devising algorithms for finding exact solutions (they will work reasonably fast only for relatively small problem sizes).</li>
+<li>Devising "suboptimal" or <a href="/wiki/Heuristic_%28computer_science%29" title="Heuristic (computer science)">heuristic</a> algorithms, i.e., algorithms that deliver either seemingly or probably good solutions, but which could not be proved to be optimal.</li>
+<li>Finding special cases for the problem ("subproblems") for which either better or exact heuristics are possible.</li>
+</ul>
+<p>For benchmarking of TSP algorithms, <b>TSPLIB</b> a library of sample instances of the TSP and related problems is maintained, see the TSPLIB external reference. Many of them are lists of actual cities and layouts of actual <a href="/wiki/Printed_circuit_board" title="Printed circuit board">printed circuits</a>.</p>
+<p><a name="Exact_algorithms" id="Exact_algorithms"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Travelling_salesman_problem&amp;action=edit&amp;section=6" title="Edit section: Exact algorithms">edit</a>]</span> <span class="mw-headline">Exact algorithms</span></h3>
+<ul>
+<li>Various <a href="/wiki/Branch_and_bound" title="Branch and bound">branch-and-bound</a> algorithms, which can be used to process TSPs containing 40-60 cities.</li>
+<li>Progressive improvement algorithms which use techniques reminiscent of <a href="/wiki/Linear_programming" title="Linear programming">linear programming</a>. Works well for up to 200 cities.</li>
+<li>Implementations of branch-and-bound and problem-specific cut generation; this is the method of choice for solving large instances. This approach holds the current record, solving an instance with 85,900 cities, see below.<sup id="_ref-4" class="reference"><a href="#_note-4" title="">[5]</a></sup>.</li>
+</ul>
+<p>An exact solution for 15,112 German towns from TSPLIB was found in 2001 using the <a href="/wiki/Cutting-plane_method" title="Cutting-plane method">cutting-plane method</a> proposed by <a href="/wiki/George_Dantzig" title="George Dantzig">George Dantzig</a>, <a href="/w/index.php?title=Ray_Fulkerson&amp;action=edit" class="new" title="Ray Fulkerson">Ray Fulkerson</a>, and <a href="/w/index.php?title=Selmer_Johnson&amp;action=edit" class="new" title="Selmer Johnson">Selmer Johnson</a> in <a href="/wiki/1954" title="1954">1954</a>, based on <a href="/wiki/Linear_programming" title="Linear programming">linear programming</a>. The computations were performed on a network of 110 processors located at <a href="/wiki/Rice_University" title="Rice University">Rice University</a> and <a href="/wiki/Princeton_University" title="Princeton University">Princeton University</a> (see the Princeton external link). The total computation time was equivalent to 22.6&#160;years on a single 500&#160;MHz <a href="/wiki/Alpha_processor" title="Alpha processor">Alpha processor</a>. In May 2004, the travelling salesman problem of visiting all 24,978 towns in Sweden was solved: a tour of length approximately 72,500 kilometers was found and it was proven that no shorter tour exists.<sup id="_ref-5" class="reference"><a href="#_note-5" title="">[6]</a></sup></p>
+<p>In March 2005, the travelling salesman problem of visiting all 33,810 points in a circuit board was solved using <a href="/w/index.php?title=CONCORDE&amp;action=edit" class="new" title="CONCORDE">CONCORDE</a>: a tour of length 66,048,945 units was found and it was proven that no shorter tour exists. The computation took approximately 15.7 CPU years (Cook et al. 2006). In April 2006 an instance with 85,900 points was solved using <a href="/w/index.php?title=CONCORDE&amp;action=edit" class="new" title="CONCORDE">CONCORDE</a>, taking over 136 CPU years, see the book by Applegate et al [2006] <sup id="_ref-6" class="reference"><a href="#_note-6" title="">[7]</a></sup>.</p>
+<p><a name="Heuristics" id="Heuristics"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Travelling_salesman_problem&amp;action=edit&amp;section=7" title="Edit section: Heuristics">edit</a>]</span> <span class="mw-headline">Heuristics</span></h3>
+<p>Various <a href="/wiki/Approximation_algorithm" title="Approximation algorithm">approximation algorithms</a>, which quickly yield good solutions with high probability, have been devised. Modern methods can find solutions for extremely large problems (millions of cities) within a reasonable time which are with a high probability just 2-3% away from the optimal solution.</p>
+<p>Several categories of heuristics are recognized.</p>
+<p><a name="Constructive_heuristics" id="Constructive_heuristics"></a></p>
+<h4><span class="editsection">[<a href="/w/index.php?title=Travelling_salesman_problem&amp;action=edit&amp;section=8" title="Edit section: Constructive heuristics">edit</a>]</span> <span class="mw-headline">Constructive heuristics</span></h4>
+<ul>
+<li>The <a href="/wiki/Nearest_neighbour_algorithm" title="Nearest neighbour algorithm">nearest neighbour (NN) algorithm</a> lets the salesman start from any one city and choose the nearest city not visited yet to be his next visit. This algorithm quickly yields an effectively short route. Rosenkrantz et al. [1977] showed that the NN algorithm has the approximation factor <span class="texhtml">Θ(log | <i>V</i> | )</span>. In 2D Euclidean TSP, NN algorithm result in a length about 1.26*(optimal length). Unfortunately, there exist some examples for which this algorithm gives a highly <i>inefficient</i> route. A bad result is due to the <a href="/wiki/Greedy_algorithm" title="Greedy algorithm">greedy nature</a> of this algorithm.</li>
+</ul>
+<p><a name="Iterative_improvement" id="Iterative_improvement"></a></p>
+<h4><span class="editsection">[<a href="/w/index.php?title=Travelling_salesman_problem&amp;action=edit&amp;section=9" title="Edit section: Iterative improvement">edit</a>]</span> <span class="mw-headline">Iterative improvement</span></h4>
+<ul>
+<li><b>Pairwise exchange</b>, or <b><a href="/wiki/Lin-Kernighan" title="Lin-Kernighan">Lin-Kernighan</a></b> heuristics. The pairwise exchange or '2-opt' technique involves iteratively removing two edges and replacing these with two different edges that reconnect the fragments created by edge removal into a new and more optimal tour. This is a special case of the k-opt method. Note that the label 'Lin-Kernighan' is an oft heard misnomer for 2-opt. Lin-Kernighan is actually a more general method.</li>
+</ul>
+<ul>
+<li><b><i>k</i>-opt heuristic</b>: Take a given tour and delete <i>k</i> mutually disjoint edges. Reassemble the remaining fragments into a tour, leaving no disjoint subtours (that is, don't connect a fragment's endpoints together). This in effect simplifies the TSP under consideration into a much simpler problem. Each fragment endpoint can be connected to 2<i>k</i>&#160;−&#160;2 other possibilities: of 2<i>k</i> total fragment endpoints available, the two endpoints of the fragment under consideration are disallowed. Such a constrained 2<i>k</i>-city TSP can then be solved with brute force methods to find the least-cost recombination of the original fragments. The k-opt technique is a special case of the V-opt or variable-opt technique. The most popular of the k-opt methods are 3-opt, and these were introduced by Shen Lin of Bell Labs in 1965. There is a special case of 3-opt where the edges are not disjoint (two of the edges are adjacent to one another). In practice, it is often possible to achieve substantial improvement over 2-opt without the combinatorial cost of the general 3-opt by restricting the 3-changes to this special subset where two of the removed edges are adjacent. This so called two-and-a-half-opt typically falls roughly midway between 2-opt and 3-opt both in terms of the quality of tours achieved and the time required to achieve those tours.</li>
+</ul>
+<ul>
+<li><b><i>V'</i>-opt heuristic</b>: The variable-opt method is related to, and a generalization of the k-opt method. Whereas the k-opt methods remove a fixed number (k) of edges from the original tour, the variable-opt methods do not fix the size of the edge set to remove. Instead they grow the set as the search process continues. The best known method in this family is the Lin-Kernighan method (mentioned above as a misnomer for 2-opt). Shen Lin and Brian Kernighan first published their method in 1972, and it was the most reliable heuristic for solving travelling salesman problems for nearly two decades. More advanced variable-opt methods were developed at Bell Labs in the late 1980s by David Johnson and his research team. These methods (sometimes called Lin-Kernighan-Johnson) build on the Lin-Kernighan method, adding ideas from tabu search and evolutionary computing. The basic Lin-Kernighan technique gives results that are guaranteed to be at least 3-opt. The Lin-Kernighan-Johnson methods compute a Lin-Kernighan tour, and then perturb the tour by what has been described as a mutation that removes at least four edges and reconnecting the tour in a different way, then v-opting the new tour. The mutation is often enough to move the tour from the local well identified by Lin-Kernighan. V-opt methods are widely considered the most powerful heuristics for the problem, and are able to address special cases, such as the Hamilton Cycle Problem and other non-metric TSPs that other heuristics fail on. For many years Lin-Kernighan-Johnson had identified optimal solutions for all TSPs where an optimal solution was known and had identified the best known solutions for all other TSPs on which the method had been tried.</li>
+</ul>
+<p><a name="Randomised_improvement" id="Randomised_improvement"></a></p>
+<h4><span class="editsection">[<a href="/w/index.php?title=Travelling_salesman_problem&amp;action=edit&amp;section=10" title="Edit section: Randomised improvement">edit</a>]</span> <span class="mw-headline">Randomised improvement</span></h4>
+<ul>
+<li>Optimised <a href="/wiki/Markov_chain" title="Markov chain">Markov chain</a> algorithms which utilise local searching heuristic sub-algorithms can find a route extremely close to the optimal route for 700 to 800 cities.</li>
+</ul>
+<ul>
+<li>Random path change algorithms are currently the state-of-the-art search algorithms and work up to 100,000 cities. The concept is quite simple: Choose a random path, choose four nearby points, swap their ways to create a new random path, while in parallel decreasing the upper bound of the path length. If repeated until a certain number of trials of random path changes fail due to the upper bound, one has found a local minimum with high probability, and further it is a global minimum with high probability (where high means that the rest probability decreases exponentially in the size of the problem - thus for 10,000 or more nodes, the chances of failure is negligible).</li>
+</ul>
+<p>TSP is a touchstone for many general heuristics devised for combinatorial optimisation such as <a href="/wiki/Genetic_algorithm" title="Genetic algorithm">genetic algorithms</a>, <a href="/wiki/Simulated_annealing" title="Simulated annealing">simulated annealing</a>, <a href="/wiki/Tabu_search" title="Tabu search">Tabu search</a>, and <a href="/wiki/Ant_colony_optimization" title="Ant colony optimization">ant colony optimization</a>.</p>
+<p><a name="Example_letting_the_inversion_operator_find_a_good_solution" id="Example_letting_the_inversion_operator_find_a_good_solution"></a></p>
+<h5><span class="editsection">[<a href="/w/index.php?title=Travelling_salesman_problem&amp;action=edit&amp;section=11" title="Edit section: Example letting the inversion operator find a good solution">edit</a>]</span> <span class="mw-headline">Example letting the inversion operator find a good solution</span></h5>
+<p>Suppose that the number of towns is = 60. For a random search process, this is like having a deck of cards numbered 1, 2, 3, ... 59, 60 where the number of permutations is of the same order of magnitude as the total number of atoms in the known universe. If the hometown is not counted the number of possible tours becomes 60*59*58*...*4*3 (about 10<sup>80</sup>, i. e. a 1 followed by 80 zeros).</p>
+<p>Suppose that the salesman does not have a map showing the location of the towns, but only a deck of numbered cards, which he may permute, put in a card reader - like in the childhood of computers - and let the computer calculate the length of the tour. The probability to find the shortest tour by random permutation is about one in 10<sup>80</sup> so, it will never happen. So, should he give up?</p>
+<p>No, by no means, evolution may be of great help to him; at least if it could be simulated on his computer. The natural evolution uses an <a href="/wiki/Inversion_operator" title="Inversion operator">inversion operator</a>, which - in principle - is extremely well suited for finding good solutions to the problem. A part of the card deck (<a href="/wiki/DNA" title="DNA">DNA</a>) - chosen at random - is taken out, turned in opposite direction and put back in the deck again like in the figure below with 6 towns. The hometown (nr 1) is not counted.</p>
+<p><a href="/wiki/Image:Rundtur.GIF" class="image" title="Image:Rundtur.GIF"><img alt="Image:Rundtur.GIF" src="http://upload.wikimedia.org/wikipedia/commons/8/85/Rundtur.GIF" width="369" height="142" border="0" /></a></p>
+<p>If this inversion takes place where the tour happens to have a loop, then the loop is opened and the salesman is guaranteed a shorter tour. The probability that this will happen is greater than 1/(60*60) for any loop if we have 60 towns, so, in a population with one million card decks it might happen 1000000/3600 = 277 times that a loop will disappear.</p>
+<p>This has been simulated with a population of 180 card decks, from which 60 decks are selected in every generation using MATLAB. The figure below shows a random tour at start</p>
+<p><a href="/wiki/Image:Slumptur.GIF" class="image" title="Image:Slumptur.GIF"><img alt="Image:Slumptur.GIF" src="http://upload.wikimedia.org/wikipedia/commons/3/34/Slumptur.GIF" width="323" height="246" border="0" /></a></p>
+<p>After about 1500 generations all loops have been removed and the length of the random tour at start has been reduced to 1/5 of the original tour. The human eye can see that some improvements can be made, but probably the random search has found a tour, which is not much longer than the shortest possible. See figure below.</p>
+<p><a href="/wiki/Image:Kortad-rundtur.GIF" class="image" title="Image:Kortad-rundtur.GIF"><img alt="Image:Kortad-rundtur.GIF" src="http://upload.wikimedia.org/wikipedia/commons/8/8e/Kortad-rundtur.GIF" width="322" height="247" border="0" /></a></p>
+<p>In a special case when all towns are equidistantly placed along a circle, the optimal solution is found when all loops have been removed. This means that this simple random search is able to find one optimal tour out of as many as 10<sup>80</sup>. See also Goldberg, 1989.</p>
+<p><a name="Ant_colony_optimization" id="Ant_colony_optimization"></a></p>
+<h5><span class="editsection">[<a href="/w/index.php?title=Travelling_salesman_problem&amp;action=edit&amp;section=12" title="Edit section: Ant colony optimization">edit</a>]</span> <span class="mw-headline">Ant colony optimization</span></h5>
+<p><a href="/wiki/Artificial_intelligence" title="Artificial intelligence">Artificial intelligence</a> researcher <a href="/wiki/Marco_Dorigo" title="Marco Dorigo">Marco Dorigo</a> described in 1997 a method of heuristically generating "good solutions" to the TSP using a simulation of an ant colony called <i>ACS</i>.<sup id="_ref-7" class="reference"><a href="#_note-7" title="">[8]</a></sup> It uses some of the same ideas used by real ants to find short paths between food sources and their nest, an <a href="/wiki/Emergence" title="Emergence">emergent</a> behavior resulting from each ant's preference to follow <a href="/wiki/Pheromone#Trail_pheromones" title="Pheromone">trail pheromones</a> deposited by other ants. The algorithm was later summarized in Steven Johnson's book <i>Emergence</i>.<sup id="_ref-8" class="reference"><a href="#_note-8" title="">[9]</a></sup></p>
+<p>ACS sends out a large number of virtual ant agents to explore many possible routes on the map. Each ant probabilistically chooses the next city to visit based on a heuristic combining the distance to the city and the amount of virtual pheromone deposited on the edge to the city. The ants explore, depositing pheromone on each edge that they cross, until they have all completed a tour. At this point the ant which completed the shortest tour deposits virtual pheromone along its complete tour route (<i>global trail updating</i>). The amount of pheromone deposited is inversely proportional to the tour length; the shorter the tour, the more it deposits.</p>
+<p>After a sufficient number of rounds, the shortest tour found will be, heuristically, close to the optimum length. According to Dorigo, "ACS finds results which are at least as good as, and often better than, those found by the other methods," particularly on asymmetric instances, but this referred only to methods already known at that time.</p>
+<p><a name="Special_cases" id="Special_cases"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Travelling_salesman_problem&amp;action=edit&amp;section=13" title="Edit section: Special cases">edit</a>]</span> <span class="mw-headline">Special cases</span></h3>
+<p><a name="Triangle_inequality_and_the_Christofides_algorithm" id="Triangle_inequality_and_the_Christofides_algorithm"></a></p>
+<h4><span class="editsection">[<a href="/w/index.php?title=Travelling_salesman_problem&amp;action=edit&amp;section=14" title="Edit section: Triangle inequality and the Christofides algorithm">edit</a>]</span> <span class="mw-headline">Triangle inequality and the Christofides algorithm</span></h4>
+<p>A very natural restriction of the TSP is the <a href="/wiki/Triangle_inequality" title="Triangle inequality">triangle inequality</a>. That is, for any 3 cities A, B and C, the distance between A and C must be at most the distance from A to B plus the distance from B to C. Most natural instances of TSP satisfy this constraint.</p>
+<p>In this case, there is a <a href="/wiki/Constant-factor_approximation_algorithm" title="Constant-factor approximation algorithm">constant-factor approximation algorithm</a> (due to Christofides, 1975) which always finds a tour of length at most 1.5 times the shortest tour. In the next paragraphs, we explain a weaker (but simpler) algorithm which finds a tour of length at most twice the shortest tour.</p>
+<p>The length of the <a href="/wiki/Minimum_spanning_tree" title="Minimum spanning tree">minimum spanning tree</a> of the network is a natural lower bound for the length of the optimal route. In the TSP with <a href="/wiki/Triangle_inequality" title="Triangle inequality">triangle inequality</a> case it is possible to prove upper bounds in terms of the <a href="/wiki/Minimum_spanning_tree" title="Minimum spanning tree">minimum spanning tree</a> and design an algorithm that has a provable upper bound on the length of the route. The first published (and the simplest) example follows.</p>
+<ol>
+<li>Construct the <a href="/wiki/Minimum_spanning_tree" title="Minimum spanning tree">minimum spanning tree</a>.</li>
+<li>Duplicate all its edges. That is, wherever there is an edge from <i>u</i> to <i>v</i>, add a second edge from <i>u</i> to <i>v</i>. This gives us an <a href="/wiki/Eulerian_path" title="Eulerian path">Eulerian graph</a>.</li>
+<li>Find a <a href="/wiki/Eulerian_path" title="Eulerian path">Eulerian cycle</a> in it. Clearly, its length is twice the length of the tree.</li>
+<li>Convert the Eulerian cycle into the <a href="/wiki/Hamiltonian_path" title="Hamiltonian path">Hamiltonian</a> one in the following way: walk along the Eulerian cycle, and each time you are about to come into an already visited vertex, skip it and try to go to the next one (along the Eulerian cycle).</li>
+</ol>
+<p>It is easy to prove that the last step works. Moreover, thanks to the triangle inequality, each skipping at Step 4 is in fact a shortcut, i.e., the length of the cycle does not increase. Hence it gives us a TSP tour no more than twice as long as the optimal one.</p>
+<p>The Christofides algorithm follows a similar outline but combines the minimum spanning tree with a solution of another problem, minimum-weight <a href="/wiki/Perfect_matching" title="Perfect matching">perfect matching</a>. This gives a TSP tour which is at most 1.5 times the optimal. It is a long-standing (since 1975) open problem to improve 1.5 to a smaller constant. It is known, however, that there is no polynomial time algorithm that finds a tour of length at most 1/219 more than optimal, unless <i>P</i>&#160;=&#160;<i>NP</i> (Papadimitriou and Vempala, 2000). In the case of the bounded metrics it is known that there is no polynomial time algorithm that constructs a tour of length at most 1/388 more than optimal, unless <i>P</i>&#160;=&#160;<i>NP</i> (Engebretsen and Karpinski, 2001). The best known polynomial time approximation algorithm for the TSP problem with distances <i>one</i> and <i>two</i> finds a tour of length at most 1/7 more than optimal (Berman and Karpinski, 2006).</p>
+<p>The Christofides algorithm was one of the first <a href="/wiki/Approximation_algorithm" title="Approximation algorithm">approximation algorithms</a>, and was in part responsible for drawing attention to approximation algorithms as a practical approach to intractable problems. As a matter of fact, the term "algorithm" was not commonly extended to approximation algorithms until later. At the time of publication, the Christofides algorithm was referred to as the Christofides heuristic.</p>
+<p><a name="Euclidean_TSP" id="Euclidean_TSP"></a></p>
+<h4><span class="editsection">[<a href="/w/index.php?title=Travelling_salesman_problem&amp;action=edit&amp;section=15" title="Edit section: Euclidean TSP">edit</a>]</span> <span class="mw-headline">Euclidean TSP</span></h4>
+<p><b>Euclidean TSP</b>, or <b>planar TSP</b>, is the TSP with the distance being the ordinary <a href="/wiki/Euclidean_distance" title="Euclidean distance">Euclidean distance</a>. Although the problem still remains NP-hard, it is known that there exists a subexponential time algorithm for it. Moreover, many heuristics work better.</p>
+<p>Euclidean TSP is a particular case of TSP with triangle inequality, since distances in plane obey triangle inequality. However, it seems to be easier than general TSP with triangle inequality. For example, the minimum spanning tree of the graph associated with an instance of Euclidean TSP is a <a href="/wiki/Euclidean_minimum_spanning_tree" title="Euclidean minimum spanning tree">Euclidean minimum spanning tree</a>, and so can be computed in expected O(<i>n</i> log <i>n</i>) time for <i>n</i> points (considerably less than the number of edges). This enables the simple 2-approximation algorithm for TSP with triangle inequality above to operate more quickly.</p>
+<p>In general, for any <i>c</i>&#160;&gt;&#160;0, there is a polynomial-time algorithm that finds a tour of length at most (1&#160;+&#160;1/<i>c</i>) times the optimal for geometric instances of TSP in O(<i>cn</i> log <i>n</i>) time; this is called a <a href="/wiki/Polynomial-time_approximation_scheme" title="Polynomial-time approximation scheme">polynomial-time approximation scheme</a> and is due to <a href="/w/index.php?title=Sanjeev_Arora&amp;action=edit" class="new" title="Sanjeev Arora">Sanjeev Arora</a>.<sup id="_ref-9" class="reference"><a href="#_note-9" title="">[10]</a></sup> In practice, heuristics with weaker guarantees continue to be used.</p>
+<p><a name="Asymmetric_TSP" id="Asymmetric_TSP"></a></p>
+<h4><span class="editsection">[<a href="/w/index.php?title=Travelling_salesman_problem&amp;action=edit&amp;section=16" title="Edit section: Asymmetric TSP">edit</a>]</span> <span class="mw-headline">Asymmetric TSP</span></h4>
+<p>In most cases, the distance between two nodes in the TSP network is the same in both directions. The case where the distance from A to B is not equal to the distance from B to A is called asymmetric TSP. A practical application of an asymmetric TSP is route optimisation using street-level routing (asymmetric due to one-way streets, slip-roads and motorways).</p>
+<p><a name="Solving_by_conversion_to_Symmetric_TSP" id="Solving_by_conversion_to_Symmetric_TSP"></a></p>
+<h5><span class="editsection">[<a href="/w/index.php?title=Travelling_salesman_problem&amp;action=edit&amp;section=17" title="Edit section: Solving by conversion to Symmetric TSP">edit</a>]</span> <span class="mw-headline">Solving by conversion to Symmetric TSP</span></h5>
+<p>Solving an asymmetric TSP graph can be somewhat complex. The following is a 3x3 matrix containing all possible path weights between the nodes A, B and C. One option is to turn an asymmetric matrix of size N into a <i>symmetric</i> matrix of size 2N, doubling the complexity.</p>
+<table class="wikitable">
+<caption>Asymmetric Path Weights</caption>
+<tr align="center">
+<th></th>
+<th>A</th>
+<th>B</th>
+<th>C</th>
+</tr>
+<tr align="center">
+<th>A</th>
+<td></td>
+<td>1</td>
+<td>2</td>
+</tr>
+<tr align="center">
+<th>B</th>
+<td>6</td>
+<td></td>
+<td>3</td>
+</tr>
+<tr align="center">
+<th>C</th>
+<td>5</td>
+<td>4</td>
+<td></td>
+</tr>
+</table>
+<p>To double the size, each of the nodes in the graph is duplicated, creating a second <i>ghost node</i>. Using duplicate points with very low weights, such as -∞, provides a cheap route "linking" back to the real node and allowing symmetric evaluation to continue. The original 3x3 matrix shown above is visible in the bottom left and the inverse of the original in the top-right. Both copies of the matrix have had their diagonals replaced by the low-cost hop paths, represented by -∞.</p>
+<table class="wikitable">
+<caption>Symmetric Path Weights</caption>
+<tr align="center" class="wikitable">
+<th></th>
+<th>A</th>
+<th>B</th>
+<th>C</th>
+<th>A'</th>
+<th>B'</th>
+<th>C'</th>
+</tr>
+<tr align="center">
+<th>A</th>
+<td></td>
+<td></td>
+<td></td>
+<td>-∞</td>
+<td>6</td>
+<td>5</td>
+</tr>
+<tr align="center">
+<th>B</th>
+<td></td>
+<td></td>
+<td></td>
+<td>1</td>
+<td>-∞</td>
+<td>4</td>
+</tr>
+<tr align="center">
+<th>C</th>
+<td></td>
+<td></td>
+<td></td>
+<td>2</td>
+<td>3</td>
+<td>-∞</td>
+</tr>
+<tr align="center">
+<th>A'</th>
+<td>-∞</td>
+<td>1</td>
+<td>2</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr align="center">
+<th>B'</th>
+<td>6</td>
+<td>-∞</td>
+<td>3</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr align="center">
+<th>C'</th>
+<td>5</td>
+<td>4</td>
+<td>-∞</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</table>
+<p>The original 3x3 matrix would produce two Hamiltonian cycles (a path that visits every node once), namely A-B-C-A [score 12] and A-C-B-A [score 9]. Evaluating the 6x6 symmetric version of the same problem now produces many paths, including A-A'-B-B'-C-C'-A, A-B'-C-A'-A, A-A'-B-C'-A [all score 9-∞].</p>
+<p>The important thing about each new sequence is that there will be an alternation between dashed (A',B',C') and un-dashed nodes (A,B,C) and that the link to "jump" between any related pair (A-A') is effectively free. A version of the algorithm could use any weight for the A-A' path, as long as that weight is <i>lower</i> than all other path weights present in the graph. As the path weight to "jump" must effectively be "free", the value zero (0) could be used to represent this cost— if zero is not being used for another purpose already (such as designating invalid paths). In the two examples above, non-existent paths between nodes are shown as a blank square.</p>
+<p><a name="Human_performance_on_TSP" id="Human_performance_on_TSP"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Travelling_salesman_problem&amp;action=edit&amp;section=18" title="Edit section: Human performance on TSP">edit</a>]</span> <span class="mw-headline">Human performance on TSP</span></h2>
+<p>The TSP, in particular the <a href="/wiki/Euclidean" title="Euclidean">Euclidean</a> variant of the problem, has attracted the attention of researchers in <a href="/wiki/Cognitive_psychology" title="Cognitive psychology">cognitive psychology</a>. It is observed that humans are able to produce good quality solutions quickly. The first issue of the <a href="http://docs.lib.purdue.edu/jps/" class="external text" title="http://docs.lib.purdue.edu/jps/" rel="nofollow">Journal of Problem Solving</a> is devoted to the topic of human performance on TSP.</p>
+<p><a name="TSP_path_length" id="TSP_path_length"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Travelling_salesman_problem&amp;action=edit&amp;section=19" title="Edit section: TSP path length">edit</a>]</span> <span class="mw-headline">TSP path length</span></h2>
+<p>Many quick algorithms yield approximate TSP solution for large city number. To have an idea of the precision of an approximation, one should measure the resulted path length and compare it to the exact path length. To find out the exact path length, there are 3 approaches:</p>
+<ol>
+<li>find a lower bound of it,</li>
+<li>find an upper bound of it with CPU time T, do extrapolation on T to infinity so result in a reasonable guess of the exact value, or</li>
+<li>solve the exact value without solving the city sequence.</li>
+</ol>
+<p><a name="Lower_bound" id="Lower_bound"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Travelling_salesman_problem&amp;action=edit&amp;section=20" title="Edit section: Lower bound">edit</a>]</span> <span class="mw-headline">Lower bound</span></h3>
+<p>Consider N points are randomly distributed in one unit square, with N&gt;&gt;1. A simple lower bound of the shortest path length is <img class="tex" alt="\frac{1}{2} \sqrt{N}" src="http://upload.wikimedia.org/math/3/6/9/3690a0d58912b789f39f96344c0848f6.png" />, obtained by considering each point connects to its nearest neighbor which is <img class="tex" alt="\left.{\frac{1}{2}}\right/\sqrt{N}" src="http://upload.wikimedia.org/math/0/a/d/0adbc4f7691e050f4a58acff467ccc4c.png" /> distance away on average.</p>
+<p>Another lower bound is <img class="tex" alt="\left({\frac{1}{2} + \frac{3}{4}}\right) \frac{\sqrt{N}}{2}" src="http://upload.wikimedia.org/math/a/e/1/ae12f0a2b845d9052fb09e73e15608c8.png" />, obtained by considering each point j connects to j's nearest neighbor, and j's second nearest neighbor connects to j. Since j's nearest neighbor is (1/2)/sqrt(N) distance away; j's second nearest neighbor is (3/4)/sqrt(N) distance away on average.</p>
+<ul>
+<li><a href="http://www.research.att.com/~dsj/papers/HKsoda.pdf" class="external text" title="http://www.research.att.com/~dsj/papers/HKsoda.pdf" rel="nofollow">David S. Johnson</a> had got a lower bound by experiment</li>
+</ul>
+<center>
+<pre>
+0.708*sqrt(N)+0.522
+</pre></center>
+<ul>
+<li><a href="http://users.cs.cf.ac.uk/Antonia.J.Jones/Papers/EJORHeldKarp/HeldKarp.pdf" class="external text" title="http://users.cs.cf.ac.uk/Antonia.J.Jones/Papers/EJORHeldKarp/HeldKarp.pdf" rel="nofollow">Christine L. Valenzuela and Antonia J. Jones</a> have also explored a better lower bound by experiment</li>
+</ul>
+<center>
+<pre>
+0.708*sqrt(N)+0.551
+</pre></center>
+<p><a name="Notes" id="Notes"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Travelling_salesman_problem&amp;action=edit&amp;section=21" title="Edit section: Notes">edit</a>]</span> <span class="mw-headline">Notes</span></h2>
+<ol class="references">
+<li id="_note-0"><b><a href="#_ref-0" title="">^</a></b> <a href="/w/index.php?title=N.L._Biggs&amp;action=edit" class="new" title="N.L. Biggs">N.L. Biggs</a>, <a href="/w/index.php?title=E.K._LLoyd&amp;action=edit" class="new" title="E.K. LLoyd">E.K. LLoyd</a>, and <a href="/w/index.php?title=R.J._Wilson&amp;action=edit" class="new" title="R.J. Wilson">R.J. Wilson</a>, <i>Graph Theory 1736-1936</i>, Clarendon Press, Oxford, 1976.</li>
+<li id="_note-1"><b><a href="#_ref-1" title="">^</a></b> Schrijver, Alexander. "On the history of combinatorial optimization (till 1960)," Handbook of Discrete Optimization (K. Aardal, G.L. Nemhauser, R. Weismantel, eds.), Elsevier, Amsterdam, 2005, pp. 1-68. <a href="http://homepages.cwi.nl/~lex/files/histco.ps" class="external text" title="http://homepages.cwi.nl/~lex/files/histco.ps" rel="nofollow">PS</a>, <a href="http://homepages.cwi.nl/~lex/files/histco.pdf" class="external text" title="http://homepages.cwi.nl/~lex/files/histco.pdf" rel="nofollow">PDF</a></li>
+<li id="_note-2"><b><a href="#_ref-2" title="">^</a></b> <cite id="CITEREFBehzadModarres2002">Behzad, Arash &amp; Mohammad Modarres (2002), "New Efficient Transformation of the Generalized Traveling Salesman Problem into Traveling Salesman Problem", <i>Proceedings of the 15th International Conference of Systems Engineering (Las Vegas)</i></cite></li>
+<li id="_note-3"><b><a href="#_ref-3" title="">^</a></b> <cite id="CITEREFHeldKarp1962"><a href="/w/index.php?title=Michael_Held&amp;action=edit" class="new" title="Michael Held">Held, Michal</a> &amp; <a href="/wiki/Richard_Karp" title="Richard Karp">Richard M. Karp</a> (1962), "<a href="http://dx.doi.org/10.1137%2F0110015" class="external text" title="http://dx.doi.org/10.1137%2F0110015" rel="nofollow">A Dynamic Programming Approach to Sequencing Problems</a>", <i>Journal of the Society for Industrial and Applied Mathematics</i> <b>10</b>&#160;(1): 196-210<span class="printonly">, DOI 10.1137/0110015</span></cite></li>
+<li id="_note-4"><b><a href="#_ref-4" title="">^</a></b> <cite id="CITEREFApplegateBixbyChv.C3.A1talCook2006">Applegate, D. L.; R. M. Bixby &amp; V. Chvátal et al. (2006), <i>The Traveling Salesman Problem</i></cite></li>
+<li id="_note-5"><b><a href="#_ref-5" title="">^</a></b> Work by David Applegate, AT&amp;T Labs - Research, Robert Bixby, ILOG and Rice University, Vašek Chvátal, Rutgers University, William Cook, Georgia Tech, and Keld Helsgaun, Roskilde University is discussed on their project webpage hosted by Georgia Tech and last updated in June 2004, <a href="http://www.tsp.gatech.edu/sweden/" class="external text" title="http://www.tsp.gatech.edu/sweden/" rel="nofollow">here</a></li>
+<li id="_note-6"><b><a href="#_ref-6" title="">^</a></b> <cite id="CITEREFApplegateBixbyChv.C3.A1talCook2006">Applegate, D. L.; R. M. Bixby &amp; V. Chvátal et al. (2006), <i>The Traveling Salesman Problem</i></cite></li>
+<li id="_note-7"><b><a href="#_ref-7" title="">^</a></b> Marco Dorigo. Ant Colonies for the Traveling Salesman Problem. IRIDIA, Université Libre de Bruxelles. IEEE Transactions on Evolutionary Computation, 1(1):53–66. 1997. <a href="http://citeseer.ist.psu.edu/86357.html" class="external free" title="http://citeseer.ist.psu.edu/86357.html" rel="nofollow">http://citeseer.ist.psu.edu/86357.html</a></li>
+<li id="_note-8"><b><a href="#_ref-8" title="">^</a></b> Steven Johnson. Emergence: The Connected Lives of Ants, Brains, Cities, and Software. 2001. Scribner. <a href="/w/index.php?title=Special:Booksources&amp;isbn=0684868768" class="internal">ISBN 0684868768</a>.</li>
+<li id="_note-9"><b><a href="#_ref-9" title="">^</a></b> Sanjeev Arora. Polynomial Time Approximation Schemes for Euclidean Traveling Salesman and other Geometric Problems. <i>Journal of the ACM</i>, Vol.45, Issue 5, pp.753–782. ISSN:0004-5411. September 1998. <a href="http://citeseer.ist.psu.edu/arora96polynomial.html" class="external free" title="http://citeseer.ist.psu.edu/arora96polynomial.html" rel="nofollow">http://citeseer.ist.psu.edu/arora96polynomial.html</a></li>
+</ol>
+<p><a name="References" id="References"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Travelling_salesman_problem&amp;action=edit&amp;section=22" title="Edit section: References">edit</a>]</span> <span class="mw-headline">References</span></h2>
+<ul>
+<li><cite class="book" style="font-style:normal">D. L. Applegate, R. E. Bixby, V. Chvátal and W. J. Cook (2006). <i>The Traveling Salesman Problem: A Computational Study</i>. Princeton University Press. <a href="/w/index.php?title=Special:Booksources&amp;isbn=9780691129938" class="internal">ISBN 978-0-691-12993-8</a>.</cite><span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=The+Traveling+Salesman+Problem%3A+A+Computational+Study&amp;rft.au=D.+L.+Applegate%2C+R.+E.+Bixby%2C+V.+Chv%C3%A1tal+and+W.+J.+Cook&amp;rft.pub=Princeton+University+Press">&#160;</span></li>
+<li><cite class="book" style="font-style:normal"><a href="/w/index.php?title=E._L._Lawler&amp;action=edit" class="new" title="E. L. Lawler">E. L. Lawler</a> and <a href="/w/index.php?title=Jan_Karel_Lenstra&amp;action=edit" class="new" title="Jan Karel Lenstra">Jan Karel Lenstra</a> and <a href="/wiki/A._H._G._Rinnooy_Kan" title="A. H. G. Rinnooy Kan">A. H. G. Rinnooy Kan</a> and <a href="/w/index.php?title=D._B._Shmoys&amp;action=edit" class="new" title="D. B. Shmoys">D. B. Shmoys</a> (1985). <i>The Traveling Salesman Problem: A Guided Tour of Combinatorial Optimization</i>. John Wiley &amp; Sons. <a href="/w/index.php?title=Special:Booksources&amp;isbn=0471904139" class="internal">ISBN 0-471-90413-9</a>.</cite><span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=The+Traveling+Salesman+Problem%3A+A+Guided+Tour+of+Combinatorial+Optimization&amp;rft.au=%5B%5BE.+L.+Lawler%5D%5D+and+%5B%5BJan+Karel+Lenstra%5D%5D+and+%5B%5BA.+H.+G.+Rinnooy+Kan%5D%5D+and+%5B%5BD.+B.+Shmoys%5D%5D&amp;rft.pub=John+Wiley+%26+Sons">&#160;</span></li>
+<li><cite class="book" style="font-style:normal"><a href="/w/index.php?title=G._Gutin&amp;action=edit" class="new" title="G. Gutin">G. Gutin</a> and <a href="/w/index.php?title=A._P._Punnen&amp;action=edit" class="new" title="A. P. Punnen">A. P. Punnen</a> (2006). <i>The Traveling Salesman Problem and Its Variations</i>. Springer. <a href="/w/index.php?title=Special:Booksources&amp;isbn=0387444599" class="internal">ISBN 0-387-44459-9</a>.</cite><span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=The+Traveling+Salesman+Problem+and+Its+Variations&amp;rft.au=%5B%5BG.+Gutin%5D%5D+and+%5B%5BA.+P.+Punnen%5D%5D&amp;rft.pub=Springer">&#160;</span></li>
+<li>G. B. Dantzig, R. Fulkerson, and S. M. Johnson, <i>Solution of a large-scale traveling salesman problem</i>, Operations Research 2 (1954), pp. 393-410.</li>
+<li>S. Arora. "<a href="http://graphics.stanford.edu/courses/cs468-06-winter/Papers/arora-tsp.pdf" class="external text" title="http://graphics.stanford.edu/courses/cs468-06-winter/Papers/arora-tsp.pdf" rel="nofollow">Polynomial Time Approximation Schemes for Euclidean Traveling Salesman and other Geometric Problems</a>". Journal of ACM, 45 (1998), pp. 753-782.</li>
+<li>P. Berman, <a href="/wiki/Marek_Karpinski" title="Marek Karpinski">M. Karpinski</a>, "<a href="http://eccc.hpi-web.de/eccc-reports/2005/TR05-069/revisn01.pdf" class="external text" title="http://eccc.hpi-web.de/eccc-reports/2005/TR05-069/revisn01.pdf" rel="nofollow">8/7-Approximation Algorithm for (1,2)-TSP</a>", Proc. 17th ACM-SIAM SODA (2006), pp. 641-648.</li>
+<li>N. Christofides, <i>Worst-case analysis of a new heuristic for the travelling salesman problem</i>, Report 388, <a href="/wiki/Graduate_School_of_Industrial_Administration" title="Graduate School of Industrial Administration">Graduate School of Industrial Administration</a>, Carnegie Mellon University, 1976.</li>
+<li>L. Engebretsen, <a href="/wiki/Marek_Karpinski" title="Marek Karpinski">M. Karpinski</a>, <i>Approximation hardness of TSP with bounded metrics</i>, Proceedings of 28th ICALP (2001), LNCS 2076, Springer 2001, pp. 201-212.</li>
+<li>J. Mitchell. "<a href="http://citeseer.ist.psu.edu/622594.html" class="external text" title="http://citeseer.ist.psu.edu/622594.html" rel="nofollow">Guillotine subdivisions approximate polygonal subdivisions: A simple polynomial-time approximation scheme for geometric TSP, <i>k</i>-MST, and related problems</a>", SIAM Journal on Computing, 28 (1999), pp. 1298–1309.</li>
+<li>S. Rao, W. Smith. <i>Approximating geometrical graphs via 'spanners' and 'banyans'.</i> Proc. 30th Annual ACM Symposium on Theory of Computing, 1998, pp. 540-550.</li>
+<li>C. H. Papadimitriou and Santosh Vempala, "<a href="http://www.cs.berkeley.edu/~christos/tsp.ps" class="external text" title="http://www.cs.berkeley.edu/~christos/tsp.ps" rel="nofollow">On the approximability of the traveling salesman problem</a>", <i>Proceedings of the 32nd Annual ACM Symposium on Theory of Computing</i>, 2000.</li>
+<li><cite style="font-style:normal">Daniel J. Rosenkrantz and Richard E. Stearns and Phlip M. Lewis II (1977). "An Analysis of Several Heuristics for the Traveling Salesman Problem". <i>SIAM J. Comput.</i> <b>6</b>: 563–581.</cite><span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.atitle=An+Analysis+of+Several+Heuristics+for+the+Traveling+Salesman+Problem&amp;rft.jtitle=SIAM+J.+Comput.&amp;rft.date=1977&amp;rft.volume=6&amp;rft.au=Daniel+J.+Rosenkrantz+and+Richard+E.+Stearns+and+Phlip+M.+Lewis+II&amp;rft.pages=563%E2%80%93581">&#160;</span></li>
+<li>D. S. Johnson and L. A. McGeoch, <i>The Traveling Salesman Problem: A Case Study in Local Optimization</i>, Local Search in Combinatorial Optimisation, E. H. L. Aarts and J.K. Lenstra (ed), John Wiley and Sons Ltd, 1997, pp. 215-310.</li>
+<li><a href="/wiki/Thomas_H._Cormen" title="Thomas H. Cormen">Thomas H. Cormen</a>, <a href="/wiki/Charles_E._Leiserson" title="Charles E. Leiserson">Charles E. Leiserson</a>, <a href="/wiki/Ronald_L._Rivest" title="Ronald L. Rivest">Ronald L. Rivest</a>, and <a href="/wiki/Clifford_Stein" title="Clifford Stein">Clifford Stein</a>. <i><a href="/wiki/Introduction_to_Algorithms" title="Introduction to Algorithms">Introduction to Algorithms</a></i>, Second Edition. MIT Press and McGraw-Hill, 2001. <a href="/w/index.php?title=Special:Booksources&amp;isbn=0262032937" class="internal">ISBN 0-262-03293-7</a>. Section 35.2: The traveling-salesman problem, pp. 1027–1033.</li>
+<li><cite class="book" style="font-style:normal"><a href="/wiki/Michael_R._Garey" title="Michael R. Garey">Michael R. Garey</a> and <a href="/wiki/David_S._Johnson" title="David S. Johnson">David S. Johnson</a> (1979). <i>Computers and Intractability: A Guide to the Theory of NP-Completeness</i>. W.H. Freeman. <a href="/w/index.php?title=Special:Booksources&amp;isbn=0716710455" class="internal">ISBN 0-7167-1045-5</a>.</cite><span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Computers+and+Intractability%3A+A+Guide+to+the+Theory+of+NP-Completeness&amp;rft.au=%5B%5BMichael+R.+Garey%5D%5D+and+%5B%5BDavid+S.+Johnson%5D%5D&amp;rft.pub=W.H.+Freeman">&#160;</span> A2.3: ND22–24, pp.211–212.</li>
+<li>MacGregor, J. N., &amp; Ormerod, T. (1996). Human performance on the traveling salesman problem. Perception &amp; Psychophysics, 58(4), pp. 527–539.</li>
+<li>Vickers, D., Butavicius, M., Lee, M., &amp; Medvedev, A. (2001). Human performance on visually presented traveling salesman problems. Psychological Research, 65, pp. 34–45.</li>
+<li>William Cook, Daniel Espinoza, Marcos Goycoole (2006). Computing with domino-parity inequalities for the TSP. INFORMS Journal on Computing. Accepted.</li>
+<li>Goldberg, D. E. Genetic Algorithms in Search, Optimization &amp; Machine Learning. Addison-Wesley, New York, 1989.</li>
+</ul>
+<p><a name="See_also" id="See_also"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Travelling_salesman_problem&amp;action=edit&amp;section=23" title="Edit section: See also">edit</a>]</span> <span class="mw-headline">See also</span></h2>
+<ul>
+<li><a href="/wiki/Assignment_problem" title="Assignment problem">Assignment problem</a></li>
+<li><a href="/wiki/Route_inspection_problem" title="Route inspection problem">route inspection problem</a></li>
+<li><a href="/wiki/Greedy_algorithm" title="Greedy algorithm">Greedy algorithm</a></li>
+<li><a href="/wiki/Six_degrees_of_separation" title="Six degrees of separation">Six degrees of separation</a></li>
+</ul>
+<p><a name="External_links" id="External_links"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Travelling_salesman_problem&amp;action=edit&amp;section=24" title="Edit section: External links">edit</a>]</span> <span class="mw-headline">External links</span></h2>
+<ul>
+<li><a href="http://www.dna-evolutions.com/dnaappletsample.html" class="external text" title="http://www.dna-evolutions.com/dnaappletsample.html" rel="nofollow">Demo applet of a genetic algorithm solving TSP and VRPTW online</a></li>
+<li><a href="http://www.iwr.uni-heidelberg.de/groups/comopt/software/TSPLIB95/" class="external text" title="http://www.iwr.uni-heidelberg.de/groups/comopt/software/TSPLIB95/" rel="nofollow">TSPLIB</a></li>
+<li><a href="http://www.lalena.com/AI/TSP" class="external text" title="http://www.lalena.com/AI/TSP" rel="nofollow">lalena.com: TSP Solution in C#.NET (downloadable or run as applet) using Genetic Algorithms</a></li>
+<li><a href="http://www.tsp.gatech.edu/index.html" class="external text" title="http://www.tsp.gatech.edu/index.html" rel="nofollow">Travelling Salesman Problem</a> at <a href="/wiki/Georgia_Institute_of_Technology" title="Georgia Institute of Technology">Georgia Tech</a></li>
+<li><a href="http://www.pcug.org.au/~dakin/tsp.htm" class="external text" title="http://www.pcug.org.au/~dakin/tsp.htm" rel="nofollow">Private web page with 2 algorithms &amp; demo program to download</a></li>
+<li><a href="http://cs.felk.cvut.cz/~xobitko/ga/tspexample.html" class="external text" title="http://cs.felk.cvut.cz/~xobitko/ga/tspexample.html" rel="nofollow">Example of finding approximate solution of TSP problem using a</a> <a href="/wiki/Genetic_algorithm" title="Genetic algorithm">genetic algorithm</a></li>
+<li><a href="http://jgap.sourceforge.net" class="external text" title="http://jgap.sourceforge.net" rel="nofollow">A Java implementation of a TSP-solution using JGAP</a> (Java Genetic Algorithms Package). The technique used is a <a href="/wiki/Genetic_Algorithm" title="Genetic Algorithm">Genetic Algorithm</a>.</li>
+<li><a href="http://www.vias.org/simulations/simusoft_travsalm.html" class="external text" title="http://www.vias.org/simulations/simusoft_travsalm.html" rel="nofollow">Solution of the Travelling Salesman Problem using a Kohonen Map</a></li>
+<li><a href="http://www.e-nuts.net/en/self-organizing-map" class="external text" title="http://www.e-nuts.net/en/self-organizing-map" rel="nofollow">Kohonen Neural Network</a> applied to the Traveling Salesman Problem (using three dimensions).</li>
+<li><a href="http://www.angelfire.com/az3/nfold/TSP.html" class="external text" title="http://www.angelfire.com/az3/nfold/TSP.html" rel="nofollow">Most TSP loop families grow polynomially</a> Private web page shows that a method exists for obtaining a set of optimal "travelling salesman" routes that is a member of a family that grows no faster than about 2<sup>n</sup>In2. However, even for large n, the method yields a polynomial rate for most sets of fields of nodes.</li>
+<li><a href="http://www.visualbots.com/index.htm" class="external text" title="http://www.visualbots.com/index.htm" rel="nofollow">VisualBots</a> - Freeware multi-agent simulator in Microsoft Excel. Sample programs include genetic algorithm, ACO, and simulated annealing solutions to TSP.</li>
+<li><a href="http://www.concept67.net/blog/?page_id=180" class="external text" title="http://www.concept67.net/blog/?page_id=180" rel="nofollow">Work-in-progress attempted proof</a> on private web page of polynomial calculation time on the 2-D undirected graph.</li>
+<li><a href="http://www.adaptivebox.net/research/bookmark/tspcodes_link.html" class="external text" title="http://www.adaptivebox.net/research/bookmark/tspcodes_link.html" rel="nofollow">Links to TSP source codes</a></li>
+<li><a href="http://www.delphiforfun.org/Programs/traveling_salesman.htm" class="external free" title="http://www.delphiforfun.org/Programs/traveling_salesman.htm" rel="nofollow">http://www.delphiforfun.org/Programs/traveling_salesman.htm</a> The Travelling Salesman Problem (TSP) requires that we find the shortest path visiting each of a given set of cities and returning to the starting point.</li>
+<li><a href="http://www.tsp.gatech.edu/concorde.html" class="external text" title="http://www.tsp.gatech.edu/concorde.html" rel="nofollow">CONCORDE</a> Home of the CONCORDE TSP Solver, an ANSI C library dedicated to solving the TSP problem.</li>
+</ul>
+<p><span id="interwiki-de-fa"></span></p>
+
+<!-- 
+Pre-expand include size: 118435 bytes
+Post-expand include size: 22952 bytes
+Template argument size: 16386 bytes
+Maximum: 2048000 bytes
+-->
+
+<!-- Saved in parser cache with key enwiki:pcache:idhash:31248-0!1!0!default!!en!2 and timestamp 20070914135713 -->
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org/wiki/Travelling_salesman_problem">http://en.wikipedia.org/wiki/Travelling_salesman_problem</a>"</div>
+			<div id="catlinks"><p class='catlinks'><a href="/wiki/Special:Categories" title="Special:Categories">Categories</a>: <span dir='ltr'><a href="/wiki/Category:All_articles_with_unsourced_statements" title="Category:All articles with unsourced statements">All articles with unsourced statements</a></span> | <span dir='ltr'><a href="/wiki/Category:Articles_with_unsourced_statements_since_August_2007" title="Category:Articles with unsourced statements since August 2007">Articles with unsourced statements since August 2007</a></span> | <span dir='ltr'><a href="/wiki/Category:Graph_theory" title="Category:Graph theory">Graph theory</a></span> | <span dir='ltr'><a href="/wiki/Category:NP-complete_problems" title="Category:NP-complete problems">NP-complete problems</a></span> | <span dir='ltr'><a href="/wiki/Category:Operations_research" title="Category:Operations research">Operations research</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<div class="pBody">
+			<ul>
+					 <li id="ca-nstab-main" class="selected"><a href="/wiki/Travelling_salesman_problem" title="View the content page [c]" accesskey="c">Article</a></li>
+					 <li id="ca-talk"><a href="/wiki/Talk:Travelling_salesman_problem" title="Discussion about the content page [t]" accesskey="t">Discussion</a></li>
+					 <li id="ca-edit"><a href="/w/index.php?title=Travelling_salesman_problem&amp;action=edit" title="You can edit this page. Please use the preview button before saving. [e]" accesskey="e">Edit this page</a></li>
+					 <li id="ca-history"><a href="/w/index.php?title=Travelling_salesman_problem&amp;action=history" title="Past versions of this page [h]" accesskey="h">History</a></li>
+				</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-personal">
+		<h5>Personal tools</h5>
+		<div class="pBody">
+			<ul>
+				<li id="pt-login"><a href="/w/index.php?title=Special:Userlogin&amp;returnto=Travelling_salesman_problem" title="You are encouraged to log in, it is not mandatory however. [o]" accesskey="o">Sign in / create account</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-logo">
+		<a style="background-image: url(/images/wiki-en.png);" href="/wiki/Main_Page" title="Visit the Main Page [z]" accesskey="z"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-Main-page"><a href="/wiki/Main_Page">Main page</a></li>
+				<li id="n-Contents"><a href="/wiki/Wikipedia:Contents">Contents</a></li>
+				<li id="n-Featured-content"><a href="/wiki/Wikipedia:Featured_content">Featured content</a></li>
+				<li id="n-currentevents"><a href="/wiki/Portal:Current_events" title="Find background information on current events">Current events</a></li>
+				<li id="n-randompage"><a href="/wiki/Special:Random" title="Load a random page [x]" accesskey="x">Random article</a></li>
+			</ul>
+		</div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+		<h5>interaction</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-About-Wikipedia"><a href="/wiki/Wikipedia:About">About Wikipedia</a></li>
+				<li id="n-portal"><a href="/wiki/Wikipedia:Community_Portal" title="About the project, what you can do, where to find things">Community portal</a></li>
+				<li id="n-recentchanges"><a href="/wiki/Special:Recentchanges" title="The list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li>
+				<li id="n-contact"><a href="/wiki/Wikipedia:Contact_us">Contact Wikipedia</a></li>
+				<li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising" title="Support us">Donate to Wikipedia</a></li>
+				<li id="n-help"><a href="/wiki/Help:Contents" title="Guidance on how to use and edit Wikipedia">Help</a></li>
+			</ul>
+		</div>
+	</div>
+		<div id="p-search" class="portlet">
+		<h5><label for="searchInput">Search</label></h5>
+		<div id="searchBody" class="pBody">
+			<form action="/wiki/Special:Search" id="searchform"><div>
+				<input id="searchInput" name="search" type="text" title="Search Wikipedia [f]" accesskey="f" value="" />
+				<input type='submit' name="go" class="searchButton" id="searchGoButton"	value="Go" />&nbsp;
+				<input type='submit' name="fulltext" class="searchButton" id="mw-searchButton" value="Search" />
+			</div></form>
+		</div>
+	</div>
+	<div class="portlet" id="p-tb">
+		<h5>Toolbox</h5>
+		<div class="pBody">
+			<ul>
+				<li id="t-whatlinkshere"><a href="/wiki/Special:Whatlinkshere/Travelling_salesman_problem" title="List of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+				<li id="t-recentchangeslinked"><a href="/wiki/Special:Recentchangeslinked/Travelling_salesman_problem" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+<li id="t-upload"><a href="/wiki/Wikipedia:Upload" title="Upload images or media files [u]" accesskey="u">Upload file</a></li>
+<li id="t-specialpages"><a href="/wiki/Special:Specialpages" title="List of all special pages [q]" accesskey="q">Special pages</a></li>
+				<li id="t-print"><a href="/w/index.php?title=Travelling_salesman_problem&amp;printable=yes" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>				<li id="t-permalink"><a href="/w/index.php?title=Travelling_salesman_problem&amp;oldid=157267816" title="Permanent link to this version of the page">Permanent link</a></li><li id="t-cite"><a href="/w/index.php?title=Special:Cite&amp;page=Travelling_salesman_problem&amp;id=157267816">Cite this article</a></li>			</ul>
+		</div>
+	</div>
+	<div id="p-lang" class="portlet">
+		<h5>In other languages</h5>
+		<div class="pBody">
+			<ul>
+				<li class="interwiki-ar"><a href="http://ar.wikipedia.org/wiki/%D9%85%D8%B4%D9%83%D9%84%D8%A9_%D8%A7%D9%84%D8%B1%D8%AD%D8%A7%D9%84%D8%A9_%D8%A7%D9%84%D8%AA%D8%A7%D8%AC%D8%B1">العربية</a></li>
+				<li class="interwiki-cs"><a href="http://cs.wikipedia.org/wiki/Probl%C3%A9m_obchodn%C3%ADho_cestuj%C3%ADc%C3%ADho">Česky</a></li>
+				<li class="interwiki-de"><a href="http://de.wikipedia.org/wiki/Problem_des_Handlungsreisenden">Deutsch</a></li>
+				<li class="interwiki-es"><a href="http://es.wikipedia.org/wiki/Problema_del_viajante">Español</a></li>
+				<li class="interwiki-fr"><a href="http://fr.wikipedia.org/wiki/Probl%C3%A8me_du_voyageur_de_commerce">Français</a></li>
+				<li class="interwiki-ko"><a href="http://ko.wikipedia.org/wiki/%EC%99%B8%ED%8C%90%EC%9B%90_%EB%AC%B8%EC%A0%9C">한국어</a></li>
+				<li class="interwiki-it"><a href="http://it.wikipedia.org/wiki/Problema_del_commesso_viaggiatore">Italiano</a></li>
+				<li class="interwiki-he"><a href="http://he.wikipedia.org/wiki/%D7%91%D7%A2%D7%99%D7%99%D7%AA_%D7%94%D7%A1%D7%95%D7%9B%D7%9F_%D7%94%D7%A0%D7%95%D7%A1%D7%A2">עברית</a></li>
+				<li class="interwiki-lt"><a href="http://lt.wikipedia.org/wiki/Keliaujan%C4%8Dio_pirklio_u%C5%BEdavinys">Lietuvių</a></li>
+				<li class="interwiki-nl"><a href="http://nl.wikipedia.org/wiki/Handelsreizigersprobleem">Nederlands</a></li>
+				<li class="interwiki-ja"><a href="http://ja.wikipedia.org/wiki/%E5%B7%A1%E5%9B%9E%E3%82%BB%E3%83%BC%E3%83%AB%E3%82%B9%E3%83%9E%E3%83%B3%E5%95%8F%E9%A1%8C">日本語</a></li>
+				<li class="interwiki-pl"><a href="http://pl.wikipedia.org/wiki/Problem_komiwoja%C5%BCera">Polski</a></li>
+				<li class="interwiki-pt"><a href="http://pt.wikipedia.org/wiki/Problema_do_caixeiro_viajante">Português</a></li>
+				<li class="interwiki-ru"><a href="http://ru.wikipedia.org/wiki/%D0%97%D0%B0%D0%B4%D0%B0%D1%87%D0%B0_%D0%BA%D0%BE%D0%BC%D0%BC%D0%B8%D0%B2%D0%BE%D1%8F%D0%B6%D1%91%D1%80%D0%B0">Русский</a></li>
+				<li class="interwiki-simple"><a href="http://simple.wikipedia.org/wiki/Travelling_Salesman_Problem">Simple English</a></li>
+				<li class="interwiki-sl"><a href="http://sl.wikipedia.org/wiki/Problem_trgovskega_potnika">Slovenščina</a></li>
+				<li class="interwiki-sr"><a href="http://sr.wikipedia.org/wiki/%D0%9F%D1%80%D0%BE%D0%B1%D0%BB%D0%B5%D0%BC_%D1%82%D1%80%D0%B3%D0%BE%D0%B2%D0%B0%D1%87%D0%BA%D0%BE%D0%B3_%D0%BF%D1%83%D1%82%D0%BD%D0%B8%D0%BA%D0%B0">Српски / Srpski</a></li>
+				<li class="interwiki-fi"><a href="http://fi.wikipedia.org/wiki/Kauppamatkustajan_ongelma">Suomi</a></li>
+				<li class="interwiki-vi"><a href="http://vi.wikipedia.org/wiki/B%C3%A0i_to%C3%A1n_ng%C6%B0%E1%BB%9Di_b%C3%A1n_h%C3%A0ng">Tiếng Việt</a></li>
+				<li class="interwiki-tr"><a href="http://tr.wikipedia.org/wiki/Seyyar_sat%C4%B1c%C4%B1_problemi">Türkçe</a></li>
+				<li class="interwiki-zh"><a href="http://zh.wikipedia.org/wiki/%E6%97%85%E8%A1%8C%E6%8E%A8%E9%94%80%E5%91%98%E9%97%AE%E9%A2%98">中文</a></li>
+			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="/skins-1.5/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>
+				<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="/images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>
+			<ul id="f-list">
+				<li id="lastmod"> This page was last modified 00:12, 12 September 2007.</li>
+				<li id="copyright">All text is available under the terms of the <a class='internal' href="/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="/wiki/Wikipedia:Copyrights" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a U.S. registered <a class='internal' href="/wiki/501%28c%29#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="/wiki/Non-profit_organization" title="Non-profit organization">nonprofit</a> <a href="/wiki/Charitable_organization" title="Charitable organization">charity</a>.<br /></li>
+				<li id="privacy"><a href="http://wikimediafoundation.org/wiki/Privacy_policy" title="wikimedia:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="/wiki/Wikipedia:About" title="Wikipedia:About">About Wikipedia</a></li>
+				<li id="disclaimer"><a href="/wiki/Wikipedia:General_disclaimer" title="Wikipedia:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+		
+	
+		<script type="text/javascript">if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by srv152 in 0.093 secs. --></body></html>

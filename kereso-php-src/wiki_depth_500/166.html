@@ -1,0 +1,259 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+				<meta name="keywords" content="Data structure,.NET Framework,Abstract data structure,Algorithm,Algorithmic efficiency,Array,B-tree,Binary tree,C++,Class (computer science),Computer science" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="http://www.gnu.org/copyleft/fdl.html" />
+		<title>Data structure - Wikipedia, the free encyclopedia</title>
+		<style type="text/css" media="screen, projection">/*<![CDATA[*/
+			@import "/skins-1.5/common/shared.css?99";
+			@import "/skins-1.5/monobook/main.css?99";
+		/*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="/skins-1.5/common/commonPrint.css?99" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE50Fixes.css?99";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE55Fixes.css?99";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "/skins-1.5/monobook/IE60Fixes.css?99";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "/skins-1.5/monobook/IE70Fixes.css?99";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="/skins-1.5/common/IEFixes.js?99"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		
+		<script type= "text/javascript">/*<![CDATA[*/
+var skin = "monobook";
+var stylepath = "/skins-1.5";
+var wgArticlePath = "/wiki/$1";
+var wgScriptPath = "/w";
+var wgScript = "/w/index.php";
+var wgServer = "http://en.wikipedia.org";
+var wgCanonicalNamespace = "";
+var wgCanonicalSpecialPageName = false;
+var wgNamespaceNumber = 0;
+var wgPageName = "Data_structure";
+var wgTitle = "Data structure";
+var wgAction = "view";
+var wgRestrictionEdit = [];
+var wgRestrictionMove = [];
+var wgArticleId = "8519";
+var wgIsArticle = true;
+var wgUserName = null;
+var wgUserGroups = null;
+var wgUserLanguage = "en";
+var wgContentLanguage = "en";
+var wgBreakFrames = false;
+var wgCurRevisionId = "157312561";
+/*]]>*/</script>
+                
+		<script type="text/javascript" src="/skins-1.5/common/wikibits.js?99"><!-- wikibits js --></script>
+		<script type="text/javascript" src="/w/index.php?title=-&amp;action=raw&amp;gen=js&amp;useskin=monobook"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "/w/index.php?title=MediaWiki:Common.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=MediaWiki:Monobook.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=-&action=raw&gen=css&maxage=2678400";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+		<script type="text/javascript" src="/skins-1.5/common/ajax.js?99"></script>
+	</head>
+<body  class="mediawiki ns-0 ltr page-Data_structure">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">Data structure</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<div class="thumb tright">
+<div class="thumbinner" style="width:182px;"><a href="/wiki/Image:Binary_tree.svg" class="image" title="A binary tree, a simple type of branching linked data structure."><img alt="A binary tree, a simple type of branching linked data structure." src="http://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Binary_tree.svg/180px-Binary_tree.svg.png" width="180" height="158" border="0" class="thumbimage" /></a>
+<div class="thumbcaption">
+<div class="magnify" style="float:right"><a href="/wiki/Image:Binary_tree.svg" class="internal" title="Enlarge"><img src="/skins-1.5/common/images/magnify-clip.png" width="15" height="11" alt="" /></a></div>
+A <a href="/wiki/Binary_tree" title="Binary tree">binary tree</a>, a simple type of branching linked data structure.</div>
+</div>
+</div>
+<p>In <a href="/wiki/Computer_science" title="Computer science">computer science</a>, a <b>data structure</b> is a way of storing <a href="/wiki/Data" title="Data">data</a> in a computer so that it can be used efficiently. Often a carefully chosen data structure will allow the most <a href="/wiki/Algorithmic_efficiency" title="Algorithmic efficiency">efficient</a> <a href="/wiki/Algorithm" title="Algorithm">algorithm</a> to be used. The choice of the data structure often begins from the choice of an <a href="/wiki/Abstract_data_structure" title="Abstract data structure">abstract data structure</a>. A well-designed data structure allows a variety of critical operations to be performed, using as few resources, both execution time and memory space, as possible. Data structures are implemented using the <a href="/wiki/Data_type" title="Data type">data types</a>, <a href="/wiki/Reference_%28computer_science%29" title="Reference (computer science)">references</a> and operations on them provided by a <a href="/wiki/Programming_language" title="Programming language">programming language</a>.</p>
+<p>Different kinds of data structures are suited to different kinds of applications, and some are highly specialized to certain tasks. For example, <a href="/wiki/B-tree" title="B-tree">B-trees</a> are particularly well-suited for implementation of databases, while <a href="/wiki/Routing_table" title="Routing table">routing tables</a> rely on networks of machines to function.</p>
+<p>In the design of many types of programs, the choice of data structures is a primary design consideration, as experience in building large systems has shown that the difficulty of implementation and the quality and performance of the final result depends heavily on choosing the best data structure. After the data structures are chosen, the <a href="/wiki/Algorithm" title="Algorithm">algorithms</a> to be used often become relatively obvious. Sometimes things work in the opposite direction - data structures are chosen because certain key tasks have algorithms that work best with particular data structures. In either case, the choice of appropriate data structures is crucial.</p>
+<p>This insight has given rise to many formalised design methods and <a href="/wiki/Programming_language" title="Programming language">programming languages</a> in which data structures, rather than algorithms, are the key organising factor. Most languages feature some sort of <a href="/wiki/Module_system" title="Module system">module system</a>, allowing data structures to be safely reused in different applications by hiding their verified implementation details behind controlled interfaces. <a href="/wiki/Object-oriented" title="Object-oriented">Object-oriented</a> programming languages such as <a href="/wiki/C%2B%2B" title="C++">C++</a> and <a href="/wiki/Java_%28programming_language%29" title="Java (programming language)">Java</a> in particular use <a href="/wiki/Class_%28computer_science%29" title="Class (computer science)">classes</a> for this purpose.</p>
+<p>Since data structures are so crucial, many of them are included in standard libraries of modern programming languages and environments, such as C++'s <a href="/wiki/Standard_Template_Library" title="Standard Template Library">Standard Template Library</a>, the <a href="/wiki/Java_%28programming_language%29" title="Java (programming language)">Java</a> Collections Framework, and the Microsoft <a href="/wiki/.NET_Framework" title=".NET Framework">.NET Framework</a>.</p>
+<p>The fundamental building blocks of most data structures are <a href="/wiki/Array" title="Array">arrays</a>, <a href="/wiki/Record_%28computer_science%29" title="Record (computer science)">records</a>, <a href="/wiki/Tagged_union" title="Tagged union">discriminated unions</a>, and <a href="/wiki/Reference_%28computer_science%29" title="Reference (computer science)">references</a>. For example, the nullable reference, a reference which can be null, is a combination of references and discriminated unions, and the simplest linked data structure, the <a href="/wiki/Linked_list" title="Linked list">linked list</a>, is built from records and nullable references.</p>
+<p>Data structures represent <a href="/wiki/Implementation" title="Implementation">implementations</a> or <a href="/wiki/Interface_%28computer_science%29" title="Interface (computer science)">interfaces</a>: A data structure can be viewed as an interface between two functions or as an implementation of methods to access storage that is organized according to the associated <a href="/wiki/Datatype" title="Datatype">data type</a>.</p>
+<p><a name="Common_data_structures" id="Common_data_structures"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Data_structure&amp;action=edit&amp;section=1" title="Edit section: Common data structures">edit</a>]</span> <span class="mw-headline">Common data structures</span></h2>
+<dl>
+<dd>
+<div class="noprint"><i>Main article: <a href="/wiki/List_of_data_structures" title="List of data structures">List of data structures</a></i></div>
+</dd>
+</dl>
+<ul>
+<li><a href="/wiki/Array" title="Array">Array</a></li>
+<li><a href="/wiki/Stack_%28data_structure%29" title="Stack (data structure)">Stacks</a></li>
+<li><a href="/wiki/Queue_%28data_structure%29" title="Queue (data structure)">Queues</a></li>
+<li><a href="/wiki/Linked_list" title="Linked list">Linked lists</a></li>
+<li><a href="/wiki/Tree_%28data_structure%29" title="Tree (data structure)">Trees</a></li>
+<li><a href="/wiki/Graph_%28data_structure%29" title="Graph (data structure)">Graphs</a></li>
+</ul>
+<p><a name="See_also" id="See_also"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Data_structure&amp;action=edit&amp;section=2" title="Edit section: See also">edit</a>]</span> <span class="mw-headline">See also</span></h2>
+<div class="infobox sisterproject">
+<div style="float: left;">
+<div class="floatnone"><span><a href="/wiki/Image:Wikibooks-logo-en.svg" class="image" title="Wikibooks"><img alt="Wikibooks" src="http://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Wikibooks-logo-en.svg/50px-Wikibooks-logo-en.svg.png" width="50" height="57" border="0" /></a></span></div>
+</div>
+<div style="margin-left: 60px;"><a href="/wiki/Wikibooks" title="Wikibooks">Wikibooks</a> has a book on the topic of
+<div style="margin-left:10px;"><i><a href="http://en.wikibooks.org/wiki/Data_Structures" class="extiw" title="wikibooks:Data_Structures">Data Structures</a></i></div>
+</div>
+</div>
+<ul>
+<li><a href="/wiki/Persistent_data_structure" title="Persistent data structure">Persistent data structure</a></li>
+<li><a href="/wiki/Unstructured_data" title="Unstructured data">Unstructured data</a></li>
+<li><a href="/wiki/Dynamization" title="Dynamization">Dynamization</a></li>
+</ul>
+<p><a name="External_links" id="External_links"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Data_structure&amp;action=edit&amp;section=3" title="Edit section: External links">edit</a>]</span> <span class="mw-headline">External links</span></h2>
+<ul>
+<li><a href="http://nist.gov/dads/" class="external text" title="http://nist.gov/dads/" rel="nofollow">Descriptions</a> from the <a href="/wiki/Dictionary_of_Algorithms_and_Data_Structures" title="Dictionary of Algorithms and Data Structures">Dictionary of Algorithms and Data Structures</a></li>
+<li><a href="http://www.cse.unr.edu/~bebis/CS308/" class="external free" title="http://www.cse.unr.edu/~bebis/CS308/" rel="nofollow">http://www.cse.unr.edu/~bebis/CS308/</a></li>
+<li><a href="http://www.site.uottawa.ca/~holte/T26/top.realTop.html" class="external text" title="http://www.site.uottawa.ca/~holte/T26/top.realTop.html" rel="nofollow">data structure course notes</a></li>
+<li><a href="http://www.datastructures.info/books/" class="external text" title="http://www.datastructures.info/books/" rel="nofollow">Collection of free Data structures e-books</a></li>
+<li>Bruno R. Preiss, Data Structures and Algorithms with Object-Oriented Design Patterns in <a href="http://www.brpreiss.com/books/opus4" class="external text" title="http://www.brpreiss.com/books/opus4" rel="nofollow">C++</a>, <a href="http://www.brpreiss.com/books/opus5" class="external text" title="http://www.brpreiss.com/books/opus5" rel="nofollow">Java</a>, <a href="http://www.brpreiss.com/books/opus6" class="external text" title="http://www.brpreiss.com/books/opus6" rel="nofollow">C#</a>, <a href="http://www.brpreiss.com/books/opus7" class="external text" title="http://www.brpreiss.com/books/opus7" rel="nofollow">Python</a>, <a href="http://www.brpreiss.com/books/opus8" class="external text" title="http://www.brpreiss.com/books/opus8" rel="nofollow">Ruby</a></li>
+</ul>
+
+<!-- 
+Pre-expand include size: 2873 bytes
+Post-expand include size: 681 bytes
+Template argument size: 411 bytes
+Maximum: 2048000 bytes
+-->
+
+<!-- Saved in parser cache with key enwiki:pcache:idhash:8519-0!1!0!default!!en!2 and timestamp 20070914034325 -->
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org/wiki/Data_structure">http://en.wikipedia.org/wiki/Data_structure</a>"</div>
+			<div id="catlinks"><p class='catlinks'><a href="/wiki/Special:Categories" title="Special:Categories">Category</a>: <span dir='ltr'><a href="/wiki/Category:Data_structures" title="Category:Data structures">Data structures</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<div class="pBody">
+			<ul>
+					 <li id="ca-nstab-main" class="selected"><a href="/wiki/Data_structure" title="View the content page [c]" accesskey="c">Article</a></li>
+					 <li id="ca-talk"><a href="/wiki/Talk:Data_structure" title="Discussion about the content page [t]" accesskey="t">Discussion</a></li>
+					 <li id="ca-edit"><a href="/w/index.php?title=Data_structure&amp;action=edit" title="You can edit this page. Please use the preview button before saving. [e]" accesskey="e">Edit this page</a></li>
+					 <li id="ca-history"><a href="/w/index.php?title=Data_structure&amp;action=history" title="Past versions of this page [h]" accesskey="h">History</a></li>
+				</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-personal">
+		<h5>Personal tools</h5>
+		<div class="pBody">
+			<ul>
+				<li id="pt-login"><a href="/w/index.php?title=Special:Userlogin&amp;returnto=Data_structure" title="You are encouraged to log in, it is not mandatory however. [o]" accesskey="o">Sign in / create account</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-logo">
+		<a style="background-image: url(/images/wiki-en.png);" href="/wiki/Main_Page" title="Visit the Main Page [z]" accesskey="z"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-Main-page"><a href="/wiki/Main_Page">Main page</a></li>
+				<li id="n-Contents"><a href="/wiki/Wikipedia:Contents">Contents</a></li>
+				<li id="n-Featured-content"><a href="/wiki/Wikipedia:Featured_content">Featured content</a></li>
+				<li id="n-currentevents"><a href="/wiki/Portal:Current_events" title="Find background information on current events">Current events</a></li>
+				<li id="n-randompage"><a href="/wiki/Special:Random" title="Load a random page [x]" accesskey="x">Random article</a></li>
+			</ul>
+		</div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+		<h5>interaction</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-About-Wikipedia"><a href="/wiki/Wikipedia:About">About Wikipedia</a></li>
+				<li id="n-portal"><a href="/wiki/Wikipedia:Community_Portal" title="About the project, what you can do, where to find things">Community portal</a></li>
+				<li id="n-recentchanges"><a href="/wiki/Special:Recentchanges" title="The list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li>
+				<li id="n-contact"><a href="/wiki/Wikipedia:Contact_us">Contact Wikipedia</a></li>
+				<li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising" title="Support us">Donate to Wikipedia</a></li>
+				<li id="n-help"><a href="/wiki/Help:Contents" title="Guidance on how to use and edit Wikipedia">Help</a></li>
+			</ul>
+		</div>
+	</div>
+		<div id="p-search" class="portlet">
+		<h5><label for="searchInput">Search</label></h5>
+		<div id="searchBody" class="pBody">
+			<form action="/wiki/Special:Search" id="searchform"><div>
+				<input id="searchInput" name="search" type="text" title="Search Wikipedia [f]" accesskey="f" value="" />
+				<input type='submit' name="go" class="searchButton" id="searchGoButton"	value="Go" />&nbsp;
+				<input type='submit' name="fulltext" class="searchButton" id="mw-searchButton" value="Search" />
+			</div></form>
+		</div>
+	</div>
+	<div class="portlet" id="p-tb">
+		<h5>Toolbox</h5>
+		<div class="pBody">
+			<ul>
+				<li id="t-whatlinkshere"><a href="/wiki/Special:Whatlinkshere/Data_structure" title="List of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+				<li id="t-recentchangeslinked"><a href="/wiki/Special:Recentchangeslinked/Data_structure" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+<li id="t-upload"><a href="/wiki/Wikipedia:Upload" title="Upload images or media files [u]" accesskey="u">Upload file</a></li>
+<li id="t-specialpages"><a href="/wiki/Special:Specialpages" title="List of all special pages [q]" accesskey="q">Special pages</a></li>
+				<li id="t-print"><a href="/w/index.php?title=Data_structure&amp;printable=yes" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>				<li id="t-permalink"><a href="/w/index.php?title=Data_structure&amp;oldid=157312561" title="Permanent link to this version of the page">Permanent link</a></li><li id="t-cite"><a href="/w/index.php?title=Special:Cite&amp;page=Data_structure&amp;id=157312561">Cite this article</a></li>			</ul>
+		</div>
+	</div>
+	<div id="p-lang" class="portlet">
+		<h5>In other languages</h5>
+		<div class="pBody">
+			<ul>
+				<li class="interwiki-ar"><a href="http://ar.wikipedia.org/wiki/%D8%A8%D9%86%D9%8A%D8%A9_%D8%A7%D9%84%D8%A8%D9%8A%D8%A7%D9%86%D8%A7%D8%AA">العربية</a></li>
+				<li class="interwiki-ast"><a href="http://ast.wikipedia.org/wiki/Estructura_de_datos">Asturianu</a></li>
+				<li class="interwiki-bs"><a href="http://bs.wikipedia.org/wiki/Struktura_podataka">Bosanski</a></li>
+				<li class="interwiki-da"><a href="http://da.wikipedia.org/wiki/Datastruktur">Dansk</a></li>
+				<li class="interwiki-de"><a href="http://de.wikipedia.org/wiki/Datenstruktur">Deutsch</a></li>
+				<li class="interwiki-es"><a href="http://es.wikipedia.org/wiki/Estructura_de_datos">Español</a></li>
+				<li class="interwiki-fr"><a href="http://fr.wikipedia.org/wiki/Structure_de_donn%C3%A9es">Français</a></li>
+				<li class="interwiki-ko"><a href="http://ko.wikipedia.org/wiki/%EC%9E%90%EB%A3%8C_%EA%B5%AC%EC%A1%B0">한국어</a></li>
+				<li class="interwiki-id"><a href="http://id.wikipedia.org/wiki/Struktur_data">Bahasa Indonesia</a></li>
+				<li class="interwiki-is"><a href="http://is.wikipedia.org/wiki/Gagnagrind">Íslenska</a></li>
+				<li class="interwiki-he"><a href="http://he.wikipedia.org/wiki/%D7%9E%D7%91%D7%A0%D7%94_%D7%A0%D7%AA%D7%95%D7%A0%D7%99%D7%9D">עברית</a></li>
+				<li class="interwiki-lv"><a href="http://lv.wikipedia.org/wiki/Datu_strukt%C5%ABra">Latviešu</a></li>
+				<li class="interwiki-hu"><a href="http://hu.wikipedia.org/wiki/Adatszerkezet">Magyar</a></li>
+				<li class="interwiki-nl"><a href="http://nl.wikipedia.org/wiki/Datastructuur">Nederlands</a></li>
+				<li class="interwiki-ja"><a href="http://ja.wikipedia.org/wiki/%E3%83%87%E3%83%BC%E3%82%BF%E6%A7%8B%E9%80%A0">日本語</a></li>
+				<li class="interwiki-no"><a href="http://no.wikipedia.org/wiki/Datastruktur">‪Norsk (bokmål)‬</a></li>
+				<li class="interwiki-pl"><a href="http://pl.wikipedia.org/wiki/Struktura_danych">Polski</a></li>
+				<li class="interwiki-pt"><a href="http://pt.wikipedia.org/wiki/Estrutura_de_dados">Português</a></li>
+				<li class="interwiki-ru"><a href="http://ru.wikipedia.org/wiki/%D0%A1%D1%82%D1%80%D1%83%D0%BA%D1%82%D1%83%D1%80%D0%B0_%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D1%85">Русский</a></li>
+				<li class="interwiki-simple"><a href="http://simple.wikipedia.org/wiki/Data_structure">Simple English</a></li>
+				<li class="interwiki-sk"><a href="http://sk.wikipedia.org/wiki/%C3%9Adajov%C3%A1_%C5%A1trukt%C3%BAra">Slovenčina</a></li>
+				<li class="interwiki-sl"><a href="http://sl.wikipedia.org/wiki/Podatkovna_struktura">Slovenščina</a></li>
+				<li class="interwiki-sr"><a href="http://sr.wikipedia.org/wiki/%D0%A1%D1%82%D1%80%D1%83%D0%BA%D1%82%D1%83%D1%80%D0%B0_%D0%BF%D0%BE%D0%B4%D0%B0%D1%82%D0%B0%D0%BA%D0%B0">Српски / Srpski</a></li>
+				<li class="interwiki-fi"><a href="http://fi.wikipedia.org/wiki/Tietorakenne">Suomi</a></li>
+				<li class="interwiki-sv"><a href="http://sv.wikipedia.org/wiki/Datastruktur">Svenska</a></li>
+				<li class="interwiki-th"><a href="http://th.wikipedia.org/wiki/%E0%B9%82%E0%B8%84%E0%B8%A3%E0%B8%87%E0%B8%AA%E0%B8%A3%E0%B9%89%E0%B8%B2%E0%B8%87%E0%B8%82%E0%B9%89%E0%B8%AD%E0%B8%A1%E0%B8%B9%E0%B8%A5">ไทย</a></li>
+				<li class="interwiki-vi"><a href="http://vi.wikipedia.org/wiki/C%E1%BA%A5u_tr%C3%BAc_d%E1%BB%AF_li%E1%BB%87u">Tiếng Việt</a></li>
+				<li class="interwiki-uk"><a href="http://uk.wikipedia.org/wiki/%D0%A1%D1%82%D1%80%D1%83%D0%BA%D1%82%D1%83%D1%80%D0%B8_%D0%B4%D0%B0%D0%BD%D0%B8%D1%85">Українська</a></li>
+				<li class="interwiki-zh"><a href="http://zh.wikipedia.org/wiki/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84">中文</a></li>
+			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="/skins-1.5/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>
+				<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="/images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>
+			<ul id="f-list">
+				<li id="lastmod"> This page was last modified 04:43, 12 September 2007.</li>
+				<li id="copyright">All text is available under the terms of the <a class='internal' href="/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="/wiki/Wikipedia:Copyrights" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a U.S. registered <a class='internal' href="/wiki/501%28c%29#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="/wiki/Non-profit_organization" title="Non-profit organization">nonprofit</a> <a href="/wiki/Charitable_organization" title="Charitable organization">charity</a>.<br /></li>
+				<li id="privacy"><a href="http://wikimediafoundation.org/wiki/Privacy_policy" title="wikimedia:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="/wiki/Wikipedia:About" title="Wikipedia:About">About Wikipedia</a></li>
+				<li id="disclaimer"><a href="/wiki/Wikipedia:General_disclaimer" title="Wikipedia:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+		
+	
+		<script type="text/javascript">if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by srv155 in 0.057 secs. --></body></html>

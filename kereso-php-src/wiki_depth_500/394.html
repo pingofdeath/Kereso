@@ -1,0 +1,993 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+				<meta name="keywords" content="Perl,Perl,.NET Framework,1987,1994,1995,2001,2005,2006,2007,AWK (programming language)" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="http://www.gnu.org/copyleft/fdl.html" />
+		<title>Perl - Wikipedia, the free encyclopedia</title>
+		<style type="text/css" media="screen, projection">/*<![CDATA[*/
+			@import "/skins-1.5/common/shared.css?99";
+			@import "/skins-1.5/monobook/main.css?99";
+		/*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="/skins-1.5/common/commonPrint.css?99" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE50Fixes.css?99";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE55Fixes.css?99";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "/skins-1.5/monobook/IE60Fixes.css?99";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "/skins-1.5/monobook/IE70Fixes.css?99";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="/skins-1.5/common/IEFixes.js?99"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		
+		<script type= "text/javascript">/*<![CDATA[*/
+var skin = "monobook";
+var stylepath = "/skins-1.5";
+var wgArticlePath = "/wiki/$1";
+var wgScriptPath = "/w";
+var wgScript = "/w/index.php";
+var wgServer = "http://en.wikipedia.org";
+var wgCanonicalNamespace = "";
+var wgCanonicalSpecialPageName = false;
+var wgNamespaceNumber = 0;
+var wgPageName = "Perl";
+var wgTitle = "Perl";
+var wgAction = "view";
+var wgRestrictionEdit = [];
+var wgRestrictionMove = [];
+var wgArticleId = "23939";
+var wgIsArticle = true;
+var wgUserName = null;
+var wgUserGroups = null;
+var wgUserLanguage = "en";
+var wgContentLanguage = "en";
+var wgBreakFrames = false;
+var wgCurRevisionId = "157969054";
+/*]]>*/</script>
+                
+		<script type="text/javascript" src="/skins-1.5/common/wikibits.js?99"><!-- wikibits js --></script>
+		<script type="text/javascript" src="/w/index.php?title=-&amp;action=raw&amp;gen=js&amp;useskin=monobook"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "/w/index.php?title=MediaWiki:Common.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=MediaWiki:Monobook.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=-&action=raw&gen=css&maxage=2678400";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+		<script type="text/javascript" src="/skins-1.5/common/ajax.js?99"></script>
+<style type="text/css">/*<![CDATA[*/
+.source-perl {line-height: normal;}
+.source-perl li {line-height: normal;}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for perl
+ * CSS class: source-perl, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie (http://qbnz.com/highlighter)
+ */
+.source-perl .de1, .source-perl .de2 {font-family: 'Courier New', Courier, monospace; font-weight: normal;}
+.source-perl  {}
+.source-perl .head {}
+.source-perl .foot {}
+.source-perl .imp {font-weight: bold; color: red;}
+.source-perl .ln-xtra {color: #cc0; background-color: #ffc;}
+.source-perl li {font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;}
+.source-perl li.li2 {font-weight: bold;}
+.source-perl .kw1 {color: #b1b100;}
+.source-perl .kw2 {color: #000000; font-weight: bold;}
+.source-perl .kw3 {color: #000066;}
+.source-perl .co1 {color: #808080; font-style: italic;}
+.source-perl .coMULTI {color: #808080; font-style: italic;}
+.source-perl .es0 {color: #000099; font-weight: bold;}
+.source-perl .br0 {color: #66cc66;}
+.source-perl .st0 {color: #ff0000;}
+.source-perl .nu0 {color: #cc66cc;}
+.source-perl .me1 {color: #006600;}
+.source-perl .me2 {color: #006600;}
+.source-perl .re0 {color: #0000ff;}
+.source-perl .re4 {color: #009999;}
+
+/*]]>*/
+</style>
+<style type="text/css">/*<![CDATA[*/
+@import "/w/index.php?title=MediaWiki:Geshi.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+/*]]>*/
+</style>	</head>
+<body  class="mediawiki ns-0 ltr page-Perl">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">Perl</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<table class="infobox" style="width: 23em; text-align: left;font-size: 90%">
+<caption><big><b>Perl</b></big></caption>
+<tr>
+<td colspan="2" style="text-align: center;"><a href="/wiki/Image:Programming-republic-of-perl.gif" class="image" title="Image:Programming-republic-of-perl.gif"><img alt="Image:Programming-republic-of-perl.gif" src="http://upload.wikimedia.org/wikipedia/en/5/56/Programming-republic-of-perl.gif" width="97" height="97" border="0" /></a></td>
+</tr>
+<tr>
+<th><a href="/wiki/Programming_paradigm" title="Programming paradigm">Paradigm</a>:</th>
+<td><a href="/wiki/Multi-paradigm" title="Multi-paradigm">Multi-paradigm</a></td>
+</tr>
+<tr>
+<th>Appeared in:</th>
+<td>1987</td>
+</tr>
+<tr>
+<th>Designed by:</th>
+<td><a href="/wiki/Larry_Wall" title="Larry Wall">Larry Wall</a></td>
+</tr>
+<tr>
+<th><a href="/wiki/Software_release" title="Software release">Latest release</a>:</th>
+<td valign="bottom">5.8.8/ <a href="/wiki/January_31" title="January 31">January 31</a>, <a href="/wiki/2006" title="2006">2006</a></td>
+</tr>
+<tr>
+<th><a href="/wiki/Type_system" title="Type system">Typing discipline</a>:</th>
+<td>Dynamic</td>
+</tr>
+<tr>
+<th>Influenced by:</th>
+<td><a href="/wiki/AWK_%28programming_language%29" title="AWK (programming language)">AWK</a>, <a href="/wiki/BASIC" title="BASIC">BASIC</a>, <a href="/wiki/BASIC-PLUS" title="BASIC-PLUS">BASIC-PLUS</a>, <a href="/wiki/C_%28programming_language%29" title="C (programming language)">C</a>, <a href="/wiki/C%2B%2B" title="C++">C++</a>, <a href="/wiki/Lisp_programming_language" title="Lisp programming language">Lisp</a>, <a href="/wiki/Pascal_%28programming_language%29" title="Pascal (programming language)">Pascal</a>, <a href="/wiki/Python_%28programming_language%29" title="Python (programming language)">Python</a>, <a href="/wiki/Sed" title="Sed">sed</a>, <a href="/wiki/Unix_shell" title="Unix shell">Unix shell</a></td>
+</tr>
+<tr>
+<th>Influenced:</th>
+<td><a href="/wiki/Python_%28programming_language%29" title="Python (programming language)">Python</a>, <a href="/wiki/PHP" title="PHP">PHP</a>, <a href="/wiki/Ruby_%28programming_language%29" title="Ruby (programming language)">Ruby</a>, <a href="/wiki/ECMAScript" title="ECMAScript">ECMAScript</a></td>
+</tr>
+<tr>
+<th><a href="/wiki/Operating_system" title="Operating system">OS</a>:</th>
+<td><a href="/wiki/Cross-platform" title="Cross-platform">Cross-platform</a></td>
+</tr>
+<tr>
+<th><a href="/wiki/Software_license" title="Software license">License</a>:</th>
+<td><a href="/wiki/GNU_General_Public_License" title="GNU General Public License">GNU General Public License</a>, <a href="/wiki/Artistic_License" title="Artistic License">Artistic License</a></td>
+</tr>
+<tr>
+<th><a href="/wiki/Website" title="Website">Website</a>:</th>
+<td><a href="http://www.perl.org/" class="external free" title="http://www.perl.org/" rel="nofollow">http://www.perl.org/</a></td>
+</tr>
+<tr>
+<td></td>
+</tr>
+</table>
+<div class="infobox sisterproject">
+<div style="float: left;">
+<div class="floatnone"><span><a href="/wiki/Image:Wikibooks-logo-en.svg" class="image" title="Wikibooks"><img alt="Wikibooks" src="http://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Wikibooks-logo-en.svg/50px-Wikibooks-logo-en.svg.png" width="50" height="57" border="0" /></a></span></div>
+</div>
+<div style="margin-left: 60px;"><a href="/wiki/Wikibooks" title="Wikibooks">Wikibooks</a> has a book on the topic of
+<div style="margin-left:10px;"><i><b><a href="http://en.wikibooks.org/wiki/Perl_Programming" class="extiw" title="wikibooks:Perl_Programming">Perl Programming</a></b></i></div>
+</div>
+</div>
+<p><b>Perl</b> is a <a href="/wiki/Dynamic_programming_language" title="Dynamic programming language">dynamic programming language</a> created by <a href="/wiki/Larry_Wall" title="Larry Wall">Larry Wall</a> and first released in <a href="/wiki/1987" title="1987">1987</a>. Perl borrows features from a variety of other languages including <a href="/wiki/C_%28programming_language%29" title="C (programming language)">C</a>, <a href="/wiki/Unix_shell" title="Unix shell">shell</a> scripting (<a href="/wiki/Bourne_shell" title="Bourne shell">sh</a>), <a href="/wiki/AWK_programming_language" title="AWK programming language">AWK</a>, <a href="/wiki/Sed" title="Sed">sed</a> and <a href="/wiki/Lisp_programming_language" title="Lisp programming language">Lisp</a>.<sup id="_ref-perltimeline_0" class="reference"><a href="#_note-perltimeline" title="">[1]</a></sup></p>
+<p>Structurally, Perl is based on the brace-delimited block style of AWK and C, and was widely adopted for its strengths in string processing and lack of the arbitrary limitations of many <a href="/wiki/Scripting_language" title="Scripting language">scripting languages</a> at the time.<sup id="_ref-programmingperl_0" class="reference"><a href="#_note-programmingperl" title="">[2]</a></sup></p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#History"><span class="tocnumber">1</span> <span class="toctext">History</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Name"><span class="tocnumber">1.1</span> <span class="toctext">Name</span></a></li>
+<li class="toclevel-2"><a href="#The_camel_symbol"><span class="tocnumber">1.2</span> <span class="toctext">The camel symbol</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Overview"><span class="tocnumber">2</span> <span class="toctext">Overview</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Features"><span class="tocnumber">2.1</span> <span class="toctext">Features</span></a></li>
+<li class="toclevel-2"><a href="#Design"><span class="tocnumber">2.2</span> <span class="toctext">Design</span></a></li>
+<li class="toclevel-2"><a href="#Applications"><span class="tocnumber">2.3</span> <span class="toctext">Applications</span></a></li>
+<li class="toclevel-2"><a href="#Implementation"><span class="tocnumber">2.4</span> <span class="toctext">Implementation</span></a></li>
+<li class="toclevel-2"><a href="#Availability"><span class="tocnumber">2.5</span> <span class="toctext">Availability</span></a>
+<ul>
+<li class="toclevel-3"><a href="#Windows"><span class="tocnumber">2.5.1</span> <span class="toctext">Windows</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Language_structure"><span class="tocnumber">3</span> <span class="toctext">Language structure</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Data_types"><span class="tocnumber">3.1</span> <span class="toctext">Data types</span></a></li>
+<li class="toclevel-2"><a href="#Control_structures"><span class="tocnumber">3.2</span> <span class="toctext">Control structures</span></a></li>
+<li class="toclevel-2"><a href="#Subroutines"><span class="tocnumber">3.3</span> <span class="toctext">Subroutines</span></a></li>
+<li class="toclevel-2"><a href="#Regular_expressions"><span class="tocnumber">3.4</span> <span class="toctext">Regular expressions</span></a>
+<ul>
+<li class="toclevel-3"><a href="#Uses"><span class="tocnumber">3.4.1</span> <span class="toctext">Uses</span></a></li>
+<li class="toclevel-3"><a href="#Syntax"><span class="tocnumber">3.4.2</span> <span class="toctext">Syntax</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Database_interfaces"><span class="tocnumber">4</span> <span class="toctext">Database interfaces</span></a></li>
+<li class="toclevel-1"><a href="#Comparative_performance"><span class="tocnumber">5</span> <span class="toctext">Comparative performance</span></a>
+<ul>
+<li class="toclevel-2"><a href="#GPU_performance"><span class="tocnumber">5.1</span> <span class="toctext">GPU performance</span></a>
+<ul>
+<li class="toclevel-3"><a href="#GPU_Data_Storage_in_Perl"><span class="tocnumber">5.1.1</span> <span class="toctext">GPU Data Storage in Perl</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2"><a href="#Optimizing"><span class="tocnumber">5.2</span> <span class="toctext">Optimizing</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Future"><span class="tocnumber">6</span> <span class="toctext">Future</span></a></li>
+<li class="toclevel-1"><a href="#The_Perl_community"><span class="tocnumber">7</span> <span class="toctext">The Perl community</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Pastimes"><span class="tocnumber">7.1</span> <span class="toctext">Pastimes</span></a>
+<ul>
+<li class="toclevel-3"><a href="#JAPHs"><span class="tocnumber">7.1.1</span> <span class="toctext">JAPHs</span></a></li>
+<li class="toclevel-3"><a href="#Perl_golf"><span class="tocnumber">7.1.2</span> <span class="toctext">Perl golf</span></a></li>
+<li class="toclevel-3"><a href="#Obfuscation"><span class="tocnumber">7.1.3</span> <span class="toctext">Obfuscation</span></a></li>
+<li class="toclevel-3"><a href="#Poetry"><span class="tocnumber">7.1.4</span> <span class="toctext">Poetry</span></a></li>
+<li class="toclevel-3"><a href="#CPAN_Acme"><span class="tocnumber">7.1.5</span> <span class="toctext">CPAN Acme</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#See_also"><span class="tocnumber">8</span> <span class="toctext">See also</span></a></li>
+<li class="toclevel-1"><a href="#References"><span class="tocnumber">9</span> <span class="toctext">References</span></a></li>
+<li class="toclevel-1"><a href="#External_links"><span class="tocnumber">10</span> <span class="toctext">External links</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script>
+<p><a name="History" id="History"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Perl&amp;action=edit&amp;section=1" title="Edit section: History">edit</a>]</span> <span class="mw-headline">History</span></h2>
+<p>Larry Wall began work on Perl in 1987, while working as a programmer at <a href="/wiki/Unisys" title="Unisys">Unisys</a>,<sup id="_ref-larry-wall-snippet_0" class="reference"><a href="#_note-larry-wall-snippet" title="">[3]</a></sup> and released version 1.0 to the comp.sources.misc <a href="/wiki/Newsgroup" title="Newsgroup">newsgroup</a> on <a href="/wiki/December_18" title="December 18">December 18</a>, <a href="/wiki/1987" title="1987">1987</a>. The language expanded rapidly over the next few years. Perl 2, released in 1988, featured a better <a href="/wiki/Regular_expression" title="Regular expression">regular expression</a> engine. Perl 3, released in 1989, added support for <a href="/wiki/Binary_data" title="Binary data">binary data</a> streams.</p>
+<p>Until 1991, the only documentation for Perl was a single (increasingly lengthy) <a href="/wiki/Manual_page_%28Unix%29" title="Manual page (Unix)">man page</a>. In 1991, <i><a href="/wiki/Programming_perl" title="Programming perl">Programming perl</a></i> (known to many Perl programmers as the "Camel Book") was published, and became the <i>de facto</i> reference for the language. At the same time, the Perl version number was bumped to 4, not to mark a major change in the language, but to identify the version that was documented by the book.</p>
+<p>Perl 4 went through a series of maintenance releases, culminating in Perl 4.036 in 1993. At that point, Larry Wall abandoned Perl 4 to begin work on Perl 5.</p>
+<p>Initial design of Perl 5 continued into 1994. <i>The perl5-porters</i> mailing list was established in May 1994 to coordinate work on porting Perl 5 to different platforms. It remains the primary forum for development, maintenance, and porting of Perl 5.<sup id="_ref-0" class="reference"><a href="#_note-0" title="">[4]</a></sup></p>
+<p>Perl 5 was released on <a href="/wiki/October_17" title="October 17">October 17</a>, <a href="/wiki/1994" title="1994">1994</a>. It was a nearly complete rewrite of the <a href="/wiki/Interpreter_%28computing%29" title="Interpreter (computing)">interpreter</a>, and added many new features to the language, including objects, references, <a href="/wiki/Local_variable" title="Local variable">local (my) variables</a>, and modules. Importantly, modules provided a mechanism for extending the language without modifying the interpreter. This allowed the core interpreter to stabilize, even as it enabled ordinary Perl programmers to add new language features.</p>
+<p><a href="/wiki/As_of_2007" title="As of 2007">As of 2007</a>, Perl 5 is still being actively maintained. Important features and some essential new language constructs have been added along the way, including <a href="/wiki/Unicode" title="Unicode">Unicode</a> support, <a href="/wiki/Thread_%28computer_science%29" title="Thread (computer science)">threads</a>, improved support for <a href="/wiki/Object_oriented_programming" title="Object oriented programming">object oriented programming</a> and many other enhancements. The latest stable release is Perl 5.8.8.</p>
+<p>One of the most important events in Perl 5 history took place outside of the language proper, and was a consequence of its module support. On <a href="/wiki/October_26" title="October 26">October 26</a>, <a href="/wiki/1995" title="1995">1995</a>, the <a href="/wiki/Comprehensive_Perl_Archive_Network" title="Comprehensive Perl Archive Network">Comprehensive Perl Archive Network</a> (CPAN) was established as a <a href="/wiki/Repository" title="Repository">repository</a> for Perl <a href="/wiki/Module_%28programming%29" title="Module (programming)">modules</a> and Perl itself. At the time of writing, it carries over 11,000 modules by over 5,000 authors. CPAN is widely regarded as one of the greatest strengths of Perl in practice.</p>
+<p><a name="Name" id="Name"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Perl&amp;action=edit&amp;section=2" title="Edit section: Name">edit</a>]</span> <span class="mw-headline">Name</span></h3>
+<p>Perl was originally named "Pearl", after the <a href="/wiki/Parable_of_the_Pearl" title="Parable of the Pearl">Parable of the Pearl</a> from the <a href="/wiki/Gospel_of_Matthew" title="Gospel of Matthew">Gospel of Matthew</a>. Larry Wall wanted to give the language a short name with positive connotations; he claims that he considered (and rejected) every three- and four-letter word in the dictionary. He also considered naming it after his wife Gloria. Wall discovered the existing <a href="/wiki/PEARL_programming_language" title="PEARL programming language">PEARL programming language</a> before Perl's official release and changed the spelling of the name.</p>
+<p>The name is normally capitalized (<i>Perl</i>) when referring to the language and uncapitalized (<i>perl</i>) when referring to the interpreter program itself since Unix-like file systems are case-sensitive. Before the release of the first edition of <i>Programming Perl</i>, it was common to refer to the language as <i>perl</i>; <a href="/wiki/Randal_L._Schwartz" title="Randal L. Schwartz">Randal L. Schwartz</a>, however, capitalised the language's name in the book to make it stand out better when typeset. The case distinction was subsequently adopted by the community.<sup id="_ref-1" class="reference"><a href="#_note-1" title="">[5]</a></sup></p>
+<p>The name is occasionally given as "PERL" (for <b>P</b>ractical <b>E</b>xtraction and <b>R</b>eport <b>L</b>anguage). Although the expansion has prevailed in many of today's manuals, including the official Perl <a href="/wiki/Manual_page_%28Unix%29" title="Manual page (Unix)">man page</a>, it is merely a <a href="/wiki/Backronym" title="Backronym">backronym</a>. The name does not officially stand for anything, so spelling it in all caps is incorrect and is considered a <a href="/wiki/Shibboleth" title="Shibboleth">shibboleth</a> (label of outsiders) in the Perl community.<sup id="_ref-2" class="reference"><a href="#_note-2" title="">[6]</a></sup> Several other expansions have been suggested, including Wall's own humorous <i>Pathologically Eclectic Rubbish Lister</i>.<sup id="_ref-3" class="reference"><a href="#_note-3" title="">[7]</a></sup> Indeed, Wall claims that the name was intended to inspire many different expansions.<sup id="_ref-4" class="reference"><a href="#_note-4" title="">[8]</a></sup></p>
+<p><a name="The_camel_symbol" id="The_camel_symbol"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Perl&amp;action=edit&amp;section=3" title="Edit section: The camel symbol">edit</a>]</span> <span class="mw-headline">The camel symbol</span></h3>
+<p><i><a href="/wiki/Programming_Perl" title="Programming Perl">Programming Perl</a></i>, published by <a href="/wiki/O%27Reilly_Media" title="O'Reilly Media">O'Reilly Media</a>, features a picture of a <a href="/wiki/Camel" title="Camel">camel</a> on the cover, and is commonly referred to as <i>The Camel Book</i>.<sup id="_ref-larry-wall-snippet_1" class="reference"><a href="#_note-larry-wall-snippet" title="">[3]</a></sup> This image of a camel has become a general symbol of Perl.</p>
+<p>O'Reilly owns the image as a trademark, but claims to use their legal rights only to protect the <i>"integrity and impact of that symbol"</i>.<sup id="_ref-5" class="reference"><a href="#_note-5" title="">[9]</a></sup> O'Reilly allows non-commercial use of the symbol, and provides <i>Programming Republic of Perl</i> logos and <i>Powered by Perl</i> buttons.<sup id="_ref-6" class="reference"><a href="#_note-6" title="">[10]</a></sup></p>
+<p><a name="Overview" id="Overview"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Perl&amp;action=edit&amp;section=4" title="Edit section: Overview">edit</a>]</span> <span class="mw-headline">Overview</span></h2>
+<p>Perl is a general-purpose programming language originally developed for text manipulation and now used for a wide range of tasks including <a href="/wiki/System_administration" title="System administration">system administration</a>, <a href="/wiki/Web_development" title="Web development">web development</a>, <a href="/wiki/Network_programming" title="Network programming">network programming</a>, <a href="/wiki/GUI" title="GUI">GUI</a> development, and more.</p>
+<p>The language is intended to be practical (easy to use, efficient, complete) rather than beautiful (tiny, elegant, minimal).<sup id="_ref-7" class="reference"><a href="#_note-7" title="">[11]</a></sup> Its major features include support for multiple programming paradigms (<a href="/wiki/Procedural_programming_language" title="Procedural programming language">procedural</a>, <a href="/wiki/Object-oriented_programming" title="Object-oriented programming">object-oriented</a>, and <a href="/wiki/Functional_programming" title="Functional programming">functional</a> styles), automatic <a href="/wiki/Memory_management" title="Memory management">memory management</a>, built-in support for text processing, and a large collection of third-party <a href="/wiki/Module_%28programming%29" title="Module (programming)">modules</a>.</p>
+<p><a name="Features" id="Features"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Perl&amp;action=edit&amp;section=5" title="Edit section: Features">edit</a>]</span> <span class="mw-headline">Features</span></h3>
+<p>The overall structure of Perl derives broadly from C. Perl is procedural in nature, with <a href="/wiki/Variable" title="Variable">variables</a>, <a href="/wiki/Expression_%28programming%29" title="Expression (programming)">expressions</a>, <a href="/wiki/Assignment_statement" title="Assignment statement">assignment statements</a>, <a href="/wiki/Bracket" title="Bracket">brace</a>-delimited <a href="/wiki/Code_block" title="Code block">code blocks</a>, <a href="/wiki/Control_structure" title="Control structure">control structures</a>, and <a href="/wiki/Subroutine" title="Subroutine">subroutines</a>.</p>
+<p>Perl also takes features from shell programming. All variables are marked with leading <a href="/wiki/Sigil_%28computer_programming%29" title="Sigil (computer programming)">sigils</a>, which unambiguously identify the data type (scalar, array, hash, etc.) of the variable in context. Importantly, sigils allow variables to be interpolated directly into strings. Perl has many built-in functions which provide tools often used in shell programming (though many of these tools are implemented by programs external to the shell) like sorting, and calling on system facilities.</p>
+<p>Perl takes <a href="/wiki/List_%28computing%29" title="List (computing)">lists</a> from Lisp, <a href="/wiki/Associative_array" title="Associative array">associative arrays</a> (hashes) from AWK, and <a href="/wiki/Regular_expression" title="Regular expression">regular expressions</a> from sed. These simplify and facilitate many parsing, text handling, and data management tasks.</p>
+<p>In Perl 5, features were added that support complex <a href="/wiki/Data_structure" title="Data structure">data structures</a>, <a href="/wiki/First-class_function" title="First-class function">first-class functions</a> (i.e., <a href="/wiki/Closure_%28computer_science%29" title="Closure (computer science)">closures</a> as values), and an object-oriented programming model. These include <a href="/wiki/Reference_%28computer_science%29" title="Reference (computer science)">references</a>, packages, class-based method dispatch, and <a href="/wiki/Scope_%28programming%29" title="Scope (programming)">lexically scoped variables</a>, along with <a href="/wiki/Compiler_directive" title="Compiler directive">compiler directives</a> (for example, the <tt>strict</tt> pragma). A major additional feature introduced with Perl 5 was the ability to package code as reusable modules. Larry Wall later stated that "The whole intent of Perl 5's module system was to encourage the growth of Perl culture rather than the Perl core."<sup id="_ref-8" class="reference"><a href="#_note-8" title="">[12]</a></sup></p>
+<p>All versions of Perl do automatic data typing and memory management. The interpreter knows the type and storage requirements of every data object in the program; it allocates and frees storage for them as necessary. Legal type conversions—for example, conversions from number to string—are done automatically at run time; illegal type conversions are fatal errors.</p>
+<p><a name="Design" id="Design"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Perl&amp;action=edit&amp;section=6" title="Edit section: Design">edit</a>]</span> <span class="mw-headline">Design</span></h3>
+<p>The design of Perl can be understood as a response to three broad trends in the computer industry: falling hardware costs, rising labor costs, and improvements in compiler technology. Many earlier computer languages, such as <a href="/wiki/Fortran" title="Fortran">Fortran</a> and C, were designed to make efficient use of expensive computer hardware. In contrast, Perl is designed to make efficient use of expensive computer programmers.</p>
+<p>Perl has many features that ease the programmer's task at the expense of greater CPU and memory requirements. These include automatic memory management; <a href="/wiki/Dynamic_typing" title="Dynamic typing">dynamic typing</a>; strings, lists, and hashes; regular expressions; introspection and an <tt>eval()</tt> function.</p>
+<p>Wall was trained as a linguist, and the design of Perl is very much informed by linguistic principles. Examples include <a href="/wiki/Huffman_coding" title="Huffman coding">Huffman coding</a> (common constructions should be short), good end-weighting (the important information should come first), and a large collection of language primitives. Perl favors language constructs that are concise and natural for humans to read and write, even where they complicate the Perl interpreter.</p>
+<p>Perl syntax reflects the idea that "things that are different should look different". For example, scalars, arrays, and hashes have different leading <a href="/wiki/Sigil_%28computer_programming%29" title="Sigil (computer programming)">sigils</a>. Array indices and hash keys use different kinds of braces. Strings and regular expressions have different standard delimiters. This approach can be contrasted with languages like <a href="/wiki/Lisp_programming_language" title="Lisp programming language">Lisp</a>, where the same <a href="/wiki/S-expression" title="S-expression">S-expression</a> construct and basic syntax is used for many different purposes.</p>
+<p>Perl does not enforce any particular programming paradigm (procedural, object-oriented, functional, etc.) or even require the programmer to choose among them.</p>
+<p>There is a broad practical bent to both the Perl language and the community and culture that surround it. The preface to <i>Programming Perl</i> begins, "Perl is a language for getting your job done." One consequence of this is that Perl is not a tidy language. It includes many features, tolerates exceptions to its rules, and employs heuristics to resolve syntactical ambiguities. Because of the forgiving nature of the compiler, bugs can sometimes be hard to find. Discussing the variant behaviour of built-in functions in list and scalar contexts, the perlfunc(1) manual page says "In general, they do what you want, unless you want consistency."</p>
+<p>Perl has several mottos that convey aspects of its design and use. One is <i>"<a href="/wiki/There%27s_more_than_one_way_to_do_it" title="There's more than one way to do it">There's more than one way to do it</a>."</i> (TIMTOWTDI, usually pronounced 'Tim Toady'). Others are <i>"Perl: the Swiss Army Chainsaw of Programming Languages"</i> and <i>"No unnecessary limits"</i>. A stated design goal of Perl is to make easy tasks easy and difficult tasks possible. Perl has also been called <i>"The Duct Tape of the Internet"</i>.</p>
+<p>There is no written specification or standard for the Perl language, and no plans to create one for the current version of Perl. There has only ever been one implementation of the interpreter. That interpreter, together with its functional tests, stands as a <i>de facto</i> specification of the language.</p>
+<p><a name="Applications" id="Applications"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Perl&amp;action=edit&amp;section=7" title="Edit section: Applications">edit</a>]</span> <span class="mw-headline">Applications</span></h3>
+<p>Perl has many and varied applications, compounded by the availability of many standard and third-party modules.</p>
+<p>Perl has been used since the early days of the Web to write <a href="/wiki/Common_Gateway_Interface" title="Common Gateway Interface">CGI</a> scripts. It is known as one of "the three Ps" (along with <a href="/wiki/Python_%28programming_language%29" title="Python (programming language)">Python</a> and <a href="/wiki/PHP" title="PHP">PHP</a>), the most popular dynamic languages for writing Web applications (which now also include <a href="/wiki/Ruby_%28programming_language%29" title="Ruby (programming language)">Ruby</a>). It is also an integral component of the popular <a href="/wiki/LAMP_%28software_bundle%29" title="LAMP (software bundle)">LAMP</a> <a href="/wiki/Solution_stack" title="Solution stack">solution stack</a> for web development. Large projects written in Perl include <a href="/wiki/Slash_%28weblog_system%29" title="Slash (weblog system)">Slash</a>, <a href="/wiki/Bugzilla" title="Bugzilla">Bugzilla</a>, <a href="/wiki/TWiki" title="TWiki">TWiki</a> and <a href="/wiki/Movable_Type" title="Movable Type">Movable Type</a>. Many high-traffic websites, such as <a href="/wiki/Amazon.com" title="Amazon.com">Amazon.com</a>, <a href="/wiki/LiveJournal" title="LiveJournal">LiveJournal</a>.com, <a href="/wiki/Ticketmaster" title="Ticketmaster">Ticketmaster</a>.com and <a href="/wiki/Internet_Movie_Database" title="Internet Movie Database">IMDb.com</a><sup id="_ref-9" class="reference"><a href="#_note-9" title="">[13]</a></sup> use Perl extensively.</p>
+<p>Perl is often used as a <a href="/wiki/Glue_language" title="Glue language">glue language</a>, tying together systems and interfaces that were not specifically designed to interoperate, and for "data munging", i.e., converting or processing large amounts of data for tasks like creating reports. In fact, these strengths are intimately linked. The combination makes perl a popular all-purpose tool for <a href="/wiki/System_administrator" title="System administrator">system administrators</a>, particularly as short programs can be entered and run on a single command line.</p>
+<p>With a degree of care, Perl code can be made portable across Windows and Unix. Portable Perl code is often used by suppliers of software (both COTS and bespoke) to simplify packaging and maintenance of software build and deployment scripts.</p>
+<p>Graphical user interfaces (GUI's) may be developed using Perl. In particular, Perl/Tk is commonly used to enable user interaction with Perl scripts. Such interaction may be synchronous or asynchronous using callbacks to update the GUI. For more information about the technologies involved see <a href="/wiki/Tk_%28computing%29" title="Tk (computing)">Tk</a>,<a href="/wiki/Tcl" title="Tcl">Tcl</a> and <a href="/wiki/WxPerl" title="WxPerl">WxPerl</a>.</p>
+<p>Perl is also widely used in finance and <a href="/wiki/Bioinformatics" title="Bioinformatics">bioinformatics</a>, where it is valued for rapid application development and deployment, and the ability to handle large data sets.</p>
+<p><a name="Implementation" id="Implementation"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Perl&amp;action=edit&amp;section=8" title="Edit section: Implementation">edit</a>]</span> <span class="mw-headline">Implementation</span></h3>
+<p>Perl is implemented as a core interpreter, written in C, together with a large collection of modules, written in Perl and C. The source distribution is, <a href="/wiki/As_of_2005" title="As of 2005">as of 2005</a>, 12 <a href="/wiki/Megabyte" title="Megabyte">MB</a> when packaged in a <a href="/wiki/Tar_%28file_format%29" title="Tar (file format)">tar file</a> and <a href="/wiki/Data_compression" title="Data compression">compressed</a>. The interpreter is 150,000 lines of C code and compiles to a 1 MB executable on typical machine architectures. Alternatively, the interpreter can be compiled to a link library and embedded in other programs. There are nearly 500 modules in the distribution, comprising 200,000 lines of Perl and an additional 350,000 lines of C code. (Much of the C code in the modules consists of character encoding tables.)</p>
+<p>The interpreter has an object-oriented architecture. All of the elements of the Perl language—scalars, arrays, hashes, coderefs, file handles—are represented in the interpreter by C structs. Operations on these structs are defined by a large collection of macros, typedefs and functions; these constitute the Perl C API. The Perl API can be bewildering to the uninitiated, but its entry points follow a consistent naming scheme, which provides guidance to those who use it.</p>
+<p>The execution of a Perl program divides broadly into two phases: compile-time and run-time.<sup id="_ref-10" class="reference"><a href="#_note-10" title="">[14]</a></sup> At compile time, the interpreter parses the program text into a syntax tree. At run time, it executes the program by walking the tree. The text is parsed only once, and the syntax tree is subject to optimization before it is executed, so the execution phase is relatively efficient. Compile-time optimizations on the syntax tree include <a href="/wiki/Constant_folding" title="Constant folding">constant folding</a> and context propagation, but <a href="/wiki/Peephole_optimization" title="Peephole optimization">peephole optimization</a> is also performed. However, compile-time and run-time phases may nest: <code>BEGIN</code> code blocks execute at compile-time, while the <code><a href="/wiki/Eval" title="Eval">eval</a></code> function initiates compilation during runtime. Both operations are an implicit part of a number of others—most notably, the <code>use</code> clause that loads libraries, known in Perl as modules, implies a <code>BEGIN</code> block.</p>
+<p>Perl has a context-sensitive <a href="/wiki/Grammar" title="Grammar">grammar</a> which can be affected by code executed during an intermittent run-time phase.<sup id="_ref-11" class="reference"><a href="#_note-11" title="">[15]</a></sup> Therefore Perl cannot be parsed by a straight <a href="/wiki/Lex_programming_tool" title="Lex programming tool">Lex</a>/<a href="/wiki/Yacc" title="Yacc">Yacc</a> lexer/parser combination. Instead, the interpreter implements its own lexer, which coordinates with a modified <a href="/wiki/GNU_bison" title="GNU bison">GNU bison</a> parser to resolve ambiguities in the language. It is said that "only perl can parse Perl", meaning that only the <a href="/wiki/Perl_interpreter" title="Perl interpreter">Perl interpreter</a> (<i>perl</i>) can parse the Perl language (<i>Perl</i>). The truth of this is attested to by the persistent imperfections of other programs that undertake to parse Perl, such as source code analyzers and auto-indenters, which have to contend not only with the many ways to express unambiguous syntactic constructs, but also the fact that Perl cannot be parsed in the general case without executing it.</p>
+<p>Perl is distributed with some 120,000 functional tests. These run as part of the normal build process, and extensively exercise the interpreter and its core modules. Perl developers rely on the functional tests to ensure that changes to the interpreter do not introduce bugs; conversely, Perl users who see the interpreter pass its functional tests on their system can have a high degree of confidence that it is working properly.</p>
+<p>Maintenance of the Perl interpreter has become increasingly difficult over the years. The code base has been in continuous development since 1994. The code has been optimized for performance at the expense of simplicity, clarity, and strong internal interfaces. New features have been added, yet virtually complete backward compatibility with earlier versions is maintained. The size and complexity of the interpreter is a barrier to developers who wish to work on it.</p>
+<p><a name="Availability" id="Availability"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Perl&amp;action=edit&amp;section=9" title="Edit section: Availability">edit</a>]</span> <span class="mw-headline">Availability</span></h3>
+<p>Perl is <a href="/wiki/Free_software" title="Free software">free software</a>, and is licensed under both the <a href="/wiki/Artistic_License" title="Artistic License">Artistic License</a> and the <a href="/wiki/GNU_General_Public_License" title="GNU General Public License">GNU General Public License</a>. <a href="/wiki/Perl#Distributions" title="Perl">Distributions</a> are available for most <a href="/wiki/Operating_system" title="Operating system">operating systems</a>. It is particularly prevalent on <a href="/wiki/Unix" title="Unix">Unix</a> and <a href="/wiki/Unix-like" title="Unix-like">Unix-like</a> systems, but it has been ported to most modern (and many obsolete) platforms. With only six reported exceptions, Perl can be compiled from <a href="/wiki/Source_code" title="Source code">source code</a> on all Unix-like, <a href="/wiki/POSIX" title="POSIX">POSIX</a>-compliant or otherwise Unix-compatible platforms.<sup id="_ref-cpanports_0" class="reference"><a href="#_note-cpanports" title="">[16]</a></sup> However, this is rarely necessary, as Perl is included in the default installation of many popular operating systems.</p>
+<p>Because of unusual changes required for the <a href="/wiki/Mac_OS_history" title="Mac OS history">Mac OS Classic</a> environment, a special port called MacPerl was shipped independently.<sup id="_ref-macperl_0" class="reference"><a href="#_note-macperl" title="">[17]</a></sup></p>
+<p>The CPAN carries a complete list of supported platforms with links to the distributions available on each.<sup id="_ref-12" class="reference"><a href="#_note-12" title="">[18]</a></sup></p>
+<p><a name="Windows" id="Windows"></a></p>
+<h4><span class="editsection">[<a href="/w/index.php?title=Perl&amp;action=edit&amp;section=10" title="Edit section: Windows">edit</a>]</span> <span class="mw-headline">Windows</span></h4>
+<p>Users of <a href="/wiki/Microsoft_Windows" title="Microsoft Windows">Microsoft Windows</a> typically install a native binary distribution of Perl<sup id="_ref-13" class="reference"><a href="#_note-13" title="">[19]</a></sup>, most commonly <a href="/wiki/ActivePerl" title="ActivePerl">ActivePerl</a>. Compiling Perl from <a href="/wiki/Source_code" title="Source code">source code</a> under Windows is possible, but most installations lack the requisite C compiler and build tools. This also makes it hard to install modules from the CPAN, particularly such modules that are partially written in C.</p>
+<p>Users of the ActivePerl binary distribution are therefore dependent on the repackaged modules provided in <a href="/wiki/ActiveState" title="ActiveState">ActiveState</a>’s module repository, which are precompiled and can be installed with <a href="/wiki/Perl_package_manager" title="Perl package manager">PPM</a>. Limited resources to maintain this repository have been cause for various long-standing problems in the past<sup id="_ref-14" class="reference"><a href="#_note-14" title="">[20]</a></sup>.</p>
+<p>To address this and other problems of Perl on the Windows platform, <a href="http://win32.perl.org" class="external text" title="http://win32.perl.org" rel="nofollow">win32.perl.org</a> was launched by Adam Kennedy on behalf of <a href="/wiki/The_Perl_Foundation" title="The Perl Foundation">The Perl Foundation</a> in June 2006. This is a community website for "all things Windows and Perl." A major aim of this project is to provide a production-quality alternative binary distribution that includes a C compiler and build tools, so as to enable Windows users to install modules directly from the CPAN. This distribution is known as Strawberry Perl.</p>
+<p>Another way of running Perl under Windows is provided by the <a href="/wiki/Cygwin" title="Cygwin">Cygwin</a> emulation layer. Cygwin provides a Unix-like environment on Windows that includes <a href="/wiki/GNU_Compiler_Collection" title="GNU Compiler Collection">gcc</a>, so compiling Perl from source is a more accessible option for users who take this approach.</p>
+<p><a name="Language_structure" id="Language_structure"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Perl&amp;action=edit&amp;section=11" title="Edit section: Language structure">edit</a>]</span> <span class="mw-headline">Language structure</span></h2>
+<p>In Perl, the minimal <a href="/wiki/Hello_world" title="Hello world">Hello world</a> program may be written as follows:</p>
+<div dir="ltr">
+<pre class="source-perl">
+<span class="kw3">print</span> <span class="st0">"Hello, world!<span class="es0">\n</span>"</span>
+</pre></div>
+<p>This <a href="/wiki/Input/output" title="Input/output">prints</a> the <a href="/wiki/String_%28computer_science%29" title="String (computer science)">string</a> <i>Hello, world!</i> and a <a href="/wiki/Newline" title="Newline">newline</a>, symbolically expressed by an <code>n</code> character whose interpretation is altered by the preceding backslash.</p>
+<p>The canonical form of the program is slightly more verbose:</p>
+<div dir="ltr">
+<pre class="source-perl">
+<span class="co1">#!/usr/bin/perl</span>
+<span class="kw3">print</span> <span class="st0">"Hello, world!<span class="es0">\n</span>"</span>;
+</pre></div>
+<p>The hash mark character introduces a <a href="/wiki/Comment_%28computer_programming%29" title="Comment (computer programming)">comment</a> in Perl, which runs up to the end of the line of code and is ignored by the compiler. The comment used here is of a special kind: it’s called the <a href="/wiki/Shebang_%28Unix%29" title="Shebang (Unix)">shebang</a> line. This tells Unix-like operating systems where to find the Perl interpreter, making it possible to invoke the program without explicitly mentioning <code>perl</code>. (Note that on <a href="/wiki/Microsoft_Windows" title="Microsoft Windows">Microsoft Windows</a> systems, Perl programs are typically invoked by associating the <code>.pl</code> <a href="/wiki/Filename_extension" title="Filename extension">extension</a> with the Perl interpreter. In order to deal with such circumstances, <code>perl</code> detects the shebang line and parses it for switches,<sup id="_ref-cpanports_1" class="reference"><a href="#_note-cpanports" title="">[16]</a></sup> so it is not strictly true that the shebang line is ignored by the compiler.)</p>
+<p>The second line in the canonical form includes a semicolon, which is used to separate statements in Perl. With only a single statement in a block or file, a separator is unnecessary, so it can be omitted from the minimal form of the program – or more generally from the final statement in any block or file. The canonical form includes it because it is common to terminate every statement even when it is unnecessary to do so, as this makes editing easier: code can be added to or moved away from the end of a block or file without having to adjust semicolons.</p>
+<p><a name="Data_types" id="Data_types"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Perl&amp;action=edit&amp;section=12" title="Edit section: Data types">edit</a>]</span> <span class="mw-headline">Data types</span></h3>
+<p>Perl has a number of fundamental <a href="/wiki/Data_type" title="Data type">data types</a>, the most commonly used and discussed being: <a href="/wiki/Scalar_%28computing%29" title="Scalar (computing)">scalars</a>, <a href="/wiki/Array" title="Array">arrays</a>, <a href="/wiki/Hash_table" title="Hash table">hashes</a>, <a href="/wiki/Filehandle" title="Filehandle">filehandles</a> and <a href="/wiki/Subroutines" title="Subroutines">subroutines</a>:</p>
+<ul>
+<li>A <a href="/wiki/Scalar_%28computing%29" title="Scalar (computing)">scalar</a> is a single value; it may be a number, a <a href="/wiki/String_%28computer_science%29" title="String (computer science)">string</a> or a <a href="/wiki/Reference_%28computer_science%29" title="Reference (computer science)">reference</a></li>
+<li>An <a href="/wiki/Array" title="Array">array</a> is an ordered collection of scalars</li>
+<li>A hash, or <a href="/wiki/Associative_array" title="Associative array">associative array</a>, is a map from strings to scalars; the strings are called <i>keys</i> and the scalars are called <i>values</i>.</li>
+<li>A <a href="/wiki/File_handle" title="File handle">file handle</a> is a map to a file, device, or pipe which is open for reading, writing, or both.</li>
+<li>A subroutine is a piece of code that may be passed arguments, be executed, and return data</li>
+</ul>
+<p>Most variables are marked by a leading <a href="/wiki/Sigil_%28computer_programming%29" title="Sigil (computer programming)">sigil</a>, which identifies the data type being accessed (not the type of the variable itself), except filehandles, which don't have a sigil. The same name may be used for variables of different data types, without conflict.</p>
+<div dir="ltr">
+<pre class="source-perl">
+<span class="re0">$foo</span>   <span class="co1"># a scalar</span>
+<span class="re0">@foo</span>   <span class="co1"># an array</span>
+<span class="re0">%foo</span>   <span class="co1"># a hash</span>
+FOO    <span class="co1"># a file handle or constant</span>
+&amp;foo   <span class="co1"># a subroutine. (The &amp; is optional)</span>
+</pre></div>
+<p><a href="/wiki/File_handle" title="File handle">File handles</a> and constants need not be uppercase, but it is a common convention owing to the fact that there is no sigil to denote them. Since 5.8 a scalar may be used as a file handle, and using this feature is encouraged in <a href="/wiki/Damian_Conway" title="Damian Conway">Damian Conway</a>'s <i>Perl Best Practices</i>.</p>
+<p>Numbers are written in the bare form; strings are enclosed by quotes of various kinds.</p>
+<div dir="ltr">
+<pre class="source-perl">
+<span class="re0">$name</span>   = <span class="st0">"joe"</span>;
+<span class="re0">$color</span>  = <span class="st0">'red'</span>;
+ 
+<span class="re0">$number1</span> = <span class="nu0">42</span>; 
+<span class="re0">$number2</span> = <span class="st0">"42"</span>;
+ 
+<span class="co1"># This returns true</span>
+<span class="kw1">if</span> <span class="br0">(</span><span class="re0">$number1</span> == <span class="re0">$number2</span><span class="br0">)</span> <span class="br0">{</span> <span class="kw3">print</span> <span class="st0">"Numbers and strings of numbers are the same!"</span>; <span class="br0">}</span> 
+ 
+<span class="re0">$answer</span> = <span class="st0">"The answer is $number1"</span>;   <span class="co1"># Variable interpolation: The answer is 42</span>
+<span class="re0">$price</span>  = <span class="st0">'This device costs $42'</span>;    <span class="co1"># No interpolation in single quotes</span>
+ 
+<span class="re0">$album</span>  = <span class="st0">"David Bowie's <span class="es0">\"</span>Heroes<span class="es0">\"</span>"</span>; <span class="co1"># literal quotes inside a string;</span>
+<span class="re0">$album</span>  = <span class="st0">'David Bowie<span class="es0">\'</span>s "Heroes"'</span>;  <span class="co1"># same as above with single quotes;</span>
+<span class="re0">$album</span>  = <span class="kw3">q</span><span class="br0">(</span>David Bowie<span class="st0">'s "Heroes");  # the quote-like operators q() and qq() allow
+                                      # almost any delimiter instead of quotes, to
+                                      # avoid excessive backslashing
+ 
+$multilined_string =&lt;&lt;EOF
+This is my multilined string
+note that I am terminating it with the "EOF" word.
+EOF</span>
+</pre></div>
+<p>Perl will convert strings into numbers and vice versa depending on the context in which they are used. In the following example the strings $n and $m are treated as numbers when they are the arguments to the addition operator. This code prints the number '5', discarding non number information for the operation, although the variable values remain the same. (The string concatenation operator is not <code>+</code>, but <code>.</code>)</p>
+<div dir="ltr">
+<pre class="source-perl">
+<span class="re0">$n</span>     = <span class="st0">"3 apples"</span>;
+<span class="re0">$m</span>     = <span class="st0">"2 oranges"</span>;
+<span class="kw3">print</span> <span class="re0">$n</span> + <span class="re0">$m</span>;
+</pre></div>
+<p>Perl also has a boolean context that it uses in evaluating conditional statements. The following values all evaluate as false in Perl:</p>
+<div dir="ltr">
+<pre class="source-perl">
+<span class="re0">$false</span> = <span class="nu0">0</span>;     <span class="co1"># the number zero</span>
+<span class="re0">$false</span> = <span class="nu0">0.0</span>;   <span class="co1"># the number zero as a float</span>
+<span class="re0">$false</span> = 0b0;   <span class="co1"># the number zero in binary</span>
+<span class="re0">$false</span> = 0x0;   <span class="co1"># the number zero in hexadecimal</span>
+<span class="re0">$false</span> = <span class="st0">'0'</span>;   <span class="co1"># the string zero</span>
+<span class="re0">$false</span> = <span class="st0">""</span>;    <span class="co1"># the empty string</span>
+<span class="re0">$false</span> = <span class="kw3">undef</span>; <span class="co1"># the return value from undef</span>
+</pre></div>
+<p>All other values are evaluated to true. This includes the odd self-describing literal string of "0 but true", which in fact is 0 as a number, but true when used as a boolean. (Any non-numeric string would also have this property, but this particular string is ignored by Perl with respect to numeric warnings.) A less explicit but more conceptually portable version of this string is '0E0' or '0e0', which does not rely on characters being evaluated as 0, as '0E0' is literally "zero times ten to the zeroth power."</p>
+<p>Evaluated boolean expressions also return scalar values. Although the documentation does not promise which <i>particular</i> true or false is returned (and thus cannot be relied on), many boolean operators return 1 for true and the empty-string for false (which evaluates to zero in a numeric context). The <i>defined()</i> function tells if the variable has any value set. In the above examples <i>defined($false)</i> is true for every value except <i>undef</i>.</p>
+<p>If a specifically 1 or 0 result (as in C) is needed, an explicit conversion is thought by some authors to be required:</p>
+<div dir="ltr">
+<pre class="source-perl">
+<span class="kw1">my</span> <span class="re0">$real_result</span> = <span class="re0">$boolean_result</span> ? <span class="nu0">1</span> : <span class="nu0">0</span>;
+</pre></div>
+<p>However, if it's known that the value is either 1 or <i>undef</i>, an implicit conversion can be used instead:</p>
+<div dir="ltr">
+<pre class="source-perl">
+<span class="kw1">my</span> <span class="re0">$real_result</span> = <span class="re0">$boolean_result</span> + <span class="nu0">0</span>;
+</pre></div>
+<p>A list is written by listing its elements, separated by commas, and enclosed by parentheses where required by operator precedence.</p>
+<div dir="ltr">
+<pre class="source-perl">
+<span class="re0">@scores</span> = <span class="br0">(</span><span class="nu0">32</span>, <span class="nu0">45</span>, <span class="nu0">16</span>, <span class="nu0">5</span><span class="br0">)</span>;
+</pre></div>
+<p>It can be written many other ways as well, some straightforward and some less so:</p>
+<div dir="ltr">
+<pre class="source-perl">
+<span class="co1"># An explicit and straightforward way</span>
+<span class="re0">@scores</span> = <span class="br0">(</span><span class="st0">'32'</span>, <span class="st0">'45'</span>, <span class="st0">'16'</span>, <span class="st0">'5'</span><span class="br0">)</span>;
+ 
+<span class="co1"># Equivalent to the above, but the qw() quote-like operator saves typing of</span>
+<span class="co1"># quotes and commas and reduces visual clutter; almost any delimiter can be</span>
+<span class="co1"># used instead of parentheses</span>
+<span class="re0">@scores</span> = <span class="kw3">qw</span><span class="br0">(</span><span class="nu0">32</span> <span class="nu0">45</span> <span class="nu0">16</span> <span class="nu0">5</span><span class="br0">)</span>;
+ 
+<span class="co1"># The split function returns a list of strings, which are extracted</span>
+<span class="co1"># from the expression using a regex template.</span>
+<span class="co1"># This may be useful for reading from a file of comma-separated values (CSV)</span>
+<span class="re0">@scores</span> = <span class="kw3">split</span> /,/, <span class="st0">'32,45,16,5'</span>;
+ 
+<span class="co1"># "Idiomatic Perl": This notation uses postfix for operator</span>
+<span class="co1"># and aliasing of the $_ magic variable to the next value of the list</span>
+<span class="co1"># during every iteration</span>
+<span class="kw3">push</span> <span class="re0">@scores</span>, <span class="re0">$_</span> <span class="kw1">foreach</span> <span class="nu0">32</span>, <span class="nu0">45</span>, <span class="nu0">16</span>, <span class="nu0">5</span>;
+</pre></div>
+<p>A hash may be initialized from a list of key/value pairs:</p>
+<div dir="ltr">
+<pre class="source-perl">
+<span class="re0">%favorite</span> = <span class="br0">(</span>
+    joe =&gt; <span class="st0">'red'</span>,
+    sam =&gt; <span class="st0">'blue'</span>
+<span class="br0">)</span>;
+</pre></div>
+<p>The <code>=&gt;</code> operator is equivalent to a comma, except that it assumes quotes around the preceding token if it is a bare identifier: <code>(joe =&gt; 'red')</code> is the same as <code>('joe' =&gt; 'red')</code>. It can therefore be used to elide quote marks, improving readability.</p>
+<p>Individual elements of a list are accessed by providing a numerical index, in square brackets. Individual values in a hash are accessed by providing the corresponding key, in curly braces. The <code>$</code> sigil identifies the accessed element as a scalar.</p>
+<div dir="ltr">
+<pre class="source-perl">
+<span class="re0">$scores</span><span class="br0">[</span><span class="nu0">2</span><span class="br0">]</span>      <span class="co1"># an element of @scores</span>
+<span class="re0">$favorite</span><span class="br0">{</span>joe<span class="br0">}</span>  <span class="co1"># a value in %favorite</span>
+</pre></div>
+<p>Thus, a hash can also be specified by setting its keys individually:</p>
+<div dir="ltr">
+<pre class="source-perl">
+<span class="re0">$favorite</span><span class="br0">{</span>joe<span class="br0">}</span> = <span class="st0">'red'</span>;
+<span class="re0">$favorite</span><span class="br0">{</span>sam<span class="br0">}</span> = <span class="st0">'blue'</span>;
+</pre></div>
+<p>Multiple elements may be accessed by using the <code>@</code> sigil instead (identifying the result as a list).</p>
+<div dir="ltr">
+<pre class="source-perl">
+<span class="re0">@scores</span><span class="br0">[</span><span class="nu0">2</span>, <span class="nu0">3</span>, <span class="nu0">1</span><span class="br0">]</span>        <span class="co1"># three elements of @scores</span>
+<span class="re0">@favorite</span><span class="br0">{</span><span class="st0">'joe'</span>, <span class="st0">'sam'</span><span class="br0">}</span> <span class="co1"># two values in %favorite</span>
+<span class="re0">@favorite</span><span class="br0">{</span><span class="kw3">qw</span><span class="br0">(</span>joe sam<span class="br0">)</span><span class="br0">}</span>  <span class="co1"># same as above</span>
+</pre></div>
+<p>The number of elements in an array can be obtained by evaluating the array in scalar context or with the help of the <code>$#</code> sigil. The latter gives the index of the last element in the array, not the number of elements.</p>
+<div dir="ltr">
+<pre class="source-perl">
+<span class="re0">$count</span> = <span class="re0">@friends</span>; <span class="co1"># Assigning to a scalar forces scalar context</span>
+ 
+<span class="co1"># This notation is sometimes discouraged, because it tends</span>
+<span class="co1"># to be confused with comments.</span>
+ 
+$<span class="co1">#friends;         # The index of the last element in @friends</span>
+$<span class="co1">#friends+1;       # Usually the number of elements in @friends is one more</span>
+                   <span class="co1"># than $#friends because the first element is at index 0,</span>
+                   <span class="co1"># not 1, unless the programmer reset this to a different</span>
+                   <span class="co1"># value, which most Perl manuals discourage.</span>
+</pre></div>
+<p>There are a few functions that operate on entire hashes.</p>
+<div dir="ltr">
+<pre class="source-perl">
+<span class="re0">@names</span>     = <span class="kw3">keys</span>   <span class="re0">%addressbook</span>;
+<span class="re0">@addresses</span> = <span class="kw3">values</span> <span class="re0">%addressbook</span>;
+ 
+<span class="co1"># Every call to each return the next key/value pair.</span>
+<span class="co1"># All values will be eventually returned, but their order</span>
+<span class="co1"># cannot be predicted.</span>
+<span class="kw1">while</span> <span class="br0">(</span><span class="br0">(</span><span class="re0">$name</span>, <span class="re0">$address</span><span class="br0">)</span> = <span class="kw3">each</span> <span class="re0">%addressbook</span><span class="br0">)</span> <span class="br0">{</span>
+    <span class="kw3">print</span> <span class="st0">"$name lives at $address<span class="es0">\n</span>"</span>;
+<span class="br0">}</span>
+ 
+<span class="co1"># Similar to the above, but sorted alphabetically</span>
+<span class="kw1">foreach</span> <span class="kw1">my</span> <span class="re0">$next_name</span> <span class="br0">(</span><span class="kw3">sort</span> <span class="kw3">keys</span> <span class="re0">%addressbook</span><span class="br0">)</span> <span class="br0">{</span>
+    <span class="kw3">print</span> <span class="st0">"$next_name lives at $addressbook{$next_name}<span class="es0">\n</span>"</span>;
+<span class="br0">}</span>
+</pre></div>
+<p><a name="Control_structures" id="Control_structures"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Perl&amp;action=edit&amp;section=13" title="Edit section: Control structures">edit</a>]</span> <span class="mw-headline">Control structures</span></h3>
+<dl>
+<dd>
+<div class="noprint"><i>Main article: <a href="/wiki/Perl_control_structures" title="Perl control structures">Perl control structures</a></i></div>
+</dd>
+</dl>
+<p>Perl has several kinds of control structures.</p>
+<p>It has block-oriented control structures, similar to those in the C, <a href="/wiki/Javascript" title="Javascript">Javascript</a>, and <a href="/wiki/Java_%28programming_language%29" title="Java (programming language)">Java</a> programming languages. Conditions are surrounded by parentheses, and controlled blocks are surrounded by braces:</p>
+<pre>
+<i>label</i> while ( <i>cond</i> ) { ... }
+<i>label</i> while ( <i>cond</i> ) { ... } continue { ... }
+<i>label</i> for ( <i>init-expr</i> ; <i>cond-expr</i> ; <i>incr-expr</i> ) { ... }
+<i>label</i> foreach <i>var</i> ( <i>list</i> ) { ... }
+<i>label</i> foreach <i>var</i> ( <i>list</i> ) { ... } continue { ... }
+if ( <i>cond</i> ) { ... }
+if ( <i>cond</i> ) { ... } else { ... } 
+if ( <i>cond</i> ) { ... } elsif ( <i>cond</i> ) { ... } else { ... } 
+</pre>
+<p>Where only a single statement is being controlled, statement modifiers provide a more concise syntax:</p>
+<pre>
+<i>statement</i> if      <i>cond</i> ;
+<i>statement</i> unless  <i>cond</i> ;
+<i>statement</i> while   <i>cond</i> ;
+<i>statement</i> until   <i>cond</i> ;
+<i>statement</i> foreach <i>list</i> ;
+</pre>
+<p>Short-circuit logical operators are commonly used to affect control flow at the expression level:</p>
+<pre>
+<i>expr</i> and <i>expr</i>
+<i>expr</i> &amp;&amp; <i>expr</i>
+<i>expr</i> or  <i>expr</i>
+<i>expr</i> ||  <i>expr</i>
+</pre>
+<p>(The "and" and "or" operators are similar to &amp;&amp; and || but have lower <a href="/wiki/Precedence" title="Precedence">precedence</a>, which makes it easier to use them to control entire statements.)</p>
+<p>The flow control keywords <code>next</code> (corresponding to C's <code>continue</code>), <code>last</code> (corresponding to C's <code>break</code>), <code>return</code>, and <code>redo</code> are expressions, so they can be used with short-circuit operators.</p>
+<p>Perl also has two implicit looping constructs, each of which has two forms:</p>
+<pre>
+ <i>results</i> = grep { ... } <i>list</i>
+ <i>results</i> = grep <i>expr</i>, <i>list</i>
+ <i>results</i> = map  { ... } <i>list</i>
+ <i>results</i> = map  <i>expr</i>, <i>list</i>
+</pre>
+<p><code>grep</code> returns all elements of <i>list</i> for which the controlled block or expression evaluates to true. <code>map</code> evaluates the controlled block or expression for each element of <i>list</i> and returns a list of the resulting values. These constructs enable a simple <a href="/wiki/Functional_programming" title="Functional programming">functional programming</a> style.</p>
+<p>There is no <a href="/wiki/Switch_statement" title="Switch statement">switch statement</a> (multi-way branch) in Perl 5. The Perl documentation describes a half-dozen ways to achieve the same effect by using other control structures. There is a <a href="http://search.cpan.org/perldoc/Switch" class="external text" title="http://search.cpan.org/perldoc/Switch" rel="nofollow">Switch</a> module, however, which provides functionality modeled on the forthcoming <a href="/wiki/Perl_6" title="Perl 6">Perl 6</a> re-design; it may become a part of the core language in the 5.10 release <sup id="_ref-15" class="reference"><a href="#_note-15" title="">[21]</a></sup>.</p>
+<p>Perl includes a <code>goto label</code> statement, but it is rarely used. Situations where a <code>goto</code> is called for in other languages don't occur as often in Perl due to its breadth of flow control options.</p>
+<p>There is also a <code>goto &amp;sub</code> statement that performs a <a href="/wiki/Tail_call" title="Tail call">tail call</a>. It terminates the current subroutine and immediately calls the specified <code><i>sub</i></code>. This is used in situations where a caller can perform more efficient <a href="/wiki/Call_stack" title="Call stack">stack</a> management than Perl itself (typically because no change to the current stack is required), and in deep recursion tail calling can have substantial positive impact on performance because it avoids the overhead of scope/stack management on return.</p>
+<p><a name="Subroutines" id="Subroutines"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Perl&amp;action=edit&amp;section=14" title="Edit section: Subroutines">edit</a>]</span> <span class="mw-headline">Subroutines</span></h3>
+<p><a href="/wiki/Subroutine" title="Subroutine">Subroutines</a> are defined with the <code>sub</code> keyword, and invoked simply by naming them. If the subroutine in question has not yet been declared, invocation requires either parentheses after the function name or an ampersand (<b>&amp;</b>) before it.</p>
+<div dir="ltr">
+<pre class="source-perl">
+<span class="co1"># Calling a subroutine</span>
+ 
+<span class="co1"># Parentheses are required here if the subroutine is defined later in the code</span>
+foo<span class="br0">(</span><span class="br0">)</span>;
+&amp;foo;              <span class="co1"># (this also works)</span>
+ 
+<span class="co1"># Defining a subroutine</span>
+<span class="kw2">sub</span> foo <span class="br0">{</span> ... <span class="br0">}</span>
+ 
+foo;               <span class="co1"># Here parentheses are not required</span>
+</pre></div>
+<p>A list of arguments may be provided after the subroutine name. Arguments may be scalars, lists, or hashes.</p>
+<p>foo $x, @y,&#160;%z;</p>
+<p>The parameters to a subroutine do not need to be declared as to either number or type; in fact, they may vary from call to call. Any validation of parameters must be performed explicitly inside the subroutine.</p>
+<p>Arrays are expanded to their elements, hashes are expanded to a list of key/value pairs, and the whole lot is passed into the subroutine as one flat list of scalars.</p>
+<p>Whatever arguments are passed are available to the subroutine in the special array <code>@_</code>. The elements of <code>@_</code> are aliased to the actual arguments; changing an element of <code>@_</code> changes the corresponding argument.</p>
+<p>Elements of <code>@_</code> may be accessed by subscripting it in the usual way.</p>
+<div dir="ltr">
+<pre class="source-perl">
+<span class="re0">$_</span><span class="br0">[</span><span class="nu0">0</span><span class="br0">]</span>, <span class="re0">$_</span><span class="br0">[</span><span class="nu0">1</span><span class="br0">]</span>
+</pre></div>
+<p>However, the resulting code can be difficult to read, and the parameters have <a href="/wiki/Evaluation_strategy#Call_by_reference" title="Evaluation strategy">pass-by-reference</a> semantics, which may be undesirable.</p>
+<p>One common idiom is to assign <code>@_</code> to a list of named variables.</p>
+<div dir="ltr">
+<pre class="source-perl">
+<span class="kw1">my</span> <span class="br0">(</span><span class="re0">$x</span>, <span class="re0">$y</span>, <span class="re0">$z</span><span class="br0">)</span> = <span class="re0">@_</span>;
+</pre></div>
+<p>This provides mnemonic parameter names and implements <a href="/wiki/Evaluation_strategy#Call_by_value" title="Evaluation strategy">pass-by-value</a> semantics. The <code>my</code> keyword indicates that the following variables are lexically scoped to the containing block.</p>
+<p>Another idiom is to shift parameters off of <code>@_</code>. This is especially common when the subroutine takes only one argument, or for handling the <code>$self</code> argument in object-oriented modules.</p>
+<div dir="ltr">
+<pre class="source-perl">
+<span class="kw1">my</span> <span class="re0">$x</span> = <span class="kw3">shift</span>;
+</pre></div>
+<p>Subroutines may assign <code>@_</code> to a hash to simulate named arguments; this is recommended in <i>Perl Best Practices</i> for subroutines that are likely ever to have more than three parameters.<sup id="_ref-16" class="reference"><a href="#_note-16" title="">[22]</a></sup></p>
+<div dir="ltr">
+<pre class="source-perl">
+<span class="kw2">sub</span> function1 <span class="br0">{</span> 
+  <span class="kw1">my</span> <span class="re0">%args</span> = <span class="re0">@_</span>;
+  <span class="kw3">print</span> <span class="st0">"'x' argument was '$args{x}'<span class="es0">\n</span>"</span>;
+<span class="br0">}</span>
+function1<span class="br0">(</span> x =&gt; <span class="nu0">23</span> <span class="br0">)</span>;
+</pre></div>
+<p>Subroutines may return values.</p>
+<div dir="ltr">
+<pre class="source-perl">
+<span class="kw3">return</span> <span class="nu0">42</span>, <span class="re0">$x</span>, <span class="re0">@y</span>, <span class="re0">%z</span>;
+</pre></div>
+<p>If the subroutine does not exit via a <code>return</code> statement, then it returns the last expression evaluated within the subroutine body. Arrays and hashes in the return value are expanded to lists of scalars, just as they are for arguments.</p>
+<p>The returned expression is evaluated in the calling context of the subroutine; this can surprise the unwary.</p>
+<div dir="ltr">
+<pre class="source-perl">
+<span class="kw2">sub</span> list  <span class="br0">{</span>      <span class="br0">(</span><span class="nu0">4</span>, <span class="nu0">5</span>, <span class="nu0">6</span><span class="br0">)</span>     <span class="br0">}</span>
+<span class="kw2">sub</span> array <span class="br0">{</span> <span class="re0">@x</span> = <span class="br0">(</span><span class="nu0">4</span>, <span class="nu0">5</span>, <span class="nu0">6</span><span class="br0">)</span>; <span class="re0">@x</span> <span class="br0">}</span>
+ 
+<span class="re0">$x</span> = list;   <span class="co1"># returns 6 - last element of list</span>
+<span class="re0">$x</span> = array;  <span class="co1"># returns 3 - number of elements in list</span>
+<span class="re0">@x</span> = list;   <span class="co1"># returns (4, 5, 6)</span>
+<span class="re0">@x</span> = array;  <span class="co1"># returns (4, 5, 6)</span>
+</pre></div>
+<p>A subroutine can discover its calling context with the <code>wantarray</code> function.</p>
+<div dir="ltr">
+<pre class="source-perl">
+<span class="kw2">sub</span> either <span class="br0">{</span>
+    <span class="kw3">return</span> <span class="kw3">wantarray</span>
+        ? <span class="br0">(</span><span class="nu0">1</span>, <span class="nu0">2</span><span class="br0">)</span>
+        : <span class="st0">"Oranges"</span>;
+<span class="br0">}</span>
+ 
+<span class="re0">$x</span> = either;    <span class="co1"># returns "Oranges"</span>
+<span class="re0">@x</span> = either;    <span class="co1"># returns (1, 2)</span>
+</pre></div>
+<p><a name="Regular_expressions" id="Regular_expressions"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Perl&amp;action=edit&amp;section=15" title="Edit section: Regular expressions">edit</a>]</span> <span class="mw-headline">Regular expressions</span></h3>
+<p>The Perl language includes a specialized syntax for writing <a href="/wiki/Regular_expression" title="Regular expression">regular expressions</a> (RE, or regexes), and the interpreter contains an engine for matching strings to regular expressions. The regular expression engine uses a <a href="/wiki/Backtracking" title="Backtracking">backtracking</a> algorithm, extending its capabilities from simple pattern matching to string capture and substitution. The regular expression engine is derived from regex written by <a href="/wiki/Henry_Spencer" title="Henry Spencer">Henry Spencer</a>.</p>
+<p>The Perl regular expression syntax was originally taken from Unix Version 8 regular expressions. However, it diverged before the first release of Perl, and has since grown to include many more features. Other languages and applications are now adopting <a href="/wiki/PCRE" title="PCRE">Perl compatible regular expressions</a> over <a href="/wiki/POSIX" title="POSIX">POSIX</a> regular expressions including <a href="/wiki/PHP" title="PHP">PHP</a>, <a href="/wiki/Ruby_programming_language" title="Ruby programming language">Ruby</a>, <a href="/wiki/Java_%28programming_language%29" title="Java (programming language)">Java</a>, Microsoft's <a href="/wiki/.NET_Framework" title=".NET Framework">.NET Framework</a><sup id="_ref-17" class="reference"><a href="#_note-17" title="">[23]</a></sup>, and the <a href="/wiki/Apache_HTTP_server" title="Apache HTTP server">Apache HTTP server</a>.</p>
+<p>Regular expression syntax is extremely compact, owing to history. The first regular expression dialects were only slightly more expressive than <a href="/wiki/Glob_%28programming%29" title="Glob (programming)">globs</a>, and the syntax was designed so that an expression would resemble the text it matches<sup class="noprint Template-Fact"><span title="This claim needs references to reliable sources&#160;since June 2007" style="white-space: nowrap;">[<i><a href="/wiki/Wikipedia:Citing_sources" title="Wikipedia:Citing sources">citation needed</a></i>]</span></sup>. This meant using no more than a single punctuation character or a pair of delimiting characters to express the few supported assertions. Over time, the expressiveness of regular expressions grew tremendously, but the syntax design was never revised and continues to rely on punctuation. As a result, regular expressions can be cryptic and extremely dense.</p>
+<p><a name="Uses" id="Uses"></a></p>
+<h4><span class="editsection">[<a href="/w/index.php?title=Perl&amp;action=edit&amp;section=16" title="Edit section: Uses">edit</a>]</span> <span class="mw-headline">Uses</span></h4>
+<p>The <code>m//</code> (match) operator introduces a regular expression match. (If you use slashes as delimiters, as in all the examples here, then the leading <code>m</code> may be omitted for brevity.) In the simplest case, an expression like</p>
+<div dir="ltr">
+<pre class="source-perl">
+<span class="re0">$x</span> =~ <span class="kw3">m</span>/abc/
+</pre></div>
+<p>evaluates to true <a href="/wiki/If_and_only_if" title="If and only if">if and only if</a> the string <code>$x</code> matches the regular expression <code>abc</code>.</p>
+<p>The <code>s///</code> (substitute) operator, on the other hand, specifies a search and replace operation:</p>
+<div dir="ltr">
+<pre class="source-perl">
+<span class="re0">$x</span> =~ <span class="kw3">s</span>/abc/aBc/;   <span class="co1"># upcase the b</span>
+</pre></div>
+<p>Another use of regular expressions is to specify delimiters for the <code>split</code> function:</p>
+<div dir="ltr">
+<pre class="source-perl">
+<span class="re0">@words</span> = <span class="kw3">split</span> <span class="kw3">m</span>/,/, <span class="re0">$line</span>;
+</pre></div>
+<p>The <code>split</code> function creates a list of the parts of the string separated by matches of the regular expression. In this example, a line is divided into a list of its comma-separated parts, and this list is then assigned to the <code>@words</code> array.</p>
+<p><a name="Syntax" id="Syntax"></a></p>
+<h4><span class="editsection">[<a href="/w/index.php?title=Perl&amp;action=edit&amp;section=17" title="Edit section: Syntax">edit</a>]</span> <span class="mw-headline">Syntax</span></h4>
+<p>Portions of a regular expression may be enclosed in parentheses; corresponding portions of a matching string are <i>captured</i>. Captured strings are assigned to the sequential built-in variables <code>$1, $2, $3, ...</code>, and a list of captured strings is returned as the value of the match.</p>
+<div dir="ltr">
+<pre class="source-perl">
+<span class="re0">$x</span> =~ <span class="kw3">m</span>/a<span class="br0">(</span>.<span class="br0">)</span>c/;  <span class="co1"># capture the character between 'a' and 'c'</span>
+</pre></div>
+<p>Perl regular expressions can take <i>modifiers</i>. These are single-letter suffixes that modify the meaning of the expression:</p>
+<div dir="ltr">
+<pre class="source-perl">
+<span class="re0">$x</span> =~ <span class="kw3">m</span>/abc/i;      <span class="co1"># case-insensitive pattern match</span>
+<span class="re0">$x</span> =~ <span class="kw3">s</span>/abc/aBc/g;  <span class="co1"># global search and replace</span>
+</pre></div>
+<p>Since regular expressions can be dense and cryptic because of their compact syntax, the <code>/x</code> modifier was added in Perl to help programmers write legible regular expressions. It allows programmers to place whitespace and comments <i>inside</i> regular expressions:</p>
+<div dir="ltr">
+<pre class="source-perl">
+<span class="re0">$x</span> =~ <span class="kw3">m</span>/a     <span class="co1"># match 'a'</span>
+        .     <span class="co1"># match any character</span>
+        c     <span class="co1"># match 'c'</span>
+       /x;
+</pre></div>
+<p><a name="Database_interfaces" id="Database_interfaces"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Perl&amp;action=edit&amp;section=18" title="Edit section: Database interfaces">edit</a>]</span> <span class="mw-headline">Database interfaces</span></h2>
+<p>Perl is widely favored for database applications. Its text handling facilities are useful for generating <a href="/wiki/SQL" title="SQL">SQL</a> queries; arrays, hashes and automatic memory management make it easy to collect and process the returned data.</p>
+<p>In early versions of Perl, database interfaces were created by relinking the interpreter with a client-side database library. This was sufficiently difficult that it was only done for a few of the most important and widely used databases, and restricted the resulting <code>perl</code> executable to using just one database interface at a time.</p>
+<p>In Perl 5, database interfaces are implemented by <a href="/wiki/Perl_DBI" title="Perl DBI">Perl DBI</a> modules. The DBI (Database Interface) module presents a single, database-independent interface to Perl applications, while the DBD (Database Driver) modules handle the details of accessing some 50 different databases; there are DBD drivers for most <a href="/wiki/American_National_Standards_Institute" title="American National Standards Institute">ANSI</a> <a href="/wiki/SQL" title="SQL">SQL</a> databases.</p>
+<p>DBI provides caching for database handles and queries, which can greatly improve performance in long-lived execution environments such as <a href="/wiki/Mod_perl" title="Mod perl">mod_perl</a><sup id="_ref-18" class="reference"><a href="#_note-18" title="">[24]</a></sup>, helping high-volume systems avert load spikes as in the <a href="/wiki/Slash_dot_effect" title="Slash dot effect">Slash dot effect</a>.</p>
+<p><a name="Comparative_performance" id="Comparative_performance"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Perl&amp;action=edit&amp;section=19" title="Edit section: Comparative performance">edit</a>]</span> <span class="mw-headline">Comparative performance</span></h2>
+<p><i>The Computer Language Benchmarks Game</i> compare the performance of implementations of typical programming problems in several programming languages.<sup id="_ref-19" class="reference"><a href="#_note-19" title="">[25]</a></sup> The submitted Perl implementations typically took up more memory than implementations in other languages, and had varied speed results. Perl's performance in the benchmarks game is similar to other interpreted languages such as Python, faster than PHP, and significantly faster than Ruby, but slower than most compiled languages.</p>
+<p>Perl programs can start slower than similar programs in compiled languages because perl has to compile the source every time it runs. In a talk at the <a href="/wiki/YAPC" title="YAPC">YAPC::Europe 2005</a> conference and subsequent article, "A Timely Start", Jean-Louis Leroy found that his Perl programs took much longer to run than he expected because the perl interpreter spent much of the time finding modules because of his over-large include path.<sup id="_ref-20" class="reference"><a href="#_note-20" title="">[26]</a></sup> Because pre-compiling is still an experimental part of Perl<sup id="_ref-21" class="reference"><a href="#_note-21" title="">[27]</a></sup> – unlike that of Java, Python, and Ruby – Perl programs pay this overhead penalty on every execution. When <a href="/wiki/Amortized" title="Amortized">amortized</a> over a long run phase, startup time is not typically substantial, but measurement of very short execution times can often be skewed as is often found in benchmarks.</p>
+<p>A number of tools have been introduced to improve this situation, the first of which was Apache's <a href="/wiki/Mod_perl" title="Mod perl">mod_perl</a>, which sought to address one of the most common reasons that small Perl programs were invoked rapidly: <a href="/wiki/Common_Gateway_Interface" title="Common Gateway Interface">CGI</a> <a href="/wiki/World_Wide_Web" title="World Wide Web">Web</a> development. <a href="/wiki/ActiveState" title="ActiveState">ActivePerl</a>, via Microsoft <a href="/wiki/ISAPI" title="ISAPI">ISAPI</a> provides similar performance improvements.</p>
+<p>Once Perl code is compiled, there is additional overhead during the execution phase that typically isn't present for programs written in compiled languages like C or C++, including, among many other things, overhead due to bytecode interpretation, reference-counting memory management, and dynamic type checking.</p>
+<p><a name="GPU_performance" id="GPU_performance"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Perl&amp;action=edit&amp;section=20" title="Edit section: GPU performance">edit</a>]</span> <span class="mw-headline">GPU performance</span></h3>
+<p>One area in which Perl performance is comparable to that of compiled languages is in the use of <a href="/wiki/Graphics_processing_unit" title="Graphics processing unit">GPUs</a>. General Purpose GPU (<a href="/wiki/GPGPU" title="GPGPU">GPGPU</a>) processing uses <a href="/wiki/Vertex_shader" title="Vertex shader">Vertex shader</a> programs to process vast arrays of data, independent of the <a href="/wiki/Central_processing_unit" title="Central processing unit">CPU</a>.</p>
+<p>GPU use involves loading initial r/o data via textures, loading c-like vertex shader programs for execution, which uses on-chip vertext arrays as r/w memory, then rendering the results to video or transferring the data back to the CPU.</p>
+<p>In short, the GPU does all the number-crunching, leaving the CPU to do event handling, system calls, disk I/O and UI - which tends to contribute a minor portion of the overall processing time. In such cases, the performance difference between Perl and compiled languages become statistically insignificant.</p>
+<p><a href="http://graphcomp.com/opengl/benchmarks" class="external text" title="http://graphcomp.com/opengl/benchmarks" rel="nofollow">GPU benchmarks</a> comparing C vs Perl, using the latest Perl OpenGL (<a href="/wiki/POGL" title="POGL">POGL</a>) 0.55 module, demonstrate that there is no significant performance difference when rendering realtime animated 3D objects using dynamically generated texturemaps.</p>
+<p>In the case of dynamically-generated (and potentially self-modifying) vertex shader code, Perl can provide better GPU performance than compiled code - due to its dynamically interpretive string handling features.</p>
+<p>Additional benchmarks demonstrate that Perl OpenGL (POGL) is at least 20% faster than Python OpenGL (PyOpenGL).</p>
+<p><a name="GPU_Data_Storage_in_Perl" id="GPU_Data_Storage_in_Perl"></a></p>
+<h4><span class="editsection">[<a href="/w/index.php?title=Perl&amp;action=edit&amp;section=21" title="Edit section: GPU Data Storage in Perl">edit</a>]</span> <span class="mw-headline">GPU Data Storage in Perl</span></h4>
+<p><a href="/wiki/POGL" title="POGL">POGL</a> objects provide further optimization by storing data/images in typed C arrays, eliminating the need to copy, cast, convert data to/from C and Perl:</p>
+<ul>
+<li>OpenGL::Array (OGA) - provides direct C pointer access to data arrays, providing compiled language performance to loading/managing/saving textures, FBOs and VBOs.<sup id="_ref-22" class="reference"><a href="#_note-22" title="">[28]</a></sup></li>
+</ul>
+<ul>
+<li>OpenGL::Image (OGI) - provides direct C pointer access to ImageMagick image caches, providing compiled language performance to loading/processing/saving images for most common image formats.<sup id="_ref-23" class="reference"><a href="#_note-23" title="">[29]</a></sup></li>
+</ul>
+<p><a name="Optimizing" id="Optimizing"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Perl&amp;action=edit&amp;section=22" title="Edit section: Optimizing">edit</a>]</span> <span class="mw-headline">Optimizing</span></h3>
+<p>Perl programs, like any code, can be <a href="/wiki/Optimization_%28computer_science%29" title="Optimization (computer science)">tuned for performance</a> using <a href="/wiki/Benchmark_%28computing%29" title="Benchmark (computing)">benchmarks</a> and <a href="/wiki/Performance_analysis" title="Performance analysis">profiles</a> after a readable and correct implementation is finished. In part because of Perl's interpreted nature, writing more-efficient Perl will not always be enough to meet one's performance goals for a program.</p>
+<p>In such situations, the most critical routines of a Perl program can be written in other languages such as <a href="/wiki/C_%28programming_language%29" title="C (programming language)">C</a> or <a href="/wiki/Assembly_language" title="Assembly language">Assembler</a>, which can be connected to Perl via simple Inline modules or the more complex but flexible <a href="/wiki/XS_%28Perl%29" title="XS (Perl)">XS</a> mechanism.<sup id="_ref-24" class="reference"><a href="#_note-24" title="">[30]</a></sup> Nicholas Clark, a Perl core developer, discusses some Perl design trade-offs and some solutions in <i>When perl is not quite fast enough</i>.<sup id="_ref-25" class="reference"><a href="#_note-25" title="">[31]</a></sup></p>
+<p>In extreme cases, optimizing Perl can require intimate knowledge of the interpreter's workings rather than skill with algorithms, the Perl language, or general principles of optimization.<sup class="noprint Template-Fact"><span title="This claim needs references to reliable sources&#160;since July 2007" style="white-space: nowrap;">[<i><a href="/wiki/Wikipedia:Citing_sources" title="Wikipedia:Citing sources">citation needed</a></i>]</span></sup></p>
+<p><a name="Future" id="Future"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Perl&amp;action=edit&amp;section=23" title="Edit section: Future">edit</a>]</span> <span class="mw-headline">Future</span></h2>
+<dl>
+<dd>
+<div class="noprint"><i>Main article: <a href="/wiki/Perl_6" title="Perl 6">Perl 6</a></i></div>
+</dd>
+</dl>
+<p>At the 2000 <a href="/w/index.php?title=Perl_Conference&amp;action=edit" class="new" title="Perl Conference">Perl Conference</a>, <a href="/w/index.php?title=Jon_Orwant&amp;action=edit" class="new" title="Jon Orwant">Jon Orwant</a> made a case for a major new language initiative.<sup id="_ref-26" class="reference"><a href="#_note-26" title="">[32]</a></sup> This led to a decision to begin work on a redesign of the language, to be called Perl 6. Proposals for new language features were solicited from the Perl community at large, and over 300 <a href="/wiki/Request_for_Comments" title="Request for Comments">RFCs</a> were submitted.</p>
+<p><a href="/wiki/Larry_Wall" title="Larry Wall">Larry Wall</a> spent the next few years digesting the RFCs and synthesizing them into a coherent framework for Perl 6. He has presented his design for Perl 6 in a series of documents called "apocalypses", which are numbered to correspond to chapters in <i><a href="/wiki/Programming_Perl" title="Programming Perl">Programming Perl</a></i> ("The Camel Book"). The current, not yet finalized specification of Perl 6 is encapsulated in design documents called Synopses, which are numbered to correspond to Apocalypses.</p>
+<p>Perl 6 is not intended to be backward compatible, though there will be a compatibility mode.</p>
+<p>In <a href="/wiki/2001" title="2001">2001</a>, it was decided that Perl 6 would run on a cross-language <a href="/wiki/Virtual_machine" title="Virtual machine">virtual machine</a> called <a href="/wiki/Parrot_virtual_machine" title="Parrot virtual machine">Parrot</a>. This will mean that other languages targeting the Parrot will gain native access to <a href="/wiki/CPAN" title="CPAN">CPAN</a>, allowing some level of cross-language development.</p>
+<p>In <a href="/wiki/2005" title="2005">2005</a> <a href="/wiki/Audrey_Tang" title="Audrey Tang">Audrey Tang</a> created the <a href="/wiki/Pugs" title="Pugs">pugs</a> project, an implementation of Perl 6 in <a href="/wiki/Haskell_%28programming_language%29" title="Haskell (programming language)">Haskell</a>. This was and continues to act as a test platform for the Perl 6 language (separate from the development of the actual implementation) allowing the language designers to explore. The pugs project spawned an active Perl/Haskell cross-language community centered around the <a href="/wiki/Freenode" title="Freenode">freenode</a> #perl6 irc channel.</p>
+<p>A number of features in the Perl 6 language now show similarities with Haskell, and Perl 6 has been embraced by the Haskell community as a potential scripting language.</p>
+<p><a href="/wiki/As_of_2006" title="As of 2006">As of 2006</a>, Perl 6, Parrot, and pugs are under active development, and a new module for Perl 5 called <a href="/wiki/V6_%28Perl%29" title="V6 (Perl)">v6</a> allows some Perl 6 code to run directly on top of Perl 5.</p>
+<p>In 2006, an effort was started to have Windows Perl distributions ship with a compiler, in order to make the need for binary packages on Windows redundant. Some early results of this include the CamelPack macro-installer and Vanilla Perl distributions.<sup id="_ref-27" class="reference"><a href="#_note-27" title="">[33]</a></sup><sup id="_ref-28" class="reference"><a href="#_note-28" title="">[34]</a></sup></p>
+<p>Development of Perl 5 is also continuing. The development versions are number 5.9.x and the next stable version is planned to be called Perl 5.10. Some of its features are influenced by the design of Perl 6. More information about the upcoming release is available in the files perldelta59*.pod in CPAN distribution of 5.9.x development versions.<sup id="_ref-29" class="reference"><a href="#_note-29" title="">[35]</a></sup></p>
+<p><a name="The_Perl_community" id="The_Perl_community"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Perl&amp;action=edit&amp;section=24" title="Edit section: The Perl community">edit</a>]</span> <span class="mw-headline">The Perl community</span></h2>
+<p>Perl's culture and community has developed along side the language itself. <a href="/wiki/Usenet" title="Usenet">Usenet</a> was the first public venue in which Perl was introduced, but over the course of its evolution, Perl's community was shaped by the growth of broading Internet-based services including the introduction of the World Wide Web. The community that surrounds Perl was, in fact, the topic of Larry Wall's first "State of the Onion" talk.<sup id="_ref-30" class="reference"><a href="#_note-30" title="">[36]</a></sup></p>
+<p><a name="Pastimes" id="Pastimes"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Perl&amp;action=edit&amp;section=25" title="Edit section: Pastimes">edit</a>]</span> <span class="mw-headline">Pastimes</span></h3>
+<p>Perl's pastimes have become a defining element of the community. Included among them are trivial and complex uses of the language.</p>
+<p><a name="JAPHs" id="JAPHs"></a></p>
+<h4><span class="editsection">[<a href="/w/index.php?title=Perl&amp;action=edit&amp;section=26" title="Edit section: JAPHs">edit</a>]</span> <span class="mw-headline">JAPHs</span></h4>
+<p>In email, Usenet and message board postings, "<a href="/wiki/Just_another_Perl_hacker" title="Just another Perl hacker">Just another Perl hacker</a>" (JAPH) programs have become a common trend, originated by <a href="/wiki/Randal_L._Schwartz" title="Randal L. Schwartz">Randal L. Schwartz</a>, one of the earliest professional Perl trainers.<sup id="_ref-31" class="reference"><a href="#_note-31" title="">[37]</a></sup></p>
+<p>In the parlance of Perl culture, Perl programmers are known as Perl hackers, and from this derives the practice of writing short programs to print out the phrase "<a href="/wiki/Just_another_Perl_hacker" title="Just another Perl hacker">Just another Perl hacker</a>,". In the spirit of the original concept, these programs are moderately obfuscated and short enough to fit into the signature of an email or Usenet message. The "canonical" JAPH includes the comma at the end, although this is often omitted.</p>
+<p><a name="Perl_golf" id="Perl_golf"></a></p>
+<h4><span class="editsection">[<a href="/w/index.php?title=Perl&amp;action=edit&amp;section=27" title="Edit section: Perl golf">edit</a>]</span> <span class="mw-headline">Perl golf</span></h4>
+<p>Perl "golf" is the pastime of reducing the number of characters used in a Perl program to the bare minimum, much as how <a href="/wiki/Golf" title="Golf">golf</a> players seek to take as few shots as possible in a round. It originally focused on the JAPHs used in signatures in Usenet postings and elsewhere, but the use of Perl to write a program which performed <a href="/wiki/RSA" title="RSA">RSA</a> encryption prompted a widespread and practical interest in this pastime.<sup id="_ref-32" class="reference"><a href="#_note-32" title="">[38]</a></sup> In subsequent years, code golf has been taken up as a pastime in other languages besides Perl.<sup id="_ref-33" class="reference"><a href="#_note-33" title="">[39]</a></sup></p>
+<p><a name="Obfuscation" id="Obfuscation"></a></p>
+<h4><span class="editsection">[<a href="/w/index.php?title=Perl&amp;action=edit&amp;section=28" title="Edit section: Obfuscation">edit</a>]</span> <span class="mw-headline">Obfuscation</span></h4>
+<p>As with C, <a href="/wiki/Obfuscated_code" title="Obfuscated code">obfuscated code</a> competitions are a well-known pastime. The annual <a href="/wiki/Obfuscated_Perl_contest" title="Obfuscated Perl contest">Obfuscated Perl contest</a> made an arch virtue of Perl's syntactic flexibility.</p>
+<p><a name="Poetry" id="Poetry"></a></p>
+<h4><span class="editsection">[<a href="/w/index.php?title=Perl&amp;action=edit&amp;section=29" title="Edit section: Poetry">edit</a>]</span> <span class="mw-headline">Poetry</span></h4>
+<p>Similar to obfuscated code and golf, but with a different purpose, Perl poetry is the practice of writing poems that can actually be compiled as legal (although generally non-sensical) Perl code. This hobby is more or less unique to Perl due to the large number of regular English words used in the language. New poems are regularly published in the <a href="/wiki/Perl_Monks" title="Perl Monks">Perl Monks</a> site's Perl Poetry section.<sup id="_ref-34" class="reference"><a href="#_note-34" title="">[40]</a></sup></p>
+<p><a name="CPAN_Acme" id="CPAN_Acme"></a></p>
+<h4><span class="editsection">[<a href="/w/index.php?title=Perl&amp;action=edit&amp;section=30" title="Edit section: CPAN Acme">edit</a>]</span> <span class="mw-headline">CPAN Acme</span></h4>
+<p>There are also many examples of code written purely for entertainment on the CPAN. <code>Lingua::Romana::Perligata</code>, for example, allows writing programs in <a href="/wiki/Latin" title="Latin">Latin</a>.<sup id="_ref-35" class="reference"><a href="#_note-35" title="">[41]</a></sup> Upon execution of such a program, the module translates its source code into regular Perl and runs it.</p>
+<p>The Perl community has set aside the "<a href="/wiki/Acme_Corporation" title="Acme Corporation">Acme</a>" namespace for modules that are fun in nature (but its scope has widened to include exploratory or experimental code or any other module that is not meant to ever be used in production). Some of the Acme modules are deliberately implemented in amusing ways. This includes <code>Acme::Bleach</code>, one of the first modules in the <code>Acme::</code> namespace,<sup id="_ref-36" class="reference"><a href="#_note-36" title="">[42]</a></sup> which allows the program's source code to be "whitened" (i.e., all characters replaced with whitespace) and yet still work.</p>
+<p>These are also examples of "source filters"; libraries which transform the text of a program before reading it.</p>
+<p><a name="See_also" id="See_also"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Perl&amp;action=edit&amp;section=31" title="Edit section: See also">edit</a>]</span> <span class="mw-headline">See also</span></h2>
+<div class="tright" style="border:solid #aaa 1px; background:#f9f9f9; margin:0.5em 0 0.5em 0.5em; font-size:85%;">
+<table style="background:transparent;" width="0">
+<tr>
+<td>
+<div style="position:relative; width:32px; height:28px; overflow:hidden">
+<div style="position:absolute; top:0px; left:0px; z-index:2;"><a href="/wiki/Image:Floss_logos.svg" class="image" title="Floss logos.svg"><img alt="" src="http://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Floss_logos.svg/31px-Floss_logos.svg.png" width="31" height="28" border="0" /></a></div>
+</div>
+</td>
+<td><i><b><a href="/wiki/Portal:Free_software" title="Portal:Free software">Free software Portal</a></b></i></td>
+</tr>
+</table>
+</div>
+<ul>
+<li><a href="/wiki/The_Perl_Foundation" title="The Perl Foundation">The Perl Foundation</a></li>
+<li><a href="/wiki/Perl_Object_Environment" title="Perl Object Environment">Perl Object Environment</a> (POE) - a framework for writing persistent object-oriented environments with <a href="/wiki/Event_loop" title="Event loop">event loops</a>.</li>
+<li><a href="/wiki/Perl_Data_Language" title="Perl Data Language">Perl Data Language</a> (PDL) - a Perl module which allows extending Perl for higher-order scientific processing.</li>
+<li><a href="/wiki/Plain_Old_Documentation" title="Plain Old Documentation">Plain Old Documentation</a> (POD) - a documentation tool for Perl.</li>
+<li><a href="/wiki/Just_another_Perl_hacker" title="Just another Perl hacker">Just another Perl hacker</a> (JAPH)</li>
+<li><a href="/wiki/Perl_Monks" title="Perl Monks">Perl Monks</a></li>
+<li><a href="/wiki/Perl_Mongers" title="Perl Mongers">Perl Mongers</a></li>
+<li><a href="/wiki/PerlScript" title="PerlScript">PerlScript</a></li>
+<li><a href="/wiki/Comparison_of_programming_languages" title="Comparison of programming languages">Comparison of programming languages</a></li>
+<li><i><a href="/wiki/Learning_Perl" title="Learning Perl">Learning Perl</a></i>, Fourth Edition (the <i>Llama book</i>), <a href="/w/index.php?title=Special:Booksources&amp;isbn=0596101058" class="internal">ISBN 0-596-10105-8</a></li>
+<li><i><a href="/wiki/Perl_Cookbook" title="Perl Cookbook">Perl Cookbook</a></i>, <a href="/w/index.php?title=Special:Booksources&amp;isbn=0596003137" class="internal">ISBN 0-596-00313-7</a></li>
+<li><i><a href="/wiki/Programming_Perl" title="Programming Perl">Programming Perl</a></i>, (the <i>Camel book</i>), <a href="/w/index.php?title=Special:Booksources&amp;isbn=0596000278" class="internal">ISBN 0-596-00027-8</a></li>
+<li><a href="/wiki/Autovivification" title="Autovivification">Autovivification</a></li>
+</ul>
+<p><a name="References" id="References"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Perl&amp;action=edit&amp;section=32" title="Edit section: References">edit</a>]</span> <span class="mw-headline">References</span></h2>
+<div class="references-small">
+<ol class="references">
+<li id="_note-perltimeline"><b><a href="#_ref-perltimeline_0" title="">^</a></b> Ashton, Elaine (1999). <a href="http://history.perl.org/PerlTimeline.html" class="external text" title="http://history.perl.org/PerlTimeline.html" rel="nofollow">The Timeline of Perl and its Culture (v3.0_0505)</a>.</li>
+<li id="_note-programmingperl"><b><a href="#_ref-programmingperl_0" title="">^</a></b> <cite class="book" style="font-style:normal"><a href="/wiki/Larry_Wall" title="Larry Wall">Wall, Larry</a>, <a href="/wiki/Tom_Christiansen" title="Tom Christiansen">Tom Christiansen</a> and <a href="/w/index.php?title=Jon_Orwant&amp;action=edit" class="new" title="Jon Orwant">Jon Orwant</a> (July 2000). <i>Programming Perl, Third Edition</i>. O'Reilly.</cite><span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Programming+Perl%2C+Third+Edition&amp;rft.au=%5B%5BLarry+Wall%7CWall%2C+Larry%5D%5D%2C+%5B%5BTom+Christiansen%5D%5D+and+%5B%5BJon+Orwant%5D%5D&amp;rft.pub=O%27Reilly">&#160;</span></li>
+<li id="_note-larry-wall-snippet">^ <a href="#_ref-larry-wall-snippet_0" title=""><sup><i><b>a</b></i></sup></a> <a href="#_ref-larry-wall-snippet_1" title=""><sup><i><b>b</b></i></sup></a> <a href="http://www.perl.com/pub/au/Wall_Larry" class="external text" title="http://www.perl.com/pub/au/Wall_Larry" rel="nofollow">Larry Wall</a>. Retrieved on <a href="/wiki/2006" title="2006">2006</a>-<a href="/wiki/August_20" title="August 20">08-20</a>.</li>
+<li id="_note-0"><b><a href="#_ref-0" title="">^</a></b> <a href="http://www.xray.mpe.mpg.de/mailing-lists/perl5-porters/" class="external free" title="http://www.xray.mpe.mpg.de/mailing-lists/perl5-porters/" rel="nofollow">http://www.xray.mpe.mpg.de/mailing-lists/perl5-porters/</a></li>
+<li id="_note-1"><b><a href="#_ref-1" title="">^</a></b> <a href="http://perldoc.perl.org/perlfaq1.html#What's-the-difference-between-%22perl%22-and-%22Perl%22%3f" class="external text" title="http://perldoc.perl.org/perlfaq1.html#What's-the-difference-between-%22perl%22-and-%22Perl%22%3f" rel="nofollow">perlfaq1: What's the difference between "perl" and "Perl"?</a>.</li>
+<li id="_note-2"><b><a href="#_ref-2" title="">^</a></b> <a href="/wiki/Randal_L._Schwartz" title="Randal L. Schwartz">Schwartz, Randal</a>. <a href="http://www.perlmonks.org/index.pl?node_id=510594" class="external text" title="http://www.perlmonks.org/index.pl?node_id=510594" rel="nofollow">PERL as shibboleth and the Perl community</a>. Retrieved on <a href="/wiki/2007" title="2007">2007</a>-<a href="/wiki/June_1" title="June 1">06-01</a>.</li>
+<li id="_note-3"><b><a href="#_ref-3" title="">^</a></b> <a href="/wiki/Larry_Wall" title="Larry Wall">Wall, Larry</a>. <a href="http://perldoc.perl.org/perl.html#BUGS" class="external text" title="http://perldoc.perl.org/perl.html#BUGS" rel="nofollow">BUGS</a>. <i>perl(1) <a href="/wiki/Man_page" title="Man page">man page</a></i>. Retrieved on <a href="/wiki/2006" title="2006">2006</a>-<a href="/wiki/October_13" title="October 13">10-13</a>.</li>
+<li id="_note-4"><b><a href="#_ref-4" title="">^</a></b> <a href="/wiki/Larry_Wall" title="Larry Wall">Wall, Larry</a>. <a href="http://www.perlmonks.org/index.pl?node_id=511722" class="external text" title="http://www.perlmonks.org/index.pl?node_id=511722" rel="nofollow">Re^7: PERL as shibboleth and the Perl community</a>. Retrieved on <a href="/wiki/2007" title="2007">2007</a>-<a href="/wiki/January_3" title="January 3">01-03</a>.</li>
+<li id="_note-5"><b><a href="#_ref-5" title="">^</a></b> <a href="http://perl.oreilly.com/usage/" class="external free" title="http://perl.oreilly.com/usage/" rel="nofollow">http://perl.oreilly.com/usage/</a></li>
+<li id="_note-6"><b><a href="#_ref-6" title="">^</a></b> <a href="http://www.oreillynet.com/images/perl/" class="external free" title="http://www.oreillynet.com/images/perl/" rel="nofollow">http://www.oreillynet.com/images/perl/</a></li>
+<li id="_note-7"><b><a href="#_ref-7" title="">^</a></b> perlintro(1) <a href="/wiki/Man_page" title="Man page">man page</a></li>
+<li id="_note-8"><b><a href="#_ref-8" title="">^</a></b> Usenet post, May 10th 1997, with ID 199705101952.MAA00756@wall.org.</li>
+<li id="_note-9"><b><a href="#_ref-9" title="">^</a></b> <a href="http://www.imdb.com/help/search?domain=helpdesk_faq&amp;index=1&amp;file=techinfo" class="external text" title="http://www.imdb.com/help/search?domain=helpdesk_faq&amp;index=1&amp;file=techinfo" rel="nofollow">IMDb Helpdesk: What software/hardware are you using to run the site?</a>. Retrieved on <a href="/wiki/2007" title="2007">2007</a>-<a href="/wiki/September_1" title="September 1">09-01</a>.</li>
+<li id="_note-10"><b><a href="#_ref-10" title="">^</a></b> A description of the Perl 5 interpreter can be found in <i>Programming Perl</i>, 3rd Ed., <a href="http://www.oreilly.com/catalog/pperl3/chapter/ch18.html" class="external text" title="http://www.oreilly.com/catalog/pperl3/chapter/ch18.html" rel="nofollow">chapter 18</a></li>
+<li id="_note-11"><b><a href="#_ref-11" title="">^</a></b> <a href="/wiki/Randal_L._Schwartz" title="Randal L. Schwartz">Schwartz, Randal</a>. <a href="http://www.perlmonks.org/index.pl?node_id=44722" class="external text" title="http://www.perlmonks.org/index.pl?node_id=44722" rel="nofollow">On Parsing Perl</a>. Retrieved on <a href="/wiki/2007" title="2007">2007</a>-<a href="/wiki/January_3" title="January 3">01-03</a>.</li>
+<li id="_note-cpanports">^ <a href="#_ref-cpanports_0" title=""><sup><i><b>a</b></i></sup></a> <a href="#_ref-cpanports_1" title=""><sup><i><b>b</b></i></sup></a> Hietaniemi, Jarkko (1998). <a href="http://www.cpan.org/ports/" class="external text" title="http://www.cpan.org/ports/" rel="nofollow">Perl Ports (Binary Distributions)</a>. CPAN.org.</li>
+<li id="_note-macperl"><b><a href="#_ref-macperl_0" title="">^</a></b> <a href="http://www.macperl.com/" class="external text" title="http://www.macperl.com/" rel="nofollow">The MacPerl Pages</a>. Prime Time Freeware (1997).</li>
+<li id="_note-12"><b><a href="#_ref-12" title="">^</a></b> <a href="http://www.cpan.org/ports/" class="external free" title="http://www.cpan.org/ports/" rel="nofollow">http://www.cpan.org/ports/</a></li>
+<li id="_note-13"><b><a href="#_ref-13" title="">^</a></b> <a href="http://win32.perl.org/wiki/index.php?title=Win32_Distributions#Perl_Distributions" class="external text" title="http://win32.perl.org/wiki/index.php?title=Win32_Distributions#Perl_Distributions" rel="nofollow">Win32 Distributions</a>. Win32 Perl Wiki.</li>
+<li id="_note-14"><b><a href="#_ref-14" title="">^</a></b> Golden, David (2006). <a href="http://www.mail-archive.com/perl-qa@perl.org/msg05407.html" class="external text" title="http://www.mail-archive.com/perl-qa@perl.org/msg05407.html" rel="nofollow">Activestate and Scalar-List-Utils</a>.</li>
+<li id="_note-15"><b><a href="#_ref-15" title="">^</a></b> <a href="http://search.cpan.org/~rgarcia/perl-5.9.4/pod/perl593delta.pod#Switch_and_Smart_Match_operator" class="external text" title="http://search.cpan.org/~rgarcia/perl-5.9.4/pod/perl593delta.pod#Switch_and_Smart_Match_operator" rel="nofollow">perldelta - what is new for perl v5.9.3, Rafaël Garcia-Suarez.</a></li>
+<li id="_note-16"><b><a href="#_ref-16" title="">^</a></b> Damian Conway, <i>Perl Best Practices</i>, <a href="http://www.oreilly.com/catalog/perlbp/chapter/ch09.pdf" class="external autonumber" title="http://www.oreilly.com/catalog/perlbp/chapter/ch09.pdf" rel="nofollow">[1]</a>, p.182</li>
+<li id="_note-17"><b><a href="#_ref-17" title="">^</a></b> Microsoft Corp., ".NET Framework Regular Expressions", <i>.NET Framework Developer's Guide</i>, <a href="http://msdn2.microsoft.com/en-us/library/hs600312(VS.71).aspx" class="external autonumber" title="http://msdn2.microsoft.com/en-us/library/hs600312(VS.71).aspx" rel="nofollow">[2]</a></li>
+<li id="_note-18"><b><a href="#_ref-18" title="">^</a></b> Bekman, Stas. <a href="http://perl.apache.org/docs/1.0/guide/performance.html#Efficient_Work_with_Databases_under_mod_perl" class="external text" title="http://perl.apache.org/docs/1.0/guide/performance.html#Efficient_Work_with_Databases_under_mod_perl" rel="nofollow">Efficient Work with Databases under mod_perl</a>. Retrieved on <a href="/wiki/2007" title="2007">2007</a>-<a href="/wiki/September_1" title="September 1">09-01</a>.</li>
+<li id="_note-19"><b><a href="#_ref-19" title="">^</a></b> <a href="http://shootout.alioth.debian.org/" class="external free" title="http://shootout.alioth.debian.org/" rel="nofollow">http://shootout.alioth.debian.org/</a></li>
+<li id="_note-20"><b><a href="#_ref-20" title="">^</a></b> Leroy, Jean-Louis (2005-12-01). <a href="http://www.perl.com/pub/a/2005/12/21/a_timely_start.html" class="external text" title="http://www.perl.com/pub/a/2005/12/21/a_timely_start.html" rel="nofollow">A Timely Start</a>. Perl.com.</li>
+<li id="_note-21"><b><a href="#_ref-21" title="">^</a></b> Beattie, Malcolm and Enache Adrian (2003). <a href="http://search.cpan.org/~nwclark/perl-5.8.8/ext/B/B/Bytecode.pm#KNOWN_BUGS" class="external text" title="http://search.cpan.org/~nwclark/perl-5.8.8/ext/B/B/Bytecode.pm#KNOWN_BUGS" rel="nofollow">B::Bytecode Perl compiler's bytecode backend</a>. search.cpan.org.</li>
+<li id="_note-22"><b><a href="#_ref-22" title="">^</a></b> <a href="http://graphcomp.com/opengl/index.cgi?v=0111s3p1" class="external free" title="http://graphcomp.com/opengl/index.cgi?v=0111s3p1" rel="nofollow">http://graphcomp.com/opengl/index.cgi?v=0111s3p1</a></li>
+<li id="_note-23"><b><a href="#_ref-23" title="">^</a></b> <a href="http://graphcomp.com/opengl/index.cgi?v=0111s3p6" class="external free" title="http://graphcomp.com/opengl/index.cgi?v=0111s3p6" rel="nofollow">http://graphcomp.com/opengl/index.cgi?v=0111s3p6</a></li>
+<li id="_note-24"><b><a href="#_ref-24" title="">^</a></b> <a href="http://search.cpan.org/perldoc/Inline/" class="external free" title="http://search.cpan.org/perldoc/Inline/" rel="nofollow">http://search.cpan.org/perldoc/Inline/</a></li>
+<li id="_note-25"><b><a href="#_ref-25" title="">^</a></b> <a href="http://www.ccl4.org/~nick/P/Fast_Enough/" class="external free" title="http://www.ccl4.org/~nick/P/Fast_Enough/" rel="nofollow">http://www.ccl4.org/~nick/P/Fast_Enough/</a></li>
+<li id="_note-26"><b><a href="#_ref-26" title="">^</a></b> <a href="http://www.nntp.perl.org/group/perl.perl6.meta/424" class="external text" title="http://www.nntp.perl.org/group/perl.perl6.meta/424" rel="nofollow">Transcription of Larry's talk</a>. Retrieved on 2006 September 28.</li>
+<li id="_note-27"><b><a href="#_ref-27" title="">^</a></b> <a href="http://camelpack.sourceforge.net/" class="external free" title="http://camelpack.sourceforge.net/" rel="nofollow">http://camelpack.sourceforge.net/</a></li>
+<li id="_note-28"><b><a href="#_ref-28" title="">^</a></b> <a href="http://win32.perl.org/wiki/index.php?title=Vanilla_Perl" class="external free" title="http://win32.perl.org/wiki/index.php?title=Vanilla_Perl" rel="nofollow">http://win32.perl.org/wiki/index.php?title=Vanilla_Perl</a></li>
+<li id="_note-29"><b><a href="#_ref-29" title="">^</a></b> <a href="http://search.cpan.org/src/RGARCIA/perl-5.9.4/pod/" class="external free" title="http://search.cpan.org/src/RGARCIA/perl-5.9.4/pod/" rel="nofollow">http://search.cpan.org/src/RGARCIA/perl-5.9.4/pod/</a></li>
+<li id="_note-30"><b><a href="#_ref-30" title="">^</a></b> Wall, Larry (1997-08-20). <a href="http://www.wall.org/~larry/keynote/keynote.html" class="external text" title="http://www.wall.org/~larry/keynote/keynote.html" rel="nofollow">Perl Culture (AKA the first State of the Onion)</a>.</li>
+<li id="_note-31"><b><a href="#_ref-31" title="">^</a></b> Randal L. Schwartz in <a href="/wiki/Usenet" title="Usenet">usenet</a> message M1HFPVH2JQ.FSF@HALFDOME.HOLDIT.COM explaining the origin of JAPH. Available through google: <a href="http://groups.google.com/group/comp.lang.perl.misc/msg/ecc405feeefc120c" class="external free" title="http://groups.google.com/group/comp.lang.perl.misc/msg/ecc405feeefc120c" rel="nofollow">http://groups.google.com/group/comp.lang.perl.misc/msg/ecc405feeefc120c</a></li>
+<li id="_note-32"><b><a href="#_ref-32" title="">^</a></b> <a href="http://www.cypherspace.org/adam/rsa/story.html" class="external free" title="http://www.cypherspace.org/adam/rsa/story.html" rel="nofollow">http://www.cypherspace.org/adam/rsa/story.html</a></li>
+<li id="_note-33"><b><a href="#_ref-33" title="">^</a></b> <a href="http://codegolf.com/" class="external text" title="http://codegolf.com/" rel="nofollow">Code Golf: What is Code Golf?</a>. 29degrees (2007).</li>
+<li id="_note-34"><b><a href="#_ref-34" title="">^</a></b> <a href="http://www.perlmonks.org/?node_id=1590" class="external free" title="http://www.perlmonks.org/?node_id=1590" rel="nofollow">http://www.perlmonks.org/?node_id=1590</a></li>
+<li id="_note-35"><b><a href="#_ref-35" title="">^</a></b> Conway, Damian. <a href="http://www.csse.monash.edu.au/~damian/papers/HTML/Perligata.html" class="external text" title="http://www.csse.monash.edu.au/~damian/papers/HTML/Perligata.html" rel="nofollow">Lingua::Romana::Perligata -- Perl for the XXI-imum Century</a>.</li>
+<li id="_note-36"><b><a href="#_ref-36" title="">^</a></b> Brocard, Leon (2001-05-23). <a href="http://use.perl.org/~acme/journal/200" class="external text" title="http://use.perl.org/~acme/journal/200" rel="nofollow">use Perl; Journal of acme</a>.</li>
+</ol>
+</div>
+<p><a name="External_links" id="External_links"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Perl&amp;action=edit&amp;section=33" title="Edit section: External links">edit</a>]</span> <span class="mw-headline">External links</span></h2>
+<div class="infobox sisterproject">
+<div style="float: left;">
+<div class="floatnone"><span><a href="/wiki/Image:Wikibooks-logo-en.svg" class="image" title="Wikibooks"><img alt="Wikibooks" src="http://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Wikibooks-logo-en.svg/50px-Wikibooks-logo-en.svg.png" width="50" height="57" border="0" /></a></span></div>
+</div>
+<div style="margin-left: 60px;"><a href="/wiki/Wikibooks" title="Wikibooks">Wikibooks</a> has a book on the topic of
+<div style="margin-left:10px;"><i><b><a href="http://en.wikibooks.org/wiki/Perl_Programming" class="extiw" title="wikibooks:Perl_Programming">Perl Programming</a></b></i></div>
+</div>
+</div>
+<ul>
+<li><a href="http://www.perl.org/" class="external text" title="http://www.perl.org/" rel="nofollow">Perl.org</a> - Official Perl website</li>
+<li><a href="http://perldoc.perl.org/" class="external text" title="http://perldoc.perl.org/" rel="nofollow">Perldoc at Perl.org</a> - online Perl documentation</li>
+<li><a href="http://perl-begin.org/" class="external text" title="http://perl-begin.org/" rel="nofollow">The Perl Beginners' Site (Perl-Begin)</a> - aims to be a first stop for introducing and advocating Perl.</li>
+<li><a href="http://www.perlfoundation.org/perl5/" class="external text" title="http://www.perlfoundation.org/perl5/" rel="nofollow">Perl 5 Wiki</a> - The official Perl 5 wiki</li>
+<li><a href="http://www.xray.mpe.mpg.de/mailing-lists/perl5-porters/" class="external text" title="http://www.xray.mpe.mpg.de/mailing-lists/perl5-porters/" rel="nofollow">perl5-porters mailing list archive</a></li>
+<li><a href="http://dev.perl.org/" class="external text" title="http://dev.perl.org/" rel="nofollow">Perl development</a></li>
+<li><a href="http://www.indigostar.com/indigoperl.htm" class="external text" title="http://www.indigostar.com/indigoperl.htm" rel="nofollow">IndigoPerl</a> - another distribution of Perl for Microsoft Windows</li>
+<li><a href="http://en.wikibooks.org/wiki/Programming:Perl/Humour" class="extiw" title="b:Programming:Perl/Humour">Perl humour on Wikibooks</a></li>
+<li><a href="http://dev.perl.org/perl1/" class="external text" title="http://dev.perl.org/perl1/" rel="nofollow">The origin of Perl</a> - "Stability. Speed. Simplicity. perl1 is here."</li>
+<li><a href="http://history.perl.org/PerlTimeline.html" class="external text" title="http://history.perl.org/PerlTimeline.html" rel="nofollow">The Perl Timeline</a></li>
+<li><a href="http://dmoz.org/Computers/Programming/Languages/Perl/" class="external text" title="http://dmoz.org/Computers/Programming/Languages/Perl/" rel="nofollow">Perl related websites</a> in the <a href="/wiki/Open_Directory_Project" title="Open Directory Project">Open Directory Project</a></li>
+<li><a href="http://www.theperlreview.com" class="external text" title="http://www.theperlreview.com" rel="nofollow">The Perl Review</a> - Current print magazine about Perl.</li>
+<li><a href="http://www.tpj.com/" class="external text" title="http://www.tpj.com/" rel="nofollow">The Perl Journal online</a> - The original Perl print periodical.</li>
+<li><a href="http://www.perl.com/pub/a/2000/01/10PerlMyths.html" class="external text" title="http://www.perl.com/pub/a/2000/01/10PerlMyths.html" rel="nofollow">Ten Perl Myths</a> - O'Reilly</li>
+<li><a href="http://aboutperl.info" class="external text" title="http://aboutperl.info" rel="nofollow">About Perl</a> - Learn about Perl and how it works</li>
+<li><a href="http://kgptech.blogspot.com/2005/07/perl.html" class="external text" title="http://kgptech.blogspot.com/2005/07/perl.html" rel="nofollow">Perl Tutorial Links</a></li>
+<li><a href="http://ptkdb.sourceforge.net/" class="external text" title="http://ptkdb.sourceforge.net/" rel="nofollow">Perl/Tk Debugger</a> - Open Source Perl Debugger Based on Tk Library.</li>
+<li><a href="http://graphcomp.com/opengl/benchmarks" class="external text" title="http://graphcomp.com/opengl/benchmarks" rel="nofollow">Perl GPU Performance</a> - C vs Perl on Vista and Linux; Perl vs Python.</li>
+<li><a href="http://www.forum.digilas.com" class="external text" title="http://www.forum.digilas.com" rel="nofollow">Iranian Perl Programmer community</a> - انجمن تخصصی و آموزشی برنامه نویسان پرل.</li>
+</ul>
+
+<!-- 
+Pre-expand include size: 104117 bytes
+Post-expand include size: 29013 bytes
+Template argument size: 22278 bytes
+Maximum: 2048000 bytes
+-->
+
+<!-- Saved in parser cache with key enwiki:pcache:idhash:23939-0!1!0!default!!en!2 and timestamp 20070915170305 -->
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org/wiki/Perl">http://en.wikipedia.org/wiki/Perl</a>"</div>
+			<div id="catlinks"><p class='catlinks'><a href="/wiki/Special:Categories" title="Special:Categories">Categories</a>: <span dir='ltr'><a href="/wiki/Category:All_articles_with_unsourced_statements" title="Category:All articles with unsourced statements">All articles with unsourced statements</a></span> | <span dir='ltr'><a href="/wiki/Category:Articles_with_unsourced_statements_since_June_2007" title="Category:Articles with unsourced statements since June 2007">Articles with unsourced statements since June 2007</a></span> | <span dir='ltr'><a href="/wiki/Category:Articles_with_unsourced_statements_since_July_2007" title="Category:Articles with unsourced statements since July 2007">Articles with unsourced statements since July 2007</a></span> | <span dir='ltr'><a href="/wiki/Category:Perl" title="Category:Perl">Perl</a></span> | <span dir='ltr'><a href="/wiki/Category:Curly_bracket_programming_languages" title="Category:Curly bracket programming languages">Curly bracket programming languages</a></span> | <span dir='ltr'><a href="/wiki/Category:Dynamic_programming_languages" title="Category:Dynamic programming languages">Dynamic programming languages</a></span> | <span dir='ltr'><a href="/wiki/Category:Dynamically-typed_programming_languages" title="Category:Dynamically-typed programming languages">Dynamically-typed programming languages</a></span> | <span dir='ltr'><a href="/wiki/Category:Free_compilers_and_interpreters" title="Category:Free compilers and interpreters">Free compilers and interpreters</a></span> | <span dir='ltr'><a href="/wiki/Category:Procedural_programming_languages" title="Category:Procedural programming languages">Procedural programming languages</a></span> | <span dir='ltr'><a href="/wiki/Category:Programming_languages" title="Category:Programming languages">Programming languages</a></span> | <span dir='ltr'><a href="/wiki/Category:Scripting_languages" title="Category:Scripting languages">Scripting languages</a></span> | <span dir='ltr'><a href="/wiki/Category:Text-oriented_programming_languages" title="Category:Text-oriented programming languages">Text-oriented programming languages</a></span> | <span dir='ltr'><a href="/wiki/Category:Unix_software" title="Category:Unix software">Unix software</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<div class="pBody">
+			<ul>
+					 <li id="ca-nstab-main" class="selected"><a href="/wiki/Perl" title="View the content page [c]" accesskey="c">Article</a></li>
+					 <li id="ca-talk"><a href="/wiki/Talk:Perl" title="Discussion about the content page [t]" accesskey="t">Discussion</a></li>
+					 <li id="ca-edit"><a href="/w/index.php?title=Perl&amp;action=edit" title="You can edit this page. Please use the preview button before saving. [e]" accesskey="e">Edit this page</a></li>
+					 <li id="ca-history"><a href="/w/index.php?title=Perl&amp;action=history" title="Past versions of this page [h]" accesskey="h">History</a></li>
+				</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-personal">
+		<h5>Personal tools</h5>
+		<div class="pBody">
+			<ul>
+				<li id="pt-login"><a href="/w/index.php?title=Special:Userlogin&amp;returnto=Perl" title="You are encouraged to log in, it is not mandatory however. [o]" accesskey="o">Sign in / create account</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-logo">
+		<a style="background-image: url(/images/wiki-en.png);" href="/wiki/Main_Page" title="Visit the Main Page [z]" accesskey="z"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-Main-page"><a href="/wiki/Main_Page">Main page</a></li>
+				<li id="n-Contents"><a href="/wiki/Wikipedia:Contents">Contents</a></li>
+				<li id="n-Featured-content"><a href="/wiki/Wikipedia:Featured_content">Featured content</a></li>
+				<li id="n-currentevents"><a href="/wiki/Portal:Current_events" title="Find background information on current events">Current events</a></li>
+				<li id="n-randompage"><a href="/wiki/Special:Random" title="Load a random page [x]" accesskey="x">Random article</a></li>
+			</ul>
+		</div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+		<h5>interaction</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-About-Wikipedia"><a href="/wiki/Wikipedia:About">About Wikipedia</a></li>
+				<li id="n-portal"><a href="/wiki/Wikipedia:Community_Portal" title="About the project, what you can do, where to find things">Community portal</a></li>
+				<li id="n-recentchanges"><a href="/wiki/Special:Recentchanges" title="The list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li>
+				<li id="n-contact"><a href="/wiki/Wikipedia:Contact_us">Contact Wikipedia</a></li>
+				<li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising" title="Support us">Donate to Wikipedia</a></li>
+				<li id="n-help"><a href="/wiki/Help:Contents" title="Guidance on how to use and edit Wikipedia">Help</a></li>
+			</ul>
+		</div>
+	</div>
+		<div id="p-search" class="portlet">
+		<h5><label for="searchInput">Search</label></h5>
+		<div id="searchBody" class="pBody">
+			<form action="/wiki/Special:Search" id="searchform"><div>
+				<input id="searchInput" name="search" type="text" title="Search Wikipedia [f]" accesskey="f" value="" />
+				<input type='submit' name="go" class="searchButton" id="searchGoButton"	value="Go" />&nbsp;
+				<input type='submit' name="fulltext" class="searchButton" id="mw-searchButton" value="Search" />
+			</div></form>
+		</div>
+	</div>
+	<div class="portlet" id="p-tb">
+		<h5>Toolbox</h5>
+		<div class="pBody">
+			<ul>
+				<li id="t-whatlinkshere"><a href="/wiki/Special:Whatlinkshere/Perl" title="List of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+				<li id="t-recentchangeslinked"><a href="/wiki/Special:Recentchangeslinked/Perl" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+<li id="t-upload"><a href="/wiki/Wikipedia:Upload" title="Upload images or media files [u]" accesskey="u">Upload file</a></li>
+<li id="t-specialpages"><a href="/wiki/Special:Specialpages" title="List of all special pages [q]" accesskey="q">Special pages</a></li>
+				<li id="t-print"><a href="/w/index.php?title=Perl&amp;printable=yes" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>				<li id="t-permalink"><a href="/w/index.php?title=Perl&amp;oldid=157969054" title="Permanent link to this version of the page">Permanent link</a></li><li id="t-cite"><a href="/w/index.php?title=Special:Cite&amp;page=Perl&amp;id=157969054">Cite this article</a></li>			</ul>
+		</div>
+	</div>
+	<div id="p-lang" class="portlet">
+		<h5>In other languages</h5>
+		<div class="pBody">
+			<ul>
+				<li class="interwiki-als"><a href="http://als.wikipedia.org/wiki/Perl">Alemannisch</a></li>
+				<li class="interwiki-ar"><a href="http://ar.wikipedia.org/wiki/%D8%A8%D9%8A%D8%B1%D9%84">العربية</a></li>
+				<li class="interwiki-bn"><a href="http://bn.wikipedia.org/wiki/%E0%A6%AA%E0%A6%BE%E0%A6%B0%E0%A7%8D%E0%A6%B2">বাংলা</a></li>
+				<li class="interwiki-zh-min-nan"><a href="http://zh-min-nan.wikipedia.org/wiki/Perl">Bân-lâm-gú</a></li>
+				<li class="interwiki-bs"><a href="http://bs.wikipedia.org/wiki/Perl">Bosanski</a></li>
+				<li class="interwiki-bg"><a href="http://bg.wikipedia.org/wiki/Perl">Български</a></li>
+				<li class="interwiki-ca"><a href="http://ca.wikipedia.org/wiki/Perl">Català</a></li>
+				<li class="interwiki-cs"><a href="http://cs.wikipedia.org/wiki/Perl">Česky</a></li>
+				<li class="interwiki-cy"><a href="http://cy.wikipedia.org/wiki/Perl">Cymraeg</a></li>
+				<li class="interwiki-da"><a href="http://da.wikipedia.org/wiki/Perl">Dansk</a></li>
+				<li class="interwiki-pdc"><a href="http://pdc.wikipedia.org/wiki/Perl">Deitsch</a></li>
+				<li class="interwiki-de"><a href="http://de.wikipedia.org/wiki/Perl">Deutsch</a></li>
+				<li class="interwiki-et"><a href="http://et.wikipedia.org/wiki/Perl">Eesti</a></li>
+				<li class="interwiki-es"><a href="http://es.wikipedia.org/wiki/Perl">Español</a></li>
+				<li class="interwiki-eo"><a href="http://eo.wikipedia.org/wiki/Perl_%28programlingvo%29">Esperanto</a></li>
+				<li class="interwiki-fa"><a href="http://fa.wikipedia.org/wiki/%D9%BE%D8%B1%D9%84">فارسی</a></li>
+				<li class="interwiki-fr"><a href="http://fr.wikipedia.org/wiki/Perl_%28langage%29">Français</a></li>
+				<li class="interwiki-gl"><a href="http://gl.wikipedia.org/wiki/Perl">Galego</a></li>
+				<li class="interwiki-ko"><a href="http://ko.wikipedia.org/wiki/%ED%8E%84_%28%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D_%EC%96%B8%EC%96%B4%29">한국어</a></li>
+				<li class="interwiki-hr"><a href="http://hr.wikipedia.org/wiki/Perl">Hrvatski</a></li>
+				<li class="interwiki-id"><a href="http://id.wikipedia.org/wiki/Perl">Bahasa Indonesia</a></li>
+				<li class="interwiki-it"><a href="http://it.wikipedia.org/wiki/Perl">Italiano</a></li>
+				<li class="interwiki-he"><a href="http://he.wikipedia.org/wiki/Perl">עברית</a></li>
+				<li class="interwiki-ka"><a href="http://ka.wikipedia.org/wiki/%E1%83%9E%E1%83%94%E1%83%A0%E1%83%9A%E1%83%98">ქართული</a></li>
+				<li class="interwiki-ku"><a href="http://ku.wikipedia.org/wiki/Perl">Kurdî / كوردی</a></li>
+				<li class="interwiki-la"><a href="http://la.wikipedia.org/wiki/Perl">Latina</a></li>
+				<li class="interwiki-lb"><a href="http://lb.wikipedia.org/wiki/Perl_%28Programm%C3%A9iersprooch%29">Lëtzebuergesch</a></li>
+				<li class="interwiki-lt"><a href="http://lt.wikipedia.org/wiki/Perl">Lietuvių</a></li>
+				<li class="interwiki-hu"><a href="http://hu.wikipedia.org/wiki/Perl_programoz%C3%A1si_nyelv">Magyar</a></li>
+				<li class="interwiki-ms"><a href="http://ms.wikipedia.org/wiki/Perl">Bahasa Melayu</a></li>
+				<li class="interwiki-nl"><a href="http://nl.wikipedia.org/wiki/Perl_%28programmeertaal%29">Nederlands</a></li>
+				<li class="interwiki-ja"><a href="http://ja.wikipedia.org/wiki/Perl">日本語</a></li>
+				<li class="interwiki-no"><a href="http://no.wikipedia.org/wiki/Perl">‪Norsk (bokmål)‬</a></li>
+				<li class="interwiki-nn"><a href="http://nn.wikipedia.org/wiki/Perl">‪Norsk (nynorsk)‬</a></li>
+				<li class="interwiki-pl"><a href="http://pl.wikipedia.org/wiki/Perl">Polski</a></li>
+				<li class="interwiki-pt"><a href="http://pt.wikipedia.org/wiki/Perl">Português</a></li>
+				<li class="interwiki-ro"><a href="http://ro.wikipedia.org/wiki/Perl">Română</a></li>
+				<li class="interwiki-ru"><a href="http://ru.wikipedia.org/wiki/Perl">Русский</a></li>
+				<li class="interwiki-sq"><a href="http://sq.wikipedia.org/wiki/Perl">Shqip</a></li>
+				<li class="interwiki-simple"><a href="http://simple.wikipedia.org/wiki/Perl">Simple English</a></li>
+				<li class="interwiki-sk"><a href="http://sk.wikipedia.org/wiki/Perl">Slovenčina</a></li>
+				<li class="interwiki-sl"><a href="http://sl.wikipedia.org/wiki/Perl">Slovenščina</a></li>
+				<li class="interwiki-sr"><a href="http://sr.wikipedia.org/wiki/%D0%9F%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D1%81%D0%BA%D0%B8_%D1%98%D0%B5%D0%B7%D0%B8%D0%BA_%D0%9F%D0%B5%D1%80%D0%BB">Српски / Srpski</a></li>
+				<li class="interwiki-fi"><a href="http://fi.wikipedia.org/wiki/Perl">Suomi</a></li>
+				<li class="interwiki-sv"><a href="http://sv.wikipedia.org/wiki/Perl">Svenska</a></li>
+				<li class="interwiki-th"><a href="http://th.wikipedia.org/wiki/%E0%B8%A0%E0%B8%B2%E0%B8%A9%E0%B8%B2%E0%B9%80%E0%B8%9E%E0%B8%B4%E0%B8%A3%E0%B9%8C%E0%B8%A5">ไทย</a></li>
+				<li class="interwiki-vi"><a href="http://vi.wikipedia.org/wiki/Perl">Tiếng Việt</a></li>
+				<li class="interwiki-tr"><a href="http://tr.wikipedia.org/wiki/Perl">Türkçe</a></li>
+				<li class="interwiki-uk"><a href="http://uk.wikipedia.org/wiki/Perl">Українська</a></li>
+				<li class="interwiki-zh"><a href="http://zh.wikipedia.org/wiki/Perl">中文</a></li>
+			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="/skins-1.5/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>
+				<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="/images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>
+			<ul id="f-list">
+				<li id="lastmod"> This page was last modified 01:27, 15 September 2007.</li>
+				<li id="copyright">All text is available under the terms of the <a class='internal' href="/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="/wiki/Wikipedia:Copyrights" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a U.S. registered <a class='internal' href="/wiki/501%28c%29#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="/wiki/Non-profit_organization" title="Non-profit organization">nonprofit</a> <a href="/wiki/Charitable_organization" title="Charitable organization">charity</a>.<br /></li>
+				<li id="privacy"><a href="http://wikimediafoundation.org/wiki/Privacy_policy" title="wikimedia:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="/wiki/Wikipedia:About" title="Wikipedia:About">About Wikipedia</a></li>
+				<li id="disclaimer"><a href="/wiki/Wikipedia:General_disclaimer" title="Wikipedia:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+		
+	
+		<script type="text/javascript">if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by srv164 in 0.072 secs. --></body></html>

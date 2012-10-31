@@ -1,0 +1,176 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+				<meta name="keywords" content="均一コスト探索,A*,ダイクストラ法,ヒューリスティクス,優先度つきキュー,幅優先探索,木構造 (データ構造)" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (日本語)" />
+		<link rel="copyright" href="http://www.gnu.org/copyleft/fdl.html" />
+		<title>均一コスト探索 - Wikipedia</title>
+		<style type="text/css" media="screen, projection">/*<![CDATA[*/
+			@import "/skins-1.5/common/shared.css?99";
+			@import "/skins-1.5/monobook/main.css?99";
+		/*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="/skins-1.5/common/commonPrint.css?99" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE50Fixes.css?99";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE55Fixes.css?99";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "/skins-1.5/monobook/IE60Fixes.css?99";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "/skins-1.5/monobook/IE70Fixes.css?99";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="/skins-1.5/common/IEFixes.js?99"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		
+		<script type= "text/javascript">/*<![CDATA[*/
+var skin = "monobook";
+var stylepath = "/skins-1.5";
+var wgArticlePath = "/wiki/$1";
+var wgScriptPath = "/w";
+var wgScript = "/w/index.php";
+var wgServer = "http://ja.wikipedia.org";
+var wgCanonicalNamespace = "";
+var wgCanonicalSpecialPageName = false;
+var wgNamespaceNumber = 0;
+var wgPageName = "均一コスト探索";
+var wgTitle = "均一コスト探索";
+var wgAction = "view";
+var wgRestrictionEdit = [];
+var wgRestrictionMove = [];
+var wgArticleId = "621266";
+var wgIsArticle = true;
+var wgUserName = null;
+var wgUserGroups = null;
+var wgUserLanguage = "ja";
+var wgContentLanguage = "ja";
+var wgBreakFrames = false;
+var wgCurRevisionId = "12593654";
+/*]]>*/</script>
+                
+		<script type="text/javascript" src="/skins-1.5/common/wikibits.js?99"><!-- wikibits js --></script>
+		<script type="text/javascript" src="/w/index.php?title=-&amp;action=raw&amp;gen=js&amp;useskin=monobook"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "/w/index.php?title=MediaWiki:Common.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=MediaWiki:Monobook.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=-&action=raw&gen=css&maxage=2678400";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+		<script type="text/javascript" src="/skins-1.5/common/ajax.js?99"></script>
+	</head>
+<body  class="mediawiki ns-0 ltr page-均一コスト探索">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">均一コスト探索</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">出典: フリー百科事典『ウィキペディア（Wikipedia）』</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">移動: <a href="#column-one">ナビゲーション</a>, <a href="#searchInput">検索</a></div>			<!-- start content -->
+			<p><b>均一コスト探索</b>（きんいつこすとたんさく）は、重みつきの木や<a href="/wiki/%E6%9C%A8%E6%A7%8B%E9%80%A0_%28%E3%83%87%E3%83%BC%E3%82%BF%E6%A7%8B%E9%80%A0%29" title="木構造 (データ構造)">木構造</a>を辿ったり探索するための探索アルゴリズムである。直観的には、探索は根ノードで始まり根ノードからの合計コストが最小になるようにノードを訪れ、ゴールに到達するまで続く。均一探索は探索方法としては<a href="/wiki/%E5%B9%85%E5%84%AA%E5%85%88%E6%8E%A2%E7%B4%A2" title="幅優先探索">幅優先探索</a>に似ている。</p>
+<p>普通、探索アルゴリズムには隣接する未訪のノードを<a href="/wiki/%E5%84%AA%E5%85%88%E5%BA%A6%E3%81%A4%E3%81%8D%E3%82%AD%E3%83%A5%E3%83%BC" title="優先度つきキュー">優先度つきキュー</a>に追加する操作が含まれる。キューにはそれぞれのノードが根ノードからの合計コスト順に格納されていて、最小コストのパスを持つノードが最も高い優先度を持っている。キューの先頭にあるノードから直接つながった次のノードをたどり、根ノードからのコストを計算してキューに追加する。</p>
+<p>均一コスト探索は一般のグラフ探索を行う<a href="/wiki/%E3%83%80%E3%82%A4%E3%82%AF%E3%82%B9%E3%83%88%E3%83%A9%E6%B3%95" title="ダイクストラ法">ダイクストラ法</a>の特殊なケースである。<a href="/wiki/%E3%83%80%E3%82%A4%E3%82%AF%E3%82%B9%E3%83%88%E3%83%A9%E6%B3%95" title="ダイクストラ法">ダイクストラ法</a>は<a href="/wiki/A%2A" title="A*">A*アルゴリズム</a>の特殊なケースで<a href="/wiki/%E3%83%92%E3%83%A5%E3%83%BC%E3%83%AA%E3%82%B9%E3%83%86%E3%82%A3%E3%82%AF%E3%82%B9" title="ヒューリスティクス">ヒューリスティクス</a>を定数関数にした場合と同じである。<a href="/wiki/%E5%B9%85%E5%84%AA%E5%85%88%E6%8E%A2%E7%B4%A2" title="幅優先探索">幅優先探索</a>は均一コスト探索の特殊なケースであり、辺のコストが全て同じ場合と同じである。</p>
+
+
+<!-- Saved in parser cache with key jawiki:pcache:idhash:621266-0!1!0!!ja!2 and timestamp 20070915205849 -->
+<div class="printfooter">
+ "<a href="http://ja.wikipedia.org/wiki/%E5%9D%87%E4%B8%80%E3%82%B3%E3%82%B9%E3%83%88%E6%8E%A2%E7%B4%A2">http://ja.wikipedia.org/wiki/%E5%9D%87%E4%B8%80%E3%82%B3%E3%82%B9%E3%83%88%E6%8E%A2%E7%B4%A2</a>" より作成</div>
+			<div id="catlinks"><p class='catlinks'><a href="/wiki/%E7%89%B9%E5%88%A5:Categories" title="特別:Categories">カテゴリ</a>: <span dir='ltr'><a href="/wiki/Category:%E3%82%A2%E3%83%AB%E3%82%B4%E3%83%AA%E3%82%BA%E3%83%A0" title="Category:アルゴリズム">アルゴリズム</a></span> | <span dir='ltr'><a href="/wiki/Category:%E6%A4%9C%E7%B4%A2%E3%82%A2%E3%83%AB%E3%82%B4%E3%83%AA%E3%82%BA%E3%83%A0" title="Category:検索アルゴリズム">検索アルゴリズム</a></span> | <span dir='ltr'><a href="/wiki/Category:%E7%B5%84%E5%90%88%E3%81%9B%E6%9C%80%E9%81%A9%E5%8C%96" title="Category:組合せ最適化">組合せ最適化</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>表示</h5>
+		<div class="pBody">
+			<ul>
+					 <li id="ca-nstab-main" class="selected"><a href="/wiki/%E5%9D%87%E4%B8%80%E3%82%B3%E3%82%B9%E3%83%88%E6%8E%A2%E7%B4%A2" title="本文を表示 [c]" accesskey="c">本文</a></li>
+					 <li id="ca-talk" class="new"><a href="/w/index.php?title=%E3%83%8E%E3%83%BC%E3%83%88:%E5%9D%87%E4%B8%80%E3%82%B3%E3%82%B9%E3%83%88%E6%8E%A2%E7%B4%A2&amp;action=edit" title="項目のノート [t]" accesskey="t">ノート</a></li>
+					 <li id="ca-edit"><a href="/w/index.php?title=%E5%9D%87%E4%B8%80%E3%82%B3%E3%82%B9%E3%83%88%E6%8E%A2%E7%B4%A2&amp;action=edit" title="このページを編集できます。投稿の前に「プレビューを実行」ボタンを使ってください。 [e]" accesskey="e">編集</a></li>
+					 <li id="ca-history"><a href="/w/index.php?title=%E5%9D%87%E4%B8%80%E3%82%B3%E3%82%B9%E3%83%88%E6%8E%A2%E7%B4%A2&amp;action=history" title="このページの過去の版 [h]" accesskey="h">履歴</a></li>
+				</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-personal">
+		<h5>個人用ツール</h5>
+		<div class="pBody">
+			<ul>
+				<li id="pt-login"><a href="/w/index.php?title=%E7%89%B9%E5%88%A5:Userlogin&amp;returnto=%E5%9D%87%E4%B8%80%E3%82%B3%E3%82%B9%E3%83%88%E6%8E%A2%E7%B4%A2" title="ログインすることが推奨されますが、しなくても構いません。 [o]" accesskey="o">ログインまたはアカウント作成</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-logo">
+		<a style="background-image: url(http://upload.wikimedia.org/wikipedia/ja/b/bc/Wiki.png);" href="/wiki/%E3%83%A1%E3%82%A4%E3%83%B3%E3%83%9A%E3%83%BC%E3%82%B8" title="メインページに移動 [z]" accesskey="z"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>ナビゲーション</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="/wiki/%E3%83%A1%E3%82%A4%E3%83%B3%E3%83%9A%E3%83%BC%E3%82%B8" title="メインページに移動 [z]" accesskey="z">メインページ</a></li>
+				<li id="n-portal"><a href="/wiki/Wikipedia:%E3%82%B3%E3%83%9F%E3%83%A5%E3%83%8B%E3%83%86%E3%82%A3%E3%83%BB%E3%83%9D%E3%83%BC%E3%82%BF%E3%83%AB" title="このプロジェクトについて、あなたのできることを探す場所です">コミュニティ・ポータル</a></li>
+				<li id="n-currentevents"><a href="/wiki/Portal:%E6%9C%80%E8%BF%91%E3%81%AE%E5%87%BA%E6%9D%A5%E4%BA%8B" title="最近の出来事">最近の出来事</a></li>
+				<li id="n-recentchanges"><a href="/wiki/%E7%89%B9%E5%88%A5:Recentchanges" title="最近更新が行われたページの一覧 [r]" accesskey="r">最近更新したページ</a></li>
+				<li id="n-randompage"><a href="/wiki/%E7%89%B9%E5%88%A5:Random" title="ランダムに記事を選んで表示 [x]" accesskey="x">おまかせ表示</a></li>
+				<li id="n-commonsupload"><a href="http://commons.wikimedia.org/wiki/Special:Upload?uselang=ja">アップロード (ウィキメディア・コモンズ)</a></li>
+				<li id="n-contact"><a href="/wiki/Wikipedia:%E9%80%A3%E7%B5%A1%E5%85%88">ウィキペディアに関するお問い合わせ</a></li>
+			</ul>
+		</div>
+	</div>
+		<div class='portlet' id='p-help'>
+		<h5>ヘルプ</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-help"><a href="/wiki/Help:%E7%9B%AE%E6%AC%A1" title="ヘルプ・使い方">ヘルプ</a></li>
+				<li id="n-villagepump"><a href="/wiki/Wikipedia:%E4%BA%95%E6%88%B8%E7%AB%AF">井戸端</a></li>
+				<li id="n-.E3.81.8A.E7.9F.A5.E3.82.89.E3.81.9B"><a href="/wiki/Wikipedia:%E3%81%8A%E7%9F%A5%E3%82%89%E3%81%9B">お知らせ</a></li>
+				<li id="n-bugreports"><a href="/wiki/Wikipedia:%E3%83%90%E3%82%B0%E3%81%AE%E5%A0%B1%E5%91%8A">バグの報告</a></li>
+				<li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/%E5%AF%84%E4%BB%98" title="私たちをサポートしてください">寄付</a></li>
+			</ul>
+		</div>
+	</div>
+		<div id="p-search" class="portlet">
+		<h5><label for="searchInput">検索</label></h5>
+		<div id="searchBody" class="pBody">
+			<form action="/wiki/%E7%89%B9%E5%88%A5:Search" id="searchform"><div>
+				<input id="searchInput" name="search" type="text" title="ウィキ内を検索 [f]" accesskey="f" value="" />
+				<input type='submit' name="go" class="searchButton" id="searchGoButton"	value="表示" />&nbsp;
+				<input type='submit' name="fulltext" class="searchButton" id="mw-searchButton" value="検索" />
+			</div></form>
+		</div>
+	</div>
+	<div class="portlet" id="p-tb">
+		<h5>ツールボックス</h5>
+		<div class="pBody">
+			<ul>
+				<li id="t-whatlinkshere"><a href="/wiki/%E7%89%B9%E5%88%A5:Whatlinkshere/%E5%9D%87%E4%B8%80%E3%82%B3%E3%82%B9%E3%83%88%E6%8E%A2%E7%B4%A2" title="このページにリンクしているページの一覧 [j]" accesskey="j">リンク元</a></li>
+				<li id="t-recentchangeslinked"><a href="/wiki/%E7%89%B9%E5%88%A5:Recentchangeslinked/%E5%9D%87%E4%B8%80%E3%82%B3%E3%82%B9%E3%83%88%E6%8E%A2%E7%B4%A2" title="最近更新が行われたこのページのリンク先 [k]" accesskey="k">リンク先の更新状況</a></li>
+<li id="t-upload"><a href="/wiki/%E7%89%B9%E5%88%A5:Upload" title="画像やメディアファイルをアップロード [u]" accesskey="u">アップロード</a></li>
+<li id="t-specialpages"><a href="/wiki/%E7%89%B9%E5%88%A5:Specialpages" title="特別ページの一覧 [q]" accesskey="q">特別ページ</a></li>
+				<li id="t-print"><a href="/w/index.php?title=%E5%9D%87%E4%B8%80%E3%82%B3%E3%82%B9%E3%83%88%E6%8E%A2%E7%B4%A2&amp;printable=yes" title="このページの印刷用バージョン [p]" accesskey="p">印刷用バージョン</a></li>				<li id="t-permalink"><a href="/w/index.php?title=%E5%9D%87%E4%B8%80%E3%82%B3%E3%82%B9%E3%83%88%E6%8E%A2%E7%B4%A2&amp;oldid=12593654" title="この版への固定リンク">この版への固定リンク</a></li><li id="t-cite"><a href="/w/index.php?title=%E7%89%B9%E5%88%A5:Cite&amp;page=%E5%9D%87%E4%B8%80%E3%82%B3%E3%82%B9%E3%83%88%E6%8E%A2%E7%B4%A2&amp;id=12593654">この項目を引用</a></li>			</ul>
+		</div>
+	</div>
+	<div id="p-lang" class="portlet">
+		<h5>他の言語</h5>
+		<div class="pBody">
+			<ul>
+				<li class="interwiki-en"><a href="http://en.wikipedia.org/wiki/Uniform-cost_search">English</a></li>
+			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="/skins-1.5/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>
+				<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="/images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>
+			<ul id="f-list">
+				<li id="lastmod"> 最終更新 2007年5月18日 (金) 05:59。</li>
+				<li id="copyright">All text is available under the terms of the <a href="/wiki/Wikipedia:Text_of_GNU_Free_Documentation_License" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (詳細は <b><a href="/wiki/Wikipedia:%E8%91%97%E4%BD%9C%E6%A8%A9" title="Wikipedia:著作権">著作権</a></b> を参照)<br />Wikipedia&reg; は <a href="http://wikimediafoundation.org/wiki/%E3%83%A1%E3%82%A4%E3%83%B3%E3%83%9A%E3%83%BC%E3%82%B8">Wikimedia Foundation, Inc.</a> の米国およびその他の国における登録商標です。<br /></li>
+				<li id="privacy"><a href="http://wikimediafoundation.org/wiki/%E3%83%97%E3%83%A9%E3%82%A4%E3%83%90%E3%82%B7%E3%83%BC%E3%83%BB%E3%83%9D%E3%83%AA%E3%82%B7%E3%83%BC" title="wikimedia:プライバシー・ポリシー">プライバシー・ポリシー</a></li>
+				<li id="about"><a href="/wiki/Wikipedia:%E3%82%A6%E3%82%A3%E3%82%AD%E3%83%9A%E3%83%87%E3%82%A3%E3%82%A2%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6" title="Wikipedia:ウィキペディアについて">ウィキペディアについて</a></li>
+				<li id="disclaimer"><a href="/wiki/Wikipedia:%E5%85%8D%E8%B2%AC%E4%BA%8B%E9%A0%85" title="Wikipedia:免責事項">免責事項</a></li>
+			</ul>
+		</div>
+		
+	
+		<script type="text/javascript">if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by srv181 in 0.129 secs. --></body></html>

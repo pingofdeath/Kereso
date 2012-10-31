@@ -1,0 +1,337 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+				<meta name="keywords" content="Secretary problem,Applied probability,Behavioral Operations Research,Chris Ferguson,Decision making,Decision theory,Dynamic programming,Eric W. Weisstein,Expected value,Experimental economics,MathWorld" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="http://www.gnu.org/copyleft/fdl.html" />
+		<title>Secretary problem - Wikipedia, the free encyclopedia</title>
+		<style type="text/css" media="screen, projection">/*<![CDATA[*/
+			@import "/skins-1.5/common/shared.css?99";
+			@import "/skins-1.5/monobook/main.css?99";
+		/*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="/skins-1.5/common/commonPrint.css?99" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE50Fixes.css?99";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE55Fixes.css?99";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "/skins-1.5/monobook/IE60Fixes.css?99";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "/skins-1.5/monobook/IE70Fixes.css?99";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="/skins-1.5/common/IEFixes.js?99"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		
+		<script type= "text/javascript">/*<![CDATA[*/
+var skin = "monobook";
+var stylepath = "/skins-1.5";
+var wgArticlePath = "/wiki/$1";
+var wgScriptPath = "/w";
+var wgScript = "/w/index.php";
+var wgServer = "http://en.wikipedia.org";
+var wgCanonicalNamespace = "";
+var wgCanonicalSpecialPageName = false;
+var wgNamespaceNumber = 0;
+var wgPageName = "Secretary_problem";
+var wgTitle = "Secretary problem";
+var wgAction = "view";
+var wgRestrictionEdit = [];
+var wgRestrictionMove = [];
+var wgArticleId = "1971750";
+var wgIsArticle = true;
+var wgUserName = null;
+var wgUserGroups = null;
+var wgUserLanguage = "en";
+var wgContentLanguage = "en";
+var wgBreakFrames = false;
+var wgCurRevisionId = "156879409";
+/*]]>*/</script>
+                
+		<script type="text/javascript" src="/skins-1.5/common/wikibits.js?99"><!-- wikibits js --></script>
+		<script type="text/javascript" src="/w/index.php?title=-&amp;action=raw&amp;gen=js&amp;useskin=monobook"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "/w/index.php?title=MediaWiki:Common.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=MediaWiki:Monobook.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=-&action=raw&gen=css&maxage=2678400";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+		<script type="text/javascript" src="/skins-1.5/common/ajax.js?99"></script>
+	</head>
+<body  class="mediawiki ns-0 ltr page-Secretary_problem">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">Secretary problem</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<p>The <b>secretary problem</b> is an <a href="/wiki/Optimal_stopping" title="Optimal stopping">optimal stopping</a> problem that has been studied extensively in the fields of <a href="/wiki/Applied_probability" title="Applied probability">applied probability</a>, <a href="/wiki/Statistics" title="Statistics">statistics</a>, and <a href="/wiki/Decision_theory" title="Decision theory">decision theory</a>. It is also known as the <b>marriage problem</b>, the <b>sultan's dowry problem</b>, the <b>fussy suitor problem</b>, and the <b>best choice problem</b>. The problem can be stated as follows:</p>
+<ol>
+<li>There is a single secretarial position to fill.</li>
+<li>There are <span class="texhtml"><i>n</i></span> applicants for the position, and this is known.</li>
+<li>The applicants can be ranked from best to worst with no ties.</li>
+<li>The applicants are interviewed sequentially in a random order, with each order being equally likely.</li>
+<li>After each interview, the applicant is accepted or rejected.</li>
+<li>The decision to accept or reject an applicant can be based only on the relative ranks of the applicants interviewed so far.</li>
+<li>Rejected applicants cannot be recalled.</li>
+<li>In the basic version, the sole object is to select the single best applicant. The payoff is 1 for the best applicant and zero otherwise.</li>
+</ol>
+<p>Let us say that an applicant is a <i>candidate</i> only if it is better than all the applicants viewed previously. Clearly, since the objective in the problem is to select the single best applicant, only candidates will be considered for acceptance. One reason why the secretary problem has received so much attention is that the optimal policy for the problem (the <a href="/wiki/Stopping_rule" title="Stopping rule">stopping rule</a>) has a surprising feature. Specifically, for large <span class="texhtml"><i>n</i></span> the optimal policy is to skip the first <span class="texhtml"><i>n</i> / <i>e</i></span> applicants and then to accept the next encountered candidate, where <span class="texhtml"><i>e</i></span> is the base of the <a href="/wiki/Natural_logarithm" title="Natural logarithm">natural logarithm</a>. As <span class="texhtml"><i>n</i></span> gets larger, the probability of selecting the best applicant from the pool goes to <span class="texhtml">1 / <i>e</i></span>, which is around 37%. Whether one is searching through 100 or 100,000,000 applicants, the optimal policy will select the single best one about 37% of the time.</p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Deriving_the_Optimal_Policy"><span class="tocnumber">1</span> <span class="toctext">Deriving the Optimal Policy</span></a></li>
+<li class="toclevel-1"><a href="#Heuristic_Performance"><span class="tocnumber">2</span> <span class="toctext">Heuristic Performance</span></a></li>
+<li class="toclevel-1"><a href="#Cardinal_Payoff_variant"><span class="tocnumber">3</span> <span class="toctext">Cardinal Payoff variant</span></a></li>
+<li class="toclevel-1"><a href="#Other_Variants"><span class="tocnumber">4</span> <span class="toctext">Other Variants</span></a></li>
+<li class="toclevel-1"><a href="#Experimental_Studies"><span class="tocnumber">5</span> <span class="toctext">Experimental Studies</span></a></li>
+<li class="toclevel-1"><a href="#Trivia"><span class="tocnumber">6</span> <span class="toctext">Trivia</span></a></li>
+<li class="toclevel-1"><a href="#Citations"><span class="tocnumber">7</span> <span class="toctext">Citations</span></a></li>
+<li class="toclevel-1"><a href="#References"><span class="tocnumber">8</span> <span class="toctext">References</span></a></li>
+<li class="toclevel-1"><a href="#External_links"><span class="tocnumber">9</span> <span class="toctext">External links</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script>
+<p><a name="Deriving_the_Optimal_Policy" id="Deriving_the_Optimal_Policy"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Secretary_problem&amp;action=edit&amp;section=1" title="Edit section: Deriving the Optimal Policy">edit</a>]</span> <span class="mw-headline">Deriving the Optimal Policy</span></h2>
+<p>The optimal policy for the problem is a <a href="/wiki/Stopping_rule" title="Stopping rule">stopping rule</a>. Under it, the interviewer should skip the first <span class="texhtml"><i>r</i> − 1</span> applicants, and then take the next applicant who is a candidate (i.e., who has the best relative ranking of those interviewed up to that point). For an arbitrary cutoff <span class="texhtml"><i>r</i></span>, the probability that the best applicant is selected is</p>
+<dl>
+<dd><img class="tex" alt="
+P(r)=\sum_{j=r}^{n}\left(\frac{1}{n}\right)\left(\frac{r-1}{j-1}\right)=\left(\frac{r-1}{n}\right)\sum_{j=r}^{n}\left(\frac{1}{j-1}\right).
+" src="http://upload.wikimedia.org/math/f/2/c/f2c10278b0464468a2e4bc26f7ae8df6.png" /></dd>
+</dl>
+<p>Letting <span class="texhtml"><i>n</i></span> tend to infinity, writing <span class="texhtml"><i>x</i></span> as the limit of <span class="texhtml"><i>r</i> / <i>n</i></span>, using <span class="texhtml"><i>t</i></span> for <span class="texhtml"><i>j</i> / <i>n</i></span> and <span class="texhtml"><i>d</i><i>t</i></span> for <span class="texhtml">1 / <i>n</i></span>, the sum can be approximated by the integral</p>
+<dl>
+<dd><img class="tex" alt="
+P(r)=x \int_{x}^{1}\left(\frac{1}{t}\right)dt = -x \text{log}(x).
+" src="http://upload.wikimedia.org/math/2/d/6/2d67031d0272251188568265b49f5e70.png" /></dd>
+</dl>
+<p>Taking the derivative of <span class="texhtml"><i>P</i>(<i>r</i>)</span> with respect to <span class="texhtml"><i>x</i></span>, setting it to 0, and solving for <span class="texhtml"><i>x</i></span>, we find that the optimal <span class="texhtml"><i>x</i></span> is equal to <span class="texhtml">1 / <i>e</i></span>. Thus, the optimal cutoff tends to <span class="texhtml"><i>n</i> / <i>e</i></span> as <span class="texhtml"><i>n</i></span> increases, and the best applicant is selected with probability <span class="texhtml">1 / <i>e</i></span>.</p>
+<p>For small values of <span class="texhtml"><i>n</i></span>, the optimal <span class="texhtml"><i>r</i></span> can also be obtained by standard <a href="/wiki/Dynamic_programming" title="Dynamic programming">dynamic programming</a> methods. The optimal thresholds <span class="texhtml"><i>r</i></span> and probability of selecting the best alternative <span class="texhtml"><i>P</i></span> for several values of <span class="texhtml"><i>n</i></span> are shown in the following table.</p>
+<table class="wikitable">
+<tr>
+<th><span class="texhtml"><i>n</i></span></th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+<th>7</th>
+<th>8</th>
+<th>9</th>
+</tr>
+<tr>
+<td><span class="texhtml"><i>r</i></span></td>
+<td>1</td>
+<td>1</td>
+<td>2</td>
+<td>2</td>
+<td>3</td>
+<td>3</td>
+<td>3</td>
+<td>4</td>
+<td>4</td>
+</tr>
+<tr>
+<td><span class="texhtml"><i>P</i></span></td>
+<td>1.000</td>
+<td>0.500</td>
+<td>0.500</td>
+<td>0.458</td>
+<td>0.433</td>
+<td>0.428</td>
+<td>0.414</td>
+<td>0.410</td>
+<td>0.406</td>
+</tr>
+</table>
+<p>Note that the probability of selecting the best alternative converges quite rapidly toward <img class="tex" alt="1/e\approx 0.368" src="http://upload.wikimedia.org/math/c/2/8/c288e3e6608ec2482e77020ccc9a47a0.png" />.</p>
+<p><a name="Heuristic_Performance" id="Heuristic_Performance"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Secretary_problem&amp;action=edit&amp;section=2" title="Edit section: Heuristic Performance">edit</a>]</span> <span class="mw-headline">Heuristic Performance</span></h2>
+<div class="thumb tright">
+<div class="thumbinner" style="width:302px;"><a href="/wiki/Image:SecretaryProblemHeuristicPlot.jpg" class="image" title="Expected success probabilities for three heuristics."><img alt="Expected success probabilities for three heuristics." src="http://upload.wikimedia.org/wikipedia/en/thumb/7/73/SecretaryProblemHeuristicPlot.jpg/300px-SecretaryProblemHeuristicPlot.jpg" width="300" height="225" border="0" class="thumbimage" /></a>
+<div class="thumbcaption">
+<div class="magnify" style="float:right"><a href="/wiki/Image:SecretaryProblemHeuristicPlot.jpg" class="internal" title="Enlarge"><img src="/skins-1.5/common/images/magnify-clip.png" width="15" height="11" alt="" /></a></div>
+Expected success probabilities for three heuristics.</div>
+</div>
+</div>
+<p>Stein, Seale, and Rapoport (2003) derived the expected success probabilities for several psychologically plausible heuristics that might be employed in the secretary problem. The heuristics they examined were:</p>
+<ul>
+<li><b>The Cutoff Rule (CR):</b> Do not accept any of the first <span class="texhtml"><i>y</i></span> applicants; thereafter, select the first encountered candidate (i.e., an applicant with relative rank 1). This rule has as a special case the optimal policy for the CSP for which <span class="texhtml"><i>y</i> = <i>r</i></span>.</li>
+<li><b>Candidate Count Rule (CCR):</b> Select the <span class="texhtml"><i>y</i></span> encountered candidate. Note, that this rule does not necessarily skip any applicants; it only considers how many candidates have been observed, not how deep the decision maker is in the applicant sequence.</li>
+<li><b>Successive Non-Candidate Rule (SNCR):</b> Select the first encountered candidate after observing <span class="texhtml"><i>y</i></span> non-candidates (i.e., applicants with relative rank &gt;1).</li>
+</ul>
+<p>Note that each heuristic has a single parameter <span class="texhtml"><i>y</i></span>. The figure (shown on right) displays the expected success probabilities for each heuristic as a function of <span class="texhtml"><i>y</i></span> for problems with <span class="texhtml"><i>n</i> = 80</span>.</p>
+<p><a name="Cardinal_Payoff_variant" id="Cardinal_Payoff_variant"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Secretary_problem&amp;action=edit&amp;section=3" title="Edit section: Cardinal Payoff variant">edit</a>]</span> <span class="mw-headline">Cardinal Payoff variant</span></h2>
+<p>Finding the single best applicant might seem like a rather strict objective. One can imagine that the interviewer would rather hire a higher-valued applicant than a lower-valued one, and not only be concerned with getting the best. That is, she will derive some value from selecting an applicant that is not necessarily the best, and the value she derives is increasing in the value of the one she selects.</p>
+<p>To model this problem, suppose that the <span class="texhtml"><i>n</i></span> applicants have "true" values that are <a href="/wiki/Random_variable" title="Random variable">random variables</a> <span class="texhtml"><i>X</i></span> drawn i.i.d. from a <a href="/wiki/Uniform_distribution_%28continuous%29" title="Uniform distribution (continuous)">uniform distribution</a> on <span class="texhtml">[0,1]</span>. Similar to the classical problem described above, the interviewer only observes whether each applicant is the best so far (a candidate), must accept or reject each on the spot, and <i>must</i> accept the last one if he it reached. (To be clear, the interviewer does not learn the actual relative rank of <i>each</i> applicant. She learns only whether the applicant has relative rank 1.) However, in this version her <i>payoff</i> is given by the true value of the selected applicant. For example, if she selects an applicant whose true value is 0.8, then she will earn 0.8. The interviewer's objective is to maximize the expected value of the selected applicant.</p>
+<p>Since the applicant's values are i.i.d. draws from a uniform distribution on <span class="texhtml">[0,1]</span>, the <a href="/wiki/Expected_value" title="Expected value">expected value</a> of the <span class="texhtml"><i>t</i></span>th applicant given that <img class="tex" alt="x_{t}=\max\left\{x_{1},x_{2},\ldots,x_{t}\right\}" src="http://upload.wikimedia.org/math/1/8/d/18d32c5e49e0c165d697bece955b08e4.png" /> is given by</p>
+<dl>
+<dd><img class="tex" alt="
+E_{t}=E\left(X_{t}|I_{t}=1\right)=\frac{t}{t+1}.
+" src="http://upload.wikimedia.org/math/c/8/b/c8b37a31d44c39bca8540f1a30469a75.png" /></dd>
+</dl>
+<p>As in the classical problem, the optimal policy is given by a threshold, which for this problem we will denote by <span class="texhtml"><i>c</i></span>, at which the interviewer should begin accepting candidates. <a href="http://dx.doi.org/10.1016/j.jmp.2005.11.003" class="external text" title="http://dx.doi.org/10.1016/j.jmp.2005.11.003" rel="nofollow">Bearden (2006)</a> showed that <span class="texhtml"><i>c</i></span> is either <img class="tex" alt="\lfloor \sqrt n \rfloor" src="http://upload.wikimedia.org/math/4/4/7/44786b6e0e0b3dc7ae52d9234672207e.png" /> or <img class="tex" alt="\lceil \sqrt n \rceil" src="http://upload.wikimedia.org/math/1/d/7/1d70f47cb3e0308b60b744ffb31c15f1.png" />. This follows from the fact that given a problem with <span class="texhtml"><i>n</i></span> applicants, the expected payoff for some arbitrary threshold <img class="tex" alt="1\leq c \leq n" src="http://upload.wikimedia.org/math/1/8/9/1894cf9ae0e85efd5724ca38f137280d.png" /> is</p>
+<dl>
+<dd><img class="tex" alt="
+V_{n}(c)=\sum_{t=c}^{n-1}\left[\prod_{s=c}^{t-1}\left(\frac{s-1}{s}\right)\right]\left(\frac{1}{t+1}\right)
++\left[\prod_{s=c}^{n-1}\left(\frac{s-1}{s}\right)\right]\frac{1}{2}={\frac {2cn-{c}^{2}+c-n}{2cn}}.
+" src="http://upload.wikimedia.org/math/c/8/5/c854aae43537082746b2f028c33a7999.png" /></dd>
+</dl>
+<p>Differentiating <span class="texhtml"><i>V</i><sub><i>n</i></sub>(<i>c</i>)</span> with respect to <span class="texhtml"><i>c</i></span>, one gets <img class="tex" alt="\partial V / \partial
+c=\left(-{c}^{\,2}+n\right)/ \left(2{c}^{\,2}n\right)" src="http://upload.wikimedia.org/math/e/3/2/e327bf2d3dd92310c43ab1cb07baa211.png" />. Since <img class="tex" alt="\partial^{\,2}V / \partial c^{\,2}&lt;0" src="http://upload.wikimedia.org/math/3/7/b/37bcdf2b26264948159a428b4e5ea47f.png" /> for all permissible values of <span class="texhtml"><i>c</i></span>, we find that <span class="texhtml"><i>V</i></span> is maximized at <img class="tex" alt="c=\sqrt n" src="http://upload.wikimedia.org/math/8/d/c/8dc78d824c259ca971ce76dfe4aafb5c.png" />. Since <span class="texhtml"><i>V</i></span> is convex in <span class="texhtml"><i>c</i></span>, the optimal integer-valued threshold must be either <img class="tex" alt="\lfloor \sqrt n \rfloor" src="http://upload.wikimedia.org/math/4/4/7/44786b6e0e0b3dc7ae52d9234672207e.png" /> or <img class="tex" alt="\lceil \sqrt n \rceil" src="http://upload.wikimedia.org/math/1/d/7/1d70f47cb3e0308b60b744ffb31c15f1.png" />. Thus, for most values of <span class="texhtml"><i>n</i></span> the interviewer will begin accepting applicants sooner in the cardinal payoff version than in the classical version where the objective is to select the single best applicant. Note that this is not an asymptotic result: It holds for all <span class="texhtml"><i>n</i></span>.</p>
+<p><a name="Other_Variants" id="Other_Variants"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Secretary_problem&amp;action=edit&amp;section=4" title="Edit section: Other Variants">edit</a>]</span> <span class="mw-headline">Other Variants</span></h2>
+<p>A number of other variations of the classical secretary problem have been proposed.<sup id="_ref-0" class="reference"><a href="#_note-0" title="">[1]</a></sup></p>
+<p><a name="Experimental_Studies" id="Experimental_Studies"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Secretary_problem&amp;action=edit&amp;section=5" title="Edit section: Experimental Studies">edit</a>]</span> <span class="mw-headline">Experimental Studies</span></h2>
+<p><a href="/wiki/Decision_making" title="Decision making">Psychologists</a> and <a href="/wiki/Experimental_economics" title="Experimental economics">experimental economists</a> have studied the decision behavior of actual people in secretary problems <sup id="_ref-1" class="reference"><a href="#_note-1" title="">[2]</a></sup>. In large part, this work has shown that people tend to stop searching too soon. This may be explained, at least in part, by the cost of evaluating candidates. Extrapolating to real world settings, this might suggest that people do not search enough whenever they are faced with problems where the decision alternatives are encountered sequentially. For example, when trying to decide at which gas station to stop for gas, people might not search enough before stopping. If true, then they would tend to pay more for gas than they might had they searched longer. The same may be true when people search online for airline tickets, say. Experimental research on problems such as the secretary problem is sometimes referred to as <a href="/wiki/Behavioral_Operations_Research" title="Behavioral Operations Research">behavioral operations research</a>.</p>
+<p><a name="Trivia" id="Trivia"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Secretary_problem&amp;action=edit&amp;section=6" title="Edit section: Trivia">edit</a>]</span> <span class="mw-headline">Trivia</span></h2>
+<p>One of the most highly cited papers on the secretary problem ("Who solved the secretary problem?") was written by Thomas S. Ferguson, a mathematics professor at <a href="/wiki/UCLA" title="UCLA">UCLA</a>, who is the father of <a href="/wiki/Chris_Ferguson" title="Chris Ferguson">Chris "Jesus" Ferguson</a>, the professional poker player.</p>
+<p><a name="Citations" id="Citations"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Secretary_problem&amp;action=edit&amp;section=7" title="Edit section: Citations">edit</a>]</span> <span class="mw-headline">Citations</span></h2>
+<div class="references-small">
+<ol class="references">
+<li id="_note-0"><b><a href="#_ref-0" title="">^</a></b> Many of these are reviewed in Freeman (1983).</li>
+<li id="_note-1"><b><a href="#_ref-1" title="">^</a></b> Bearden, Murphy, and Rapoport, 2006; Bearden, Rapoport, and Murphy, 2006; Seale and Rapoport, 1997</li>
+</ol>
+</div>
+<p><a name="References" id="References"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Secretary_problem&amp;action=edit&amp;section=8" title="Edit section: References">edit</a>]</span> <span class="mw-headline">References</span></h2>
+<ul>
+<li><a href="http://dx.doi.org/10.1016/j.jmp.2005.11.003" class="external text" title="http://dx.doi.org/10.1016/j.jmp.2005.11.003" rel="nofollow">J. N. Bearden. "A new secretary problem with rank-based selection and cardinal payoffs." <i>Journal of Mathematical Psychology</i>, volume 50, pp.58-59. 2006.</a></li>
+<li><a href="http://dx.doi.org/10.1016/j.jmp.2005.08.002" class="external text" title="http://dx.doi.org/10.1016/j.jmp.2005.08.002" rel="nofollow">J. N. Bearden, R. O. Murphy, Rapoport, A. "A multi-attribute extension of the secretary problem: Theory and experiments." <i>Journal of Mathematical Psychology</i>, volume 49, pp.410-425. 2005.</a></li>
+<li><a href="http://dx.doi.org/10.1016/j.jmp.2005.08.002" class="external text" title="http://dx.doi.org/10.1016/j.jmp.2005.08.002" rel="nofollow">J. N. Bearden, A. Rapoport, R. O. Murphy. "Sequential observation and selection with rank-dependent payoffs: An experimental test." <i>Management Science</i>, volume 52, pp. 1437-1449. 2006.</a></li>
+<li>T. S. Ferguson. "Who solved the secretary problem?" <i>Statistical science</i>, volume 4, pp.282-296. 1989.</li>
+<li>P. R. Freeman. "The secretary problem and its extensions: A review." International Statistical Review / Revue Internationale de Statistique, volume 51, pp. 189-206. 1983.</li>
+<li><a href="http://dx.doi.org/10.1006/obhd.1997.2683" class="external text" title="http://dx.doi.org/10.1006/obhd.1997.2683" rel="nofollow">D. A. Seale, A. Rapoport. "Sequential decision making with relative ranks: An experimental investigation of the 'secretary problem.'" Organizational Behavior and Human Decision Processes, volume 69, pp.221-236. 1997.</a></li>
+<li><a href="http://dx.doi.org/10.1016/S0377-2217(02)00601-X" class="external text" title="http://dx.doi.org/10.1016/S0377-2217(02)00601-X" rel="nofollow">W. E. Stein, D. A. Seale, A. Rapoport. "Analysis of heuristic solutions to the best choice problem." European Journal of Operational Research, volume 151, pp.140-152.</a></li>
+</ul>
+<p><a name="External_links" id="External_links"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Secretary_problem&amp;action=edit&amp;section=9" title="Edit section: External links">edit</a>]</span> <span class="mw-headline">External links</span></h2>
+<ul>
+<li><a href="http://www.utilitymill.com/utility/Secretary_Problem_Optimizer" class="external text" title="http://www.utilitymill.com/utility/Secretary_Problem_Optimizer" rel="nofollow">Online Utility to Calculate Optimal r</a></li>
+<li><cite id="Reference-Mathworld-Sultan.27s_Dowry_Problem"><a href="/wiki/Eric_W._Weisstein" title="Eric W. Weisstein">Eric W. Weisstein</a>, <i><a href="http://mathworld.wolfram.com/SultansDowryProblem.html" class="external text" title="http://mathworld.wolfram.com/SultansDowryProblem.html" rel="nofollow">Sultan's Dowry Problem</a></i> at <a href="/wiki/MathWorld" title="MathWorld">MathWorld</a>.</cite></li>
+<li><a href="http://www.behavioral-or.org" class="external text" title="http://www.behavioral-or.org" rel="nofollow">behavioral-or.org J. Neil Bearden's Home Page</a></li>
+</ul>
+
+
+<!-- Saved in parser cache with key enwiki:pcache:idhash:1971750-0!1!0!default!!en!2 and timestamp 20070913190439 -->
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org/wiki/Secretary_problem">http://en.wikipedia.org/wiki/Secretary_problem</a>"</div>
+			<div id="catlinks"><p class='catlinks'><a href="/wiki/Special:Categories" title="Special:Categories">Categories</a>: <span dir='ltr'><a href="/wiki/Category:Statistics" title="Category:Statistics">Statistics</a></span> | <span dir='ltr'><a href="/wiki/Category:Decision_theory" title="Category:Decision theory">Decision theory</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<div class="pBody">
+			<ul>
+					 <li id="ca-nstab-main" class="selected"><a href="/wiki/Secretary_problem" title="View the content page [c]" accesskey="c">Article</a></li>
+					 <li id="ca-talk"><a href="/wiki/Talk:Secretary_problem" title="Discussion about the content page [t]" accesskey="t">Discussion</a></li>
+					 <li id="ca-edit"><a href="/w/index.php?title=Secretary_problem&amp;action=edit" title="You can edit this page. Please use the preview button before saving. [e]" accesskey="e">Edit this page</a></li>
+					 <li id="ca-history"><a href="/w/index.php?title=Secretary_problem&amp;action=history" title="Past versions of this page [h]" accesskey="h">History</a></li>
+				</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-personal">
+		<h5>Personal tools</h5>
+		<div class="pBody">
+			<ul>
+				<li id="pt-login"><a href="/w/index.php?title=Special:Userlogin&amp;returnto=Secretary_problem" title="You are encouraged to log in, it is not mandatory however. [o]" accesskey="o">Sign in / create account</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-logo">
+		<a style="background-image: url(/images/wiki-en.png);" href="/wiki/Main_Page" title="Visit the Main Page [z]" accesskey="z"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-Main-page"><a href="/wiki/Main_Page">Main page</a></li>
+				<li id="n-Contents"><a href="/wiki/Wikipedia:Contents">Contents</a></li>
+				<li id="n-Featured-content"><a href="/wiki/Wikipedia:Featured_content">Featured content</a></li>
+				<li id="n-currentevents"><a href="/wiki/Portal:Current_events" title="Find background information on current events">Current events</a></li>
+				<li id="n-randompage"><a href="/wiki/Special:Random" title="Load a random page [x]" accesskey="x">Random article</a></li>
+			</ul>
+		</div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+		<h5>interaction</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-About-Wikipedia"><a href="/wiki/Wikipedia:About">About Wikipedia</a></li>
+				<li id="n-portal"><a href="/wiki/Wikipedia:Community_Portal" title="About the project, what you can do, where to find things">Community portal</a></li>
+				<li id="n-recentchanges"><a href="/wiki/Special:Recentchanges" title="The list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li>
+				<li id="n-contact"><a href="/wiki/Wikipedia:Contact_us">Contact Wikipedia</a></li>
+				<li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising" title="Support us">Donate to Wikipedia</a></li>
+				<li id="n-help"><a href="/wiki/Help:Contents" title="Guidance on how to use and edit Wikipedia">Help</a></li>
+			</ul>
+		</div>
+	</div>
+		<div id="p-search" class="portlet">
+		<h5><label for="searchInput">Search</label></h5>
+		<div id="searchBody" class="pBody">
+			<form action="/wiki/Special:Search" id="searchform"><div>
+				<input id="searchInput" name="search" type="text" title="Search Wikipedia [f]" accesskey="f" value="" />
+				<input type='submit' name="go" class="searchButton" id="searchGoButton"	value="Go" />&nbsp;
+				<input type='submit' name="fulltext" class="searchButton" id="mw-searchButton" value="Search" />
+			</div></form>
+		</div>
+	</div>
+	<div class="portlet" id="p-tb">
+		<h5>Toolbox</h5>
+		<div class="pBody">
+			<ul>
+				<li id="t-whatlinkshere"><a href="/wiki/Special:Whatlinkshere/Secretary_problem" title="List of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+				<li id="t-recentchangeslinked"><a href="/wiki/Special:Recentchangeslinked/Secretary_problem" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+<li id="t-upload"><a href="/wiki/Wikipedia:Upload" title="Upload images or media files [u]" accesskey="u">Upload file</a></li>
+<li id="t-specialpages"><a href="/wiki/Special:Specialpages" title="List of all special pages [q]" accesskey="q">Special pages</a></li>
+				<li id="t-print"><a href="/w/index.php?title=Secretary_problem&amp;printable=yes" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>				<li id="t-permalink"><a href="/w/index.php?title=Secretary_problem&amp;oldid=156879409" title="Permanent link to this version of the page">Permanent link</a></li><li id="t-cite"><a href="/w/index.php?title=Special:Cite&amp;page=Secretary_problem&amp;id=156879409">Cite this article</a></li>			</ul>
+		</div>
+	</div>
+	<div id="p-lang" class="portlet">
+		<h5>In other languages</h5>
+		<div class="pBody">
+			<ul>
+				<li class="interwiki-de"><a href="http://de.wikipedia.org/wiki/Sekret%C3%A4rinnenproblem">Deutsch</a></li>
+				<li class="interwiki-he"><a href="http://he.wikipedia.org/wiki/%D7%91%D7%A2%D7%99%D7%99%D7%AA_%D7%94%D7%9E%D7%96%D7%9B%D7%99%D7%A8%D7%94">עברית</a></li>
+				<li class="interwiki-pl"><a href="http://pl.wikipedia.org/wiki/Problem_sekretarki">Polski</a></li>
+				<li class="interwiki-zh"><a href="http://zh.wikipedia.org/wiki/%E7%A7%98%E6%9B%B8%E5%95%8F%E9%A1%8C">中文</a></li>
+			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="/skins-1.5/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>
+				<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="/images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>
+			<ul id="f-list">
+				<li id="lastmod"> This page was last modified 07:43, 10 September 2007.</li>
+				<li id="copyright">All text is available under the terms of the <a class='internal' href="/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="/wiki/Wikipedia:Copyrights" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a U.S. registered <a class='internal' href="/wiki/501%28c%29#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="/wiki/Non-profit_organization" title="Non-profit organization">nonprofit</a> <a href="/wiki/Charitable_organization" title="Charitable organization">charity</a>.<br /></li>
+				<li id="privacy"><a href="http://wikimediafoundation.org/wiki/Privacy_policy" title="wikimedia:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="/wiki/Wikipedia:About" title="Wikipedia:About">About Wikipedia</a></li>
+				<li id="disclaimer"><a href="/wiki/Wikipedia:General_disclaimer" title="Wikipedia:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+		
+	
+		<script type="text/javascript">if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by srv134 in 0.077 secs. --></body></html>

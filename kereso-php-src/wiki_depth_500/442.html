@@ -1,0 +1,289 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+				<meta name="keywords" content="Sparse matrix,Bankers algorithm,Bitmap,Charles F. Van Loan,Cholesky decomposition,Combinatorics,Computer,Computer storage,Conjugate gradient,Cuthill-McKee algorithm,Data compression" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="http://www.gnu.org/copyleft/fdl.html" />
+		<title>Sparse matrix - Wikipedia, the free encyclopedia</title>
+		<style type="text/css" media="screen, projection">/*<![CDATA[*/
+			@import "/skins-1.5/common/shared.css?99";
+			@import "/skins-1.5/monobook/main.css?99";
+		/*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="/skins-1.5/common/commonPrint.css?99" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE50Fixes.css?99";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE55Fixes.css?99";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "/skins-1.5/monobook/IE60Fixes.css?99";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "/skins-1.5/monobook/IE70Fixes.css?99";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="/skins-1.5/common/IEFixes.js?99"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		
+		<script type= "text/javascript">/*<![CDATA[*/
+var skin = "monobook";
+var stylepath = "/skins-1.5";
+var wgArticlePath = "/wiki/$1";
+var wgScriptPath = "/w";
+var wgScript = "/w/index.php";
+var wgServer = "http://en.wikipedia.org";
+var wgCanonicalNamespace = "";
+var wgCanonicalSpecialPageName = false;
+var wgNamespaceNumber = 0;
+var wgPageName = "Sparse_matrix";
+var wgTitle = "Sparse matrix";
+var wgAction = "view";
+var wgRestrictionEdit = [];
+var wgRestrictionMove = [];
+var wgArticleId = "341015";
+var wgIsArticle = true;
+var wgUserName = null;
+var wgUserGroups = null;
+var wgUserLanguage = "en";
+var wgContentLanguage = "en";
+var wgBreakFrames = false;
+var wgCurRevisionId = "152405660";
+/*]]>*/</script>
+                
+		<script type="text/javascript" src="/skins-1.5/common/wikibits.js?99"><!-- wikibits js --></script>
+		<script type="text/javascript" src="/w/index.php?title=-&amp;action=raw&amp;gen=js&amp;useskin=monobook"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "/w/index.php?title=MediaWiki:Common.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=MediaWiki:Monobook.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=-&action=raw&gen=css&maxage=2678400";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+		<script type="text/javascript" src="/skins-1.5/common/ajax.js?99"></script>
+	</head>
+<body  class="mediawiki ns-0 ltr page-Sparse_matrix">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">Sparse matrix</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<div class="thumb tright">
+<div class="thumbinner" style="width:182px;"><a href="/wiki/Image:Finite_element_sparse_matrix.png" class="image" title="A sparse matrix obtained when solving a finite element problem in two dimensions. The non-zero elements are shown in black."><img alt="A sparse matrix obtained when solving a finite element problem in two dimensions. The non-zero elements are shown in black." src="http://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Finite_element_sparse_matrix.png/180px-Finite_element_sparse_matrix.png" width="180" height="180" border="0" class="thumbimage" /></a>
+<div class="thumbcaption">
+<div class="magnify" style="float:right"><a href="/wiki/Image:Finite_element_sparse_matrix.png" class="internal" title="Enlarge"><img src="/skins-1.5/common/images/magnify-clip.png" width="15" height="11" alt="" /></a></div>
+A sparse matrix obtained when solving a <a href="/wiki/Finite_element_method" title="Finite element method">finite element problem</a> in two dimensions. The non-zero elements are shown in black.</div>
+</div>
+</div>
+<p>In the <a href="/wiki/Mathematics" title="Mathematics">mathematical</a> subfield of <a href="/wiki/Numerical_analysis" title="Numerical analysis">numerical analysis</a> a <b>sparse matrix</b> is a <a href="/wiki/Matrix_%28mathematics%29" title="Matrix (mathematics)">matrix</a> populated primarily with zeros.</p>
+<p>Conceptually, sparsity corresponds to systems which are loosely coupled. Consider a line of balls connected by springs from one to the next; this is a sparse system. By contrast, if the same line of balls had springs connecting every ball to every other ball, the system would be represented by a <b>dense matrix</b>. The concept of sparsity is useful in <a href="/wiki/Combinatorics" title="Combinatorics">combinatorics</a> and application areas such as <a href="/wiki/Network_theory" title="Network theory">network theory</a>, of a low density of significant data or connections.</p>
+<p>Huge sparse matrices often appear in <a href="/wiki/Science" title="Science">science</a> or <a href="/wiki/Engineering" title="Engineering">engineering</a> when solving <a href="/wiki/Partial_differential_equation" title="Partial differential equation">partial differential equations</a>.</p>
+<p>When storing and manipulating sparse matrices on a <a href="/wiki/Computer" title="Computer">computer</a>, it is beneficial and often necessary to use specialized algorithms and data structures that take advantage of the sparse structure of the matrix. Operations using standard matrix structures and algorithms are slow and consume large amounts of memory when applied to large sparse matrices. Sparse data is by nature easily <a href="/wiki/Data_compression" title="Data compression">compressed</a>, and this compression almost always results in significantly less <a href="/wiki/Computer_storage" title="Computer storage">memory</a> usage. Indeed, some very large sparse matrices are impossible to manipulate with the standard algorithms.</p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Storing_a_sparse_matrix"><span class="tocnumber">1</span> <span class="toctext">Storing a sparse matrix</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Example"><span class="tocnumber">1.1</span> <span class="toctext">Example</span></a></li>
+<li class="toclevel-2"><a href="#Diagonal_matrices"><span class="tocnumber">1.2</span> <span class="toctext">Diagonal matrices</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Bandwidth"><span class="tocnumber">2</span> <span class="toctext">Bandwidth</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Reducing_bandwidth"><span class="tocnumber">2.1</span> <span class="toctext">Reducing bandwidth</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Reducing_fill-in"><span class="tocnumber">3</span> <span class="toctext">Reducing fill-in</span></a></li>
+<li class="toclevel-1"><a href="#Solving_sparse_matrix_equations"><span class="tocnumber">4</span> <span class="toctext">Solving sparse matrix equations</span></a></li>
+<li class="toclevel-1"><a href="#See_also"><span class="tocnumber">5</span> <span class="toctext">See also</span></a></li>
+<li class="toclevel-1"><a href="#References"><span class="tocnumber">6</span> <span class="toctext">References</span></a></li>
+<li class="toclevel-1"><a href="#Further_reading"><span class="tocnumber">7</span> <span class="toctext">Further reading</span></a></li>
+<li class="toclevel-1"><a href="#See_also_2"><span class="tocnumber">8</span> <span class="toctext">See also</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script>
+<p><a name="Storing_a_sparse_matrix" id="Storing_a_sparse_matrix"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Sparse_matrix&amp;action=edit&amp;section=1" title="Edit section: Storing a sparse matrix">edit</a>]</span> <span class="mw-headline">Storing a sparse matrix</span></h2>
+<p>The naïve <a href="/wiki/Data_structure" title="Data structure">data structure</a> for a matrix is a two dimensional array. Each entry in the array represents an element <i>a</i><sub><i>i</i>,<i>j</i></sub> of the matrix and can be accessed by the two indices <i>i</i> and <i>j</i>. For a <i>n</i>×<i>m</i> matrix we need at least (<i>n</i>*<i>m</i>) / 8 bytes to represent the matrix when assuming 1 bit for each entry.</p>
+<p>A sparse matrix contains many (often mostly) zero entries. The basic idea when storing sparse matrices is to only store the non-zero entries as opposed to storing all entries. Depending on the number and distribution of the non-zero entries, different <a href="/wiki/Data_structure" title="Data structure">data structures</a> can be used and yield huge savings in <a href="/wiki/Computer_storage" title="Computer storage">memory</a> when compared to a naive approach.</p>
+<p>One example of such a sparse matrix format is the (old) Yale Sparse Matrix Format [1]. It stores an initial sparse <i>N</i>×<i>N</i> matrix <i>M</i> in row form using three arrays, <i>A</i>, <i>IA</i>, <i>JA</i>. <i>NZ</i> denotes the number of nonzero entries in matrix <i>M</i>. The array <i>A</i> then is of length <i>NZ</i> and holds all nonzero entries of <i>M</i>. The array <i>IA</i> stores at <i>IA(i)</i> the position of the first element of row <i>i</i> in the sparse array <i>A</i>. The length of row <i>i</i> is determined by <i>IA(i+1) - IA(i)</i>. Therefore <i>IA</i> needs to be of length <i>N</i> + 1. In array <i>JA</i>, the column index of the element <i>A(j)</i> is stored. <i>JA</i> is of length <i>NZ</i>.</p>
+<p>Another possibility is to use <a href="/wiki/Quadtree" title="Quadtree">quadtrees</a>.</p>
+<p><a name="Example" id="Example"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Sparse_matrix&amp;action=edit&amp;section=2" title="Edit section: Example">edit</a>]</span> <span class="mw-headline">Example</span></h3>
+<p>A <a href="/wiki/Bitmap" title="Bitmap">bitmap</a> image having only 2 colors, with one of them dominant (say a file that stores a handwritten <a href="/wiki/Signature" title="Signature">signature</a>) can be encoded as a sparse matrix that contains only row and column numbers for <a href="/wiki/Pixels" title="Pixels">pixels</a> with the non-dominant color.</p>
+<p><a name="Diagonal_matrices" id="Diagonal_matrices"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Sparse_matrix&amp;action=edit&amp;section=3" title="Edit section: Diagonal matrices">edit</a>]</span> <span class="mw-headline">Diagonal matrices</span></h3>
+<p>A very efficient structure for a <a href="/wiki/Diagonal_matrix" title="Diagonal matrix">diagonal matrix</a> is to store just the entries in the main diagonal as a one dimensional array so a diagonal <i>n</i>×<i>n</i> matrix requires we need only <i>n</i> entries.</p>
+<p><a name="Bandwidth" id="Bandwidth"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Sparse_matrix&amp;action=edit&amp;section=4" title="Edit section: Bandwidth">edit</a>]</span> <span class="mw-headline">Bandwidth</span></h2>
+<p>The <i>lower bandwidth</i> of a matrix <i>A</i> is the smallest number <i>p</i> such that the entry <i>a</i><sub><i>ij</i></sub> vanishes whenever <i>i</i> &gt; <i>j</i> + p. Similarly, the <i>upper bandwidth</i> is the smallest <i>p</i> such that <i>a</i><sub><i>ij</i></sub> = 0 whenever <i>i</i> &lt; <i>j</i> − <i>p</i> <cite class="inline">(<a href="#CITEREFGolubVan_Loan1996" title="">Golub &amp; Van Loan 1996</a>, §1.2.1)</cite>. For example, a <a href="/wiki/Tridiagonal_matrix" title="Tridiagonal matrix">tridiagonal matrix</a> has lower bandwidth 1 and upper bandwidth 1.</p>
+<p><a name="Reducing_bandwidth" id="Reducing_bandwidth"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Sparse_matrix&amp;action=edit&amp;section=5" title="Edit section: Reducing bandwidth">edit</a>]</span> <span class="mw-headline">Reducing bandwidth</span></h3>
+<p>The <a href="/wiki/Cuthill-McKee_algorithm" title="Cuthill-McKee algorithm">Cuthill-McKee algorithm</a> can be used to reduce the bandwidth of a sparse <a href="/wiki/Symmetric_matrix" title="Symmetric matrix">symmetric matrix</a>. There are however matrices for which the <a href="/wiki/Reverse_Cuthill-McKee_algorithm" title="Reverse Cuthill-McKee algorithm">Reverse Cuthill-McKee algorithm</a> performs better.</p>
+<p>The National Geodetic Survey <a href="/wiki/U.S._National_Geodetic_Survey" title="U.S. National Geodetic Survey">(NGS)</a> uses Dr. Richard Snay's <a href="/wiki/Bankers_algorithm" title="Bankers algorithm">"Banker's" algorithm</a> because on realistic sparse matrices used in Geodesy work it has better performance.</p>
+<p>There are many other methods in use.</p>
+<p><a name="Reducing_fill-in" id="Reducing_fill-in"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Sparse_matrix&amp;action=edit&amp;section=6" title="Edit section: Reducing fill-in">edit</a>]</span> <span class="mw-headline">Reducing fill-in</span></h2>
+<dl>
+<dd><i>"Fill-in" redirects here. For the puzzle, see <a href="/wiki/Fill-In_%28puzzle%29" title="Fill-In (puzzle)">Fill-In (puzzle)</a>.</i></dd>
+</dl>
+<p>The <b>fill-in</b> of a matrix are those entries which change from an initial zero to a non-zero value during the execution of an algorithm. To reduce the memory requirements and the number of arithmetic operations used during an algorithm it is useful to minimize the fill-in by switching rows and columns in the matrix. The <a href="/wiki/Symbolic_Cholesky_decomposition" title="Symbolic Cholesky decomposition">symbolic Cholesky decomposition</a> can be used to calculate the worst possible fill-in before doing the actual <a href="/wiki/Cholesky_decomposition" title="Cholesky decomposition">Cholesky decomposition</a>.</p>
+<p>There are other methods than the <a href="/wiki/Cholesky_decomposition" title="Cholesky decomposition">Cholesky decomposition</a> in use. Orthogonalization methods (such as QR factorization) are common, for example, when solving problems by least squares methods. While the theoretical fill-in is still the same, in practical terms the "false non-zeros" can be different for different methods. And symbolic versions of those algorithms can be used in the same manner as the symbolic Cholesky to compute worst case fill-in.</p>
+<p><a name="Solving_sparse_matrix_equations" id="Solving_sparse_matrix_equations"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Sparse_matrix&amp;action=edit&amp;section=7" title="Edit section: Solving sparse matrix equations">edit</a>]</span> <span class="mw-headline">Solving sparse matrix equations</span></h2>
+<p>Both <a href="/wiki/Iterative_method" title="Iterative method">iterative</a> and direct methods exist for sparse matrix solving. One popular iterative method is the <a href="/wiki/Conjugate_gradient" title="Conjugate gradient">conjugate gradient</a> method.</p>
+<p><a name="See_also" id="See_also"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Sparse_matrix&amp;action=edit&amp;section=8" title="Edit section: See also">edit</a>]</span> <span class="mw-headline">See also</span></h2>
+<ul>
+<li><a href="/wiki/Matrix_representation" title="Matrix representation">Matrix representation</a></li>
+<li><a href="/wiki/Pareto_principle" title="Pareto principle">Pareto principle</a></li>
+<li><a href="/wiki/Ragged_matrix" title="Ragged matrix">Ragged matrix</a></li>
+<li><a href="/wiki/Sparse_array" title="Sparse array">Sparse array</a></li>
+<li><a href="/wiki/Sparse_graph_code" title="Sparse graph code">Sparse graph code</a></li>
+<li><a href="/wiki/Sparse_file" title="Sparse file">Sparse file</a></li>
+</ul>
+<p><a name="References" id="References"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Sparse_matrix&amp;action=edit&amp;section=9" title="Edit section: References">edit</a>]</span> <span class="mw-headline">References</span></h2>
+<ul>
+<li><a href="/wiki/Tewarson%2C_Reginald_P" title="Tewarson, Reginald P">Tewarson, Reginald P</a>, Sparse Matrices (Part of the Mathematics in Science &amp; Engineering series), Academic Press Inc., May 1973. (This book, by a professor at the State University of New York at Stony Book, was the first book exclusevely dedicated to Sparse Matrices. Graduate courses using this as a textbook were offered at that University in the early 1980s).</li>
+<li>Sparse Matrix Multiplication Package, Randolph E. Bank, Craig C. Douglas <a href="http://www.mgnet.org/~douglas/Preprints/pub0034.pdf" class="external autonumber" title="http://www.mgnet.org/~douglas/Preprints/pub0034.pdf" rel="nofollow">[1]</a></li>
+<li>Pissanetzky, Sergio 1984, "Sparse Matrix Technology", Academic Press</li>
+<li>R. A. Snay. Reducing the profile of sparse symmetric matrices. Bulletin Géodésique, 50:341–352, 1976. Also NOAA Technical Memorandum NOS NGS-4, National Geodetic Survey, Rockville, MD.</li>
+</ul>
+<p><a name="Further_reading" id="Further_reading"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Sparse_matrix&amp;action=edit&amp;section=10" title="Edit section: Further reading">edit</a>]</span> <span class="mw-headline">Further reading</span></h2>
+<ul>
+<li><cite style="font-style:normal">Norman E. Gibbs, William G. Poole, Jr. and Paul K. Stockmeyer (1976). "<a href="http://portal.acm.org/citation.cfm?id=355707" class="external text" title="http://portal.acm.org/citation.cfm?id=355707" rel="nofollow">A comparison of several bandwidth and profile reduction algorithms</a>". <i>ACM Transactions on Mathematical Software</i> <b>2</b> (4): 322–330.</cite><span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.atitle=A+comparison+of+several+bandwidth+and+profile+reduction+algorithms&amp;rft.jtitle=ACM+Transactions+on+Mathematical+Software&amp;rft.date=1976&amp;rft.volume=2&amp;rft.issue=4&amp;rft.au=Norman+E.+Gibbs%2C+William+G.+Poole%2C+Jr.+and+Paul+K.+Stockmeyer&amp;rft.pages=322%26ndash%3B330&amp;rft_id=http%3A%2F%2Fportal.acm.org%2Fcitation.cfm%3Fid%3D355707">&#160;</span></li>
+<li><cite style="font-style:normal">John R. Gilbert, Cleve Moler and Robert Schreiber (1992). "<a href="http://citeseer.ist.psu.edu/gilbert91sparse.html" class="external text" title="http://citeseer.ist.psu.edu/gilbert91sparse.html" rel="nofollow">Sparse matrices in MATLAB: Design and Implementation</a>". <i>SIAM Journal on Matrix Analysis and Applications</i> <b>13</b> (1): 333–356.</cite><span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.atitle=Sparse+matrices+in+MATLAB%3A+Design+and+Implementation&amp;rft.jtitle=SIAM+Journal+on+Matrix+Analysis+and+Applications&amp;rft.date=1992&amp;rft.volume=13&amp;rft.issue=1&amp;rft.au=John+R.+Gilbert%2C+Cleve+Moler+and+Robert+Schreiber&amp;rft.pages=333%26ndash%3B356&amp;rft_id=http%3A%2F%2Fciteseer.ist.psu.edu%2Fgilbert91sparse.html">&#160;</span></li>
+<li><cite id="CITEREFGolubVan_Loan1996"><a href="/wiki/Gene_H._Golub" title="Gene H. Golub">Golub, Gene H.</a> &amp; <a href="/wiki/Charles_F._Van_Loan" title="Charles F. Van Loan">Charles F. Van Loan</a> (1996), <i>Matrix Computations</i> (3rd ed.), Baltimore: Johns Hopkins, <a href="/w/index.php?title=Special:Booksources&amp;isbn=9780801854149" class="internal">ISBN 978-0-8018-5414-9</a></cite>.</li>
+<li><a href="http://www.cise.ufl.edu/research/sparse" class="external text" title="http://www.cise.ufl.edu/research/sparse" rel="nofollow">Sparse Matrix Algorithms Research</a> at the University of Florida, containing the UF sparse matrix collection.</li>
+</ul>
+<p><a name="See_also_2" id="See_also_2"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Sparse_matrix&amp;action=edit&amp;section=11" title="Edit section: See also">edit</a>]</span> <span class="mw-headline">See also</span></h2>
+<ul>
+<li><a href="/wiki/Skyline_matrix" title="Skyline matrix">Skyline matrix</a></li>
+</ul>
+
+<!-- 
+Pre-expand include size: 33699 bytes
+Post-expand include size: 7560 bytes
+Template argument size: 4836 bytes
+Maximum: 2048000 bytes
+-->
+
+<!-- Saved in parser cache with key enwiki:pcache:idhash:341015-0!1!0!default!!en!2 and timestamp 20070914183546 -->
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org/wiki/Sparse_matrix">http://en.wikipedia.org/wiki/Sparse_matrix</a>"</div>
+			<div id="catlinks"><p class='catlinks'><a href="/wiki/Special:Categories" title="Special:Categories">Categories</a>: <span dir='ltr'><a href="/wiki/Category:Combinatorics" title="Category:Combinatorics">Combinatorics</a></span> | <span dir='ltr'><a href="/wiki/Category:Matrices" title="Category:Matrices">Matrices</a></span> | <span dir='ltr'><a href="/wiki/Category:Numerical_linear_algebra" title="Category:Numerical linear algebra">Numerical linear algebra</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<div class="pBody">
+			<ul>
+					 <li id="ca-nstab-main" class="selected"><a href="/wiki/Sparse_matrix" title="View the content page [c]" accesskey="c">Article</a></li>
+					 <li id="ca-talk"><a href="/wiki/Talk:Sparse_matrix" title="Discussion about the content page [t]" accesskey="t">Discussion</a></li>
+					 <li id="ca-edit"><a href="/w/index.php?title=Sparse_matrix&amp;action=edit" title="You can edit this page. Please use the preview button before saving. [e]" accesskey="e">Edit this page</a></li>
+					 <li id="ca-history"><a href="/w/index.php?title=Sparse_matrix&amp;action=history" title="Past versions of this page [h]" accesskey="h">History</a></li>
+				</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-personal">
+		<h5>Personal tools</h5>
+		<div class="pBody">
+			<ul>
+				<li id="pt-login"><a href="/w/index.php?title=Special:Userlogin&amp;returnto=Sparse_matrix" title="You are encouraged to log in, it is not mandatory however. [o]" accesskey="o">Sign in / create account</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-logo">
+		<a style="background-image: url(/images/wiki-en.png);" href="/wiki/Main_Page" title="Visit the Main Page [z]" accesskey="z"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-Main-page"><a href="/wiki/Main_Page">Main page</a></li>
+				<li id="n-Contents"><a href="/wiki/Wikipedia:Contents">Contents</a></li>
+				<li id="n-Featured-content"><a href="/wiki/Wikipedia:Featured_content">Featured content</a></li>
+				<li id="n-currentevents"><a href="/wiki/Portal:Current_events" title="Find background information on current events">Current events</a></li>
+				<li id="n-randompage"><a href="/wiki/Special:Random" title="Load a random page [x]" accesskey="x">Random article</a></li>
+			</ul>
+		</div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+		<h5>interaction</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-About-Wikipedia"><a href="/wiki/Wikipedia:About">About Wikipedia</a></li>
+				<li id="n-portal"><a href="/wiki/Wikipedia:Community_Portal" title="About the project, what you can do, where to find things">Community portal</a></li>
+				<li id="n-recentchanges"><a href="/wiki/Special:Recentchanges" title="The list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li>
+				<li id="n-contact"><a href="/wiki/Wikipedia:Contact_us">Contact Wikipedia</a></li>
+				<li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising" title="Support us">Donate to Wikipedia</a></li>
+				<li id="n-help"><a href="/wiki/Help:Contents" title="Guidance on how to use and edit Wikipedia">Help</a></li>
+			</ul>
+		</div>
+	</div>
+		<div id="p-search" class="portlet">
+		<h5><label for="searchInput">Search</label></h5>
+		<div id="searchBody" class="pBody">
+			<form action="/wiki/Special:Search" id="searchform"><div>
+				<input id="searchInput" name="search" type="text" title="Search Wikipedia [f]" accesskey="f" value="" />
+				<input type='submit' name="go" class="searchButton" id="searchGoButton"	value="Go" />&nbsp;
+				<input type='submit' name="fulltext" class="searchButton" id="mw-searchButton" value="Search" />
+			</div></form>
+		</div>
+	</div>
+	<div class="portlet" id="p-tb">
+		<h5>Toolbox</h5>
+		<div class="pBody">
+			<ul>
+				<li id="t-whatlinkshere"><a href="/wiki/Special:Whatlinkshere/Sparse_matrix" title="List of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+				<li id="t-recentchangeslinked"><a href="/wiki/Special:Recentchangeslinked/Sparse_matrix" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+<li id="t-upload"><a href="/wiki/Wikipedia:Upload" title="Upload images or media files [u]" accesskey="u">Upload file</a></li>
+<li id="t-specialpages"><a href="/wiki/Special:Specialpages" title="List of all special pages [q]" accesskey="q">Special pages</a></li>
+				<li id="t-print"><a href="/w/index.php?title=Sparse_matrix&amp;printable=yes" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>				<li id="t-permalink"><a href="/w/index.php?title=Sparse_matrix&amp;oldid=152405660" title="Permanent link to this version of the page">Permanent link</a></li><li id="t-cite"><a href="/w/index.php?title=Special:Cite&amp;page=Sparse_matrix&amp;id=152405660">Cite this article</a></li>			</ul>
+		</div>
+	</div>
+	<div id="p-lang" class="portlet">
+		<h5>In other languages</h5>
+		<div class="pBody">
+			<ul>
+				<li class="interwiki-cs"><a href="http://cs.wikipedia.org/wiki/%C5%98%C3%ADdk%C3%A1_matice">Česky</a></li>
+				<li class="interwiki-da"><a href="http://da.wikipedia.org/wiki/Fill-in">Dansk</a></li>
+				<li class="interwiki-de"><a href="http://de.wikipedia.org/wiki/D%C3%BCnnbesetzte_Matrix">Deutsch</a></li>
+				<li class="interwiki-fr"><a href="http://fr.wikipedia.org/wiki/Matrice_creuse">Français</a></li>
+				<li class="interwiki-nl"><a href="http://nl.wikipedia.org/wiki/Fill-in">Nederlands</a></li>
+				<li class="interwiki-ja"><a href="http://ja.wikipedia.org/wiki/%E7%96%8E%E8%A1%8C%E5%88%97">日本語</a></li>
+				<li class="interwiki-zh"><a href="http://zh.wikipedia.org/wiki/%E7%A8%80%E7%96%8F%E7%9F%A9%E9%98%B5">中文</a></li>
+			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="/skins-1.5/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>
+				<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="/images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>
+			<ul id="f-list">
+				<li id="lastmod"> This page was last modified 05:49, 20 August 2007.</li>
+				<li id="copyright">All text is available under the terms of the <a class='internal' href="/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="/wiki/Wikipedia:Copyrights" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a U.S. registered <a class='internal' href="/wiki/501%28c%29#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="/wiki/Non-profit_organization" title="Non-profit organization">nonprofit</a> <a href="/wiki/Charitable_organization" title="Charitable organization">charity</a>.<br /></li>
+				<li id="privacy"><a href="http://wikimediafoundation.org/wiki/Privacy_policy" title="wikimedia:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="/wiki/Wikipedia:About" title="Wikipedia:About">About Wikipedia</a></li>
+				<li id="disclaimer"><a href="/wiki/Wikipedia:General_disclaimer" title="Wikipedia:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+		
+	
+		<script type="text/javascript">if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by srv169 in 0.420 secs. --></body></html>

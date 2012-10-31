@@ -1,0 +1,337 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de" lang="de" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+				<meta name="keywords" content="Iterative Tiefensuche,Beschränkte Tiefensuche,Breitensuche,Datenstruktur,Glossar Graphentheorie,Graph,Informatik,Iteration,Klasse,Laufzeitkomplexität,Platzkomplexität" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (Deutsch)" />
+		<link rel="copyright" href="http://www.gnu.org/copyleft/fdl.html" />
+		<title>Iterative Tiefensuche - Wikipedia</title>
+		<style type="text/css" media="screen, projection">/*<![CDATA[*/
+			@import "/skins-1.5/common/shared.css?99";
+			@import "/skins-1.5/monobook/main.css?99";
+		/*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="/skins-1.5/common/commonPrint.css?99" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE50Fixes.css?99";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE55Fixes.css?99";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "/skins-1.5/monobook/IE60Fixes.css?99";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "/skins-1.5/monobook/IE70Fixes.css?99";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="/skins-1.5/common/IEFixes.js?99"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		
+		<script type= "text/javascript">/*<![CDATA[*/
+var skin = "monobook";
+var stylepath = "/skins-1.5";
+var wgArticlePath = "/wiki/$1";
+var wgScriptPath = "/w";
+var wgScript = "/w/index.php";
+var wgServer = "http://de.wikipedia.org";
+var wgCanonicalNamespace = "";
+var wgCanonicalSpecialPageName = false;
+var wgNamespaceNumber = 0;
+var wgPageName = "Iterative_Tiefensuche";
+var wgTitle = "Iterative Tiefensuche";
+var wgAction = "view";
+var wgRestrictionEdit = [];
+var wgRestrictionMove = [];
+var wgArticleId = "231490";
+var wgIsArticle = true;
+var wgUserName = null;
+var wgUserGroups = null;
+var wgUserLanguage = "de";
+var wgContentLanguage = "de";
+var wgBreakFrames = false;
+var wgCurRevisionId = "31321905";
+/*]]>*/</script>
+                
+		<script type="text/javascript" src="/skins-1.5/common/wikibits.js?99"><!-- wikibits js --></script>
+		<script type="text/javascript" src="/w/index.php?title=-&amp;action=raw&amp;gen=js&amp;useskin=monobook"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "/w/index.php?title=MediaWiki:Common.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=MediaWiki:Monobook.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=-&action=raw&gen=css&maxage=2678400";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+		<script type="text/javascript" src="/skins-1.5/common/ajax.js?99"></script>
+	</head>
+<body  class="mediawiki ns-0 ltr page-Iterative_Tiefensuche">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+		<div id="siteNotice"><script type="text/javascript" language="JavaScript">
+<!--
+document.writeln("\x3cdiv style=\"position:absolute; z-index:100; right:5px; top:-20px;\" class=\"metadata\" id=\"donate\"\x3e\n\x3cdiv style=\"text-align:right; font-size:80%\"\x3e\x3ca href=\"http://wikimediafoundation.org/wiki/Spenden\" class=\"extiw\" title=\"wikimedia:Spenden\"\x3eIhre \x3cb\x3eSpenden\x3c/b\x3e\x3c/a\x3e helfen, Wikipedia zu betreiben. \n\x3c/div\x3e\x3c/div\x3e\n");
+-->
+</script></div>		<h1 class="firstHeading">Iterative Tiefensuche</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">aus Wikipedia, der freien Enzyklopädie</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Wechseln zu: <a href="#column-one">Navigation</a>, <a href="#searchInput">Suche</a></div>			<!-- start content -->
+			<table border="1" cellspacing="0" style="float:right;margin-left:0.5em">
+<tr>
+<th align="center" bgcolor="#FFC0C0">Iterative Tiefensuche</th>
+</tr>
+<tr>
+<th align="center" bgcolor="#FFC0C0"><b>Allgemeine Daten</b></th>
+</tr>
+<tr>
+<td>
+<table border="0">
+<tr>
+<td><i><a href="/wiki/Klasse" title="Klasse">Klasse</a>:</i></td>
+<td><a href="/wiki/Suchalgorithmus" title="Suchalgorithmus">Suchalgorithmus</a></td>
+</tr>
+<tr>
+<td><i><a href="/wiki/Datenstruktur" title="Datenstruktur">Datenstruktur</a>:</i></td>
+<td><a href="/wiki/Graph" title="Graph">Graph</a></td>
+</tr>
+<tr>
+<td><i><a href="/wiki/Zeitkomplexit%C3%A4t" title="Zeitkomplexität">Zeitkomplexität</a>:</i></td>
+<td><span class="texhtml"><i>O</i>( | <i>V</i> | + | <i>E</i> | )</span></td>
+</tr>
+<tr>
+<td><i><a href="/wiki/Platzkomplexit%C3%A4t" title="Platzkomplexität">Platzkomplexität</a>:</i></td>
+<td></td>
+</tr>
+<tr>
+<td><i><a href="/w/index.php?title=Optimal_%28Algorithmus%29&amp;action=edit" class="new" title="Optimal (Algorithmus)">Optimal</a>:</i></td>
+<td>nein</td>
+</tr>
+<tr>
+<td><i><a href="/w/index.php?title=Vollst%C3%A4ndig_%28Algorithmus%29&amp;action=edit" class="new" title="Vollständig (Algorithmus)">Vollständig</a>:</i></td>
+<td>ja</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<p>Die <b>iterative Tiefensuche</b> (engl. <i>iterative deepening search</i>) ist ein Begriff aus der <a href="/wiki/Informatik" title="Informatik">Informatik</a>. Sie ist ein Verfahren zum Suchen eines <a href="/wiki/Glossar_Graphentheorie#Knoten" title="Glossar Graphentheorie">Knotens</a> in einem <a href="/wiki/Glossar_Graphentheorie#Graph" title="Glossar Graphentheorie">Graphen</a>. Der Algorithmus ist eine Verbesserung der <a href="/wiki/Tiefensuche" title="Tiefensuche">Tiefensuche</a>.</p>
+<table id="toc" class="toc" summary="Inhaltsverzeichnis">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Inhaltsverzeichnis</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Allgemeines"><span class="tocnumber">1</span> <span class="toctext">Allgemeines</span></a></li>
+<li class="toclevel-1"><a href="#Algorithmus_.28informal.29"><span class="tocnumber">2</span> <span class="toctext">Algorithmus (informal)</span></a></li>
+<li class="toclevel-1"><a href="#Algorithmus_.28formal.29"><span class="tocnumber">3</span> <span class="toctext">Algorithmus (formal)</span></a></li>
+<li class="toclevel-1"><a href="#Algorithmusbeispiel:_Erzeugen_des_Tiefensuchwaldes_.28iterativ.29"><span class="tocnumber">4</span> <span class="toctext">Algorithmusbeispiel: Erzeugen des Tiefensuchwaldes (iterativ)</span></a></li>
+<li class="toclevel-1"><a href="#Eigenschaften"><span class="tocnumber">5</span> <span class="toctext">Eigenschaften</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Speicherplatzverbrauch"><span class="tocnumber">5.1</span> <span class="toctext">Speicherplatzverbrauch</span></a></li>
+<li class="toclevel-2"><a href="#Laufzeit"><span class="tocnumber">5.2</span> <span class="toctext">Laufzeit</span></a></li>
+<li class="toclevel-2"><a href="#Vollst.C3.A4ndigkeit"><span class="tocnumber">5.3</span> <span class="toctext">Vollständigkeit</span></a></li>
+<li class="toclevel-2"><a href="#Optimalit.C3.A4t"><span class="tocnumber">5.4</span> <span class="toctext">Optimalität</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Siehe_auch"><span class="tocnumber">6</span> <span class="toctext">Siehe auch</span></a></li>
+<li class="toclevel-1"><a href="#Literatur"><span class="tocnumber">7</span> <span class="toctext">Literatur</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "Anzeigen"; var tocHideText = "Verbergen"; showTocToggle(); } 
+//]]>
+</script>
+<p><a name="Allgemeines" id="Allgemeines"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Iterative_Tiefensuche&amp;action=edit&amp;section=1" title="Abschnitt bearbeiten: Allgemeines">Bearbeiten</a>]</span> <span class="mw-headline">Allgemeines</span></h2>
+<p>Die iterative Tiefensuche ist wie schon die normale Tiefensuche eine <a href="/wiki/Uninformierte_Suche" title="Uninformierte Suche">uninformierte Suche</a>. Sie funktioniert genau wie die <a href="/wiki/Tiefensuche" title="Tiefensuche">Tiefensuche</a>, vermeidet jedoch durch Begrenzung der Suchtiefe deren Nachteile bezüglich Vollständigkeit. Bei der iterativen Tiefensuche wird iterativ eine <a href="/wiki/Beschr%C3%A4nkte_Tiefensuche" title="Beschränkte Tiefensuche">Beschränkte Tiefensuche</a> durchgeführt, und dabei das Level bis zu welchem die Beschränkte Tiefensuche den <a href="/wiki/Glossar_Graphentheorie#Graph" title="Glossar Graphentheorie">Graphen</a> erkundet bei jeder <a href="/wiki/Iteration" title="Iteration">Iteration</a> um eins erhöht. Im ersten Schritt werden also alle <a href="/wiki/Glossar_Graphentheorie#Knoten" title="Glossar Graphentheorie">Knoten</a>, zu denen ein <a href="/wiki/Glossar_Graphentheorie#Pfad" title="Glossar Graphentheorie">Pfad</a> der Länge 0 führt, mittels Tiefensuche erkundet. Im nächsten Schritt werden dann alle Knoten, zu denen ein Pfad der Länge 1 führt, mittels Tiefensuche erkundet und so weiter. Hierdurch wird erreicht, dass Iterative Tiefensuche prinzipiell auf allen Graphen vollständig ist, da die Suche sich nun nicht mehr in einem endlos langen Pfad verlieren kann. Damit stellt die iterative Tiefensuche eine Kombination der Tiefen- und der <a href="/wiki/Breitensuche" title="Breitensuche">Breitensuche</a> dar. Sie hat einerseits den gleichen <a href="/wiki/Platzkomplexit%C3%A4t" title="Platzkomplexität">Speicherplatzverbrauch</a> wie normale Tiefensuche (im Arbeitsspeicher muss jeweils maximal ein kompletter Ast bis zur momentanen Iterationstiefe gespeichert werden), liefert aber bei monoton steigenden Pfadkosten, ebenso wie die Breitensuche, eine optimale Lösung. Da für jede neue Iteration auch der bereits durchlaufene Suchbaum komplett neu aufgebaut werden muss ist die <a href="/wiki/Laufzeitkomplexit%C3%A4t" title="Laufzeitkomplexität">Laufzeit</a> höher als bei normaler Tiefensuche. Da in einem Suchbaum aber jeweils der größte Teil der Knoten Blätter sind ist dieser geringe Mehraufwand gegenüber den Vorteilen hinnehmbar.</p>
+<p><a name="Algorithmus_.28informal.29" id="Algorithmus_.28informal.29"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Iterative_Tiefensuche&amp;action=edit&amp;section=2" title="Abschnitt bearbeiten: Algorithmus (informal)">Bearbeiten</a>]</span> <span class="mw-headline">Algorithmus (informal)</span></h2>
+<ol>
+<li>Bestimme den Knoten, an dem die Suche beginnen soll</li>
+<li>Rufe <a href="/wiki/Beschr%C3%A4nkte_Tiefensuche" title="Beschränkte Tiefensuche">Beschränkte Tiefensuche</a> mit der aktuellen Suchtiefe auf</li>
+<li>Erhöhe die Suchtiefe um 1 und gehe zu Schritt 2</li>
+</ol>
+<p><a name="Algorithmus_.28formal.29" id="Algorithmus_.28formal.29"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Iterative_Tiefensuche&amp;action=edit&amp;section=3" title="Abschnitt bearbeiten: Algorithmus (formal)">Bearbeiten</a>]</span> <span class="mw-headline">Algorithmus (formal)</span></h2>
+<pre>
+<b>IDS</b>(node, goal)
+{
+  IterationDepth := 0
+  while (IterationDepth &lt; <i>infinity</i>)
+  {
+    <b>LDS</b>(node, goal, IterationDepth);
+    IterationDepth := IterationDepth + 1;
+  }
+}
+</pre>
+<p><a name="Algorithmusbeispiel:_Erzeugen_des_Tiefensuchwaldes_.28iterativ.29" id="Algorithmusbeispiel:_Erzeugen_des_Tiefensuchwaldes_.28iterativ.29"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Iterative_Tiefensuche&amp;action=edit&amp;section=4" title="Abschnitt bearbeiten: Algorithmusbeispiel: Erzeugen des Tiefensuchwaldes (iterativ)">Bearbeiten</a>]</span> <span class="mw-headline">Algorithmusbeispiel: Erzeugen des Tiefensuchwaldes (iterativ)</span></h2>
+<p>Der folgende iterative Algorithmus erzeugt den Tiefensuchwald eines Graphen G mittels Setzen von Discovery- und Finishing-Times und Färben der Knoten. In Anlehnung an <a href="/w/index.php?title=Thomas_H._Cormen&amp;action=edit" class="new" title="Thomas H. Cormen">Cormen</a>, <a href="/w/index.php?title=Charles_Leiserson&amp;action=edit" class="new" title="Charles Leiserson">Leiserson</a>, <a href="/wiki/Ronald_L._Rivest" title="Ronald L. Rivest">Rivest</a>, <a href="/w/index.php?title=Clifford_Stein&amp;action=edit" class="new" title="Clifford Stein">Stein</a>, Introduction to Algorithms, MIT Press, 2001, werden zunächst alle Knoten weiß gefärbt. Anschließend startet die Tiefensuche per Definition beim alphabetisch kleinsten Knoten und färbt diesen grau. Danach wird ein Stack verwendet, worin der bereits entdeckte Weg bis zu einem Knoten ohne weißen Nachbarn gespeichert wird. Alle Knoten im Stack sind grau. Der Stack wird abgetragen, bis einer der gespeicherten Knoten noch einen weiteren weißen Nachbarn hat oder der Stack leer ist. Damit wird das der Rekursion eigene Backtracking simuliert.</p>
+<p>Die vorgefertigte Methode nextw(u) liefert für einen Knoten u den (per Definition alphabetisch kleinsten) weißen Nachbarn. Existiert kein solcher, liefert sie NULL bzw. FALSE.</p>
+<pre>
+1       for each v of G{                        //Alle Knoten weiß und Vorgänger nil
+2               col[v]=w;
+3               pi[v]=nil;
+4       }
+5       time=0;                         
+6       S=0;                                    //Stack S initialisieren
+7       for each u of G{                        //für alle weißen Knoten u
+8               if col[u]==w{           
+9                       time++;                 //Zeitzähler erhöhen
+10                      col[u]=g;               //Aktuellen Knoten grau färben
+11                      d[u]=time;              //Entdeckzeit setzen
+12                      push(S,u);              //Aktuellen Knoten auf Stack
+13                      while S not 0{                          //Solange Stack belegt ist
+14                              time++;                         //Zeitzähler erhöhen
+15                              v=nextw(u)      
+16                              if v {                          //wenn nächster weißer Nachbar
+17                                      col[v]=g;               //v grau färben
+18                                      d[v]=time;              //Entdeckzeit setzen
+19                                      pi[v]=u;                //Vorgänger setzen
+20                                      if nextw(v) push(S,v);
+21                                      u=v;                    //Aktueller Knoten ist v
+22                              }else{                          //wenn v NULL
+23                                      col[u]=s;               //Aktuellen Knoten schwarz färben
+24                                      f[u]=time;              //Finishing-Time setzen
+25                                      if S not 0 u=pop(S);    //neuer aktueller Knoten von Stack
+26                              }
+27                      }
+28              }
+29      }
+</pre>
+<pre>
+nextw(u)
+1       for each node of adj[u]                                      
+                if col[node]==w return node;                          
+2       return false;
+</pre>
+<p><a name="Eigenschaften" id="Eigenschaften"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Iterative_Tiefensuche&amp;action=edit&amp;section=5" title="Abschnitt bearbeiten: Eigenschaften">Bearbeiten</a>]</span> <span class="mw-headline">Eigenschaften</span></h2>
+<p><a name="Speicherplatzverbrauch" id="Speicherplatzverbrauch"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Iterative_Tiefensuche&amp;action=edit&amp;section=6" title="Abschnitt bearbeiten: Speicherplatzverbrauch">Bearbeiten</a>]</span> <span class="mw-headline">Speicherplatzverbrauch</span></h3>
+<p>Da intern auf <a href="/wiki/Tiefensuche" title="Tiefensuche">Tiefensuche</a> zurückgegriffen wird, ist der <a href="/wiki/Platzkomplexit%C3%A4t" title="Platzkomplexität">Speicherplatzbedarf</a> ähnlich dem der normalen Tiefensuche.</p>
+<p><a name="Laufzeit" id="Laufzeit"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Iterative_Tiefensuche&amp;action=edit&amp;section=7" title="Abschnitt bearbeiten: Laufzeit">Bearbeiten</a>]</span> <span class="mw-headline">Laufzeit</span></h3>
+<p>Da im schlimmsten Fall alle möglichen Pfade zu allen möglichen Knoten betrachtet werden müssen, beträgt die <a href="/wiki/Zeitkomplexit%C3%A4t" title="Zeitkomplexität">Laufzeit</a> von Iterativer Tiefensuche <img class="tex" alt="\mathcal{O}( \vert V \vert + \vert E \vert )" src="http://upload.wikimedia.org/math/f/5/0/f5024be7734fff8a8aa0520c2b540105.png" /> wobei <img class="tex" alt=" \vert V \vert " src="http://upload.wikimedia.org/math/0/e/0/0e023d3ec0c14433b1c9c3303e0ed5d1.png" /> für die Anzahl der <a href="/wiki/Glossar_Graphentheorie#Knoten" title="Glossar Graphentheorie">Knoten</a> und <img class="tex" alt=" \vert E \vert " src="http://upload.wikimedia.org/math/e/4/c/e4ce0b3316dfd763e5401c160d6ede65.png" /> für die Anzahl der <a href="/wiki/Glossar_Graphentheorie#Kante" title="Glossar Graphentheorie">Kanten</a> im Graph steht.</p>
+<p><a name="Vollst.C3.A4ndigkeit" id="Vollst.C3.A4ndigkeit"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Iterative_Tiefensuche&amp;action=edit&amp;section=8" title="Abschnitt bearbeiten: Vollständigkeit">Bearbeiten</a>]</span> <span class="mw-headline">Vollständigkeit</span></h3>
+<p>Da sich Iterative Tiefensuche weder in unendlichen langen <a href="/wiki/Glossar_Graphentheorie#Pfad" title="Glossar Graphentheorie">Pfaden</a> noch in <a href="/wiki/Glossar_Graphentheorie#Zyklus" title="Glossar Graphentheorie">Zyklen</a> verlieren kann, ist der Algorithmus vollständig.</p>
+<p><br /></p>
+<p><a name="Optimalit.C3.A4t" id="Optimalit.C3.A4t"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Iterative_Tiefensuche&amp;action=edit&amp;section=9" title="Abschnitt bearbeiten: Optimalität">Bearbeiten</a>]</span> <span class="mw-headline">Optimalität</span></h3>
+<p>Iterative Tiefensuche ist optimal, falls alle Pfadkosten äquivalent sind, da Tiefensuche in diesem Fall den kürzesten Pfad zu einem Ziel findet. Sind die Pfadkosten jedoch nicht äquivalent, so kann es wie bei der <a href="/wiki/Breitensuche" title="Breitensuche">Breitensuche</a> dazu kommen, dass ein suboptimaler Pfad gewählt wird.</p>
+<p><br /></p>
+<p><a name="Siehe_auch" id="Siehe_auch"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Iterative_Tiefensuche&amp;action=edit&amp;section=10" title="Abschnitt bearbeiten: Siehe auch">Bearbeiten</a>]</span> <span class="mw-headline">Siehe auch</span></h2>
+<ul>
+<li><a href="/wiki/Beschr%C3%A4nkte_Tiefensuche" title="Beschränkte Tiefensuche">Beschränkte Tiefensuche</a></li>
+<li><a href="/wiki/Breitensuche" title="Breitensuche">Breitensuche</a></li>
+<li><a href="/wiki/Tiefensuche" title="Tiefensuche">Tiefensuche</a></li>
+</ul>
+<p><a name="Literatur" id="Literatur"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Iterative_Tiefensuche&amp;action=edit&amp;section=11" title="Abschnitt bearbeiten: Literatur">Bearbeiten</a>]</span> <span class="mw-headline">Literatur</span></h2>
+<ul>
+<li><a href="/w/index.php?title=Stuart_Russell&amp;action=edit" class="new" title="Stuart Russell">Stuart Russell</a>, <a href="/w/index.php?title=Peter_Norvig&amp;action=edit" class="new" title="Peter Norvig">Peter Norvig</a>: <i><a href="http://aima.cs.berkeley.edu/" class="external text" title="http://aima.cs.berkeley.edu/" rel="nofollow">Artificial Intelligence: A Modern Approach</a></i>, 2. Auflage, 2002, Prentice Hall.</li>
+<li><a href="/w/index.php?title=Thomas_H._Cormen&amp;action=edit" class="new" title="Thomas H. Cormen">Thomas H. Cormen</a>, <a href="/w/index.php?title=Charles_Leiserson&amp;action=edit" class="new" title="Charles Leiserson">Charles Leiserson</a>, <a href="/wiki/Ronald_L._Rivest" title="Ronald L. Rivest">Ronald L. Rivest</a>, <a href="/w/index.php?title=Clifford_Stein&amp;action=edit" class="new" title="Clifford Stein">Clifford Stein</a>: <i>Introduction to Algorithms</i>, MIT Press, 2nd edition 2001, <a href="/w/index.php?title=Spezial:ISBN-Suche&amp;isbn=0262531968" class="internal">ISBN 0262531968</a></li>
+</ul>
+
+
+<!-- Saved in parser cache with key dewiki:pcache:idhash:231490-0!1!0!!de!2 and timestamp 20070914183628 -->
+<div class="printfooter">
+Von „<a href="http://de.wikipedia.org/wiki/Iterative_Tiefensuche">http://de.wikipedia.org/wiki/Iterative_Tiefensuche</a>“</div>
+			<div id="catlinks"><p class='catlinks'><a href="/wiki/Spezial:Categories" title="Spezial:Categories">Kategorien</a>: <span dir='ltr'><a href="/wiki/Kategorie:Suchalgorithmus" title="Kategorie:Suchalgorithmus">Suchalgorithmus</a></span> | <span dir='ltr'><a href="/wiki/Kategorie:Graphentheorie" title="Kategorie:Graphentheorie">Graphentheorie</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Ansichten</h5>
+		<div class="pBody">
+			<ul>
+					 <li id="ca-nstab-main" class="selected"><a href="/wiki/Iterative_Tiefensuche" title="Seiteninhalt anzeigen [c]" accesskey="c">Artikel</a></li>
+					 <li id="ca-talk"><a href="/wiki/Diskussion:Iterative_Tiefensuche" title="Diskussion zum Seiteninhalt [t]" accesskey="t">Diskussion</a></li>
+					 <li id="ca-edit"><a href="/w/index.php?title=Iterative_Tiefensuche&amp;action=edit" title="Seite bearbeiten. Bitte vor dem Speichern die Vorschaufunktion benutzen. [e]" accesskey="e">Seite bearbeiten</a></li>
+					 <li id="ca-history"><a href="/w/index.php?title=Iterative_Tiefensuche&amp;action=history" title="Frühere Versionen dieser Seite [h]" accesskey="h">Versionen/Autoren</a></li>
+				</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-personal">
+		<h5>Persönliche Werkzeuge</h5>
+		<div class="pBody">
+			<ul>
+				<li id="pt-login"><a href="/w/index.php?title=Spezial:Anmelden&amp;returnto=Iterative_Tiefensuche" title="Sich einzuloggen wird zwar gerne gesehen, ist aber keine Pflicht. [o]" accesskey="o">Anmelden</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-logo">
+		<a style="background-image: url(http://upload.wikimedia.org/wikipedia/de/b/bc/Wiki.png);" href="/wiki/Hauptseite" title="Hauptseite anzeigen [z]" accesskey="z"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="/wiki/Hauptseite" title="Hauptseite anzeigen [z]" accesskey="z">Hauptseite</a></li>
+				<li id="n-aboutsite"><a href="/wiki/Wikipedia:%C3%9Cber_Wikipedia">Über Wikipedia</a></li>
+				<li id="n-topics"><a href="/wiki/Portal:Wikipedia_nach_Themen">Themenportale</a></li>
+				<li id="n-alphindex"><a href="/wiki/Spezial:Alle_Seiten">Von A bis Z</a></li>
+				<li id="n-randompage"><a href="/wiki/Spezial:Zuf%C3%A4llige_Seite" title="Zufällige Seite [x]" accesskey="x">Zufälliger Artikel</a></li>
+			</ul>
+		</div>
+	</div>
+		<div class='portlet' id='p-Mitmachen'>
+		<h5>Mitmachen</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-help"><a href="/wiki/Wikipedia:Hilfe" title="Hilfeseite anzeigen">Hilfe</a></li>
+				<li id="n-portal"><a href="/wiki/Wikipedia:Autorenportal" title="Über das Portal, was du tun kannst, wo was zu finden ist">Autorenportal</a></li>
+				<li id="n-recentchanges"><a href="/wiki/Spezial:Letzte_%C3%84nderungen" title="Liste der letzten Änderungen in Wikipedia. [r]" accesskey="r">Letzte Änderungen</a></li>
+				<li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Spenden" title="Unterstützen Sie uns">Spenden</a></li>
+			</ul>
+		</div>
+	</div>
+		<div id="p-search" class="portlet">
+		<h5><label for="searchInput">Suche</label></h5>
+		<div id="searchBody" class="pBody">
+			<form action="/wiki/Spezial:Suche" id="searchform"><div>
+				<input id="searchInput" name="search" type="text" title="Durchsuche die Wikipedia [f]" accesskey="f" value="" />
+				<input type='submit' name="go" class="searchButton" id="searchGoButton"	value="Artikel" />&nbsp;
+				<input type='submit' name="fulltext" class="searchButton" id="mw-searchButton" value="Volltext" />
+			</div></form>
+		</div>
+	</div>
+	<div class="portlet" id="p-tb">
+		<h5>Werkzeuge</h5>
+		<div class="pBody">
+			<ul>
+				<li id="t-whatlinkshere"><a href="/wiki/Spezial:Linkliste/Iterative_Tiefensuche" title="Liste aller Seiten, die hierher zeigen [j]" accesskey="j">Links auf diese Seite</a></li>
+				<li id="t-recentchangeslinked"><a href="/wiki/Spezial:%C3%84nderungen_an_verlinkten_Seiten/Iterative_Tiefensuche" title="Letzte Änderungen an Seiten, die von hier verlinkt sind [k]" accesskey="k">Änderungen an verlinkten Seiten</a></li>
+<li id="t-upload"><a href="/wiki/Spezial:Hochladen" title="Dateien hochladen [u]" accesskey="u">Hochladen</a></li>
+<li id="t-specialpages"><a href="/wiki/Spezial:Spezialseiten" title="Liste aller Spezialseiten [q]" accesskey="q">Spezialseiten</a></li>
+				<li id="t-print"><a href="/w/index.php?title=Iterative_Tiefensuche&amp;printable=yes" title="Druckansicht dieser Seite [p]" accesskey="p">Druckversion</a></li>				<li id="t-permalink"><a href="/w/index.php?title=Iterative_Tiefensuche&amp;oldid=31321905" title="Dauerhafter Link zu dieser Seitenversion">Permanentlink</a></li><li id="t-cite"><a href="/w/index.php?title=Spezial:Cite&amp;page=Iterative_Tiefensuche&amp;id=31321905">Artikel zitieren</a></li>			</ul>
+		</div>
+	</div>
+	<div id="p-lang" class="portlet">
+		<h5>Andere Sprachen</h5>
+		<div class="pBody">
+			<ul>
+				<li class="interwiki-en"><a href="http://en.wikipedia.org/wiki/Iterative_deepening_depth-first_search">English</a></li>
+			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="/skins-1.5/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>
+				<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="/images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>
+			<ul id="f-list">
+				<li id="lastmod"> Diese Seite wurde zuletzt am 3. Mai 2007 um 20:54 Uhr geändert.</li>
+				<li id="copyright">Ihr Inhalt steht unter der <a class='internal' href="/wiki/Wikipedia:GNU_Free_Documentation_License">GNU-Lizenz für freie Dokumentation</a>.<br />
+Wikipedia® ist eine eingetragene Marke der Wikimedia Foundation Inc.<br /></li>
+				<li id="privacy"><a href="/wiki/Wikipedia:Datenschutz" title="Wikipedia:Datenschutz">Datenschutz</a></li>
+				<li id="about"><a href="/wiki/Wikipedia:%C3%9Cber_Wikipedia" title="Wikipedia:Über Wikipedia">Über Wikipedia</a></li>
+				<li id="disclaimer"><a href="/wiki/Wikipedia:Impressum" title="Wikipedia:Impressum">Impressum</a></li>
+			</ul>
+		</div>
+		
+	
+		<script type="text/javascript">if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by srv54 in 0.275 secs. --></body></html>

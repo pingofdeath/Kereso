@@ -1,0 +1,487 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+				<meta name="keywords" content="Genetic algorithm,Abstract,Alex Fraser (scientist),Algorithm,Allocation,Ant colony optimization,Approximate,Artificial Creativity,Artificial evolution,Artificial neural networks,Artificial selection" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="http://www.gnu.org/copyleft/fdl.html" />
+		<title>Genetic algorithm - Wikipedia, the free encyclopedia</title>
+		<style type="text/css" media="screen, projection">/*<![CDATA[*/
+			@import "/skins-1.5/common/shared.css?99";
+			@import "/skins-1.5/monobook/main.css?99";
+		/*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="/skins-1.5/common/commonPrint.css?99" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE50Fixes.css?99";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE55Fixes.css?99";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "/skins-1.5/monobook/IE60Fixes.css?99";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "/skins-1.5/monobook/IE70Fixes.css?99";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="/skins-1.5/common/IEFixes.js?99"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		
+		<script type= "text/javascript">/*<![CDATA[*/
+var skin = "monobook";
+var stylepath = "/skins-1.5";
+var wgArticlePath = "/wiki/$1";
+var wgScriptPath = "/w";
+var wgScript = "/w/index.php";
+var wgServer = "http://en.wikipedia.org";
+var wgCanonicalNamespace = "";
+var wgCanonicalSpecialPageName = false;
+var wgNamespaceNumber = 0;
+var wgPageName = "Genetic_algorithm";
+var wgTitle = "Genetic algorithm";
+var wgAction = "view";
+var wgRestrictionEdit = [];
+var wgRestrictionMove = [];
+var wgArticleId = "40254";
+var wgIsArticle = true;
+var wgUserName = null;
+var wgUserGroups = null;
+var wgUserLanguage = "en";
+var wgContentLanguage = "en";
+var wgBreakFrames = false;
+var wgCurRevisionId = "155663508";
+/*]]>*/</script>
+                
+		<script type="text/javascript" src="/skins-1.5/common/wikibits.js?99"><!-- wikibits js --></script>
+		<script type="text/javascript" src="/w/index.php?title=-&amp;action=raw&amp;gen=js&amp;useskin=monobook"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "/w/index.php?title=MediaWiki:Common.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=MediaWiki:Monobook.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=-&action=raw&gen=css&maxage=2678400";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+		<script type="text/javascript" src="/skins-1.5/common/ajax.js?99"></script>
+	</head>
+<body  class="mediawiki ns-0 ltr page-Genetic_algorithm">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">Genetic algorithm</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+			<div id="contentSub">(Redirected from <a href="/w/index.php?title=Genetic_algorithms&amp;redirect=no" title="Genetic algorithms">Genetic algorithms</a>)</div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<p>A <b>genetic algorithm (GA)</b> is a <a href="/wiki/Search" title="Search">search</a> <a href="/wiki/Technique" title="Technique">technique</a> used in <a href="/wiki/Computing" title="Computing">computing</a> to find exact or <a href="/wiki/Approximate" title="Approximate">approximate</a> solutions to <a href="/wiki/Optimization_%28mathematics%29" title="Optimization (mathematics)">optimization</a> and <a href="/wiki/Search" title="Search">search</a> <a href="/wiki/Problem" title="Problem">problems</a>. Genetic algorithms are <a href="/wiki/Categorize" title="Categorize">categorized</a> as <a href="/wiki/Global_optimization" title="Global optimization">global search heuristics</a>. Genetic algorithms are a particular class of <a href="/wiki/Evolutionary_algorithm" title="Evolutionary algorithm">evolutionary algorithms</a> (also known as <a href="/wiki/Evolutionary_computation" title="Evolutionary computation">evolutionary computation</a>) that use techniques inspired by <a href="/wiki/Evolutionary_biology" title="Evolutionary biology">evolutionary biology</a> such as <a href="/wiki/Biological_inheritance" title="Biological inheritance">inheritance</a>, <a href="/wiki/Mutation_%28genetic_algorithm%29" title="Mutation (genetic algorithm)">mutation</a>, <a href="/wiki/Selection_%28genetic_algorithm%29" title="Selection (genetic algorithm)">selection</a>, and <a href="/wiki/Crossover_%28genetic_algorithm%29" title="Crossover (genetic algorithm)">crossover</a> (also called <a href="/wiki/Recombination" title="Recombination">recombination</a>).</p>
+<p>Genetic algorithms are <a href="/wiki/Implementation" title="Implementation">implemented</a> as a <a href="/wiki/Computer_simulation" title="Computer simulation">computer simulation</a> in which a <a href="/wiki/Population" title="Population">population</a> of <a href="/wiki/Abstract" title="Abstract">abstract</a> representations (called <a href="/wiki/Chromosome_%28genetic_algorithm%29" title="Chromosome (genetic algorithm)">chromosomes</a> or the <a href="/wiki/Genotype" title="Genotype">genotype</a> or the <a href="/wiki/Genome" title="Genome">genome</a>) of <a href="/wiki/Candidate_solutions" title="Candidate solutions">candidate solutions</a> (called individuals, creatures, or <a href="/wiki/Phenotype" title="Phenotype">phenotypes</a>) to an optimization problem evolves toward better solutions. Traditionally, solutions are represented in binary as strings of 0s and 1s, but other encodings are also possible. The evolution usually starts from a population of randomly generated individuals and happens in generations. In each generation, the fitness of every individual in the population is evaluated, multiple individuals are <a href="/wiki/Stochastics" title="Stochastics">stochastically</a> selected from the current population (based on their fitness), and modified (recombined and possibly randomly mutated) to form a new population. The new population is then used in the next iteration of the <a href="/wiki/Algorithm" title="Algorithm">algorithm</a>. Commonly, the algorithm terminates when either a maximum number of generations has been produced, or a satisfactory fitness level has been reached for the population. If the algorithm has terminated due to a maximum number of generations, a satisfactory solution may or may not have been reached.</p>
+<p>Genetic algorithms find application in <a href="/wiki/Biogenetics" title="Biogenetics">biogenetics</a>, <a href="/wiki/Computer_science" title="Computer science">computer science</a>, <a href="/wiki/Engineering" title="Engineering">engineering</a>, <a href="/wiki/Economics" title="Economics">economics</a>, <a href="/wiki/Chemistry" title="Chemistry">chemistry</a>, <a href="/wiki/Manufacturing" title="Manufacturing">manufacturing</a>, <a href="/wiki/Mathematics" title="Mathematics">mathematics</a>, <a href="/wiki/Physics" title="Physics">physics</a> and other fields.</p>
+<p>A typical genetic algorithm requires two things to be defined:</p>
+<ol>
+<li>a <a href="/wiki/Genetic_representation" title="Genetic representation">genetic representation</a> of the solution <a href="/wiki/Domain" title="Domain">domain</a>,</li>
+<li>a <a href="/wiki/Fitness_function" title="Fitness function">fitness function</a> to evaluate the solution domain.</li>
+</ol>
+<p>A standard representation of the solution is as an <a href="/wiki/Bit_array" title="Bit array">array of bits</a>. Arrays of other types and structures can be used in essentially the same way. The main property that makes these genetic representations convenient is that their parts are easily aligned due to their fixed size, that facilitates simple crossover operation. Variable length representations may also be used, but crossover implementation is more complex in this case. Tree-like representations are explored in <a href="/wiki/Genetic_programming" title="Genetic programming">Genetic programming</a> and graph-form representations are explored in <a href="/wiki/Evolutionary_programming" title="Evolutionary programming">Evolutionary programming</a>.</p>
+<p>The fitness function is defined over the genetic representation and measures the <i>quality</i> of the represented solution. The fitness function is always problem dependent. For instance, in the <a href="/wiki/Knapsack_problem" title="Knapsack problem">knapsack problem</a> we want to maximize the total value of objects that we can put in a knapsack of some fixed capacity. A representation of a solution might be an array of bits, where each bit represents a different object, and the value of the bit (0 or 1) represents whether or not the object is in the knapsack. Not every such representation is valid, as the size of objects may exceed the capacity of the knapsack. The <i>fitness</i> of the solution is the sum of values of all objects in the knapsack if the representation is valid, or 0 otherwise. In some problems, it is hard or even impossible to define the fitness expression; in these cases, <a href="/wiki/Interactive_genetic_algorithm" title="Interactive genetic algorithm">interactive genetic algorithms</a> are used.</p>
+<p>Once we have the genetic representation and the fitness function defined, GA proceeds to initialize a population of solutions randomly, then improve it through repetitive application of mutation, crossover, inversion and selection operators.</p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Initialization"><span class="tocnumber">1</span> <span class="toctext">Initialization</span></a></li>
+<li class="toclevel-1"><a href="#Selection"><span class="tocnumber">2</span> <span class="toctext">Selection</span></a></li>
+<li class="toclevel-1"><a href="#Reproduction"><span class="tocnumber">3</span> <span class="toctext">Reproduction</span></a></li>
+<li class="toclevel-1"><a href="#Termination"><span class="tocnumber">4</span> <span class="toctext">Termination</span></a></li>
+<li class="toclevel-1"><a href="#Pseudo-code_algorithm"><span class="tocnumber">5</span> <span class="toctext">Pseudo-code algorithm</span></a></li>
+<li class="toclevel-1"><a href="#Observations"><span class="tocnumber">6</span> <span class="toctext">Observations</span></a></li>
+<li class="toclevel-1"><a href="#Variants"><span class="tocnumber">7</span> <span class="toctext">Variants</span></a></li>
+<li class="toclevel-1"><a href="#Problem_domains"><span class="tocnumber">8</span> <span class="toctext">Problem domains</span></a></li>
+<li class="toclevel-1"><a href="#History"><span class="tocnumber">9</span> <span class="toctext">History</span></a></li>
+<li class="toclevel-1"><a href="#Related_techniques"><span class="tocnumber">10</span> <span class="toctext">Related techniques</span></a></li>
+<li class="toclevel-1"><a href="#Building_block_hypothesis"><span class="tocnumber">11</span> <span class="toctext">Building block hypothesis</span></a></li>
+<li class="toclevel-1"><a href="#Applications"><span class="tocnumber">12</span> <span class="toctext">Applications</span></a></li>
+<li class="toclevel-1"><a href="#References"><span class="tocnumber">13</span> <span class="toctext">References</span></a></li>
+<li class="toclevel-1"><a href="#External_links"><span class="tocnumber">14</span> <span class="toctext">External links</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script>
+<p><a name="Initialization" id="Initialization"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Genetic_algorithm&amp;action=edit&amp;section=1" title="Edit section: Initialization">edit</a>]</span> <span class="mw-headline">Initialization</span></h3>
+<p>Initially many individual solutions are randomly generated to form an initial population. The population size depends on the nature of the problem, but typically contains several hundreds or thousands of possible solutions. Traditionally, the population is generated randomly, covering the entire range of possible solutions (the <i>search space</i>). Occasionally, the solutions may be "seeded" in areas where optimal solutions are likely to be found.</p>
+<p><a name="Selection" id="Selection"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Genetic_algorithm&amp;action=edit&amp;section=2" title="Edit section: Selection">edit</a>]</span> <span class="mw-headline">Selection</span></h3>
+<dl>
+<dd>
+<div class="noprint"><i>Main article: <a href="/wiki/Selection_%28genetic_algorithm%29" title="Selection (genetic algorithm)">Selection (genetic algorithm)</a></i></div>
+</dd>
+</dl>
+<p>During each successive generation, a proportion of the existing population is <a href="/wiki/Selection_%28genetic_algorithm%29" title="Selection (genetic algorithm)">selected</a> to breed a new generation. Individual solutions are selected through a <i>fitness-based</i> process, where <a href="/wiki/Fitness_%28biology%29" title="Fitness (biology)">fitter</a> solutions (as measured by a <a href="/wiki/Fitness_function" title="Fitness function">fitness function</a>) are typically more likely to be selected. Certain selection methods rate the fitness of each solution and preferentially select the best solutions. Other methods rate only a random sample of the population, as this process may be very time-consuming.</p>
+<p>Most functions are <a href="/wiki/Stochastic" title="Stochastic">stochastic</a> and designed so that a small proportion of less fit solutions are selected. This helps keep the diversity of the population large, preventing premature convergence on poor solutions. Popular and well-studied selection methods include <a href="/wiki/Fitness_proportionate_selection" title="Fitness proportionate selection">roulette wheel selection</a> and <a href="/wiki/Tournament_selection" title="Tournament selection">tournament selection</a>.</p>
+<p><a name="Reproduction" id="Reproduction"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Genetic_algorithm&amp;action=edit&amp;section=3" title="Edit section: Reproduction">edit</a>]</span> <span class="mw-headline">Reproduction</span></h3>
+<dl>
+<dd>
+<div class="noprint"><i>Main articles: <a href="/wiki/Crossover_%28genetic_algorithm%29" title="Crossover (genetic algorithm)">crossover (genetic algorithm)</a> and <a href="/wiki/Mutation_%28genetic_algorithm%29" title="Mutation (genetic algorithm)">mutation (genetic algorithm)</a></i></div>
+</dd>
+</dl>
+<p>The next step is to generate a second generation population of solutions from those selected through <a href="/wiki/Genetic_operator" title="Genetic operator">genetic operators</a>: <a href="/wiki/Crossover_%28genetic_algorithm%29" title="Crossover (genetic algorithm)">crossover</a> (also called recombination), and/or <a href="/wiki/Mutation_%28genetic_algorithm%29" title="Mutation (genetic algorithm)">mutation</a>.</p>
+<p>For each new solution to be produced, a pair of "parent" solutions is selected for breeding from the pool selected previously. By producing a "child" solution using the above methods of crossover and mutation, a new solution is created which typically shares many of the characteristics of its "parents". New parents are selected for each child, and the process continues until a new population of solutions of appropriate size is generated.</p>
+<p>These processes ultimately result in the next generation population of chromosomes that is different from the initial generation. Generally the average fitness will have increased by this procedure for the population, since only the best organisms from the first generation are selected for breeding, along with a small proportion of less fit solutions, for reasons already mentioned above.</p>
+<p><a name="Termination" id="Termination"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Genetic_algorithm&amp;action=edit&amp;section=4" title="Edit section: Termination">edit</a>]</span> <span class="mw-headline">Termination</span></h3>
+<p>This generational process is repeated until a termination condition has been reached. Common terminating conditions are</p>
+<ul>
+<li>A solution is found that satisfies minimum criteria</li>
+<li>Fixed number of generations reached</li>
+<li>Allocated budget (computation time/money) reached</li>
+<li>The highest ranking solution's fitness is reaching or has reached a plateau such that successive iterations no longer produce better results</li>
+<li>Manual inspection</li>
+<li>Combinations of the above.</li>
+</ul>
+<p><a name="Pseudo-code_algorithm" id="Pseudo-code_algorithm"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Genetic_algorithm&amp;action=edit&amp;section=5" title="Edit section: Pseudo-code algorithm">edit</a>]</span> <span class="mw-headline">Pseudo-code algorithm</span></h3>
+<ol>
+<li>Choose initial <a href="/wiki/Population" title="Population">population</a></li>
+<li>Evaluate the <a href="/wiki/Fitness" title="Fitness">fitness</a> of each <a href="/wiki/Individual" title="Individual">individual</a> in the population</li>
+<li>Repeat
+<ol>
+<li>Select best-ranking individuals to <a href="/wiki/Reproduce" title="Reproduce">reproduce</a></li>
+<li><a href="/wiki/Breed" title="Breed">Breed</a> new <a href="/wiki/Generation" title="Generation">generation</a> through <a href="/wiki/Crossover_%28genetic_algorithm%29" title="Crossover (genetic algorithm)">crossover</a> and <a href="/wiki/Mutation_%28genetic_algorithm%29" title="Mutation (genetic algorithm)">mutation</a> (genetic operations) and give birth to <a href="/wiki/Offspring" title="Offspring">offspring</a></li>
+<li><a href="/wiki/Evaluate" title="Evaluate">Evaluate</a> the individual fitnesses of the offspring</li>
+<li>Replace worst ranked part of population with offspring</li>
+</ol>
+</li>
+<li>Until &lt;terminating condition&gt;</li>
+</ol>
+<p><a name="Observations" id="Observations"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Genetic_algorithm&amp;action=edit&amp;section=6" title="Edit section: Observations">edit</a>]</span> <span class="mw-headline">Observations</span></h3>
+<p>There are several general observations about the generation of solutions via a genetic algorithm:</p>
+<ul>
+<li>In many problems, GAs may have a tendency to converge towards <a href="/wiki/Local_optimum" title="Local optimum">local optima</a> or even arbitrary points rather than the <a href="/wiki/Global_optimum" title="Global optimum">global optimum</a> of the problem. This means that it does not "know how" to sacrifice short-term fitness to gain longer-term fitness. The likelihood of this occurring depends on the shape of the <a href="/wiki/Fitness_landscape" title="Fitness landscape">fitness landscape</a>: certain problems may provide an easy ascent towards a global optimum, others may make it easier for the function to find the local optima. This problem may be alleviated by using a different fitness function, increasing the rate of mutation, or by using selection techniques that maintain a diverse population of solutions, although the <a href="/wiki/No_free_lunch_in_search_and_optimization" title="No free lunch in search and optimization">No Free Lunch</a> theorem proves that there is no general solution to this problem. A common technique to maintain diversity is to impose a "niche penalty", wherein, any group of individuals of sufficient similarity (niche radius) have a penalty added, which will reduce the representation of that group in subsequent generations, permitting other (less similar) individuals to be maintained in the population. This trick, however, may not be effective, depending on the landscape of the problem. Diversity is important in <a href="/wiki/Genetic_algorithms" title="Genetic algorithms">genetic algorithms</a> (and <a href="/wiki/Genetic_programming" title="Genetic programming">genetic programming</a>) because crossing over a homogeneous population does not yield new solutions. In <a href="/wiki/Evolution_strategies" title="Evolution strategies">evolution strategies</a> and <a href="/wiki/Evolutionary_programming" title="Evolutionary programming">evolutionary programming</a>, diversity is not essential because of a greater reliance on mutation.</li>
+<li>Operating on dynamic data sets is difficult, as genomes begin to converge early on towards solutions which may no longer be valid for later data. Several methods have been proposed to remedy this by increasing genetic diversity somehow and preventing early convergence, either by increasing the probability of mutation when the solution quality drops (called <i>triggered hypermutation</i>), or by occasionally introducing entirely new, randomly generated elements into the gene pool (called <i>random immigrants</i>). Recent research has also shown the benefits of using biological <a href="/wiki/Exaptation" title="Exaptation">exaptation</a> (or <a href="/wiki/Preadaptation" title="Preadaptation">preadaptation</a>) in solving this problem. Again, <a href="/wiki/Evolution_strategies" title="Evolution strategies">evolution strategies</a> and <a href="/wiki/Evolutionary_programming" title="Evolutionary programming">evolutionary programming</a> can be implemented with a so-called "comma strategy" in which parents are not maintained and new parents are selected only from offspring. This can be more effective on dynamic problems.</li>
+<li>GAs cannot effectively solve problems in which the only fitness measure is right/wrong, as there is no way to converge on the solution. (No hill to climb.) In these cases, a random search may find a solution as quickly as a GA.</li>
+<li>Selection is clearly an important genetic operator, but opinion is divided over the importance of crossover versus mutation. Some argue that crossover is the most important, while mutation is only necessary to ensure that potential solutions are not lost. Others argue that crossover in a largely uniform population only serves to propagate innovations originally found by mutation, and in a non-uniform population crossover is nearly always equivalent to a very large mutation (which is likely to be catastrophic). There are many references in Fogel (2006) that support the importance of mutation-based search, but across all problems the <a href="/wiki/No_free_lunch_in_search_and_optimization" title="No free lunch in search and optimization">No Free Lunch</a> theorem holds, so these opinions are without merit unless the discussion is restricted to a particular problem.</li>
+<li>Often, GAs can rapidly locate <i>good</i> solutions, even for difficult search spaces. The same is of course also true for <a href="/wiki/Evolution_strategies" title="Evolution strategies">evolution strategies</a> and <a href="/wiki/Evolutionary_programming" title="Evolutionary programming">evolutionary programming</a>.</li>
+<li>For specific optimization problems and problem instantiations, simpler optimization algorithms may find better solutions than genetic algorithms (given the same amount of computation time). Alternative and complementary algorithms include <a href="/wiki/Evolution_strategies" title="Evolution strategies">evolution strategies</a>, <a href="/wiki/Evolutionary_programming" title="Evolutionary programming">evolutionary programming</a>, <a href="/wiki/Simulated_annealing" title="Simulated annealing">simulated annealing</a>, <a href="/wiki/Gaussian_adaptation" title="Gaussian adaptation">Gaussian adaptation</a>, <a href="/wiki/Hill_climbing" title="Hill climbing">hill climbing</a>, and <a href="/wiki/Swarm_intelligence" title="Swarm intelligence">swarm intelligence</a> (e.g.: <a href="/wiki/Ant_colony_optimization" title="Ant colony optimization">ant colony optimization</a>, <a href="/wiki/Particle_swarm_optimization" title="Particle swarm optimization">particle swarm optimization</a>).</li>
+<li>As with all current machine learning problems it is worth tuning the parameters such as <a href="/wiki/Mutation" title="Mutation">mutation</a> probability, <a href="/wiki/Recombination" title="Recombination">recombination</a> probability and population size to find reasonable settings for the problem class being worked on. A very small mutation rate may lead to <a href="/wiki/Genetic_drift" title="Genetic drift">genetic drift</a> (which is non-ergodic in nature). A recombination rate that is too high may lead to premature convergence of the genetic algorithm. A mutation rate that is too high may lead to loss of good solutions unless there is elitist selection. There are theoretical but not yet practical upper and lower bounds for these parameters that can help guide selection.</li>
+<li>The implementation and evaluation of the fitness function is an important factor in the speed and efficiency of the algorithm.</li>
+</ul>
+<p><a name="Variants" id="Variants"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Genetic_algorithm&amp;action=edit&amp;section=7" title="Edit section: Variants">edit</a>]</span> <span class="mw-headline">Variants</span></h2>
+<p>The simplest algorithm represents each chromosome as a <a href="/wiki/Bit" title="Bit">bit</a> string. Typically, numeric parameters can be represented by <a href="/wiki/Integer" title="Integer">integers</a>, though it is possible to use <a href="/wiki/Floating_point" title="Floating point">floating point</a> representations. The floating point representation is natural to <a href="/wiki/Evolution_strategies" title="Evolution strategies">evolution strategies</a> and <a href="/wiki/Evolutionary_programming" title="Evolutionary programming">evolutionary programming</a>. The notion of real-valued genetic algorithms has been offered but is really a misnomer because it does not really represent the building block theory that was proposed by Holland in the 1970s. This theory is not without support though, based on theoretical and experimental results (see below). The basic algorithm performs crossover and mutation at the bit level. Other variants treat the chromosome as a list of numbers which are indexes into an instruction table, nodes in a <a href="/wiki/Linked_list" title="Linked list">linked list</a>, <a href="/wiki/Associative_array" title="Associative array">hashes</a>, <a href="/wiki/Object_%28computer_science%29" title="Object (computer science)">objects</a>, or any other imaginable <a href="/wiki/Data_structure" title="Data structure">data structure</a>. Crossover and mutation are performed so as to respect data element boundaries. For most data types, specific variation operators can be designed. Different chromosomal data types seem to work better or worse for different specific problem domains.</p>
+<p>When bit strings representations of integers are used, <a href="/wiki/Gray_coding" title="Gray coding">Gray coding</a> is often employed. In this way, small changes in the integer can be readily effected through mutations or crossovers. This has been found to help prevent premature convergence at so called <i>Hamming walls</i>, in which too many simultaneous mutations (or crossover events) must occur in order to change the chromosome to a better solution.</p>
+<p>Other approaches involve using arrays of real-valued numbers instead of bit strings to represent chromosomes. Theoretically, the smaller the alphabet, the better the performance, but paradoxically, good results have been obtained from using real-valued chromosomes.</p>
+<p>A very successful (slight) variant of the general process of constructing a new population is to allow some of the better organisms from the current generation to carry over to the next, unaltered. This strategy is known as <i>elitist selection</i>.</p>
+<p>Parallel implementations of genetic algorithms come in two flavours. Coarse grained parallel genetic algorithms assume a population on each of the computer nodes and migration of individuals among the nodes. Fine grained parallel genetic algorithms assume an individual on each processor node which acts with neighboring individuals for selection and reproduction. Other variants, like genetic algorithms for online optimization problems, introduce time-dependence or noise in the fitness function.</p>
+<p>It can be quite effective to combine GA with other optimization methods. GA tends to be quite good at finding generally good global solutions, but quite inefficient at finding the last few mutations to find the absolute optimum. Other techniques (such as simple hill climbing) are quite efficient at finding absolute optimum in a limited region. Alternating GA and hill climbing can improve the efficiency of GA while overcoming the lack of robustness of hill climbing.</p>
+<p>A problem that seems to be overlooked by GA-algorithms thus far is that the natural evolution maximizes <a href="/wiki/Mean_fitness" title="Mean fitness">mean fitness</a> rather than the fitness of the individual (the criterion function used in most applications).</p>
+<p>An algorithm that maximizes mean fitness (without any need for the definition of mean fitness as a criterion function) is <a href="/wiki/Gaussian_adaptation" title="Gaussian adaptation">Gaussian adaptation</a>, See Kjellström 1970<sup id="_ref-0" class="reference"><a href="#_note-0" title="">[1]</a></sup>, provided that the ontogeny of an individual may be seen as a modified recapitulation of evolutionary random steps in the past and that the sum of many random steps tend to become Gaussian distributed (according to the <a href="/wiki/Central_limit_theorem" title="Central limit theorem">central limit theorem</a>).</p>
+<p>This means that the rules of genetic variation may have a different meaning in the natural case. For instance - provided that steps are stored in consecutive order - crossing over may sum a number of steps from maternal DNA adding a number of steps from paternal DNA and so on. This is like adding vectors that more probably may follow a ridge in the phenotypic landscape. Thus, the efficiency of the process may be increased by many orders of magnitude. Moreover, the <a href="/wiki/Inversion_operator" title="Inversion operator">inversion operator</a> has the opportunity to place steps in consecutive order or any other suitable order in favour of survival or efficiency. (See for instance <a href="http://www.evolution-in-a-nutshell.se/traveller.htm" class="external autonumber" title="http://www.evolution-in-a-nutshell.se/traveller.htm" rel="nofollow">[1]</a> or example in <a href="/wiki/Travelling_salesman_problem" title="Travelling salesman problem">travelling salesman problem</a>.)</p>
+<p>Gaussian adaptation is able to approximate the natural process by an adaptation of the moment matrix of the Gaussian. So, because very many quantitative characters are Gaussian distributed in a large population, Gaussian adaptation may serve as a genetic algorithm replacing the rules of genetic variation by a Gaussian random number generator working on the phenotypic level. See Kjellström 1996<sup id="_ref-1" class="reference"><a href="#_note-1" title="">[2]</a></sup></p>
+<p><a href="/wiki/Population-based_incremental_learning" title="Population-based incremental learning">Population-based incremental learning</a> is a variation where the population as a whole is evolved rather than its individual members.</p>
+<p><a name="Problem_domains" id="Problem_domains"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Genetic_algorithm&amp;action=edit&amp;section=8" title="Edit section: Problem domains">edit</a>]</span> <span class="mw-headline">Problem domains</span></h2>
+<p>Problems which appear to be particularly appropriate for solution by genetic algorithms include <a href="/wiki/Timetable" title="Timetable">timetabling</a> and <a href="/wiki/Scheduling" title="Scheduling">scheduling</a> problems, and many scheduling software packages are based on GAs. GAs have also been applied to <a href="/wiki/Engineering" title="Engineering">engineering</a>. Genetic algorithms are often applied as an approach to solve <a href="/wiki/Global_optimization" title="Global optimization">global optimization</a> problems.</p>
+<p>As a general rule of thumb genetic algorithms might be useful in problem domains that have a complex <a href="/wiki/Fitness_landscape" title="Fitness landscape">fitness landscape</a> as <a href="/wiki/Recombination" title="Recombination">recombination</a> is designed to move the population away from <a href="/wiki/Local_optima" title="Local optima">local optima</a> that a traditional <a href="/wiki/Hill_climbing" title="Hill climbing">hill climbing</a> algorithm might get stuck in.</p>
+<p><a name="History" id="History"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Genetic_algorithm&amp;action=edit&amp;section=9" title="Edit section: History">edit</a>]</span> <span class="mw-headline">History</span></h2>
+<p>Computer simulations of evolution started as early as in 1954 with the work of <a href="/w/index.php?title=Nils_Aall_Barricelli&amp;action=edit" class="new" title="Nils Aall Barricelli">Nils Aall Barricelli</a>, who was using the computer at the <a href="/wiki/Institute_for_Advanced_Study" title="Institute for Advanced Study">Institute for Advanced Study</a> in <a href="/wiki/Princeton%2C_New_Jersey" title="Princeton, New Jersey">Princeton, New Jersey</a>.<sup id="_ref-2" class="reference"><a href="#_note-2" title="">[3]</a></sup> His 1954 publication was not widely noticed. Starting in 1957, the Australian quantitative geneticist <a href="/wiki/Alex_Fraser_%28scientist%29" title="Alex Fraser (scientist)">Alex Fraser</a> published a series of papers on simulation of <a href="/wiki/Artificial_selection" title="Artificial selection">artificial selection</a> of organisms with multiple loci controlling a measurable trait. From these beginnings, computer simulation of evolution by biologists became more common in the early 1960s, and the methods were described in books by Fraser and Burnell (1970)<sup id="_ref-3" class="reference"><a href="#_note-3" title="">[4]</a></sup> and Crosby (1973)<sup id="_ref-4" class="reference"><a href="#_note-4" title="">[5]</a></sup>. Fraser's simulations included all of the essential elements of modern genetic algorithms. In addition, <a href="/w/index.php?title=Hans_Bremermann&amp;action=edit" class="new" title="Hans Bremermann">Hans Bremermann</a> published a series of papers in the 1960s that also adopted a population of solution to optimization problems, undergoing recombination, mutation, and selection. Bremermann's research also included the elements of modern genetic algorithms. Other noteworthy early pioneers include Richard Friedberg, George Friedman, and Michael Conrad. Many early papers are reprinted by Fogel (1998).<sup id="_ref-5" class="reference"><a href="#_note-5" title="">[6]</a></sup></p>
+<p>Although Barricelli, in work he reported in 1963, had simulated the evolution of ability to play a simple game,<sup id="_ref-6" class="reference"><a href="#_note-6" title="">[7]</a></sup> <a href="/wiki/Artificial_evolution" title="Artificial evolution">artificial evolution</a> became a widely recognized optimization method as a result of the work of <a href="/wiki/Ingo_Rechenberg" title="Ingo Rechenberg">Ingo Rechenberg</a> and <a href="/w/index.php?title=Hans-Paul_Schwefel&amp;action=edit" class="new" title="Hans-Paul Schwefel">Hans-Paul Schwefel</a> in the 1960s and early 1970s - his group was able to solve complex engineering problems through <a href="/wiki/Evolution_strategies" title="Evolution strategies">evolution strategies</a> (1971 PhD thesis and resulting 1973 book). Another approach was the evolutionary programming technique of <a href="/wiki/Lawrence_J._Fogel" title="Lawrence J. Fogel">Lawrence J. Fogel</a>, which was proposed for generating artificial intelligence. <a href="/wiki/Evolutionary_programming" title="Evolutionary programming">Evolutionary programming</a> originally used finite state machines for predicting environments, and used variation and selection to optimize the predictive logics. Genetic algorithms in particular became popular through the work of <a href="/wiki/John_Henry_Holland" title="John Henry Holland">John Holland</a> in the early 1970s, and particularly his 1975 book. His work originated with studies of <a href="/wiki/Cellular_automata" title="Cellular automata">cellular automata</a>, conducted by <a href="/wiki/John_Henry_Holland" title="John Henry Holland">Holland</a> and his students at the <a href="/wiki/University_of_Michigan" title="University of Michigan">University of Michigan</a>. Research in GAs remained largely theoretical until the mid-1980s, when The First International Conference on Genetic Algorithms was held in <a href="/wiki/Pittsburgh%2C_Pennsylvania" title="Pittsburgh, Pennsylvania">Pittsburgh, Pennsylvania</a>. As academic interest grew, the dramatic increase in desktop computational power allowed for practical application of the new technique. In 1989, <a href="/wiki/The_New_York_Times" title="The New York Times">The New York Times</a> writer <a href="/wiki/John_Markoff" title="John Markoff">John Markoff</a> wrote about <a href="/wiki/Evolver_%28software%29" title="Evolver (software)">Evolver</a>, the first commercially available desktop genetic algorithm. Custom computer applications began to emerge in a wide variety of fields, and these algorithms are now used by a majority of <a href="/wiki/Fortune_500" title="Fortune 500">Fortune 500</a> companies to solve difficult scheduling, data fitting, trend spotting and budgeting problems, and virtually any other type of <a href="/wiki/Combinatorial_optimization" title="Combinatorial optimization">combinatorial optimization</a> problem. Most applications do not use traditional genetic algorithms but a broader set of evolutionary algorithms that incorporate facets of evolution strategies, evolutionary programming, and genetic algorithms.</p>
+<p><a name="Related_techniques" id="Related_techniques"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Genetic_algorithm&amp;action=edit&amp;section=10" title="Edit section: Related techniques">edit</a>]</span> <span class="mw-headline">Related techniques</span></h2>
+<ul>
+<li><a href="/wiki/Ant_colony_optimization" title="Ant colony optimization">Ant colony optimization</a> (ACO) uses many ants (or agents) to traverse the solution space and find locally productive areas. While usually inferior to genetic algorithms and other forms of local search, it is able to produce results in problems where no global or up-to-date perspective can be obtained, and thus the other methods cannot be applied.<sup class="noprint Template-Fact"><span title="This claim needs references to reliable sources&#160;since August 2007" style="white-space: nowrap;">[<i><a href="/wiki/Wikipedia:Citing_sources" title="Wikipedia:Citing sources">citation needed</a></i>]</span></sup></li>
+</ul>
+<ul>
+<li><a href="/w/index.php?title=Bacteriologic_Algorithms&amp;action=edit" class="new" title="Bacteriologic Algorithms">Bacteriologic Algorithms</a> (BA) inspired by <a href="/wiki/Evolutionary_ecology" title="Evolutionary ecology">evolutionary ecology</a> and, more particularly, bacteriologic adaptation. Evolutionary ecology is the study of living organisms in the context of their environment, with the aim of discovering how they adapt. Its basic concept is that in a heterogeneous environment, you can’t find one individual that fits the whole environment. So, you need to reason at the population level. BAs have shown better results than GAs on problems such as complex positioning problems (antennas for cell phones, urban planning, and so on) or data mining.<sup id="_ref-7" class="reference"><a href="#_note-7" title="">[8]</a></sup></li>
+</ul>
+<ul>
+<li><a href="/wiki/Cross-entropy_method" title="Cross-entropy method">Cross-entropy method</a> The Cross-entropy (CE) method generates candidates solutions via a parameterized probability distribution. The parameters are updated via cross-entropy minimization, so as to generate better samples in the next iteration.</li>
+</ul>
+<ul>
+<li><a href="/wiki/Evolution_strategies" title="Evolution strategies">Evolution strategies</a> (ES, see Rechenberg, 1971) evolve individuals by means of mutation and intermediate and discrete recombination. ES algorithms are designed particularly to solve problems in the real-value domain. They use self-adaptation to adjust control parameters of the search.</li>
+</ul>
+<ul>
+<li><a href="/wiki/Evolutionary_programming" title="Evolutionary programming">Evolutionary programming</a> (EP) involves populations of solutions with primarily mutation and selection and arbitrary representations. They use self-adaptation to adjust parameters, and can include other variation operations such as combining information from multiple parents.</li>
+</ul>
+<ul>
+<li><a href="/wiki/Extremal_optimization" title="Extremal optimization">Extremal optimization</a> (EO) Unlike GAs, which work with a population of candidate solutions, EO evolves a single solution and makes <a href="/wiki/Local_search_%28optimization%29" title="Local search (optimization)">local</a> modifications to the worst components. This requires that a suitable representation be selected which permits individual solution components to be assigned a quality measure ("fitness"). The governing principle behind this algorithm is that of <i>emergent</i> improvement through selectively removing low-quality components and replacing them with a randomly selected component. This is decidedly at odds with a GA that selects good solutions in an attempt to make better solutions.</li>
+</ul>
+<ul>
+<li><a href="/wiki/Gaussian_adaptation" title="Gaussian adaptation">Gaussian adaptation</a> (normal or natural adaptation, abbreviated NA to avoid confusion with GA) is intended for the maximisation of manufacturing yield of signal processing systems. It may also be used for ordinary parametric optimisation. It relies on a certain theorem valid for all regions of acceptability and all Gaussian distributions. The efficiency of NA relies on information theory and a certain theorem of efficiency. Its efficiency is defined as information divided by the work needed to get the information<sup id="_ref-8" class="reference"><a href="#_note-8" title="">[9]</a></sup>. Because NA maximises mean fitness rather than the fitness of the individual, the landscape is smoothed such that valleys between peaks may disappear. Therefore it has a certain “ambition” to avoid local peaks in the fitness landscape. NA is also good at climbing sharp crests by adaptation of the moment matrix, because NA may maximise the disorder (<a href="/wiki/Average_information" title="Average information">average information</a>) of the Gaussian simultaneously keeping the <a href="/wiki/Mean_fitness" title="Mean fitness">mean fitness</a> constant.</li>
+</ul>
+<ul>
+<li><a href="/wiki/Genetic_programming" title="Genetic programming">Genetic programming</a> (GP) is a related technique popularized by <a href="/wiki/John_Koza" title="John Koza">John Koza</a> in which computer programs, rather than function parameters, are optimized. Genetic programming often uses <a href="/wiki/Tree_data_structure" title="Tree data structure">tree-based</a> internal <a href="/wiki/Data_structure" title="Data structure">data structures</a> to represent the computer programs for adaptation instead of the <a href="/wiki/List_%28computing%29" title="List (computing)">list</a> structures typical of genetic algorithms.</li>
+</ul>
+<ul>
+<li><a href="/w/index.php?title=Grouping_Genetic_Algorithm&amp;action=edit" class="new" title="Grouping Genetic Algorithm">Grouping Genetic Algorithm</a> (GGA) is an evolution of the GA where the focus is shifted from individual items, like in classical GAs, to groups or subset of items.<sup id="_ref-Falkenauer_0" class="reference"><a href="#_note-Falkenauer" title="">[10]</a></sup> The idea behind this GA evolution proposed by <a href="/w/index.php?title=Emanuel_Falkenauer&amp;action=edit" class="new" title="Emanuel Falkenauer">Emanuel Falkenauer</a> is that solving some complex problems, a.k.a. <i>clustering</i> or <i>partitioning</i> problems where a set of items must be split into disjoint group of items in an optimal way, would better be achieved by making characteristics of the groups of items equivalent to genes. These kind of problems include <a href="/wiki/Bin_packing_problem" title="Bin packing problem">Bin Packing</a>, Line Balancing, Clustering w.r.t. a distance measure, Equal Piles, etc., on which classic GAs proved to perform poorly. Making genes equivalent to groups implies chromosomes that are in general of variable length, and special genetic operators that manipulate whole groups of items. For <a href="/wiki/Bin_packing_problem" title="Bin packing problem">Bin Packing</a> in particular, a GGA hybridized with the Dominance Criterion of Martello and Toth, is arguably the best technique to date.</li>
+</ul>
+<ul>
+<li><a href="/wiki/Harmony_search" title="Harmony search">Harmony search</a> (HS) is an algorithm mimicking musicians behaviors in improvisation process.</li>
+</ul>
+<ul>
+<li><a href="/wiki/Interactive_evolutionary_algorithm" title="Interactive evolutionary algorithm">Interactive evolutionary algorithms</a> are evolutionary algorithms that use human evaluation. They are usually applied to domains where it is hard to design a computational fitness function, for example, evolving images, music, artistic designs and forms to fit users' aesthetic preference.</li>
+</ul>
+<ul>
+<li><a href="/wiki/Memetic_algorithm" title="Memetic algorithm">Memetic algorithm</a> (MA), also called <i>hybrid genetic algorithm</i> among others, is a relatively new evolutionary method where local search is applied during the evolutionary cycle. The idea of memetic algorithms comes from <a href="/wiki/Meme" title="Meme">memes</a>, which–unlike genes–can adapt themselves. In some problem areas they are shown to be more efficient than traditional evolutionary algorithms.</li>
+</ul>
+<ul>
+<li><a href="/wiki/Simulated_annealing" title="Simulated annealing">Simulated annealing</a> (SA) is a related global optimization technique that traverses the search space by testing random mutations on an individual solution. A mutation that increases fitness is always accepted. A mutation that lowers fitness is accepted probabilistically based on the difference in fitness and a decreasing temperature parameter. In SA parlance, one speaks of seeking the lowest energy instead of the maximum fitness. SA can also be used within a standard GA algorithm by starting with a relatively high rate of mutation and decreasing it over time along a given schedule.</li>
+</ul>
+<ul>
+<li><a href="/wiki/Stochastic_optimization" title="Stochastic optimization">Stochastic optimization</a> is an umbrella set of methods that includes GAs and numerous other approaches.</li>
+</ul>
+<ul>
+<li><a href="/wiki/Tabu_search" title="Tabu search">Tabu search</a> (TS) is similar to Simulated Annealing in that both traverse the solution space by testing mutations of an individual solution. While simulated annealing generates only one mutated solution, tabu search generates many mutated solutions and moves to the solution with the lowest energy of those generated. In order to prevent cycling and encourage greater movement through the solution space, a tabu list is maintained of partial or complete solutions. It is forbidden to move to a solution that contains elements of the tabu list, which is updated as the solution traverses the solution space.</li>
+</ul>
+<p><a name="Building_block_hypothesis" id="Building_block_hypothesis"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Genetic_algorithm&amp;action=edit&amp;section=11" title="Edit section: Building block hypothesis">edit</a>]</span> <span class="mw-headline">Building block hypothesis</span></h2>
+<p>Genetic algorithms are simple to implement, but their behavior is difficult to understand. In particular it is difficult to understand why they are often successful in generating solutions of high fitness. The building block hypothesis (BBH) consists of</p>
+<ol>
+<li>A description of an abstract adaptive mechanism that performs adaptation by recombining "building blocks", i.e. low order, low defining-length schemata with above average fitness.</li>
+<li>A hypothesis that a genetic algorithm performs adaptation by implicitly and efficiently implementing this abstract adaptive mechanism.</li>
+</ol>
+<p>(Goldberg 1989:41) describes the abstract adaptive mechanism as follows:</p>
+<dl>
+<dd>Short, low order, and highly fit <a href="/wiki/Schema" title="Schema">schemata</a> are sampled, <a href="/wiki/Crossover_%28genetic_algorithm%29" title="Crossover (genetic algorithm)">recombined</a> [crossed over], and resampled to form strings of potentially higher fitness. In a way, by working with these particular schemata [the building blocks], we have reduced the complexity of our problem; instead of building high-performance strings by trying every conceivable combination, we construct better and better strings from the best partial solutions of past samplings.</dd>
+</dl>
+<dl>
+<dd>Just as a child creates magnificent fortresses through the arrangement of simple blocks of wood [building blocks], so does a genetic algorithm seek near optimal performance through the juxtaposition of short, low-order, high-performance schemata, or building blocks.</dd>
+</dl>
+<p>(Goldberg 1989) claims that the building block hypothesis is supported by <a href="/wiki/Holland%27s_schema_theorem" title="Holland's schema theorem">Holland's schema theorem</a>.</p>
+<p>The building block hypothesis has been sharply criticized on the grounds that it lacks theoretical justification and experimental results have been published that draw its veracity into question. On the theoretical side, for example, Wright et al. state that</p>
+<dl>
+<dd>"The various claims about GAs that are traditionally made under the name of the <i>building block hypothesis</i> have, to date, no basis in theory and, in some cases, are simply incoherent"<sup id="_ref-9" class="reference"><a href="#_note-9" title="">[11]</a></sup></dd>
+</dl>
+<p>On the experimental side uniform crossover was seen to outperform one-point and two-point crossover on many of the fitness functions studied by Syswerda.<sup id="_ref-10" class="reference"><a href="#_note-10" title="">[12]</a></sup> Summarizing these results, Fogel remarks that</p>
+<dl>
+<dd>"Generally, uniform crossover yielded better performance than two-point crossover, which in turn yielded better performance than one-point crossover"<sup id="_ref-11" class="reference"><a href="#_note-11" title="">[13]</a></sup></dd>
+</dl>
+<p>Syswerda's results contradict the building block hypothesis because uniform crossover is extremely disruptive of short schemata whereas one and two-point crossover are more likely to conserve short schemata and combine their defining bits in children produced during recombination.</p>
+<p>The debate over the building block hypothesis demonstrates that the issue of how GAs "work", (i.e. perform adaptation) is currently far from settled. (See the External Links section for more about this)</p>
+<p><a name="Applications" id="Applications"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Genetic_algorithm&amp;action=edit&amp;section=12" title="Edit section: Applications">edit</a>]</span> <span class="mw-headline">Applications</span></h2>
+<ul>
+<li><a href="/wiki/Artificial_Creativity" title="Artificial Creativity">Artificial Creativity</a></li>
+<li><a href="/wiki/Automated" title="Automated">Automated</a> design, including research on <a href="/wiki/Composite_material" title="Composite material">composite material</a> design and <a href="/w/index.php?title=Multi-objective&amp;action=edit" class="new" title="Multi-objective">multi-objective</a> design of automotive components for <a href="/wiki/Crashworthiness" title="Crashworthiness">crashworthiness</a>, weight savings, and other characteristics.</li>
+<li>Automated design of <a href="/wiki/Mechatronics" title="Mechatronics">mechatronic</a> systems using <a href="/wiki/Bond_graphs" title="Bond graphs">bond graphs</a> and <a href="/wiki/Genetic_programming" title="Genetic programming">genetic programming</a> (NSF).</li>
+<li>Automated design of industrial equipment using catalogs of exemplar lever patterns.</li>
+<li>Calculation of <a href="/wiki/Bound_state" title="Bound state">Bound states</a> and <a href="/wiki/Local-density_approximation" title="Local-density approximation">Local-density approximations</a>.</li>
+<li>Chemical kinetics (<a href="http://www.personal.leeds.ac.uk/~fuensm/project.html" class="external text" title="http://www.personal.leeds.ac.uk/~fuensm/project.html" rel="nofollow">gas</a> and <a href="http://repositories.cdlib.org/postprints/1154" class="external text" title="http://repositories.cdlib.org/postprints/1154" rel="nofollow">solid</a> phases)</li>
+<li>Configuration applications, particularly physics applications of optimal molecule configurations for particular systems like C60 (<a href="/wiki/Fullerene" title="Fullerene">buckyballs</a>).</li>
+<li>Container loading optimization.</li>
+<li><a href="/wiki/Code-breaking" title="Code-breaking">Code-breaking</a>, using the GA to search large solution spaces of <a href="/wiki/Cipher" title="Cipher">ciphers</a> for the one correct decryption.</li>
+<li>Design of <a href="/w/index.php?title=Water_distribution_systems&amp;action=edit" class="new" title="Water distribution systems">water distribution systems</a>.</li>
+<li><a href="/w/index.php?title=Distributed_computer_network&amp;action=edit" class="new" title="Distributed computer network">Distributed computer network</a> <a href="/wiki/Topologies" title="Topologies">topologies</a>.</li>
+<li>Electronic circuit design, known as <a href="/wiki/Evolvable_hardware" title="Evolvable hardware">Evolvable hardware</a>.</li>
+<li>File allocation for a <a href="/wiki/Distributed_system" title="Distributed system">distributed system</a>.</li>
+<li><a href="/wiki/Parallelization" title="Parallelization">Parallelization</a> of GAs/GPs including use of <a href="/w/index.php?title=Hierarchical_decomposition&amp;action=edit" class="new" title="Hierarchical decomposition">hierarchical decomposition</a> of <a href="/wiki/Problem_domains" title="Problem domains">problem domains</a> and design spaces <a href="/wiki/Nesting" title="Nesting">nesting</a> of irregular shapes using <a href="/w/index.php?title=Feature_matching&amp;action=edit" class="new" title="Feature matching">feature matching</a> and GAs.</li>
+<li><a href="/wiki/Game_Theory" title="Game Theory">Game Theory</a> Equilibrium Resolution.</li>
+<li>Learning <a href="/wiki/Robot" title="Robot">Robot</a> behavior using Genetic Algorithms.</li>
+<li>Learning fuzzy rule base using genetic algorithms.</li>
+<li>Linguistic analysis, including <a href="/wiki/Grammar_Induction" title="Grammar Induction">Grammar Induction</a> and other aspects of <a href="/wiki/Natural_Language_Processing" title="Natural Language Processing">Natural Language Processing</a> (NLP) such as word sense disambiguation.</li>
+<li>Mobile communications infrastructure <a href="/wiki/Optimization_%28mathematics%29" title="Optimization (mathematics)">optimization</a>.</li>
+<li>Molecular Structure Optimization (Chemistry).</li>
+<li>Multiple population <a href="/wiki/Topologies" title="Topologies">topologies</a> and interchange <a href="/wiki/Methodologies" title="Methodologies">methodologies</a>.</li>
+<li>Optimisation of data compression systems, for example using wavelets.</li>
+<li><a href="/wiki/Protein_folding" title="Protein folding">Protein folding</a> and protein/<a href="/wiki/Ligand_docking" title="Ligand docking">ligand docking</a>.</li>
+<li><a href="/w/index.php?title=Plant_floor_layout&amp;action=edit" class="new" title="Plant floor layout">Plant floor layout</a>.</li>
+<li>Representing rational agents in economic models such as the <a href="/wiki/Cobweb_model" title="Cobweb model">cobweb model</a>.</li>
+<li>Scheduling applications, including job-shop scheduling. The objective being to schedule jobs in a <a href="/w/index.php?title=Sequence_dependent&amp;action=edit" class="new" title="Sequence dependent">sequence dependent</a> or non-sequence dependent setup environment in order to maximize the volume of production while minimizing penalties such as tardiness.</li>
+<li>Selection of optimal mathematical model to describe biological systems.</li>
+<li><a href="/wiki/Software_engineering" title="Software engineering">Software engineering</a></li>
+<li>Solving the machine-component grouping problem required for <a href="/wiki/Cellular_manufacturing" title="Cellular manufacturing">cellular manufacturing</a> systems.</li>
+<li><a href="/w/index.php?title=Tactical_asset&amp;action=edit" class="new" title="Tactical asset">Tactical asset</a> <a href="/wiki/Allocation" title="Allocation">allocation</a> and <a href="/w/index.php?title=International_equity&amp;action=edit" class="new" title="International equity">international equity</a> strategies.</li>
+<li><a href="/wiki/Timetable" title="Timetable">Timetabling</a> problems, such as designing a non-conflicting class timetable for a large university.</li>
+<li>Training <a href="/wiki/Artificial_neural_networks" title="Artificial neural networks">artificial neural networks</a> when pre-classified training examples are not readily obtainable (<a href="/wiki/Neuroevolution" title="Neuroevolution">neuroevolution</a>).</li>
+<li><a href="/wiki/Traveling_Salesman_Problem" title="Traveling Salesman Problem">Traveling Salesman Problem</a>.</li>
+</ul>
+<p><a name="References" id="References"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Genetic_algorithm&amp;action=edit&amp;section=13" title="Edit section: References">edit</a>]</span> <span class="mw-headline">References</span></h2>
+<div class="references-small">
+<ol class="references">
+<li id="_note-0"><b><a href="#_ref-0" title="">^</a></b> <cite style="font-style:normal">Kjellström, G. (1970). "Optimization of electrical Networks with respect to Tolerance Costs.". <i>Ericsson Technics</i> (3): 157-175.</cite><span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.atitle=Optimization+of+electrical+Networks+with+respect+to+Tolerance+Costs.&amp;rft.jtitle=Ericsson+Technics&amp;rft.date=1970&amp;rft.issue=3&amp;rft.aulast=Kjellstr%C3%B6m&amp;rft.aufirst=G.&amp;rft.pages=157-175">&#160;</span></li>
+<li id="_note-1"><b><a href="#_ref-1" title="">^</a></b> <cite style="font-style:normal">Kjellström, G. (January 1996). "Evolution as a statistical optimization algorithm". <i>Evolutionary Theory</i> (11): 105-117.</cite><span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.atitle=Evolution+as+a+statistical+optimization+algorithm&amp;rft.jtitle=Evolutionary+Theory&amp;rft.date=1996&amp;rft.issue=11&amp;rft.aulast=Kjellstr%C3%B6m&amp;rft.aufirst=G.&amp;rft.pages=105-117">&#160;</span></li>
+<li id="_note-2"><b><a href="#_ref-2" title="">^</a></b> <cite style="font-style:normal"><a href="/w/index.php?title=Nils_Aall_Barricelli&amp;action=edit" class="new" title="Nils Aall Barricelli">Barricelli, Nils Aall</a> (1954). "Esempi numerici di processi di evoluzione". <i>Methodos</i>: 45-68.</cite><span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.atitle=Esempi+numerici+di+processi+di+evoluzione&amp;rft.jtitle=Methodos&amp;rft.date=1954&amp;rft.aulast=Barricelli&amp;rft.aufirst=Nils+Aall&amp;rft.pages=45-68">&#160;</span></li>
+<li id="_note-3"><b><a href="#_ref-3" title="">^</a></b> <cite class="book" style="font-style:normal" id="Reference-Fraser-1970"><a href="/wiki/Alex_Fraser_%28scientist%29" title="Alex Fraser (scientist)">Fraser, Alex</a>; Donald Burnell (1970). <i>Computer Models in Genetics</i>. New York: McGraw-Hill.</cite><span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Computer+Models+in+Genetics&amp;rft.aulast=Fraser&amp;rft.aufirst=Alex&amp;rft.pub=McGraw-Hill&amp;rft.place=New+York">&#160;</span></li>
+<li id="_note-4"><b><a href="#_ref-4" title="">^</a></b> <cite class="book" style="font-style:normal" id="Reference-Crosby-1973">Crosby, Jack L. (1973). <i>Computer Simulation in Genetics</i>. London: John Wiley &amp; Sons.</cite><span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Computer+Simulation+in+Genetics&amp;rft.aulast=Crosby&amp;rft.aufirst=Jack+L.&amp;rft.pub=John+Wiley+%26+Sons&amp;rft.place=London">&#160;</span></li>
+<li id="_note-5"><b><a href="#_ref-5" title="">^</a></b> <cite class="book" style="font-style:normal" id="Reference-Fogel-1998">Fogel, David B. (editor) (1998). <i>Evolutionary Computation: The Fossil Record</i>. New York: IEEE Press.</cite><span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Evolutionary+Computation%3A+The+Fossil+Record&amp;rft.aulast=Fogel&amp;rft.aufirst=David+B.+%28editor%29&amp;rft.pub=IEEE+Press&amp;rft.place=New+York">&#160;</span></li>
+<li id="_note-6"><b><a href="#_ref-6" title="">^</a></b> <cite style="font-style:normal">Barricelli, Nils Aall (1963). "Numerical testing of evolution theories. Part II. Preliminary tests of performance, symbiogenesis and terrestrial life". <i>Acta Biotheoretica</i> (16): 99-126.</cite><span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.atitle=Numerical+testing+of+evolution+theories.++Part+II.+Preliminary+tests+of+performance%2C+symbiogenesis+and+terrestrial+life&amp;rft.jtitle=Acta+Biotheoretica&amp;rft.date=1963&amp;rft.issue=16&amp;rft.aulast=Barricelli&amp;rft.aufirst=Nils+Aall&amp;rft.pages=99-126">&#160;</span></li>
+<li id="_note-7"><b><a href="#_ref-7" title="">^</a></b> <cite style="font-style:normal">Baudry, Benoit; Franck Fleurey, <a href="/wiki/Jean-Marc_J%C3%A9z%C3%A9quel" title="Jean-Marc Jézéquel">Jean-Marc Jézéquel</a>, and Yves Le Traon (March/April 2005). "<a href="http://www.irisa.fr/triskell/publis/2005/Baudry05d.pdf" class="external text" title="http://www.irisa.fr/triskell/publis/2005/Baudry05d.pdf" rel="nofollow">Automatic Test Case Optimization: A Bacteriologic Algorithm</a>". <i>IEEE Software</i>: 76-82.</cite><span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.atitle=Automatic+Test+Case+Optimization%3A+A+Bacteriologic+Algorithm&amp;rft.jtitle=IEEE+Software&amp;rft.date=March%2FApril+2005&amp;rft.aulast=Baudry&amp;rft.aufirst=Benoit&amp;rft.pages=76-82&amp;rft_id=http%3A%2F%2Fwww.irisa.fr%2Ftriskell%2Fpublis%2F2005%2FBaudry05d.pdf">&#160;</span></li>
+<li id="_note-8"><b><a href="#_ref-8" title="">^</a></b> <cite style="font-style:normal">Kjellström, G. (Dec. 1991). "On the Efficiency of Gaussian Adaptation". <i>Journal of Optimization Theory and Applications</i> (3): 589-597.</cite><span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.atitle=On+the+Efficiency+of+Gaussian+Adaptation&amp;rft.jtitle=Journal+of+Optimization+Theory+and+Applications&amp;rft.date=1991&amp;rft.issue=3&amp;rft.aulast=Kjellstr%C3%B6m&amp;rft.aufirst=G.&amp;rft.pages=589-597">&#160;</span></li>
+<li id="_note-Falkenauer"><b><a href="#_ref-Falkenauer_0" title="">^</a></b> <cite class="book" style="font-style:normal" id="Reference-Falkenauer-1997"><a href="/w/index.php?title=Emanuel_Falkenauer&amp;action=edit" class="new" title="Emanuel Falkenauer">Falkenauer, Emanuel</a> (1997). <i>Genetic Algorithms and Grouping Problems</i>. Chichester, England: John Wiley &amp; Sons Ltd. <a href="/w/index.php?title=Special:Booksources&amp;isbn=9780471971504" class="internal">ISBN 978-0-471-97150-4</a>.</cite><span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Genetic+Algorithms+and+Grouping+Problems&amp;rft.aulast=Falkenauer&amp;rft.aufirst=Emanuel&amp;rft.pub=John+Wiley+%26+Sons+Ltd&amp;rft.place=Chichester%2C+England">&#160;</span></li>
+<li id="_note-9"><b><a href="#_ref-9" title="">^</a></b> <cite style="font-style:normal">Wright, A.H.; et al. (2003). "Implicit Parallelism". <i>Proceedings of the Genetic and Evolutionary Computation Conference</i>.</cite><span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=proceeding&amp;rft.btitle=Proceedings+of+the+Genetic+and+Evolutionary+Computation+Conference&amp;rft.atitle=Implicit+Parallelism&amp;rft.aulast=Wright&amp;rft.aufirst=A.H.&amp;rft.date=2003">&#160;</span></li>
+<li id="_note-10"><b><a href="#_ref-10" title="">^</a></b> <cite style="font-style:normal">Syswerda, G. (1989). "Uniform crossover in genetic algorithms". J. D. Schaffer <i>Proceedings of the Third International Conference on Genetic Algorithms</i>, Morgan Kaufmann.</cite><span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=proceeding&amp;rft.btitle=Proceedings+of+the+Third+International+Conference+on+Genetic+Algorithms&amp;rft.atitle=Uniform+crossover+in+genetic+algorithms&amp;rft.aulast=Syswerda&amp;rft.aufirst=G.&amp;rft.date=1989&amp;rft.pub=Morgan+Kaufmann">&#160;</span></li>
+<li id="_note-11"><b><a href="#_ref-11" title="">^</a></b> <cite class="book" style="font-style:normal" id="Reference-Fogel-2000">Fogel, David B. (2000). <i>Evolutionary Computation: Towards a New Philosophy of Machine Intelligence</i>. New York: IEEE Press, 140.</cite><span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Evolutionary+Computation%3A+Towards+a+New+Philosophy+of+Machine+Intelligence&amp;rft.aulast=Fogel&amp;rft.aufirst=David+B.&amp;rft.pub=IEEE+Press&amp;rft.place=New+York&amp;rft.pages=140">&#160;</span></li>
+</ol>
+</div>
+<div class="references-small" style="margin-left:1.5em;">
+<ul>
+<li><cite style="font-style:normal">Bies, Robert R; Muldoon, Matthew F; Pollock, Bruce G; Manuck, Steven; Smith, Gwenn and Sale, Mark E (2006). "A Genetic Algorithm-Based, Hybrid Machine Learning Approach to Model Selection". <i>Journal of Pharmacokinetics and Pharmacodynamics</i>: 196-221.</cite><span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.atitle=A+Genetic+Algorithm-Based%2C+Hybrid+Machine+Learning+Approach+to+Model+Selection&amp;rft.jtitle=Journal+of+Pharmacokinetics+and+Pharmacodynamics&amp;rft.date=2006&amp;rft.aulast=Bies&amp;rft.aufirst=Robert+R&amp;rft.pages=196-221">&#160;</span></li>
+<li>Fentress, Sam W (2005). <a href="http://www.inf.ed.ac.uk/publications/thesis/online/IM050329.pdf" class="external text" title="http://www.inf.ed.ac.uk/publications/thesis/online/IM050329.pdf" rel="nofollow">Exaptation as a means of evolving complex solutions</a>. MA Thesis, University of Edinburgh.</li>
+<li><cite style="font-style:normal">Fraser, Alex S. (1957). "Simulation of Genetic Systems by Automatic Digital Computers. I. Introduction". <i>Australian Journal of Biological Sciences</i> <b>10</b>: 484-491.</cite><span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.atitle=Simulation+of+Genetic+Systems+by+Automatic+Digital+Computers.+I.+Introduction&amp;rft.jtitle=Australian+Journal+of+Biological+Sciences&amp;rft.date=1957&amp;rft.volume=10&amp;rft.aulast=Fraser&amp;rft.aufirst=Alex+S.&amp;rft.pages=484-491">&#160;</span></li>
+<li>Goldberg, David E (1989), <i>Genetic Algorithms in Search, Optimization and Machine Learning,</i> Kluwer Academic Publishers, Boston, MA.</li>
+<li>Goldberg, David E (2002), <i>The Design of Innovation: Lessons from and for Competent Genetic Algorithms,</i> Addison-Wesley, Reading, MA.</li>
+<li>Fogel, David B (2006), <i>Evolutionary Computation: Toward a New Philosophy of Machine Intelligence,</i> IEEE Press, Piscataway, NJ. Third Edition</li>
+<li>Holland, John H (1975), <i>Adaptation in Natural and Artificial Systems</i>, University of Michigan Press, Ann Arbor</li>
+<li>Koza, John (1992), <i>Genetic Programming: On the Programming of Computers by Means of Natural Selection</i>, <a href="/wiki/MIT_Press" title="MIT Press">MIT Press</a>. <a href="/w/index.php?title=Special:Booksources&amp;isbn=0262111705" class="internal">ISBN 0-262-11170-5</a></li>
+<li>Michalewicz, Zbigniew (1999), <i>Genetic Algorithms + Data Structures = Evolution Programs</i>, Springer-Verlag.</li>
+<li>Mitchell, Melanie, (1996), <i>An Introduction to Genetic Algorithms</i>, MIT Press, Cambridge, MA.</li>
+<li>Rechenberg, Ingo (1971): Evolutionsstrategie - Optimierung technischer Systeme nach Prinzipien der biologischen Evolution (PhD thesis). Reprinted by Fromman-Holzboog (1973).</li>
+<li>Schmitt, Lothar M, Nehaniv Chrystopher N, Fujii Robert H (1998), <i>Linear analysis of genetic algorithms</i>, Theoretical Computer Science (208), pp. 111-148</li>
+<li>Schmitt, Lothar M (2001), <i>Theory of Genetic Algorithms</i>, Theoretical Computer Science (259), pp. 1-61</li>
+<li>Schmitt, Lothar M (2004), <i>Theory of Genetic Algorithms II: models for genetic operators over the string-tensor representation of populations and convergence to global optima for arbitrary fitness function under scaling</i>, Theoretical Computer Science (310), pp. 181-231</li>
+<li>Schwefel, Hans-Paul (1974): Numerische Optimierung von Computer-Modellen (PhD thesis). Reprinted by Birkhäuser (1977).</li>
+<li>Vose, Michael D (1999), <i>The Simple Genetic Algorithm: Foundations and Theory</i>, MIT Press, Cambridge, MA.</li>
+<li>Whitley, D. (1994). <i>A genetic algorithm tutorial</i>. Statistics and Computing 4, 65–85.</li>
+</ul>
+</div>
+<p><a name="External_links" id="External_links"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Genetic_algorithm&amp;action=edit&amp;section=14" title="Edit section: External links">edit</a>]</span> <span class="mw-headline">External links</span></h2>
+<ul>
+<li><a href="http://fog.neopages.org/helloworldgeneticalgorithms.php" class="external text" title="http://fog.neopages.org/helloworldgeneticalgorithms.php" rel="nofollow">A Practical Tutorial on Genetic Algorithm</a> Programming a Genetic Algorithm step by step.</li>
+</ul>
+<ul>
+<li><a href="http://samizdat.mines.edu/ga_tutorial/ga_tutorial.ps" class="external text" title="http://samizdat.mines.edu/ga_tutorial/ga_tutorial.ps" rel="nofollow">A Genetic Algorithm Tutorial by Darrell Whitley Computer Science Department Colorado State University</a> An excellent tutorial with lots of theory</li>
+</ul>
+<ul>
+<li><a href="http://www.hao.ucar.edu/Public/models/pikaia/pikaia.html" class="external text" title="http://www.hao.ucar.edu/Public/models/pikaia/pikaia.html" rel="nofollow">A Fortran code (PIKAIA) with a tutorial by Paul Charbonneau and Barry Knapp, National Center for Atmospheric Research.</a> An excellent tutorial and a versatile public domain code. PIKAIA is also available in <a href="http://www.ecy.wa.gov/programs/eap/models.html" class="external text" title="http://www.ecy.wa.gov/programs/eap/models.html" rel="nofollow">a version for Microsoft Excel</a>, as well as <a href="http://whitedwarf.org/index.html?parallel/&amp;0" class="external text" title="http://whitedwarf.org/index.html?parallel/&amp;0" rel="nofollow">a parallel processing version</a>.</li>
+<li><a href="http://evoadaptation.wordpress.com/2007/01/25/january-23-2007-untitled/" class="external text" title="http://evoadaptation.wordpress.com/2007/01/25/january-23-2007-untitled/" rel="nofollow">VectorGA</a> A vectorized implementation of a genetic algorithm in Matlab.</li>
+<li><a href="http://evoadaptation.wordpress.com/2007/09/04/the-dubious-history-of-the-building-block-hypothesis/" class="external text" title="http://evoadaptation.wordpress.com/2007/09/04/the-dubious-history-of-the-building-block-hypothesis/" rel="nofollow">The Dubious History of the Building Block Hypothesis</a></li>
+</ul>
+
+<!-- 
+Pre-expand include size: 96016 bytes
+Post-expand include size: 25514 bytes
+Template argument size: 17003 bytes
+Maximum: 2048000 bytes
+-->
+
+<!-- Saved in parser cache with key enwiki:pcache:idhash:40254-0!1!0!default!!en!2 and timestamp 20070913171410 -->
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org/wiki/Genetic_algorithm">http://en.wikipedia.org/wiki/Genetic_algorithm</a>"</div>
+			<div id="catlinks"><p class='catlinks'><a href="/wiki/Special:Categories" title="Special:Categories">Categories</a>: <span dir='ltr'><a href="/wiki/Category:All_articles_with_unsourced_statements" title="Category:All articles with unsourced statements">All articles with unsourced statements</a></span> | <span dir='ltr'><a href="/wiki/Category:Articles_with_unsourced_statements_since_August_2007" title="Category:Articles with unsourced statements since August 2007">Articles with unsourced statements since August 2007</a></span> | <span dir='ltr'><a href="/wiki/Category:Cybernetics" title="Category:Cybernetics">Cybernetics</a></span> | <span dir='ltr'><a href="/wiki/Category:Evolutionary_algorithms" title="Category:Evolutionary algorithms">Evolutionary algorithms</a></span> | <span dir='ltr'><a href="/wiki/Category:Intelligence" title="Category:Intelligence">Intelligence</a></span> | <span dir='ltr'><a href="/wiki/Category:Genetic_algorithms" title="Category:Genetic algorithms">Genetic algorithms</a></span> | <span dir='ltr'><a href="/wiki/Category:Optimization_algorithms" title="Category:Optimization algorithms">Optimization algorithms</a></span> | <span dir='ltr'><a href="/wiki/Category:Search_algorithms" title="Category:Search algorithms">Search algorithms</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<div class="pBody">
+			<ul>
+					 <li id="ca-nstab-main" class="selected"><a href="/wiki/Genetic_algorithm" title="View the content page [c]" accesskey="c">Article</a></li>
+					 <li id="ca-talk"><a href="/wiki/Talk:Genetic_algorithm" title="Discussion about the content page [t]" accesskey="t">Discussion</a></li>
+					 <li id="ca-edit"><a href="/w/index.php?title=Genetic_algorithm&amp;action=edit" title="You can edit this page. Please use the preview button before saving. [e]" accesskey="e">Edit this page</a></li>
+					 <li id="ca-history"><a href="/w/index.php?title=Genetic_algorithm&amp;action=history" title="Past versions of this page [h]" accesskey="h">History</a></li>
+				</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-personal">
+		<h5>Personal tools</h5>
+		<div class="pBody">
+			<ul>
+				<li id="pt-login"><a href="/w/index.php?title=Special:Userlogin&amp;returnto=Genetic_algorithm" title="You are encouraged to log in, it is not mandatory however. [o]" accesskey="o">Sign in / create account</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-logo">
+		<a style="background-image: url(/images/wiki-en.png);" href="/wiki/Main_Page" title="Visit the Main Page [z]" accesskey="z"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-Main-page"><a href="/wiki/Main_Page">Main page</a></li>
+				<li id="n-Contents"><a href="/wiki/Wikipedia:Contents">Contents</a></li>
+				<li id="n-Featured-content"><a href="/wiki/Wikipedia:Featured_content">Featured content</a></li>
+				<li id="n-currentevents"><a href="/wiki/Portal:Current_events" title="Find background information on current events">Current events</a></li>
+				<li id="n-randompage"><a href="/wiki/Special:Random" title="Load a random page [x]" accesskey="x">Random article</a></li>
+			</ul>
+		</div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+		<h5>interaction</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-About-Wikipedia"><a href="/wiki/Wikipedia:About">About Wikipedia</a></li>
+				<li id="n-portal"><a href="/wiki/Wikipedia:Community_Portal" title="About the project, what you can do, where to find things">Community portal</a></li>
+				<li id="n-recentchanges"><a href="/wiki/Special:Recentchanges" title="The list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li>
+				<li id="n-contact"><a href="/wiki/Wikipedia:Contact_us">Contact Wikipedia</a></li>
+				<li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising" title="Support us">Donate to Wikipedia</a></li>
+				<li id="n-help"><a href="/wiki/Help:Contents" title="Guidance on how to use and edit Wikipedia">Help</a></li>
+			</ul>
+		</div>
+	</div>
+		<div id="p-search" class="portlet">
+		<h5><label for="searchInput">Search</label></h5>
+		<div id="searchBody" class="pBody">
+			<form action="/wiki/Special:Search" id="searchform"><div>
+				<input id="searchInput" name="search" type="text" title="Search Wikipedia [f]" accesskey="f" value="" />
+				<input type='submit' name="go" class="searchButton" id="searchGoButton"	value="Go" />&nbsp;
+				<input type='submit' name="fulltext" class="searchButton" id="mw-searchButton" value="Search" />
+			</div></form>
+		</div>
+	</div>
+	<div class="portlet" id="p-tb">
+		<h5>Toolbox</h5>
+		<div class="pBody">
+			<ul>
+				<li id="t-whatlinkshere"><a href="/wiki/Special:Whatlinkshere/Genetic_algorithm" title="List of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+				<li id="t-recentchangeslinked"><a href="/wiki/Special:Recentchangeslinked/Genetic_algorithm" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+<li id="t-upload"><a href="/wiki/Wikipedia:Upload" title="Upload images or media files [u]" accesskey="u">Upload file</a></li>
+<li id="t-specialpages"><a href="/wiki/Special:Specialpages" title="List of all special pages [q]" accesskey="q">Special pages</a></li>
+				<li id="t-print"><a href="/w/index.php?title=Genetic_algorithm&amp;printable=yes" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>				<li id="t-permalink"><a href="/w/index.php?title=Genetic_algorithm&amp;oldid=155663508" title="Permanent link to this version of the page">Permanent link</a></li><li id="t-cite"><a href="/w/index.php?title=Special:Cite&amp;page=Genetic_algorithm&amp;id=155663508">Cite this article</a></li>			</ul>
+		</div>
+	</div>
+	<div id="p-lang" class="portlet">
+		<h5>In other languages</h5>
+		<div class="pBody">
+			<ul>
+				<li class="interwiki-ar"><a href="http://ar.wikipedia.org/wiki/%D8%AE%D9%88%D8%A7%D8%B1%D8%B2%D9%85%D9%8A%D8%A7%D8%AA_%D9%88%D8%B1%D8%A7%D8%AB%D9%8A%D8%A9">العربية</a></li>
+				<li class="interwiki-ca"><a href="http://ca.wikipedia.org/wiki/Algorisme_gen%C3%A8tic">Català</a></li>
+				<li class="interwiki-cs"><a href="http://cs.wikipedia.org/wiki/Genetick%C3%BD_algoritmus">Česky</a></li>
+				<li class="interwiki-da"><a href="http://da.wikipedia.org/wiki/Genetisk_algoritme">Dansk</a></li>
+				<li class="interwiki-de"><a href="http://de.wikipedia.org/wiki/Genetischer_Algorithmus">Deutsch</a></li>
+				<li class="interwiki-el"><a href="http://el.wikipedia.org/wiki/%CE%93%CE%B5%CE%BD%CE%B5%CF%84%CE%B9%CE%BA%CF%8C%CF%82_%CE%91%CE%BB%CE%B3%CF%8C%CF%81%CE%B9%CE%B8%CE%BC%CE%BF%CF%82">Ελληνικά</a></li>
+				<li class="interwiki-es"><a href="http://es.wikipedia.org/wiki/Algoritmo_gen%C3%A9tico">Español</a></li>
+				<li class="interwiki-fa"><a href="http://fa.wikipedia.org/wiki/%D8%A7%D9%84%DA%AF%D9%88%D8%B1%DB%8C%D8%AA%D9%85_%DA%98%D9%86%D8%AA%DB%8C%DA%A9">فارسی</a></li>
+				<li class="interwiki-fr"><a href="http://fr.wikipedia.org/wiki/Algorithme_g%C3%A9n%C3%A9tique">Français</a></li>
+				<li class="interwiki-gl"><a href="http://gl.wikipedia.org/wiki/Algoritmo_xen%C3%A9tico">Galego</a></li>
+				<li class="interwiki-id"><a href="http://id.wikipedia.org/wiki/Algoritma_genetik">Bahasa Indonesia</a></li>
+				<li class="interwiki-it"><a href="http://it.wikipedia.org/wiki/Algoritmo_genetico">Italiano</a></li>
+				<li class="interwiki-he"><a href="http://he.wikipedia.org/wiki/%D7%90%D7%9C%D7%92%D7%95%D7%A8%D7%99%D7%AA%D7%9E%D7%99%D7%9D_%D7%92%D7%A0%D7%98%D7%99%D7%99%D7%9D">עברית</a></li>
+				<li class="interwiki-lt"><a href="http://lt.wikipedia.org/wiki/Genetiniai_algoritmai">Lietuvių</a></li>
+				<li class="interwiki-nl"><a href="http://nl.wikipedia.org/wiki/Genetisch_algoritme">Nederlands</a></li>
+				<li class="interwiki-ja"><a href="http://ja.wikipedia.org/wiki/%E9%81%BA%E4%BC%9D%E7%9A%84%E3%82%A2%E3%83%AB%E3%82%B4%E3%83%AA%E3%82%BA%E3%83%A0">日本語</a></li>
+				<li class="interwiki-pl"><a href="http://pl.wikipedia.org/wiki/Algorytm_genetyczny">Polski</a></li>
+				<li class="interwiki-pt"><a href="http://pt.wikipedia.org/wiki/Algoritmo_gen%C3%A9tico">Português</a></li>
+				<li class="interwiki-ru"><a href="http://ru.wikipedia.org/wiki/%D0%93%D0%B5%D0%BD%D0%B5%D1%82%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B8%D0%B9_%D0%B0%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC">Русский</a></li>
+				<li class="interwiki-fi"><a href="http://fi.wikipedia.org/wiki/Geneettinen_algoritmi">Suomi</a></li>
+				<li class="interwiki-sv"><a href="http://sv.wikipedia.org/wiki/Genetisk_algoritm">Svenska</a></li>
+				<li class="interwiki-th"><a href="http://th.wikipedia.org/wiki/%E0%B8%82%E0%B8%B1%E0%B9%89%E0%B8%99%E0%B8%95%E0%B8%AD%E0%B8%99%E0%B8%A7%E0%B8%B4%E0%B8%98%E0%B8%B5%E0%B9%80%E0%B8%8A%E0%B8%B4%E0%B8%87%E0%B8%9E%E0%B8%B1%E0%B8%99%E0%B8%98%E0%B8%B8%E0%B8%81%E0%B8%A3%E0%B8%A3%E0%B8%A1">ไทย</a></li>
+				<li class="interwiki-vi"><a href="http://vi.wikipedia.org/wiki/Gi%E1%BA%A3i_thu%E1%BA%ADt_di_truy%E1%BB%81n">Tiếng Việt</a></li>
+				<li class="interwiki-tr"><a href="http://tr.wikipedia.org/wiki/Genetik_Algoritmalar">Türkçe</a></li>
+				<li class="interwiki-zh"><a href="http://zh.wikipedia.org/wiki/%E9%81%97%E4%BC%A0%E7%AE%97%E6%B3%95">中文</a></li>
+			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="/skins-1.5/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>
+				<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="/images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>
+			<ul id="f-list">
+				<li id="lastmod"> This page was last modified 17:25, 4 September 2007.</li>
+				<li id="copyright">All text is available under the terms of the <a class='internal' href="/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="/wiki/Wikipedia:Copyrights" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a U.S. registered <a class='internal' href="/wiki/501%28c%29#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="/wiki/Non-profit_organization" title="Non-profit organization">nonprofit</a> <a href="/wiki/Charitable_organization" title="Charitable organization">charity</a>.<br /></li>
+				<li id="privacy"><a href="http://wikimediafoundation.org/wiki/Privacy_policy" title="wikimedia:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="/wiki/Wikipedia:About" title="Wikipedia:About">About Wikipedia</a></li>
+				<li id="disclaimer"><a href="/wiki/Wikipedia:General_disclaimer" title="Wikipedia:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+		
+	
+		<script type="text/javascript">if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by srv68 in 0.152 secs. --></body></html>

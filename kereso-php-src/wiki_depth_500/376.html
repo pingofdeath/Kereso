@@ -1,0 +1,368 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ru" lang="ru" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+				<meta name="keywords" content="Алгоритм Дейкстры,Ананий В. Левитин,OSPF,Shortest Path First,Алгоритм,Алгоритм Дейкстры с потенциалами,Вильямс (издательство),Граф (математика),Дейкстра, Эдсгер Вибе,Копенгаген,Львов" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Википедия (Русский)" />
+		<link rel="copyright" href="http://www.gnu.org/copyleft/fdl.html" />
+		<title>Алгоритм Дейкстры — Википедия</title>
+		<style type="text/css" media="screen, projection">/*<![CDATA[*/
+			@import "/skins-1.5/common/shared.css?99";
+			@import "/skins-1.5/monobook/main.css?99";
+		/*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="/skins-1.5/common/commonPrint.css?99" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE50Fixes.css?99";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE55Fixes.css?99";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "/skins-1.5/monobook/IE60Fixes.css?99";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "/skins-1.5/monobook/IE70Fixes.css?99";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="/skins-1.5/common/IEFixes.js?99"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		
+		<script type= "text/javascript">/*<![CDATA[*/
+var skin = "monobook";
+var stylepath = "/skins-1.5";
+var wgArticlePath = "/wiki/$1";
+var wgScriptPath = "/w";
+var wgScript = "/w/index.php";
+var wgServer = "http://ru.wikipedia.org";
+var wgCanonicalNamespace = "";
+var wgCanonicalSpecialPageName = false;
+var wgNamespaceNumber = 0;
+var wgPageName = "Алгоритм_Дейкстры";
+var wgTitle = "Алгоритм Дейкстры";
+var wgAction = "view";
+var wgRestrictionEdit = [];
+var wgRestrictionMove = [];
+var wgArticleId = "168453";
+var wgIsArticle = true;
+var wgUserName = null;
+var wgUserGroups = null;
+var wgUserLanguage = "ru";
+var wgContentLanguage = "ru";
+var wgBreakFrames = false;
+var wgCurRevisionId = "5530540";
+/*]]>*/</script>
+                
+		<script type="text/javascript" src="/skins-1.5/common/wikibits.js?99"><!-- wikibits js --></script>
+		<script type="text/javascript" src="/w/index.php?title=-&amp;action=raw&amp;gen=js&amp;useskin=monobook"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "/w/index.php?title=MediaWiki:Common.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=MediaWiki:Monobook.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=-&action=raw&gen=css&maxage=2678400";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+		<script type="text/javascript" src="/skins-1.5/common/ajax.js?99"></script>
+	</head>
+<body  class="mediawiki ns-0 ltr page-Алгоритм_Дейкстры">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+		<div id="siteNotice"><script type="text/javascript" language="JavaScript">
+<!--
+document.writeln("\x3cp\x3e\x3cspan style=\"display:none;\"\x3e\x3c/span\x3e\n\x3c/p\x3e");
+-->
+</script></div>		<h1 class="firstHeading">Алгоритм Дейкстры</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">Материал из Википедии — свободной энциклопедии</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Перейти к: <a href="#column-one">навигация</a>, <a href="#searchInput">поиск</a></div>			<!-- start content -->
+			<p><b>Алгори́тм Де́йкстры</b> — <a href="/wiki/%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC" title="Алгоритм">алгоритм</a> на <a href="/wiki/%D0%93%D1%80%D0%B0%D1%84_%28%D0%BC%D0%B0%D1%82%D0%B5%D0%BC%D0%B0%D1%82%D0%B8%D0%BA%D0%B0%29" title="Граф (математика)">графах</a>, изобретенный <a href="/wiki/%D0%94%D0%B5%D0%B9%D0%BA%D1%81%D1%82%D1%80%D0%B0%2C_%D0%AD%D0%B4%D1%81%D0%B3%D0%B5%D1%80_%D0%92%D0%B8%D0%B1%D0%B5" title="Дейкстра, Эдсгер Вибе">Э. Дейкстрой</a>. Находит кратчайшее расстояние от одной из вершин графа до всех остальных. Алгоритм работает только для графов без рёбер отрицательного веса.</p>
+<table id="toc" class="toc" summary="Содержание">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Содержание</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#.D0.A4.D0.BE.D1.80.D0.BC.D1.83.D0.BB.D0.B8.D1.80.D0.BE.D0.B2.D0.BA.D0.B0_.D0.B7.D0.B0.D0.B4.D0.B0.D1.87.D0.B8"><span class="tocnumber">1</span> <span class="toctext">Формулировка задачи</span></a>
+<ul>
+<li class="toclevel-2"><a href="#.D0.9D.D0.B5.D1.84.D0.BE.D1.80.D0.BC.D0.B0.D0.BB.D1.8C.D0.BD.D0.B0.D1.8F_.D1.84.D0.BE.D1.80.D0.BC.D1.83.D0.BB.D0.B8.D1.80.D0.BE.D0.B2.D0.BA.D0.B0"><span class="tocnumber">1.1</span> <span class="toctext">Неформальная формулировка</span></a></li>
+<li class="toclevel-2"><a href="#.D0.A4.D0.BE.D1.80.D0.BC.D0.B0.D0.BB.D1.8C.D0.BD.D0.B0.D1.8F_.D1.84.D0.BE.D1.80.D0.BC.D1.83.D0.BB.D0.B8.D1.80.D0.BE.D0.B2.D0.BA.D0.B0"><span class="tocnumber">1.2</span> <span class="toctext">Формальная формулировка</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#.D0.9D.D0.B5.D1.84.D0.BE.D1.80.D0.BC.D0.B0.D0.BB.D1.8C.D0.BD.D0.BE.D0.B5_.D0.BE.D0.B1.D1.8A.D1.8F.D1.81.D0.BD.D0.B5.D0.BD.D0.B8.D0.B5"><span class="tocnumber">2</span> <span class="toctext">Неформальное объяснение</span></a>
+<ul>
+<li class="toclevel-2"><a href="#.D0.9F.D1.80.D0.B8.D0.BC.D0.B5.D1.80"><span class="tocnumber">2.1</span> <span class="toctext">Пример</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#.D0.9F.D1.80.D0.B8.D0.BC.D0.B5.D1.80_.D1.80.D0.B5.D0.B0.D0.BB.D0.B8.D0.B7.D0.B0.D1.86.D0.B8.D0.B8"><span class="tocnumber">3</span> <span class="toctext">Пример реализации</span></a>
+<ul>
+<li class="toclevel-2"><a href="#.D0.9E.D0.B1.D0.BE.D0.B7.D0.BD.D0.B0.D1.87.D0.B5.D0.BD.D0.B8.D1.8F"><span class="tocnumber">3.1</span> <span class="toctext">Обозначения</span></a></li>
+<li class="toclevel-2"><a href="#.D0.90.D0.BB.D0.B3.D0.BE.D1.80.D0.B8.D1.82.D0.BC"><span class="tocnumber">3.2</span> <span class="toctext">Алгоритм</span></a></li>
+<li class="toclevel-2"><a href="#.D0.9E.D0.BF.D0.B8.D1.81.D0.B0.D0.BD.D0.B8.D0.B5"><span class="tocnumber">3.3</span> <span class="toctext">Описание</span></a></li>
+<li class="toclevel-2"><a href="#.D0.A1.D0.BB.D0.BE.D0.B6.D0.BD.D0.BE.D1.81.D1.82.D1.8C_.D0.B0.D0.BB.D0.B3.D0.BE.D1.80.D0.B8.D1.82.D0.BC.D0.B0"><span class="tocnumber">3.4</span> <span class="toctext">Сложность алгоритма</span></a></li>
+<li class="toclevel-2"><a href="#.D0.97.D0.B0.D0.BC.D0.B5.D1.87.D0.B0.D0.BD.D0.B8.D0.B5"><span class="tocnumber">3.5</span> <span class="toctext">Замечание</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#.D0.A1.D0.BC._.D1.82.D0.B0.D0.BA.D0.B6.D0.B5"><span class="tocnumber">4</span> <span class="toctext">См. также</span></a>
+<ul>
+<li class="toclevel-2"><a href="#.D0.A1.D1.81.D1.8B.D0.BB.D0.BA.D0.B8"><span class="tocnumber">4.1</span> <span class="toctext">Ссылки</span></a></li>
+<li class="toclevel-2"><a href="#.D0.9B.D0.B8.D1.82.D0.B5.D1.80.D0.B0.D1.82.D1.83.D1.80.D0.B0"><span class="tocnumber">4.2</span> <span class="toctext">Литература</span></a></li>
+</ul>
+</li>
+</ul>
+</td>
+</tr>
+</table>
+<script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "показать"; var tocHideText = "убрать"; showTocToggle(); } 
+//]]>
+</script>
+<p><a name=".D0.A4.D0.BE.D1.80.D0.BC.D1.83.D0.BB.D0.B8.D1.80.D0.BE.D0.B2.D0.BA.D0.B0_.D0.B7.D0.B0.D0.B4.D0.B0.D1.87.D0.B8"></a></p>
+<h1><span class="editsection">[<a href="/w/index.php?title=%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC_%D0%94%D0%B5%D0%B9%D0%BA%D1%81%D1%82%D1%80%D1%8B&amp;action=edit&amp;section=1" title="Править секцию: Формулировка задачи">править</a>]</span> <span class="mw-headline">Формулировка задачи</span></h1>
+<p><a name=".D0.9D.D0.B5.D1.84.D0.BE.D1.80.D0.BC.D0.B0.D0.BB.D1.8C.D0.BD.D0.B0.D1.8F_.D1.84.D0.BE.D1.80.D0.BC.D1.83.D0.BB.D0.B8.D1.80.D0.BE.D0.B2.D0.BA.D0.B0"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC_%D0%94%D0%B5%D0%B9%D0%BA%D1%81%D1%82%D1%80%D1%8B&amp;action=edit&amp;section=2" title="Править секцию: Неформальная формулировка">править</a>]</span> <span class="mw-headline">Неформальная формулировка</span></h2>
+<p><i>Вариант 1.</i> Дана сеть автомобильных дорог, соединяющих города Львовской области. Найти кратчайшие расстояния от <a href="/wiki/%D0%9B%D1%8C%D0%B2%D0%BE%D0%B2" title="Львов">Львова</a> до каждого города области (если двигаться можно только по дорогам).</p>
+<p><i>Вариант 2.</i> Имеется некоторое количество авиарейсов между городами мира, для каждого известна стоимость. Найти минимальную стоимость маршрута (возможно, с пересадками) от <a href="/wiki/%D0%9A%D0%BE%D0%BF%D0%B5%D0%BD%D0%B3%D0%B0%D0%B3%D0%B5%D0%BD" title="Копенгаген">Копенгагена</a> до <a href="/wiki/%D0%9D%D0%BE%D0%B2%D0%BE%D1%81%D0%B8%D0%B1%D0%B8%D1%80%D1%81%D0%BA" title="Новосибирск">Новосибирска</a>.</p>
+<p><i>Вариант 3.</i> Есть план города с нанесёнными на него местами расположения пожарных частей. Определить ближайшую к каждому дому пожарную станцию.</p>
+<p><a name=".D0.A4.D0.BE.D1.80.D0.BC.D0.B0.D0.BB.D1.8C.D0.BD.D0.B0.D1.8F_.D1.84.D0.BE.D1.80.D0.BC.D1.83.D0.BB.D0.B8.D1.80.D0.BE.D0.B2.D0.BA.D0.B0"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC_%D0%94%D0%B5%D0%B9%D0%BA%D1%81%D1%82%D1%80%D1%8B&amp;action=edit&amp;section=3" title="Править секцию: Формальная формулировка">править</a>]</span> <span class="mw-headline">Формальная формулировка</span></h2>
+<p>Дан простой взвешенный <a href="/wiki/%D0%93%D1%80%D0%B0%D1%84_%28%D0%BC%D0%B0%D1%82%D0%B5%D0%BC%D0%B0%D1%82%D0%B8%D0%BA%D0%B0%29" title="Граф (математика)">граф</a> <span class="texhtml"><i>G</i>(<i>V</i>,<i>E</i>)</span> без рёбер и дуг отрицательного веса. Найти кратчайшее расстояние от некоторой вершины <span class="texhtml"><i>a</i></span> графа <span class="texhtml"><i>G</i></span> до всех остальных вершин этого графа.</p>
+<p><a name=".D0.9D.D0.B5.D1.84.D0.BE.D1.80.D0.BC.D0.B0.D0.BB.D1.8C.D0.BD.D0.BE.D0.B5_.D0.BE.D0.B1.D1.8A.D1.8F.D1.81.D0.BD.D0.B5.D0.BD.D0.B8.D0.B5"></a></p>
+<h1><span class="editsection">[<a href="/w/index.php?title=%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC_%D0%94%D0%B5%D0%B9%D0%BA%D1%81%D1%82%D1%80%D1%8B&amp;action=edit&amp;section=4" title="Править секцию: Неформальное объяснение">править</a>]</span> <span class="mw-headline">Неформальное объяснение</span></h1>
+<p>Каждой вершине из <i>V</i> сопоставим метку — минимальное известное расстояние от этой вершины до <i>a</i>. Алгоритм работает пошагово — на каждом шаге он «посещает» одну вершину и пытается уменьшать метки. Работа алгоритма завершается, когда все вершины посещены.</p>
+<p><b>Инициализация</b>. Метка самой вершины <i>a</i> полагается равной 0, метки остальных вершин — бесконечности. Это отражает то, что расстояния от <i>a</i> до других вершин пока неизвестны. Все вершины графа помечаются как непосещенные.</p>
+<p><b>Шаг алгоритма</b>. Если все вершины посещены, алгоритм завершается. В противном случае из еще не посещенных вершин выбирается вершина <i>u</i>, имеющая минимальную метку. Мы рассматриваем всевозможные маршруты, в которых <i>u</i> является предпоследним пунктом. Вершины, соединенные с вершиной <i>u</i> ребрами, назовем соседями этой вершины. Для каждого соседа рассмотрим новую длину пути, равную сумме текущей метки <i>u</i> и длины ребра, соединяющего <i>u</i> с этим соседом. Если полученная длина меньше метки соседа, заменим метку этой длиной. Рассмотрев всех соседей, пометим вершину <i>u</i> как посещенную и повторим шаг.</p>
+<p><a name=".D0.9F.D1.80.D0.B8.D0.BC.D0.B5.D1.80"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC_%D0%94%D0%B5%D0%B9%D0%BA%D1%81%D1%82%D1%80%D1%8B&amp;action=edit&amp;section=5" title="Править секцию: Пример">править</a>]</span> <span class="mw-headline">Пример</span></h2>
+<p>Рассмотрим выполнение алгоритма на примере графа, показанного на рисунке. Пусть требуется найти расстояния от 1-й вершины до всех остальных.</p>
+<p><a href="/wiki/%D0%98%D0%B7%D0%BE%D0%B1%D1%80%D0%B0%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5:Dijkstra_graph0.PNG" class="image" title="Изображение:Dijkstra_graph0.PNG"><img alt="Изображение:Dijkstra_graph0.PNG" src="http://upload.wikimedia.org/wikipedia/commons/d/de/Dijkstra_graph0.PNG" width="283" height="222" border="0" /></a></p>
+<p>Кружками обозначены вершины, линиями — пути между ними (ребра графа). В кружках обозначены номера вершин, над ребрами обозначена их «цена» — длина пути. Рядом с каждой вершиной красным обозначена метка — длина кратчайшего пути в эту вершину из вершины 1.</p>
+<p><a href="/wiki/%D0%98%D0%B7%D0%BE%D0%B1%D1%80%D0%B0%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5:Dijkstra_graph1.PNG" class="image" title="Изображение:Dijkstra_graph1.PNG"><img alt="Изображение:Dijkstra_graph1.PNG" src="http://upload.wikimedia.org/wikipedia/commons/a/aa/Dijkstra_graph1.PNG" width="283" height="222" border="0" /></a></p>
+<p><b>Первый шаг</b>. Рассмотрим шаг алгоритма Дейкстры для нашего примера. Минимальную метку имеет вершина 1. Ее соседями являются вершины 2, 3 и 6.</p>
+<p><a href="/wiki/%D0%98%D0%B7%D0%BE%D0%B1%D1%80%D0%B0%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5:Dijkstra_graph2.PNG" class="image" title="Изображение:Dijkstra_graph2.PNG"><img alt="Изображение:Dijkstra_graph2.PNG" src="http://upload.wikimedia.org/wikipedia/commons/4/48/Dijkstra_graph2.PNG" width="283" height="222" border="0" /></a></p>
+<p>Первый по очереди сосед вершины 1 — вершина 2, потому что длина пути до нее минимальна. Длина пути в нее через вершину 1 равна кратчайшему расстоянию до вершины 1 + длина ребра, идущего из 1 в 2, то есть 0 + 7 = 7. Это меньше текущей метки вершины 2, поэтому новая метка 2-й вершины равна 7.</p>
+<p><a href="/wiki/%D0%98%D0%B7%D0%BE%D0%B1%D1%80%D0%B0%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5:Dijkstra_graph3.PNG" class="image" title="Изображение:Dijkstra_graph3.PNG"><img alt="Изображение:Dijkstra_graph3.PNG" src="http://upload.wikimedia.org/wikipedia/commons/5/55/Dijkstra_graph3.PNG" width="283" height="222" border="0" /></a></p>
+<p>Аналогичную операцию проделываем с двумя другими соседями 1-й вершины — 3-й и 6-й.</p>
+<p><a href="/wiki/%D0%98%D0%B7%D0%BE%D0%B1%D1%80%D0%B0%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5:Dijkstra_graph4.PNG" class="image" title="Изображение:Dijkstra_graph4.PNG"><img alt="Изображение:Dijkstra_graph4.PNG" src="http://upload.wikimedia.org/wikipedia/commons/c/c3/Dijkstra_graph4.PNG" width="283" height="222" border="0" /></a> <a href="/wiki/%D0%98%D0%B7%D0%BE%D0%B1%D1%80%D0%B0%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5:Dijkstra_graph5.PNG" class="image" title="Изображение:Dijkstra_graph5.PNG"><img alt="Изображение:Dijkstra_graph5.PNG" src="http://upload.wikimedia.org/wikipedia/commons/0/04/Dijkstra_graph5.PNG" width="283" height="222" border="0" /></a></p>
+<p>Все соседи вершины 1 проверены. Текущее минимальное расстояние до вершины 1 считается окончательным и обсуждению не подлежит (то, что это действительно так, впервые доказал <a href="/wiki/%D0%94%D0%B5%D0%B9%D0%BA%D1%81%D1%82%D1%80%D0%B0%2C_%D0%AD%D0%B4%D1%81%D0%B3%D0%B5%D1%80_%D0%92%D0%B8%D0%B1%D0%B5" title="Дейкстра, Эдсгер Вибе">Дейкстра</a>). Вычеркнем её из <a href="/wiki/%D0%93%D1%80%D0%B0%D1%84_%28%D0%BC%D0%B0%D1%82%D0%B5%D0%BC%D0%B0%D1%82%D0%B8%D0%BA%D0%B0%29" title="Граф (математика)">графа</a>, чтобы отметить, что эта вершина посещена.</p>
+<p><a href="/wiki/%D0%98%D0%B7%D0%BE%D0%B1%D1%80%D0%B0%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5:Dijkstra_graph6.PNG" class="image" title="Изображение:Dijkstra_graph6.PNG"><img alt="Изображение:Dijkstra_graph6.PNG" src="http://upload.wikimedia.org/wikipedia/commons/b/b3/Dijkstra_graph6.PNG" width="283" height="222" border="0" /></a></p>
+<p><i>Второй шаг'</i>. Шаг алгоритма повторяется. Снова находим «ближайшую» из непосещенных вершин. Это вершина 2 с меткой 7.</p>
+<p><a href="/wiki/%D0%98%D0%B7%D0%BE%D0%B1%D1%80%D0%B0%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5:Dijkstra_graph7.PNG" class="image" title="Изображение:Dijkstra_graph7.PNG"><img alt="Изображение:Dijkstra_graph7.PNG" src="http://upload.wikimedia.org/wikipedia/commons/f/f2/Dijkstra_graph7.PNG" width="283" height="222" border="0" /></a></p>
+<p>Снова пытаемся уменьшить метки соседей выбранной вершины, пытаясь пройти в них через 2-ю. Соседями вершины 2 являются 1, 3, 4.</p>
+<p>Первый (по порядку) сосед вершины 2 — вершина 1. Но она уже посещена, поэтому с 1-й вершиной ничего не делаем.</p>
+<p>Следующий сосед вершины 2 — вершина 4. Если идти в неё через 2-ю, то длина такого пути будет = кратчайшее расстояние до 2 + расстояние между вершинами 2 и 4 = 7 + 15 = 22. Поскольку 22&lt;<img class="tex" alt="\infty" src="http://upload.wikimedia.org/math/d/2/4/d245777abca64ece2d5d7ca0d19fddb6.png" />, устанавливаем метку вершины 4 равной 22.</p>
+<p><a href="/wiki/%D0%98%D0%B7%D0%BE%D0%B1%D1%80%D0%B0%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5:Dijkstra_graph8.PNG" class="image" title="Изображение:Dijkstra_graph8.PNG"><img alt="Изображение:Dijkstra_graph8.PNG" src="http://upload.wikimedia.org/wikipedia/commons/f/f4/Dijkstra_graph8.PNG" width="283" height="222" border="0" /></a></p>
+<p>Ещё один сосед вершины 2 — вершина 3. Если идти в неё через 2, то длина такого пути будет = 7 + 10 = 17. Но текущая метка третьей вершины равна 9&lt;17, поэтому метка не меняется.</p>
+<p><a href="/wiki/%D0%98%D0%B7%D0%BE%D0%B1%D1%80%D0%B0%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5:Dijkstra_graph9.PNG" class="image" title="Изображение:Dijkstra_graph9.PNG"><img alt="Изображение:Dijkstra_graph9.PNG" src="http://upload.wikimedia.org/wikipedia/commons/f/fc/Dijkstra_graph9.PNG" width="283" height="222" border="0" /></a></p>
+<p>Все соседи вершины 2 просмотрены, замораживаем расстояние до неё и помечаем ее как посещенную.</p>
+<p><a href="/wiki/%D0%98%D0%B7%D0%BE%D0%B1%D1%80%D0%B0%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5:Dijkstra_graph10.PNG" class="image" title="Изображение:Dijkstra_graph10.PNG"><img alt="Изображение:Dijkstra_graph10.PNG" src="http://upload.wikimedia.org/wikipedia/commons/4/4a/Dijkstra_graph10.PNG" width="283" height="222" border="0" /></a></p>
+<p><b>Третий шаг</b>. Повторяем шаг алгоритма, выбрав вершину 3. После ее «обработки» получим такие результаты:</p>
+<p><a href="/wiki/%D0%98%D0%B7%D0%BE%D0%B1%D1%80%D0%B0%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5:Dijkstra_graph11.PNG" class="image" title="Изображение:Dijkstra_graph11.PNG"><img alt="Изображение:Dijkstra_graph11.PNG" src="http://upload.wikimedia.org/wikipedia/commons/1/1d/Dijkstra_graph11.PNG" width="283" height="222" border="0" /></a></p>
+<p><b>Дальнейшие шаги</b>. Повторяем шаг алгоритма для оставшихся вершин (Это будут по порядку 6, 4 и 5).</p>
+<p><a href="/wiki/%D0%98%D0%B7%D0%BE%D0%B1%D1%80%D0%B0%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5:Dijkstra_graph12.PNG" class="image" title="Изображение:Dijkstra_graph12.PNG"><img alt="Изображение:Dijkstra_graph12.PNG" src="http://upload.wikimedia.org/wikipedia/commons/a/a5/Dijkstra_graph12.PNG" width="283" height="222" border="0" /></a> <a href="/wiki/%D0%98%D0%B7%D0%BE%D0%B1%D1%80%D0%B0%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5:Dijkstra_graph13.PNG" class="image" title="Изображение:Dijkstra_graph13.PNG"><img alt="Изображение:Dijkstra_graph13.PNG" src="http://upload.wikimedia.org/wikipedia/commons/8/81/Dijkstra_graph13.PNG" width="283" height="222" border="0" /></a> <a href="/wiki/%D0%98%D0%B7%D0%BE%D0%B1%D1%80%D0%B0%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5:Dijkstra_graph14.PNG" class="image" title="Изображение:Dijkstra_graph14.PNG"><img alt="Изображение:Dijkstra_graph14.PNG" src="http://upload.wikimedia.org/wikipedia/commons/a/a7/Dijkstra_graph14.PNG" width="283" height="222" border="0" /></a></p>
+<p><b>Завершение выполнения алгоритма</b>. Алгоритм заканчивает работу, когда вычеркнуты все вершины. Результат его работы виден на последнем рисунке: кратчайший путь от вершины 1 до 2-й составляет 7, до 3-й — 9, до 4-й — 20, до 5-й — 20, до 6-й — 11.</p>
+<p><a name=".D0.9F.D1.80.D0.B8.D0.BC.D0.B5.D1.80_.D1.80.D0.B5.D0.B0.D0.BB.D0.B8.D0.B7.D0.B0.D1.86.D0.B8.D0.B8"></a></p>
+<h1><span class="editsection">[<a href="/w/index.php?title=%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC_%D0%94%D0%B5%D0%B9%D0%BA%D1%81%D1%82%D1%80%D1%8B&amp;action=edit&amp;section=6" title="Править секцию: Пример реализации">править</a>]</span> <span class="mw-headline">Пример реализации</span></h1>
+<p><a name=".D0.9E.D0.B1.D0.BE.D0.B7.D0.BD.D0.B0.D1.87.D0.B5.D0.BD.D0.B8.D1.8F"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC_%D0%94%D0%B5%D0%B9%D0%BA%D1%81%D1%82%D1%80%D1%8B&amp;action=edit&amp;section=7" title="Править секцию: Обозначения">править</a>]</span> <span class="mw-headline">Обозначения</span></h2>
+<ul>
+<li><span class="texhtml"><i>V</i></span> — множество вершин графа</li>
+<li><span class="texhtml"><i>E</i></span> — множество ребер графа</li>
+<li><span class="texhtml"><i>w</i>[<i>i</i><i>j</i>]</span> — вес (длина) ребра <span class="texhtml"><i>i</i><i>j</i></span></li>
+<li><span class="texhtml"><i>a</i></span> — вершина, расстояния от которой ищутся</li>
+<li><span class="texhtml"><i>U</i></span> — множество посещенных вершин</li>
+<li><span class="texhtml"><i>d</i>[<i>u</i>]</span> — по окончанию работы алгоритма равно длине кратчайшего пути из <span class="texhtml"><i>a</i></span> до вершины <span class="texhtml"><i>u</i></span></li>
+<li><span class="texhtml"><i>p</i>[<i>u</i>]</span> — по окончании работы алгоритма содержит кратчайший путь из <span class="texhtml"><i>a</i></span> в <span class="texhtml"><i>u</i></span></li>
+</ul>
+<p><a name=".D0.90.D0.BB.D0.B3.D0.BE.D1.80.D0.B8.D1.82.D0.BC"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC_%D0%94%D0%B5%D0%B9%D0%BA%D1%81%D1%82%D1%80%D1%8B&amp;action=edit&amp;section=8" title="Править секцию: Алгоритм">править</a>]</span> <span class="mw-headline">Алгоритм</span></h2>
+<p><code>Присвоим</code> <img class="tex" alt="d[a] \gets 0,\ p[a] \gets a" src="http://upload.wikimedia.org/math/e/2/a/e2a655baccc5ff31e128993a963231a9.png" /></p>
+<p><code>Для всех</code> <img class="tex" alt="u \in V" src="http://upload.wikimedia.org/math/d/a/4/da4760886b448bf1f9ecd7e0fd994bce.png" /> <code>отличных от</code> <span class="texhtml"><i>a</i></span></p>
+<dl>
+<dd><code>присвоим</code> <img class="tex" alt="d[u] \gets \infty" src="http://upload.wikimedia.org/math/6/5/9/6593fabff8891c348573c0833c70b39f.png" /></dd>
+</dl>
+<p><code>Пока</code> <img class="tex" alt="\exists v \notin U" src="http://upload.wikimedia.org/math/4/7/a/47a30808cb73b514950ff9ba049f2dca.png" /> <code>c</code> <img class="tex" alt="d[v] &lt; \infty" src="http://upload.wikimedia.org/math/f/f/a/ffa12b86beef7571f1e5b3cc682fc5c8.png" /></p>
+<dl>
+<dd><code>Пусть</code> <img class="tex" alt="v \notin U" src="http://upload.wikimedia.org/math/1/a/3/1a3c1ed0de73e3475481ad8d6e0f1240.png" /> <code>— вершина с минимальным</code> <span class="texhtml"><i>d</i>[<i>v</i>]</span></dd>
+<dd><code>Добавим вершину</code> <span class="texhtml"><i>v</i></span> к <span class="texhtml"><i>U</i></span></dd>
+<dd><code>Для всех</code> <img class="tex" alt="u \notin U" src="http://upload.wikimedia.org/math/2/1/2/212af7ee18c3e033740ebd535950aac6.png" /> <code>таких, что</code> <img class="tex" alt="vu \in E" src="http://upload.wikimedia.org/math/d/9/5/d952d50b1fbe6aa551d49ec89dff4183.png" />
+<dl>
+<dd><code>если</code> <span class="texhtml"><i>d</i>[<i>u</i>] &gt; <i>d</i>[<i>v</i>] + <i>w</i>[<i>v</i><i>u</i>]</span> <code>то</code>
+<dl>
+<dd><code>изменим</code> <img class="tex" alt="d[u] \gets d[v] + w [vu]" src="http://upload.wikimedia.org/math/0/2/a/02a2a9f5f042d01b51cdd7059e596dc9.png" /></dd>
+<dd><code>изменим</code> <img class="tex" alt="p[u] \gets p[v], u" src="http://upload.wikimedia.org/math/8/5/e/85ec2102d34dd23957c84a582a761198.png" /></dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<p><a name=".D0.9E.D0.BF.D0.B8.D1.81.D0.B0.D0.BD.D0.B8.D0.B5"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC_%D0%94%D0%B5%D0%B9%D0%BA%D1%81%D1%82%D1%80%D1%8B&amp;action=edit&amp;section=9" title="Править секцию: Описание">править</a>]</span> <span class="mw-headline">Описание</span></h2>
+<p>В простейшей реализации для хранения чисел <i>d</i>[<i>i</i>] можно использовать массив чисел, а для хранения принадлежности элемента множеству U — массив булевских переменных.</p>
+<p>В начале алгоритма расстояние для начальной вершины полагается равным нулю, а все остальные расстояния заполняются большим положительным числом (большим максимального возможного пути в <a href="/wiki/%D0%93%D1%80%D0%B0%D1%84_%28%D0%BC%D0%B0%D1%82%D0%B5%D0%BC%D0%B0%D1%82%D0%B8%D0%BA%D0%B0%29" title="Граф (математика)">графе</a>). Массив флагов заполняется нулями. Затем запускается основной цикл.</p>
+<p>На каждом шаге цикла мы ищем вершину с минимальным расстоянием и флагом равным нулю. Затем мы устанавливаем в ней флаг в 1 и проверяем все соседние с ней вершины. Если в ней расстояние больше, чем сумма расстояния до текущей вершины и длины ребра, то уменьшаем его. Цикл завершается когда флаги всех вершин становятся равны 1, либо когда у всех вершин c флагом 0 <img class="tex" alt="d[i] = \infty" src="http://upload.wikimedia.org/math/4/4/7/4474e94367c2fb3816398bb76e605d13.png" />. Последний случай возможен, если и только если граф <i>G</i> несвязен.</p>
+<p><a name=".D0.A1.D0.BB.D0.BE.D0.B6.D0.BD.D0.BE.D1.81.D1.82.D1.8C_.D0.B0.D0.BB.D0.B3.D0.BE.D1.80.D0.B8.D1.82.D0.BC.D0.B0"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC_%D0%94%D0%B5%D0%B9%D0%BA%D1%81%D1%82%D1%80%D1%8B&amp;action=edit&amp;section=10" title="Править секцию: Сложность алгоритма">править</a>]</span> <span class="mw-headline">Сложность алгоритма</span></h2>
+<p>Сложность алгоритма Дейкстры зависит от способа нахождения вершины <i>v</i>, а также способа хранения множества непосещенных вершин и способа обновления меток. Обозначим через <i>n</i> количество вершин, а через <i>m</i> — количество ребер в графе <i>G</i>.</p>
+<ul>
+<li>В простейшем случае, когда для поиска вершины с минимальным <i>d</i>[<i>v</i>] просматривается все множество вершин, а для хранения величин <i>d</i> — массив, время работы алгоритма есть <span class="texhtml"><i>O</i>(<i>n</i><sup>2</sup> + <i>m</i>)</span>. Основной цикл выполняется порядка <i>n</i> раз, в каждом из них на нахождение минимума тратится порядка <i>n</i> операций, плюс количество релаксаций (смен меток), которое не превосходит количества ребер в исходном графе.</li>
+</ul>
+<ul>
+<li>Для разреженных графов (то есть таких,для которых m много меньше n²) непосещенные вершины можно хранить в двоичной куче, а в качестве ключа использовать значения <i>d</i>[<i>i</i>], то время извлечения вершины из <img class="tex" alt="\overline U" src="http://upload.wikimedia.org/math/e/9/5/e9562b0c226f37976942576caa434ead.png" /> станет <span class="texhtml">log<i>n</i></span>, при том, что время модификации <span class="texhtml"><i>d</i>[<i>i</i>]</span> возрастет до <span class="texhtml">log<i>n</i></span>. Т.к. цикл выполняется порядка n раз, а количество релаксаций не больше m, скорость работы такой реализации <span class="texhtml"><i>O</i>(<i>n</i>log<i>n</i> + <i>m</i>log<i>n</i>)</span></li>
+</ul>
+<ul>
+<li>Если для хранения непосещенных вершин использовать фибоначчиевы кучи, у которых время добавления элемента <span class="texhtml"><i>O</i>(1)</span>, то время работы алгоритма составит <span class="texhtml"><i>O</i>(<i>n</i>log<i>n</i> + <i>m</i>)</span></li>
+</ul>
+<p><a name=".D0.97.D0.B0.D0.BC.D0.B5.D1.87.D0.B0.D0.BD.D0.B8.D0.B5"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC_%D0%94%D0%B5%D0%B9%D0%BA%D1%81%D1%82%D1%80%D1%8B&amp;action=edit&amp;section=11" title="Править секцию: Замечание">править</a>]</span> <span class="mw-headline">Замечание</span></h2>
+<p>Нетрудно показать, что скорость работы алгоритма при использовании <a href="/w/index.php?title=%D0%A4%D0%B8%D0%B1%D0%BE%D0%BD%D0%B0%D1%87%D1%87%D0%B8%D0%B5%D0%B2%D0%B0_%D0%BA%D1%83%D1%87%D0%B0&amp;action=edit" class="new" title="Фибоначчиева куча">фибоначчиевых куч</a> является асимптотически оптимальной и улучшить её нельзя. Так, с одной стороны, задачу сортировки массива из n элементов можно свести к задаче о поиске кратчайших путей на графе из <span class="texhtml"><i>n</i></span> вершин; с другой стороны, алгоритму требуется просмотреть все ребра графа, хотя бы по одному разу.</p>
+<p><a name=".D0.A1.D0.BC._.D1.82.D0.B0.D0.BA.D0.B6.D0.B5"></a></p>
+<h1><span class="editsection">[<a href="/w/index.php?title=%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC_%D0%94%D0%B5%D0%B9%D0%BA%D1%81%D1%82%D1%80%D1%8B&amp;action=edit&amp;section=12" title="Править секцию: См. также">править</a>]</span> <span class="mw-headline">См. также</span></h1>
+<ul>
+<li><a href="/wiki/%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC_%D0%94%D0%B5%D0%B9%D0%BA%D1%81%D1%82%D1%80%D1%8B_%D1%81_%D0%BF%D0%BE%D1%82%D0%B5%D0%BD%D1%86%D0%B8%D0%B0%D0%BB%D0%B0%D0%BC%D0%B8" title="Алгоритм Дейкстры с потенциалами">Алгоритм Дейкстры с потенциалами</a> — обобщение на случай <a href="/wiki/%D0%93%D1%80%D0%B0%D1%84_%28%D0%BC%D0%B0%D1%82%D0%B5%D0%BC%D0%B0%D1%82%D0%B8%D0%BA%D0%B0%29" title="Граф (математика)">графов</a> с рёбрами отрицательного веса</li>
+<li><a href="/wiki/Shortest_Path_First" title="Shortest Path First">Shortest Path First</a></li>
+<li><a href="/wiki/OSPF" title="OSPF">OSPF</a></li>
+</ul>
+<p><a name=".D0.A1.D1.81.D1.8B.D0.BB.D0.BA.D0.B8"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC_%D0%94%D0%B5%D0%B9%D0%BA%D1%81%D1%82%D1%80%D1%8B&amp;action=edit&amp;section=13" title="Править секцию: Ссылки">править</a>]</span> <span class="mw-headline">Ссылки</span></h2>
+<ul>
+<li>E. W. Dijkstra. A note on two problems in connexion with graphs. // Numerische Mathematik. V.&#160;1 (1959), P.&#160;269–271</li>
+<li><a href="http://algolist.manual.ru/maths/graphs/shortpath/dijkstra.php" class="external text" title="http://algolist.manual.ru/maths/graphs/shortpath/dijkstra.php" rel="nofollow">algolist.manual.ru</a></li>
+<li>C. Анисимов. <a href="http://faqs.org.ru/progr/graph/pathmake.htm" class="external text" title="http://faqs.org.ru/progr/graph/pathmake.htm" rel="nofollow">Как постоить кратчайший маршрут между двумя точками.</a></li>
+<li><a href="http://maximal.hocomua.ru/dijkstra.htm" class="external text" title="http://maximal.hocomua.ru/dijkstra.htm" rel="nofollow">Реализация простейшего варианта алгоритма Дейкстры на maximal.hocomua.ru</a></li>
+<li><a href="http://maximal.hocomua.ru/dijkstra_sparse.htm" class="external text" title="http://maximal.hocomua.ru/dijkstra_sparse.htm" rel="nofollow">Реализация варианта алгоритма Дейкстры для разреженных графов на maximal.hocomua.ru</a></li>
+</ul>
+<p><a name=".D0.9B.D0.B8.D1.82.D0.B5.D1.80.D0.B0.D1.82.D1.83.D1.80.D0.B0"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC_%D0%94%D0%B5%D0%B9%D0%BA%D1%81%D1%82%D1%80%D1%8B&amp;action=edit&amp;section=14" title="Править секцию: Литература">править</a>]</span> <span class="mw-headline">Литература</span></h2>
+<ul>
+<li>Ананий В. Левитин <b>Глава 9. Жадные методы: Алгоритм Дейкстры</b> // <i><a href="http://www.williamspublishing.com/Books/5-8459-0987-2.html" class="external text" title="http://www.williamspublishing.com/Books/5-8459-0987-2.html" rel="nofollow">Алгоритмы: введение в разработку и анализ</a></i> = Introduction to The Design and Analysis of Aigorithms. — М.: <a href="/wiki/%D0%92%D0%B8%D0%BB%D1%8C%D1%8F%D0%BC%D1%81_%28%D0%B8%D0%B7%D0%B4%D0%B0%D1%82%D0%B5%D0%BB%D1%8C%D1%81%D1%82%D0%B2%D0%BE%29" title="Вильямс (издательство)">«Вильямс»</a>, 2006. — С.&#160;189-195. <a href="/w/index.php?title=%D0%A1%D0%BB%D1%83%D0%B6%D0%B5%D0%B1%D0%BD%D0%B0%D1%8F:Booksources&amp;isbn=0201743957" class="internal">ISBN 0-201-74395-7</a></li>
+</ul>
+
+<!-- 
+Pre-expand include size: 3377 bytes
+Post-expand include size: 1965 bytes
+Template argument size: 1327 bytes
+Maximum: 2048000 bytes
+-->
+
+<!-- Saved in parser cache with key ruwiki:pcache:idhash:168453-0!1!0!!ru!2 and timestamp 20070915161519 -->
+<div class="printfooter">
+<!-- Получено с "<a href="http://ru.wikipedia.org/wiki/%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC_%D0%94%D0%B5%D0%B9%D0%BA%D1%81%D1%82%D1%80%D1%8B">http://ru.wikipedia.org/wiki/%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC_%D0%94%D0%B5%D0%B9%D0%BA%D1%81%D1%82%D1%80%D1%8B</a>" -->&nbsp;</div>
+			<div id="catlinks"><p class='catlinks'><a href="/wiki/%D0%A1%D0%BB%D1%83%D0%B6%D0%B5%D0%B1%D0%BD%D0%B0%D1%8F:Categories" title="Служебная:Categories">Категории</a>: <span dir='ltr'><a href="/wiki/%D0%9A%D0%B0%D1%82%D0%B5%D0%B3%D0%BE%D1%80%D0%B8%D1%8F:%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC%D1%8B_%D0%BD%D0%B0_%D0%B3%D1%80%D0%B0%D1%84%D0%B0%D1%85" title="Категория:Алгоритмы на графах">Алгоритмы на графах</a></span> | <span dir='ltr'><a href="/wiki/%D0%9A%D0%B0%D1%82%D0%B5%D0%B3%D0%BE%D1%80%D0%B8%D1%8F:%D0%AD%D0%B2%D1%80%D0%B8%D1%81%D1%82%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B8%D0%B5_%D0%B0%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC%D1%8B" title="Категория:Эвристические алгоритмы">Эвристические алгоритмы</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Просмотры</h5>
+		<div class="pBody">
+			<ul>
+					 <li id="ca-nstab-main" class="selected"><a href="/wiki/%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC_%D0%94%D0%B5%D0%B9%D0%BA%D1%81%D1%82%D1%80%D1%8B" title="Содержание статьи [c]" accesskey="c">Статья</a></li>
+					 <li id="ca-talk"><a href="/wiki/%D0%9E%D0%B1%D1%81%D1%83%D0%B6%D0%B4%D0%B5%D0%BD%D0%B8%D0%B5:%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC_%D0%94%D0%B5%D0%B9%D0%BA%D1%81%D1%82%D1%80%D1%8B" title="Обсуждение статьи [t]" accesskey="t">Обсуждение</a></li>
+					 <li id="ca-edit"><a href="/w/index.php?title=%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC_%D0%94%D0%B5%D0%B9%D0%BA%D1%81%D1%82%D1%80%D1%8B&amp;action=edit" title="Эту статью можно изменять. Перед сохранением изменений, пожалуйста, нажмите кнопку предварительного просмотра для визуальной проверки результата [e]" accesskey="e">Править</a></li>
+					 <li id="ca-history"><a href="/w/index.php?title=%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC_%D0%94%D0%B5%D0%B9%D0%BA%D1%81%D1%82%D1%80%D1%8B&amp;action=history" title="Журнал изменений страницы [h]" accesskey="h">История</a></li>
+				</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-personal">
+		<h5>Личные инструменты</h5>
+		<div class="pBody">
+			<ul>
+				<li id="pt-login"><a href="/w/index.php?title=%D0%A1%D0%BB%D1%83%D0%B6%D0%B5%D0%B1%D0%BD%D0%B0%D1%8F:Userlogin&amp;returnto=%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC_%D0%94%D0%B5%D0%B9%D0%BA%D1%81%D1%82%D1%80%D1%8B" title="Здесь можно зарегистрироваться в системе, но это необязательно [o]" accesskey="o">Представиться системе</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-logo">
+		<a style="background-image: url(http://upload.wikimedia.org/wikipedia/ru/b/bc/Wiki.png);" href="/wiki/%D0%97%D0%B0%D0%B3%D0%BB%D0%B0%D0%B2%D0%BD%D0%B0%D1%8F_%D1%81%D1%82%D1%80%D0%B0%D0%BD%D0%B8%D1%86%D0%B0" title="Перейти на заглавную страницу [z]" accesskey="z"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Навигация</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="/wiki/%D0%97%D0%B0%D0%B3%D0%BB%D0%B0%D0%B2%D0%BD%D0%B0%D1%8F_%D1%81%D1%82%D1%80%D0%B0%D0%BD%D0%B8%D1%86%D0%B0" title="Перейти на заглавную страницу [z]" accesskey="z">Заглавная страница</a></li>
+				<li id="n-browse"><a href="/wiki/%D0%92%D0%B8%D0%BA%D0%B8%D0%BF%D0%B5%D0%B4%D0%B8%D1%8F:%D0%9F%D0%BE%D0%B8%D1%81%D0%BA_%D0%BF%D0%BE_%D0%BA%D0%B0%D1%82%D0%B5%D0%B3%D0%BE%D1%80%D0%B8%D1%8F%D0%BC">Рубрикация</a></li>
+				<li id="n-index"><a href="/wiki/%D0%92%D0%B8%D0%BA%D0%B8%D0%BF%D0%B5%D0%B4%D0%B8%D1%8F:%D0%91%D1%8B%D1%81%D1%82%D1%80%D1%8B%D0%B9_%D0%B8%D0%BD%D0%B4%D0%B5%D0%BA%D1%81">Индекс А — Я</a></li>
+				<li id="n-randompage"><a href="/wiki/%D0%A1%D0%BB%D1%83%D0%B6%D0%B5%D0%B1%D0%BD%D0%B0%D1%8F:Random" title="Посмотреть случайную страницу [x]" accesskey="x">Случайная статья</a></li>
+				<li id="n-newpages"><a href="/wiki/%D0%A1%D0%BB%D1%83%D0%B6%D0%B5%D0%B1%D0%BD%D0%B0%D1%8F:Newpages">Новые статьи</a></li>
+				<li id="n-currentevents"><a href="/wiki/%D0%A2%D0%B5%D0%BA%D1%83%D1%89%D0%B8%D0%B5_%D1%81%D0%BE%D0%B1%D1%8B%D1%82%D0%B8%D1%8F" title="Список текущих событий">Текущие события</a></li>
+			</ul>
+		</div>
+	</div>
+		<div class='portlet' id='p-participation'>
+		<h5>Участие</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-portal"><a href="/wiki/%D0%92%D0%B8%D0%BA%D0%B8%D0%BF%D0%B5%D0%B4%D0%B8%D1%8F:%D0%9F%D0%BE%D1%80%D1%82%D0%B0%D0%BB_%D1%81%D0%BE%D0%BE%D0%B1%D1%89%D0%B5%D1%81%D1%82%D0%B2%D0%B0" title="О проекте, о том, что вы можете сделать, где что находится">Портал сообщества</a></li>
+				<li id="n-forum"><a href="/wiki/%D0%92%D0%B8%D0%BA%D0%B8%D0%BF%D0%B5%D0%B4%D0%B8%D1%8F:%D0%A4%D0%BE%D1%80%D1%83%D0%BC">Форум</a></li>
+				<li id="n-recentchanges"><a href="/wiki/%D0%A1%D0%BB%D1%83%D0%B6%D0%B5%D0%B1%D0%BD%D0%B0%D1%8F:Recentchanges" title="Список последних изменений [r]" accesskey="r">Свежие правки</a></li>
+				<li id="n-help"><a href="/wiki/%D0%92%D0%B8%D0%BA%D0%B8%D0%BF%D0%B5%D0%B4%D0%B8%D1%8F:%D0%A1%D0%BF%D1%80%D0%B0%D0%B2%D0%BA%D0%B0" title="Справочник по проекту «Википедия»">Справка</a></li>
+				<li id="n-sitesupport"><a href="/wiki/%D0%92%D0%B8%D0%BA%D0%B8%D0%BF%D0%B5%D0%B4%D0%B8%D1%8F:%D0%9F%D0%BE%D0%B6%D0%B5%D1%80%D1%82%D0%B2%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F" title="Поддержите проект">Пожертвования</a></li>
+			</ul>
+		</div>
+	</div>
+		<div id="p-search" class="portlet">
+		<h5><label for="searchInput">Поиск</label></h5>
+		<div id="searchBody" class="pBody">
+			<form action="/wiki/%D0%A1%D0%BB%D1%83%D0%B6%D0%B5%D0%B1%D0%BD%D0%B0%D1%8F:Search" id="searchform"><div>
+				<input id="searchInput" name="search" type="text" title="Искать это слово [f]" accesskey="f" value="" />
+				<input type='submit' name="go" class="searchButton" id="searchGoButton"	value="Перейти" />&nbsp;
+				<input type='submit' name="fulltext" class="searchButton" id="mw-searchButton" value="Найти" />
+			</div></form>
+		</div>
+	</div>
+	<div class="portlet" id="p-tb">
+		<h5>Инструменты</h5>
+		<div class="pBody">
+			<ul>
+				<li id="t-whatlinkshere"><a href="/wiki/%D0%A1%D0%BB%D1%83%D0%B6%D0%B5%D0%B1%D0%BD%D0%B0%D1%8F:Whatlinkshere/%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC_%D0%94%D0%B5%D0%B9%D0%BA%D1%81%D1%82%D1%80%D1%8B" title="Список всех страниц, которые ссылаются на эту страницу [j]" accesskey="j">Ссылки сюда</a></li>
+				<li id="t-recentchangeslinked"><a href="/wiki/%D0%A1%D0%BB%D1%83%D0%B6%D0%B5%D0%B1%D0%BD%D0%B0%D1%8F:Recentchangeslinked/%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC_%D0%94%D0%B5%D0%B9%D0%BA%D1%81%D1%82%D1%80%D1%8B" title="Последние изменения в страницах, на которые ссылается эта страница [k]" accesskey="k">Связанные правки</a></li>
+<li id="t-upload"><a href="/wiki/%D0%A1%D0%BB%D1%83%D0%B6%D0%B5%D0%B1%D0%BD%D0%B0%D1%8F:Upload" title="Загрузить изображения или мультимедиа-файлы [u]" accesskey="u">Загрузить файл</a></li>
+<li id="t-specialpages"><a href="/wiki/%D0%A1%D0%BB%D1%83%D0%B6%D0%B5%D0%B1%D0%BD%D0%B0%D1%8F:Specialpages" title="Список служебных страниц [q]" accesskey="q">Спецстраницы</a></li>
+				<li id="t-print"><a href="/w/index.php?title=%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC_%D0%94%D0%B5%D0%B9%D0%BA%D1%81%D1%82%D1%80%D1%8B&amp;printable=yes" title="Версия для печати этой страницы [p]" accesskey="p">Версия для печати</a></li>				<li id="t-permalink"><a href="/w/index.php?title=%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC_%D0%94%D0%B5%D0%B9%D0%BA%D1%81%D1%82%D1%80%D1%8B&amp;oldid=5530540" title="Постоянная ссылка на эту версию страницы">Постоянная ссылка</a></li><li id="t-cite"><a href="/w/index.php?title=%D0%A1%D0%BB%D1%83%D0%B6%D0%B5%D0%B1%D0%BD%D0%B0%D1%8F:Cite&amp;page=%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC_%D0%94%D0%B5%D0%B9%D0%BA%D1%81%D1%82%D1%80%D1%8B&amp;id=5530540">Цитировать статью</a></li>			</ul>
+		</div>
+	</div>
+	<div id="p-lang" class="portlet">
+		<h5>На других языках</h5>
+		<div class="pBody">
+			<ul>
+				<li class="interwiki-bg"><a href="http://bg.wikipedia.org/wiki/%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D1%8A%D0%BC_%D0%BD%D0%B0_%D0%94%D0%B5%D0%B9%D0%BA%D1%81%D1%82%D1%80%D0%B0">Български</a></li>
+				<li class="interwiki-cs"><a href="http://cs.wikipedia.org/wiki/Dijkstr%C5%AFv_algoritmus">Česky</a></li>
+				<li class="interwiki-de"><a href="http://de.wikipedia.org/wiki/Dijkstra-Algorithmus">Deutsch</a></li>
+				<li class="interwiki-en"><a href="http://en.wikipedia.org/wiki/Dijkstra%27s_algorithm">English</a></li>
+				<li class="interwiki-es"><a href="http://es.wikipedia.org/wiki/Algoritmo_de_Dijkstra">Español</a></li>
+				<li class="interwiki-fi"><a href="http://fi.wikipedia.org/wiki/Dijkstran_algoritmi">Suomi</a></li>
+				<li class="interwiki-fr"><a href="http://fr.wikipedia.org/wiki/Algorithme_de_Dijkstra">Français</a></li>
+				<li class="interwiki-he"><a href="http://he.wikipedia.org/wiki/%D7%90%D7%9C%D7%92%D7%95%D7%A8%D7%99%D7%AA%D7%9D_%D7%93%D7%99%D7%99%D7%A7%D7%A1%D7%98%D7%A8%D7%94">עברית</a></li>
+				<li class="interwiki-id"><a href="http://id.wikipedia.org/wiki/Algoritma_Dijkstra">Bahasa Indonesia</a></li>
+				<li class="interwiki-it"><a href="http://it.wikipedia.org/wiki/Algoritmo_di_Dijkstra">Italiano</a></li>
+				<li class="interwiki-ja"><a href="http://ja.wikipedia.org/wiki/%E3%83%80%E3%82%A4%E3%82%AF%E3%82%B9%E3%83%88%E3%83%A9%E6%B3%95">日本語</a></li>
+				<li class="interwiki-ko"><a href="http://ko.wikipedia.org/wiki/%EB%8D%B0%EC%9D%B4%ED%81%AC%EC%8A%A4%ED%8A%B8%EB%9D%BC_%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98">한국어</a></li>
+				<li class="interwiki-lt"><a href="http://lt.wikipedia.org/wiki/Dijkstros_algoritmas">Lietuvių</a></li>
+				<li class="interwiki-nl"><a href="http://nl.wikipedia.org/wiki/Kortstepadalgoritme">Nederlands</a></li>
+				<li class="interwiki-no"><a href="http://no.wikipedia.org/wiki/Dijkstras_algoritme">‪Norsk (bokmål)‬</a></li>
+				<li class="interwiki-pl"><a href="http://pl.wikipedia.org/wiki/Algorytm_Dijkstry">Polski</a></li>
+				<li class="interwiki-pt"><a href="http://pt.wikipedia.org/wiki/Algoritmo_de_Dijkstra">Português</a></li>
+				<li class="interwiki-sk"><a href="http://sk.wikipedia.org/wiki/Dijkstrov_algoritmus">Slovenčina</a></li>
+				<li class="interwiki-sl"><a href="http://sl.wikipedia.org/wiki/Dijkstrov_algoritem">Slovenščina</a></li>
+				<li class="interwiki-sr"><a href="http://sr.wikipedia.org/wiki/%D0%94%D0%B8%D1%98%D0%BA%D1%81%D1%82%D1%80%D0%B8%D0%BD_%D0%B0%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%B0%D0%BC">Српски / Srpski</a></li>
+				<li class="interwiki-sv"><a href="http://sv.wikipedia.org/wiki/Dijkstras_algoritm">Svenska</a></li>
+				<li class="interwiki-uk"><a href="http://uk.wikipedia.org/wiki/%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC_%D0%94%D0%B5%D0%B9%D0%BA%D1%81%D1%82%D1%80%D0%B8">Українська</a></li>
+				<li class="interwiki-vi"><a href="http://vi.wikipedia.org/wiki/Thu%E1%BA%ADt_to%C3%A1n_Dijkstra">Tiếng Việt</a></li>
+				<li class="interwiki-zh"><a href="http://zh.wikipedia.org/wiki/%E8%BF%AA%E7%A7%91%E6%96%AF%E5%BD%BB%E7%AE%97%E6%B3%95">中文</a></li>
+			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="/skins-1.5/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>
+				<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="/images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>
+			<ul id="f-list">
+				<li id="lastmod"> Последнее изменение этой страницы: 15:00, 15 сентября 2007.</li>
+				<li id="copyright"><small>Содержимое доступно в соответствии с <a href="http://www.gnu.org/copyleft/fdl.html" class="external " title="http://www.gnu.org/copyleft/fdl.html" rel="nofollow">GNU Free Documentation License</a>.</small><br /></li>
+				<li id="privacy"><a href="/wiki/%D0%92%D0%B8%D0%BA%D0%B8%D0%BF%D0%B5%D0%B4%D0%B8%D1%8F:%D0%9F%D0%BE%D0%BB%D0%B8%D1%82%D0%B8%D0%BA%D0%B0_%D0%BA%D0%BE%D0%BD%D1%84%D0%B8%D0%B4%D0%B5%D0%BD%D1%86%D0%B8%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D1%81%D1%82%D0%B8" title="Википедия:Политика конфиденциальности">Политика конфиденциальности</a></li>
+				<li id="about"><a href="/wiki/%D0%92%D0%B8%D0%BA%D0%B8%D0%BF%D0%B5%D0%B4%D0%B8%D1%8F:%D0%9E%D0%BF%D0%B8%D1%81%D0%B0%D0%BD%D0%B8%D0%B5" title="Википедия:Описание">Описание Википедии</a></li>
+				<li id="disclaimer"><a href="/wiki/%D0%92%D0%B8%D0%BA%D0%B8%D0%BF%D0%B5%D0%B4%D0%B8%D1%8F:%D0%9E%D1%82%D0%BA%D0%B0%D0%B7_%D0%BE%D1%82_%D0%BE%D1%82%D0%B2%D0%B5%D1%82%D1%81%D1%82%D0%B2%D0%B5%D0%BD%D0%BD%D0%BE%D1%81%D1%82%D0%B8" title="Википедия:Отказ от ответственности">Отказ от ответственности</a></li>
+			</ul>
+		</div>
+		
+	
+		<script type="text/javascript">if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by srv125 in 0.076 secs. --></body></html>

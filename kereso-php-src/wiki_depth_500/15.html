@@ -1,0 +1,292 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+				<meta name="keywords" content="Hill climbing,A* search algorithm,Artificial Intelligence: A Modern Approach,Artificial intelligence,Bellman-Ford algorithm,Best-first search,Bidirectional search,Breadth-first search,Depth-first search,Depth-limited search,Dijkstra's algorithm" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="http://www.gnu.org/copyleft/fdl.html" />
+		<title>Hill climbing - Wikipedia, the free encyclopedia</title>
+		<style type="text/css" media="screen, projection">/*<![CDATA[*/
+			@import "/skins-1.5/common/shared.css?99";
+			@import "/skins-1.5/monobook/main.css?99";
+		/*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="/skins-1.5/common/commonPrint.css?99" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE50Fixes.css?99";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE55Fixes.css?99";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "/skins-1.5/monobook/IE60Fixes.css?99";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "/skins-1.5/monobook/IE70Fixes.css?99";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="/skins-1.5/common/IEFixes.js?99"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		
+		<script type= "text/javascript">/*<![CDATA[*/
+var skin = "monobook";
+var stylepath = "/skins-1.5";
+var wgArticlePath = "/wiki/$1";
+var wgScriptPath = "/w";
+var wgScript = "/w/index.php";
+var wgServer = "http://en.wikipedia.org";
+var wgCanonicalNamespace = "";
+var wgCanonicalSpecialPageName = false;
+var wgNamespaceNumber = 0;
+var wgPageName = "Hill_climbing";
+var wgTitle = "Hill climbing";
+var wgAction = "view";
+var wgRestrictionEdit = [];
+var wgRestrictionMove = [];
+var wgArticleId = "364002";
+var wgIsArticle = true;
+var wgUserName = null;
+var wgUserGroups = null;
+var wgUserLanguage = "en";
+var wgContentLanguage = "en";
+var wgBreakFrames = false;
+var wgCurRevisionId = "157338174";
+/*]]>*/</script>
+                
+		<script type="text/javascript" src="/skins-1.5/common/wikibits.js?99"><!-- wikibits js --></script>
+		<script type="text/javascript" src="/w/index.php?title=-&amp;action=raw&amp;gen=js&amp;useskin=monobook"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "/w/index.php?title=MediaWiki:Common.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=MediaWiki:Monobook.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=-&action=raw&gen=css&maxage=2678400";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+		<script type="text/javascript" src="/skins-1.5/common/ajax.js?99"></script>
+	</head>
+<body  class="mediawiki ns-0 ltr page-Hill_climbing">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">Hill climbing</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<dl>
+<dd><i>This article is about the mathematical algorithm. For other meanings such as the branch of <a href="/wiki/Motorsport" title="Motorsport">motorsport</a>, please see <a href="/wiki/Hillclimbing_%28disambiguation%29" title="Hillclimbing (disambiguation)">Hillclimbing (disambiguation)</a>.</i></dd>
+</dl>
+<table align="right" class="toccolours" style="padding: 0px; width: 170px; margin: 0 0 1em 1em;">
+<tr>
+<th style="background: #ccf;"><a href="/wiki/Graph_search_algorithm" title="Graph search algorithm">Graph search algorithms</a></th>
+</tr>
+<tr>
+<td><b>Search</b>
+<ul>
+<li><a href="/wiki/A%2A_search_algorithm" title="A* search algorithm">A*</a></li>
+<li><a href="/wiki/Bellman-Ford_algorithm" title="Bellman-Ford algorithm">Bellman-Ford algorithm</a></li>
+<li><a href="/wiki/Best-first_search" title="Best-first search">Best-first search</a></li>
+<li><a href="/wiki/Bidirectional_search" title="Bidirectional search">Bidirectional search</a></li>
+<li><a href="/wiki/Breadth-first_search" title="Breadth-first search">Breadth-first search</a></li>
+<li><a href="/wiki/Depth-first_search" title="Depth-first search">Depth-first search</a></li>
+<li><a href="/wiki/Depth-limited_search" title="Depth-limited search">Depth-limited search</a></li>
+<li><a href="/wiki/Dijkstra%27s_algorithm" title="Dijkstra's algorithm">Dijkstra's algorithm</a></li>
+<li><a href="/wiki/Floyd-Warshall_algorithm" title="Floyd-Warshall algorithm">Floyd-Warshall algorithm</a></li>
+<li><strong class="selflink">Hill climbing</strong></li>
+<li><a href="/wiki/Iterative_deepening_depth-first_search" title="Iterative deepening depth-first search">Iterative deepening depth-first search</a></li>
+<li><a href="/wiki/Johnson%27s_algorithm" title="Johnson's algorithm">Johnson's algorithm</a></li>
+<li><a href="/wiki/Uniform-cost_search" title="Uniform-cost search">Uniform-cost search</a></li>
+</ul>
+</td>
+</tr>
+</table>
+<p><b>Hill climbing</b> is an optimization technique which belongs to the family of <a href="/wiki/Local_search_%28optimization%29" title="Local search (optimization)">local search</a>. It is a relatively simple technique to implement, making it a popular first choice. Although more advanced algorithms may give better results, there are situations where hill climbing works well.</p>
+<p>Hill climbing can be used to solve problems that have many solutions but where some solutions are better than others. The algorithm is started with a (bad) solution to the problem, and sequentially makes small changes to the solution, each time improving it a little bit. At some point the algorithm arrives at a point where it cannot see any improvement anymore, at which point the algorithm terminates. Ideally, at that point a solution is found that is close to optimal, but it is not guaranteed that hill climbing will ever come close to the optimal solution.</p>
+<p>An example of a problem that can be solved with hill climbing is the <a href="/wiki/Traveling_salesman_problem" title="Traveling salesman problem">Traveling salesman problem</a>. It is easy to find a solution that will visit all the cities, but this solution will probably be very bad compared to the optimal solution. The algorithm starts with such a solution and makes small improvements to it, such as switching the order in which two cities are visited. Eventually, a much better route is obtained.</p>
+<p>Hill climbing is used widely in <a href="/wiki/Artificial_intelligence" title="Artificial intelligence">artificial intelligence</a> fields, for reaching a goal state from a starting node. Choice of next node and starting node can be varied to give a list of related algorithms.</p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Mathematical_Description"><span class="tocnumber">1</span> <span class="toctext">Mathematical Description</span></a></li>
+<li class="toclevel-1"><a href="#Variants"><span class="tocnumber">2</span> <span class="toctext">Variants</span></a></li>
+<li class="toclevel-1"><a href="#Problems"><span class="tocnumber">3</span> <span class="toctext">Problems</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Local_Maxima"><span class="tocnumber">3.1</span> <span class="toctext">Local Maxima</span></a></li>
+<li class="toclevel-2"><a href="#Ridges"><span class="tocnumber">3.2</span> <span class="toctext">Ridges</span></a></li>
+<li class="toclevel-2"><a href="#Plateau"><span class="tocnumber">3.3</span> <span class="toctext">Plateau</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Pseudocode"><span class="tocnumber">4</span> <span class="toctext">Pseudocode</span></a></li>
+<li class="toclevel-1"><a href="#See_also"><span class="tocnumber">5</span> <span class="toctext">See also</span></a></li>
+<li class="toclevel-1"><a href="#References"><span class="tocnumber">6</span> <span class="toctext">References</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script>
+<p><a name="Mathematical_Description" id="Mathematical_Description"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Hill_climbing&amp;action=edit&amp;section=1" title="Edit section: Mathematical Description">edit</a>]</span> <span class="mw-headline">Mathematical Description</span></h2>
+<p>Hill climbing attempts to maximize (or minimize) a <a href="/wiki/Function_%28mathematics%29" title="Function (mathematics)">function</a> <span class="texhtml"><i>f</i>(<i>x</i>)</span>, where <span class="texhtml"><i>x</i></span> are discrete states. These states are typically represented by <a href="/wiki/Vertex_%28graph_theory%29" title="Vertex (graph theory)">vertices</a> in a <a href="/wiki/Graph_%28mathematics%29" title="Graph (mathematics)">graph</a>, where <a href="/wiki/Graph_theory" title="Graph theory">edges</a> in the graph encode nearness or similarity of a graph. Hill climbing will follow the graph from vertex to vertex, always locally increasing (or decreasing) the value of <span class="texhtml"><i>f</i></span>, until a <a href="/wiki/Local_maximum" title="Local maximum">local maximum</a> (or <a href="/wiki/Local_minimum" title="Local minimum">local minimum</a>) <span class="texhtml"><i>x</i><sub><i>m</i></sub></span> is reached. Hill climbing can also operate on a continuous space: in that case, the algorithm is called gradient ascent (or <a href="/wiki/Gradient_descent" title="Gradient descent">gradient descent</a> if the function is minimized).</p>
+<p><a href="/wiki/Image:Hill_climb.png" class="image" title="Image:hill_climb.png"><img alt="Image:hill_climb.png" src="http://upload.wikimedia.org/wikipedia/en/0/05/Hill_climb.png" width="412" height="200" border="0" /></a></p>
+<p><a name="Variants" id="Variants"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Hill_climbing&amp;action=edit&amp;section=2" title="Edit section: Variants">edit</a>]</span> <span class="mw-headline">Variants</span></h2>
+<p>In <b>simple hill climbing</b>, the first closer node is chosen, whereas in <b>steepest ascent hill climbing</b> all successors are compared and the closest to the solution is chosen. Both forms fail if there is no closer node, which may happen if there are local maxima in the search space which are not solutions. Steepest ascent hill climbing is similar to <a href="/wiki/Best-first_search" title="Best-first search">best-first search</a>, which tries all possible extensions of the current path in order instead of only one.</p>
+<p><b>Random-restart hill climbing</b> is a <a href="/wiki/Meta-algorithm" title="Meta-algorithm">meta-algorithm</a> built on top of the hill climbing algorithm. It is also known as <b>Shotgun hill climbing</b>. Random-restart hill climbing simply runs an outer loop over hill-climbing, where each step of the outer loop chooses a random initial condition <span class="texhtml"><i>x</i><sub>0</sub></span> to start hill climbing. The best <span class="texhtml"><i>x</i><sub><i>m</i></sub></span> is kept: if a new run of hill climbing produces a better <span class="texhtml"><i>x</i><sub><i>m</i></sub></span> than the stored state, it replaces the stored state.</p>
+<p>Random-restart hill climbing is a surprisingly effective algorithm in many cases. It turns out that it is often better to spend CPU time exploring the space, rather than carefully optimizing from an initial condition. <sup class="noprint Inline-Template"><span title="The material in the vicinity of this tag may be based upon unreliable original research" style="white-space: nowrap;">[<i><a href="/wiki/Wikipedia:No_original_research" title="Wikipedia:No original research">original research?</a></i>]</span></sup></p>
+<p><a name="Problems" id="Problems"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Hill_climbing&amp;action=edit&amp;section=3" title="Edit section: Problems">edit</a>]</span> <span class="mw-headline">Problems</span></h2>
+<p><a name="Local_Maxima" id="Local_Maxima"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Hill_climbing&amp;action=edit&amp;section=4" title="Edit section: Local Maxima">edit</a>]</span> <span class="mw-headline">Local Maxima</span></h3>
+<p>A problem with hill climbing is that it will find only <a href="/wiki/Maxima_and_minima" title="Maxima and minima">local maxima</a>. Unless the heuristic is convex, it will not necessarily reach a global maximum. Other local search algorithms try to overcome this problem such as <a href="/wiki/Stochastic_hill_climbing" title="Stochastic hill climbing">stochastic hill climbing</a>, <a href="/wiki/Random_walk" title="Random walk">random walks</a> and <a href="/wiki/Simulated_annealing" title="Simulated annealing">simulated annealing</a>.</p>
+<p><a href="/wiki/Image:Local_maximum.png" class="image" title="Image:local_maximum.png"><img alt="Image:local_maximum.png" src="http://upload.wikimedia.org/wikipedia/en/7/7e/Local_maximum.png" width="399" height="203" border="0" /></a></p>
+<p><a name="Ridges" id="Ridges"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Hill_climbing&amp;action=edit&amp;section=5" title="Edit section: Ridges">edit</a>]</span> <span class="mw-headline">Ridges</span></h3>
+<p>A ridge is a curve in the search place that leads to a maximum, but the orientation of the ridge compared to the available moves that are used to climb is such that each moves will lead to a smaller point. In other words, each point on a ridge looks to the algorithm like a local maximum, even though the point is part of a curve leading to a better optimum.</p>
+<p><a name="Plateau" id="Plateau"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Hill_climbing&amp;action=edit&amp;section=6" title="Edit section: Plateau">edit</a>]</span> <span class="mw-headline">Plateau</span></h3>
+<p>Another problem with hill climbing is that of a plateau, which occurs when we get to a "flat" part of the search space, i.e. we have a path where the heuristics are all very close together. This kind of flatness can cause the algorithm to cease progress and wander aimlessly.</p>
+<p><a name="Pseudocode" id="Pseudocode"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Hill_climbing&amp;action=edit&amp;section=7" title="Edit section: Pseudocode">edit</a>]</span> <span class="mw-headline">Pseudocode</span></h2>
+<pre>
+Hill Climbing Algorithm
+   bestEval = -INF;
+   currentNode = startNode;
+   bestNode = NULL;
+   for MAX times
+      if (EVAL(currentNode) &gt; bestEval)
+          bestEval = EVAL(currentNode);
+          bestNode = currentNode;
+      L = NEIGHBORS(currentNode);
+      nextEval = -INF;
+      for all x in L
+         if (EVAL(x) &gt; nextEval)
+              currentNode = x;
+              nextEval = EVAL(x);
+   return currentNode;
+</pre>
+<p>Contrast <a href="/wiki/Genetic_algorithm" title="Genetic algorithm">genetic algorithm</a>; <a href="/wiki/Random_optimization" title="Random optimization">random optimization</a>.</p>
+<p><a name="See_also" id="See_also"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Hill_climbing&amp;action=edit&amp;section=8" title="Edit section: See also">edit</a>]</span> <span class="mw-headline">See also</span></h2>
+<ul>
+<li><a href="/wiki/Gradient_descent" title="Gradient descent">gradient descent</a></li>
+<li><a href="/wiki/Greedy_algorithm" title="Greedy algorithm">greedy algorithm</a></li>
+</ul>
+<p><a name="References" id="References"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Hill_climbing&amp;action=edit&amp;section=9" title="Edit section: References">edit</a>]</span> <span class="mw-headline">References</span></h2>
+<ul>
+<li><a href="/wiki/Stuart_J._Russell" title="Stuart J. Russell">Stuart Russell</a>, <a href="/wiki/Peter_Norvig" title="Peter Norvig">Peter Norvig</a>, Chapter 4, <a href="/wiki/Artificial_Intelligence:_A_Modern_Approach" title="Artificial Intelligence: A Modern Approach">Artificial Intelligence: A Modern Approach</a> Prentice-Hall, (1995), <a href="/w/index.php?title=Special:Booksources&amp;isbn=0131038052" class="internal">ISBN 0-13-103805-2</a></li>
+</ul>
+<p><span class="boilerplate" id="foldoc"><i>This article was originally based on material from the <a href="/wiki/Free_On-line_Dictionary_of_Computing" title="Free On-line Dictionary of Computing">Free On-line Dictionary of Computing</a>, which is <a href="/wiki/Wikipedia:Foldoc_license" title="Wikipedia:Foldoc license">licensed</a> under the <a href="/wiki/GNU_Free_Documentation_License" title="GNU Free Documentation License">GFDL</a>.</i></span></p>
+
+<!-- 
+Pre-expand include size: 3345 bytes
+Post-expand include size: 2154 bytes
+Template argument size: 603 bytes
+Maximum: 2048000 bytes
+-->
+
+<!-- Saved in parser cache with key enwiki:pcache:idhash:364002-0!1!0!default!!en!2 and timestamp 20070912115704 -->
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org/wiki/Hill_climbing">http://en.wikipedia.org/wiki/Hill_climbing</a>"</div>
+			<div id="catlinks"><p class='catlinks'><a href="/wiki/Special:Categories" title="Special:Categories">Categories</a>: <span dir='ltr'><a href="/wiki/Category:Articles_that_may_contain_original_research" title="Category:Articles that may contain original research">Articles that may contain original research</a></span> | <span dir='ltr'><a href="/wiki/Category:Optimization_algorithms" title="Category:Optimization algorithms">Optimization algorithms</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<div class="pBody">
+			<ul>
+					 <li id="ca-nstab-main" class="selected"><a href="/wiki/Hill_climbing" title="View the content page [c]" accesskey="c">Article</a></li>
+					 <li id="ca-talk"><a href="/wiki/Talk:Hill_climbing" title="Discussion about the content page [t]" accesskey="t">Discussion</a></li>
+					 <li id="ca-edit"><a href="/w/index.php?title=Hill_climbing&amp;action=edit" title="You can edit this page. Please use the preview button before saving. [e]" accesskey="e">Edit this page</a></li>
+					 <li id="ca-history"><a href="/w/index.php?title=Hill_climbing&amp;action=history" title="Past versions of this page [h]" accesskey="h">History</a></li>
+				</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-personal">
+		<h5>Personal tools</h5>
+		<div class="pBody">
+			<ul>
+				<li id="pt-login"><a href="/w/index.php?title=Special:Userlogin&amp;returnto=Hill_climbing" title="You are encouraged to log in, it is not mandatory however. [o]" accesskey="o">Sign in / create account</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-logo">
+		<a style="background-image: url(/images/wiki-en.png);" href="/wiki/Main_Page" title="Visit the Main Page [z]" accesskey="z"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-Main-page"><a href="/wiki/Main_Page">Main page</a></li>
+				<li id="n-Contents"><a href="/wiki/Wikipedia:Contents">Contents</a></li>
+				<li id="n-Featured-content"><a href="/wiki/Wikipedia:Featured_content">Featured content</a></li>
+				<li id="n-currentevents"><a href="/wiki/Portal:Current_events" title="Find background information on current events">Current events</a></li>
+				<li id="n-randompage"><a href="/wiki/Special:Random" title="Load a random page [x]" accesskey="x">Random article</a></li>
+			</ul>
+		</div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+		<h5>interaction</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-About-Wikipedia"><a href="/wiki/Wikipedia:About">About Wikipedia</a></li>
+				<li id="n-portal"><a href="/wiki/Wikipedia:Community_Portal" title="About the project, what you can do, where to find things">Community portal</a></li>
+				<li id="n-recentchanges"><a href="/wiki/Special:Recentchanges" title="The list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li>
+				<li id="n-contact"><a href="/wiki/Wikipedia:Contact_us">Contact Wikipedia</a></li>
+				<li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising" title="Support us">Donate to Wikipedia</a></li>
+				<li id="n-help"><a href="/wiki/Help:Contents" title="Guidance on how to use and edit Wikipedia">Help</a></li>
+			</ul>
+		</div>
+	</div>
+		<div id="p-search" class="portlet">
+		<h5><label for="searchInput">Search</label></h5>
+		<div id="searchBody" class="pBody">
+			<form action="/wiki/Special:Search" id="searchform"><div>
+				<input id="searchInput" name="search" type="text" title="Search Wikipedia [f]" accesskey="f" value="" />
+				<input type='submit' name="go" class="searchButton" id="searchGoButton"	value="Go" />&nbsp;
+				<input type='submit' name="fulltext" class="searchButton" id="mw-searchButton" value="Search" />
+			</div></form>
+		</div>
+	</div>
+	<div class="portlet" id="p-tb">
+		<h5>Toolbox</h5>
+		<div class="pBody">
+			<ul>
+				<li id="t-whatlinkshere"><a href="/wiki/Special:Whatlinkshere/Hill_climbing" title="List of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+				<li id="t-recentchangeslinked"><a href="/wiki/Special:Recentchangeslinked/Hill_climbing" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+<li id="t-upload"><a href="/wiki/Wikipedia:Upload" title="Upload images or media files [u]" accesskey="u">Upload file</a></li>
+<li id="t-specialpages"><a href="/wiki/Special:Specialpages" title="List of all special pages [q]" accesskey="q">Special pages</a></li>
+				<li id="t-print"><a href="/w/index.php?title=Hill_climbing&amp;printable=yes" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>				<li id="t-permalink"><a href="/w/index.php?title=Hill_climbing&amp;oldid=157338174" title="Permanent link to this version of the page">Permanent link</a></li><li id="t-cite"><a href="/w/index.php?title=Special:Cite&amp;page=Hill_climbing&amp;id=157338174">Cite this article</a></li>			</ul>
+		</div>
+	</div>
+	<div id="p-lang" class="portlet">
+		<h5>In other languages</h5>
+		<div class="pBody">
+			<ul>
+				<li class="interwiki-de"><a href="http://de.wikipedia.org/wiki/Bergsteigeralgorithmus">Deutsch</a></li>
+				<li class="interwiki-ja"><a href="http://ja.wikipedia.org/wiki/%E5%B1%B1%E7%99%BB%E3%82%8A%E6%B3%95">日本語</a></li>
+				<li class="interwiki-zh"><a href="http://zh.wikipedia.org/wiki/%E7%88%AC%E5%B1%B1%E7%AE%97%E6%B3%95">中文</a></li>
+			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="/skins-1.5/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>
+				<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="/images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>
+			<ul id="f-list">
+				<li id="lastmod"> This page was last modified 08:50, 12 September 2007.</li>
+				<li id="copyright">All text is available under the terms of the <a class='internal' href="/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="/wiki/Wikipedia:Copyrights" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a U.S. registered <a class='internal' href="/wiki/501%28c%29#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="/wiki/Non-profit_organization" title="Non-profit organization">nonprofit</a> <a href="/wiki/Charitable_organization" title="Charitable organization">charity</a>.<br /></li>
+				<li id="privacy"><a href="http://wikimediafoundation.org/wiki/Privacy_policy" title="wikimedia:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="/wiki/Wikipedia:About" title="Wikipedia:About">About Wikipedia</a></li>
+				<li id="disclaimer"><a href="/wiki/Wikipedia:General_disclaimer" title="Wikipedia:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+		
+	
+		<script type="text/javascript">if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by srv90 in 0.237 secs. --></body></html>

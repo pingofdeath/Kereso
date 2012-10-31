@@ -1,0 +1,267 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+				<meta name="keywords" content="Algorithme de recherche,Algorithme de recherche de sous-chaîne,Algorithme réparti,Algorithmique,Arbre (informatique),Complexité,Dichotomie,Ensemble,Heuristique,Informatique,Intelligence Artificielle" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipédia (Français)" />
+		<link rel="copyright" href="http://www.gnu.org/copyleft/fdl.html" />
+		<title>Algorithme de recherche - Wikipédia</title>
+		<style type="text/css" media="screen, projection">/*<![CDATA[*/
+			@import "/skins-1.5/common/shared.css?99";
+			@import "/skins-1.5/monobook/main.css?99";
+		/*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="/skins-1.5/common/commonPrint.css?99" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE50Fixes.css?99";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE55Fixes.css?99";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "/skins-1.5/monobook/IE60Fixes.css?99";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "/skins-1.5/monobook/IE70Fixes.css?99";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="/skins-1.5/common/IEFixes.js?99"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		
+		<script type= "text/javascript">/*<![CDATA[*/
+var skin = "monobook";
+var stylepath = "/skins-1.5";
+var wgArticlePath = "/wiki/$1";
+var wgScriptPath = "/w";
+var wgScript = "/w/index.php";
+var wgServer = "http://fr.wikipedia.org";
+var wgCanonicalNamespace = "";
+var wgCanonicalSpecialPageName = false;
+var wgNamespaceNumber = 0;
+var wgPageName = "Algorithme_de_recherche";
+var wgTitle = "Algorithme de recherche";
+var wgAction = "view";
+var wgRestrictionEdit = [];
+var wgRestrictionMove = [];
+var wgArticleId = "654457";
+var wgIsArticle = true;
+var wgUserName = null;
+var wgUserGroups = null;
+var wgUserLanguage = "fr";
+var wgContentLanguage = "fr";
+var wgBreakFrames = false;
+var wgCurRevisionId = "17789978";
+/*]]>*/</script>
+                
+		<script type="text/javascript" src="/skins-1.5/common/wikibits.js?99"><!-- wikibits js --></script>
+		<script type="text/javascript" src="/w/index.php?title=-&amp;action=raw&amp;gen=js&amp;useskin=monobook"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "/w/index.php?title=MediaWiki:Common.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=MediaWiki:Monobook.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=-&action=raw&gen=css&maxage=2678400";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+		<script type="text/javascript" src="/skins-1.5/common/ajax.js?99"></script>
+	</head>
+<body  class="mediawiki ns-0 ltr page-Algorithme_de_recherche">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+		<div id="siteNotice"><script type="text/javascript" language="JavaScript">
+<!--
+document.writeln("\x3cdiv style=\"text-align:right; font-size:80%\"\x3eVos dons permettent à Wikipédia de continuer à exister\x26nbsp;! Merci de \x3ca href=\"http://wikimediafoundation.org/wiki/Faire_un_don\" class=\"extiw\" title=\"wikimedia:Faire_un_don\"\x3evotre soutien\x3c/a\x3e.\x26nbsp;\x26nbsp;\x26nbsp;\x26nbsp;\x3c/div\x3e\n");
+-->
+</script></div>		<h1 class="firstHeading">Algorithme de recherche</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">Un article de Wikipédia, l'encyclopédie libre.</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Aller à : <a href="#column-one">Navigation</a>, <a href="#searchInput">Rechercher</a></div>			<!-- start content -->
+			<div class="homonymie">Pour les articles homonymes<sup><a href="/wiki/Aide:Homonymie" title="Aide:Homonymie">?</a></sup>, voir <a href="/wiki/Recherche_%28homonymie%29" title="Recherche (homonymie)">recherche (homonymie)</a>. <a href="/wiki/Image:Disambig.svg" class="image" title="Disambig.svg"><img alt="" src="http://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Disambig.svg/20px-Disambig.svg.png" width="20" height="16" border="0" /></a></div>
+<div class="alerte plainlinks stub" style="width: 99.4%; margin-bottom: 1em;">
+<table style="width: 100%; background: none;">
+<tr>
+<td width="32px" style="vertical-align: middle;"><a href="/wiki/Image:Crystal_Clear_app_lphoto.png" class="image" title="Crystal Clear app lphoto.png"><img alt="" src="http://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Crystal_Clear_app_lphoto.png/36px-Crystal_Clear_app_lphoto.png" width="36" height="36" border="0" /></a></td>
+<td>Pour <a href="http://fr.wikipedia.org/w/index.php?title=Algorithme_de_recherche&amp;action=edit" class="external text" title="http://fr.wikipedia.org/w/index.php?title=Algorithme_de_recherche&amp;action=edit" rel="nofollow">améliorer</a> cet article, <b><a href="/wiki/Discuter:Algorithme_de_recherche#Images_souhait.C3.A9es" title="Discuter:Algorithme de recherche">certaines images seraient bienvenues</a></b>.<br />
+<small style="font-style: normal;">Vous pouvez y contribuer en apportant des images libres de droit (voir à ce sujet l'<a href="/wiki/Aide:Importer_un_fichier" title="Aide:Importer un fichier">aide pour l'importation de fichiers</a>).</small></td>
+</tr>
+</table>
+</div>
+<div class="alerte plainlinks stub" style="width: 99.4%; margin-bottom: 1em;">
+<table style="width: 100%; background: none;">
+<tr>
+<td width="25" style="vertical-align: middle;"><a href="/wiki/Image:Crystal_mycomputer.png" class="image" title="Crystal mycomputer.png"><img alt="" src="http://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Crystal_mycomputer.png/25px-Crystal_mycomputer.png" width="25" height="25" border="0" /></a></td>
+<td>Cet article est une <a href="/wiki/Aide:%C3%89bauche" title="Aide:Ébauche">ébauche à compléter</a> concernant l'<a href="/wiki/Portail:Informatique" title="Portail:Informatique">informatique</a>, vous pouvez partager vos connaissances en le <a href="http://fr.wikipedia.org/w/index.php?title=Algorithme_de_recherche&amp;action=edit" class="external text" title="http://fr.wikipedia.org/w/index.php?title=Algorithme_de_recherche&amp;action=edit" rel="nofollow">modifiant</a>.</td>
+</tr>
+</table>
+</div>
+<p>En <a href="/wiki/Informatique" title="Informatique">informatique</a>, un <b>algorithme de recherche</b> est un type d'<a href="/wiki/Algorithmique" title="Algorithmique">algorithme</a> qui, pour un domaine, un <a href="/wiki/Probl%C3%A8me" title="Problème">problème</a> de ce domaine et des critères donnés, retrourne en résultat un <a href="/wiki/Ensemble" title="Ensemble">ensemble</a> de solutions répondant au problème.</p>
+<p>Supposons que l'<a href="/wiki/Ensemble" title="Ensemble">ensemble</a> de ses entrées soit divisible en sous-ensemble, par rapport à un critère donné, qui peut être, par exemple, une <a href="/wiki/Relation_d%27ordre" title="Relation d'ordre">relation d'ordre</a>. De façon générale, un tel algorithme vérifie un certain nombre de ces entrées et retourne en sortie une ou plusieurs des entrées visées.</p>
+<p>L'ensemble de toutes les solutions potentielles dans le domaine est appelé <i>espace de recherche</i>.</p>
+<table id="toc" class="toc" summary="Sommaire">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Sommaire</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Algorithmes_de_recherche_classique"><span class="tocnumber">1</span> <span class="toctext">Algorithmes de recherche classique</span></a></li>
+<li class="toclevel-1"><a href="#Recherche_de_solutions_.C3.A0_des_probl.C3.A8mes_complexes"><span class="tocnumber">2</span> <span class="toctext">Recherche de solutions à des problèmes complexes</span></a></li>
+<li class="toclevel-1"><a href="#Complexit.C3.A9"><span class="tocnumber">3</span> <span class="toctext">Complexité</span></a></li>
+<li class="toclevel-1"><a href="#Exemples"><span class="tocnumber">4</span> <span class="toctext">Exemples</span></a></li>
+<li class="toclevel-1"><a href="#Voir_aussi"><span class="tocnumber">5</span> <span class="toctext">Voir aussi</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "afficher"; var tocHideText = "masquer"; showTocToggle(); } 
+//]]>
+</script>
+<p><a name="Algorithmes_de_recherche_classique" id="Algorithmes_de_recherche_classique"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Algorithme_de_recherche&amp;action=edit&amp;section=1" title="Modifier la section&#160;: Algorithmes de recherche classique">modifier</a>]</span> <span class="mw-headline">Algorithmes de recherche classique</span></h2>
+<p>Sur des <a href="/wiki/Structure_de_donn%C3%A9es" title="Structure de données">structures de données</a> usuelles comme les <a href="/wiki/Liste_%28informatique%29" title="Liste (informatique)">listes</a>, les <a href="/wiki/Tableau_%28structure_de_donn%C3%A9es%29" title="Tableau (structure de données)">tables</a> ou les <a href="/wiki/Arbre_%28informatique%29" title="Arbre (informatique)">arbres</a>, il existe des algorithmes <i>bien connus</i> que l'on peut facilement mettre en œuvre à la manière d'une recette de cuisine. Ces algorithmes exploitent les propriétés de la structure de données et du domaine.</p>
+<p>Un exemple classique est la recherche <a href="/wiki/Dichotomie" title="Dichotomie">dichotomique</a> où l'on divise en deux l'espace de recherche à chaque tentative ce qui donne une <a href="/wiki/Complexit%C3%A9" title="Complexité">complexité</a> <a href="/wiki/Logarithme" title="Logarithme">logarithmique</a> (donc très avantageuse).</p>
+<p><a name="Recherche_de_solutions_.C3.A0_des_probl.C3.A8mes_complexes" id="Recherche_de_solutions_.C3.A0_des_probl.C3.A8mes_complexes"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Algorithme_de_recherche&amp;action=edit&amp;section=2" title="Modifier la section&#160;: Recherche de solutions à des problèmes complexes">modifier</a>]</span> <span class="mw-headline">Recherche de solutions à des problèmes complexes</span></h2>
+<p>Pour des problèmes complexes, la recherche de solutions relève de l'<a href="/wiki/Intelligence_Artificielle" title="Intelligence Artificielle">intelligence Artificielle</a>.</p>
+<ul>
+<li>On dit qu'un algorithme est de <a href="/wiki/Recherche_par_force_brute" title="Recherche par force brute">recherche par force brute</a> lorsque toutes les entrées sont vérifiées une à une. Ce type de recherche peut s'avérer efficace si l'espace des solutions est d'une taille raisonnable vis à vis de la puissance de la machine utilisée pour le parcourir. Il s'agit donc d'une méthode à tenter en dernier recours s'il n'y a pas d'autre possibilités.</li>
+</ul>
+<ul>
+<li>On parle de recherche <a href="/wiki/Heuristique" title="Heuristique">heuristiques</a> lorsque des connaissances ou des propriétés supplémentaires permettent de rendre la recherche plus efficace. Ainsi, l'exploitation des symétries géométriques dans la résolution d'un puzzle permet de réduire fortement l'<i>espace de recherche</i>. De la même façon, une <a href="/wiki/Pathfinding" title="Pathfinding">recherche de chemin</a> peut être facilité par la connaissance même approximative de la direction dans laquelle se trouve l'objectif ou de sa distance.</li>
+</ul>
+<p><a name="Complexit.C3.A9" id="Complexit.C3.A9"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Algorithme_de_recherche&amp;action=edit&amp;section=3" title="Modifier la section&#160;: Complexité">modifier</a>]</span> <span class="mw-headline">Complexité</span></h2>
+<p>Ces algorithmes sont au centre de questions importantes en <a href="/wiki/Complexit%C3%A9" title="Complexité">complexité</a> algorithmique. Ils ont aussi très importants de par leurs vastes domaines d'application.</p>
+<p><a name="Exemples" id="Exemples"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Algorithme_de_recherche&amp;action=edit&amp;section=4" title="Modifier la section&#160;: Exemples">modifier</a>]</span> <span class="mw-headline">Exemples</span></h2>
+<ul>
+<li><a href="/wiki/Algorithme_de_recherche_de_sous-cha%C3%AEne" title="Algorithme de recherche de sous-chaîne">Algorithme de recherche de sous-chaîne</a></li>
+<li><a href="/wiki/Pathfinding" title="Pathfinding">Algorithme de recherche de chemin (Pathfinding)</a></li>
+</ul>
+<p><a name="Voir_aussi" id="Voir_aussi"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Algorithme_de_recherche&amp;action=edit&amp;section=5" title="Modifier la section&#160;: Voir aussi">modifier</a>]</span> <span class="mw-headline">Voir aussi</span></h2>
+<ul>
+<li><a href="/wiki/Algorithme_r%C3%A9parti" title="Algorithme réparti">Algorithme réparti</a></li>
+</ul>
+<div class="cadre_portail" style="clear: both; margin: 1em 0 0.5em 0; border-width: 1px; border-style: solid; border-color: #A4A4A4; background-color: #E4E4E4; color: #000000; line-height: 1.25">
+<table width="100%" rules="none" border="0" cellspacing="0" cellpadding="2" style="background: transparent;">
+<tr>
+<td style="padding-right:4px"><a href="/wiki/Image:Crystal_mycomputer.png" class="image" title="Crystal mycomputer.png"><img alt="" src="http://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Crystal_mycomputer.png/22px-Crystal_mycomputer.png" width="22" height="22" border="0" /></a></td>
+<td width="100%"><b><a href="/wiki/Portail:Informatique" title="Portail:Informatique">Portail de l'informatique</a></b></td>
+</tr>
+</table>
+</div>
+
+<!-- 
+Pre-expand include size: 4844 bytes
+Post-expand include size: 3325 bytes
+Template argument size: 442 bytes
+Maximum: 2048000 bytes
+-->
+
+<!-- Saved in parser cache with key frwiki:pcache:idhash:654457-0!1!0!!fr!2 and timestamp 20070914094925 -->
+<div class="printfooter">
+Récupérée de « <a href="http://fr.wikipedia.org/wiki/Algorithme_de_recherche">http://fr.wikipedia.org/wiki/Algorithme_de_recherche</a> »</div>
+			<div id="catlinks"><p class='catlinks'><a href="/wiki/Cat%C3%A9gorie:Accueil" title="Catégorie:Accueil">Catégories </a>: <span dir='ltr'><a href="/wiki/Cat%C3%A9gorie:Article_%C3%A0_illustrer" title="Catégorie:Article à illustrer">Article à illustrer</a></span> • <span dir='ltr'><a href="/wiki/Cat%C3%A9gorie:Wikip%C3%A9dia:%C3%A9bauche_informatique" title="Catégorie:Wikipédia:ébauche informatique">Wikipédia:ébauche informatique</a></span> • <span dir='ltr'><a href="/wiki/Cat%C3%A9gorie:Algorithme_de_recherche" title="Catégorie:Algorithme de recherche">Algorithme de recherche</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Affichages</h5>
+		<div class="pBody">
+			<ul>
+					 <li id="ca-nstab-main" class="selected"><a href="/wiki/Algorithme_de_recherche" title="Voir l’article [c]" accesskey="c">Article</a></li>
+					 <li id="ca-talk"><a href="/wiki/Discuter:Algorithme_de_recherche" title="Discussion à propos de cette page [t]" accesskey="t">Discussion</a></li>
+					 <li id="ca-edit"><a href="/w/index.php?title=Algorithme_de_recherche&amp;action=edit" title="Vous pouvez modifier cette page. Merci de prévisualiser avant d’enregistrer. [e]" accesskey="e">Modifier</a></li>
+					 <li id="ca-history"><a href="/w/index.php?title=Algorithme_de_recherche&amp;action=history" title="Les auteurs et versions précédentes de cette page. [h]" accesskey="h">Historique</a></li>
+				</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-personal">
+		<h5>Outils personnels</h5>
+		<div class="pBody">
+			<ul>
+				<li id="pt-login"><a href="/w/index.php?title=Special:Userlogin&amp;returnto=Algorithme_de_recherche" title="Vous êtes invité à vous identifier, mais ce n’est pas obligatoire. [o]" accesskey="o">Créer un compte ou se connecter</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-logo">
+		<a style="background-image: url(http://upload.wikimedia.org/wikipedia/fr/b/bc/Wiki.png);" href="/wiki/Accueil" title="Visitez la page principale [z]" accesskey="z"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="/wiki/Accueil" title="Visitez la page principale [z]" accesskey="z">Accueil</a></li>
+				<li id="n-thema"><a href="/wiki/Portail:Accueil">Portails thématiques</a></li>
+				<li id="n-alphindex"><a href="/wiki/Special:Allpages">Index alphabétique</a></li>
+				<li id="n-randompage"><a href="/wiki/Special:Random" title="Afficher une page au hasard [x]" accesskey="x">Une page au hasard</a></li>
+				<li id="n-contact"><a href="/wiki/Wikip%C3%A9dia:Contact">Contacter Wikipédia</a></li>
+			</ul>
+		</div>
+	</div>
+		<div class='portlet' id='p-Contribuer'>
+		<h5>Contribuer</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-help"><a href="/wiki/Aide:Sommaire" title="Aide">Aide</a></li>
+				<li id="n-portal"><a href="/wiki/Wikip%C3%A9dia:Accueil" title="À propos du projet">Communauté</a></li>
+				<li id="n-recentchanges"><a href="/wiki/Special:Recentchanges" title="Liste des modifications récentes sur le wiki [r]" accesskey="r">Modifications récentes</a></li>
+				<li id="n-aboutwp"><a href="/wiki/Wikip%C3%A9dia:Accueil_des_nouveaux_arrivants">Accueil des nouveaux arrivants</a></li>
+				<li id="n-sitesupport"><a href="http://meta.wikimedia.org/wiki/Faire_un_don:_explication" title="Soutenez le projet">Faire un don</a></li>
+			</ul>
+		</div>
+	</div>
+		<div id="p-search" class="portlet">
+		<h5><label for="searchInput">Rechercher</label></h5>
+		<div id="searchBody" class="pBody">
+			<form action="/wiki/Special:Search" id="searchform"><div>
+				<input id="searchInput" name="search" type="text" title="Rechercher dans Wikipédia [C]" accesskey="C" value="" />
+				<input type='submit' name="go" class="searchButton" id="searchGoButton"	value="Consulter" />&nbsp;
+				<input type='submit' name="fulltext" class="searchButton" id="mw-searchButton" value="Rechercher" />
+			</div></form>
+		</div>
+	</div>
+	<div class="portlet" id="p-tb">
+		<h5>Boîte à outils</h5>
+		<div class="pBody">
+			<ul>
+				<li id="t-whatlinkshere"><a href="/wiki/Special:Whatlinkshere/Algorithme_de_recherche" title="Liste des pages liées à celle-ci [j]" accesskey="j">Pages liées</a></li>
+				<li id="t-recentchangeslinked"><a href="/wiki/Special:Recentchangeslinked/Algorithme_de_recherche" title="Liste des modifications récentes des pages liées à celle-ci [k]" accesskey="k">Suivi des liens</a></li>
+<li id="t-upload"><a href="http://fr.wikipedia.org/wiki/Aide:Importer_un_fichier" title="Importer une image ou fichier média sur le serveur [u]" accesskey="u">Importer une image ou un son</a></li>
+<li id="t-specialpages"><a href="/wiki/Special:Specialpages" title="Liste de toutes les pages spéciales [q]" accesskey="q">Pages spéciales</a></li>
+				<li id="t-print"><a href="/w/index.php?title=Algorithme_de_recherche&amp;printable=yes" title="Version imprimable de cette page [p]" accesskey="p">Version imprimable</a></li>				<li id="t-permalink"><a href="/w/index.php?title=Algorithme_de_recherche&amp;oldid=17789978" title="Lien permanent vers cette version de la page">Adresse de cette version</a></li><li id="t-cite"><a href="/w/index.php?title=Special:Cite&amp;page=Algorithme_de_recherche&amp;id=17789978">Citer cet article</a></li>			</ul>
+		</div>
+	</div>
+	<div id="p-lang" class="portlet">
+		<h5>Autres langues</h5>
+		<div class="pBody">
+			<ul>
+				<li class="interwiki-de"><a href="http://de.wikipedia.org/wiki/Suchverfahren">Deutsch</a></li>
+				<li class="interwiki-en"><a href="http://en.wikipedia.org/wiki/Search_algorithm">English</a></li>
+				<li class="interwiki-fi"><a href="http://fi.wikipedia.org/wiki/Hakualgoritmi">Suomi</a></li>
+				<li class="interwiki-id"><a href="http://id.wikipedia.org/wiki/Algoritma_pencarian">Bahasa Indonesia</a></li>
+				<li class="interwiki-it"><a href="http://it.wikipedia.org/wiki/Algoritmo_di_ricerca">Italiano</a></li>
+				<li class="interwiki-ja"><a href="http://ja.wikipedia.org/wiki/%E6%A4%9C%E7%B4%A2">日本語</a></li>
+				<li class="interwiki-nl"><a href="http://nl.wikipedia.org/wiki/Zoekalgoritme">Nederlands</a></li>
+				<li class="interwiki-pt"><a href="http://pt.wikipedia.org/wiki/Algoritmo_de_busca">Português</a></li>
+				<li class="interwiki-vi"><a href="http://vi.wikipedia.org/wiki/Gi%E1%BA%A3i_thu%E1%BA%ADt_t%C3%ACm_ki%E1%BA%BFm">Tiếng Việt</a></li>
+			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="/skins-1.5/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>
+				<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="/images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>
+			<ul id="f-list">
+				<li id="lastmod"> Dernière modification de cette page le 10 juin 2007 à 23:35.<br /></li>
+				<li id="copyright"><span style="white-space:normal"><a class="internal" href="http://fr.wikipedia.org/wiki/Wikip%C3%A9dia:Copyright" title="Copyright">Copyright</a> : Tous les textes sont disponibles sous les termes de la <a class="internal" href="http://fr.wikipedia.org/wiki/Wikip%C3%A9dia:Licence_de_documentation_libre_GNU" title="GFDL">licence de documentation libre GNU</a> (GFDL).<br/>
+Wikipedia® est une marque déposée de la <a href="http://www.wikimediafoundation.org" title="Fondation Wikimedia">Wikimedia Foundation, Inc.</a>, association de bienfaisance régie par le paragraphe <a class="internal" href="http://en.wikipedia.org/wiki/501(c)" title="501(c)">501(c)(3)</a> du code fiscal des États-Unis.</span><br/></li>
+				<li id="privacy"><a href="http://wikimediafoundation.org/wiki/Politique_de_confidentialit%C3%A9" title="wikimedia:Politique de confidentialité">Politique de confidentialité</a></li>
+				<li id="about"><a href="/wiki/Wikip%C3%A9dia:%C3%80_propos" title="Wikipédia:À propos">À propos de Wikipédia</a></li>
+				<li id="disclaimer"><a href="/wiki/Wikip%C3%A9dia:Avertissements_g%C3%A9n%C3%A9raux" title="Wikipédia:Avertissements généraux">Avertissements</a></li>
+			</ul>
+		</div>
+		
+	
+		<script type="text/javascript">if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by srv187 in 0.247 secs. --></body></html>

@@ -1,0 +1,266 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+				<meta name="keywords" content="Priority queue,Queueing theory,Scheduling (computing),A* search algorithm,Vertex (graph theory),Weighted graph,Discrete event simulation,Callmanager,Traffic,Router,Real-time Transport Protocol" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="http://www.gnu.org/copyleft/fdl.html" />
+		<title>Priority queue - Wikipedia, the free encyclopedia</title>
+		<style type="text/css" media="screen, projection">/*<![CDATA[*/
+			@import "/skins-1.5/common/shared.css?97";
+			@import "/skins-1.5/monobook/main.css?97";
+		/*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="/skins-1.5/common/commonPrint.css?97" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE50Fixes.css?97";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE55Fixes.css?97";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "/skins-1.5/monobook/IE60Fixes.css?97";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "/skins-1.5/monobook/IE70Fixes.css?97";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="/skins-1.5/common/IEFixes.js?97"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		
+		<script type= "text/javascript">/*<![CDATA[*/
+var skin = "monobook";
+var stylepath = "/skins-1.5";
+var wgArticlePath = "/wiki/$1";
+var wgScriptPath = "/w";
+var wgScript = "/w/index.php";
+var wgServer = "http://en.wikipedia.org";
+var wgCanonicalNamespace = "";
+var wgCanonicalSpecialPageName = false;
+var wgNamespaceNumber = 0;
+var wgPageName = "Priority_queue";
+var wgTitle = "Priority queue";
+var wgAction = "view";
+var wgRestrictionEdit = [];
+var wgRestrictionMove = [];
+var wgArticleId = "24485";
+var wgIsArticle = true;
+var wgUserName = null;
+var wgUserGroups = null;
+var wgUserLanguage = "en";
+var wgContentLanguage = "en";
+var wgBreakFrames = false;
+var wgCurRevisionId = "155725438";
+/*]]>*/</script>
+                
+		<script type="text/javascript" src="/skins-1.5/common/wikibits.js?97"><!-- wikibits js --></script>
+		<script type="text/javascript" src="/w/index.php?title=-&amp;action=raw&amp;gen=js&amp;useskin=monobook"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "/w/index.php?title=MediaWiki:Common.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=MediaWiki:Monobook.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=-&action=raw&gen=css&maxage=2678400";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+		<script type="text/javascript" src="/skins-1.5/common/ajax.js?97"></script>
+	</head>
+<body  class="mediawiki ns-0 ltr page-Priority_queue">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+		<div id="siteNotice"><script type="text/javascript" language="JavaScript">
+<!--
+document.writeln("\x3cdiv style=\"position:absolute; z-index:100; right:100px; top:0px;\" class=\"metadata\" id=\"anontip\"\x3e\n\x3cdiv style=\"text-align:right; font-size:80%\"\x3e\x26bull;\x26nbsp;\x3ci\x3e\x3ca href=\"/wiki/Wikipedia:Researching_with_Wikipedia\" title=\"Wikipedia:Researching with Wikipedia\"\x3eLearn\x26nbsp;more\x26nbsp;about\x26nbsp;using\x26nbsp;Wikipedia\x26nbsp;for\x26nbsp;research\x3c/a\x3e\x3c/i\x3e\x26nbsp;\x26bull;\n\x3c/div\x3e\x3c/div\x3e\n");
+-->
+</script></div>		<h1 class="firstHeading">Priority queue</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<p>A <b>priority queue</b> is an <a href="/wiki/Abstract_data_type" title="Abstract data type">abstract data type</a> in <a href="/wiki/Computer_programming" title="Computer programming">computer programming</a>, supporting the following three operations:</p>
+<ul>
+<li>add an <a href="/wiki/Element_%28mathematics%29" title="Element (mathematics)">element</a> to the <a href="/wiki/Queue_%28data_structure%29" title="Queue (data structure)">queue</a> with an associated <a href="/wiki/Priority" title="Priority">priority</a></li>
+<li>remove the element from the queue that has the highest priority, and return it</li>
+<li>(optionally) peek at the element with highest priority without removing it</li>
+</ul>
+<p>The simplest way to implement a priority queue data type is to keep an <a href="/wiki/Associative_array" title="Associative array">associative array</a> mapping each priority to a list of elements with that priority. If association lists are used to implement the associative array, adding an element takes constant time but removing or peeking at the element of highest priority takes linear (O(<i>n</i>)) time, because we must search all keys for the largest one. If a <a href="/wiki/Self-balancing_binary_search_tree" title="Self-balancing binary search tree">self-balancing binary search tree</a> is used, all three operations take O(log <i>n</i>) time; this is a popular solution in environments that already provide balanced trees but nothing more sophisticated. The <a href="/wiki/Van_Emde_Boas_tree" title="Van Emde Boas tree">van Emde Boas tree</a>, another associative array data structure, can perform all three operations in O(log log <i>n</i>) time, but at a space cost for small queues of about O(2<sup>m/2</sup>), where <i>m</i> is the number of bits in the priority value, which may be prohibitive.</p>
+<p>There are a number of specialized <a href="/wiki/Heap_%28data_structure%29" title="Heap (data structure)">heap</a> <a href="/wiki/Data_structures" title="Data structures">data structures</a> that either supply additional operations or outperform the above approaches. The <a href="/wiki/Binary_heap" title="Binary heap">binary heap</a> uses O(log <i>n</i>) time for both operations, but allows peeking at the element of highest priority without removing it in constant time. <a href="/wiki/Binomial_heap" title="Binomial heap">Binomial heaps</a> add several more operations, but require O(log <i>n</i>) time for peeking. <a href="/wiki/Fibonacci_heap" title="Fibonacci heap">Fibonacci heaps</a> can insert elements, peek at the maximum priority element, and increase an element's priority in <a href="/wiki/Amortized_analysis" title="Amortized analysis">amortized</a> constant time (deletions are still O(log <i>n</i>)).</p>
+<p>The <a href="/wiki/Standard_Template_Library" title="Standard Template Library">Standard Template Library</a> (STL), part of the <a href="/wiki/C%2B%2B" title="C++">C++</a> <a href="/wiki/1998" title="1998">1998</a> standard, specifies "priority_queue" as one of the STL <a href="/wiki/Container_%28programming%29" title="Container (programming)">container</a> <a href="/w/index.php?title=Adaptor_%28programming%29&amp;action=edit" class="new" title="Adaptor (programming)">adaptor</a> <a href="/wiki/Template_%28programming%29" title="Template (programming)">class templates</a>. Unlike actual STL containers, it does not allow <a href="/wiki/Iterator" title="Iterator">iteration</a> of its elements (it strictly adheres to its abstract data type definition). <a href="/wiki/Java_%28programming_language%29" title="Java (programming language)">Java</a>'s library contains a <code><a href="http://java.sun.com/javase/6/docs/api/java/util/PriorityQueue.html" class="external text" title="http://java.sun.com/javase/6/docs/api/java/util/PriorityQueue.html" rel="nofollow">PriorityQueue</a></code> class.</p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Applications"><span class="tocnumber">1</span> <span class="toctext">Applications</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Bandwidth_management"><span class="tocnumber">1.1</span> <span class="toctext">Bandwidth management</span></a></li>
+<li class="toclevel-2"><a href="#Discrete_event_simulation"><span class="tocnumber">1.2</span> <span class="toctext">Discrete event simulation</span></a></li>
+<li class="toclevel-2"><a href="#A.2A_search_algorithm"><span class="tocnumber">1.3</span> <span class="toctext">A* search algorithm</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Implementations"><span class="tocnumber">2</span> <span class="toctext">Implementations</span></a></li>
+<li class="toclevel-1"><a href="#Relationship_to_sorting_algorithms"><span class="tocnumber">3</span> <span class="toctext">Relationship to sorting algorithms</span></a></li>
+<li class="toclevel-1"><a href="#External_links"><span class="tocnumber">4</span> <span class="toctext">External links</span></a></li>
+<li class="toclevel-1"><a href="#References"><span class="tocnumber">5</span> <span class="toctext">References</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script>
+<p><a name="Applications" id="Applications"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Priority_queue&amp;action=edit&amp;section=1" title="Edit section: Applications">edit</a>]</span> <span class="mw-headline">Applications</span></h2>
+<p><a name="Bandwidth_management" id="Bandwidth_management"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Priority_queue&amp;action=edit&amp;section=2" title="Edit section: Bandwidth management">edit</a>]</span> <span class="mw-headline">Bandwidth management</span></h3>
+<p>Priority queuing can be used to manage limited resources such as <a href="/wiki/Bandwidth" title="Bandwidth">bandwidth</a> on a transmission line from a <a href="/wiki/Computer_network" title="Computer network">network</a> <a href="/wiki/Router" title="Router">router</a>. In the event of outgoing <a href="/wiki/Traffic" title="Traffic">traffic</a> queuing due to insufficient bandwidth, all other queues can be halted to send the traffic from the highest priority queue upon arrival. This ensures that the prioritized traffic (such as real-time traffic, e.g. a <a href="/wiki/Real-time_Transport_Protocol" title="Real-time Transport Protocol">RTP</a> stream of a <a href="/wiki/Voice_over_IP" title="Voice over IP">VoIP</a> connection) is forwarded with the least delay and the least likelihood of being rejected due to a queue reaching its maximum capacity. All other traffic can be handled when the highest priority queue is empty. Another approach used is to send disproportionately more traffic from higher priority queues.</p>
+<p>Usually a limitation (policer) is set to limit the bandwidth that traffic from the highest priority queue can take, in order to prevent high priority packets from choking off all other traffic. This limit is usually never reached due to high lever control instances such as the <a href="/wiki/Cisco_Systems%2C_Inc." title="Cisco Systems, Inc.">Cisco</a> <a href="/wiki/Callmanager" title="Callmanager">Callmanager</a>, which can be programmed to inhibit calls which would exceed the programmed bandwidth limit.</p>
+<p><a name="Discrete_event_simulation" id="Discrete_event_simulation"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Priority_queue&amp;action=edit&amp;section=3" title="Edit section: Discrete event simulation">edit</a>]</span> <span class="mw-headline">Discrete event simulation</span></h3>
+<p>Another use of a priority queue is to manage the events in a <a href="/wiki/Discrete_event_simulation" title="Discrete event simulation">discrete event simulation</a>. The events are added to the queue with their simulation time used as the priority. The execution of the simulation proceeds by repeatedly pulling the top of the queue and executing the event thereon.</p>
+<p><i>See also</i>: <a href="/wiki/Scheduling_%28computing%29" title="Scheduling (computing)">Scheduling (computing)</a>, <a href="/wiki/Queueing_theory" title="Queueing theory">queueing theory</a></p>
+<p><a name="A.2A_search_algorithm" id="A.2A_search_algorithm"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Priority_queue&amp;action=edit&amp;section=4" title="Edit section: A* search algorithm">edit</a>]</span> <span class="mw-headline">A* search algorithm</span></h3>
+<p>The <a href="/wiki/A%2A_search_algorithm" title="A* search algorithm">A* search algorithm</a> finds the shortest path between two <a href="/wiki/Vertex_%28graph_theory%29" title="Vertex (graph theory)">vertices</a> of a <a href="/wiki/Weighted_graph" title="Weighted graph">weighted graph</a>, trying out the most promising routes first. The priority queue is used to keep track of unexplored routes; the one for which a lower bound on the total path length is smallest is given highest priority.</p>
+<p><a name="Implementations" id="Implementations"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Priority_queue&amp;action=edit&amp;section=5" title="Edit section: Implementations">edit</a>]</span> <span class="mw-headline">Implementations</span></h2>
+<p>While relying on heapsort is a common way to implement priority queues, for integer data faster implementations exist.</p>
+<ul>
+<li>When the set of keys is {1, 2, ..., C}, a data structure by <a href="/w/index.php?title=Emde_Boas&amp;action=edit" class="new" title="Emde Boas">Emde Boas</a> supports the <i>minimum</i>, <i>maximum</i>, <i>insert</i>, <i>delete</i>, <i>search</i>, <i>extract-min</i>, <i>extract-max</i>, <i>predecessor</i> and <i>successor</i> operations in <span class="texhtml"><i>O</i>(loglog<i>C</i>)</span> time.<sup id="_ref-0" class="reference"><a href="#_note-0" title="">[1]</a></sup></li>
+<li>An algorithm by Fredman and Willard implements the <i>minimum</i> operation in O(1) time and <i>insert</i> and <i>extract-min</i> operations in <img class="tex" alt="O(\sqrt{\log n})" src="http://upload.wikimedia.org/math/5/e/1/5e137664d87c2c4c364aa8b4a3bf9351.png" /> time.<sup id="_ref-1" class="reference"><a href="#_note-1" title="">[2]</a></sup></li>
+</ul>
+<p><a name="Relationship_to_sorting_algorithms" id="Relationship_to_sorting_algorithms"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Priority_queue&amp;action=edit&amp;section=6" title="Edit section: Relationship to sorting algorithms">edit</a>]</span> <span class="mw-headline">Relationship to sorting algorithms</span></h2>
+<p>The <a href="/wiki/Operational_semantics" title="Operational semantics">semantics</a> of priority queues naturally suggest a sorting method: insert all the elements to be sorted into a priority queue, and sequentially remove them; they will come out in sorted order. This is actually the procedure used by several <a href="/wiki/Sorting_algorithm" title="Sorting algorithm">sorting algorithms</a>, once the layer of <a href="/wiki/Abstraction_%28computer_science%29" title="Abstraction (computer science)">abstraction</a> provided by the priority queue is removed. This sorting method is equivalent to the following sorting algorithms:</p>
+<ul>
+<li><a href="/wiki/Heapsort" title="Heapsort">Heapsort</a> if the priority queue is implemented with a heap.</li>
+<li><a href="/wiki/Selection_sort" title="Selection sort">Selection sort</a> if the priority queue is implemented with an unordered array.</li>
+<li><a href="/wiki/Insertion_sort" title="Insertion sort">Insertion sort</a> if the priority queue is implemented with an ordered array.</li>
+</ul>
+<p><a name="External_links" id="External_links"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Priority_queue&amp;action=edit&amp;section=7" title="Edit section: External links">edit</a>]</span> <span class="mw-headline">External links</span></h2>
+<ul>
+<li><a href="http://leekillough.com/heaps/" class="external text" title="http://leekillough.com/heaps/" rel="nofollow">Descriptions</a> by <a href="/wiki/Lee_Killough_%28programmer%29" title="Lee Killough (programmer)">Lee Killough</a></li>
+</ul>
+<p><a name="References" id="References"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Priority_queue&amp;action=edit&amp;section=8" title="Edit section: References">edit</a>]</span> <span class="mw-headline">References</span></h2>
+<ul>
+<li><a href="/wiki/Thomas_H._Cormen" title="Thomas H. Cormen">Thomas H. Cormen</a>, <a href="/wiki/Charles_E._Leiserson" title="Charles E. Leiserson">Charles E. Leiserson</a>, <a href="/wiki/Ronald_L._Rivest" title="Ronald L. Rivest">Ronald L. Rivest</a>, and <a href="/wiki/Clifford_Stein" title="Clifford Stein">Clifford Stein</a>. <i><a href="/wiki/Introduction_to_Algorithms" title="Introduction to Algorithms">Introduction to Algorithms</a></i>, Second Edition. MIT Press and McGraw-Hill, 2001. <a href="/w/index.php?title=Special:Booksources&amp;isbn=0262032937" class="internal">ISBN 0-262-03293-7</a>. Section 6.5: Priority queues, pp.138–142.</li>
+</ul>
+<ol class="references">
+<li id="_note-0"><b><a href="#_ref-0" title="">^</a></b> P. van Emde Boas. Preserving order in a forest in less than logarithmic time. In <i>Proceedings of the 16th Annual Symposium on Foundations of Computer Science</i>, pages 75-84. IEEE Computer Society, 1975.</li>
+<li id="_note-1"><b><a href="#_ref-1" title="">^</a></b> Michael L. Fredman and Dan E. Willard. Surpassing the information theoretic bound with fusion trees. <i>Journal of Computer and System Sciences</i>, 48(3):533-551, 1994</li>
+</ol>
+
+<!-- 
+Pre-expand include size: 1506 bytes
+Post-expand include size: 293 bytes
+Template argument size: 142 bytes
+Maximum: 2048000 bytes
+-->
+
+<!-- Saved in parser cache with key enwiki:pcache:idhash:24485-0!1!0!default!!en!2 and timestamp 20070904230132 -->
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org/wiki/Priority_queue">http://en.wikipedia.org/wiki/Priority_queue</a>"</div>
+			<div id="catlinks"><p class='catlinks'><a href="/wiki/Special:Categories" title="Special:Categories">Category</a>: <span dir='ltr'><a href="/wiki/Category:Data_structures" title="Category:Data structures">Data structures</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<div class="pBody">
+			<ul>
+					 <li id="ca-nstab-main" class="selected"><a href="/wiki/Priority_queue" title="View the content page [c]" accesskey="c">Article</a></li>
+					 <li id="ca-talk"><a href="/wiki/Talk:Priority_queue" title="Discussion about the content page [t]" accesskey="t">Discussion</a></li>
+					 <li id="ca-edit"><a href="/w/index.php?title=Priority_queue&amp;action=edit" title="You can edit this page. Please use the preview button before saving. [e]" accesskey="e">Edit this page</a></li>
+					 <li id="ca-history"><a href="/w/index.php?title=Priority_queue&amp;action=history" title="Past versions of this page [h]" accesskey="h">History</a></li>
+				</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-personal">
+		<h5>Personal tools</h5>
+		<div class="pBody">
+			<ul>
+				<li id="pt-login"><a href="/w/index.php?title=Special:Userlogin&amp;returnto=Priority_queue" title="You are encouraged to log in, it is not mandatory however. [o]" accesskey="o">Sign in / create account</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-logo">
+		<a style="background-image: url(/images/wiki-en.png);" href="/wiki/Main_Page" title="Visit the Main Page [z]" accesskey="z"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-Main-page"><a href="/wiki/Main_Page">Main page</a></li>
+				<li id="n-Contents"><a href="/wiki/Wikipedia:Contents">Contents</a></li>
+				<li id="n-Featured-content"><a href="/wiki/Wikipedia:Featured_content">Featured content</a></li>
+				<li id="n-currentevents"><a href="/wiki/Portal:Current_events" title="Find background information on current events">Current events</a></li>
+				<li id="n-randompage"><a href="/wiki/Special:Random" title="Load a random page [x]" accesskey="x">Random article</a></li>
+			</ul>
+		</div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+		<h5>interaction</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-About-Wikipedia"><a href="/wiki/Wikipedia:About">About Wikipedia</a></li>
+				<li id="n-portal"><a href="/wiki/Wikipedia:Community_Portal" title="About the project, what you can do, where to find things">Community portal</a></li>
+				<li id="n-recentchanges"><a href="/wiki/Special:Recentchanges" title="The list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li>
+				<li id="n-contact"><a href="/wiki/Wikipedia:Contact_us">Contact Wikipedia</a></li>
+				<li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising" title="Support us">Donate to Wikipedia</a></li>
+				<li id="n-help"><a href="/wiki/Help:Contents" title="Guidance on how to use and edit Wikipedia">Help</a></li>
+			</ul>
+		</div>
+	</div>
+		<div id="p-search" class="portlet">
+		<h5><label for="searchInput">Search</label></h5>
+		<div id="searchBody" class="pBody">
+			<form action="/wiki/Special:Search" id="searchform"><div>
+				<input id="searchInput" name="search" type="text" title="Search Wikipedia [f]" accesskey="f" value="" />
+				<input type='submit' name="go" class="searchButton" id="searchGoButton"	value="Go" />&nbsp;
+				<input type='submit' name="fulltext" class="searchButton" id="mw-searchButton" value="Search" />
+			</div></form>
+		</div>
+	</div>
+	<div class="portlet" id="p-tb">
+		<h5>Toolbox</h5>
+		<div class="pBody">
+			<ul>
+				<li id="t-whatlinkshere"><a href="/wiki/Special:Whatlinkshere/Priority_queue" title="List of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+				<li id="t-recentchangeslinked"><a href="/wiki/Special:Recentchangeslinked/Priority_queue" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+<li id="t-upload"><a href="/wiki/Wikipedia:Upload" title="Upload images or media files [u]" accesskey="u">Upload file</a></li>
+<li id="t-specialpages"><a href="/wiki/Special:Specialpages" title="List of all special pages [q]" accesskey="q">Special pages</a></li>
+				<li id="t-print"><a href="/w/index.php?title=Priority_queue&amp;printable=yes" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>				<li id="t-permalink"><a href="/w/index.php?title=Priority_queue&amp;oldid=155725438" title="Permanent link to this version of the page">Permanent link</a></li><li id="t-cite"><a href="/w/index.php?title=Special:Cite&amp;page=Priority_queue&amp;id=155725438">Cite this article</a></li>			</ul>
+		</div>
+	</div>
+	<div id="p-lang" class="portlet">
+		<h5>In other languages</h5>
+		<div class="pBody">
+			<ul>
+				<li class="interwiki-de"><a href="http://de.wikipedia.org/wiki/Vorrangwarteschlange">Deutsch</a></li>
+				<li class="interwiki-fr"><a href="http://fr.wikipedia.org/wiki/File_%C3%A0_priorit%C3%A9s">Français</a></li>
+				<li class="interwiki-he"><a href="http://he.wikipedia.org/wiki/%D7%AA%D7%95%D7%A8_%D7%A2%D7%93%D7%99%D7%A4%D7%95%D7%99%D7%95%D7%AA">עברית</a></li>
+				<li class="interwiki-ja"><a href="http://ja.wikipedia.org/wiki/%E5%84%AA%E5%85%88%E5%BA%A6%E3%81%A4%E3%81%8D%E3%82%AD%E3%83%A5%E3%83%BC">日本語</a></li>
+				<li class="interwiki-lt"><a href="http://lt.wikipedia.org/wiki/Prioritet%C5%B3_eil%C4%97">Lietuvių</a></li>
+				<li class="interwiki-pl"><a href="http://pl.wikipedia.org/wiki/Kolejka_priorytetowa">Polski</a></li>
+				<li class="interwiki-th"><a href="http://th.wikipedia.org/wiki/Priority_queue">ไทย</a></li>
+			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="/skins-1.5/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>
+				<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="/images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>
+			<ul id="f-list">
+				<li id="lastmod"> This page was last modified 18:26, 21 August 2007.</li>
+				<li id="copyright">All text is available under the terms of the <a class='internal' href="/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="/wiki/Wikipedia:Copyrights" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a U.S. registered <a class='internal' href="/wiki/501%28c%29#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="/wiki/Non-profit_organization" title="Non-profit organization">nonprofit</a> <a href="/wiki/Charitable_organization" title="Charitable organization">charity</a>.<br /></li>
+				<li id="privacy"><a href="http://wikimediafoundation.org/wiki/Privacy_policy" title="wikimedia:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="/wiki/Wikipedia:About" title="Wikipedia:About">About Wikipedia</a></li>
+				<li id="disclaimer"><a href="/wiki/Wikipedia:General_disclaimer" title="Wikipedia:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+		
+	
+		<script type="text/javascript">if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by srv189 in 0.057 secs. --></body></html>

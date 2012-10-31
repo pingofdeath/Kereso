@@ -1,0 +1,276 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+				<meta name="keywords" content="ワーシャル-フロイド法,2部グラフ,JavaScript,Python,アルゴリズム,クロード・シャノン,グラフ理論,ジョン・マッカーシー,スティーヴン・コール・クリーネ,ブーリアン,ロナルド・リベスト" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (日本語)" />
+		<link rel="copyright" href="http://www.gnu.org/copyleft/fdl.html" />
+		<title>ワーシャル-フロイド法 - Wikipedia</title>
+		<style type="text/css" media="screen, projection">/*<![CDATA[*/
+			@import "/skins-1.5/common/shared.css?99";
+			@import "/skins-1.5/monobook/main.css?99";
+		/*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="/skins-1.5/common/commonPrint.css?99" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE50Fixes.css?99";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE55Fixes.css?99";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "/skins-1.5/monobook/IE60Fixes.css?99";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "/skins-1.5/monobook/IE70Fixes.css?99";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="/skins-1.5/common/IEFixes.js?99"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		
+		<script type= "text/javascript">/*<![CDATA[*/
+var skin = "monobook";
+var stylepath = "/skins-1.5";
+var wgArticlePath = "/wiki/$1";
+var wgScriptPath = "/w";
+var wgScript = "/w/index.php";
+var wgServer = "http://ja.wikipedia.org";
+var wgCanonicalNamespace = "";
+var wgCanonicalSpecialPageName = false;
+var wgNamespaceNumber = 0;
+var wgPageName = "ワーシャル-フロイド法";
+var wgTitle = "ワーシャル-フロイド法";
+var wgAction = "view";
+var wgRestrictionEdit = [];
+var wgRestrictionMove = [];
+var wgArticleId = "787240";
+var wgIsArticle = true;
+var wgUserName = null;
+var wgUserGroups = null;
+var wgUserLanguage = "ja";
+var wgContentLanguage = "ja";
+var wgBreakFrames = false;
+var wgCurRevisionId = "11623879";
+/*]]>*/</script>
+                
+		<script type="text/javascript" src="/skins-1.5/common/wikibits.js?99"><!-- wikibits js --></script>
+		<script type="text/javascript" src="/w/index.php?title=-&amp;action=raw&amp;gen=js&amp;useskin=monobook"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "/w/index.php?title=MediaWiki:Common.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=MediaWiki:Monobook.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=-&action=raw&gen=css&maxage=2678400";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+		<script type="text/javascript" src="/skins-1.5/common/ajax.js?99"></script>
+	</head>
+<body  class="mediawiki ns-0 ltr page-ワーシャル-フロイド法">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">ワーシャル-フロイド法</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">出典: フリー百科事典『ウィキペディア（Wikipedia）』</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">移動: <a href="#column-one">ナビゲーション</a>, <a href="#searchInput">検索</a></div>			<!-- start content -->
+			<p><b>ワーシャル-フロイド法</b>（Warshall-Floyd Algorithm）は、重み付き有向<a href="/wiki/%E3%82%B0%E3%83%A9%E3%83%95%E7%90%86%E8%AB%96" title="グラフ理論">グラフ</a>の全ペアの<a href="/wiki/%E6%9C%80%E7%9F%AD%E7%B5%8C%E8%B7%AF%E5%95%8F%E9%A1%8C" title="最短経路問題">最短経路問題</a>を<a href="/wiki/%E5%A4%9A%E9%A0%85%E5%BC%8F%E6%99%82%E9%96%93" title="多項式時間">多項式時間</a>で解く<a href="/wiki/%E3%82%A2%E3%83%AB%E3%82%B4%E3%83%AA%E3%82%BA%E3%83%A0" title="アルゴリズム">アルゴリズム</a>である。<b>フロイドのアルゴリズム</b>、<b>ワーシャルのアルゴリズム</b>、<b>フロイド-ワーシャル法</b>とも呼ばれる。</p>
+<table id="toc" class="toc" summary="目次">
+<tr>
+<td>
+<div id="toctitle">
+<h2>目次</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#.E3.82.A2.E3.83.AB.E3.82.B4.E3.83.AA.E3.82.BA.E3.83.A0"><span class="tocnumber">1</span> <span class="toctext">アルゴリズム</span></a></li>
+<li class="toclevel-1"><a href="#.E5.BF.9C.E7.94.A8.E3.81.A8.E4.B8.80.E8.88.AC.E5.8C.96"><span class="tocnumber">2</span> <span class="toctext">応用と一般化</span></a></li>
+<li class="toclevel-1"><a href="#.E5.AE.9F.E8.A3.85.E4.BE.8B"><span class="tocnumber">3</span> <span class="toctext">実装例</span></a></li>
+<li class="toclevel-1"><a href="#.E5.8F.82.E8.80.83.E6.96.87.E7.8C.AE"><span class="tocnumber">4</span> <span class="toctext">参考文献</span></a></li>
+<li class="toclevel-1"><a href="#.E5.A4.96.E9.83.A8.E3.83.AA.E3.83.B3.E3.82.AF"><span class="tocnumber">5</span> <span class="toctext">外部リンク</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "表示"; var tocHideText = "非表示"; showTocToggle(); } 
+//]]>
+</script>
+<p><a name=".E3.82.A2.E3.83.AB.E3.82.B4.E3.83.AA.E3.82.BA.E3.83.A0"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=%E3%83%AF%E3%83%BC%E3%82%B7%E3%83%A3%E3%83%AB-%E3%83%95%E3%83%AD%E3%82%A4%E3%83%89%E6%B3%95&amp;action=edit&amp;section=1" title="節を編集: アルゴリズム">編集</a>]</span> <span class="mw-headline">アルゴリズム</span></h2>
+<p>ワーシャル-フロイド法では、重み付き有向グラフ (<i>V</i>, <i>E</i>) を<a href="/wiki/%E9%9A%A3%E6%8E%A5%E8%A1%8C%E5%88%97" title="隣接行列">隣接行列</a>の形式で表現したものを入力とする。2つのノード間の経路の重みはその経路を構成するエッジ群の重みの合計である。エッジ <i>E</i> の重みは負の値の場合もあるが、グラフ内には重みが負となる閉路は存在しない。このアルゴリズムはノードの各ペアについて全経路中最小の重みとなる経路を計算で求める。計算量は Θ(n<sup>3</sup>) となる。このアルゴリズムは以下の観測結果に基づいている。</p>
+<ul>
+<li>有向グラフ <i>G</i> のノードを <i>V</i> = {1, 2, 3, 4, ..., <i>n</i>} とし、その部分集合 {1, 2, 3, ..., <i>k</i>} を考える。</li>
+<li><i>V</i> 内の任意のノードのペア <i>i</i>、<i>j</i> について、<i>i</i> から <i>j</i> への全経路のうち中継ノードが全て {1, 2, ..., <i>k</i>} に含まれるものを求め、そのうちで重みが最小の経路 <i>p</i> を得たとする。</li>
+<li>このアルゴリズムでは、経路 <i>p</i> と中継ノードが全て {1, 2, ..., <i>k</i>−1} に含まれるときの <i>i</i> から <i>j</i> への最短経路の関係を用いる。</li>
+<li>その関係は <i>k</i> が 経路 <i>p</i> の中継ノード群に含まれるかどうかに依存する。</li>
+</ul>
+<p>以下の<a href="/wiki/%E6%93%AC%E4%BC%BC%E3%82%B3%E3%83%BC%E3%83%89" title="擬似コード">擬似コード</a>は入力される有向グラフが<a href="/wiki/%E9%9A%A3%E6%8E%A5%E8%A1%8C%E5%88%97" title="隣接行列">隣接行列</a>で表されることを前提としており、直接接続されていないノード間の重みは ∞（<a href="/wiki/%E7%84%A1%E9%99%90%E5%A4%A7" title="無限大">無限大</a>）で表され、対角線上の要素（あるノードから自分自身への距離）は 0 で表される。</p>
+<pre>
+<b>function</b> fw(<b>int</b>[1..n,1..n] graph) {
+    <i>// 初期化</i>
+    <b>var</b> <b>int</b>[1..n,1..n] dist := graph
+    <b>var</b> <b>int</b>[1..n,1..n] pred
+    <b>for</b> i <b>from</b> 1 <b>to</b> n
+        <b>for</b> j <b>from</b> 1 <b>to</b> n
+            pred[i,j] := <b>nil</b>
+            <b>if</b> (dist[i,j] &gt; 0) <b>and</b> (dist[i,j] &lt; Infinity)
+                pred[i,j] := i
+    <i>// このアルゴリズムのメインループ</i>
+    <b>for</b> k <b>from</b> 1 <b>to</b> n
+        <b>for</b> i <b>from</b> 1 <b>to</b> n
+            <b>for</b> j <b>from</b> 1 <b>to</b> n
+                <b>if</b> dist[i,j] &gt; dist[i,k] + dist[k,j]
+                    dist[i,j] = dist[i,k] + dist[k,j]
+                    pred[i,j] = pred[k,j]
+    <b>return</b> ( dist, pred ) <i>// 距離と predecessor 配列</i>
+}
+</pre>
+<p><a name=".E5.BF.9C.E7.94.A8.E3.81.A8.E4.B8.80.E8.88.AC.E5.8C.96"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=%E3%83%AF%E3%83%BC%E3%82%B7%E3%83%A3%E3%83%AB-%E3%83%95%E3%83%AD%E3%82%A4%E3%83%89%E6%B3%95&amp;action=edit&amp;section=2" title="節を編集: 応用と一般化">編集</a>]</span> <span class="mw-headline">応用と一般化</span></h2>
+<p>ワーシャル-フロイド法は以下のような問題を解くのに利用可能である:</p>
+<ul>
+<li>有向グラフでの最短経路を求める（フロイドのアルゴリズム）。この場合、全エッジの重みを同じ正の値に設定する。通常、1 を設定するので、ある経路の重みはその経路上にあるエッジの数を表す。</li>
+<li>有向グラフでの<a href="/wiki/%E6%8E%A8%E7%A7%BB%E9%96%89%E5%8C%85" title="推移閉包">推移閉包</a>を求める（ワーシャルのアルゴリズム）。<a href="/w/index.php?title=%E3%82%B9%E3%83%86%E3%82%A3%E3%83%BC%E3%83%96%E3%83%B3%E3%83%BB%E3%83%AF%E3%83%BC%E3%82%B7%E3%83%A3%E3%83%AB&amp;action=edit" class="new" title="スティーブン・ワーシャル">スティーブン・ワーシャル</a>の元々のアルゴリズムでは、重み無しのグラフであり、<a href="/wiki/%E3%83%96%E3%83%BC%E3%83%AA%E3%82%A2%E3%83%B3" title="ブーリアン">ブーリアン</a>の隣接行列が使用されていた。そのため、加算の代わりに<a href="/wiki/%E8%AB%96%E7%90%86%E7%A9%8D" title="論理積">論理積</a>(AND)が使われ、最小を求めるには<a href="/wiki/%E8%AB%96%E7%90%86%E5%92%8C" title="論理和">論理和</a>(OR)が使用されていた。</li>
+<li><a href="/wiki/%E6%9C%89%E9%99%90%E3%82%AA%E3%83%BC%E3%83%88%E3%83%9E%E3%83%88%E3%83%B3" title="有限オートマトン">有限オートマトン</a>が受容する<a href="/wiki/%E6%AD%A3%E8%A6%8F%E8%A8%80%E8%AA%9E" title="正規言語">正規言語</a>で記述された<a href="/wiki/%E6%AD%A3%E8%A6%8F%E8%A1%A8%E7%8F%BE" title="正規表現">正規表現</a>を探す（クリーネのアルゴリズム）。</li>
+<li><a href="/wiki/%E5%AE%9F%E6%95%B0" title="実数">実数</a>の<a href="/wiki/%E8%A1%8C%E5%88%97" title="行列">行列</a>の<a href="/wiki/%E6%AD%A3%E5%89%87%E8%A1%8C%E5%88%97" title="正則行列">逆行列</a>を求める（Gauss-Jordan elimination）。</li>
+<li>最適ルーティング。ネットワーク上の2つのノード間で通信量が最大な経路を求めるといった用途がある。そのためには上掲の擬似コードのように最小を求めるのではなく最大を求めるようにする。エッジの重みは通信量の上限を表す。経路の重みはボトルネックによって決まる。したがって上掲の擬似コードでの加算操作は最小を求める操作に置き換えられる。</li>
+<li>無向グラフが<a href="/wiki/2%E9%83%A8%E3%82%B0%E3%83%A9%E3%83%95" title="2部グラフ">2部グラフ</a>であるかどうかを確認する。</li>
+</ul>
+<p><a name=".E5.AE.9F.E8.A3.85.E4.BE.8B"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=%E3%83%AF%E3%83%BC%E3%82%B7%E3%83%A3%E3%83%AB-%E3%83%95%E3%83%AD%E3%82%A4%E3%83%89%E6%B3%95&amp;action=edit&amp;section=3" title="節を編集: 実装例">編集</a>]</span> <span class="mw-headline">実装例</span></h2>
+<ul>
+<li><a href="/wiki/JavaScript" title="JavaScript">JavaScript</a> による実装: <a href="http://alexle.net/stuff/floyd-algorithm/" class="external text" title="http://alexle.net/stuff/floyd-algorithm/" rel="nofollow">Alex Le's Blog</a></li>
+<li><a href="/wiki/Python" title="Python">Python</a> による実装: <a href="https://networkx.lanl.gov/" class="external text" title="https://networkx.lanl.gov/" rel="nofollow">NetworkX</a> package</li>
+</ul>
+<p><a name=".E5.8F.82.E8.80.83.E6.96.87.E7.8C.AE"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=%E3%83%AF%E3%83%BC%E3%82%B7%E3%83%A3%E3%83%AB-%E3%83%95%E3%83%AD%E3%82%A4%E3%83%89%E6%B3%95&amp;action=edit&amp;section=4" title="節を編集: 参考文献">編集</a>]</span> <span class="mw-headline">参考文献</span></h2>
+<ul>
+<li><cite class="book" style="font-style:normal">Cormen, Thomas H.; Leiserson, Charles E.; <a href="/wiki/%E3%83%AD%E3%83%8A%E3%83%AB%E3%83%89%E3%83%BB%E3%83%AA%E3%83%99%E3%82%B9%E3%83%88" title="ロナルド・リベスト">Rivest, Ronald L.</a> （1990年）. <i>Introduction to Algorithms</i>, first edition, MIT Press and McGraw-Hill. <a href="/w/index.php?title=%E7%89%B9%E5%88%A5:Booksources&amp;isbn=0262031418" class="internal">ISBN 0-262-03141-8</a>.</cite><span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Introduction+to+Algorithms&amp;rft.title=Introduction+to+Algorithms&amp;rft.aulast=Cormen&amp;rft.aufirst=Thomas+H.&amp;rft.date=1990%E5%B9%B4&amp;rft.edition=first+edition&amp;rft.pub=MIT+Press+and+McGraw-Hill">&#160;</span>
+<ul>
+<li>Section 26.2, "The Floyd-Warshall algorithm", pp. 558–565;</li>
+<li>Section 26.4, "A general framework for solving path problems in directed graphs", pp. 570–576.</li>
+</ul>
+</li>
+<li><cite style="font-style:normal"><a href="/wiki/%E3%83%AD%E3%83%90%E3%83%BC%E3%83%88%E3%83%BB%E3%83%95%E3%83%AD%E3%82%A4%E3%83%89" title="ロバート・フロイド">Floyd, Robert W.</a> (1962年6月).  "Algorithm 97: Shortest Path". <i>Communications of the ACM</i> <b>5</b> (6): 345. DOI: <a href="http://dx.doi.org/10.1145/367766.368168" class="external text" title="http://dx.doi.org/10.1145/367766.368168" rel="nofollow">10.1145/367766.368168</a>.</cite></li>
+<li><cite class="book" style="font-style:normal"><a href="/wiki/%E3%82%B9%E3%83%86%E3%82%A3%E3%83%BC%E3%83%B4%E3%83%B3%E3%83%BB%E3%82%B3%E3%83%BC%E3%83%AB%E3%83%BB%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%8D" title="スティーヴン・コール・クリーネ">Kleene, S. C.</a> （1956年）. “Representation of events in nerve nets and finite automata”, in <a href="/wiki/%E3%82%AF%E3%83%AD%E3%83%BC%E3%83%89%E3%83%BB%E3%82%B7%E3%83%A3%E3%83%8E%E3%83%B3" title="クロード・シャノン">C. E. Shannon</a> and <a href="/wiki/%E3%82%B8%E3%83%A7%E3%83%B3%E3%83%BB%E3%83%9E%E3%83%83%E3%82%AB%E3%83%BC%E3%82%B7%E3%83%BC" title="ジョン・マッカーシー">J. McCarthy</a>: <i>Automata Studies</i>. Princeton University Press, pp. 3–42.</cite><span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Automata+Studies&amp;rft.title=Automata+Studies&amp;rft.atitle=Representation+of+events+in+nerve+nets+and+finite+automata&amp;rft.aulast=Kleene&amp;rft.aufirst=S.+C.&amp;rft.date=1956%E5%B9%B4&amp;rft.pub=Princeton+University+Press&amp;rft.pages=pp.+3%E2%80%9342">&#160;</span></li>
+<li><cite style="font-style:normal">Warshall, Stephen (1962年1月).  "A theorem on Boolean matrices". <i>Journal of the ACM</i> <b>9</b> (1): 11–12. DOI: <a href="http://dx.doi.org/10.1145/321105.321107" class="external text" title="http://dx.doi.org/10.1145/321105.321107" rel="nofollow">10.1145/321105.321107</a>.</cite></li>
+</ul>
+<p><a name=".E5.A4.96.E9.83.A8.E3.83.AA.E3.83.B3.E3.82.AF"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=%E3%83%AF%E3%83%BC%E3%82%B7%E3%83%A3%E3%83%AB-%E3%83%95%E3%83%AD%E3%82%A4%E3%83%89%E6%B3%95&amp;action=edit&amp;section=5" title="節を編集: 外部リンク">編集</a>]</span> <span class="mw-headline">外部リンク</span></h2>
+<ul>
+<li><a href="http://www.pms.informatik.uni-muenchen.de/lehre/compgeometry/Gosper/shortest_path/shortest_path.html#visualization" class="external text" title="http://www.pms.informatik.uni-muenchen.de/lehre/compgeometry/Gosper/shortest_path/shortest_path.html#visualization" rel="nofollow">Interactive animation of Floyd-Warshall algorithm</a></li>
+</ul>
+
+<!-- 
+Pre-expand include size: 45320 bytes
+Post-expand include size: 11210 bytes
+Template argument size: 6086 bytes
+Maximum: 2048000 bytes
+-->
+
+<!-- Saved in parser cache with key jawiki:pcache:idhash:787240-0!1!0!!ja!2 and timestamp 20070915185948 -->
+<div class="printfooter">
+ "<a href="http://ja.wikipedia.org/wiki/%E3%83%AF%E3%83%BC%E3%82%B7%E3%83%A3%E3%83%AB-%E3%83%95%E3%83%AD%E3%82%A4%E3%83%89%E6%B3%95">http://ja.wikipedia.org/wiki/%E3%83%AF%E3%83%BC%E3%82%B7%E3%83%A3%E3%83%AB-%E3%83%95%E3%83%AD%E3%82%A4%E3%83%89%E6%B3%95</a>" より作成</div>
+			<div id="catlinks"><p class='catlinks'><a href="/wiki/%E7%89%B9%E5%88%A5:Categories" title="特別:Categories">カテゴリ</a>: <span dir='ltr'><a href="/wiki/Category:%E7%B5%84%E5%90%88%E3%81%9B%E6%9C%80%E9%81%A9%E5%8C%96" title="Category:組合せ最適化">組合せ最適化</a></span> | <span dir='ltr'><a href="/wiki/Category:%E3%82%B0%E3%83%A9%E3%83%95%E7%90%86%E8%AB%96" title="Category:グラフ理論">グラフ理論</a></span> | <span dir='ltr'><a href="/wiki/Category:%E3%82%A2%E3%83%AB%E3%82%B4%E3%83%AA%E3%82%BA%E3%83%A0" title="Category:アルゴリズム">アルゴリズム</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>表示</h5>
+		<div class="pBody">
+			<ul>
+					 <li id="ca-nstab-main" class="selected"><a href="/wiki/%E3%83%AF%E3%83%BC%E3%82%B7%E3%83%A3%E3%83%AB-%E3%83%95%E3%83%AD%E3%82%A4%E3%83%89%E6%B3%95" title="本文を表示 [c]" accesskey="c">本文</a></li>
+					 <li id="ca-talk" class="new"><a href="/w/index.php?title=%E3%83%8E%E3%83%BC%E3%83%88:%E3%83%AF%E3%83%BC%E3%82%B7%E3%83%A3%E3%83%AB-%E3%83%95%E3%83%AD%E3%82%A4%E3%83%89%E6%B3%95&amp;action=edit" title="項目のノート [t]" accesskey="t">ノート</a></li>
+					 <li id="ca-edit"><a href="/w/index.php?title=%E3%83%AF%E3%83%BC%E3%82%B7%E3%83%A3%E3%83%AB-%E3%83%95%E3%83%AD%E3%82%A4%E3%83%89%E6%B3%95&amp;action=edit" title="このページを編集できます。投稿の前に「プレビューを実行」ボタンを使ってください。 [e]" accesskey="e">編集</a></li>
+					 <li id="ca-history"><a href="/w/index.php?title=%E3%83%AF%E3%83%BC%E3%82%B7%E3%83%A3%E3%83%AB-%E3%83%95%E3%83%AD%E3%82%A4%E3%83%89%E6%B3%95&amp;action=history" title="このページの過去の版 [h]" accesskey="h">履歴</a></li>
+				</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-personal">
+		<h5>個人用ツール</h5>
+		<div class="pBody">
+			<ul>
+				<li id="pt-login"><a href="/w/index.php?title=%E7%89%B9%E5%88%A5:Userlogin&amp;returnto=%E3%83%AF%E3%83%BC%E3%82%B7%E3%83%A3%E3%83%AB-%E3%83%95%E3%83%AD%E3%82%A4%E3%83%89%E6%B3%95" title="ログインすることが推奨されますが、しなくても構いません。 [o]" accesskey="o">ログインまたはアカウント作成</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-logo">
+		<a style="background-image: url(http://upload.wikimedia.org/wikipedia/ja/b/bc/Wiki.png);" href="/wiki/%E3%83%A1%E3%82%A4%E3%83%B3%E3%83%9A%E3%83%BC%E3%82%B8" title="メインページに移動 [z]" accesskey="z"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>ナビゲーション</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="/wiki/%E3%83%A1%E3%82%A4%E3%83%B3%E3%83%9A%E3%83%BC%E3%82%B8" title="メインページに移動 [z]" accesskey="z">メインページ</a></li>
+				<li id="n-portal"><a href="/wiki/Wikipedia:%E3%82%B3%E3%83%9F%E3%83%A5%E3%83%8B%E3%83%86%E3%82%A3%E3%83%BB%E3%83%9D%E3%83%BC%E3%82%BF%E3%83%AB" title="このプロジェクトについて、あなたのできることを探す場所です">コミュニティ・ポータル</a></li>
+				<li id="n-currentevents"><a href="/wiki/Portal:%E6%9C%80%E8%BF%91%E3%81%AE%E5%87%BA%E6%9D%A5%E4%BA%8B" title="最近の出来事">最近の出来事</a></li>
+				<li id="n-recentchanges"><a href="/wiki/%E7%89%B9%E5%88%A5:Recentchanges" title="最近更新が行われたページの一覧 [r]" accesskey="r">最近更新したページ</a></li>
+				<li id="n-randompage"><a href="/wiki/%E7%89%B9%E5%88%A5:Random" title="ランダムに記事を選んで表示 [x]" accesskey="x">おまかせ表示</a></li>
+				<li id="n-commonsupload"><a href="http://commons.wikimedia.org/wiki/Special:Upload?uselang=ja">アップロード (ウィキメディア・コモンズ)</a></li>
+				<li id="n-contact"><a href="/wiki/Wikipedia:%E9%80%A3%E7%B5%A1%E5%85%88">ウィキペディアに関するお問い合わせ</a></li>
+			</ul>
+		</div>
+	</div>
+		<div class='portlet' id='p-help'>
+		<h5>ヘルプ</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-help"><a href="/wiki/Help:%E7%9B%AE%E6%AC%A1" title="ヘルプ・使い方">ヘルプ</a></li>
+				<li id="n-villagepump"><a href="/wiki/Wikipedia:%E4%BA%95%E6%88%B8%E7%AB%AF">井戸端</a></li>
+				<li id="n-.E3.81.8A.E7.9F.A5.E3.82.89.E3.81.9B"><a href="/wiki/Wikipedia:%E3%81%8A%E7%9F%A5%E3%82%89%E3%81%9B">お知らせ</a></li>
+				<li id="n-bugreports"><a href="/wiki/Wikipedia:%E3%83%90%E3%82%B0%E3%81%AE%E5%A0%B1%E5%91%8A">バグの報告</a></li>
+				<li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/%E5%AF%84%E4%BB%98" title="私たちをサポートしてください">寄付</a></li>
+			</ul>
+		</div>
+	</div>
+		<div id="p-search" class="portlet">
+		<h5><label for="searchInput">検索</label></h5>
+		<div id="searchBody" class="pBody">
+			<form action="/wiki/%E7%89%B9%E5%88%A5:Search" id="searchform"><div>
+				<input id="searchInput" name="search" type="text" title="ウィキ内を検索 [f]" accesskey="f" value="" />
+				<input type='submit' name="go" class="searchButton" id="searchGoButton"	value="表示" />&nbsp;
+				<input type='submit' name="fulltext" class="searchButton" id="mw-searchButton" value="検索" />
+			</div></form>
+		</div>
+	</div>
+	<div class="portlet" id="p-tb">
+		<h5>ツールボックス</h5>
+		<div class="pBody">
+			<ul>
+				<li id="t-whatlinkshere"><a href="/wiki/%E7%89%B9%E5%88%A5:Whatlinkshere/%E3%83%AF%E3%83%BC%E3%82%B7%E3%83%A3%E3%83%AB-%E3%83%95%E3%83%AD%E3%82%A4%E3%83%89%E6%B3%95" title="このページにリンクしているページの一覧 [j]" accesskey="j">リンク元</a></li>
+				<li id="t-recentchangeslinked"><a href="/wiki/%E7%89%B9%E5%88%A5:Recentchangeslinked/%E3%83%AF%E3%83%BC%E3%82%B7%E3%83%A3%E3%83%AB-%E3%83%95%E3%83%AD%E3%82%A4%E3%83%89%E6%B3%95" title="最近更新が行われたこのページのリンク先 [k]" accesskey="k">リンク先の更新状況</a></li>
+<li id="t-upload"><a href="/wiki/%E7%89%B9%E5%88%A5:Upload" title="画像やメディアファイルをアップロード [u]" accesskey="u">アップロード</a></li>
+<li id="t-specialpages"><a href="/wiki/%E7%89%B9%E5%88%A5:Specialpages" title="特別ページの一覧 [q]" accesskey="q">特別ページ</a></li>
+				<li id="t-print"><a href="/w/index.php?title=%E3%83%AF%E3%83%BC%E3%82%B7%E3%83%A3%E3%83%AB-%E3%83%95%E3%83%AD%E3%82%A4%E3%83%89%E6%B3%95&amp;printable=yes" title="このページの印刷用バージョン [p]" accesskey="p">印刷用バージョン</a></li>				<li id="t-permalink"><a href="/w/index.php?title=%E3%83%AF%E3%83%BC%E3%82%B7%E3%83%A3%E3%83%AB-%E3%83%95%E3%83%AD%E3%82%A4%E3%83%89%E6%B3%95&amp;oldid=11623879" title="この版への固定リンク">この版への固定リンク</a></li><li id="t-cite"><a href="/w/index.php?title=%E7%89%B9%E5%88%A5:Cite&amp;page=%E3%83%AF%E3%83%BC%E3%82%B7%E3%83%A3%E3%83%AB-%E3%83%95%E3%83%AD%E3%82%A4%E3%83%89%E6%B3%95&amp;id=11623879">この項目を引用</a></li>			</ul>
+		</div>
+	</div>
+	<div id="p-lang" class="portlet">
+		<h5>他の言語</h5>
+		<div class="pBody">
+			<ul>
+				<li class="interwiki-de"><a href="http://de.wikipedia.org/wiki/Algorithmus_von_Floyd_und_Warshall">Deutsch</a></li>
+				<li class="interwiki-en"><a href="http://en.wikipedia.org/wiki/Floyd-Warshall_algorithm">English</a></li>
+				<li class="interwiki-es"><a href="http://es.wikipedia.org/wiki/Algoritmo_de_Floyd-Warshall">Español</a></li>
+				<li class="interwiki-fr"><a href="http://fr.wikipedia.org/wiki/Algorithme_de_Warshall">Français</a></li>
+				<li class="interwiki-id"><a href="http://id.wikipedia.org/wiki/Algoritma_Floyd-Warshall">Bahasa Indonesia</a></li>
+				<li class="interwiki-it"><a href="http://it.wikipedia.org/wiki/Algoritmo_di_Floyd-Warshall">Italiano</a></li>
+				<li class="interwiki-he"><a href="http://he.wikipedia.org/wiki/%D7%90%D7%9C%D7%92%D7%95%D7%A8%D7%99%D7%AA%D7%9D_%D7%A4%D7%9C%D7%95%D7%99%D7%93-%D7%95%D7%95%D7%A8%D7%A9%D7%90%D7%9C">עברית</a></li>
+				<li class="interwiki-pl"><a href="http://pl.wikipedia.org/wiki/Algorytm_Floyda-Warshalla">Polski</a></li>
+				<li class="interwiki-pt"><a href="http://pt.wikipedia.org/wiki/Algoritmo_de_Floyd-Warshall">Português</a></li>
+				<li class="interwiki-sr"><a href="http://sr.wikipedia.org/wiki/%D0%A4%D0%BB%D0%BE%D1%98%D0%B4-%D0%92%D0%BE%D1%80%D1%88%D0%B0%D0%BB%D0%BE%D0%B2_%D0%B0%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%B0%D0%BC">Српски / Srpski</a></li>
+				<li class="interwiki-zh"><a href="http://zh.wikipedia.org/wiki/Floyd-Warshall%E7%AE%97%E6%B3%95">中文</a></li>
+			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="/skins-1.5/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>
+				<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="/images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>
+			<ul id="f-list">
+				<li id="lastmod"> 最終更新 2007年3月31日 (土) 22:28。</li>
+				<li id="copyright">All text is available under the terms of the <a href="/wiki/Wikipedia:Text_of_GNU_Free_Documentation_License" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (詳細は <b><a href="/wiki/Wikipedia:%E8%91%97%E4%BD%9C%E6%A8%A9" title="Wikipedia:著作権">著作権</a></b> を参照)<br />Wikipedia&reg; は <a href="http://wikimediafoundation.org/wiki/%E3%83%A1%E3%82%A4%E3%83%B3%E3%83%9A%E3%83%BC%E3%82%B8">Wikimedia Foundation, Inc.</a> の米国およびその他の国における登録商標です。<br /></li>
+				<li id="privacy"><a href="http://wikimediafoundation.org/wiki/%E3%83%97%E3%83%A9%E3%82%A4%E3%83%90%E3%82%B7%E3%83%BC%E3%83%BB%E3%83%9D%E3%83%AA%E3%82%B7%E3%83%BC" title="wikimedia:プライバシー・ポリシー">プライバシー・ポリシー</a></li>
+				<li id="about"><a href="/wiki/Wikipedia:%E3%82%A6%E3%82%A3%E3%82%AD%E3%83%9A%E3%83%87%E3%82%A3%E3%82%A2%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6" title="Wikipedia:ウィキペディアについて">ウィキペディアについて</a></li>
+				<li id="disclaimer"><a href="/wiki/Wikipedia:%E5%85%8D%E8%B2%AC%E4%BA%8B%E9%A0%85" title="Wikipedia:免責事項">免責事項</a></li>
+			</ul>
+		</div>
+		
+	
+		<script type="text/javascript">if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by srv168 in 0.077 secs. --></body></html>

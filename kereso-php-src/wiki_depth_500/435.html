@@ -1,0 +1,385 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+				<meta name="keywords" content="Tree traversal,Arrays,Binary search tree,Binary tree,Breadth-first search,Breadth-first traversal,Computer science,Depth-first search,Depth-first traversal,Expression tree,Haskell (programming language)" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="http://www.gnu.org/copyleft/fdl.html" />
+		<title>Tree traversal - Wikipedia, the free encyclopedia</title>
+		<style type="text/css" media="screen, projection">/*<![CDATA[*/
+			@import "/skins-1.5/common/shared.css?99";
+			@import "/skins-1.5/monobook/main.css?99";
+		/*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="/skins-1.5/common/commonPrint.css?99" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE50Fixes.css?99";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE55Fixes.css?99";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "/skins-1.5/monobook/IE60Fixes.css?99";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "/skins-1.5/monobook/IE70Fixes.css?99";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="/skins-1.5/common/IEFixes.js?99"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		
+		<script type= "text/javascript">/*<![CDATA[*/
+var skin = "monobook";
+var stylepath = "/skins-1.5";
+var wgArticlePath = "/wiki/$1";
+var wgScriptPath = "/w";
+var wgScript = "/w/index.php";
+var wgServer = "http://en.wikipedia.org";
+var wgCanonicalNamespace = "";
+var wgCanonicalSpecialPageName = false;
+var wgNamespaceNumber = 0;
+var wgPageName = "Tree_traversal";
+var wgTitle = "Tree traversal";
+var wgAction = "view";
+var wgRestrictionEdit = [];
+var wgRestrictionMove = [];
+var wgArticleId = "597584";
+var wgIsArticle = true;
+var wgUserName = null;
+var wgUserGroups = null;
+var wgUserLanguage = "en";
+var wgContentLanguage = "en";
+var wgBreakFrames = false;
+var wgCurRevisionId = "155464507";
+/*]]>*/</script>
+                
+		<script type="text/javascript" src="/skins-1.5/common/wikibits.js?99"><!-- wikibits js --></script>
+		<script type="text/javascript" src="/w/index.php?title=-&amp;action=raw&amp;gen=js&amp;useskin=monobook"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "/w/index.php?title=MediaWiki:Common.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=MediaWiki:Monobook.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=-&action=raw&gen=css&maxage=2678400";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+		<script type="text/javascript" src="/skins-1.5/common/ajax.js?99"></script>
+	</head>
+<body  class="mediawiki ns-0 ltr page-Tree_traversal">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">Tree traversal</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+			<div id="contentSub">(Redirected from <a href="/w/index.php?title=Search_tree&amp;redirect=no" title="Search tree">Search tree</a>)</div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<p>In <a href="/wiki/Computer_science" title="Computer science">computer science</a>, <b>tree-traversal</b> refers to the process of visiting each node in a <a href="/wiki/Tree_data_structure" title="Tree data structure">tree data structure</a>, exactly once, in a systematic way. Such traversals are classified by the order in which the nodes are visited. The following algorithms are described for a <a href="/wiki/Binary_tree" title="Binary tree">binary tree</a>, but they may be generalized to other trees as well.</p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Traversal_methods"><span class="tocnumber">1</span> <span class="toctext">Traversal methods</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Example"><span class="tocnumber">1.1</span> <span class="toctext">Example</span></a></li>
+<li class="toclevel-2"><a href="#Sample_implementations"><span class="tocnumber">1.2</span> <span class="toctext">Sample implementations</span></a></li>
+<li class="toclevel-2"><a href="#Uses"><span class="tocnumber">1.3</span> <span class="toctext">Uses</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Functional_traversal"><span class="tocnumber">2</span> <span class="toctext">Functional traversal</span></a></li>
+<li class="toclevel-1"><a href="#Iterative_traversing"><span class="tocnumber">3</span> <span class="toctext">Iterative traversing</span></a></li>
+<li class="toclevel-1"><a href="#See_also"><span class="tocnumber">4</span> <span class="toctext">See also</span></a></li>
+<li class="toclevel-1"><a href="#External_links"><span class="tocnumber">5</span> <span class="toctext">External links</span></a></li>
+<li class="toclevel-1"><a href="#References"><span class="tocnumber">6</span> <span class="toctext">References</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script>
+<p><a name="Traversal_methods" id="Traversal_methods"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Tree_traversal&amp;action=edit&amp;section=1" title="Edit section: Traversal methods">edit</a>]</span> <span class="mw-headline">Traversal methods</span></h2>
+<p>Compared to <a href="/wiki/List_of_data_structures#Linear_data_structures" title="List of data structures">linear data structures</a> like <a href="/wiki/Linked_lists" title="Linked lists">linked lists</a> and one dimensional <a href="/wiki/Arrays" title="Arrays">arrays</a>, which have only one logical means of traversal, tree structures can be traversed in many different ways. Starting at the root of a binary tree, there are three main steps that can be performed and the order in which they are performed define the traversal type. These steps are: Performing an action on the current node (referred to as "visiting" the node); or repeating the process with the subtrees rooted at our left and right children. Thus the process is most easily described through <a href="/wiki/Recursion" title="Recursion">recursion</a>.</p>
+<p>To traverse a non-empty binary tree in <b>preorder</b>, perform the following operations:</p>
+<ol>
+<li>Visit the root.</li>
+<li>Traverse the left subtree.</li>
+<li>Traverse the right subtree.</li>
+</ol>
+<p>To traverse a non-empty binary tree in <b>inorder</b>, perform the following operations:</p>
+<ol>
+<li>Traverse the left subtree.</li>
+<li>Visit the root.</li>
+<li>Traverse the right subtree.</li>
+</ol>
+<p>To traverse a non-empty binary tree in <b>postorder</b>, perform the following operations:</p>
+<ol>
+<li>Traverse the left subtree.</li>
+<li>Traverse the right subtree.</li>
+<li>Visit the root.</li>
+</ol>
+<p>(This is also called <a href="/wiki/Depth-first_traversal" title="Depth-first traversal">Depth-first traversal</a>.)</p>
+<p>Finally, trees can also be traversed in <b>level-order</b>, where we visit every node on a level before going to a lower level. This is also called <a href="/wiki/Breadth-first_traversal" title="Breadth-first traversal">Breadth-first traversal</a></p>
+<p><a name="Example" id="Example"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Tree_traversal&amp;action=edit&amp;section=2" title="Edit section: Example">edit</a>]</span> <span class="mw-headline">Example</span></h3>
+<table>
+<tr>
+<td><a href="/wiki/Image:Sorted_binary_tree.svg" class="image" title="A sorted binary tree"><img alt="A sorted binary tree" src="http://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Sorted_binary_tree.svg/250px-Sorted_binary_tree.svg.png" width="250" height="199" border="0" /></a></td>
+<td>In this <a href="/wiki/Binary_search_tree" title="Binary search tree">binary search tree</a>,
+<ul>
+<li>Preorder traversal sequence: F, B, A, D, C, E, G, I, H</li>
+<li>Inorder traversal sequence: A, B, C, D, E, F, G, H, I
+<ul>
+<li>Note that the inorder traversal of a binary search tree yields an ordered list</li>
+</ul>
+</li>
+<li>Postorder traversal sequence: A, C, E, D, B, H, I, G, F</li>
+<li>Level-order traversal sequence: F, B, G, A, D, I, C, E, H</li>
+</ul>
+</td>
+</tr>
+</table>
+<p><a name="Sample_implementations" id="Sample_implementations"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Tree_traversal&amp;action=edit&amp;section=3" title="Edit section: Sample implementations">edit</a>]</span> <span class="mw-headline">Sample implementations</span></h3>
+<pre>
+<b>preorder</b>(node)
+  print node.value
+  <b>if</b> node.left  ≠ <b>null then</b> preorder(node.left)
+  <b>if</b> node.right ≠ <b>null then</b> preorder(node.right)
+</pre>
+<pre>
+<b>inorder</b>(node)
+  <b>if</b> node.left  ≠ <b>null then</b> inorder(node.left)
+  print node.value
+  <b>if</b> node.right ≠ <b>null then</b> inorder(node.right)
+</pre>
+<pre>
+<b>postorder</b>(node)
+  <b>if</b> node.left  ≠ <b>null then</b> postorder(node.left)
+  <b>if</b> node.right ≠ <b>null then</b> postorder(node.right)
+  print node.value
+</pre>
+<p>All three sample implementations will require stack space proportional to the height of the tree. In a poorly balanced tree, this can be quite considerable.</p>
+<p>We can remove the stack requirement by maintaining parent pointers in each node, or by <a href="/wiki/Threaded_binary_tree" title="Threaded binary tree">threading the tree</a>. In the case of using threads, this will allow for greatly improved inorder traversal, although retrieving the parent node required for preorder and postorder traversal will be slower than a simple stack based algorithm.</p>
+<p>To traverse a <b>threaded</b> tree inorder, we could do something like this:</p>
+<pre>
+<b>inorder</b>(node)
+  <b>while</b> hasleftchild(node) do
+    node = node.left
+  <b>do</b>
+    visit(node)
+    <b>if</b> not (hasrightchild(node)) <b>then</b>
+      node = node.right
+      <b>while</b> hasleftchild(node) do
+        node = node.left
+    <b>else</b>
+      node = node.right
+  <b>while</b> node ≠ null
+</pre>
+<p>Note that a threaded binary tree will provide a means of determining whether a pointer is a child, or a thread. See <a href="/wiki/Threaded_binary_tree" title="Threaded binary tree">threaded binary trees</a> for more information.</p>
+<p><b>Level order traversal</b></p>
+<p>The example below is a simple <a href="/wiki/Queue_%28data_structure%29" title="Queue (data structure)">queue</a> based level order traversal, and will require space proportional to the maximum number of nodes at a given depth. This can be as much as the total number of nodes / 2. A more space-efficient approach for this type of traversal can be implemented using an <a href="/wiki/Iterative_deepening_depth-first_search" title="Iterative deepening depth-first search">iterative deepening depth-first search</a>.</p>
+<pre>
+<b>levelorder</b>(root) 
+  q = empty queue
+  q.enqueue(root)
+  <b>while</b> not q.empty <b>do</b>
+    node := q.dequeue()
+    visit(node)
+    <b>if</b> node.left ≠ <b>null</b>
+      q.enqueue(node.left)
+    <b>if</b> node.right ≠ <b>null</b>
+      q.enqueue(node.right)
+</pre>
+<p><a name="Uses" id="Uses"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Tree_traversal&amp;action=edit&amp;section=4" title="Edit section: Uses">edit</a>]</span> <span class="mw-headline">Uses</span></h3>
+<p><b>Inorder traversal</b></p>
+<p>It is particularly common to traverse a <a href="/wiki/Binary_search_tree" title="Binary search tree">binary search tree</a> inorder, because it gives the values in increasing order.</p>
+<p>To see why this is the case, note that if <i>n</i> is a node in a binary search tree, then everything in <i>n</i> 's left subtree is less than <i>n</i>, and everything in <i>n</i> 's right subtree is greater than or equal to <i>n</i>. Thus, if we visit the left subtree in order, using a recursive call, and then visit <i>n</i>, and then visit the right subtree in order, we have visited the entire subtree rooted at <i>n</i> in order. We can assume the recursive calls correctly visit the subtrees in order using the mathematical principle of <a href="/wiki/Structural_induction" title="Structural induction">structural induction</a>. Traversing in <b>reverse inorder</b> similarly gives the values in decreasing order.</p>
+<p><b>Preorder traversal</b></p>
+<p>Traversing a tree in preorder while inserting the values into a new tree is common way of making a complete <i>copy</i> of a <a href="/wiki/Binary_search_tree" title="Binary search tree">binary search tree</a>.</p>
+<p>We can also use preorder traversals to evaluate <a href="/wiki/Expression_tree" title="Expression tree">expression trees</a>.</p>
+<p>We scan the expression tree from right to left, placing the elements in a <a href="/wiki/Stack" title="Stack">stack</a>.</p>
+<p>Each time we find an operator, we replace the two top symbols of the stack with the result of applying the operator to those elements. For instance, the expression <i>∗ + 234</i>, which in infix notation is <i>(2 + 3) ∗ 4)</i>, would be evaluated like this:</p>
+<table border="1" cellpadding="3">
+<caption><b>Using prefix traversal to evaluate an expression tree</b></caption>
+<tr>
+<th>Expression (remaining)</th>
+<th>Stack</th>
+</tr>
+<tr>
+<td>∗ + 234</td>
+<td>&lt;empty&gt;</td>
+</tr>
+<tr>
+<td>∗ + 23</td>
+<td>4</td>
+</tr>
+<tr>
+<td>∗ + 2</td>
+<td>3 4</td>
+</tr>
+<tr>
+<td>∗ +</td>
+<td>2 3 4</td>
+</tr>
+<tr>
+<td>∗</td>
+<td>5 4</td>
+</tr>
+<tr>
+<th>Answer</th>
+<th>20</th>
+</tr>
+</table>
+<p><b>Postorder traversal</b></p>
+<p>In comparison to preorder notation, which correlates nicely with a stack, postorder notation correlates with a queue.</p>
+<p><a name="Functional_traversal" id="Functional_traversal"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Tree_traversal&amp;action=edit&amp;section=5" title="Edit section: Functional traversal">edit</a>]</span> <span class="mw-headline">Functional traversal</span></h2>
+<p>We could perform the same traversals in a functional language like <a href="/wiki/Haskell_%28programming_language%29" title="Haskell (programming language)">Haskell</a> using code similar to this:</p>
+<pre>
+data Tree a = Nil | Node (Tree a) a (Tree a)
+
+preorder Nil = []
+preorder (Node left x right) = [x] ++ (preorder left) ++ (preorder right) 
+
+postorder Nil = []
+postorder (Node left x right) = (postorder left) ++ (postorder right) ++ [x]
+
+inorder Nil = []
+inorder (Node left x right) = (inorder left) ++ [x] ++ (inorder right)
+</pre>
+<p><a name="Iterative_traversing" id="Iterative_traversing"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Tree_traversal&amp;action=edit&amp;section=6" title="Edit section: Iterative traversing">edit</a>]</span> <span class="mw-headline">Iterative traversing</span></h2>
+<p>All the above recursive algorithms require stack space proportional to the depth of the tree. Recursive traversal may be converted into an iterative one using various well-known methods.</p>
+<p><a name="See_also" id="See_also"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Tree_traversal&amp;action=edit&amp;section=7" title="Edit section: See also">edit</a>]</span> <span class="mw-headline">See also</span></h2>
+<ul>
+<li><a href="/wiki/Tree_programming" title="Tree programming">Tree programming</a></li>
+<li><a href="/wiki/Polish_notation" title="Polish notation">Polish notation</a></li>
+<li><a href="/wiki/Depth-first_search" title="Depth-first search">Depth-first search</a></li>
+<li><a href="/wiki/Breadth-first_search" title="Breadth-first search">Breadth-first search</a></li>
+</ul>
+<p><a name="External_links" id="External_links"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Tree_traversal&amp;action=edit&amp;section=8" title="Edit section: External links">edit</a>]</span> <span class="mw-headline">External links</span></h2>
+<ul>
+<li><a href="http://www.SQLSummit.com/AdjacencyList.htm" class="external text" title="http://www.SQLSummit.com/AdjacencyList.htm" rel="nofollow">The Adjacency List Model for Processing Trees with SQL</a></li>
+<li><a href="http://www.sitepoint.com/article/hierarchical-data-database" class="external text" title="http://www.sitepoint.com/article/hierarchical-data-database" rel="nofollow">Storing Hierarchical Data in a Database</a> with traversal examples in PHP</li>
+<li><a href="http://dev.mysql.com/tech-resources/articles/hierarchical-data.html" class="external text" title="http://dev.mysql.com/tech-resources/articles/hierarchical-data.html" rel="nofollow">Managing Hierarchical Data in MySQL</a></li>
+<li><a href="http://www.artfulsoftware.com/mysqlbook/sampler/mysqled1ch20.html" class="external text" title="http://www.artfulsoftware.com/mysqlbook/sampler/mysqled1ch20.html" rel="nofollow">Working with Graphs in MySQL</a></li>
+<li><a href="http://www.geocities.com/neutech_in/narytree.txt" class="external text" title="http://www.geocities.com/neutech_in/narytree.txt" rel="nofollow">N-ary Tree Traversal</a></li>
+<li><a href="http://www.cosc.canterbury.ac.nz/people/mukundan/dsal/BTree.html" class="external text" title="http://www.cosc.canterbury.ac.nz/people/mukundan/dsal/BTree.html" rel="nofollow">Animation Applet of Binary Tree Traversal</a></li>
+</ul>
+<p><a name="References" id="References"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Tree_traversal&amp;action=edit&amp;section=9" title="Edit section: References">edit</a>]</span> <span class="mw-headline">References</span></h2>
+<ul>
+<li>Dale, Nell. Lilly, Susan D. "Pascal Plus Data Structures". D. C. Heath and Company. Lexington, MA. 1995. Fourth Edition.</li>
+<li>Drozdek, Adam. "Data Structures and Algorithms in C++". Brook/Cole. Pacific Grove, CA. 2001. Second edition.</li>
+<li><a href="http://www.cs.berkeley.edu/~kamil/su02/080802.ppt" class="external free" title="http://www.cs.berkeley.edu/~kamil/su02/080802.ppt" rel="nofollow">http://www.cs.berkeley.edu/~kamil/su02/080802.ppt</a></li>
+<li><a href="http://www.math.northwestern.edu/~mlerma/courses/cs310-05s/notes/dm-treetran" class="external free" title="http://www.math.northwestern.edu/~mlerma/courses/cs310-05s/notes/dm-treetran" rel="nofollow">http://www.math.northwestern.edu/~mlerma/courses/cs310-05s/notes/dm-treetran</a></li>
+</ul>
+
+
+<!-- Saved in parser cache with key enwiki:pcache:idhash:597584-0!1!0!default!!en!2 and timestamp 20070916010126 -->
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org/wiki/Tree_traversal">http://en.wikipedia.org/wiki/Tree_traversal</a>"</div>
+			<div id="catlinks"><p class='catlinks'><a href="/wiki/Special:Categories" title="Special:Categories">Categories</a>: <span dir='ltr'><a href="/wiki/Category:Trees_%28structure%29" title="Category:Trees (structure)">Trees (structure)</a></span> | <span dir='ltr'><a href="/wiki/Category:Articles_with_example_Haskell_code" title="Category:Articles with example Haskell code">Articles with example Haskell code</a></span> | <span dir='ltr'><a href="/wiki/Category:Articles_with_example_pseudocode" title="Category:Articles with example pseudocode">Articles with example pseudocode</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<div class="pBody">
+			<ul>
+					 <li id="ca-nstab-main" class="selected"><a href="/wiki/Tree_traversal" title="View the content page [c]" accesskey="c">Article</a></li>
+					 <li id="ca-talk"><a href="/wiki/Talk:Tree_traversal" title="Discussion about the content page [t]" accesskey="t">Discussion</a></li>
+					 <li id="ca-edit"><a href="/w/index.php?title=Tree_traversal&amp;action=edit" title="You can edit this page. Please use the preview button before saving. [e]" accesskey="e">Edit this page</a></li>
+					 <li id="ca-history"><a href="/w/index.php?title=Tree_traversal&amp;action=history" title="Past versions of this page [h]" accesskey="h">History</a></li>
+				</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-personal">
+		<h5>Personal tools</h5>
+		<div class="pBody">
+			<ul>
+				<li id="pt-login"><a href="/w/index.php?title=Special:Userlogin&amp;returnto=Tree_traversal" title="You are encouraged to log in, it is not mandatory however. [o]" accesskey="o">Sign in / create account</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-logo">
+		<a style="background-image: url(/images/wiki-en.png);" href="/wiki/Main_Page" title="Visit the Main Page [z]" accesskey="z"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-Main-page"><a href="/wiki/Main_Page">Main page</a></li>
+				<li id="n-Contents"><a href="/wiki/Wikipedia:Contents">Contents</a></li>
+				<li id="n-Featured-content"><a href="/wiki/Wikipedia:Featured_content">Featured content</a></li>
+				<li id="n-currentevents"><a href="/wiki/Portal:Current_events" title="Find background information on current events">Current events</a></li>
+				<li id="n-randompage"><a href="/wiki/Special:Random" title="Load a random page [x]" accesskey="x">Random article</a></li>
+			</ul>
+		</div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+		<h5>interaction</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-About-Wikipedia"><a href="/wiki/Wikipedia:About">About Wikipedia</a></li>
+				<li id="n-portal"><a href="/wiki/Wikipedia:Community_Portal" title="About the project, what you can do, where to find things">Community portal</a></li>
+				<li id="n-recentchanges"><a href="/wiki/Special:Recentchanges" title="The list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li>
+				<li id="n-contact"><a href="/wiki/Wikipedia:Contact_us">Contact Wikipedia</a></li>
+				<li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising" title="Support us">Donate to Wikipedia</a></li>
+				<li id="n-help"><a href="/wiki/Help:Contents" title="Guidance on how to use and edit Wikipedia">Help</a></li>
+			</ul>
+		</div>
+	</div>
+		<div id="p-search" class="portlet">
+		<h5><label for="searchInput">Search</label></h5>
+		<div id="searchBody" class="pBody">
+			<form action="/wiki/Special:Search" id="searchform"><div>
+				<input id="searchInput" name="search" type="text" title="Search Wikipedia [f]" accesskey="f" value="" />
+				<input type='submit' name="go" class="searchButton" id="searchGoButton"	value="Go" />&nbsp;
+				<input type='submit' name="fulltext" class="searchButton" id="mw-searchButton" value="Search" />
+			</div></form>
+		</div>
+	</div>
+	<div class="portlet" id="p-tb">
+		<h5>Toolbox</h5>
+		<div class="pBody">
+			<ul>
+				<li id="t-whatlinkshere"><a href="/wiki/Special:Whatlinkshere/Tree_traversal" title="List of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+				<li id="t-recentchangeslinked"><a href="/wiki/Special:Recentchangeslinked/Tree_traversal" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+<li id="t-upload"><a href="/wiki/Wikipedia:Upload" title="Upload images or media files [u]" accesskey="u">Upload file</a></li>
+<li id="t-specialpages"><a href="/wiki/Special:Specialpages" title="List of all special pages [q]" accesskey="q">Special pages</a></li>
+				<li id="t-print"><a href="/w/index.php?title=Tree_traversal&amp;printable=yes" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>				<li id="t-permalink"><a href="/w/index.php?title=Tree_traversal&amp;oldid=155464507" title="Permanent link to this version of the page">Permanent link</a></li><li id="t-cite"><a href="/w/index.php?title=Special:Cite&amp;page=Tree_traversal&amp;id=155464507">Cite this article</a></li>			</ul>
+		</div>
+	</div>
+	<div id="p-lang" class="portlet">
+		<h5>In other languages</h5>
+		<div class="pBody">
+			<ul>
+				<li class="interwiki-pl"><a href="http://pl.wikipedia.org/wiki/Przechodzenie_drzewa">Polski</a></li>
+				<li class="interwiki-vi"><a href="http://vi.wikipedia.org/wiki/Duy%E1%BB%87t_c%C3%A2y">Tiếng Việt</a></li>
+				<li class="interwiki-uk"><a href="http://uk.wikipedia.org/wiki/%D0%9E%D0%B1%D1%85%D1%96%D0%B4_%D0%B4%D0%B5%D1%80%D0%B5%D0%B2%D0%B0">Українська</a></li>
+				<li class="interwiki-zh"><a href="http://zh.wikipedia.org/wiki/%E5%9B%BE%E9%81%8D%E5%8E%86">中文</a></li>
+			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="/skins-1.5/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>
+				<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="/images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>
+			<ul id="f-list">
+				<li id="lastmod"> This page was last modified 18:36, 3 September 2007.</li>
+				<li id="copyright">All text is available under the terms of the <a class='internal' href="/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="/wiki/Wikipedia:Copyrights" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a U.S. registered <a class='internal' href="/wiki/501%28c%29#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="/wiki/Non-profit_organization" title="Non-profit organization">nonprofit</a> <a href="/wiki/Charitable_organization" title="Charitable organization">charity</a>.<br /></li>
+				<li id="privacy"><a href="http://wikimediafoundation.org/wiki/Privacy_policy" title="wikimedia:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="/wiki/Wikipedia:About" title="Wikipedia:About">About Wikipedia</a></li>
+				<li id="disclaimer"><a href="/wiki/Wikipedia:General_disclaimer" title="Wikipedia:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+		
+	
+		<script type="text/javascript">if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by srv116 in 0.131 secs. --></body></html>

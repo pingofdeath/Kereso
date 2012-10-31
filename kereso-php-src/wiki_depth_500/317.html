@@ -1,0 +1,78 @@
+<HEAD>
+<TITLE> Best First Search</TITLE>
+</HEAD>
+<BODY><P>
+ <HR> <A NAME=tex2html1114 HREF=subsubsection2_6_2_3_3.html><IMG ALIGN=MIDDLE SRC="http://cbl.leeds.ac.uk/nikos/figs/next_motif.gif"></A> <A NAME=tex2html1112 HREF=subsection2_6_2_3.html><IMG ALIGN=MIDDLE SRC="http://cbl.leeds.ac.uk/nikos/figs/up_motif.gif"></A> <A NAME=tex2html1106 HREF=subsubsection2_6_2_3_1.html><IMG ALIGN=MIDDLE SRC="http://cbl.leeds.ac.uk/nikos/figs/previous_motif.gif"></A> <A NAME=tex2html1116 HREF=tableofcontents2_1.html><IMG ALIGN=MIDDLE SRC="http://cbl.leeds.ac.uk/nikos/figs/contents_motif.gif"></A> <BR>
+<B> Next:</B> <A NAME=tex2html1115 HREF=subsubsection2_6_2_3_3.html> The A Algorithm</A>
+<B>Up:</B> <A NAME=tex2html1113 HREF=subsection2_6_2_3.html> Heuristic Search</A>
+<B> Previous:</B> <A NAME=tex2html1107 HREF=subsubsection2_6_2_3_1.html> Hill Climbing</A>
+<HR> <P>
+<H3><A NAME=SECTION0062320000000000000> Best First Search</A></H3>
+<P>
+Best first search is a little like hill climbing, in that it
+uses an evaluation function and always chooses the next node to
+be that with the best score. However, it is exhaustive, in that
+it should eventually try all possible paths. It uses an agenda
+as in breadth/depth first search, but instead of taking the
+first node off the agenda (and generating its successors)
+it will take the <em>best</em> node off, ie the node with the
+best score. The successors of the best node will be evaluated
+(ie have a score assigned to them) and added to the list.
+<P>
+The basic algorithm is as follows:
+<P>
+<OL><LI> Start with <em>open</em> = [initial-state].
+<LI> While <em>open</em> <IMG ALIGN=BOTTOM ALT="" SRC="_778_tex2html_wrap1053.xbm"> [] do
+<OL><LI> Pick the best node on <em>open</em>.
+<LI> If it is the goal node then return with success. Otherwise
+find its succesors.
+<LI> Assign the successor nodes a score using the evaluation function
+and add the scored nodes to <em>open</em>
+</OL>
+</OL>
+<P>
+(Remember ``open'' is just what we have called the agenda.)
+<P>
+Suppose we have the following search tree:
+<P>
+<IMG ALIGN=BOTTOM ALT="" SRC="_778_tex2html_wrap1069.xbm">
+<P>
+Here links between nodes illustrate possible successor states. A node label
+such as B:5 means that the node name is B and it has n estimated
+cost to solution of 5, (so a lower value is better).
+<P>
+Suppose our goal state is G. 
+If we searched this search space using breadth first search then the
+nodes would be searched in the following order: A, B, C, D, E, F, G.
+Using depth first search the order would be: A, B, D, E, G.
+For both of these the scores on nodes are ignored. Using
+simple hill climbing a solution would never be found - there is a local
+maxima at C where it would get stuck. Using best first search the
+order would be: A, C, B, E, G. You should verify this using the
+algorithm above.
+<P>
+If you have a good evalution function, best first search may
+drastically cut down the amount of search that you have
+to do to find a solution. You may not find the best solution (or at least,
+the first soln found may not be the best),
+ but if a solution exists you will eventually find it, and there
+is a good chance of finding it quickly. Of course, if your
+evaluation function is no good then you are just as well off
+using simpler search techniques such as depth first or
+breadth first. And if your evaluation function is very expensive
+(ie, it takes a long time to work out a score) the benefits of
+cutting down on the amount of search may be outweighed by the
+costs of assigning a score.
+<P>
+<HR> <A NAME=tex2html1114 HREF=subsubsection2_6_2_3_3.html><IMG ALIGN=MIDDLE SRC="http://cbl.leeds.ac.uk/nikos/figs/next_motif.gif"></A> <A NAME=tex2html1112 HREF=subsection2_6_2_3.html><IMG ALIGN=MIDDLE SRC="http://cbl.leeds.ac.uk/nikos/figs/up_motif.gif"></A> <A NAME=tex2html1106 HREF=subsubsection2_6_2_3_1.html><IMG ALIGN=MIDDLE SRC="http://cbl.leeds.ac.uk/nikos/figs/previous_motif.gif"></A> <A NAME=tex2html1116 HREF=tableofcontents2_1.html><IMG ALIGN=MIDDLE SRC="http://cbl.leeds.ac.uk/nikos/figs/contents_motif.gif"></A> <BR>
+<B> Next:</B> <A NAME=tex2html1115 HREF=subsubsection2_6_2_3_3.html> The A Algorithm</A>
+<B>Up:</B> <A NAME=tex2html1113 HREF=subsection2_6_2_3.html> Heuristic Search</A>
+<B> Previous:</B> <A NAME=tex2html1107 HREF=subsubsection2_6_2_3_1.html> Hill Climbing</A>
+<HR> <P>
+<HR>
+
+</BODY>
+<P><ADDRESS>
+<I>alison@ <BR>
+Fri Aug 19 10:42:17 BST 1994</I>
+</ADDRESS>

@@ -1,0 +1,261 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="it" lang="it" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+				<meta name="keywords" content="A*,Algoritmo di Dijkstra,Association for Computing Machinery,Disuguaglianza triangolare,IEEE,Informatica,Lingua inglese,Nodo (grafi),Coda di priorità,Peter Hart,Ricerca best-first" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (Italiano)" />
+		<link rel="copyright" href="http://www.gnu.org/copyleft/fdl.html" />
+		<title>A* - Wikipedia</title>
+		<style type="text/css" media="screen, projection">/*<![CDATA[*/
+			@import "/skins-1.5/common/shared.css?99";
+			@import "/skins-1.5/monobook/main.css?99";
+		/*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="/skins-1.5/common/commonPrint.css?99" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE50Fixes.css?99";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE55Fixes.css?99";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "/skins-1.5/monobook/IE60Fixes.css?99";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "/skins-1.5/monobook/IE70Fixes.css?99";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="/skins-1.5/common/IEFixes.js?99"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		
+		<script type= "text/javascript">/*<![CDATA[*/
+var skin = "monobook";
+var stylepath = "/skins-1.5";
+var wgArticlePath = "/wiki/$1";
+var wgScriptPath = "/w";
+var wgScript = "/w/index.php";
+var wgServer = "http://it.wikipedia.org";
+var wgCanonicalNamespace = "";
+var wgCanonicalSpecialPageName = false;
+var wgNamespaceNumber = 0;
+var wgPageName = "A*";
+var wgTitle = "A*";
+var wgAction = "view";
+var wgRestrictionEdit = [];
+var wgRestrictionMove = [];
+var wgArticleId = "299518";
+var wgIsArticle = true;
+var wgUserName = null;
+var wgUserGroups = null;
+var wgUserLanguage = "it";
+var wgContentLanguage = "it";
+var wgBreakFrames = false;
+var wgCurRevisionId = "10790568";
+/*]]>*/</script>
+                
+		<script type="text/javascript" src="/skins-1.5/common/wikibits.js?99"><!-- wikibits js --></script>
+		<script type="text/javascript" src="/w/index.php?title=-&amp;action=raw&amp;gen=js&amp;useskin=monobook"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "/w/index.php?title=MediaWiki:Common.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=MediaWiki:Monobook.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=-&action=raw&gen=css&maxage=2678400";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+		<script type="text/javascript" src="/skins-1.5/common/ajax.js?99"></script>
+	</head>
+<body  class="mediawiki ns-0 ltr page-A">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+		<div id="siteNotice"><script type="text/javascript" language="JavaScript">
+<!--
+document.writeln("\x3cdiv class=\"noprint\" style=\"text-align:center; font-size:90%; line-height:1.4;\"\x3e\n\x3cdiv class=\"floatleft\"\x3e\x3cspan\x3e\x3ca href=\"/wiki/Immagine:Wikimedia-logo.svg\" class=\"image\" title=\"Il logo di Wikimedia\"\x3e\x3cimg alt=\"Il logo di Wikimedia\" src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Wikimedia-logo.svg/16px-Wikimedia-logo.svg.png\" width=\"16\" height=\"16\" border=\"0\" /\x3e\x3c/a\x3e\x3c/span\x3e\x3c/div\x3e\n\x3cp\x3e\x3ca href=\"/wiki/Wikipedia:Wikimedia_Italia\" title=\"Wikipedia:Wikimedia Italia\"\x3eAssociazione Wikimedia Italia\x3c/a\x3e - per informazioni, iscrizioni, donazioni o acquisto gadget visita il sito \x3ca href=\"http://www.wikimedia.it\" class=\"external text\" title=\"http://www.wikimedia.it\" rel=\"nofollow\"\x3ewww.wikimedia.it\x3c/a\x3e\n\x3c/p\x3e\n\x3c/div\x3e\n");
+-->
+</script></div>		<h1 class="firstHeading">A*</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">Da Wikipedia, l'enciclopedia libera.</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Vai a: <a href="#column-one">Navigazione</a>, <a href="#searchInput">cerca</a></div>			<!-- start content -->
+			<p>Nell'<a href="/wiki/Informatica" title="Informatica">informatica</a>, <b>A*</b> è un <a href="/w/index.php?title=Algoritmo_di_ricerca_su_alberi&amp;action=edit" class="new" title="Algoritmo di ricerca su alberi">algoritmo di ricerca su grafi</a> che individua un percorso da un dato <a href="/wiki/Nodo_%28grafi%29" title="Nodo (grafi)">nodo</a> iniziale verso un dato nodo goal (o che passi un test di goal dato). Utilizza una "stima euristica" che classifica ogni nodo attraverso una stima della strada migliore che passa attraverso tale nodo. Visita il nodo in base a tale stima euristica. L'algoritmo A* è anche un esempio di <a href="/w/index.php?title=Ricerca_best-first&amp;action=edit" class="new" title="Ricerca best-first">ricerca best-first</a>.</p>
+<p>L'algoritmo è stato descritto nel 1968 da <a href="/w/index.php?title=Peter_Hart&amp;action=edit" class="new" title="Peter Hart">Peter Hart</a>, <a href="/w/index.php?title=Nils_Nilsson&amp;action=edit" class="new" title="Nils Nilsson">Nils Nilsson</a>, e <a href="/w/index.php?title=Bertram_Raphael&amp;action=edit" class="new" title="Bertram Raphael">Bertram Raphael</a>.</p>
+<table id="toc" class="toc" summary="Indice">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Indice</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Intuizione"><span class="tocnumber">1</span> <span class="toctext">Intuizione</span></a></li>
+<li class="toclevel-1"><a href="#Veduta_d.27insieme"><span class="tocnumber">2</span> <span class="toctext">Veduta d'insieme</span></a></li>
+<li class="toclevel-1"><a href="#Descrizione"><span class="tocnumber">3</span> <span class="toctext">Descrizione</span></a></li>
+<li class="toclevel-1"><a href="#Perch.C3.A9_A.2A_.C3.A8_ammissibile_e_computazionalmente_ottima"><span class="tocnumber">4</span> <span class="toctext">Perché A* è ammissibile e computazionalmente ottima</span></a></li>
+<li class="toclevel-1"><a href="#Monotonicit.C3.A0"><span class="tocnumber">5</span> <span class="toctext">Monotonicità</span></a></li>
+<li class="toclevel-1"><a href="#Bibliografia"><span class="tocnumber">6</span> <span class="toctext">Bibliografia</span></a></li>
+<li class="toclevel-1"><a href="#Collegamenti_esterni"><span class="tocnumber">7</span> <span class="toctext">Collegamenti esterni</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "mostra"; var tocHideText = "nascondi"; showTocToggle(); } 
+//]]>
+</script>
+<p><a name="Intuizione" id="Intuizione"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=A%2A&amp;action=edit&amp;section=1" title="Modifica della sezione: Intuizione">modifica</a>]</span> <span class="mw-headline">Intuizione</span></h2>
+<p>Consideriamo un esempio motivante. Ci troviamo ad un incrocio A, e vorremmo andare ad uno B che fortunatamente sappiamo che si trova a nord di dove siamo. In questo caso gli incroci sono i vertici di un grafo e le strade sono lati.</p>
+<p>Se si effettua una <a href="/w/index.php?title=Ricerca_breadth-first&amp;action=edit" class="new" title="Ricerca breadth-first">ricerca breadth-first</a> come illustrato dall'<a href="/wiki/Algoritmo_di_Dijkstra" title="Algoritmo di Dijkstra">algoritmo di Dijkstra</a>, cercheremo ogni punto con un raggio circolare fisso, gradualmente espanderemo questo cerchio per cercare gli incroci più lontani dal nostro punto iniziale. Questa può essere una strategia effettiva se non si conosce dove si trovi la destinazione, come fa la polizia nella ricerca di un criminale nascosto.</p>
+<p>Comunque, essa porta ad uno spreco di tempo se si hanno più informazioni. Una strategia migliore consiste nell'esplorazione degli incroci posizionati a nord del primo, perché essi saranno i vertici più prossimi a B. Allora, le strade ci autorizzano, ad esplorare gli incroci sempre più vicini all'incrocio goal B. Ci sarà bisogno di qualche backtrack occasionale, ma senza dubbio questa è una strategia migliore. Inoltre, può essere provato che questa strategia troverà la strada migliore possibile, come farebbe la ricerca breadth-first. Questa è l'essenza della ricerca A*.</p>
+<p>Comunque, non è garantito che l'esecuzione dell'A* sia migliore rispetto ai semplici algoritmi di ricerca. In un ambiente molto contorto, il solo modo per raggiungere la nostra destinazione potrebbe essere quello di dirigerci a sud e in seguito girarci attorno. In questi casi la prova dei nodi più prossimi alla nostra destinazione potrebbe essere uno spreco di tempo.</p>
+<p><a name="Veduta_d.27insieme" id="Veduta_d.27insieme"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=A%2A&amp;action=edit&amp;section=2" title="Modifica della sezione: Veduta d'insieme">modifica</a>]</span> <span class="mw-headline">Veduta d'insieme</span></h2>
+<p>Un algoritmo di ricerca che garantisce sempre di trovare il percorso più corto verso una meta è detto ammissibile. Se A* utilizza una <a href="/w/index.php?title=Euristica_%28scienza_dei_computer%29&amp;action=edit" class="new" title="Euristica (scienza dei computer)">euristica</a> allora non bisogna mai sovrastimare la distanza (o in genere, il costo) verso la meta, si può così verificare che A* sarà ammissibile. Una euristica che fa di una ricerca A* ammissibile è detta "euristica ammissibile".</p>
+<p>Se la stima semplicemente ritorna sempre zero, che non sarà mai una sovrastima, allora A* compierà effettivamente l'algoritmo di Dijkstra e troverà ancora una soluzione ottimale, benché non rapidamente. L'euristica migliore possibile, benché non sia di solito pratico calcolarla, è la distanza attuale minima verso meta. Un esempio di euristica pratica ammissibile è la distanza in linea d'aria dalla meta su una mappa.</p>
+<p>Può essere verificato che A* non considera più nodi di qualunque altro algoritmo di ricerca ammissibile, a meno che l'algoritmo alternativo non abbia una stima euristica più accurata. In questo senso A* è l'algoritmo computazionalmente più efficiente che garantisce la ricerca del percorso più breve.</p>
+<p><a name="Descrizione" id="Descrizione"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=A%2A&amp;action=edit&amp;section=3" title="Modifica della sezione: Descrizione">modifica</a>]</span> <span class="mw-headline">Descrizione</span></h2>
+<p>A* comincia a partire dal <a href="/wiki/Nodo_%28grafi%29" title="Nodo (grafi)">nodo</a> selezionato. Per ogni nodo è definito un costo di entrata (di solito zero per il nodo iniziale). A* allora valuta la distanza dal nodo meta a partire da quello corrente. Questa stima ed il costo assieme formano l'euristica che sarà assegnata al percorso passante per questo nodo. Il nodo è aggiunto allora a una <a href="/w/index.php?title=Coda_di_priorit%C3%A0&amp;action=edit" class="new" title="Coda di priorità">coda di priorità</a>, spesso chiamata "open".</p>
+<p>L'algoritmo allora rimuove il prossimo nodo dalla coda di priorità (perché avrà valore della funzione euristica più basso). Se la coda è vuota, non ci saranno percorsi dal nodo iniziale al nodo meta e l'algoritmo si arresterà. Se il nodo è il nodo meta, A* ricostruisce e pone in output il percorso ottenuto e si arresta. Questa ricostruzione del percorso a partire dai nodi più vicini significa che non è necessario memorizzare il percorso in ogni nodo.</p>
+<p>Se il nodo non è il nodo meta, nuovi nodi saranno creati per tutti nodi vicini ammissibili; il modo di fare questo dipende dal problema. Per ciascuno nodo successivo A* calcola il "costo" di entrata nel nodo e lo salva col nodo. Questo costo è calcolato dalla somma cumulativa dei pesi immagazzinati negli antenati, più il costo dell'operazione per raggiungere questo nuovo nodo.</p>
+<p>L'algoritmo gestisce anche una lista di "closed", un elenco di nodi che sono già stati controllati. Se un nuovo nodo generato è già nella lista con un costo uguale o più basso, non ci sarà alcuna futura indagine su tale nodo o col percorso ad esso associato. Se un nodo nella lista di closed è uguale ad uno nuovo, ma è stato immagazzinato con un costo più alto, allora sarà rimosso dalla lista di closed, e il processo continuerà a partire dal nuovo nodo.</p>
+<p>Successivamente, una stima della distanza dal nodo nuovo alla meta è aggiunta al costo per formare il suo valore euristico. Tale nodo è aggiunto allora alla coda di priorità "open", a meno che non esista un nodo identico con valore euristico minore o uguale.</p>
+<p>L'algoritmo sarà adottato ad ogni nodo vicino, fatto ciò il nodo originale è preso dalla coda di priorità e posto nella lista di "closed". Il prossimo nodo sarà ottenuto dalla lista di open e con esso si ripeterà il processo descitto.</p>
+<p><a name="Perch.C3.A9_A.2A_.C3.A8_ammissibile_e_computazionalmente_ottima" id="Perch.C3.A9_A.2A_.C3.A8_ammissibile_e_computazionalmente_ottima"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=A%2A&amp;action=edit&amp;section=4" title="Modifica della sezione: Perché A* è ammissibile e computazionalmente ottima">modifica</a>]</span> <span class="mw-headline">Perché A* è ammissibile e computazionalmente ottima</span></h2>
+<p>C'è una spiegazione intuitiva del perché A* è sia ammissibile che ottima rispetto ad altri algoritmi di ricerca ammissibili. A* ha una stima ottimistica del costo del percorso attraverso ogni nodo considerato, l'ottimismo consiste anche nel sapere che il vero costo del percorso attraverso ciascun nodo verso il nodo goal varrà almeno quanto vale la nostra stima. Tutto è basato su quanto A* "conosce".</p>
+<p>Quando A* ha terminato la sua ricerca, per definizione avrà trovato un percorso il cui costo attuale è più basso del costo stimato per ogni percorso attraverso tutti i nodi rimasti in open. Ma essendo tale stima ottimista, A* potrà senza pericoli ignorare tali nodi. In altre parole, A* non trascurerà mai la possibilità di trovare un percorso dal costo minore, e quindi sarà ammissibile.</p>
+<p>Supponiamo ora che un altro algoritmo di ricerca A termini la sua ricerca con un percorso il cui costo non sia minore del costo stimato per qualche nodo appartenente ad open. L'algoritmo A non può eliminare la possibilità, basandosi sulle informazioni euristiche che possiede, che un percorso attraverso tale nodo possa avere un costo inferiore a quanto valutato. Così anche se A potrà considerare meno nodi rispetto ad A*, non potrà essere ammissibile. Quindi, A* considera il numero di nodi più basso di qualunque altro algoritmo di ricerca ammissibile che utilizzi una funzione euristica non più accurata di quella adottata da A*.</p>
+<p><a name="Monotonicit.C3.A0" id="Monotonicit.C3.A0"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=A%2A&amp;action=edit&amp;section=5" title="Modifica della sezione: Monotonicità">modifica</a>]</span> <span class="mw-headline">Monotonicità</span></h2>
+<p>Se si può garantire che il primo percorso trovato da A* verso un nodo qualsiasi è quello ottimo, allora la lista CLOSED non sarà necessaria. Sarà necessaria solo una lista dei nodi già visitati (OPEN), così tali nodi non saranno rivisitati (in quanto non sarà necessario farlo). Questa garanzia può essere ottenuta se la funzione euristica è, oltre che ammissibile, anche <i>monotona</i> (o consistente), cioè se la differenza tra i valori dell'euristica per ogni coppia di nodi connessi non supera il costo effettivo associato all'arco che li collega (h(n1) &lt;= c(n1,n2) + h(n2)). Questa è una forma di <a href="/wiki/Disuguaglianza_triangolare" title="Disuguaglianza triangolare">disuguaglianza triangolare</a>, e garantisce che i nodi lungo un qualunque cammino nello spazio di ricerca abbiano sempre f(n) (<i>funzione di valutazione</i>) non decrescente. Si dimostra che A*, con tale euristica, espande i nodi in ordine non decrescente di f(n), poiché grazie al requisito di monotonicità non verrà mai generato un nodo con f(n) minore di quella del padre. Se A* espande i nodi in ordine non decrescente, allora quando anche si trovasse un nuovo cammino verso un nodo già in CLOSED, lo si potrebbe ignorare perché avrebbe sicuramente f(n) maggiore o uguale a quella del nodo già espanso, ed avendo lo stesso valore di stima euristica (è lo stesso nodo) il cammino percorso fino a quel punto avrà sicuramente un costo maggiore o uguale. Lo si può dunque scartare, ed asserire che il primo percorso trovato da A* verso un nodo è il cammino ottimo fino a quel nodo.</p>
+<p>Si dimostra che una euristica monotona è ammissibile, e quindi se si rispetta la restrizione di monotonicità si ottiene anche il percorso ottimo fino al goal. Intuitivamente, se il primo cammino trovato verso un nodo è quello ottimo (verso quel nodo) allora ciò vale anche per il nodo goal, e quindi se l'algoritmo termina, lo fa con la soluzione ottima. È utile ricordare che A*, con euristica ammissibile, termina sempre su grafi finiti e con costi strettamente positivi.</p>
+<p>La restrizione di monotonicità è un requisito più stringente dell'ammissibilità, ma per molti problemi classici si vede che un'euristica ammissibile è, solitamente, anche monotona. Un esempio molto valido di euristica ammissibile e consistente è quella della distanza in linea d'aria tra due punti, usata nel calcolo del percorso stradale ottimo tra le città di una mappa. Questa euristica ci permette di "vedere" cosa significhi essere ammissibile e consistente. Essa è sicuramente ammissibile, poiché nessuna strada tra due punti può essere più breve della distanza in linea d'aria tra essi, e quindi l'euristica non sovrastima mai il costo da un nodo al goal. È consistente, come si vede facilmente disegnando un triangolo in cui i vertici siano tre città di una piccola mappa. Scegliamo la città di partenza e quella di arrivo, immaginando che la strada passi dalla terza città. Se disegnamo una strada qualsiasi tra la partenza e l'arrivo, la sua lunghezza è maggiore o uguale a quella del lato che li unisce, e ogni lato di un triangolo è a sua volta maggiore o uguale alla differenza tra gli altri due lati. È quindi rispettata la restrizione di monotonicità.</p>
+<p><a name="Bibliografia" id="Bibliografia"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=A%2A&amp;action=edit&amp;section=6" title="Modifica della sezione: Bibliografia">modifica</a>]</span> <span class="mw-headline">Bibliografia</span></h2>
+<ul>
+<li>P. E. Hart, N. J. Nilsson, B. Raphael: <i>A Formal Basis for the Heuristic Determination of Minimum Cost Paths</i>, <a href="/wiki/IEEE" title="IEEE">IEEE</a> Transactions on Systems Science and Cybernetics SSC4 (2), pp. 100-107, 1968.</li>
+<li>P. E. Hart, N. J. Nilsson, B. Raphael: <i>Correction to "A Formal Basis for the Heuristic Determination of Minimum Cost Paths"</i>, <a href="/wiki/Association_for_Computing_Machinery" title="Association for Computing Machinery">SIGART</a> Newsletter, 37, pp. 28-29, 1972.</li>
+<li>N. J. Nilsson, <i>Principles of Artificial Intelligence</i>, Tioga Publishing Company, Palo Alto, California, 1980.</li>
+</ul>
+<p><a name="Collegamenti_esterni" id="Collegamenti_esterni"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=A%2A&amp;action=edit&amp;section=7" title="Modifica della sezione: Collegamenti esterni">modifica</a>]</span> <span class="mw-headline">Collegamenti esterni</span></h2>
+<ul>
+<li>(<span style="font-weight:bolder; font-size:80%"><a href="/wiki/Lingua_inglese" title="Lingua inglese">EN</a></span>) Justin Heyes-Jones' <a href="http://www.geocities.com/jheyesjones/astar.html" class="external text" title="http://www.geocities.com/jheyesjones/astar.html" rel="nofollow">A* algorithm tutorial</a></li>
+<li>(<span style="font-weight:bolder; font-size:80%"><a href="/wiki/Lingua_inglese" title="Lingua inglese">EN</a></span>) <a href="http://www.policyalmanac.org/games/aStarTutorial.htm" class="external text" title="http://www.policyalmanac.org/games/aStarTutorial.htm" rel="nofollow">Another A* Pathfinding for Beginners</a></li>
+<li>(<span style="font-weight:bolder; font-size:80%"><a href="/wiki/Lingua_inglese" title="Lingua inglese">EN</a></span>) Amit's <a href="http://theory.stanford.edu/~amitp/GameProgramming/" class="external text" title="http://theory.stanford.edu/~amitp/GameProgramming/" rel="nofollow">Thoughts on Path-Finding and A*</a></li>
+<li>(<span style="font-weight:bolder; font-size:80%"><a href="/wiki/Lingua_inglese" title="Lingua inglese">EN</a></span>) Sven Koenig's <a href="http://idm-lab.org/applet.html" class="external text" title="http://idm-lab.org/applet.html" rel="nofollow">Demonstration of Lifelong Planning A* and A*</a></li>
+<li>(<span style="font-weight:bolder; font-size:80%"><a href="/wiki/Lingua_inglese" title="Lingua inglese">EN</a></span>) Remko Tronçon and Joost Vennekens's <a href="http://www.cs.kuleuven.ac.be/~remko/jsearchdemo/" class="external text" title="http://www.cs.kuleuven.ac.be/~remko/jsearchdemo/" rel="nofollow">JSearch demo</a>: demonstrates various search algorithms, including A*.</li>
+<li>(<span style="font-weight:bolder; font-size:80%"><a href="/wiki/Lingua_inglese" title="Lingua inglese">EN</a></span>) Sune Trudslev's <a href="http://www.tanis.dk/wiki/index.php/Path_finding_in_C_sharp" class="external text" title="http://www.tanis.dk/wiki/index.php/Path_finding_in_C_sharp" rel="nofollow">Path finding in C# article</a></li>
+</ul>
+
+<!-- 
+Pre-expand include size: 11052 bytes
+Post-expand include size: 474 bytes
+Template argument size: 48 bytes
+Maximum: 2048000 bytes
+-->
+
+<!-- Saved in parser cache with key itwiki:pcache:idhash:299518-0!1!0!!it!2 and timestamp 20070913101539 -->
+<div class="printfooter">
+Estratto da "<a href="http://it.wikipedia.org/wiki/A%2A">http://it.wikipedia.org/wiki/A%2A</a>"</div>
+			<div id="catlinks"><p class='catlinks'><a href="/wiki/Speciale:Categories" title="Speciale:Categories">Categorie</a>: <span dir='ltr'><a href="/wiki/Categoria:Teoria_dei_grafi" title="Categoria:Teoria dei grafi">Teoria dei grafi</a></span> | <span dir='ltr'><a href="/wiki/Categoria:Algoritmi_di_ottimizzazione" title="Categoria:Algoritmi di ottimizzazione">Algoritmi di ottimizzazione</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Visite</h5>
+		<div class="pBody">
+			<ul>
+					 <li id="ca-nstab-main" class="selected"><a href="/wiki/A%2A" title="Vedi la voce [c]" accesskey="c">Voce</a></li>
+					 <li id="ca-talk" class="new"><a href="/w/index.php?title=Discussione:A%2A&amp;action=edit" title="Vedi le discussioni relative a questa pagina [t]" accesskey="t">Discussione</a></li>
+					 <li id="ca-edit"><a href="/w/index.php?title=A%2A&amp;action=edit" title="Puoi modificare questa pagina. Per favore usa il pulsante di anteprima prima di salvare [e]" accesskey="e">Modifica</a></li>
+					 <li id="ca-history"><a href="/w/index.php?title=A%2A&amp;action=history" title="Versioni precedenti di questa pagina [h]" accesskey="h">Cronologia</a></li>
+				</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-personal">
+		<h5>Strumenti personali</h5>
+		<div class="pBody">
+			<ul>
+				<li id="pt-login"><a href="/w/index.php?title=Speciale:Entra&amp;returnto=A%2A" title="La registrazione è consigliata, anche se non obbligatoria [o]" accesskey="o">Entra / Registrati</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-logo">
+		<a style="background-image: url(http://upload.wikimedia.org/wikipedia/it/b/bc/Wiki.png);" href="/wiki/Pagina_principale" title="Visita la pagina principale [z]" accesskey="z"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigazione</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="/wiki/Pagina_principale" title="Visita la pagina principale [z]" accesskey="z">Pagina principale</a></li>
+				<li id="n-recentchanges"><a href="/wiki/Speciale:UltimeModifiche" title="Elenco delle ultime modifiche del sito [r]" accesskey="r">Ultime modifiche</a></li>
+				<li id="n-randompage"><a href="/wiki/Speciale:PaginaCasuale" title="Mostra una pagina a caso [x]" accesskey="x">Una voce a caso</a></li>
+				<li id="n-vetrina"><a href="/wiki/Wikipedia:Vetrina">Vetrina</a></li>
+				<li id="n-help"><a href="/wiki/Aiuto:Aiuto" title="Pagine di aiuto">Aiuto</a></li>
+			</ul>
+		</div>
+	</div>
+		<div class='portlet' id='p-comunit.C3.A0'>
+		<h5>comunità</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-portal"><a href="/wiki/Portale:Comunit%C3%A0" title="Descrizione del progetto, cosa puoi fare, dove trovare le cose">Portale comunità</a></li>
+				<li id="n-villagepump"><a href="/wiki/Wikipedia:Bar">Bar</a></li>
+				<li id="n-wikipediano"><a href="/wiki/Wikipedia:Wikipediano">il Wikipediano</a></li>
+				<li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Donazioni" title="Aiutaci">Donazioni</a></li>
+				<li id="n-contact"><a href="/wiki/Wikipedia:Contatti">Contatti</a></li>
+			</ul>
+		</div>
+	</div>
+		<div id="p-search" class="portlet">
+		<h5><label for="searchInput">Ricerca</label></h5>
+		<div id="searchBody" class="pBody">
+			<form action="/wiki/Speciale:Ricerca" id="searchform"><div>
+				<input id="searchInput" name="search" type="text" title="Cerca all'interno di Wikipedia [f]" accesskey="f" value="" />
+				<input type='submit' name="go" class="searchButton" id="searchGoButton"	value="Vai" />&nbsp;
+				<input type='submit' name="fulltext" class="searchButton" id="mw-searchButton" value="Ricerca" />
+			</div></form>
+		</div>
+	</div>
+	<div class="portlet" id="p-tb">
+		<h5>Strumenti</h5>
+		<div class="pBody">
+			<ul>
+				<li id="t-whatlinkshere"><a href="/wiki/Speciale:PuntanoQui/A%2A" title="Elenco di tutte le pagine che sono collegate a questa [j]" accesskey="j">Puntano qui</a></li>
+				<li id="t-recentchangeslinked"><a href="/wiki/Speciale:ModificheCorrelate/A%2A" title="Elenco delle ultime modifiche alle pagine collegate a questa [k]" accesskey="k">Modifiche correlate</a></li>
+<li id="t-upload"><a href="/wiki/Speciale:Carica" title="Carica immagini o file multimediali [u]" accesskey="u">Carica un file</a></li>
+<li id="t-specialpages"><a href="/wiki/Speciale:PagineSpeciali" title="Lista di tutte le pagine speciali [q]" accesskey="q">Pagine speciali</a></li>
+				<li id="t-print"><a href="/w/index.php?title=A%2A&amp;printable=yes" title="Versione stampabile di questa pagina [p]" accesskey="p">Versione stampabile</a></li>				<li id="t-permalink"><a href="/w/index.php?title=A%2A&amp;oldid=10790568" title="Collegamento permanente a questa versione della pagina">Link permanente</a></li><li id="t-cite"><a href="/w/index.php?title=Speciale:Cite&amp;page=A%2A&amp;id=10790568">Cita questa voce</a></li>			</ul>
+		</div>
+	</div>
+	<div id="p-lang" class="portlet">
+		<h5>Altre lingue</h5>
+		<div class="pBody">
+			<ul>
+				<li class="interwiki-de"><a href="http://de.wikipedia.org/wiki/A%2A-Algorithmus">Deutsch</a></li>
+				<li class="interwiki-en"><a href="http://en.wikipedia.org/wiki/A%2A_search_algorithm">English</a></li>
+				<li class="interwiki-es"><a href="http://es.wikipedia.org/wiki/Algoritmo_de_b%C3%BAsqueda_A%2A">Español</a></li>
+				<li class="interwiki-fi"><a href="http://fi.wikipedia.org/wiki/A%2A-algoritmi">Suomi</a></li>
+				<li class="interwiki-fr"><a href="http://fr.wikipedia.org/wiki/Algorithme_A%2A">Français</a></li>
+				<li class="interwiki-ja"><a href="http://ja.wikipedia.org/wiki/A%2A">日本語</a></li>
+				<li class="interwiki-nl"><a href="http://nl.wikipedia.org/wiki/A%2A-algoritme">Nederlands</a></li>
+				<li class="interwiki-pl"><a href="http://pl.wikipedia.org/wiki/Algorytm_A%2A">Polski</a></li>
+				<li class="interwiki-pt"><a href="http://pt.wikipedia.org/wiki/Algoritmo_A%2A">Português</a></li>
+				<li class="interwiki-vi"><a href="http://vi.wikipedia.org/wiki/Gi%E1%BA%A3i_thu%E1%BA%ADt_t%C3%ACm_ki%E1%BA%BFm_A%2A">Tiếng Việt</a></li>
+			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="/skins-1.5/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>
+				<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="/images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>
+			<ul id="f-list">
+				<li id="lastmod"> Ultima modifica per la pagina: 19:00, 6 set 2007.</li>
+				<li id="copyright">Tutti i testi sono disponibili nel rispetto dei termini della <a href="http://www.gnu.org/copyleft/fdl.html" class="external " title="http://www.gnu.org/copyleft/fdl.html" rel="nofollow">GNU Free Documentation License</a>.</li>
+				<li id="privacy"><a href="/wiki/Wikipedia:Politica_relativa_alla_privacy" title="Wikipedia:Politica relativa alla privacy">Politica sulla privacy</a></li>
+				<li id="about"><a href="/wiki/Wikipedia:A_proposito_di_Wikipedia" title="Wikipedia:A proposito di Wikipedia">Informazioni su Wikipedia</a></li>
+				<li id="disclaimer"><a href="/wiki/Wikipedia:General_disclaimer" title="Wikipedia:General disclaimer">Avvertenze</a></li>
+			</ul>
+		</div>
+		
+	
+		<script type="text/javascript">if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by srv85 in 0.200 secs. --></body></html>

@@ -1,0 +1,485 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de" lang="de" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+				<meta name="keywords" content="Dijkstra-Algorithmus,A*-Algorithmus,Algorithmus,Algorithmus von Floyd und Warshall,Algorithmus von Kruskal,Algorithmus von Prim,Amortisierte Laufzeitanalyse,Bellman-Ford-Algorithmus,Breitensuche,Datenstruktur,Deutschland" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (Deutsch)" />
+		<link rel="copyright" href="http://www.gnu.org/copyleft/fdl.html" />
+		<title>Dijkstra-Algorithmus - Wikipedia</title>
+		<style type="text/css" media="screen, projection">/*<![CDATA[*/
+			@import "/skins-1.5/common/shared.css?99";
+			@import "/skins-1.5/monobook/main.css?99";
+		/*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="/skins-1.5/common/commonPrint.css?99" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE50Fixes.css?99";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE55Fixes.css?99";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "/skins-1.5/monobook/IE60Fixes.css?99";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "/skins-1.5/monobook/IE70Fixes.css?99";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="/skins-1.5/common/IEFixes.js?99"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		
+		<script type= "text/javascript">/*<![CDATA[*/
+var skin = "monobook";
+var stylepath = "/skins-1.5";
+var wgArticlePath = "/wiki/$1";
+var wgScriptPath = "/w";
+var wgScript = "/w/index.php";
+var wgServer = "http://de.wikipedia.org";
+var wgCanonicalNamespace = "";
+var wgCanonicalSpecialPageName = false;
+var wgNamespaceNumber = 0;
+var wgPageName = "Dijkstra-Algorithmus";
+var wgTitle = "Dijkstra-Algorithmus";
+var wgAction = "view";
+var wgRestrictionEdit = [];
+var wgRestrictionMove = [];
+var wgArticleId = "13547";
+var wgIsArticle = true;
+var wgUserName = null;
+var wgUserGroups = null;
+var wgUserLanguage = "de";
+var wgContentLanguage = "de";
+var wgBreakFrames = false;
+var wgCurRevisionId = "36737546";
+/*]]>*/</script>
+                
+		<script type="text/javascript" src="/skins-1.5/common/wikibits.js?99"><!-- wikibits js --></script>
+		<script type="text/javascript" src="/w/index.php?title=-&amp;action=raw&amp;gen=js&amp;useskin=monobook"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "/w/index.php?title=MediaWiki:Common.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=MediaWiki:Monobook.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=-&action=raw&gen=css&maxage=2678400";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+		<script type="text/javascript" src="/skins-1.5/common/ajax.js?99"></script>
+	</head>
+<body  class="mediawiki ns-0 ltr page-Dijkstra-Algorithmus">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+		<div id="siteNotice"><script type="text/javascript" language="JavaScript">
+<!--
+document.writeln("\x3cdiv style=\"position:absolute; z-index:100; right:5px; top:-20px;\" class=\"metadata\" id=\"donate\"\x3e\n\x3cdiv style=\"text-align:right; font-size:80%\"\x3e\x3ca href=\"http://wikimediafoundation.org/wiki/Spenden\" class=\"extiw\" title=\"wikimedia:Spenden\"\x3eIhre \x3cb\x3eSpenden\x3c/b\x3e\x3c/a\x3e helfen, Wikipedia zu betreiben. \n\x3c/div\x3e\x3c/div\x3e\n");
+-->
+</script></div>		<h1 class="firstHeading">Dijkstra-Algorithmus</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">aus Wikipedia, der freien Enzyklopädie</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Wechseln zu: <a href="#column-one">Navigation</a>, <a href="#searchInput">Suche</a></div>			<!-- start content -->
+			<p>Der <b><a href="/wiki/Algorithmus" title="Algorithmus">Algorithmus</a> von Dijkstra</b> (nach seinem Erfinder <a href="/wiki/Edsger_Wybe_Dijkstra" title="Edsger Wybe Dijkstra">Edsger W. Dijkstra</a>) dient der Berechnung eines <a href="/wiki/Pfad_%28Graphentheorie%29" title="Pfad (Graphentheorie)">kürzesten Pfades</a> zwischen einem <a href="/wiki/Knoten_%28Graphentheorie%29" title="Knoten (Graphentheorie)">Startknoten</a> und einem beliebigen Knoten in einem <a href="/wiki/Kantengewichteter_Graph" title="Kantengewichteter Graph">kantengewichteten Graphen</a>. Die Gewichte dürfen dabei nicht <a href="/wiki/Negative_Zahl" title="Negative Zahl">negativ</a> sein. Für Graphen mit negativen Gewichten aber ohne negative <a href="/wiki/Zyklus_%28Graphentheorie%29" title="Zyklus (Graphentheorie)">Zyklen</a> ist der <a href="/wiki/Bellman-Ford-Algorithmus" title="Bellman-Ford-Algorithmus">Bellman-Ford-Algorithmus</a> geeignet.</p>
+<p>Für nicht <a href="/wiki/Zusammenh%C3%A4ngender_Graph" title="Zusammenhängender Graph">zusammenhängende</a>, <a href="/wiki/Ungerichteter_Graph" title="Ungerichteter Graph">ungerichtete Graphen</a> kann der Abstand zu bestimmten Knoten auch unendlich sein, wenn ein Pfad zwischen Startknoten und diesen Knoten nicht existiert, dieser aber in der Knotenmenge selbst vorliegt. Dasselbe gilt auch für <a href="/wiki/Gerichteter_Graph" title="Gerichteter Graph">gerichtete</a>, nicht <a href="/wiki/Stark_zusammenh%C3%A4ngender_Graph" title="Stark zusammenhängender Graph">stark zusammenhängende Graphen</a>.</p>
+<table id="toc" class="toc" summary="Inhaltsverzeichnis">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Inhaltsverzeichnis</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Algorithmus"><span class="tocnumber">1</span> <span class="toctext">Algorithmus</span></a></li>
+<li class="toclevel-1"><a href="#Beispiel"><span class="tocnumber">2</span> <span class="toctext">Beispiel</span></a></li>
+<li class="toclevel-1"><a href="#Grundlegende_Konzepte_und_Verwandtschaften"><span class="tocnumber">3</span> <span class="toctext">Grundlegende Konzepte und Verwandtschaften</span></a></li>
+<li class="toclevel-1"><a href="#Berechnung_eines_Spannbaumes"><span class="tocnumber">4</span> <span class="toctext">Berechnung eines Spannbaumes</span></a></li>
+<li class="toclevel-1"><a href="#Zeitkomplexit.C3.A4t"><span class="tocnumber">5</span> <span class="toctext">Zeitkomplexität</span></a></li>
+<li class="toclevel-1"><a href="#Anwendungen"><span class="tocnumber">6</span> <span class="toctext">Anwendungen</span></a></li>
+<li class="toclevel-1"><a href="#Andere_Verfahren_zur_Berechnung_k.C3.BCrzester_Pfade"><span class="tocnumber">7</span> <span class="toctext">Andere Verfahren zur Berechnung kürzester Pfade</span></a></li>
+<li class="toclevel-1"><a href="#Literatur"><span class="tocnumber">8</span> <span class="toctext">Literatur</span></a></li>
+<li class="toclevel-1"><a href="#Siehe_auch"><span class="tocnumber">9</span> <span class="toctext">Siehe auch</span></a></li>
+<li class="toclevel-1"><a href="#Weblinks"><span class="tocnumber">10</span> <span class="toctext">Weblinks</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "Anzeigen"; var tocHideText = "Verbergen"; showTocToggle(); } 
+//]]>
+</script>
+<p><a name="Algorithmus" id="Algorithmus"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Dijkstra-Algorithmus&amp;action=edit&amp;section=1" title="Abschnitt bearbeiten: Algorithmus">Bearbeiten</a>]</span> <span class="mw-headline">Algorithmus</span></h2>
+<p><i>G</i> bezeichnet einen gewichteten <a href="/wiki/Graph_%28Graphentheorie%29" title="Graph (Graphentheorie)">Graphen</a> mit <i>V</i> als Menge von Knoten, <i>E</i> als Menge von Kanten und <i>w</i> als Gewichtsfunktion, welche Kanten auf positive reelle Zahlen abbildet. Der Knoten <i>s</i> ist der Startknoten, <i>Q</i> ist die <a href="/wiki/Vorrangwarteschlange" title="Vorrangwarteschlange">Prioritätswarteschlange</a> der noch zu bearbeitenden Knoten und <i>g</i> ist ggf. ein spezieller Zielknoten, bei dem abgebrochen werden kann, wenn seine Distanz zum Startknoten bekannt ist.</p>
+<p>Nach Ende des Algorithmus enthält d[<i>v</i>] die Abstände aller Knoten <i>v</i> zu <i>s</i>. In π[<i>v</i>] ist ein <a href="/wiki/Spannender_Baum" title="Spannender Baum">spannender Baum</a> der von <i>s</i> ausgehenden minimalen Wege in Form eines <a href="/wiki/In-Tree" title="In-Tree">In-Tree</a> gespeichert.</p>
+<p>Wird bei Erreichen von <i>g</i> abgebrochen, so enthalten d[<i>v</i>] und π[<i>v</i>] diese Werte nur für alle zuvor betrachteten Knoten <i>v</i>. Das sind mindestens die, die kleineren Abstand als <i>g</i> zu <i>s</i> besitzen.</p>
+<pre>
+/*
+ * Algorithmus zur Rekonstruktion des kürzesten Pfades
+ * ---------------------------------------------------
+ * p: berechneter kürzester Pfad
+ * n: Zielknoten
+ */
+<b>reconstructShortestPath (n, p)</b>
+{
+   // <i>Prüfe ob schon wieder beim Startknoten angekommen</i>
+   <b>while</b> (π(n) != NIL))
+   {
+      push(n, p); // <i>Füge Knoten dem Pfad hinzu</i>
+      n := π(n); // <i>Mache dasselbe für den Vorgängerknoten</i>
+   }
+   <b>return</b> p; // <i>Liefere den gefundenen Pfad zurück</i>
+}
+</pre>
+<pre>
+/*
+ * Algorithmus zum Initialisieren des Graphen
+ * ------------------------------------------
+ * G: Zu untersuchender Graph
+ * s: Startknoten
+ */
+<b>initialize(G, s)</b>
+{
+   // <i>Setze die Entfernung zu allen Knoten auf unendlich</i>
+   forall v do
+      d[v] := ∞
+   d[s] := 0;
+}
+</pre>
+<pre>
+/*
+ * Algorithmus zum Relaxieren einer Kante
+ * --------------------------------------
+ * u: Knoten, der gerade expandiert wurde
+ * v: Aktuell betrachteter Nachfolger von u
+ * w: Gewichtsfunktion zum Berechnen der Kosten für eine Kante
+ * d: Funktion zum Berechnen des Abstandes eines Knotens zum Startknoten
+ */
+<b>relax(u,v,w)</b>
+{
+   // <i>Prüfe, ob der Weg über u zu v kürzer ist als der aktuelle</i>
+   <b>if</b> d[v] &gt; d[u] + w(u,v) {
+      // <i>Neuer Weg kürzer als bisher gefundener Weg</i>
+      // <i>Aktualisiere geschätzte restliche Weglänge</i>
+      d[v] := d[u] + w(u,v);
+      // <i>Aktualisiere Vorgänger in kürzestem Pfad</i>
+      π[v] := u;
+   }
+   <b>else</b>
+      ; // <i>Ändere nichts, da bereits besserer Pfad bekannt</i>
+}
+</pre>
+<pre>
+/*
+ * Der eigentliche Algorithmus von Dijkstra
+ * -----------------------------------------
+ * G: Zu untersuchender Graph
+ * s: Startknoten
+ * g: Der Zielknoten
+ * w: Gewichtsfunktion zum Berechnen der Kosten für eine Kante
+ * Q: <a href="/wiki/Priorit%C3%A4tswarteschlange" title="Prioritätswarteschlange">Prioritätswarteschlange</a> der Knoten, aufsteigend nach d-Werten sortiert
+ */
+   <b>Dijkstra</b> (s, g, w, G) {
+01      initialize(G, s);
+02      Q := V[G]; // <i>Füge alle Knoten aus dem Graph in die Warteschlange ein</i>
+03      <b>while</b> <b>not</b> isEmpty(Q) {
+04         // Betrachte Knoten mit dem geringsten Abstand zum Startknoten
+05         u := pop(Q);
+06        <b>if</b> (u == g) <b>then</b>
+07           <b>return</b> reconstructShortestPath(g);
+08        <b>else</b> {
+09            // <i>Betrachte alle vom aktuellen Knoten u aus erreichbaren Knoten (Nachfolger)</i>
+10            <b>forall</b> v := successors(u) do {
+11               // <i>relaxiere die Kante zwischen u und seinem Nachfolger</i>
+12               relax(u, v, w);
+13            }
+14         }
+15      }
+16      // <i>Es konnte kein Pfad gefunden werden</i>
+17      <b>return</b> fail;
+18 }
+</pre>
+<p><a name="Beispiel" id="Beispiel"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Dijkstra-Algorithmus&amp;action=edit&amp;section=2" title="Abschnitt bearbeiten: Beispiel">Bearbeiten</a>]</span> <span class="mw-headline">Beispiel</span></h2>
+<table>
+<tr>
+<td>
+<div class="thumb tright">
+<div class="thumbinner" style="width:152px;"><a href="/wiki/Bild:MapGermanyGraph.svg" class="image" title="Beispiellandkarte"><img alt="Beispiellandkarte" src="http://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/MapGermanyGraph.svg/150px-MapGermanyGraph.svg.png" width="150" height="151" border="0" class="thumbimage" /></a>
+<div class="thumbcaption">
+<div class="magnify" style="float:right"><a href="/wiki/Bild:MapGermanyGraph.svg" class="internal" title="vergrößern"><img src="/skins-1.5/common/images/magnify-clip.png" width="15" height="11" alt="" /></a></div>
+Beispiellandkarte</div>
+</div>
+</div>
+<p>Ein Beispiel für die Anwendung des Algorithmus von Dijkstra ist die Suche nach einem kürzesten Pfad auf einer Landkarte. Im hier verwendeten Beispiel will man in der rechts gezeigten Landkarte von <a href="/wiki/Deutschland" title="Deutschland">Deutschland</a> einen kürzesten Pfad von <a href="/wiki/Frankfurt_am_Main" title="Frankfurt am Main">Frankfurt</a> nach <a href="/wiki/M%C3%BCnchen" title="München">München</a> finden. Die Zahlen auf den Verbindungen zwischen zwei Städten geben jeweils die Entfernung zwischen den beiden durch die Kante verbundenen Städte an.</p>
+<p><br /></p>
+<p><br /></p>
+<p><br /></p>
+<table border="0" style="border-collapse:collapse" cellpadding="5">
+<tr>
+<th colspan="2">Beispiel</th>
+</tr>
+<tr>
+<td>
+<div class="thumb tleft">
+<div class="thumbinner" style="width:302px;"><a href="/wiki/Bild:DijkstraStep01.svg" class="image" title="Erster Schritt"><img alt="Erster Schritt" src="http://upload.wikimedia.org/wikipedia/commons/thumb/8/87/DijkstraStep01.svg/300px-DijkstraStep01.svg.png" width="300" height="256" border="0" class="thumbimage" /></a>
+<div class="thumbcaption">
+<div class="magnify" style="float:right"><a href="/wiki/Bild:DijkstraStep01.svg" class="internal" title="vergrößern"><img src="/skins-1.5/common/images/magnify-clip.png" width="15" height="11" alt="" /></a></div>
+Erster Schritt</div>
+</div>
+</div>
+</td>
+<td>
+<div class="thumb tnone">
+<div class="thumbinner" style="width:302px;"><a href="/wiki/Bild:DijkstraStep02.svg" class="image" title="Zweiter Schritt"><img alt="Zweiter Schritt" src="http://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/DijkstraStep02.svg/300px-DijkstraStep02.svg.png" width="300" height="254" border="0" class="thumbimage" /></a>
+<div class="thumbcaption">
+<div class="magnify" style="float:right"><a href="/wiki/Bild:DijkstraStep02.svg" class="internal" title="vergrößern"><img src="/skins-1.5/common/images/magnify-clip.png" width="15" height="11" alt="" /></a></div>
+Zweiter Schritt</div>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="thumb tleft">
+<div class="thumbinner" style="width:302px;"><a href="/wiki/Bild:DijkstraStep03.svg" class="image" title="Dritter Schritt"><img alt="Dritter Schritt" src="http://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/DijkstraStep03.svg/300px-DijkstraStep03.svg.png" width="300" height="254" border="0" class="thumbimage" /></a>
+<div class="thumbcaption">
+<div class="magnify" style="float:right"><a href="/wiki/Bild:DijkstraStep03.svg" class="internal" title="vergrößern"><img src="/skins-1.5/common/images/magnify-clip.png" width="15" height="11" alt="" /></a></div>
+Dritter Schritt</div>
+</div>
+</div>
+</td>
+<td>
+<div class="thumb tnone">
+<div class="thumbinner" style="width:302px;"><a href="/wiki/Bild:DijkstraStep04.svg" class="image" title="Vierter Schritt"><img alt="Vierter Schritt" src="http://upload.wikimedia.org/wikipedia/commons/thumb/2/27/DijkstraStep04.svg/300px-DijkstraStep04.svg.png" width="300" height="254" border="0" class="thumbimage" /></a>
+<div class="thumbcaption">
+<div class="magnify" style="float:right"><a href="/wiki/Bild:DijkstraStep04.svg" class="internal" title="vergrößern"><img src="/skins-1.5/common/images/magnify-clip.png" width="15" height="11" alt="" /></a></div>
+Vierter Schritt</div>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="thumb tleft">
+<div class="thumbinner" style="width:302px;"><a href="/wiki/Bild:DijkstraStep05.svg" class="image" title="Fünfter Schritt"><img alt="Fünfter Schritt" src="http://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/DijkstraStep05.svg/300px-DijkstraStep05.svg.png" width="300" height="252" border="0" class="thumbimage" /></a>
+<div class="thumbcaption">
+<div class="magnify" style="float:right"><a href="/wiki/Bild:DijkstraStep05.svg" class="internal" title="vergrößern"><img src="/skins-1.5/common/images/magnify-clip.png" width="15" height="11" alt="" /></a></div>
+Fünfter Schritt</div>
+</div>
+</div>
+</td>
+<td>
+<div class="thumb tnone">
+<div class="thumbinner" style="width:302px;"><a href="/wiki/Bild:DijkstraStep06.svg" class="image" title="Sechster Schritt"><img alt="Sechster Schritt" src="http://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/DijkstraStep06.svg/300px-DijkstraStep06.svg.png" width="300" height="252" border="0" class="thumbimage" /></a>
+<div class="thumbcaption">
+<div class="magnify" style="float:right"><a href="/wiki/Bild:DijkstraStep06.svg" class="internal" title="vergrößern"><img src="/skins-1.5/common/images/magnify-clip.png" width="15" height="11" alt="" /></a></div>
+Sechster Schritt</div>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="thumb tleft">
+<div class="thumbinner" style="width:302px;"><a href="/wiki/Bild:DijkstraStep07.svg" class="image" title="Siebter Schritt"><img alt="Siebter Schritt" src="http://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/DijkstraStep07.svg/300px-DijkstraStep07.svg.png" width="300" height="252" border="0" class="thumbimage" /></a>
+<div class="thumbcaption">
+<div class="magnify" style="float:right"><a href="/wiki/Bild:DijkstraStep07.svg" class="internal" title="vergrößern"><img src="/skins-1.5/common/images/magnify-clip.png" width="15" height="11" alt="" /></a></div>
+Siebter Schritt</div>
+</div>
+</div>
+</td>
+<td>
+<div class="thumb tnone">
+<div class="thumbinner" style="width:302px;"><a href="/wiki/Bild:DijkstraStep08.svg" class="image" title="Achter Schritt"><img alt="Achter Schritt" src="http://upload.wikimedia.org/wikipedia/commons/thumb/8/88/DijkstraStep08.svg/300px-DijkstraStep08.svg.png" width="300" height="252" border="0" class="thumbimage" /></a>
+<div class="thumbcaption">
+<div class="magnify" style="float:right"><a href="/wiki/Bild:DijkstraStep08.svg" class="internal" title="vergrößern"><img src="/skins-1.5/common/images/magnify-clip.png" width="15" height="11" alt="" /></a></div>
+Achter Schritt</div>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="thumb tleft">
+<div class="thumbinner" style="width:302px;"><a href="/wiki/Bild:DijkstraStep09.svg" class="image" title="Neunter Schritt"><img alt="Neunter Schritt" src="http://upload.wikimedia.org/wikipedia/commons/thumb/5/58/DijkstraStep09.svg/300px-DijkstraStep09.svg.png" width="300" height="252" border="0" class="thumbimage" /></a>
+<div class="thumbcaption">
+<div class="magnify" style="float:right"><a href="/wiki/Bild:DijkstraStep09.svg" class="internal" title="vergrößern"><img src="/skins-1.5/common/images/magnify-clip.png" width="15" height="11" alt="" /></a></div>
+Neunter Schritt</div>
+</div>
+</div>
+</td>
+</tr>
+</table>
+<a name="Grundlegende_Konzepte_und_Verwandtschaften" id="Grundlegende_Konzepte_und_Verwandtschaften"></a>
+<h2><span class="editsection">[<a href="/w/index.php?title=Dijkstra-Algorithmus&amp;action=edit&amp;section=3" title="Abschnitt bearbeiten: Grundlegende Konzepte und Verwandtschaften">Bearbeiten</a>]</span> <span class="mw-headline">Grundlegende Konzepte und Verwandtschaften</span></h2>
+<p>Der Algorithmus gehört zur Klasse der <a href="/wiki/Greedy-Algorithmus" title="Greedy-Algorithmus">Greedy-Algorithmen</a>. Sukzessive wird der nächstbeste Knoten, der einen kürzesten Pfad besitzt (Zeile 04), aus der Menge der noch zu bearbeitenden Knoten entfernt. Damit findet sich eine Verwandtschaft zur <a href="/wiki/Breitensuche" title="Breitensuche">Breitensuche</a>, die ebenfalls solch ein <i>gieriges Verhalten</i> aufweist.</p>
+<p>Ein alternativer Algorithmus zur Suche kürzester Pfade, der sich dagegen auf das <a href="/wiki/Optimalit%C3%A4tsprinzip_von_Bellman" title="Optimalitätsprinzip von Bellman">Optimalitätsprinzip von Bellman</a> stützt, ist der <a href="/wiki/Floyd-Warshall-Algorithmus" title="Floyd-Warshall-Algorithmus">Floyd-Warshall-Algorithmus</a>. Das Optimalitätsprinzip besagt, dass, wenn der kürzeste Pfad von A nach C über B führt, der Teilpfad A B auch der kürzeste Pfad von A nach B sein muss.</p>
+<p>Ein weiterer alternativer Algorithmus ist der <a href="/wiki/A%2A-Algorithmus" title="A*-Algorithmus">A*-Algorithmus</a>, der den Algorithmus von Dijkstra um eine Abschätzfunktion erweitert. Falls diese gewisse Eigenschaften erfüllt, kann damit der kürzeste Pfad unter Umständen schneller gefunden werden.</p>
+<a name="Berechnung_eines_Spannbaumes" id="Berechnung_eines_Spannbaumes"></a>
+<h2><span class="editsection">[<a href="/w/index.php?title=Dijkstra-Algorithmus&amp;action=edit&amp;section=4" title="Abschnitt bearbeiten: Berechnung eines Spannbaumes">Bearbeiten</a>]</span> <span class="mw-headline">Berechnung eines Spannbaumes</span></h2>
+<div class="floatright"><span><a href="/wiki/Bild:Beispiel-dijkstra.jpg" class="image" title="Negative Kante sorgt für Unklarheiten bei Knoten a"><img alt="Negative Kante sorgt für Unklarheiten bei Knoten a" src="http://upload.wikimedia.org/wikipedia/de/0/0f/Beispiel-dijkstra.jpg" width="294" height="122" border="0" /></a></span></div>
+<p>Nach Ende des Algorithmus ist in den Vorgängerzeigern <i>π</i> ein <a href="/wiki/Spannender_Baum" title="Spannender Baum">spannender Baum</a> der <a href="/wiki/Komponente" title="Komponente">Komponente</a> von <i>s</i> aus kürzesten Pfaden von <i>s</i> zu allen Knoten der Komponente verzeichnet. Dieser Baum ist jedoch nicht notwendigerweise auch minimal, wie die Abbildung zeigt:</p>
+<p>Sei <span class="texhtml"><i>x</i></span> eine Zahl größer 0. Minimal spannende Bäume sind entweder durch die Kanten {<i>a</i>,<i>s</i>} und {<i>a</i>,<i>b</i>} oder {<i>b</i>,<i>s</i>} und {<i>a</i>,<i>b</i>} gegeben. Die Gesamtkosten eines minimal spannenden Baumes betragen <span class="texhtml">2 + <i>x</i></span>. Dijkstras Algorithmus liefert mit Startpunkt <i>s</i> die Kanten {<i>a</i>,<i>s</i>} und {<i>b</i>,<i>s</i>} als Ergebnis. Die Gesamtkosten dieses spannenden Baumes betragen <span class="texhtml">2 + 2<i>x</i></span>.</p>
+<p>Die Berechnung eines <a href="/wiki/Minimal_spannender_Baum" title="Minimal spannender Baum">minimalen Spannbaumes</a> ist mit dem <a href="/wiki/Algorithmus_von_Prim" title="Algorithmus von Prim">Algorithmus von Prim</a> oder dem <a href="/wiki/Algorithmus_von_Kruskal" title="Algorithmus von Kruskal">Algorithmus von Kruskal</a> möglich.</p>
+<a name="Zeitkomplexit.C3.A4t" id="Zeitkomplexit.C3.A4t"></a>
+<h2><span class="editsection">[<a href="/w/index.php?title=Dijkstra-Algorithmus&amp;action=edit&amp;section=5" title="Abschnitt bearbeiten: Zeitkomplexität">Bearbeiten</a>]</span> <span class="mw-headline">Zeitkomplexität</span></h2>
+<p>Im Folgenden sei <span class="texhtml"><i>m</i></span> die Anzahl der Kanten und <span class="texhtml"><i>n</i></span> die Anzahl der Knoten.</p>
+<p>Die Zeitkomplexität des Algorithmus hängt in hohem Maße von der Datenstruktur ab, welche zur Speicherung der noch nicht besuchten Knoten (<i>Q</i>) benutzt wird. Im Normalfall wird man hier auf eine <a href="/wiki/Vorrangwarteschlange" title="Vorrangwarteschlange">Vorrangwarteschlange</a> zurückgreifen, indem man dort die Knoten als Elemente mit ihrer jeweiligen bisherigen Distanz als Schlüssel/Priorität verwendet.</p>
+<p>Betrachtet man den Algorithmus unter diesem Aspekt ergibt sich folgender Aufwand:</p>
+<p>Das "Füllen" von <i>Q</i> in Zeile 02 wird dadurch erreicht, dass man jeden Knoten sowie seine Priorität (= Distanz) mittels <i>insert</i> in die Warteschlange einfügt; das wird, da es insg. <span class="texhtml"><i>n</i></span> Knoten gibt, also <span class="texhtml"><i>n</i></span> Mal durchgeführt.</p>
+<p>Da in Zeile 04 jeweils ein Knoten aus <i>Q</i> (bzw. der Warteschlange) entfernt wird, folgt, dass die Schleife in Zeile 03 ebenfalls <span class="texhtml"><i>n</i></span> Mal durchlaufen wird (ein evtl. früherer Abbruch wegen Erreichen von <i>g</i> sei hier ausgenommen). In jedem Schleifendurchlauf muss geprüft werden, ob die Warteschlange leer ist (<i>empty</i>, Zeile 03) und es muss das nächste Element mit der niedrigsten Priorität entfernt werden (<i>extractMin</i>, Zeile 04); die beiden Operationen werden also jeweils <span class="texhtml"><i>n</i></span> Mal durchgeführt.</p>
+<p>Die Anzahl Aufrufe der relax Funktion kann zwar für jeden Durchlauf der Schleife in Zeile 07 variieren (da die Anzahl der von jedem Knoten <i>u</i> ausgehenden Kanten natürlich unterschiedlich sein kann), insg. über die Laufzeit des gesamten Algorithmus gesehen wird die Schleife aber <span class="texhtml"><i>m</i></span> Mal ausgeführt, da jeder Knoten nur einmal betrachtet wird, und somit jede von ihm ausgehende Kante ebenfalls nur einmal betrachtet werden kann. Es werden somit alle ausgehenden Kanten aller Knoten im Graphen überprüft und damit erhält man natürlich alle Kanten des Graphen, also <span class="texhtml"><i>m</i></span> Stück).</p>
+<p>Sollte sich hier die bisher berechnete Distanz des Knotens <i>v</i> verringern, muss natürlich auch die Priorität in der Warteschlange mittels <i>decreaseKey</i> entsprechend verringert werden. Das passiert im <a href="/wiki/Worst_Case" title="Worst Case">Worst Case</a> (im - unwahrscheinlichen - Fall dass die Überprüfung <i>jeder</i> Kante einen kürzeren Weg liefert) höchstens <span class="texhtml"><i>m</i></span> Mal.</p>
+<p>Der Vollständigkeit halber sollte man außerdem auch noch das Setzen von d[<i>v</i>] und π[<i>v</i>] in der relax Funktion betrachten, jedoch lässt sich dies jeweils in konstanter Zeit mit der Komplexität realisieren.</p>
+<p>Insgesamt ergibt sich also eine Komplexität von <img class="tex" alt="O( n\cdot(1 + T_{insert}+T_{empty}+T_{extractMin}) + m\cdot (1 + T_{decreaseKey}))" src="http://upload.wikimedia.org/math/b/f/5/bf57c308e0e8a5782b618dbfc4d16db5.png" />.</p>
+<p>Würde man zur Verwaltung der Knoten nun z.B. einfach eine <a href="/wiki/Liste_%28Datenstruktur%29" title="Liste (Datenstruktur)">Liste</a> verwenden, ergäbe das eine <a href="/wiki/Zeitkomplexit%C3%A4t" title="Zeitkomplexität">Laufzeit</a> von <span class="texhtml"><i>O</i>(<i>n</i><sup>2</sup> + <i>m</i>)</span>; <i>insert</i>, <i>empty</i> und <i>decreaseKey</i> lassen sich alle in <span class="texhtml"><i>O</i>(1)</span> realisieren, aber das Suchen des Elements mit der kleinsten Priorität erfordert eine lineare Suche mit <span class="texhtml"><i>O</i>(<i>n</i>)</span>.</p>
+<p>Besser fährt man hier mit der Verwendung der <a href="/wiki/Datenstruktur" title="Datenstruktur">Datenstruktur</a> <a href="/wiki/Fibonacci-Heap" title="Fibonacci-Heap">Fibonacci-Heap</a>. Diese ermöglicht es ebenfalls, die Operationen <i>insert</i>, <i>empty</i> und <i>decreaseKey</i> (<a href="/wiki/Amortisierte_Laufzeitanalyse" title="Amortisierte Laufzeitanalyse">amortisiert</a> betrachtet) in <span class="texhtml"><i>O</i>(1)</span> zu realisieren, die Komplexität von <i>extractMin</i> ist hier aber nur <span class="texhtml"><i>O</i>(log<i>n</i>)</span>. Die gesamte Laufzeit beträgt dann lediglich <img class="tex" alt="O(n\cdot\log n + m)" src="http://upload.wikimedia.org/math/0/c/9/0c9e29675dbcbc3fcdf6cd15dbe7ac1b.png" />.</p>
+<a name="Anwendungen" id="Anwendungen"></a>
+<h2><span class="editsection">[<a href="/w/index.php?title=Dijkstra-Algorithmus&amp;action=edit&amp;section=6" title="Abschnitt bearbeiten: Anwendungen">Bearbeiten</a>]</span> <span class="mw-headline">Anwendungen</span></h2>
+<p><a href="/wiki/Routenplaner" title="Routenplaner">Routenplaner</a> sind ein prominentes Beispiel, bei dem dieser Algorithmus eingesetzt werden kann. Der Graph repräsentiert hier das Straßennetz, welches verschiedene Punkte miteinander verbindet. Gesucht ist die kürzeste Route zwischen zwei Punkten.</p>
+<p>Dijkstras Algorithmus wird auch im <a href="/wiki/Internet" title="Internet">Internet</a> als <a href="/wiki/Routing" title="Routing">Routing</a>-Algorithmus in <a href="/wiki/Open_Shortest_Path_First" title="Open Shortest Path First">OSPF</a> eingesetzt.</p>
+<a name="Andere_Verfahren_zur_Berechnung_k.C3.BCrzester_Pfade" id="Andere_Verfahren_zur_Berechnung_k.C3.BCrzester_Pfade"></a>
+<h2><span class="editsection">[<a href="/w/index.php?title=Dijkstra-Algorithmus&amp;action=edit&amp;section=7" title="Abschnitt bearbeiten: Andere Verfahren zur Berechnung kürzester Pfade">Bearbeiten</a>]</span> <span class="mw-headline">Andere Verfahren zur Berechnung kürzester Pfade</span></h2>
+<p>Weiß man genug über die einzelnen Kantengewichte des Graphen um daraus eine <a href="/wiki/Heuristik" title="Heuristik">Heuristik</a> für die Kosten der einzelnen Knoten ableiten zu können, ist es möglich den Algorithmus von Dijkstra mittels dieser Heuristik zum <a href="/wiki/A%2A-Algorithmus" title="A*-Algorithmus">A*-Algorithmus</a> zu erweitern. Um alle kürzesten Pfade von einem Knoten zu allen anderen Knoten in einem Graphen zu berechnen, kann man den <a href="/wiki/Bellman-Ford-Algorithmus" title="Bellman-Ford-Algorithmus">Bellman-Ford-Algorithmus</a> verwenden, welcher auch mit negativen Kantengewichten umgehen kann. Der <a href="/wiki/Algorithmus_von_Floyd_und_Warshall" title="Algorithmus von Floyd und Warshall">Algorithmus von Floyd und Warshall</a> berechnet schlussendlich nicht nur die kürzesten Pfade eines Knotens zu allen anderen Knoten im Graph, sondern die kürzesten Pfade aller Knoten zueinander.</p>
+<a name="Literatur" id="Literatur"></a>
+<h2><span class="editsection">[<a href="/w/index.php?title=Dijkstra-Algorithmus&amp;action=edit&amp;section=8" title="Abschnitt bearbeiten: Literatur">Bearbeiten</a>]</span> <span class="mw-headline">Literatur</span></h2>
+<ul>
+<li>E. W. Dijkstra: <i>A note on two problems in connexion with graphs</i>. In: <i>Numerische Mathematik</i>. 1 (1959), S. 269–271</li>
+<li>Th.H.Cormen/C.E.Leiserson/R.Rivest/C.Stein: <i>Algorithmen - Eine Einführung</i>. Oldenbourg Verlag 2004. <a href="/w/index.php?title=Spezial:ISBN-Suche&amp;isbn=3486275151" class="internal">ISBN 3-486-27515-1</a></li>
+</ul>
+<a name="Siehe_auch" id="Siehe_auch"></a>
+<h2><span class="editsection">[<a href="/w/index.php?title=Dijkstra-Algorithmus&amp;action=edit&amp;section=9" title="Abschnitt bearbeiten: Siehe auch">Bearbeiten</a>]</span> <span class="mw-headline">Siehe auch</span></h2>
+<ul>
+<li><a href="/wiki/Algorithmus_von_Kruskal" title="Algorithmus von Kruskal">Algorithmus von Kruskal</a></li>
+<li><a href="/w/index.php?title=Algorithmus_von_Bor%C5%AFvka&amp;action=edit" class="new" title="Algorithmus von Borůvka">Algorithmus von Borůvka</a></li>
+</ul>
+<a name="Weblinks" id="Weblinks"></a>
+<h2><span class="editsection">[<a href="/w/index.php?title=Dijkstra-Algorithmus&amp;action=edit&amp;section=10" title="Abschnitt bearbeiten: Weblinks">Bearbeiten</a>]</span> <span class="mw-headline">Weblinks</span></h2>
+<ul>
+<li><a href="http://links.math.rpi.edu/applets/appindex/graphtheory.html" class="external text" title="http://links.math.rpi.edu/applets/appindex/graphtheory.html" rel="nofollow">Java-Applet zu Dijkstra und anderen</a></li>
+<li><a href="http://jgrapht.sourceforge.net/" class="external text" title="http://jgrapht.sourceforge.net/" rel="nofollow">Öffentliche Softwarebibliothek in Java mit diesem und anderen Algorithmen</a></li>
+<li><a href="http://www.mis-algoritmos.com/source-154.html" class="external text" title="http://www.mis-algoritmos.com/source-154.html" rel="nofollow">Dijkstra Algorithmus in C</a> – auf spanisch</li>
+<li><a href="http://computer.howstuffworks.com/routing-algorithm3.htm" class="external text" title="http://computer.howstuffworks.com/routing-algorithm3.htm" rel="nofollow">Dijkstra-Algorithmus in C (englisch)</a></li>
+<li><a href="http://www-i1.informatik.rwth-aachen.de/~algorithmus/algo7.php" class="external text" title="http://www-i1.informatik.rwth-aachen.de/~algorithmus/algo7.php" rel="nofollow">Dijkstra Algorithmus</a> beim <a href="http://www-i1.informatik.rwth-aachen.de/~algorithmus/" class="external text" title="http://www-i1.informatik.rwth-aachen.de/~algorithmus/" rel="nofollow">Algorithmus der Woche</a></li>
+<li><a href="http://algo2.iti.uni-karlsruhe.de/singler/algorithmus-der-woche/Kuerzeste%20Wege.pdf" class="external text" title="http://algo2.iti.uni-karlsruhe.de/singler/algorithmus-der-woche/Kuerzeste%20Wege.pdf" rel="nofollow">Anschauliche Erklärung anhand eines analogen Modells</a> und <a href="http://algo2.iti.uni-karlsruhe.de/adw.php" class="external text" title="http://algo2.iti.uni-karlsruhe.de/adw.php" rel="nofollow">Weitere Informationen</a></li>
+</ul>
+</td>
+</tr>
+</table>
+
+
+<!-- Saved in parser cache with key dewiki:pcache:idhash:13547-0!1!0!!de!2 and timestamp 20070915150702 -->
+<div class="printfooter">
+Von „<a href="http://de.wikipedia.org/wiki/Dijkstra-Algorithmus">http://de.wikipedia.org/wiki/Dijkstra-Algorithmus</a>“</div>
+			<div id="catlinks"><p class='catlinks'><a href="/wiki/Spezial:Categories" title="Spezial:Categories">Kategorien</a>: <span dir='ltr'><a href="/wiki/Kategorie:Optimierungsalgorithmus" title="Kategorie:Optimierungsalgorithmus">Optimierungsalgorithmus</a></span> | <span dir='ltr'><a href="/wiki/Kategorie:Graphentheorie" title="Kategorie:Graphentheorie">Graphentheorie</a></span> | <span dir='ltr'><a href="/wiki/Kategorie:Suchalgorithmus" title="Kategorie:Suchalgorithmus">Suchalgorithmus</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Ansichten</h5>
+		<div class="pBody">
+			<ul>
+					 <li id="ca-nstab-main" class="selected"><a href="/wiki/Dijkstra-Algorithmus" title="Seiteninhalt anzeigen [c]" accesskey="c">Artikel</a></li>
+					 <li id="ca-talk"><a href="/wiki/Diskussion:Dijkstra-Algorithmus" title="Diskussion zum Seiteninhalt [t]" accesskey="t">Diskussion</a></li>
+					 <li id="ca-edit"><a href="/w/index.php?title=Dijkstra-Algorithmus&amp;action=edit" title="Seite bearbeiten. Bitte vor dem Speichern die Vorschaufunktion benutzen. [e]" accesskey="e">Seite bearbeiten</a></li>
+					 <li id="ca-history"><a href="/w/index.php?title=Dijkstra-Algorithmus&amp;action=history" title="Frühere Versionen dieser Seite [h]" accesskey="h">Versionen/Autoren</a></li>
+				</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-personal">
+		<h5>Persönliche Werkzeuge</h5>
+		<div class="pBody">
+			<ul>
+				<li id="pt-login"><a href="/w/index.php?title=Spezial:Anmelden&amp;returnto=Dijkstra-Algorithmus" title="Sich einzuloggen wird zwar gerne gesehen, ist aber keine Pflicht. [o]" accesskey="o">Anmelden</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-logo">
+		<a style="background-image: url(http://upload.wikimedia.org/wikipedia/de/b/bc/Wiki.png);" href="/wiki/Hauptseite" title="Hauptseite anzeigen [z]" accesskey="z"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="/wiki/Hauptseite" title="Hauptseite anzeigen [z]" accesskey="z">Hauptseite</a></li>
+				<li id="n-aboutsite"><a href="/wiki/Wikipedia:%C3%9Cber_Wikipedia">Über Wikipedia</a></li>
+				<li id="n-topics"><a href="/wiki/Portal:Wikipedia_nach_Themen">Themenportale</a></li>
+				<li id="n-alphindex"><a href="/wiki/Spezial:Alle_Seiten">Von A bis Z</a></li>
+				<li id="n-randompage"><a href="/wiki/Spezial:Zuf%C3%A4llige_Seite" title="Zufällige Seite [x]" accesskey="x">Zufälliger Artikel</a></li>
+			</ul>
+		</div>
+	</div>
+		<div class='portlet' id='p-Mitmachen'>
+		<h5>Mitmachen</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-help"><a href="/wiki/Wikipedia:Hilfe" title="Hilfeseite anzeigen">Hilfe</a></li>
+				<li id="n-portal"><a href="/wiki/Wikipedia:Autorenportal" title="Über das Portal, was du tun kannst, wo was zu finden ist">Autorenportal</a></li>
+				<li id="n-recentchanges"><a href="/wiki/Spezial:Letzte_%C3%84nderungen" title="Liste der letzten Änderungen in Wikipedia. [r]" accesskey="r">Letzte Änderungen</a></li>
+				<li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Spenden" title="Unterstützen Sie uns">Spenden</a></li>
+			</ul>
+		</div>
+	</div>
+		<div id="p-search" class="portlet">
+		<h5><label for="searchInput">Suche</label></h5>
+		<div id="searchBody" class="pBody">
+			<form action="/wiki/Spezial:Suche" id="searchform"><div>
+				<input id="searchInput" name="search" type="text" title="Durchsuche die Wikipedia [f]" accesskey="f" value="" />
+				<input type='submit' name="go" class="searchButton" id="searchGoButton"	value="Artikel" />&nbsp;
+				<input type='submit' name="fulltext" class="searchButton" id="mw-searchButton" value="Volltext" />
+			</div></form>
+		</div>
+	</div>
+	<div class="portlet" id="p-tb">
+		<h5>Werkzeuge</h5>
+		<div class="pBody">
+			<ul>
+				<li id="t-whatlinkshere"><a href="/wiki/Spezial:Linkliste/Dijkstra-Algorithmus" title="Liste aller Seiten, die hierher zeigen [j]" accesskey="j">Links auf diese Seite</a></li>
+				<li id="t-recentchangeslinked"><a href="/wiki/Spezial:%C3%84nderungen_an_verlinkten_Seiten/Dijkstra-Algorithmus" title="Letzte Änderungen an Seiten, die von hier verlinkt sind [k]" accesskey="k">Änderungen an verlinkten Seiten</a></li>
+<li id="t-upload"><a href="/wiki/Spezial:Hochladen" title="Dateien hochladen [u]" accesskey="u">Hochladen</a></li>
+<li id="t-specialpages"><a href="/wiki/Spezial:Spezialseiten" title="Liste aller Spezialseiten [q]" accesskey="q">Spezialseiten</a></li>
+				<li id="t-print"><a href="/w/index.php?title=Dijkstra-Algorithmus&amp;printable=yes" title="Druckansicht dieser Seite [p]" accesskey="p">Druckversion</a></li>				<li id="t-permalink"><a href="/w/index.php?title=Dijkstra-Algorithmus&amp;oldid=36737546" title="Dauerhafter Link zu dieser Seitenversion">Permanentlink</a></li><li id="t-cite"><a href="/w/index.php?title=Spezial:Cite&amp;page=Dijkstra-Algorithmus&amp;id=36737546">Artikel zitieren</a></li>			</ul>
+		</div>
+	</div>
+	<div id="p-lang" class="portlet">
+		<h5>Andere Sprachen</h5>
+		<div class="pBody">
+			<ul>
+				<li class="interwiki-bg"><a href="http://bg.wikipedia.org/wiki/%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D1%8A%D0%BC_%D0%BD%D0%B0_%D0%94%D0%B5%D0%B9%D0%BA%D1%81%D1%82%D1%80%D0%B0">Български</a></li>
+				<li class="interwiki-cs"><a href="http://cs.wikipedia.org/wiki/Dijkstr%C5%AFv_algoritmus">Česky</a></li>
+				<li class="interwiki-en"><a href="http://en.wikipedia.org/wiki/Dijkstra%27s_algorithm">English</a></li>
+				<li class="interwiki-es"><a href="http://es.wikipedia.org/wiki/Algoritmo_de_Dijkstra">Español</a></li>
+				<li class="interwiki-fi"><a href="http://fi.wikipedia.org/wiki/Dijkstran_algoritmi">Suomi</a></li>
+				<li class="interwiki-fr"><a href="http://fr.wikipedia.org/wiki/Algorithme_de_Dijkstra">Français</a></li>
+				<li class="interwiki-he"><a href="http://he.wikipedia.org/wiki/%D7%90%D7%9C%D7%92%D7%95%D7%A8%D7%99%D7%AA%D7%9D_%D7%93%D7%99%D7%99%D7%A7%D7%A1%D7%98%D7%A8%D7%94">עברית</a></li>
+				<li class="interwiki-id"><a href="http://id.wikipedia.org/wiki/Algoritma_Dijkstra">Bahasa Indonesia</a></li>
+				<li class="interwiki-it"><a href="http://it.wikipedia.org/wiki/Algoritmo_di_Dijkstra">Italiano</a></li>
+				<li class="interwiki-ja"><a href="http://ja.wikipedia.org/wiki/%E3%83%80%E3%82%A4%E3%82%AF%E3%82%B9%E3%83%88%E3%83%A9%E6%B3%95">日本語</a></li>
+				<li class="interwiki-ko"><a href="http://ko.wikipedia.org/wiki/%EB%8D%B0%EC%9D%B4%ED%81%AC%EC%8A%A4%ED%8A%B8%EB%9D%BC_%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98">한국어</a></li>
+				<li class="interwiki-lt"><a href="http://lt.wikipedia.org/wiki/Dijkstros_algoritmas">Lietuvių</a></li>
+				<li class="interwiki-nl"><a href="http://nl.wikipedia.org/wiki/Kortstepadalgoritme">Nederlands</a></li>
+				<li class="interwiki-no"><a href="http://no.wikipedia.org/wiki/Dijkstras_algoritme">‪Norsk (bokmål)‬</a></li>
+				<li class="interwiki-pl"><a href="http://pl.wikipedia.org/wiki/Algorytm_Dijkstry">Polski</a></li>
+				<li class="interwiki-pt"><a href="http://pt.wikipedia.org/wiki/Algoritmo_de_Dijkstra">Português</a></li>
+				<li class="interwiki-ru"><a href="http://ru.wikipedia.org/wiki/%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC_%D0%94%D0%B5%D0%B9%D0%BA%D1%81%D1%82%D1%80%D1%8B">Русский</a></li>
+				<li class="interwiki-sk"><a href="http://sk.wikipedia.org/wiki/Dijkstrov_algoritmus">Slovenčina</a></li>
+				<li class="interwiki-sl"><a href="http://sl.wikipedia.org/wiki/Dijkstrov_algoritem">Slovenščina</a></li>
+				<li class="interwiki-sr"><a href="http://sr.wikipedia.org/wiki/%D0%94%D0%B8%D1%98%D0%BA%D1%81%D1%82%D1%80%D0%B8%D0%BD_%D0%B0%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%B0%D0%BC">Српски / Srpski</a></li>
+				<li class="interwiki-sv"><a href="http://sv.wikipedia.org/wiki/Dijkstras_algoritm">Svenska</a></li>
+				<li class="interwiki-uk"><a href="http://uk.wikipedia.org/wiki/%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC_%D0%94%D0%B5%D0%B9%D0%BA%D1%81%D1%82%D1%80%D0%B8">Українська</a></li>
+				<li class="interwiki-vi"><a href="http://vi.wikipedia.org/wiki/Thu%E1%BA%ADt_to%C3%A1n_Dijkstra">Tiếng Việt</a></li>
+				<li class="interwiki-zh"><a href="http://zh.wikipedia.org/wiki/%E8%BF%AA%E7%A7%91%E6%96%AF%E5%BD%BB%E7%AE%97%E6%B3%95">中文</a></li>
+			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="/skins-1.5/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>
+				<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="/images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>
+			<ul id="f-list">
+				<li id="lastmod"> Diese Seite wurde zuletzt am 15. September 2007 um 17:02 Uhr geändert.</li>
+				<li id="copyright">Ihr Inhalt steht unter der <a class='internal' href="/wiki/Wikipedia:GNU_Free_Documentation_License">GNU-Lizenz für freie Dokumentation</a>.<br />
+Wikipedia® ist eine eingetragene Marke der Wikimedia Foundation Inc.<br /></li>
+				<li id="privacy"><a href="/wiki/Wikipedia:Datenschutz" title="Wikipedia:Datenschutz">Datenschutz</a></li>
+				<li id="about"><a href="/wiki/Wikipedia:%C3%9Cber_Wikipedia" title="Wikipedia:Über Wikipedia">Über Wikipedia</a></li>
+				<li id="disclaimer"><a href="/wiki/Wikipedia:Impressum" title="Wikipedia:Impressum">Impressum</a></li>
+			</ul>
+		</div>
+		
+	
+		<script type="text/javascript">if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by srv64 in 0.088 secs. --></body></html>

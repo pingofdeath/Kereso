@@ -1,0 +1,257 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+				<meta name="keywords" content="Control flow graph,Basic block,Compiler optimization,Computer program,Constant folding,Constant propagation,Control flow analysis,Depth-first search,Dominator,Edge (graph theory),Exception handling" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="http://www.gnu.org/copyleft/fdl.html" />
+		<title>Control flow graph - Wikipedia, the free encyclopedia</title>
+		<style type="text/css" media="screen, projection">/*<![CDATA[*/
+			@import "/skins-1.5/common/shared.css?97";
+			@import "/skins-1.5/monobook/main.css?97";
+		/*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="/skins-1.5/common/commonPrint.css?97" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE50Fixes.css?97";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE55Fixes.css?97";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "/skins-1.5/monobook/IE60Fixes.css?97";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "/skins-1.5/monobook/IE70Fixes.css?97";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="/skins-1.5/common/IEFixes.js?97"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		
+		<script type= "text/javascript">/*<![CDATA[*/
+var skin = "monobook";
+var stylepath = "/skins-1.5";
+var wgArticlePath = "/wiki/$1";
+var wgScriptPath = "/w";
+var wgScript = "/w/index.php";
+var wgServer = "http://en.wikipedia.org";
+var wgCanonicalNamespace = "";
+var wgCanonicalSpecialPageName = false;
+var wgNamespaceNumber = 0;
+var wgPageName = "Control_flow_graph";
+var wgTitle = "Control flow graph";
+var wgAction = "view";
+var wgRestrictionEdit = [];
+var wgRestrictionMove = [];
+var wgArticleId = "43653";
+var wgIsArticle = true;
+var wgUserName = null;
+var wgUserGroups = null;
+var wgUserLanguage = "en";
+var wgContentLanguage = "en";
+var wgBreakFrames = false;
+var wgCurRevisionId = "129138172";
+/*]]>*/</script>
+                
+		<script type="text/javascript" src="/skins-1.5/common/wikibits.js?97"><!-- wikibits js --></script>
+		<script type="text/javascript" src="/w/index.php?title=-&amp;action=raw&amp;gen=js&amp;useskin=monobook"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "/w/index.php?title=MediaWiki:Common.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=MediaWiki:Monobook.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=-&action=raw&gen=css&maxage=2678400";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+		<script type="text/javascript" src="/skins-1.5/common/ajax.js?97"></script>
+	</head>
+<body  class="mediawiki ns-0 ltr page-Control_flow_graph">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">Control flow graph</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<p>In computer science, a <b>control flow graph (CFG)</b> is a <a href="/wiki/Group_representation" title="Group representation">representation</a>, using <a href="/wiki/Graph_%28mathematics%29" title="Graph (mathematics)">graph</a> notation, of all paths that might be traversed through a <a href="/wiki/Computer_program" title="Computer program">program</a> during its <a href="/wiki/Execution_%28computers%29" title="Execution (computers)">execution</a>. Each <a href="/wiki/Node_%28computer_science%29" title="Node (computer science)">node</a> in the <a href="/wiki/Graph_%28mathematics%29" title="Graph (mathematics)">graph</a> represents a <a href="/wiki/Basic_block" title="Basic block">basic block</a>, i.e. a straight-line piece of code without any jumps or jump targets; jump targets start a block, and jumps end a block. Directed <a href="/wiki/Edge_%28graph_theory%29" title="Edge (graph theory)">edges</a> are used to represent jumps in the control flow. There are, in most presentations, two specially designated blocks: the <i>entry block</i>, through which control enters into the flow graph, and the <i>exit block</i>, through which all control flow leaves.</p>
+<p>The CFG is essential to many <a href="/wiki/Compiler_optimization#Data-flow_Optimizations" title="Compiler optimization">compiler optimizations</a> and <a href="/wiki/Static_code_analysis" title="Static code analysis">static analysis</a> tools.</p>
+<p><a href="/wiki/Reachability" title="Reachability">Reachability</a> is another graph property useful in optimization. If a block/subgraph is not connected from the subgraph containing the entry block, that block is unreachable during any execution, and so is <a href="/wiki/Unreachable_code" title="Unreachable code">unreachable code</a>; it can be safely removed. If the exit block is unreachable from the entry block, it indicates an <a href="/wiki/Infinite_loop" title="Infinite loop">infinite loop</a> (not all infinite loops are detectable, of course. See <a href="/wiki/Halting_problem" title="Halting problem">Halting problem</a>). Again, dead code and some infinite loops are possible even if the programmer didn't explicitly code that way: optimizations like <a href="/wiki/Constant_propagation" title="Constant propagation">constant propagation</a> and <a href="/wiki/Constant_folding" title="Constant folding">constant folding</a> followed by <a href="/wiki/Jump_threading" title="Jump threading">jump threading</a> could collapse multiple basic blocks into one, cause edges to be removed from a CFG, etc., thus possibly disconnecting parts of the graph.</p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Terminology"><span class="tocnumber">1</span> <span class="toctext">Terminology</span></a></li>
+<li class="toclevel-1"><a href="#Examples"><span class="tocnumber">2</span> <span class="toctext">Examples</span></a></li>
+<li class="toclevel-1"><a href="#See_also"><span class="tocnumber">3</span> <span class="toctext">See also</span></a></li>
+<li class="toclevel-1"><a href="#External_links"><span class="tocnumber">4</span> <span class="toctext">External links</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Examples_2"><span class="tocnumber">4.1</span> <span class="toctext">Examples</span></a></li>
+</ul>
+</li>
+</ul>
+</td>
+</tr>
+</table>
+<script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script>
+<p><a name="Terminology" id="Terminology"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Control_flow_graph&amp;action=edit&amp;section=1" title="Edit section: Terminology">edit</a>]</span> <span class="mw-headline">Terminology</span></h2>
+<p>These terms are commonly used when discussing control flow graphs.</p>
+<dl>
+<dt><i>entry block</i>&#160;</dt>
+<dd>block through which all control flow enters the graph</dd>
+<dt><i>exit block</i>&#160;</dt>
+<dd>block through which all control flow leaves the graph</dd>
+<dt><i>back edge</i>&#160;</dt>
+<dd>an edge that points to an ancestor in a depth-first (<a href="/wiki/Depth-first_search" title="Depth-first search">DFS</a>) traversal of the graph</dd>
+<dt><i>critical edge</i>&#160;</dt>
+<dd>an edge which is neither the only edge leaving its source block, nor the only edge entering its destination block. These edges must be <i>split</i> (a new block must be created in the middle of the edge) in order to insert computations on the edge.</dd>
+<dt><i>abnormal edge</i>&#160;</dt>
+<dd>an edge whose destination is unknown. These edges tend to inhibit optimization. <a href="/wiki/Exception_handling" title="Exception handling">Exception handling</a> constructs can produce them.</dd>
+<dt><i>impossible edge</i>&#160;</dt>
+<dd>(also known as a <i>fake edge</i>) An edge which has been added to the graph solely to preserve the property that the exit block postdominates all blocks. It cannot ever be traversed.</dd>
+<dt><i><a href="/wiki/Dominator" title="Dominator">dominator</a></i>&#160;</dt>
+<dd>block M <i>dominates</i> block N if every path from the entry that reaches block N has to pass through block M. The entry block dominates all blocks.</dd>
+<dt><i>postdominator</i>&#160;</dt>
+<dd>block M <i>postdominates</i> block N if every path from N to the exit has to pass through block M. The exit block postdominates all blocks.</dd>
+<dt><a href="/wiki/Dominator" title="Dominator"><i>immediate dominator</i></a>&#160;</dt>
+<dd>block M <i>immediately dominates</i> block N if M dominates N, and there is no intervening block P such that M dominates P and P dominates N. In other words, M is the last dominator on any path from entry to N. Each block has a unique immediate dominator, if it has any at all.</dd>
+<dt><i>immediate postdominator</i>&#160;</dt>
+<dd>Analogous to <i>immediate dominator</i>.</dd>
+<dt><a href="/wiki/Dominator" title="Dominator"><i>dominator tree</i></a>&#160;</dt>
+<dd>An ancillary data structure depicting the dominator relationships. There is an arc from Block M to Block N if M is an immediate dominator of N. This graph is a tree, since each block has a unique immediate dominator. This tree is rooted at the entry block. Can be calculated efficiently using Lengauer-Tarjan's algorithm.</dd>
+<dt><i>postdominator tree</i>&#160;</dt>
+<dd>Analogous to <i>dominator tree</i>. This tree is rooted at the exit block.</dd>
+<dt><i>loop header</i>&#160;</dt>
+<dd>Sometimes called the <i>entry point</i> of the loop, a dominator that is the target of a loop-forming back edge. Dominates all blocks in the loop body.</dd>
+<dt><i>loop pre-header</i>&#160;</dt>
+<dd>Suppose block M is a dominator with several incoming edges, some of them being back edges (so M is a loop header). It is advantageous to several optimization passes to break M up into two blocks M<sub>pre</sub> and M<sub>loop</sub>. The contents of M and back edges are moved to M<sub>loop</sub>, the rest of the edges are moved to point into M<sub>pre</sub>, and a new edge from M<sub>pre</sub> to M<sub>loop</sub> is inserted (so that M<sub>pre</sub> is the immediate dominator of M<sub>loop</sub>). In the beginning, M<sub>pre</sub> would be empty, but passes like <a href="/wiki/Loop-invariant_code_motion" title="Loop-invariant code motion">loop-invariant code motion</a> could populate it. M<sub>pre</sub> is called the <i>loop pre-header</i>, and M<sub>loop</sub> would be the loop header.</dd>
+</dl>
+<p><a name="Examples" id="Examples"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Control_flow_graph&amp;action=edit&amp;section=2" title="Edit section: Examples">edit</a>]</span> <span class="mw-headline">Examples</span></h2>
+<p>Consider the following fragment of code:</p>
+<pre>
+0: (A) t0 = read_num
+1: (A) if t0 mod 2 == 0 goto 4
+2: (B)   print t0 + " is odd."
+3: (B)   goto 5
+4: (C) print t0 + " is even."
+5: (D) end program
+</pre>
+<p>In the above, we have 4 basic blocks: A from 0 to 1, B from 2 to 3, C at 4 and D at 5. In particular, in this case, A is the "entry block", D the "exit block" and lines 4 and 5 are jump targets. A graph for this fragment has edges from A to B, A to C, B to D and C to D.</p>
+<p><a name="See_also" id="See_also"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Control_flow_graph&amp;action=edit&amp;section=3" title="Edit section: See also">edit</a>]</span> <span class="mw-headline">See also</span></h2>
+<ul>
+<li><a href="/wiki/Flowchart" title="Flowchart">Flowchart</a></li>
+<li><a href="/wiki/Control_flow_analysis" title="Control flow analysis">control flow analysis</a></li>
+</ul>
+<p><a name="External_links" id="External_links"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Control_flow_graph&amp;action=edit&amp;section=4" title="Edit section: External links">edit</a>]</span> <span class="mw-headline">External links</span></h2>
+<ul>
+<li><a href="http://www.eecs.harvard.edu/hube/software/nci/cfg.html" class="external text" title="http://www.eecs.harvard.edu/hube/software/nci/cfg.html" rel="nofollow">The Machine-SUIF Control Flow Graph Library</a></li>
+<li><a href="http://gcc.gnu.org/onlinedocs/gccint/Control-Flow.html" class="external text" title="http://gcc.gnu.org/onlinedocs/gccint/Control-Flow.html" rel="nofollow">Compiler Collection Internals</a></li>
+<li>Paper "<a href="http://www.ucw.cz/~hubicka/papers/proj/node6.html#SECTION02420000000000000000" class="external text" title="http://www.ucw.cz/~hubicka/papers/proj/node6.html#SECTION02420000000000000000" rel="nofollow">Infrastructure for Profile Driven Optimizations in GCC Compiler</a>" by <a href="/w/index.php?title=Zden%C4%9Bk_Dvo%C5%99%C3%A1k&amp;action=edit" class="new" title="Zdeněk Dvořák">Zdeněk Dvořák</a>, <a href="/w/index.php?title=Jan_Hubi%C4%8Dka&amp;action=edit" class="new" title="Jan Hubička">Jan Hubička</a>, <a href="/w/index.php?title=Pavel_Nejedl%C3%BD&amp;action=edit" class="new" title="Pavel Nejedlý">Pavel Nejedlý</a> and <a href="/w/index.php?title=Josef_Zlomek&amp;action=edit" class="new" title="Josef Zlomek">Josef Zlomek</a></li>
+</ul>
+<p><a name="Examples_2" id="Examples_2"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Control_flow_graph&amp;action=edit&amp;section=5" title="Edit section: Examples">edit</a>]</span> <span class="mw-headline">Examples</span></h3>
+<ul>
+<li><a href="http://www.aisee.com/graph_of_the_month/cfg.htm" class="external free" title="http://www.aisee.com/graph_of_the_month/cfg.htm" rel="nofollow">http://www.aisee.com/graph_of_the_month/cfg.htm</a></li>
+<li><a href="http://www.absint.com/aicall/gallery.htm" class="external free" title="http://www.absint.com/aicall/gallery.htm" rel="nofollow">http://www.absint.com/aicall/gallery.htm</a></li>
+<li><a href="http://www.icd.de/es/icd-c/example.html" class="external free" title="http://www.icd.de/es/icd-c/example.html" rel="nofollow">http://www.icd.de/es/icd-c/example.html</a></li>
+<li><a href="http://compilers.cs.ucla.edu/avrora/cfg.html" class="external free" title="http://compilers.cs.ucla.edu/avrora/cfg.html" rel="nofollow">http://compilers.cs.ucla.edu/avrora/cfg.html</a></li>
+</ul>
+
+
+<!-- Saved in parser cache with key enwiki:pcache:idhash:43653-0!1!0!default!!en!2 and timestamp 20070909160044 -->
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org/wiki/Control_flow_graph">http://en.wikipedia.org/wiki/Control_flow_graph</a>"</div>
+			<div id="catlinks"><p class='catlinks'><a href="/wiki/Special:Categories" title="Special:Categories">Category</a>: <span dir='ltr'><a href="/wiki/Category:Compiler_theory" title="Category:Compiler theory">Compiler theory</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<div class="pBody">
+			<ul>
+					 <li id="ca-nstab-main" class="selected"><a href="/wiki/Control_flow_graph" title="View the content page [c]" accesskey="c">Article</a></li>
+					 <li id="ca-talk"><a href="/wiki/Talk:Control_flow_graph" title="Discussion about the content page [t]" accesskey="t">Discussion</a></li>
+					 <li id="ca-edit"><a href="/w/index.php?title=Control_flow_graph&amp;action=edit" title="You can edit this page. Please use the preview button before saving. [e]" accesskey="e">Edit this page</a></li>
+					 <li id="ca-history"><a href="/w/index.php?title=Control_flow_graph&amp;action=history" title="Past versions of this page [h]" accesskey="h">History</a></li>
+				</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-personal">
+		<h5>Personal tools</h5>
+		<div class="pBody">
+			<ul>
+				<li id="pt-login"><a href="/w/index.php?title=Special:Userlogin&amp;returnto=Control_flow_graph" title="You are encouraged to log in, it is not mandatory however. [o]" accesskey="o">Sign in / create account</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-logo">
+		<a style="background-image: url(/images/wiki-en.png);" href="/wiki/Main_Page" title="Visit the Main Page [z]" accesskey="z"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-Main-page"><a href="/wiki/Main_Page">Main page</a></li>
+				<li id="n-Contents"><a href="/wiki/Wikipedia:Contents">Contents</a></li>
+				<li id="n-Featured-content"><a href="/wiki/Wikipedia:Featured_content">Featured content</a></li>
+				<li id="n-currentevents"><a href="/wiki/Portal:Current_events" title="Find background information on current events">Current events</a></li>
+				<li id="n-randompage"><a href="/wiki/Special:Random" title="Load a random page [x]" accesskey="x">Random article</a></li>
+			</ul>
+		</div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+		<h5>interaction</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-About-Wikipedia"><a href="/wiki/Wikipedia:About">About Wikipedia</a></li>
+				<li id="n-portal"><a href="/wiki/Wikipedia:Community_Portal" title="About the project, what you can do, where to find things">Community portal</a></li>
+				<li id="n-recentchanges"><a href="/wiki/Special:Recentchanges" title="The list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li>
+				<li id="n-contact"><a href="/wiki/Wikipedia:Contact_us">Contact Wikipedia</a></li>
+				<li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising" title="Support us">Donate to Wikipedia</a></li>
+				<li id="n-help"><a href="/wiki/Help:Contents" title="Guidance on how to use and edit Wikipedia">Help</a></li>
+			</ul>
+		</div>
+	</div>
+		<div id="p-search" class="portlet">
+		<h5><label for="searchInput">Search</label></h5>
+		<div id="searchBody" class="pBody">
+			<form action="/wiki/Special:Search" id="searchform"><div>
+				<input id="searchInput" name="search" type="text" title="Search Wikipedia [f]" accesskey="f" value="" />
+				<input type='submit' name="go" class="searchButton" id="searchGoButton"	value="Go" />&nbsp;
+				<input type='submit' name="fulltext" class="searchButton" id="mw-searchButton" value="Search" />
+			</div></form>
+		</div>
+	</div>
+	<div class="portlet" id="p-tb">
+		<h5>Toolbox</h5>
+		<div class="pBody">
+			<ul>
+				<li id="t-whatlinkshere"><a href="/wiki/Special:Whatlinkshere/Control_flow_graph" title="List of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+				<li id="t-recentchangeslinked"><a href="/wiki/Special:Recentchangeslinked/Control_flow_graph" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+<li id="t-upload"><a href="/wiki/Wikipedia:Upload" title="Upload images or media files [u]" accesskey="u">Upload file</a></li>
+<li id="t-specialpages"><a href="/wiki/Special:Specialpages" title="List of all special pages [q]" accesskey="q">Special pages</a></li>
+				<li id="t-print"><a href="/w/index.php?title=Control_flow_graph&amp;printable=yes" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>				<li id="t-permalink"><a href="/w/index.php?title=Control_flow_graph&amp;oldid=129138172" title="Permanent link to this version of the page">Permanent link</a></li><li id="t-cite"><a href="/w/index.php?title=Special:Cite&amp;page=Control_flow_graph&amp;id=129138172">Cite this article</a></li>			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="/skins-1.5/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>
+				<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="/images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>
+			<ul id="f-list">
+				<li id="lastmod"> This page was last modified 03:05, 8 May 2007.</li>
+				<li id="copyright">All text is available under the terms of the <a class='internal' href="/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="/wiki/Wikipedia:Copyrights" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a U.S. registered <a class='internal' href="/wiki/501%28c%29#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="/wiki/Non-profit_organization" title="Non-profit organization">nonprofit</a> <a href="/wiki/Charitable_organization" title="Charitable organization">charity</a>.<br /></li>
+				<li id="privacy"><a href="http://wikimediafoundation.org/wiki/Privacy_policy" title="wikimedia:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="/wiki/Wikipedia:About" title="Wikipedia:About">About Wikipedia</a></li>
+				<li id="disclaimer"><a href="/wiki/Wikipedia:General_disclaimer" title="Wikipedia:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+		
+	
+		<script type="text/javascript">if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by srv152 in 0.153 secs. --></body></html>

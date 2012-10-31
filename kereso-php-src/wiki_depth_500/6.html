@@ -1,0 +1,222 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+				<meta name="keywords" content="Path (graph theory),Cycle graph,Edge (graph theory),Glossary of graph theory,Graph (mathematics),Graph theory,Hamiltonian cycle,Induced path,László Lovász,Sequence,Shortest path problem" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="http://www.gnu.org/copyleft/fdl.html" />
+		<title>Path (graph theory) - Wikipedia, the free encyclopedia</title>
+		<style type="text/css" media="screen, projection">/*<![CDATA[*/
+			@import "/skins-1.5/common/shared.css?99";
+			@import "/skins-1.5/monobook/main.css?99";
+		/*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="/skins-1.5/common/commonPrint.css?99" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE50Fixes.css?99";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE55Fixes.css?99";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "/skins-1.5/monobook/IE60Fixes.css?99";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "/skins-1.5/monobook/IE70Fixes.css?99";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="/skins-1.5/common/IEFixes.js?99"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		
+		<script type= "text/javascript">/*<![CDATA[*/
+var skin = "monobook";
+var stylepath = "/skins-1.5";
+var wgArticlePath = "/wiki/$1";
+var wgScriptPath = "/w";
+var wgScript = "/w/index.php";
+var wgServer = "http://en.wikipedia.org";
+var wgCanonicalNamespace = "";
+var wgCanonicalSpecialPageName = false;
+var wgNamespaceNumber = 0;
+var wgPageName = "Path_(graph_theory)";
+var wgTitle = "Path (graph theory)";
+var wgAction = "view";
+var wgRestrictionEdit = [];
+var wgRestrictionMove = [];
+var wgArticleId = "638889";
+var wgIsArticle = true;
+var wgUserName = null;
+var wgUserGroups = null;
+var wgUserLanguage = "en";
+var wgContentLanguage = "en";
+var wgBreakFrames = false;
+var wgCurRevisionId = "145136846";
+/*]]>*/</script>
+                
+		<script type="text/javascript" src="/skins-1.5/common/wikibits.js?99"><!-- wikibits js --></script>
+		<script type="text/javascript" src="/w/index.php?title=-&amp;action=raw&amp;gen=js&amp;useskin=monobook"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "/w/index.php?title=MediaWiki:Common.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=MediaWiki:Monobook.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=-&action=raw&gen=css&maxage=2678400";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+		<script type="text/javascript" src="/skins-1.5/common/ajax.js?99"></script>
+	</head>
+<body  class="mediawiki ns-0 ltr page-Path_graph_theory">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">Path (graph theory)</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<p>In <a href="/wiki/Graph_theory" title="Graph theory">graph theory</a>, a <b>path</b> in a <a href="/wiki/Graph_%28mathematics%29" title="Graph (mathematics)">graph</a> is a <a href="/wiki/Sequence" title="Sequence">sequence</a> of <a href="/wiki/Vertex_%28graph_theory%29" title="Vertex (graph theory)">vertices</a> such that from each of its vertices there is an <a href="/wiki/Edge_%28graph_theory%29" title="Edge (graph theory)">edge</a> to the next vertex in the sequence. The first vertex is called the <i>start vertex</i> and the last vertex is called the <i>end vertex</i>. Both of them are called <i>end or terminal vertices</i> of the path. The other vertices in the path are <i>internal vertices</i>. A <b>cycle</b> is a path such that the start vertex and end vertex are the same. Notice however that unlike with paths, any vertex of a <a href="/wiki/Cycle_graph" title="Cycle graph">cycle</a> can be chosen as the start, so the start is often not specified.</p>
+<div class="thumb tright">
+<div class="thumbinner" style="width:202px;"><a href="/wiki/Image:Directed_cycle.png" class="image" title="A directed cycle. Without the arrows, it is just a cycle. This is not a simple cycle, since the blue vertices are used twice."><img alt="A directed cycle. Without the arrows, it is just a cycle. This is not a simple cycle, since the blue vertices are used twice." src="http://upload.wikimedia.org/wikipedia/en/f/f8/Directed_cycle.png" width="200" height="183" border="0" class="thumbimage" /></a>
+<div class="thumbcaption">A directed cycle. Without the arrows, it is just a cycle. This is not a simple cycle, since the blue vertices are used twice.</div>
+</div>
+</div>
+<p>Paths and cycles are fundamental concepts of graph theory, described in the introductory sections of most graph theory texts. See e.g. Bondy and Murty (1976), Gibbons (1985), or Diestel (2005). Korte et al (1990) cover more advanced algorithmic topics concerning paths in graphs.</p>
+<p><a name="Different_types_of_path" id="Different_types_of_path"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Path_%28graph_theory%29&amp;action=edit&amp;section=1" title="Edit section: Different types of path">edit</a>]</span> <span class="mw-headline">Different types of path</span></h2>
+<p>The same concepts apply both to <a href="/wiki/Undirected_graph" title="Undirected graph">undirected graphs</a> and <a href="/wiki/Graph_%28mathematics%29#Directed_graph" title="Graph (mathematics)">directed graphs</a>, with the edges being directed from each vertex to the following one. Often the terms <i>directed path</i> and <i>directed cycle</i> are used in the directed case.</p>
+<p>A path with no repeated vertices is called a <b>simple path</b>, and cycle with no repeated vertices aside from the start/end vertex is a <b>simple cycle</b>. In modern <a href="/wiki/Graph_theory" title="Graph theory">graph theory</a>, most often "simple" is implied; i.e., "cycle" means "simple cycle" and "path" means "simple path", but this convention is not always observed, especially in applied graph theory. A path such that no graph edges connect two nonconsecutive path vertices is called an <a href="/wiki/Induced_path" title="Induced path">induced path</a>.</p>
+<p>Some authors (e.g. Bondy and Murty 1976) use the term "walk" for a path in which vertices or edges may be repeated, and reserve the term "path" for what is here called a simple path.</p>
+<p>A simple cycle that includes every vertex of the graph is known as a <a href="/wiki/Hamiltonian_cycle" title="Hamiltonian cycle">Hamiltonian cycle</a>.</p>
+<p>Two paths are <i>independent</i> (alternatively, <i>internally vertex-disjoint</i>) if they do not have any internal vertex in common.</p>
+<p>The <i>length</i> of a path is the number of edges that the path uses, counting multiple edges multiple times.</p>
+<p>A <a href="/wiki/Weighted_graph" title="Weighted graph">weighted graph</a> associates a value (<i>weight</i>) with every edge in the graph. The <i>weight of a path</i> in a weighted graph is the sum of the weights of the traversed edges. Sometimes the words <i>cost</i> or <i>length</i> are used instead of weight.</p>
+<p><a name="See_also" id="See_also"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Path_%28graph_theory%29&amp;action=edit&amp;section=2" title="Edit section: See also">edit</a>]</span> <span class="mw-headline">See also</span></h2>
+<ul>
+<li><a href="/wiki/Glossary_of_graph_theory" title="Glossary of graph theory">Glossary of graph theory</a></li>
+<li><a href="/wiki/Shortest_path_problem" title="Shortest path problem">Shortest path problem</a></li>
+<li><a href="/wiki/Traveling_salesman_problem" title="Traveling salesman problem">Traveling salesman problem</a></li>
+</ul>
+<p><a name="References" id="References"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Path_%28graph_theory%29&amp;action=edit&amp;section=3" title="Edit section: References">edit</a>]</span> <span class="mw-headline">References</span></h2>
+<ul>
+<li><cite class="book" style="font-style:normal">Bondy, J. A.; Murty, U. S. R. (1976). <i>Graph Theory with Applications</i>. North Holland, 12–21. <a href="/w/index.php?title=Special:Booksources&amp;isbn=0444194517" class="internal">ISBN 0-444-19451-7</a>.</cite><span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Graph+Theory+with+Applications&amp;rft.au=Bondy%2C+J.+A.%3B+Murty%2C+U.+S.+R.&amp;rft.pub=North+Holland&amp;rft.pages=12%E2%80%9321">&#160;</span></li>
+</ul>
+<ul>
+<li><cite class="book" style="font-style:normal">Diestel, Reinhard (2005). <i><a href="http://www.math.uni-hamburg.de/home/diestel/books/graph.theory/" class="external text" title="http://www.math.uni-hamburg.de/home/diestel/books/graph.theory/" rel="nofollow">Graph Theory</a></i>, 3rd ed., Graduate Texts in Mathematics, vol. 173, Springer-Verlag, 6–9. <a href="/w/index.php?title=Special:Booksources&amp;isbn=3540261826" class="internal">ISBN 3-540-26182-6</a>.</cite><span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Graph+Theory&amp;rft.au=Diestel%2C+Reinhard&amp;rft.edition=3rd+ed.&amp;rft.pub=Graduate+Texts+in+Mathematics%2C+vol.+173%2C+Springer-Verlag&amp;rft.pages=6%E2%80%939&amp;rft_id=http%3A%2F%2Fwww.math.uni-hamburg.de%2Fhome%2Fdiestel%2Fbooks%2Fgraph.theory%2F">&#160;</span></li>
+</ul>
+<ul>
+<li><cite class="book" style="font-style:normal">Gibbons, A. (1985). <i>Algorithmic Graph Theory</i>. Cambridge University Press, 5–6. <a href="/w/index.php?title=Special:Booksources&amp;isbn=0521288819" class="internal">ISBN 0-521-28881-9</a>.</cite><span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Algorithmic+Graph+Theory&amp;rft.au=Gibbons%2C+A.&amp;rft.pub=Cambridge+University+Press&amp;rft.pages=5%E2%80%936">&#160;</span></li>
+</ul>
+<ul>
+<li><cite class="book" style="font-style:normal">Korte, Bernhard; <a href="/wiki/L%C3%A1szl%C3%B3_Lov%C3%A1sz" title="László Lovász">Lovász, László</a>; Prömel, Hans Jürgen; Schrijver, Alexander (Eds.) (1990). <i>Paths, Flows, and VLSI-Layout</i>. Algorithms and Combinatorics 9, Springer-Verlag. <a href="/w/index.php?title=Special:Booksources&amp;isbn=0387526854" class="internal">ISBN 0-387-52685-4</a>.</cite><span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Paths%2C+Flows%2C+and+VLSI-Layout&amp;rft.au=Korte%2C+Bernhard%3B+%5B%5BL%C3%A1szl%C3%B3+Lov%C3%A1sz%7CLov%C3%A1sz%2C+L%C3%A1szl%C3%B3%5D%5D%3B+Pr%C3%B6mel%2C+Hans+J%C3%BCrgen%3B+Schrijver%2C+Alexander+%28Eds.%29&amp;rft.pub=Algorithms+and+Combinatorics+9%2C+Springer-Verlag">&#160;</span></li>
+</ul>
+
+<!-- 
+Pre-expand include size: 26919 bytes
+Post-expand include size: 6470 bytes
+Template argument size: 5121 bytes
+Maximum: 2048000 bytes
+-->
+
+<!-- Saved in parser cache with key enwiki:pcache:idhash:638889-0!1!0!default!!en!2 and timestamp 20070912181106 -->
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org/wiki/Path_%28graph_theory%29">http://en.wikipedia.org/wiki/Path_%28graph_theory%29</a>"</div>
+			<div id="catlinks"><p class='catlinks'><a href="/wiki/Special:Categories" title="Special:Categories">Category</a>: <span dir='ltr'><a href="/wiki/Category:Graph_theory" title="Category:Graph theory">Graph theory</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<div class="pBody">
+			<ul>
+					 <li id="ca-nstab-main" class="selected"><a href="/wiki/Path_%28graph_theory%29" title="View the content page [c]" accesskey="c">Article</a></li>
+					 <li id="ca-talk"><a href="/wiki/Talk:Path_%28graph_theory%29" title="Discussion about the content page [t]" accesskey="t">Discussion</a></li>
+					 <li id="ca-edit"><a href="/w/index.php?title=Path_%28graph_theory%29&amp;action=edit" title="You can edit this page. Please use the preview button before saving. [e]" accesskey="e">Edit this page</a></li>
+					 <li id="ca-history"><a href="/w/index.php?title=Path_%28graph_theory%29&amp;action=history" title="Past versions of this page [h]" accesskey="h">History</a></li>
+				</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-personal">
+		<h5>Personal tools</h5>
+		<div class="pBody">
+			<ul>
+				<li id="pt-login"><a href="/w/index.php?title=Special:Userlogin&amp;returnto=Path_(graph_theory)" title="You are encouraged to log in, it is not mandatory however. [o]" accesskey="o">Sign in / create account</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-logo">
+		<a style="background-image: url(/images/wiki-en.png);" href="/wiki/Main_Page" title="Visit the Main Page [z]" accesskey="z"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-Main-page"><a href="/wiki/Main_Page">Main page</a></li>
+				<li id="n-Contents"><a href="/wiki/Wikipedia:Contents">Contents</a></li>
+				<li id="n-Featured-content"><a href="/wiki/Wikipedia:Featured_content">Featured content</a></li>
+				<li id="n-currentevents"><a href="/wiki/Portal:Current_events" title="Find background information on current events">Current events</a></li>
+				<li id="n-randompage"><a href="/wiki/Special:Random" title="Load a random page [x]" accesskey="x">Random article</a></li>
+			</ul>
+		</div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+		<h5>interaction</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-About-Wikipedia"><a href="/wiki/Wikipedia:About">About Wikipedia</a></li>
+				<li id="n-portal"><a href="/wiki/Wikipedia:Community_Portal" title="About the project, what you can do, where to find things">Community portal</a></li>
+				<li id="n-recentchanges"><a href="/wiki/Special:Recentchanges" title="The list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li>
+				<li id="n-contact"><a href="/wiki/Wikipedia:Contact_us">Contact Wikipedia</a></li>
+				<li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising" title="Support us">Donate to Wikipedia</a></li>
+				<li id="n-help"><a href="/wiki/Help:Contents" title="Guidance on how to use and edit Wikipedia">Help</a></li>
+			</ul>
+		</div>
+	</div>
+		<div id="p-search" class="portlet">
+		<h5><label for="searchInput">Search</label></h5>
+		<div id="searchBody" class="pBody">
+			<form action="/wiki/Special:Search" id="searchform"><div>
+				<input id="searchInput" name="search" type="text" title="Search Wikipedia [f]" accesskey="f" value="" />
+				<input type='submit' name="go" class="searchButton" id="searchGoButton"	value="Go" />&nbsp;
+				<input type='submit' name="fulltext" class="searchButton" id="mw-searchButton" value="Search" />
+			</div></form>
+		</div>
+	</div>
+	<div class="portlet" id="p-tb">
+		<h5>Toolbox</h5>
+		<div class="pBody">
+			<ul>
+				<li id="t-whatlinkshere"><a href="/wiki/Special:Whatlinkshere/Path_%28graph_theory%29" title="List of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+				<li id="t-recentchangeslinked"><a href="/wiki/Special:Recentchangeslinked/Path_%28graph_theory%29" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+<li id="t-upload"><a href="/wiki/Wikipedia:Upload" title="Upload images or media files [u]" accesskey="u">Upload file</a></li>
+<li id="t-specialpages"><a href="/wiki/Special:Specialpages" title="List of all special pages [q]" accesskey="q">Special pages</a></li>
+				<li id="t-print"><a href="/w/index.php?title=Path_%28graph_theory%29&amp;printable=yes" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>				<li id="t-permalink"><a href="/w/index.php?title=Path_%28graph_theory%29&amp;oldid=145136846" title="Permanent link to this version of the page">Permanent link</a></li><li id="t-cite"><a href="/w/index.php?title=Special:Cite&amp;page=Path_%28graph_theory%29&amp;id=145136846">Cite this article</a></li>			</ul>
+		</div>
+	</div>
+	<div id="p-lang" class="portlet">
+		<h5>In other languages</h5>
+		<div class="pBody">
+			<ul>
+				<li class="interwiki-cs"><a href="http://cs.wikipedia.org/wiki/Cesta_%28graf%29">Česky</a></li>
+				<li class="interwiki-de"><a href="http://de.wikipedia.org/wiki/Weg_%28Graphentheorie%29">Deutsch</a></li>
+				<li class="interwiki-fr"><a href="http://fr.wikipedia.org/wiki/Cha%C3%AEne_%28graphe%29">Français</a></li>
+				<li class="interwiki-he"><a href="http://he.wikipedia.org/wiki/%D7%9E%D7%A1%D7%9C%D7%95%D7%9C_%D7%91%D7%92%D7%A8%D7%A3">עברית</a></li>
+				<li class="interwiki-pl"><a href="http://pl.wikipedia.org/wiki/%C5%9Acie%C5%BCka_%28teoria_graf%C3%B3w%29">Polski</a></li>
+				<li class="interwiki-ru"><a href="http://ru.wikipedia.org/wiki/%D0%9F%D1%83%D1%82%D1%8C_%28%D0%B2_%D0%B3%D1%80%D0%B0%D1%84%D0%B5%29">Русский</a></li>
+				<li class="interwiki-th"><a href="http://th.wikipedia.org/wiki/%E0%B8%A7%E0%B8%B4%E0%B8%96%E0%B8%B5_%28%E0%B8%97%E0%B8%A4%E0%B8%A9%E0%B8%8E%E0%B8%B5%E0%B8%81%E0%B8%A3%E0%B8%B2%E0%B8%9F%29">ไทย</a></li>
+				<li class="interwiki-uk"><a href="http://uk.wikipedia.org/wiki/%D0%A8%D0%BB%D1%8F%D1%85_%28%D1%82%D0%B5%D0%BE%D1%80%D1%96%D1%8F_%D0%B3%D1%80%D0%B0%D1%84%D1%96%D0%B2%29">Українська</a></li>
+			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="/skins-1.5/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>
+				<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="/images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>
+			<ul id="f-list">
+				<li id="lastmod"> This page was last modified 02:15, 17 July 2007.</li>
+				<li id="copyright">All text is available under the terms of the <a class='internal' href="/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="/wiki/Wikipedia:Copyrights" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a U.S. registered <a class='internal' href="/wiki/501%28c%29#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="/wiki/Non-profit_organization" title="Non-profit organization">nonprofit</a> <a href="/wiki/Charitable_organization" title="Charitable organization">charity</a>.<br /></li>
+				<li id="privacy"><a href="http://wikimediafoundation.org/wiki/Privacy_policy" title="wikimedia:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="/wiki/Wikipedia:About" title="Wikipedia:About">About Wikipedia</a></li>
+				<li id="disclaimer"><a href="/wiki/Wikipedia:General_disclaimer" title="Wikipedia:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+		
+	
+		<script type="text/javascript">if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by srv170 in 0.083 secs. --></body></html>

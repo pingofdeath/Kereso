@@ -1,0 +1,1805 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+				<meta name="keywords" content="Associative array,.NET Framework,Abstract data type,Array,Association list,Awk,B-trees,Binary search tree,Borland Delphi,Bourne-Again shell,C++" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="http://www.gnu.org/copyleft/fdl.html" />
+		<title>Associative array - Wikipedia, the free encyclopedia</title>
+		<style type="text/css" media="screen, projection">/*<![CDATA[*/
+			@import "/skins-1.5/common/shared.css?99";
+			@import "/skins-1.5/monobook/main.css?99";
+		/*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="/skins-1.5/common/commonPrint.css?99" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE50Fixes.css?99";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE55Fixes.css?99";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "/skins-1.5/monobook/IE60Fixes.css?99";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "/skins-1.5/monobook/IE70Fixes.css?99";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="/skins-1.5/common/IEFixes.js?99"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		
+		<script type= "text/javascript">/*<![CDATA[*/
+var skin = "monobook";
+var stylepath = "/skins-1.5";
+var wgArticlePath = "/wiki/$1";
+var wgScriptPath = "/w";
+var wgScript = "/w/index.php";
+var wgServer = "http://en.wikipedia.org";
+var wgCanonicalNamespace = "";
+var wgCanonicalSpecialPageName = false;
+var wgNamespaceNumber = 0;
+var wgPageName = "Associative_array";
+var wgTitle = "Associative array";
+var wgAction = "view";
+var wgRestrictionEdit = [];
+var wgRestrictionMove = [];
+var wgArticleId = "95154";
+var wgIsArticle = true;
+var wgUserName = null;
+var wgUserGroups = null;
+var wgUserLanguage = "en";
+var wgContentLanguage = "en";
+var wgBreakFrames = false;
+var wgCurRevisionId = "157768968";
+/*]]>*/</script>
+                
+		<script type="text/javascript" src="/skins-1.5/common/wikibits.js?99"><!-- wikibits js --></script>
+		<script type="text/javascript" src="/w/index.php?title=-&amp;action=raw&amp;gen=js&amp;useskin=monobook"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "/w/index.php?title=MediaWiki:Common.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=MediaWiki:Monobook.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=-&action=raw&gen=css&maxage=2678400";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+		<script type="text/javascript" src="/skins-1.5/common/ajax.js?99"></script>
+<style type="text/css">/*<![CDATA[*/
+.source-text {line-height: normal;}
+.source-text li {line-height: normal;}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for text
+ * CSS class: source-text, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie (http://qbnz.com/highlighter)
+ */
+.source-text .de1, .source-text .de2 {font-family: 'Courier New', Courier, monospace; font-weight: normal;}
+.source-text  {}
+.source-text .head {}
+.source-text .foot {}
+.source-text .imp {font-weight: bold; color: red;}
+.source-text .ln-xtra {color: #cc0; background-color: #ffc;}
+.source-text li {font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;}
+.source-text li.li2 {font-weight: bold;}
+
+/*]]>*/
+</style>
+<style type="text/css">/*<![CDATA[*/
+@import "/w/index.php?title=MediaWiki:Geshi.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+/*]]>*/
+</style><style type="text/css">/*<![CDATA[*/
+.source-cfm {line-height: normal;}
+.source-cfm li {line-height: normal;}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for cfm
+ * CSS class: source-cfm, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie (http://qbnz.com/highlighter)
+ */
+.source-cfm .de1, .source-cfm .de2 {font-family: 'Courier New', Courier, monospace; font-weight: normal;}
+.source-cfm  {}
+.source-cfm .head {}
+.source-cfm .foot {}
+.source-cfm .imp {font-weight: bold; color: red;}
+.source-cfm .ln-xtra {color: #cc0; background-color: #ffc;}
+.source-cfm li {font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;}
+.source-cfm li.li2 {font-weight: bold;}
+.source-cfm .kw1 {color: #990000;}
+.source-cfm .kw2 {color: #000000; font-weight: bold;}
+.source-cfm .kw3 {color: #0000FF;}
+.source-cfm .kw4 {color: #000000; font-weight: bold;}
+.source-cfm .kw5 {color: #0000FF;}
+.source-cfm .kw6 {color: #0000FF}
+.source-cfm .co1 {color: #808080; font-style: italic;}
+.source-cfm .coMULTI {color: #808080; font-style: italic; background-color:#FFFF99;}
+.source-cfm .es0 {color: #000099; font-weight: bold;}
+.source-cfm .br0 {color: #0000FF;}
+.source-cfm .st0 {color: #009900;}
+.source-cfm .nu0 {color: #FF0000;}
+.source-cfm .sc0 {color: #00bbdd;}
+.source-cfm .sc1 {color: #0000FF;}
+.source-cfm .sc2 {color: #000099;}
+.source-cfm .sc3 {color: #333333;}
+
+/*]]>*/
+</style>
+<style type="text/css">/*<![CDATA[*/
+@import "/w/index.php?title=MediaWiki:Geshi.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+/*]]>*/
+</style><style type="text/css">/*<![CDATA[*/
+.source-vb {line-height: normal;}
+.source-vb li {line-height: normal;}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for vb
+ * CSS class: source-vb, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie (http://qbnz.com/highlighter)
+ */
+.source-vb .de1, .source-vb .de2 {font-family: 'Courier New', Courier, monospace; font-weight: normal;}
+.source-vb  {}
+.source-vb .head {}
+.source-vb .foot {}
+.source-vb .imp {font-weight: bold; color: red;}
+.source-vb .ln-xtra {color: #cc0; background-color: #ffc;}
+.source-vb li {font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;}
+.source-vb li.li2 {font-weight: bold;}
+.source-vb .kw1 {color: #b1b100;}
+.source-vb .co1 {color: #808080;}
+.source-vb .es0 {color: #000099;}
+.source-vb .br0 {color: #66cc66;}
+.source-vb .st0 {color: #ff0000;}
+.source-vb .nu0 {color: #cc66cc;}
+.source-vb .me1 {color: #66cc66;}
+
+/*]]>*/
+</style>
+<style type="text/css">/*<![CDATA[*/
+@import "/w/index.php?title=MediaWiki:Geshi.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+/*]]>*/
+</style><style type="text/css">/*<![CDATA[*/
+.source-csharp {line-height: normal;}
+.source-csharp li {line-height: normal;}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for csharp
+ * CSS class: source-csharp, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie (http://qbnz.com/highlighter)
+ */
+.source-csharp .de1, .source-csharp .de2 {font-family: 'Courier New', Courier, monospace; font-weight: normal;}
+.source-csharp  {}
+.source-csharp .head {}
+.source-csharp .foot {}
+.source-csharp .imp {font-weight: bold; color: red;}
+.source-csharp .ln-xtra {color: #cc0; background-color: #ffc;}
+.source-csharp li {font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;}
+.source-csharp li.li2 {font-weight: bold;}
+.source-csharp .kw1 {color: #0600FF;}
+.source-csharp .kw2 {color: #FF8000; font-weight: bold;}
+.source-csharp .kw3 {color: #008000;}
+.source-csharp .kw4 {color: #FF0000;}
+.source-csharp .kw5 {color: #000000;}
+.source-csharp .co1 {color: #008080; font-style: italic;}
+.source-csharp .co2 {color: #008080;}
+.source-csharp .coMULTI {color: #008080; font-style: italic;}
+.source-csharp .es0 {color: #008080; font-weight: bold;}
+.source-csharp .br0 {color: #008000;}
+.source-csharp .st0 {color: #808080;}
+.source-csharp .nu0 {color: #FF0000;}
+.source-csharp .me1 {color: #0000FF;}
+.source-csharp .me2 {color: #0000FF;}
+
+/*]]>*/
+</style>
+<style type="text/css">/*<![CDATA[*/
+@import "/w/index.php?title=MediaWiki:Geshi.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+/*]]>*/
+</style><style type="text/css">/*<![CDATA[*/
+.source-cpp {line-height: normal;}
+.source-cpp li {line-height: normal;}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for cpp
+ * CSS class: source-cpp, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie (http://qbnz.com/highlighter)
+ */
+.source-cpp .de1, .source-cpp .de2 {font-family: 'Courier New', Courier, monospace; font-weight: normal;}
+.source-cpp  {}
+.source-cpp .head {}
+.source-cpp .foot {}
+.source-cpp .imp {font-weight: bold; color: red;}
+.source-cpp .ln-xtra {color: #cc0; background-color: #ffc;}
+.source-cpp li {font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;}
+.source-cpp li.li2 {font-weight: bold;}
+.source-cpp .kw1 {color: #0000ff;}
+.source-cpp .kw2 {color: #0000ff;}
+.source-cpp .kw3 {color: #0000dd;}
+.source-cpp .kw4 {color: #0000ff;}
+.source-cpp .co1 {color: #ff0000;}
+.source-cpp .co2 {color: #339900;}
+.source-cpp .coMULTI {color: #ff0000; font-style: italic;}
+.source-cpp .es0 {color: #666666; font-weight: bold;}
+.source-cpp .br0 {color: #000000;}
+.source-cpp .st0 {color: #666666;}
+.source-cpp .nu0 {color: #0000dd;}
+.source-cpp .me1 {color: #00eeff;}
+.source-cpp .me2 {color: #00eeff;}
+
+/*]]>*/
+</style>
+<style type="text/css">/*<![CDATA[*/
+@import "/w/index.php?title=MediaWiki:Geshi.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+/*]]>*/
+</style><style type="text/css">/*<![CDATA[*/
+.source-d {line-height: normal;}
+.source-d li {line-height: normal;}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for d
+ * CSS class: source-d, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie (http://qbnz.com/highlighter)
+ */
+.source-d .de1, .source-d .de2 {font-family: 'Courier New', Courier, monospace; font-weight: normal;}
+.source-d  {}
+.source-d .head {}
+.source-d .foot {}
+.source-d .imp {font-weight: bold; color: red;}
+.source-d .ln-xtra {color: #cc0; background-color: #ffc;}
+.source-d li {font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;}
+.source-d li.li2 {font-weight: bold;}
+.source-d .kw1 {color: #b1b100;}
+.source-d .kw2 {color: #000000; font-weight: bold;}
+.source-d .kw3 {color: #aaaadd; font-weight: bold;}
+.source-d .kw4 {color: #993333;}
+.source-d .co1 {color: #808080; font-style: italic;}
+.source-d .co2 {color: #a1a100;}
+.source-d .coMULTI {color: #808080; font-style: italic;}
+.source-d .es0 {color: #000099; font-weight: bold;}
+.source-d .br0 {color: #66cc66;}
+.source-d .st0 {color: #ff0000;}
+.source-d .nu0 {color: #cc66cc;}
+.source-d .me1 {color: #006600;}
+.source-d .me2 {color: #006600;}
+
+/*]]>*/
+</style>
+<style type="text/css">/*<![CDATA[*/
+@import "/w/index.php?title=MediaWiki:Geshi.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+/*]]>*/
+</style><style type="text/css">/*<![CDATA[*/
+.source-delphi {line-height: normal;}
+.source-delphi li {line-height: normal;}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for delphi
+ * CSS class: source-delphi, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie (http://qbnz.com/highlighter)
+ */
+.source-delphi .de1, .source-delphi .de2 {font-family: 'Courier New', Courier, monospace; font-weight: normal;}
+.source-delphi  {}
+.source-delphi .head {}
+.source-delphi .foot {}
+.source-delphi .imp {font-weight: bold; color: red;}
+.source-delphi .ln-xtra {color: #cc0; background-color: #ffc;}
+.source-delphi li {font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;}
+.source-delphi li.li2 {font-weight: bold;}
+.source-delphi .kw1 {color: #000000; font-weight: bold;}
+.source-delphi .kw2 {color: #000000; font-weight: bold;}
+.source-delphi .kw3 {color: #000066;}
+.source-delphi .kw4 {color: #993333;}
+.source-delphi .co1 {color: #808080; font-style: italic;}
+.source-delphi .coMULTI {color: #808080; font-style: italic;}
+.source-delphi .br0 {color: #66cc66;}
+.source-delphi .st0 {color: #ff0000;}
+.source-delphi .nu0 {color: #cc66cc;}
+.source-delphi .me1 {color: #006600;}
+.source-delphi .re0 {color: #9ac;}
+.source-delphi .re1 {color: #ff0000;}
+
+/*]]>*/
+</style>
+<style type="text/css">/*<![CDATA[*/
+@import "/w/index.php?title=MediaWiki:Geshi.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+/*]]>*/
+</style><style type="text/css">/*<![CDATA[*/
+.source-java {line-height: normal;}
+.source-java li {line-height: normal;}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for java
+ * CSS class: source-java, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie (http://qbnz.com/highlighter)
+ */
+.source-java .de1, .source-java .de2 {font-family: 'Courier New', Courier, monospace; font-weight: normal;}
+.source-java  {}
+.source-java .head {}
+.source-java .foot {}
+.source-java .imp {font-weight: bold; color: red;}
+.source-java .ln-xtra {color: #cc0; background-color: #ffc;}
+.source-java li {font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;}
+.source-java li.li2 {font-weight: bold;}
+.source-java .kw1 {color: #b1b100;}
+.source-java .kw2 {color: #000000; font-weight: bold;}
+.source-java .kw3 {color: #aaaadd; font-weight: bold;}
+.source-java .kw4 {color: #993333;}
+.source-java .co1 {color: #808080; font-style: italic;}
+.source-java .co2 {color: #a1a100;}
+.source-java .coMULTI {color: #808080; font-style: italic;}
+.source-java .es0 {color: #000099; font-weight: bold;}
+.source-java .br0 {color: #66cc66;}
+.source-java .st0 {color: #ff0000;}
+.source-java .nu0 {color: #cc66cc;}
+.source-java .me1 {color: #006600;}
+.source-java .me2 {color: #006600;}
+
+/*]]>*/
+</style>
+<style type="text/css">/*<![CDATA[*/
+@import "/w/index.php?title=MediaWiki:Geshi.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+/*]]>*/
+</style><style type="text/css">/*<![CDATA[*/
+.source-javascript {line-height: normal;}
+.source-javascript li {line-height: normal;}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for javascript
+ * CSS class: source-javascript, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie (http://qbnz.com/highlighter)
+ */
+.source-javascript .de1, .source-javascript .de2 {font-family: 'Courier New', Courier, monospace; font-weight: normal;}
+.source-javascript  {}
+.source-javascript .head {}
+.source-javascript .foot {}
+.source-javascript .imp {font-weight: bold; color: red;}
+.source-javascript .ln-xtra {color: #cc0; background-color: #ffc;}
+.source-javascript li {font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;}
+.source-javascript li.li2 {font-weight: bold;}
+.source-javascript .kw1 {color: #000066; font-weight: bold;}
+.source-javascript .kw2 {color: #003366; font-weight: bold;}
+.source-javascript .kw3 {color: #000066;}
+.source-javascript .co1 {color: #009900; font-style: italic;}
+.source-javascript .coMULTI {color: #009900; font-style: italic;}
+.source-javascript .es0 {color: #000099; font-weight: bold;}
+.source-javascript .br0 {color: #66cc66;}
+.source-javascript .st0 {color: #3366CC;}
+.source-javascript .nu0 {color: #CC0000;}
+.source-javascript .me1 {color: #006600;}
+.source-javascript .sc0 {}
+.source-javascript .sc1 {}
+.source-javascript .sc2 {}
+.source-javascript .sc3 {}
+.source-javascript .re0 {color: #0066FF;}
+
+/*]]>*/
+</style>
+<style type="text/css">/*<![CDATA[*/
+@import "/w/index.php?title=MediaWiki:Geshi.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+/*]]>*/
+</style><style type="text/css">/*<![CDATA[*/
+.source-lisp {line-height: normal;}
+.source-lisp li {line-height: normal;}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for lisp
+ * CSS class: source-lisp, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie (http://qbnz.com/highlighter)
+ */
+.source-lisp .de1, .source-lisp .de2 {font-family: 'Courier New', Courier, monospace; font-weight: normal;}
+.source-lisp  {}
+.source-lisp .head {}
+.source-lisp .foot {}
+.source-lisp .imp {font-weight: bold; color: red;}
+.source-lisp .ln-xtra {color: #cc0; background-color: #ffc;}
+.source-lisp li {font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;}
+.source-lisp li.li2 {font-weight: bold;}
+.source-lisp .kw1 {color: #b1b100;}
+.source-lisp .co1 {color: #808080; font-style: italic;}
+.source-lisp .coMULTI {color: #808080; font-style: italic;}
+.source-lisp .es0 {color: #000099; font-weight: bold;}
+.source-lisp .br0 {color: #66cc66;}
+.source-lisp .st0 {color: #ff0000;}
+.source-lisp .nu0 {color: #cc66cc;}
+.source-lisp .me0 {color: #555;}
+.source-lisp .me1 {color: #555;}
+
+/*]]>*/
+</style>
+<style type="text/css">/*<![CDATA[*/
+@import "/w/index.php?title=MediaWiki:Geshi.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+/*]]>*/
+</style><style type="text/css">/*<![CDATA[*/
+.source-c {line-height: normal;}
+.source-c li {line-height: normal;}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for c
+ * CSS class: source-c, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie (http://qbnz.com/highlighter)
+ */
+.source-c .de1, .source-c .de2 {font-family: 'Courier New', Courier, monospace; font-weight: normal;}
+.source-c  {}
+.source-c .head {}
+.source-c .foot {}
+.source-c .imp {font-weight: bold; color: red;}
+.source-c .ln-xtra {color: #cc0; background-color: #ffc;}
+.source-c li {font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;}
+.source-c li.li2 {font-weight: bold;}
+.source-c .kw1 {color: #b1b100;}
+.source-c .kw2 {color: #000000; font-weight: bold;}
+.source-c .kw3 {color: #000066;}
+.source-c .kw4 {color: #993333;}
+.source-c .co1 {color: #808080; font-style: italic;}
+.source-c .co2 {color: #339933;}
+.source-c .coMULTI {color: #808080; font-style: italic;}
+.source-c .es0 {color: #000099; font-weight: bold;}
+.source-c .br0 {color: #66cc66;}
+.source-c .st0 {color: #ff0000;}
+.source-c .nu0 {color: #cc66cc;}
+.source-c .me1 {color: #202020;}
+.source-c .me2 {color: #202020;}
+
+/*]]>*/
+</style>
+<style type="text/css">/*<![CDATA[*/
+@import "/w/index.php?title=MediaWiki:Geshi.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+/*]]>*/
+</style><style type="text/css">/*<![CDATA[*/
+.source-lua {line-height: normal;}
+.source-lua li {line-height: normal;}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for lua
+ * CSS class: source-lua, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie (http://qbnz.com/highlighter)
+ */
+.source-lua .de1, .source-lua .de2 {font-family: 'Courier New', Courier, monospace; font-weight: normal;}
+.source-lua  {}
+.source-lua .head {}
+.source-lua .foot {}
+.source-lua .imp {font-weight: bold; color: red;}
+.source-lua .ln-xtra {color: #cc0; background-color: #ffc;}
+.source-lua li {font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;}
+.source-lua li.li2 {font-weight: bold;}
+.source-lua .kw1 {color: #b1b100;}
+.source-lua .co1 {color: #808080; font-style: italic;}
+.source-lua .coMULTI {color: #808080; font-style: italic;}
+.source-lua .es0 {color: #000099; font-weight: bold;}
+.source-lua .br0 {color: #66cc66;}
+.source-lua .st0 {color: #ff0000;}
+.source-lua .nu0 {color: #cc66cc;}
+.source-lua .me0 {color: #b1b100;}
+
+/*]]>*/
+</style>
+<style type="text/css">/*<![CDATA[*/
+@import "/w/index.php?title=MediaWiki:Geshi.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+/*]]>*/
+</style><style type="text/css">/*<![CDATA[*/
+.source-ocaml {line-height: normal;}
+.source-ocaml li {line-height: normal;}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for ocaml
+ * CSS class: source-ocaml, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie (http://qbnz.com/highlighter)
+ */
+.source-ocaml .de1, .source-ocaml .de2 {font-family: 'Courier New', Courier, monospace; font-weight: normal;}
+.source-ocaml  {}
+.source-ocaml .head {}
+.source-ocaml .foot {}
+.source-ocaml .imp {font-weight: bold; color: red;}
+.source-ocaml .ln-xtra {color: #cc0; background-color: #ffc;}
+.source-ocaml li {font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;}
+.source-ocaml li.li2 {font-weight: bold;}
+.source-ocaml .kw1 {color: #06c; font-weight: bold;}
+.source-ocaml .coMULTI {color: #5d478b; font-style: italic;}
+.source-ocaml .br0 {color: #a52a2a;}
+.source-ocaml .st0 {color: #3cb371;}
+.source-ocaml .nu0 {color: #c6c;}
+.source-ocaml .me1 {color: #060;}
+
+/*]]>*/
+</style>
+<style type="text/css">/*<![CDATA[*/
+@import "/w/index.php?title=MediaWiki:Geshi.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+/*]]>*/
+</style><style type="text/css">/*<![CDATA[*/
+.source-perl {line-height: normal;}
+.source-perl li {line-height: normal;}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for perl
+ * CSS class: source-perl, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie (http://qbnz.com/highlighter)
+ */
+.source-perl .de1, .source-perl .de2 {font-family: 'Courier New', Courier, monospace; font-weight: normal;}
+.source-perl  {}
+.source-perl .head {}
+.source-perl .foot {}
+.source-perl .imp {font-weight: bold; color: red;}
+.source-perl .ln-xtra {color: #cc0; background-color: #ffc;}
+.source-perl li {font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;}
+.source-perl li.li2 {font-weight: bold;}
+.source-perl .kw1 {color: #b1b100;}
+.source-perl .kw2 {color: #000000; font-weight: bold;}
+.source-perl .kw3 {color: #000066;}
+.source-perl .co1 {color: #808080; font-style: italic;}
+.source-perl .coMULTI {color: #808080; font-style: italic;}
+.source-perl .es0 {color: #000099; font-weight: bold;}
+.source-perl .br0 {color: #66cc66;}
+.source-perl .st0 {color: #ff0000;}
+.source-perl .nu0 {color: #cc66cc;}
+.source-perl .me1 {color: #006600;}
+.source-perl .me2 {color: #006600;}
+.source-perl .re0 {color: #0000ff;}
+.source-perl .re4 {color: #009999;}
+
+/*]]>*/
+</style>
+<style type="text/css">/*<![CDATA[*/
+@import "/w/index.php?title=MediaWiki:Geshi.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+/*]]>*/
+</style><style type="text/css">/*<![CDATA[*/
+.source-php {line-height: normal;}
+.source-php li {line-height: normal;}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for php
+ * CSS class: source-php, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie (http://qbnz.com/highlighter)
+ */
+.source-php .de1, .source-php .de2 {font-family: 'Courier New', Courier, monospace; font-weight: normal;}
+.source-php  {}
+.source-php .head {}
+.source-php .foot {}
+.source-php .imp {font-weight: bold; color: red;}
+.source-php .ln-xtra {color: #cc0; background-color: #ffc;}
+.source-php li {font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;}
+.source-php li.li2 {font-weight: bold;}
+.source-php .kw1 {color: #b1b100;}
+.source-php .kw2 {color: #000000; font-weight: bold;}
+.source-php .kw3 {color: #000066;}
+.source-php .co1 {color: #808080; font-style: italic;}
+.source-php .co2 {color: #808080; font-style: italic;}
+.source-php .coMULTI {color: #808080; font-style: italic;}
+.source-php .es0 {color: #000099; font-weight: bold;}
+.source-php .br0 {color: #66cc66;}
+.source-php .st0 {color: #ff0000;}
+.source-php .nu0 {color: #cc66cc;}
+.source-php .me1 {color: #006600;}
+.source-php .me2 {color: #006600;}
+.source-php .sc0 {}
+.source-php .sc1 {}
+.source-php .sc2 {}
+.source-php .sc3 {}
+.source-php .re0 {color: #0000ff;}
+.source-php .re1 {color: #ff0000}
+
+/*]]>*/
+</style>
+<style type="text/css">/*<![CDATA[*/
+@import "/w/index.php?title=MediaWiki:Geshi.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+/*]]>*/
+</style><style type="text/css">/*<![CDATA[*/
+.source-python {line-height: normal;}
+.source-python li {line-height: normal;}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for python
+ * CSS class: source-python, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie (http://qbnz.com/highlighter)
+ */
+.source-python .de1, .source-python .de2 {font-family: 'Courier New', Courier, monospace; font-weight: normal;}
+.source-python  {}
+.source-python .head {}
+.source-python .foot {}
+.source-python .imp {font-weight: bold; color: red;}
+.source-python .ln-xtra {color: #cc0; background-color: #ffc;}
+.source-python li {font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;}
+.source-python li.li2 {font-weight: bold;}
+.source-python .kw1 {color: #ff7700;font-weight:bold;}
+.source-python .kw2 {color: #008000;}
+.source-python .kw3 {color: #dc143c;}
+.source-python .kw4 {color: #0000cd;}
+.source-python .co1 {color: #808080; font-style: italic;}
+.source-python .coMULTI {color: #808080; font-style: italic;}
+.source-python .es0 {color: #000099; font-weight: bold;}
+.source-python .br0 {color: #66cc66;}
+.source-python .st0 {color: #483d8b;}
+.source-python .nu0 {color: #ff4500;}
+.source-python .me1 {color: black;}
+
+/*]]>*/
+</style>
+<style type="text/css">/*<![CDATA[*/
+@import "/w/index.php?title=MediaWiki:Geshi.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+/*]]>*/
+</style><style type="text/css">/*<![CDATA[*/
+.source-ruby {line-height: normal;}
+.source-ruby li {line-height: normal;}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for ruby
+ * CSS class: source-ruby, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie (http://qbnz.com/highlighter)
+ */
+.source-ruby .de1, .source-ruby .de2 {font-family: 'Courier New', Courier, monospace; font-weight: normal;}
+.source-ruby  {}
+.source-ruby .head {}
+.source-ruby .foot {}
+.source-ruby .imp {font-weight: bold; color: red;}
+.source-ruby .ln-xtra {color: #cc0; background-color: #ffc;}
+.source-ruby li {font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;}
+.source-ruby li.li2 {font-weight: bold;}
+.source-ruby .kw1 {color:#9966CC; font-weight:bold;}
+.source-ruby .kw2 {color:#0000FF; font-weight:bold;}
+.source-ruby .kw3 {color:#CC0066; font-weight:bold;}
+.source-ruby .kw4 {color:#CC00FF; font-weight:bold;}
+.source-ruby .co1 {color:#008000; font-style:italic;}
+.source-ruby .coMULTI {color:#000080; font-style:italic;}
+.source-ruby .es0 {color:#000099;}
+.source-ruby .br0 {color:#006600; font-weight:bold;}
+.source-ruby .st0 {color:#996600;}
+.source-ruby .nu0 {color:#006666;}
+.source-ruby .me1 {color:#9900CC;}
+.source-ruby .sc0 {}
+.source-ruby .sc1 {}
+.source-ruby .sc2 {}
+.source-ruby .re0 {color:#ff6633; font-weight:bold;}
+.source-ruby .re1 {color:#0066ff; font-weight:bold;}
+.source-ruby .re2 {color:#6666ff; font-weight:bold;}
+.source-ruby .re3 {color:#ff3333; font-weight:bold;}
+
+/*]]>*/
+</style>
+<style type="text/css">/*<![CDATA[*/
+@import "/w/index.php?title=MediaWiki:Geshi.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+/*]]>*/
+</style><style type="text/css">/*<![CDATA[*/
+.source-smalltalk {line-height: normal;}
+.source-smalltalk li {line-height: normal;}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for smalltalk
+ * CSS class: source-smalltalk, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie (http://qbnz.com/highlighter)
+ */
+.source-smalltalk .de1, .source-smalltalk .de2 {font-family: 'Courier New', Courier, monospace; font-weight: normal;}
+.source-smalltalk  {}
+.source-smalltalk .head {}
+.source-smalltalk .foot {}
+.source-smalltalk .imp {font-weight: bold; color: red;}
+.source-smalltalk .ln-xtra {color: #cc0; background-color: #ffc;}
+.source-smalltalk li {font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;}
+.source-smalltalk li.li2 {font-weight: bold;}
+.source-smalltalk .kw1 {color: #7f007f;}
+.source-smalltalk .coMULTI {color: #007f00; font-style: italic;}
+.source-smalltalk .es0 {}
+.source-smalltalk .br0 {color: #000066; font-weight:bold;}
+.source-smalltalk .st0 {color: #7f0000;}
+.source-smalltalk .nu0 {color: #7f0000;}
+.source-smalltalk .me0 {}
+.source-smalltalk .sc0 {}
+.source-smalltalk .re0 {color: #0000ff;}
+.source-smalltalk .re1 {color: #7f0000;}
+.source-smalltalk .re2 {color: #7f0000;}
+.source-smalltalk .re3 {color: #00007f;}
+.source-smalltalk .re4 {color: #7f007f;}
+.source-smalltalk .re5 {color: #00007f;}
+.source-smalltalk .re6 {color: #00007f;}
+
+/*]]>*/
+</style>
+<style type="text/css">/*<![CDATA[*/
+@import "/w/index.php?title=MediaWiki:Geshi.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+/*]]>*/
+</style><style type="text/css">/*<![CDATA[*/
+.source-tcl {line-height: normal;}
+.source-tcl li {line-height: normal;}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for tcl
+ * CSS class: source-tcl, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie (http://qbnz.com/highlighter)
+ */
+.source-tcl .de1, .source-tcl .de2 {font-family: 'Courier New', Courier, monospace; font-weight: normal;}
+.source-tcl  {}
+.source-tcl .head {}
+.source-tcl .foot {}
+.source-tcl .imp {font-weight: bold; color: red;}
+.source-tcl .ln-xtra {color: #cc0; background-color: #ffc;}
+.source-tcl li {font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;}
+.source-tcl li.li2 {font-weight: bold;}
+.source-tcl .kw1 {color: #ff7700;font-weight:bold;}
+.source-tcl .kw2 {color: #008000;}
+.source-tcl .kw3 {color: #dc143c;}
+.source-tcl .kw4 {color: #0000cd;}
+.source-tcl .co1 {color: #808080; font-style: italic;}
+.source-tcl .coMULTI {color: #808080; font-style: italic;}
+.source-tcl .es0 {color: #000099; font-weight: bold;}
+.source-tcl .br0 {color: #66cc66;}
+.source-tcl .st0 {color: #483d8b;}
+.source-tcl .nu0 {color: #ff4500;}
+.source-tcl .me1 {color: black;}
+.source-tcl .re0 {color: #ff3333;}
+
+/*]]>*/
+</style>
+<style type="text/css">/*<![CDATA[*/
+@import "/w/index.php?title=MediaWiki:Geshi.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+/*]]>*/
+</style>	</head>
+<body  class="mediawiki ns-0 ltr page-Associative_array">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">Associative array</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<p>An <b>associative array</b> (also <b>map</b>, <b>mapping</b>, <b>hash</b>, <b>dictionary</b>, <b>finite map</b>, <b><a href="/wiki/Lookup_table" title="Lookup table">lookup table</a></b>, and in query-processing an <b>index</b> or <b>index file</b>) is an <a href="/wiki/Abstract_data_type" title="Abstract data type">abstract data type</a> composed of a collection of keys and a collection of values, where each key is associated with one value. The operation of finding the value associated with a key is called a <i>lookup</i> or indexing, and this is the most important operation supported by an associative array. The relationship between a key and its value is sometimes called a <a href="/wiki/Mapping" title="Mapping">mapping</a> or binding. For example, if the value associated with the key <code>"bob"</code> is <code>7</code>, we say that our array <i>maps</i> <code>"bob"</code> to <code>7</code>. Associative arrays are very closely related to the mathematical concept of a <a href="/wiki/Function_%28mathematics%29" title="Function (mathematics)">function</a> with a finite <a href="/wiki/Function_domain" title="Function domain">domain</a>. As a consequence, a common and important use of associative arrays is in <a href="/wiki/Memoization" title="Memoization">memoization</a>.</p>
+<p>From the perspective of a programmer using an associative array, it can be viewed as a generalization of an array: While a regular <a href="/wiki/Array" title="Array">array</a> maps integers to <a href="/w/index.php?title=Arbitrarily_typed_objects&amp;action=edit" class="new" title="Arbitrarily typed objects">arbitrarily typed objects</a> (integers, strings, pointers, and, in an <a href="/wiki/Object-oriented_programming" title="Object-oriented programming">OO</a> sense, <a href="/wiki/Object_%28computer_science%29" title="Object (computer science)">objects</a>), an associative array maps arbitrarily typed objects to arbitrarily typed objects. (Implementations of the two <a href="/wiki/Data_structures" title="Data structures">data structures</a>, though, may be considerably different.)</p>
+<p>The operations that are usually defined for an associative array are:</p>
+<ul>
+<li><b>Add</b>: Bind a new key to a new value</li>
+<li><b>Reassign</b>: Bind an old key to a new value</li>
+<li><b>Remove</b>: Unbind a key from a value and remove the key from the key set</li>
+<li><b>Lookup</b>: Find the value (if any) that is bound to a key</li>
+</ul>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Examples"><span class="tocnumber">1</span> <span class="toctext">Examples</span></a></li>
+<li class="toclevel-1"><a href="#Data_structures_for_associative_arrays"><span class="tocnumber">2</span> <span class="toctext">Data structures for associative arrays</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Efficient_representations"><span class="tocnumber">2.1</span> <span class="toctext">Efficient representations</span></a></li>
+<li class="toclevel-2"><a href="#Association_lists"><span class="tocnumber">2.2</span> <span class="toctext">Association lists</span></a></li>
+<li class="toclevel-2"><a href="#Specialized_representations"><span class="tocnumber">2.3</span> <span class="toctext">Specialized representations</span></a></li>
+<li class="toclevel-2"><a href="#Multimap"><span class="tocnumber">2.4</span> <span class="toctext">Multimap</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Language_support"><span class="tocnumber">3</span> <span class="toctext">Language support</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Awk"><span class="tocnumber">3.1</span> <span class="toctext">Awk</span></a></li>
+<li class="toclevel-2"><a href="#C"><span class="tocnumber">3.2</span> <span class="toctext">C</span></a></li>
+<li class="toclevel-2"><a href="#ColdFusion"><span class="tocnumber">3.3</span> <span class="toctext">ColdFusion</span></a></li>
+<li class="toclevel-2"><a href="#Basic"><span class="tocnumber">3.4</span> <span class="toctext">Basic</span></a></li>
+<li class="toclevel-2"><a href="#C.23"><span class="tocnumber">3.5</span> <span class="toctext">C#</span></a></li>
+<li class="toclevel-2"><a href="#C.2B.2B"><span class="tocnumber">3.6</span> <span class="toctext">C++</span></a></li>
+<li class="toclevel-2"><a href="#Cocoa.2FGNUstep_.28Objective-C.29"><span class="tocnumber">3.7</span> <span class="toctext">Cocoa/GNUstep (Objective-C)</span></a></li>
+<li class="toclevel-2"><a href="#D"><span class="tocnumber">3.8</span> <span class="toctext">D</span></a></li>
+<li class="toclevel-2"><a href="#Delphi"><span class="tocnumber">3.9</span> <span class="toctext">Delphi</span></a></li>
+<li class="toclevel-2"><a href="#Java"><span class="tocnumber">3.10</span> <span class="toctext">Java</span></a></li>
+<li class="toclevel-2"><a href="#JavaScript"><span class="tocnumber">3.11</span> <span class="toctext">JavaScript</span></a></li>
+<li class="toclevel-2"><a href="#KornShell_93_.28and_compliant_shells:_ksh93.2C_zsh.2C_....29"><span class="tocnumber">3.12</span> <span class="toctext">KornShell 93 (and compliant shells: ksh93, zsh, ...)</span></a></li>
+<li class="toclevel-2"><a href="#Lisp"><span class="tocnumber">3.13</span> <span class="toctext">Lisp</span></a></li>
+<li class="toclevel-2"><a href="#LPC"><span class="tocnumber">3.14</span> <span class="toctext">LPC</span></a></li>
+<li class="toclevel-2"><a href="#Lua"><span class="tocnumber">3.15</span> <span class="toctext">Lua</span></a></li>
+<li class="toclevel-2"><a href="#MUMPS"><span class="tocnumber">3.16</span> <span class="toctext">MUMPS</span></a></li>
+<li class="toclevel-2"><a href="#OCaml"><span class="tocnumber">3.17</span> <span class="toctext">OCaml</span></a></li>
+<li class="toclevel-2"><a href="#Perl"><span class="tocnumber">3.18</span> <span class="toctext">Perl</span></a></li>
+<li class="toclevel-2"><a href="#PHP"><span class="tocnumber">3.19</span> <span class="toctext">PHP</span></a></li>
+<li class="toclevel-2"><a href="#Pike"><span class="tocnumber">3.20</span> <span class="toctext">Pike</span></a></li>
+<li class="toclevel-2"><a href="#Python"><span class="tocnumber">3.21</span> <span class="toctext">Python</span></a></li>
+<li class="toclevel-2"><a href="#REXX"><span class="tocnumber">3.22</span> <span class="toctext">REXX</span></a></li>
+<li class="toclevel-2"><a href="#Ruby"><span class="tocnumber">3.23</span> <span class="toctext">Ruby</span></a></li>
+<li class="toclevel-2"><a href="#Smalltalk"><span class="tocnumber">3.24</span> <span class="toctext">Smalltalk</span></a></li>
+<li class="toclevel-2"><a href="#SNOBOL"><span class="tocnumber">3.25</span> <span class="toctext">SNOBOL</span></a></li>
+<li class="toclevel-2"><a href="#TCL"><span class="tocnumber">3.26</span> <span class="toctext">TCL</span></a></li>
+<li class="toclevel-2"><a href="#Windows_PowerShell"><span class="tocnumber">3.27</span> <span class="toctext">Windows PowerShell</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#External_links"><span class="tocnumber">4</span> <span class="toctext">External links</span></a></li>
+<li class="toclevel-1"><a href="#References"><span class="tocnumber">5</span> <span class="toctext">References</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script>
+<p><a name="Examples" id="Examples"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Associative_array&amp;action=edit&amp;section=1" title="Edit section: Examples">edit</a>]</span> <span class="mw-headline">Examples</span></h2>
+<p>One can think of a telephone book as an example of an associative array, where names are the keys and phone numbers are the values. Using the usual array-like notation, we might write</p>
+<pre>
+telephone['ada']='01-1234-56'
+telephone['bert']='02-4321-56'
+</pre>
+<p>and so on. These entries can be thought of as two records in a database table:</p>
+<table class="wikitable">
+<tr>
+<th>name</th>
+<th>telephone</th>
+</tr>
+<tr>
+<td>ada</td>
+<td>01-1234-56</td>
+</tr>
+<tr>
+<td>bert</td>
+<td>02-4321-56</td>
+</tr>
+</table>
+<p><br />
+Another example would be a dictionary where words are the keys and definitions are the values.</p>
+<pre>
+dictionary['toad']='four legged amphibian'
+dictionary['cow']='female four-legged domesticated mammalian ruminant'
+</pre>
+<p>Since a database equivalent is that of a table containing precisely two fields - key and value, we can use the hash to store any information which can be held in this form.</p>
+<pre>
+capital['england']='london'
+capital['france']='paris'
+
+bossof['subeditor']='editor'
+bossof['reporter']='subeditor'
+
+salary['editor']=50000
+salary['reporter']=30000
+</pre>
+<p><a name="Data_structures_for_associative_arrays" id="Data_structures_for_associative_arrays"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Associative_array&amp;action=edit&amp;section=2" title="Edit section: Data structures for associative arrays">edit</a>]</span> <span class="mw-headline">Data structures for associative arrays</span></h2>
+<p>Associative arrays are usually used when lookup is the most frequent operation. For this reason, implementations are usually designed to allow speedy lookup, at the expense of slower insertion and a larger storage footprint than other data structures (such as <a href="/wiki/Association_list" title="Association list">association lists</a>).</p>
+<p><a name="Efficient_representations" id="Efficient_representations"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Associative_array&amp;action=edit&amp;section=3" title="Edit section: Efficient representations">edit</a>]</span> <span class="mw-headline">Efficient representations</span></h3>
+<p>There are two main efficient data structures used to represent associative arrays, the <a href="/wiki/Hash_table" title="Hash table">hash table</a> and the <a href="/wiki/Self-balancing_binary_search_tree" title="Self-balancing binary search tree">self-balancing binary search tree</a>. <a href="/wiki/Skip_list" title="Skip list">Skip lists</a> are also an alternative, though relatively new and not as widely used. Relative advantages and disadvantages include:</p>
+<ul>
+<li>Hash tables have faster average lookup and insertion time (O(1)), while some kinds of <a href="/wiki/Binary_search_tree" title="Binary search tree">binary search tree</a> have faster worst-case lookup and insertion time (O(log <var>n</var>) instead of O(<var>n</var>)). Hash tables have seen extensive use in <a href="/w/index.php?title=Realtime_systems&amp;action=edit" class="new" title="Realtime systems">realtime systems</a>, but trees can be useful in high-security realtime systems where untrusted users may deliberately supply information that triggers worst-case performance in a hash table, although careful design can remove that issue. Hash tables shine in very large arrays, where O(1) performance is important. Skip lists have worst-case operation time of O(<var>n</var>), but average-case of O(log <var>n</var>), with much less insertion and deletion <a href="/wiki/Overhead" title="Overhead">overhead</a> than balanced binary trees.</li>
+<li>Hash tables can have more compact storage for small value types, especially when the values are bits.</li>
+<li>There are simple <a href="/wiki/Persistent_data_structure" title="Persistent data structure">persistent</a> versions of balanced binary trees, which are especially prominent in <a href="/wiki/Functional_language" title="Functional language">functional languages</a>.</li>
+<li>Building a hash table requires a reasonable <a href="/wiki/Hash_function" title="Hash function">hash function</a> for the key type, which can be difficult to write well, while balanced binary trees and skip lists only require a <a href="/wiki/Total_ordering" title="Total ordering">total ordering</a> on the keys. On the other hand, with hash tables the data may be <a href="/wiki/Cyclic_order" title="Cyclic order">cyclically</a> or <a href="/wiki/Partial_ordering" title="Partial ordering">partially ordered</a> without any problems.</li>
+<li>Balanced binary trees and skip lists preserve ordering — allowing one to efficiently iterate over the keys in order or to efficiently locate an association whose key is nearest to a given value. Hash tables do not preserve ordering and therefore cannot perform these operations as efficiently.</li>
+<li>Balanced binary trees can be easily adapted to efficiently assign a single value to a large ordered range of keys, or to count the number of keys in an ordered range.</li>
+</ul>
+<p><a name="Association_lists" id="Association_lists"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Associative_array&amp;action=edit&amp;section=4" title="Edit section: Association lists">edit</a>]</span> <span class="mw-headline">Association lists</span></h3>
+<p>A simple but generally inefficient type of associative array is an <i><a href="/wiki/Association_list" title="Association list">association list</a></i>, often called an <i>alist</i> for short, which simply stores a <a href="/wiki/Linked_list" title="Linked list">linked list</a> of key-value pairs. Each lookup does a <a href="/wiki/Linear_search" title="Linear search">linear search</a> through the list looking for a key match.</p>
+<p>Strong advantages of association lists include:</p>
+<ul>
+<li>No knowledge is needed about the keys, such as an order or a hash function.</li>
+<li>For small associative arrays, common in some applications, association lists can take less time and space than other data structures.</li>
+<li>Insertions are done in constant time by <a href="/wiki/Cons" title="Cons">cons</a>'ing the new association to the head of the list.</li>
+</ul>
+<p><a name="Specialized_representations" id="Specialized_representations"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Associative_array&amp;action=edit&amp;section=5" title="Edit section: Specialized representations">edit</a>]</span> <span class="mw-headline">Specialized representations</span></h3>
+<p>If the keys have a specific type, one can often use specialized data structures to gain performance. For example, integer-keyed maps can be implemented using <a href="/wiki/Patricia_tree" title="Patricia tree">Patricia trees</a> or <a href="/wiki/Judy_array" title="Judy array">Judy arrays</a>, and are useful space-saving replacements for sparse arrays. Because this type of data structure can perform longest-prefix matching, they're particularly useful in applications where a single value is assigned to most of a large range of keys with a common prefix except for a few exceptions, such as in <a href="/wiki/Routing_table" title="Routing table">routing tables</a>.</p>
+<p>String-keyed maps can avoid extra comparisons during lookups by using <a href="/wiki/Trie" title="Trie">tries</a>.</p>
+<p><a name="Multimap" id="Multimap"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Associative_array&amp;action=edit&amp;section=6" title="Edit section: Multimap">edit</a>]</span> <span class="mw-headline">Multimap</span></h3>
+<dl>
+<dd>
+<div class="noprint"><i>Main article: <a href="/wiki/Multimap_%28data_structure%29" title="Multimap (data structure)">Multimap (data structure)</a></i></div>
+</dd>
+</dl>
+<p>A variation of the map (associative array) is the multimap, which is the same as map data structures, but allows a key to be mapped to more than one value. Formally, a multimap can be thought of as a regular associative array that maps unique keys to nonempty multisets of values, although actual implementation may vary. C++'s Standard Template Library provides the "<code>multimap</code>" class for the sorted multimap, SGI's STL provides the "<code>hash_multimap</code>" class, which implements a multimap using a hash table, and some varieties of <a href="/wiki/LPC_%28programming_language%29" title="LPC (programming language)">LPC</a> have built-in multimap support.</p>
+<p><a name="Language_support" id="Language_support"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Associative_array&amp;action=edit&amp;section=7" title="Edit section: Language support">edit</a>]</span> <span class="mw-headline">Language support</span></h2>
+<table style="" class="metadata plainlinks ambox ambox-growth">
+<tr>
+<td class="ambox-image"><a href="/wiki/Image:Green_plus_icon.png" class="image" title="Image:Green plus icon.png"><img alt="Image:Green plus icon.png" src="http://upload.wikimedia.org/wikipedia/commons/d/dc/Green_plus_icon.png" width="40" height="40" border="0" /></a></td>
+<td><b>Please help <a href="http://en.wikipedia.org/w/index.php?title=Associative_array&amp;action=edit" class="external text" title="http://en.wikipedia.org/w/index.php?title=Associative_array&amp;action=edit" rel="nofollow">improve this article</a> by expanding it.</b><br />
+<small>Further information might be found on the <a href="/wiki/Talk:Associative_array" title="Talk:Associative array">talk page</a> or at <a href="/wiki/Wikipedia:Requests_for_expansion" title="Wikipedia:Requests for expansion">requests for expansion</a>.<br />
+This article has been tagged since <b>January 2007</b>.</small></td>
+</tr>
+</table>
+<p>Associative arrays can be implemented in any programming language as a package and many language systems provide them as part of their standard library. In some languages, they are not only built into the standard system, but have special syntax, often array-like subscripting.</p>
+<p>Built-in syntactic support for associative arrays was introduced by <a href="/wiki/Snobol4" title="Snobol4">Snobol4</a>, under the name "table". <a href="/wiki/MUMPS" title="MUMPS">MUMPS</a> made multi-dimensional associative arrays, optionally persistent, its key data structure. <a href="/wiki/SETL" title="SETL">SETL</a> supported them as one possible implementation of sets and maps. Most modern scripting languages, starting with <a href="/wiki/Awk" title="Awk">awk</a> and including <a href="/wiki/Perl" title="Perl">Perl</a>, <a href="/wiki/Tcl" title="Tcl">tcl</a>, <a href="/wiki/Javascript" title="Javascript">Javascript</a>, <a href="/wiki/Python_%28programming_language%29" title="Python (programming language)">Python</a>, and <a href="/wiki/Ruby_%28programming_language%29" title="Ruby (programming language)">Ruby</a>, support associative arrays as their primary array type.</p>
+<p>In many more languages, they are available as library functions without special syntax.</p>
+<p>Associative arrays have a variety of names. In <a href="/wiki/Smalltalk_programming_language" title="Smalltalk programming language">Smalltalk</a>, <a href="/wiki/Objective-C_programming_language" title="Objective-C programming language">Objective-C</a> and <a href="/wiki/Python_%28programming_language%29" title="Python (programming language)">Python</a> they are called <i>dictionaries</i>; in <a href="/wiki/Perl" title="Perl">Perl</a> and <a href="/wiki/Ruby_programming_language" title="Ruby programming language">Ruby</a> they are called <i>hashes</i>; in <a href="/wiki/C%2B%2B" title="C++">C++</a> and <a href="/wiki/Java_%28programming_language%29" title="Java (programming language)">Java</a> they are called <i>maps</i> (see <code><a href="http://java.sun.com/javase/6/docs/api/java/util/Map.html" class="external text" title="http://java.sun.com/javase/6/docs/api/java/util/Map.html" rel="nofollow">Map</a></code>) and in <a href="/wiki/Common_Lisp" title="Common Lisp">Common Lisp</a> and <a href="/wiki/Windows_PowerShell" title="Windows PowerShell">Windows PowerShell</a> they are called <i>hashtables</i> (since both typically use this implementation). In <a href="/wiki/PHP" title="PHP">PHP</a> all arrays can be associative, except that the keys are limited to integers and strings and can only be a single level of subscripts.</p>
+<p>In the scripting language <a href="/wiki/Lua_programming_language" title="Lua programming language">Lua</a>, associative arrays, called <i>tables</i>, are used as the primitive building block for all data structures, even arrays. Likewise, in <a href="/wiki/JavaScript" title="JavaScript">JavaScript</a>, all objects are associative arrays. In MUMPS, the associative arrays are typically stored as <a href="/wiki/B-trees" title="B-trees">B-trees</a>.</p>
+<p><a name="Awk" id="Awk"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Associative_array&amp;action=edit&amp;section=8" title="Edit section: Awk">edit</a>]</span> <span class="mw-headline">Awk</span></h3>
+<p><a href="/wiki/Awk" title="Awk">Awk</a> has built-in, language-level support for associative arrays.</p>
+<p>For example:</p>
+<div dir="ltr">
+<pre class="source-text">
+phonebook["Sally Smart"] = "555-9999"
+phonebook["John Doe"] = "555-1212"
+phonebook["J. Random Hacker"] = "555-1337"
+</pre></div>
+<p>You can also loop through an associated array as follows:</p>
+<div dir="ltr">
+<pre class="source-text">
+for (name in phonebook) {
+        print name, " ", phonebook[name]
+}
+</pre></div>
+<p>You can also check if an element is in the associative array, and delete elements from an associative array.</p>
+<p>Multi-dimensional associative arrays can be implemented in standard Awk using concatenation and e.g. SUBSEP:</p>
+<div dir="ltr">
+<pre class="source-text">
+{ # for every input line
+        multi[$1 SUBSEP $2]++;
+}
+#
+END {
+        for (x in multi) {
+                split(x, arr, SUBSEP);
+                print arr[1], arr[2], multi[x];
+        }
+}
+</pre></div>
+<p>Thompson AWK <a href="http://www.tasoft.com/tawk.html" class="external autonumber" title="http://www.tasoft.com/tawk.html" rel="nofollow">[1]</a> provides built-in multi-dimensional associative arrays:</p>
+<div dir="ltr">
+<pre class="source-text">
+{ # for every input line
+        multi[$1][$2]++;
+}
+#
+END {
+        for (x in multi)
+                for (y in multi[x])
+                print x, y, multi[x][y];
+}
+</pre></div>
+<p><a name="C" id="C"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Associative_array&amp;action=edit&amp;section=9" title="Edit section: C">edit</a>]</span> <span class="mw-headline">C</span></h3>
+<p>There is no standard implementation of an associative array in C, but a 3rd party library with BSD license is available <a href="http://www.cl.cam.ac.uk/~cwc22/hashtable/" class="external text" title="http://www.cl.cam.ac.uk/~cwc22/hashtable/" rel="nofollow">here</a>. <a href="/wiki/POSIX" title="POSIX">POSIX</a> 1003.1-2001 describes the functions hcreate(), hdestroy() and hsearch().</p>
+<p>Another 3rd party library, <a href="http://uthash.sourceforge.net/" class="external text" title="http://uthash.sourceforge.net/" rel="nofollow">uthash</a>, also creates associative arrays from C structures. A structure represents a value, and one of the structure fields acts as the key.</p>
+<p>Finally, the <a href="/wiki/Glib" title="Glib">Glib</a> library also supports associative arrays, along with many other advanced data types and is the recommended implementation of the GNU Project.</p>
+<p><a name="ColdFusion" id="ColdFusion"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Associative_array&amp;action=edit&amp;section=10" title="Edit section: ColdFusion">edit</a>]</span> <span class="mw-headline">ColdFusion</span></h3>
+<p>You can use a ColdFusion structure to perform as an associative array. Here is a sample in <a href="/wiki/ColdFusion" title="ColdFusion">ColdFusion</a>:</p>
+<div dir="ltr">
+<pre class="source-cfm">
+<span class="sc2"><span class="kw1">&lt;cfscript&gt;</span>
+        phoneBook <span class="kw6">=</span> <span class="kw5">StructNew</span><span class="br0">(</span><span class="br0">)</span>;
+        phoneBook<span class="br0">[</span><span class="st0">"Sally Smart"</span><span class="br0">]</span> = <span class="st0">"555-9999"</span>;
+        phoneBook<span class="br0">[</span><span class="st0">"John Doe"</span><span class="br0">]</span> = <span class="st0">"555-1212"</span>;
+        phoneBook<span class="br0">[</span><span class="st0">"J. Random Hacker"</span><span class="br0">]</span> = <span class="st0">"555-1337"</span>;
+        sName <span class="kw6">=</span> <span class="st0">"A Person"</span>;
+        phoneBook<span class="br0">[</span>sName<span class="br0">]</span> <span class="kw6">=</span> <span class="st0">"555-4321"</span>;
+        phoneBook.UnknownComic <span class="kw6">=</span> <span class="st0">"???"</span>;
+<span class="kw1">&lt;/cfscript&gt;</span>
+ 
+<span class="coMULTI">&lt;!-- will output 3 question marks below: --&gt;</span>
+<span class="kw1">&lt;cfoutput&gt;</span>
+        #phoneBook<span class="br0">[</span><span class="st0">"UnknownComic"</span><span class="br0">]</span>#
+<span class="kw1">&lt;/cfoutput&gt;</span>
+</span>
+</pre></div>
+<p><a name="Basic" id="Basic"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Associative_array&amp;action=edit&amp;section=11" title="Edit section: Basic">edit</a>]</span> <span class="mw-headline">Basic</span></h3>
+<p>There is no standard implementation common to all dialects. <a href="/wiki/Visual_Basic" title="Visual Basic">Visual Basic</a> can use the Dictionary class from the <a href="/wiki/Windows_Scripting_Host" title="Windows Scripting Host">Microsoft Scripting Runtime</a> (which is shipped with Visual Basic 6):</p>
+<div dir="ltr">
+<pre class="source-vb">
+<span class="co1">' Requires a reference to SCRRUN.DLL in Project Properties</span>
+<span class="kw1">Dim</span> phoneBook <span class="kw1">As</span> <span class="kw1">New</span> Dictionary
+phoneBook.<span class="me1">Add</span> <span class="st0">"Sally Smart"</span>, <span class="st0">"555-9999"</span>
+phoneBook.<span class="me1">Item</span><span class="br0">(</span><span class="st0">"John Doe"</span><span class="br0">)</span> = <span class="st0">"555-1212"</span>
+phoneBook<span class="br0">(</span><span class="st0">"J. Random Hacker"</span><span class="br0">)</span> = <span class="st0">"553-1337"</span>
+<span class="kw1">For</span> Each <span class="kw1">name</span> In phoneBook
+        <span class="kw1">MsgBox</span> <span class="kw1">name</span> &amp; <span class="st0">" = "</span> &amp; phoneBook<span class="br0">(</span><span class="kw1">name</span><span class="br0">)</span>
+<span class="kw1">Next</span>
+</pre></div>
+<p><a href="/wiki/Visual_Basic_.NET" title="Visual Basic .NET">Visual Basic .NET</a> relies on the collection classes provided by <a href="/wiki/.NET_Framework" title=".NET Framework">.NET Framework</a>:</p>
+<div dir="ltr">
+<pre class="source-vb">
+<span class="kw1">Dim</span> phoneBook <span class="kw1">As</span> <span class="kw1">New</span> System.<span class="me1">Collections</span>.<span class="me1">Generic</span>.<span class="me1">Dictionary</span><span class="br0">(</span>Of <span class="kw1">String</span>, <span class="kw1">String</span><span class="br0">)</span>
+phoneBook<span class="br0">(</span><span class="st0">"Sally Smart"</span><span class="br0">)</span> = <span class="st0">"555-9999"</span>
+phoneBook<span class="br0">(</span><span class="st0">"John Doe"</span><span class="br0">)</span> = <span class="st0">"555-1212"</span>
+phoneBook<span class="br0">(</span><span class="st0">"J. Random Hacker"</span><span class="br0">)</span> = <span class="st0">"553-1337"</span>
+<span class="kw1">For</span> Each entry <span class="kw1">As</span> KeyValuePair<span class="br0">(</span>Of <span class="kw1">String</span>, <span class="kw1">String</span><span class="br0">)</span> In phoneBook
+        <span class="kw1">MsgBox</span><span class="br0">(</span>entry.<span class="me1">Key</span> &amp; <span class="st0">" = "</span> &amp; entry.<span class="me1">Value</span><span class="br0">)</span>
+<span class="kw1">Next</span>
+</pre></div>
+<p><a name="C.23" id="C.23"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Associative_array&amp;action=edit&amp;section=12" title="Edit section: C#">edit</a>]</span> <span class="mw-headline">C#</span></h3>
+<div dir="ltr">
+<pre class="source-csharp">
+Hashtable ht = <span class="kw3">new</span> Hashtable<span class="br0">(</span><span class="br0">)</span>;
+ht.<span class="me1">Add</span><span class="br0">(</span><span class="st0">"testKey"</span>, <span class="st0">"AssociatedData"</span><span class="br0">)</span>;
+MessageBox.<span class="me1">Show</span><span class="br0">(</span><span class="br0">(</span><span class="kw4">string</span><span class="br0">)</span> ht<span class="br0">[</span><span class="st0">"testKey"</span><span class="br0">]</span><span class="br0">)</span>;
+</pre></div>
+<div dir="ltr">
+<pre class="source-csharp">
+Dictionary&lt;int, string&gt; dic = <span class="kw3">new</span> Dictionary&lt;int, string&gt;<span class="br0">(</span><span class="br0">)</span>;
+dic.<span class="me1">Add</span><span class="br0">(</span><span class="nu0">7</span>, <span class="st0">"Bond"</span><span class="br0">)</span>;
+MessageBox.<span class="me1">Show</span><span class="br0">(</span>dic<span class="br0">[</span><span class="nu0">7</span><span class="br0">]</span><span class="br0">)</span>;
+</pre></div>
+<p>In the above sample the Hashtable class is only capable of associating a String key with a value of Object type. Because in .NET all types (save pointers) ultimately derive from Object anything can be put into a Hashtable, even data of different types. This could lead to errors if consuming code expects data to be of a singular type. In the above code casting is required to convert the Object variables back to their original type. Additionally, casting value-types (structures such as integers) to Object to put into the Hashtable and casting them back requires boxing/unboxing which incurs both a slight performance penalty and pollutes the heap with garbage. This changes in C# 2.0 with generic hashtables called dictionaries. There are significant performance and reliability gains to these strongly typed collections because they do not require boxing/unboxing or explicit type casts and introduce compile-time type checks.</p>
+<p><a name="C.2B.2B" id="C.2B.2B"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Associative_array&amp;action=edit&amp;section=13" title="Edit section: C++">edit</a>]</span> <span class="mw-headline">C++</span></h3>
+<p><a href="/wiki/C%2B%2B" title="C++">C++</a> also has a form of associative array called <code>std::map</code> (see <a href="/wiki/Standard_Template_Library#Containers" title="Standard Template Library">Standard Template Library#Containers</a>). One could create a map with the same information as above using C++ with the following code:</p>
+<div dir="ltr">
+<pre class="source-cpp">
+<span class="co2">#include &lt;map&gt;</span>
+<span class="co2">#include &lt;string&gt;</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span> <span class="br0">{</span>
+        std::<span class="me2">map</span>&lt;std::<span class="me2">string</span>, std::<span class="me2">string</span>&gt; phone_book;
+        phone_book<span class="br0">[</span><span class="st0">"Sally Smart"</span><span class="br0">]</span> = <span class="st0">"555-9999"</span>;
+        phone_book<span class="br0">[</span><span class="st0">"John Doe"</span><span class="br0">]</span> = <span class="st0">"555-1212"</span>;
+        phone_book<span class="br0">[</span><span class="st0">"J. Random Hacker"</span><span class="br0">]</span> = <span class="st0">"553-1337"</span>;
+        <span class="kw1">return</span> <span class="nu0">0</span>;
+<span class="br0">}</span>
+</pre></div>
+<p>You can iterate through the list with the following code:</p>
+<div dir="ltr">
+<pre class="source-cpp">
+std::<span class="me2">map</span>&lt;string, string&gt;::<span class="me2">iterator</span> curr,end;
+<span class="kw1">for</span><span class="br0">(</span> curr = phone_book.<span class="me1">begin</span><span class="br0">(</span><span class="br0">)</span>, end = phone_book.<span class="me1">end</span><span class="br0">(</span><span class="br0">)</span>;  curr != end;  curr++ <span class="br0">)</span>
+        <span class="kw3">cout</span> &lt;&lt;  curr-&gt;first + <span class="st0">" = "</span> + curr-&gt;second &lt;&lt; endl;
+</pre></div>
+<p>In C++, the <code>std::map</code> class is <a href="/wiki/Generic_programming#Templates_in_C.2B.2B" title="Generic programming">templated</a> which allows the <a href="/wiki/Data_type" title="Data type">data types</a> of keys and values to be different for different <code>map</code> instances. For a given instance of the <code>map</code> class the keys must be of the same base type. The same must be true for all of the values. Although <code>std::map</code> is typically implemented using a <a href="/wiki/Self-balancing_binary_search_tree" title="Self-balancing binary search tree">self-balancing binary search tree</a>, the SGI STL also provides a <code>std::hash_map</code> which has the algorithmic benefits of a <a href="/wiki/Hash_table" title="Hash table">hash table</a>.</p>
+<p><a name="Cocoa.2FGNUstep_.28Objective-C.29" id="Cocoa.2FGNUstep_.28Objective-C.29"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Associative_array&amp;action=edit&amp;section=14" title="Edit section: Cocoa/GNUstep (Objective-C)">edit</a>]</span> <span class="mw-headline">Cocoa/GNUstep (Objective-C)</span></h3>
+<p><a href="/wiki/Cocoa_%28API%29" title="Cocoa (API)">Cocoa (API)</a> and <a href="/wiki/GNUstep" title="GNUstep">GNUstep</a> handle associative arrays using NSMutableDictionary (a mutable version of NSDictionary) class cluster. This class allows assignments between any two objects to be made. A copy of the key object is made before it is inserted into NSMutableDictionary, therefore the keys must conform to the NSCopying protocol. When being inserted to a dictionary, the value object receives a retain message to increase its reference count. The value object will receive the release message when it will be deleted from the dictionary (both explicitly or by adding to the dictionary a different object with the same key).</p>
+<pre>
+NSMutableDictionary *aDictionary = [[NSMutableDictionary alloc] init];
+[aDictionary setObject:@"555-9999" forKey:@"Sally Smart"]; 
+[aDictionary setObject:@"555-1212" forKey:@"John Doe"]; 
+[aDictionary setObject:@"553-1337" forKey:@"Random Hacker"]; 
+</pre>
+<p>To access assigned objects this command may be used:</p>
+<pre>
+id anObject = [aDictionary objectForKey:@"Sally Smart"];
+</pre>
+<p>All keys or values can be simply enumerated using NSEnumerator</p>
+<pre>
+NSEnumerator *keyEnumerator = [[aDictionary allKeys] objectEnumerator];
+id key;
+while (( key = [keyEnumerator nextObject] ))
+{
+  // ... process it here ...
+}
+</pre>
+<p>What is even more practical, structured data graphs may be easily created using <a href="/wiki/Cocoa_%28API%29" title="Cocoa (API)">Cocoa (API)</a>, especially NSDictionary (NSMutableDictionary). This can be illustrated with this compact example:</p>
+<pre>
+NSDictionary *aDictionary =
+       [NSDictionary dictionaryWithObjectsAndKeys:
+                           [NSDictionary dictionaryWithObjectsAndKeys:
+                                   @"555-9999", @"Sally Smart",
+                                   @"555-1212", @"John Doe",
+                                   nil], @"students",
+                           [NSDictionary dictionaryWithObjectsAndKeys:
+                                   @"553-1337", @"Random Hacker",
+                                   nil], @"hackers",
+                           nil];
+</pre>
+<p>And relevant fields can be quickly accessed using key paths:</p>
+<pre>
+id anObject = [aDictionary valueForKeyPath:@"students.Sally Smart"];
+</pre>
+<p><a name="D" id="D"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Associative_array&amp;action=edit&amp;section=15" title="Edit section: D">edit</a>]</span> <span class="mw-headline">D</span></h3>
+<p><a href="/wiki/D_programming_language" title="D programming language">D</a> offers direct support for associative arrays in the core language - they are implemented as trees <sup class="noprint Template-Fact"><span title="This claim needs references to reliable sources&#160;since March 2007" style="white-space: nowrap;">[<i><a href="/wiki/Wikipedia:Citing_sources" title="Wikipedia:Citing sources">citation needed</a></i>]</span></sup>. The equivalent example would be:</p>
+<div dir="ltr">
+<pre class="source-d">
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span> <span class="br0">{</span>
+        <span class="kw4">char</span><span class="br0">[</span><span class="br0">]</span><span class="br0">[</span><span class="kw4">char</span><span class="br0">[</span><span class="br0">]</span><span class="br0">]</span> phone_book;
+        phone_book<span class="br0">[</span><span class="st0">"Sally Smart"</span><span class="br0">]</span> = <span class="st0">"555-9999"</span>;
+        phone_book<span class="br0">[</span><span class="st0">"John Doe"</span><span class="br0">]</span> = <span class="st0">"555-1212"</span>;
+        phone_book<span class="br0">[</span><span class="st0">"J. Random Hacker"</span><span class="br0">]</span> = <span class="st0">"553-1337"</span>;
+        <span class="kw1">return</span> <span class="nu0">0</span>;
+<span class="br0">}</span>
+</pre></div>
+<p>Keys and values can be any types, but all the keys in an associative array must be of the same type, and the same for values.</p>
+<p>You can also loop through all properties and associated values, i.e. as follows:</p>
+<div dir="ltr">
+<pre class="source-d">
+<span class="kw1">foreach</span> <span class="br0">(</span>key, value; phone_book<span class="br0">)</span> <span class="br0">{</span>
+        writefln<span class="br0">(</span><span class="st0">"Number for $name: $number<span class="es0">\n</span>"</span>, key, value<span class="br0">)</span>;
+<span class="br0">}</span>
+</pre></div>
+<p>A property can be removed as follows:</p>
+<div dir="ltr">
+<pre class="source-d">
+phone_book.<span class="me1">remove</span><span class="br0">(</span><span class="st0">"Sally Smart"</span><span class="br0">)</span>;
+</pre></div>
+<p><a name="Delphi" id="Delphi"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Associative_array&amp;action=edit&amp;section=16" title="Edit section: Delphi">edit</a>]</span> <span class="mw-headline">Delphi</span></h3>
+<p><a href="/wiki/Borland_Delphi" title="Borland Delphi">Delphi</a> does not offer direct support for associative arrays. However, you can simulate associative arrays using TStrings object. Here's an example:</p>
+<div dir="ltr">
+<pre class="source-delphi">
+<span class="kw1">procedure</span> TForm1.<span class="me1">Button1Click</span><span class="br0">(</span>Sender: <span class="kw4">TObject</span><span class="br0">)</span>;
+<span class="kw1">var</span>
+  DataField: TStrings;
+  i: <span class="kw4">Integer</span>;
+<span class="kw1">begin</span>
+  DataField := TStringList.<span class="me1">Create</span>;
+ 
+  DataField.<span class="me1">Add</span><span class="br0">(</span><span class="kw3">Format</span><span class="br0">(</span><span class="st0">'%s=%s'</span>, <span class="br0">[</span><span class="st0">'Sally Smart'</span>, <span class="st0">'555-9999'</span><span class="br0">]</span><span class="br0">)</span><span class="br0">)</span>;
+  DataField.<span class="me1">Add</span><span class="br0">(</span><span class="kw3">Format</span><span class="br0">(</span><span class="st0">'%s=%s'</span>, <span class="br0">[</span><span class="st0">'John Doe'</span>, <span class="st0">'555-1212'</span><span class="br0">]</span><span class="br0">)</span><span class="br0">)</span>;
+  DataField.<span class="me1">Add</span><span class="br0">(</span><span class="kw3">Format</span><span class="br0">(</span><span class="st0">'%s=%s'</span>, <span class="br0">[</span><span class="st0">'J. Random Hacker'</span>, <span class="st0">'553-1337'</span><span class="br0">]</span><span class="br0">)</span><span class="br0">)</span>;
+ 
+  <span class="co1">// access an entry and display it in a message box</span>
+  ShowMessage<span class="br0">(</span>DataField.<span class="me1">Values</span><span class="br0">[</span><span class="st0">'Sally Smart'</span><span class="br0">]</span><span class="br0">)</span>;
+ 
+  <span class="co1">// loop through the associative array </span>
+  <span class="kw1">for</span> i := <span class="nu0">0</span> <span class="kw1">to</span> DataField.<span class="me1">Count</span> - <span class="nu0">1</span> <span class="kw1">do</span>
+  <span class="kw1">begin</span>
+    ShowMessage<span class="br0">(</span><span class="st0">'Number for '</span> + DataField.<span class="me1">Names</span><span class="br0">[</span>i<span class="br0">]</span> + <span class="st0">': '</span> + DataField.<span class="me1">ValueFromIndex</span><span class="br0">[</span>i<span class="br0">]</span><span class="br0">)</span>;
+  <span class="kw1">end</span>;
+ 
+  DataField.<span class="me1">Free</span>;
+<span class="kw1">end</span>;
+</pre></div>
+<p><a name="Java" id="Java"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Associative_array&amp;action=edit&amp;section=17" title="Edit section: Java">edit</a>]</span> <span class="mw-headline">Java</span></h3>
+<p>In <a href="/wiki/Java_%28programming_language%29" title="Java (programming language)">Java</a> associative arrays are implemented as "maps"; they are part of the <a href="http://java.sun.com/javase/6/docs/technotes/guides/collections" class="external text" title="http://java.sun.com/javase/6/docs/technotes/guides/collections" rel="nofollow">Java Collections Framework</a>. Since <a href="/wiki/J2SE" title="J2SE">J2SE</a> 5.0 and the introduction of <a href="/wiki/Generic_programming" title="Generic programming">generics</a> into Java, collections can have a type specified; for example, an associative array mapping strings to strings might be specified as follows:</p>
+<div dir="ltr">
+<pre class="source-java">
+Map&lt;String, String&gt; phoneBook = <span class="kw2">new</span> HashMap&lt;String, String&gt;<span class="br0">(</span><span class="br0">)</span>;
+phoneBook.<span class="me1">put</span><span class="br0">(</span><span class="st0">"Sally Smart"</span>, <span class="st0">"555-9999"</span><span class="br0">)</span>;
+phoneBook.<span class="me1">put</span><span class="br0">(</span><span class="st0">"John Doe"</span>, <span class="st0">"555-1212"</span><span class="br0">)</span>;
+phoneBook.<span class="me1">put</span><span class="br0">(</span><span class="st0">"J. Random Hacker"</span>, <span class="st0">"555-1337"</span><span class="br0">)</span>;
+</pre></div>
+<p>The <code>get</code> method is used to access a key; for example, the value of the expression <code>phoneBook.get("Sally Smart")</code> is <code>"555-9999"</code>.</p>
+<p>This code uses a hash map to store the associative array, by calling the constructor of the <code><a href="http://java.sun.com/javase/6/docs/api/java/util/HashMap.html" class="external text" title="http://java.sun.com/javase/6/docs/api/java/util/HashMap.html" rel="nofollow">HashMap</a></code> class; however, since the code only uses methods common to the interface <code><a href="http://java.sun.com/javase/6/docs/api/java/util/Map.html" class="external text" title="http://java.sun.com/javase/6/docs/api/java/util/Map.html" rel="nofollow">Map</a></code>, one could also use a self-balancing binary tree by calling the constructor of the <code><a href="http://java.sun.com/javase/6/docs/api/java/util/TreeMap.html" class="external text" title="http://java.sun.com/javase/6/docs/api/java/util/TreeMap.html" rel="nofollow">TreeMap</a></code> class (which implements the subinterface <code><a href="http://java.sun.com/javase/6/docs/api/java/util/SortedMap.html" class="external text" title="http://java.sun.com/javase/6/docs/api/java/util/SortedMap.html" rel="nofollow">SortedMap</a></code>, without changing the definition of the <code>phone_book</code> variable or the rest of the code, or use a number of other underlying data structures that implement the <code>Map</code> interface.</p>
+<p>The hash function in Java is provided by the method <code><a href="http://java.sun.com/javase/6/docs/api/java/lang/Object.html#hashCode()" class="external text" title="http://java.sun.com/javase/6/docs/api/java/lang/Object.html#hashCode()" rel="nofollow">Object.hashCode()</a></code>. Since every class in Java <a href="/wiki/Inheritance_%28computer_science%29" title="Inheritance (computer science)">inherits</a> from <code><a href="http://java.sun.com/javase/6/docs/api/java/lang/Object.html" class="external text" title="http://java.sun.com/javase/6/docs/api/java/lang/Object.html" rel="nofollow">Object</a></code>, every object has a hash function. A class can <a href="/wiki/Method_overriding_%28programming%29" title="Method overriding (programming)">override</a> the default implementation of <code>hashCode()</code> to provide a custom hash function based on the properties of the object.</p>
+<p>The <code>Object</code> class also contains the method <code><a href="http://java.sun.com/javase/6/docs/api/java/lang/Object.html#equals(java.lang.Object)" class="external text" title="http://java.sun.com/javase/6/docs/api/java/lang/Object.html#equals(java.lang.Object)" rel="nofollow">equals(Object)</a></code> that tests the object for equality with another object. Maps in Java rely on objects maintaining the following contract between their <code>hashCode()</code> and <code>equals()</code> methods:</p>
+<p>For two objects <i>a</i> and <i>b</i>,</p>
+<ul>
+<li>
+<div dir="ltr">
+<pre class="source-java">
+a.<span class="me1">equals</span><span class="br0">(</span>b<span class="br0">)</span> == b.<span class="me1">equals</span><span class="br0">(</span>a<span class="br0">)</span>
+</pre></div>
+</li>
+<li>
+<div dir="ltr">
+<pre class="source-java">
+<span class="kw1">if</span> a.<span class="me1">equals</span><span class="br0">(</span>b<span class="br0">)</span>, then a.<span class="me1">hashCode</span><span class="br0">(</span><span class="br0">)</span> == b.<span class="me1">hashCode</span><span class="br0">(</span><span class="br0">)</span>
+</pre></div>
+</li>
+</ul>
+<p>In order to maintain this contract, a class that overrides <code>equals()</code> must also override <code>hashCode()</code>, and vice versa, so that <code>hashCode()</code> is based on the same properties (or a subset of the properties) as <code>equals()</code>.</p>
+<p>A further contract that the map has with the object is that the results of the <code>hashCode()</code> and <code>equals()</code> methods will not change once the object has been inserted into the map. For this reason, it is generally a good practice to base the hash function on <a href="/wiki/Immutable" title="Immutable">immutable</a> properties of the object.</p>
+<p><a name="JavaScript" id="JavaScript"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Associative_array&amp;action=edit&amp;section=18" title="Edit section: JavaScript">edit</a>]</span> <span class="mw-headline">JavaScript</span></h3>
+<p>JavaScript (and its standardized version: <a href="/wiki/ECMAScript" title="ECMAScript">ECMAScript</a>) is a <a href="/wiki/Prototype-based_programming" title="Prototype-based programming">prototype-based</a> <a href="/wiki/Object-oriented_programming" title="Object-oriented programming">object-oriented</a> language. In JavaScript an object is a mapping from property names to values -- that is, an associative array with one caveat: since property names are strings, only string keys are allowed. Other than that difference, objects also include one feature unrelated to associative arrays: a prototype link to the object they inherit from. Doing a lookup for a property will forward the lookup to the prototype if the object does not define the property itself.</p>
+<p>An object literal is written as <code>{ property1&#160;: value1, property2&#160;: value2, ... }</code>. For example:</p>
+<div dir="ltr">
+<pre class="source-javascript">
+<span class="kw2">var</span> myObject = <span class="br0">{</span>
+        <span class="st0">"Sally Smart"</span>      : <span class="st0">"555-9999"</span>,
+        <span class="st0">"John Doe"</span>         : <span class="st0">"555-1212"</span>,
+        <span class="st0">"J. Random Hacker"</span> : <span class="st0">"553-1337"</span>
+<span class="br0">}</span>;
+</pre></div>
+<p>If the property name is a valid identifier, the quotes can be omitted, e.g.:</p>
+<div dir="ltr">
+<pre class="source-javascript">
+<span class="kw2">var</span> myOtherObject = <span class="br0">{</span> foo : <span class="nu0">42</span>, bar : <span class="kw2">false</span> <span class="br0">}</span>
+</pre></div>
+<p>Lookup is written using property access notation, either square brackets, which always works, or dot notation, which only works for identifier keys:</p>
+<div dir="ltr">
+<pre class="source-javascript">
+myObject<span class="br0">[</span><span class="st0">"John Doe"</span><span class="br0">]</span>
+myOtherObject.<span class="me1">foo</span>
+</pre></div>
+<p>You can also loop through all properties and associated values as follows:</p>
+<div dir="ltr">
+<pre class="source-javascript">
+<span class="kw1">for</span><span class="br0">(</span><span class="kw2">var</span> property <span class="kw1">in</span> myObject<span class="br0">)</span> <span class="br0">{</span>
+        <span class="kw2">var</span> value = myObject<span class="br0">[</span>property<span class="br0">]</span>;
+        <span class="kw3">alert</span><span class="br0">(</span><span class="st0">"myObject["</span> + property + <span class="st0">"] = "</span> + value<span class="br0">)</span>;
+<span class="br0">}</span>
+</pre></div>
+<p>A property can be removed as follows:</p>
+<div dir="ltr">
+<pre class="source-javascript">
+<span class="kw1">delete</span> myObject<span class="br0">[</span><span class="st0">"Sally Smart"</span><span class="br0">]</span>;
+</pre></div>
+<p>As mentioned before, properties are strings. However, since every native object and primitive can be implicitly converted to a string, you can do:</p>
+<div dir="ltr">
+<pre class="source-javascript">
+myObject<span class="br0">[</span><span class="nu0">1</span><span class="br0">]</span>                                             <span class="co1">// key is "1"; note that myObject[1] === myObject['1']</span>
+myObject<span class="br0">[</span><span class="br0">[</span><span class="st0">'a'</span>,<span class="st0">'b'</span><span class="br0">]</span><span class="br0">]</span>                                     <span class="co1">// key is "a,b"</span>
+myObject<span class="br0">[</span><span class="br0">{</span>toString:<span class="kw2">function</span><span class="br0">(</span><span class="br0">)</span><span class="br0">{</span><span class="kw1">return</span> <span class="st0">'hello world'</span>;<span class="br0">}</span><span class="br0">}</span><span class="br0">]</span>  <span class="co1">// key is "hello world"</span>
+</pre></div>
+<p>Any object, including built-in objects such as Array, can be dynamically extended with new properties. For example:</p>
+<div dir="ltr">
+<pre class="source-javascript">
+Array.<span class="me1">prototype</span>.<span class="me1">removeAllObjects</span> = <span class="kw2">function</span> <span class="br0">(</span><span class="br0">)</span> <span class="br0">{</span>
+        <span class="coMULTI">/* ... */</span>
+<span class="br0">}</span>
+</pre></div>
+<p>In modern JavaScript it's considered bad form to use the Array type as an associative array. Consensus is that the Object type is best for this purpose. The reasoning behind this is that if Array is extended via prototype and Object is kept pristine, 'for(in)' loops will work as expected on associative 'arrays'. This issue has been drawn into focus by the popularity of JavaScript frameworks that make heavy and sometimes indiscriminate use of prototype to extend JavaScript's inbuilt types.</p>
+<p>See <a href="http://blog.metawrap.com/blog/June6thIsJavaScriptArrayAndObjectprototypeAwarenessDay.aspx" class="external text" title="http://blog.metawrap.com/blog/June6thIsJavaScriptArrayAndObjectprototypeAwarenessDay.aspx" rel="nofollow">JavaScript Array And Object Prototype Awareness Day</a> for more information on the issue.</p>
+<p><a name="KornShell_93_.28and_compliant_shells:_ksh93.2C_zsh.2C_....29" id="KornShell_93_.28and_compliant_shells:_ksh93.2C_zsh.2C_....29"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Associative_array&amp;action=edit&amp;section=19" title="Edit section: KornShell 93 (and compliant shells: ksh93, zsh, ...)">edit</a>]</span> <span class="mw-headline">KornShell 93 (and compliant shells: ksh93, zsh, ...)</span></h3>
+<dl>
+<dd><b>Note:</b> <i>The latest version of <a href="/wiki/Bourne-Again_shell" title="Bourne-Again shell">bash</a>, 3.2, doesn't support associative arrays properly yet.</i></dd>
+</dl>
+<p>Definition:</p>
+<pre>
+typeset -A phonebook;
+phonebook=(["Sally Smart"]="555-9999" ["John Doe"]="555-1212" ["J. Random Hacker"]="555-1337");
+</pre>
+<p>Dereference:</p>
+<pre>
+${phonebook["John Doe"]};
+</pre>
+<p><a name="Lisp" id="Lisp"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Associative_array&amp;action=edit&amp;section=20" title="Edit section: Lisp">edit</a>]</span> <span class="mw-headline">Lisp</span></h3>
+<p><a href="/wiki/Lisp_programming_language" title="Lisp programming language">Lisp</a> was originally conceived as a "LISt Processing" language, and one of its most important data types is the linked list, which can be treated as an association list ("alist").</p>
+<div dir="ltr">
+<pre class="source-lisp">
+'<span class="br0">(</span>
+        <span class="br0">(</span><span class="st0">"Sally Smart"</span> . <span class="st0">"555-9999"</span><span class="br0">)</span>
+        <span class="br0">(</span><span class="st0">"John Doe"</span> . <span class="st0">"555-1212"</span><span class="br0">)</span>
+        <span class="br0">(</span><span class="st0">"J. Random Hacker"</span> . <span class="st0">"553-1337"</span><span class="br0">)</span>
+<span class="br0">)</span>
+</pre></div>
+<p>The syntax <code>(x . y)</code> is used to indicate a <a href="/wiki/Cons" title="Cons"><code>cons</code>ed</a> pair. Keys and values need not be the same type within an alist. Lisp and Scheme provide operators such as <code>assoc</code> to manipulate alists in ways similar to associative arrays.</p>
+<p>Because of their linear nature, alists are used for relatively small sets of data. <a href="/wiki/Common_Lisp" title="Common Lisp">Common Lisp</a> also supports a <a href="/wiki/Hash_table" title="Hash table">hash table</a> data type, and for <a href="/wiki/Scheme_%28programming_language%29" title="Scheme (programming language)">Scheme</a> they are implemented in <a href="/wiki/SRFI" title="SRFI">SRFI</a> 69. Hash tables have greater overhead than alists, but provide much faster access when there are many elements.</p>
+<p>It is easy to construct composite abstract data types in Lisp, using structures and/or the object-oriented programming features, in conjunction with lists, arrays, and hash tables.</p>
+<p><a name="LPC" id="LPC"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Associative_array&amp;action=edit&amp;section=21" title="Edit section: LPC">edit</a>]</span> <span class="mw-headline">LPC</span></h3>
+<p><a href="/wiki/LPC_%28programming_language%29" title="LPC (programming language)">LPC</a> implements associative arrays as a fundamental type known as either map or mapping, depending on the driver. The keys and values can be of any type. A mapping literal is written as <code>([ key_1&#160;: value_1, key_2&#160;: value_2 ])</code>. Procedural use looks like:</p>
+<div dir="ltr">
+<pre class="source-c">
+mapping phone_book = <span class="br0">(</span><span class="br0">[</span><span class="br0">]</span><span class="br0">)</span>;
+phone_book<span class="br0">[</span><span class="st0">"Sally Smart"</span><span class="br0">]</span> = <span class="st0">"555-9999"</span>;
+phone_book<span class="br0">[</span><span class="st0">"John Doe"</span><span class="br0">]</span> = <span class="st0">"555-1212"</span>;
+phone_book<span class="br0">[</span><span class="st0">"J. Random Hacker"</span><span class="br0">]</span> = <span class="st0">"555-1337"</span>;
+</pre></div>
+<p>Mappings are accessed for reading using the indexing operator in the same way as they are for writing, as shown above. So phone_book["Sally Smart"] would return the string "555-9999", and phone_book["John Smith"] would return 0. Testing for presence is done using the function member(), e.g. <code>if(member(phone_book, "John Smith")) write("John Smith is listed.\n");</code></p>
+<p>Deletion is accomplished using a function called either m_delete() or map_delete(), depending on the driver, used like: <code>m_delete(phone_book, "Sally Smart");</code></p>
+<p>LPC drivers of the "Amylaar" family, which use the 'mapping' type and m_delete(), implement multivalued mappings using a secondary, numeric index. (Drivers of the MudOS family, which uses the 'map' type and map_delete(), do not support multivalued mappings.) Example syntax:</p>
+<div dir="ltr">
+<pre class="source-c">
+mapping phone_book = <span class="br0">(</span><span class="br0">[</span>:<span class="nu0">2</span><span class="br0">]</span><span class="br0">)</span>;
+phone_book<span class="br0">[</span><span class="st0">"Sally Smart"</span>, <span class="nu0">0</span><span class="br0">]</span> = <span class="st0">"555-9999"</span>;
+phone_book<span class="br0">[</span><span class="st0">"Sally Smart"</span>, <span class="nu0">1</span><span class="br0">]</span> = <span class="st0">"99 Sharp Way"</span>;
+phone_book<span class="br0">[</span><span class="st0">"John Doe"</span>, <span class="nu0">0</span><span class="br0">]</span> = <span class="st0">"555-1212"</span>;
+phone_book<span class="br0">[</span><span class="st0">"John Doe"</span>, <span class="nu0">1</span><span class="br0">]</span> = <span class="st0">"3 Nigma Drive"</span>;
+phone_book<span class="br0">[</span><span class="st0">"J. Random Hacker"</span>, <span class="nu0">0</span><span class="br0">]</span> = <span class="st0">"555-1337"</span>;
+phone_book<span class="br0">[</span><span class="st0">"J. Random Hacker"</span>, <span class="nu0">1</span><span class="br0">]</span> = <span class="st0">"77 Massachusetts Avenue"</span>;
+</pre></div>
+<p>LPC drivers modern enough to support a foreach() construct allow iteration over their mapping types using it.</p>
+<p><a name="Lua" id="Lua"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Associative_array&amp;action=edit&amp;section=22" title="Edit section: Lua">edit</a>]</span> <span class="mw-headline">Lua</span></h3>
+<p>In <a href="/wiki/Lua_programming_language" title="Lua programming language">Lua</a>, table is a fundamental type that can be used either as array (numerical index, fast) or as associative array. The keys and values can be of any type, except nil. The following with focus on non-numerical indexes.</p>
+<p>A table literal is written as <code>{ value, key = value, [index] = value, ["non id string"] = value }</code>. For example:</p>
+<div dir="ltr">
+<pre class="source-lua">
+phone_book = <span class="br0">{</span>
+        <span class="br0">[</span><span class="st0">"Sally Smart"</span><span class="br0">]</span>      = <span class="st0">"555-9999"</span>, 
+        <span class="br0">[</span><span class="st0">"John Doe"</span><span class="br0">]</span>         = <span class="st0">"555-1212"</span>, 
+        <span class="br0">[</span><span class="st0">"J. Random Hacker"</span><span class="br0">]</span> = <span class="st0">"553-1337"</span>, <span class="co1">-- Trailing comma is OK</span>
+<span class="br0">}</span>
+ 
+aTable = <span class="br0">{</span>
+        <span class="co1">-- Table as value</span>
+        subTable = <span class="br0">{</span> <span class="nu0">5</span>, <span class="nu0">7.5</span>, k = <span class="kw1">true</span> <span class="br0">}</span>, <span class="co1">-- key is "subTable"</span>
+        <span class="co1">-- Function as value</span>
+        <span class="br0">[</span>'John Doe'<span class="br0">]</span> = <span class="kw1">function</span> <span class="br0">(</span>age<span class="br0">)</span> <span class="kw1">if</span> age &lt; <span class="nu0">18</span> <span class="kw1">then</span> <span class="kw1">return</span> <span class="st0">"Young"</span> <span class="kw1">else</span> <span class="kw1">return</span> <span class="st0">"Old!"</span> <span class="kw1">end</span> <span class="kw1">end</span>,
+        <span class="co1">-- Table and function (and other types) can also be used as keys</span>
+<span class="br0">}</span>
+</pre></div>
+<p>If the key is a valid identifier (not a keyword), the quotes can be omitted. They are case sensitive.</p>
+<p>Lookup is written using either square brackets, which always works, or dot notation, which only works for identifier keys:</p>
+<div dir="ltr">
+<pre class="source-lua">
+<span class="kw1">print</span><span class="br0">(</span>aTable<span class="br0">[</span><span class="st0">"John Doe"</span><span class="br0">]</span><span class="br0">(</span><span class="nu0">45</span><span class="br0">)</span><span class="br0">)</span>
+x = aTable.subTable.k
+</pre></div>
+<p>You can also loop through all keys and associated values with iterators or for loops:</p>
+<div dir="ltr">
+<pre class="source-lua">
+simple = <span class="br0">{</span> <span class="br0">[</span><span class="kw1">true</span><span class="br0">]</span> = <span class="nu0">1</span>, <span class="br0">[</span><span class="kw1">false</span><span class="br0">]</span> = <span class="nu0">0</span>, <span class="br0">[</span><span class="nu0">3.14</span><span class="br0">]</span> = <span class="kw1">math.pi</span>, x = 'x', <span class="br0">[</span><span class="st0">"!"</span><span class="br0">]</span> = <span class="nu0">42</span> <span class="br0">}</span>
+<span class="kw1">function</span> FormatElement<span class="br0">(</span>key, value<span class="br0">)</span>
+        <span class="kw1">return</span> <span class="st0">"["</span> .. <span class="kw1">tostring</span><span class="br0">(</span>key<span class="br0">)</span> .. <span class="st0">"] = "</span> .. value .. <span class="st0">", "</span>
+<span class="kw1">end</span>
+<span class="co1">-- Iterate on all keys</span>
+<span class="kw1">table</span>.<span class="kw1">foreach</span><span class="br0">(</span>simple, <span class="kw1">function</span> <span class="br0">(</span>k, v<span class="br0">)</span> <span class="kw1">io</span>.<span class="kw1">write</span><span class="br0">(</span>FormatElement<span class="br0">(</span>k, v<span class="br0">)</span><span class="br0">)</span> <span class="kw1">end</span><span class="br0">)</span>
+<span class="kw1">print</span><span class="st0">""</span>
+<span class="kw1">for</span> k, v <span class="kw1">in</span> <span class="kw1">pairs</span><span class="br0">(</span>simple<span class="br0">)</span> <span class="kw1">do</span> <span class="kw1">io</span>.<span class="kw1">write</span><span class="br0">(</span>FormatElement<span class="br0">(</span>k, v<span class="br0">)</span><span class="br0">)</span> <span class="kw1">end</span>
+<span class="kw1">print</span><span class="st0">""</span>
+k= <span class="kw1">nil</span>
+<span class="kw1">repeat</span>
+        k, v = <span class="kw1">next</span><span class="br0">(</span>simple, k<span class="br0">)</span>
+        <span class="kw1">if</span> k ~= <span class="kw1">nil</span> <span class="kw1">then</span> <span class="kw1">io</span>.<span class="kw1">write</span><span class="br0">(</span>FormatElement<span class="br0">(</span>k, v<span class="br0">)</span><span class="br0">)</span> <span class="kw1">end</span>
+<span class="kw1">until</span> k == <span class="kw1">nil</span>
+<span class="kw1">print</span><span class="st0">""</span>
+</pre></div>
+<p>An entry can be removed by setting it to nil:</p>
+<div dir="ltr">
+<pre class="source-lua">
+simple.x = <span class="kw1">nil</span>
+</pre></div>
+<p>Likewise, you can overwrite values or add them:</p>
+<div dir="ltr">
+<pre class="source-lua">
+simple<span class="br0">[</span>'%'<span class="br0">]</span> = <span class="st0">"percent"</span>
+simple<span class="br0">[</span>'!'<span class="br0">]</span> = <span class="nu0">111</span>
+</pre></div>
+<p><a name="MUMPS" id="MUMPS"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Associative_array&amp;action=edit&amp;section=23" title="Edit section: MUMPS">edit</a>]</span> <span class="mw-headline">MUMPS</span></h3>
+<p>In <a href="/wiki/MUMPS" title="MUMPS">MUMPS</a> every array is an associative array. The built-in, language-level, direct support for associative arrays applies to private, process-specific arrays stored in memory called "locals" as well as to the permanent, shared arrays stored on disk which are available concurrently by multiple jobs. The name for globals is preceded by the circumflex "^" to distinquish it from local variable names.</p>
+<pre>
+SET ^phonebook("Sally Smart")="555-9999"      ;; storing permanent data
+SET phonebook("John Doe")="555-1212"          ;; storing temporary data
+SET phonebook("J. Random Hacker")="553-1337"  ;;storing temporary data
+MERGE ^phonebook=phonebook                    ;;copying temporary data into permanent data
+</pre>
+<p>To access the value of an element, simply requires using the name with the subscript:</p>
+<pre>
+WRITE "Phone Number :",^phonebook("Sally Smart"),!
+</pre>
+<p>You can also loop through an associated array as follows:</p>
+<pre>
+SET NAME="" 
+FOR  S NAME=$ORDER(^phonebook(NAME)) QUIT:NAME=""  WRITE NAME,"  Phone Number :",^phonebook(NAME),!
+</pre>
+<p><a name="OCaml" id="OCaml"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Associative_array&amp;action=edit&amp;section=24" title="Edit section: OCaml">edit</a>]</span> <span class="mw-headline">OCaml</span></h3>
+<p>The <a href="/wiki/OCaml" title="OCaml">OCaml</a> programming language provides three different associative containers. The simplest is a list of pairs:</p>
+<div dir="ltr">
+<pre class="source-ocaml">
+# <span class="kw1">let</span> m = <span class="br0">[</span>
+        <span class="st0">"Sally Smart"</span>, <span class="st0">"555-9999"</span>;
+        <span class="st0">"John Doe"</span>, <span class="st0">"555-1212"</span>;
+        <span class="st0">"J. Random Hacker"</span>, <span class="st0">"553-1337"</span><span class="br0">]</span>;;
+<span class="kw1">val</span> m : <span class="br0">(</span>string * string<span class="br0">)</span> list = <span class="br0">[</span>
+        <span class="br0">(</span><span class="st0">"Sally Smart"</span>, <span class="st0">"555-9999"</span><span class="br0">)</span>;
+        <span class="br0">(</span><span class="st0">"John Doe"</span>, <span class="st0">"555-1212"</span><span class="br0">)</span>;
+        <span class="br0">(</span><span class="st0">"J. Random Hacker"</span>, <span class="st0">"553-1337"</span><span class="br0">)</span>
+<span class="br0">]</span>
+# <span class="kw2">List</span>.<span class="me1">assoc</span> <span class="st0">"John Doe"</span> m;;
+- : string = <span class="st0">"555-1212"</span>
+</pre></div>
+<p>The second is a polymorphic hash table:</p>
+<div dir="ltr">
+<pre class="source-ocaml">
+# <span class="kw1">let</span> m = <span class="kw2">Hashtbl</span>.<span class="me1">create</span> <span class="nu0">3</span>;;
+<span class="kw1">val</span> m : <span class="br0">(</span>'_a, '_b<span class="br0">)</span> <span class="kw2">Hashtbl</span>.<span class="me1">t</span> = &lt;abstr&gt;
+# <span class="kw2">Hashtbl</span>.<span class="me1">add</span> m <span class="st0">"Sally Smart"</span> <span class="st0">"555-9999"</span>;
+  <span class="kw2">Hashtbl</span>.<span class="me1">add</span> m <span class="st0">"John Doe"</span> <span class="st0">"555-1212"</span>;
+  <span class="kw2">Hashtbl</span>.<span class="me1">add</span> m <span class="st0">"J. Random Hacker"</span> <span class="st0">"553-1337"</span>;;
+- : unit = <span class="br0">(</span><span class="br0">)</span>
+# <span class="kw2">Hashtbl</span>.<span class="me1">find</span> m <span class="st0">"John Doe"</span>;;
+- : string = <span class="st0">"555-1212"</span>
+</pre></div>
+<p>Finally, functional maps (represented as immutable balanced binary trees):</p>
+<div dir="ltr">
+<pre class="source-ocaml">
+# <span class="kw1">include</span> <span class="br0">(</span><span class="kw2">Map</span>.<span class="me1">Make</span><span class="br0">(</span><span class="kw2">String</span><span class="br0">)</span><span class="br0">)</span>;;
+...
+# <span class="kw1">let</span> m = add <span class="st0">"Sally Smart"</span> <span class="st0">"555-9999"</span> empty
+  <span class="kw1">let</span> m = add <span class="st0">"John Doe"</span> <span class="st0">"555-1212"</span> m
+  <span class="kw1">let</span> m = add <span class="st0">"J. Random Hacker"</span> <span class="st0">"553-1337"</span> m;;
+<span class="kw1">val</span> m : string t = &lt;abstr&gt;
+# find <span class="st0">"John Doe"</span> m;;
+ - : string = <span class="st0">"555-1212"</span>
+</pre></div>
+<p>Lists of pairs and functional maps both provide a purely functional interface. In contrast, hash tables provide an imperative interface. For many operations, hash tables are significantly faster than lists of pairs and functional maps.</p>
+<p><a name="Perl" id="Perl"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Associative_array&amp;action=edit&amp;section=25" title="Edit section: Perl">edit</a>]</span> <span class="mw-headline">Perl</span></h3>
+<p><a href="/wiki/Perl" title="Perl">Perl</a> has built-in, language-level support for associative arrays. Modern Perl vernacular refers to associative arrays as <i>hashes</i>; the term <i>associative array</i> is found in older documentation, but is considered somewhat archaic. Perl hashes are flat: keys are strings and values are scalars. However, values may be <a href="/wiki/Reference_%28computer_science%29" title="Reference (computer science)">references</a> to arrays or other hashes.</p>
+<p>A hash variable is marked by a <code>%</code> <a href="/wiki/Sigil_%28computer_programming%29" title="Sigil (computer programming)">sigil</a>, to distinguish it from scalar, array and other data types. A hash can be initialized from a key-value list:</p>
+<div dir="ltr">
+<pre class="source-perl">
+<span class="re0">%phone_book</span> = <span class="br0">(</span>
+        <span class="st0">"Sally Smart"</span>,      <span class="st0">"555-9999"</span>, 
+        <span class="st0">"John Doe"</span>,         <span class="st0">"555-1212"</span>, 
+        <span class="st0">"J. Random Hacker"</span>, <span class="st0">"553-1337"</span>
+<span class="br0">)</span>;
+</pre></div>
+<p>Perl offers the <code>=&gt;</code> syntax, semantically (almost) equivalent to the comma, to make the key-value association more visible:</p>
+<div dir="ltr">
+<pre class="source-perl">
+<span class="re0">%phone_book</span> = <span class="br0">(</span>
+        <span class="st0">"Sally Smart"</span>      =&gt; <span class="st0">"555-9999"</span>,
+        <span class="st0">"John Doe"</span>         =&gt; <span class="st0">"555-1212"</span>,
+        <span class="st0">"J. Random Hacker"</span> =&gt; <span class="st0">"553-1337"</span>
+<span class="br0">)</span>;
+</pre></div>
+<p>Accessing a hash element uses the syntax <code>$hash_name{$key}</code> - the key is surrounded by <i>curly braces</i> and the hash name is prefixed by a <code>$</code>, indicating that the hash element itself is a <i>scalar</i> value, even though it is part of a hash. The value of <code>$phone_book{"John Doe"}</code> is <code>"555-1212"</code>. The <code>%</code> sigil is only used when referring to the hash as a whole, such as when asking for <code>keys&#160;%phone_book</code>.</p>
+<p>The list of keys and values can be extracted using the built-in functions <code>keys</code> and <code>values</code>, respectively. So, for example, to print all the keys of a hash:</p>
+<div dir="ltr">
+<pre class="source-perl">
+<span class="kw1">foreach</span> <span class="re0">$name</span> <span class="br0">(</span><span class="kw3">keys</span> <span class="re0">%phone_book</span><span class="br0">)</span> <span class="br0">{</span>
+        <span class="kw3">print</span> <span class="st0">"$name<span class="es0">\n</span>"</span>;
+<span class="br0">}</span>
+</pre></div>
+<p>One can iterate through (key, value) pairs using the <code>each</code> function:</p>
+<div dir="ltr">
+<pre class="source-perl">
+<span class="kw1">while</span> <span class="br0">(</span><span class="br0">(</span><span class="re0">$name</span>, <span class="re0">$number</span><span class="br0">)</span> = <span class="kw3">each</span> <span class="re0">%phone_book</span><span class="br0">)</span> <span class="br0">{</span>
+        <span class="kw3">print</span> <span class="st0">"Number for $name: $number<span class="es0">\n</span>"</span>;
+<span class="br0">}</span>
+</pre></div>
+<p><a name="PHP" id="PHP"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Associative_array&amp;action=edit&amp;section=26" title="Edit section: PHP">edit</a>]</span> <span class="mw-headline">PHP</span></h3>
+<p><a href="/wiki/PHP" title="PHP">PHP</a>'s built-in array type is in reality an associative array. Even when using numerical indexes, PHP internally stores it as an associative array.<sup id="_ref-0" class="reference"><a href="#_note-0" title="">[1]</a></sup>This is why one in PHP can have non-consecutive numerically indexed arrays.</p>
+<p>An associative array can be formed in one of two ways:</p>
+<div dir="ltr">
+<pre class="source-php">
+<span class="re0">$phonebook</span> = <span class="kw3">array</span> <span class="br0">(</span><span class="br0">)</span>;
+<span class="re0">$phonebook</span><span class="br0">[</span><span class="st0">'Sally Smart'</span><span class="br0">]</span>      = <span class="st0">'555-9999'</span>;
+<span class="re0">$phonebook</span><span class="br0">[</span><span class="st0">'John Doe'</span><span class="br0">]</span>         = <span class="st0">'555-1212'</span>;
+<span class="re0">$phonebook</span><span class="br0">[</span><span class="st0">'J. Random Hacker'</span><span class="br0">]</span> = <span class="st0">'555-1337'</span>;
+ 
+<span class="co1">// or</span>
+ 
+<span class="re0">$phonebook</span> = <span class="kw3">array</span> <span class="br0">(</span>
+        <span class="st0">'Sally Smart'</span>      =&gt; <span class="st0">'555-9999'</span>,
+        <span class="st0">'John Doe'</span>         =&gt; <span class="st0">'555-1212'</span>,
+        <span class="st0">'J. Random Hacker'</span> =&gt; <span class="st0">'555-1337'</span>,
+<span class="br0">)</span>;
+</pre></div>
+<p>You can also loop through an associative array as follows:</p>
+<div dir="ltr">
+<pre class="source-php">
+<span class="kw1">foreach</span> <span class="br0">(</span><span class="re0">$phonebook</span> <span class="kw1">as</span> <span class="re0">$name</span> =&gt; <span class="re0">$number</span><span class="br0">)</span> <span class="br0">{</span>
+        <span class="kw3">echo</span> <span class="st0">"Number for $name: $number<span class="es0">\n</span>"</span>;
+<span class="br0">}</span>
+</pre></div>
+<p>PHP has an <a href="http://php.net/array" class="external text" title="http://php.net/array" rel="nofollow">extensive set of functions</a> to operate on arrays.</p>
+<p><a name="Pike" id="Pike"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Associative_array&amp;action=edit&amp;section=27" title="Edit section: Pike">edit</a>]</span> <span class="mw-headline">Pike</span></h3>
+<p><a href="/wiki/Pike_%28programming_language%29" title="Pike (programming language)">Pike</a> has built-in support for Associative Arrays, which are referred to as mappings. Mappings are created as follows:</p>
+<div dir="ltr">
+<pre class="source-text">
+mapping(string:string) phonebook = ([
+        "Sally Smart":"555-9999",
+        "John Doe":"555-1212",
+        "J. Random Hacker":"555-1337"
+]);
+</pre></div>
+<p>Accessing and testing for presence in mappings is done using the indexing operator. So <code>phonebook["Sally Smart"]</code> would return the string <code>"555-9999"</code>, and <code>phonebook["John Smith"]</code> would return 0.</p>
+<p>Iterating through a mapping can be done using either foreach:</p>
+<div dir="ltr">
+<pre class="source-text">
+foreach(phonebook; string key; string value) {
+        write("%s:%s\n", key, value);
+}
+</pre></div>
+<p>Or using an iterator object:</p>
+<div dir="ltr">
+<pre class="source-text">
+Mapping.Iterator i = get_iterator(phonebook);
+while (i-&gt;index()) {
+        write("%s:%s\n", i-&gt;index(), i-&gt;value());
+        i-&gt;next();
+}
+</pre></div>
+<p>Elements of a mapping can be removed using m_delete, which returns the value of the removed index:</p>
+<div dir="ltr">
+<pre class="source-text">
+string sallys_number = m_delete(phonebook, "Sally Smart");
+</pre></div>
+<p><a name="Python" id="Python"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Associative_array&amp;action=edit&amp;section=28" title="Edit section: Python">edit</a>]</span> <span class="mw-headline">Python</span></h3>
+<p>In <a href="/wiki/Python_%28programming_language%29" title="Python (programming language)">Python</a>, associative arrays are called <i><a href="/wiki/Python_syntax_and_semantics#Collection_types" title="Python syntax and semantics">dictionaries</a></i>. Dictionary literals are marked with curly braces:</p>
+<div dir="ltr">
+<pre class="source-python">
+phonebook = <span class="br0">{</span>
+        <span class="st0">'Sally Smart'</span> : <span class="st0">'555-9999'</span>, 
+        <span class="st0">'John Doe'</span> : <span class="st0">'555-1212'</span>, 
+        <span class="st0">'J. Random Hacker'</span> : <span class="st0">'553-1337'</span>
+<span class="br0">}</span>
+</pre></div>
+<p>To access an entry in Python simply use the array indexing operator. For example, the expression <code>phonebook['Sally Smart']</code> would return <code>'555-9999'</code>.</p>
+<p>An example loop <a href="/wiki/Iterator#Python" title="Iterator">iterating</a> through all the keys of the dictionary:</p>
+<div dir="ltr">
+<pre class="source-python">
+<span class="kw1">for</span> key <span class="kw1">in</span> phonebook:
+        <span class="kw1">print</span> key, phonebook<span class="br0">[</span>key<span class="br0">]</span>
+</pre></div>
+<p>Iterating through (key, value) tuples:</p>
+<div dir="ltr">
+<pre class="source-python">
+<span class="kw1">for</span> key, value <span class="kw1">in</span> phonebook.<span class="me1">iteritems</span><span class="br0">(</span><span class="br0">)</span>:
+        <span class="kw1">print</span> key, value
+</pre></div>
+<p>Dictionaries can also be constructed with the <code>dict</code> builtin, which is most commonly found inside list comprehensions and generator expressions, and it takes a key-value list:</p>
+<div dir="ltr">
+<pre class="source-python">
+<span class="kw2">dict</span><span class="br0">(</span><span class="br0">(</span>key, value<span class="br0">)</span> <span class="kw1">for</span> key, value <span class="kw1">in</span> phonebook.<span class="me1">items</span><span class="br0">(</span><span class="br0">)</span> <span class="kw1">if</span> <span class="st0">'J'</span> <span class="kw1">in</span> key<span class="br0">)</span>
+</pre></div>
+<p>Dictionary keys can be individually deleted using the del statement. The corresponding value can be returned before the key-value pair are deleted using the pop method of dict types;</p>
+<div dir="ltr">
+<pre class="source-python">
+<span class="kw1">del</span> phonebook<span class="br0">[</span><span class="st0">'John Doe'</span><span class="br0">]</span>
+val = phonebook.<span class="me1">pop</span><span class="br0">(</span><span class="st0">'Sally Smart'</span><span class="br0">)</span>
+<span class="kw1">assert</span> phonebook.<span class="me1">keys</span><span class="br0">(</span><span class="br0">)</span> == <span class="br0">[</span><span class="st0">'J. Random Hacker'</span><span class="br0">]</span> <span class="co1"># Only one key left</span>
+</pre></div>
+<p><a name="REXX" id="REXX"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Associative_array&amp;action=edit&amp;section=29" title="Edit section: REXX">edit</a>]</span> <span class="mw-headline">REXX</span></h3>
+<p>In <a href="/wiki/REXX" title="REXX">REXX</a>, associative arrays are called <i>Stem variables</i> or <i>Compound variables</i>.</p>
+<div dir="ltr">
+<pre class="source-text">
+KEY = 'Sally Smart'
+PHONEBOOK.KEY = '555-9999'
+KEY = 'John Doe'
+PHONEBOOK.KEY = '555-1212'
+KEY = 'J. Ramdon Hacker'
+PHONEBOOK.KEY = '553-1337'
+</pre></div>
+<p>Stem variables with numeric keys typically start at 1 and go up from there. The 0 key stem variable is used (by convention) as the count of items in the whole stem.</p>
+<div dir="ltr">
+<pre class="source-text">
+NAME.1 = 'Sally Smart'
+NAME.2 = 'John Doe'
+NAME.3 = 'J. Random Hacker'
+NAME.0 = 3
+</pre></div>
+<p><a href="/wiki/REXX" title="REXX">REXX</a> has no easy way of automatically accessing the keys for a stem variable and typically the keys are stored in a separate associative array with numeric keys.</p>
+<p><a name="Ruby" id="Ruby"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Associative_array&amp;action=edit&amp;section=30" title="Edit section: Ruby">edit</a>]</span> <span class="mw-headline">Ruby</span></h3>
+<p>In <a href="/wiki/Ruby_programming_language" title="Ruby programming language">Ruby</a> a Hash is used as follows:</p>
+<div dir="ltr">
+<pre class="source-ruby">
+phonebook = <span class="br0">{</span>
+        <span class="st0">'Sally Smart'</span> =&gt; <span class="st0">'555-9999'</span>, 
+        <span class="st0">'John Doe'</span> =&gt; <span class="st0">'555-1212'</span>, 
+        <span class="st0">'J. Random Hacker'</span> =&gt; <span class="st0">'553-1337'</span>
+<span class="br0">}</span>
+</pre></div>
+<p><code>phonebook['John Doe']</code> produces <code>'555-1212'</code></p>
+<p>To iterate over the hash, use something like the following:</p>
+<div dir="ltr">
+<pre class="source-ruby">
+phonebook.<span class="me1">each</span> <span class="br0">{</span>|key, value| <span class="kw3">puts</span> key + <span class="st0">" =&gt; "</span> + value<span class="br0">}</span>
+</pre></div>
+<p>Additionally, each key may be shown individually:</p>
+<div dir="ltr">
+<pre class="source-ruby">
+phonebook.<span class="me1">each_key</span> <span class="br0">{</span>|key| <span class="kw3">puts</span> key<span class="br0">}</span>
+</pre></div>
+<p>Each value may, of course, also be shown:</p>
+<div dir="ltr">
+<pre class="source-ruby">
+phonebook.<span class="me1">each_value</span> <span class="br0">{</span>|value| <span class="kw3">puts</span> value<span class="br0">}</span>
+</pre></div>
+<p><a name="Smalltalk" id="Smalltalk"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Associative_array&amp;action=edit&amp;section=31" title="Edit section: Smalltalk">edit</a>]</span> <span class="mw-headline">Smalltalk</span></h3>
+<p>In <a href="/wiki/Smalltalk" title="Smalltalk">Smalltalk</a> a dictionary is used:</p>
+<div dir="ltr">
+<pre class="source-smalltalk">
+<span class="re6">phonebook</span> := <span class="re0">Dictionary</span> new.
+<span class="re5">phonebook</span> at: <span class="st0">'Sally Smart'</span>      put:  <span class="st0">'555-9999'</span>.
+<span class="re5">phonebook</span> at: <span class="st0">'John Doe'</span>         put:  <span class="st0">'555-1212'</span>.
+<span class="re5">phonebook</span> at: <span class="st0">'J. Random Hacker'</span> put:  <span class="st0">'553-1337'</span>.
+</pre></div>
+<p>To access an entry the message <code>#at:</code> is sent to the dictionary object.</p>
+<div dir="ltr">
+<pre class="source-smalltalk">
+phonebook at: <span class="st0">'Sally Smart'</span>
+</pre></div>
+<p>gives</p>
+<div dir="ltr">
+<pre class="source-text">
+'555-9999'
+</pre></div>
+<p><a name="SNOBOL" id="SNOBOL"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Associative_array&amp;action=edit&amp;section=32" title="Edit section: SNOBOL">edit</a>]</span> <span class="mw-headline">SNOBOL</span></h3>
+<p><a href="/wiki/SNOBOL" title="SNOBOL">SNOBOL</a> is one of the first (if not the first) programming languages to use associative arrays. Associative arrays in <a href="/wiki/SNOBOL" title="SNOBOL">SNOBOL</a> are called Tables.</p>
+<div dir="ltr">
+<pre class="source-text">
+PHONEBOOK = TABLE()
+PHONEBOOK['Sally Smart']      = '555-9999'
+PHONEBOOK['John Doe']         = '555-1212'
+PHONEBOOK['J. Random Hacker'] = '553-1337'
+</pre></div>
+<p><a name="TCL" id="TCL"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Associative_array&amp;action=edit&amp;section=33" title="Edit section: TCL">edit</a>]</span> <span class="mw-headline">TCL</span></h3>
+<p>In <a href="/wiki/Tcl" title="Tcl">Tcl</a> every array is an associative array.</p>
+<div dir="ltr">
+<pre class="source-tcl">
+<span class="kw1">set</span> <span class="st0">"phonebook(Sally Smart)"</span>       <span class="nu0">555</span><span class="nu0">-9999</span>
+<span class="kw1">set</span> <span class="st0">"phonebook(John Doe)"</span>          <span class="nu0">555</span><span class="nu0">-1212</span>
+<span class="kw1">set</span> <span class="st0">"phonebook(J. Random Hacker)"</span>  <span class="nu0">553</span><span class="nu0">-1337</span>
+</pre></div>
+<p>The first argument of the <code>set</code> command has to be enclosed by double quotes, as it contains a space. In Tcl, space is used to separate arguments. Alternatively, array setting can be grouped into a single command (keys braced because they contain whitespace):</p>
+<div dir="ltr">
+<pre class="source-tcl">
+array <span class="kw1">set</span> phonebook <span class="br0">{</span>
+        <span class="br0">{</span>Sally Smart<span class="br0">}</span>      <span class="nu0">555</span><span class="nu0">-9999</span>
+        <span class="br0">{</span>John Doe<span class="br0">}</span>         <span class="nu0">555</span><span class="nu0">-1212</span>
+        <span class="br0">{</span>J. Random Hacker<span class="br0">}</span> <span class="nu0">553</span><span class="nu0">-1337</span>
+<span class="br0">}</span>
+</pre></div>
+<p>To access an entry and put it on standard output</p>
+<div dir="ltr">
+<pre class="source-tcl">
+<span class="kw2">puts</span> <span class="st0">"$phonebook(Sally Smart)"</span>
+</pre></div>
+<p>The result is here</p>
+<div dir="ltr">
+<pre class="source-text">
+555-9999
+</pre></div>
+<p><a name="Windows_PowerShell" id="Windows_PowerShell"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Associative_array&amp;action=edit&amp;section=34" title="Edit section: Windows PowerShell">edit</a>]</span> <span class="mw-headline">Windows PowerShell</span></h3>
+<p>Unlike many other <a href="/wiki/Command_line_interpreter" title="Command line interpreter">command line interpreters</a>, <a href="/wiki/Windows_PowerShell" title="Windows PowerShell">PowerShell</a> has built-in, language-level support for defining associative arrays.</p>
+<p>For example:</p>
+<div dir="ltr">
+<pre class="source-text">
+$phonebook = @{
+        'Sally Smart'      = '555-9999';
+        'John Doe'         = '555-1212'; 
+        'J. Random Hacker' = '553-1337'
+}
+</pre></div>
+<p>Like in JavaScript, if the property name is a valid identifier, the quotes can be omitted, e.g.:</p>
+<div dir="ltr">
+<pre class="source-text">
+$myOtherObject = @{ foo = 42; bar = $false }
+</pre></div>
+<p>It is also possible to create an empty associative array and add single entries or even other associative arrays to it later on.</p>
+<div dir="ltr">
+<pre class="source-text">
+$phonebook = @{}
+$phonebook += @{ 'Sally Smart' = '555-9999' }
+$phonebook += @{ 'John Doe'    = '555-1212'; 'J. Random Hacker' = '553-1337' }
+</pre></div>
+<p>New entries can also be added by using the array index operator, the property operator or the <code>Add()</code> method of the underlying <a href="/wiki/.NET_Framework" title=".NET Framework">.NET</a> object:</p>
+<div dir="ltr">
+<pre class="source-text">
+$phonebook = @{}
+$phonebook['Sally Smart'] = '555-9999'
+$phonebook.'John Doe'     = '555-1212'
+$phonebook.Add('J. Random Hacker', '553-1337')
+</pre></div>
+<p>To dereference assigned objects the array index operator, the property operator or the parameterized property <code>Item()</code> of the .NET object can be used:</p>
+<div dir="ltr">
+<pre class="source-text">
+$phonebook['Sally Smart'] 
+$phonebook.'John Doe'
+$phonebook.Item('J. Random Hacker')
+</pre></div>
+<p>You can loop through an associative array as follows:</p>
+<div dir="ltr">
+<pre class="source-text">
+$phonebook.Keys | foreach { "Number for {0}: {1}" -f $_,$phonebook.$_ }
+</pre></div>
+<p>An entry can be removed using the <code>Remove()</code> method of the the underlying .NET object:</p>
+<div dir="ltr">
+<pre class="source-text">
+$phonebook.Remove('Sally Smart')
+</pre></div>
+<p><a name="External_links" id="External_links"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Associative_array&amp;action=edit&amp;section=35" title="Edit section: External links">edit</a>]</span> <span class="mw-headline">External links</span></h2>
+<ul>
+<li><a href="http://goletas.com/solutions/collections/" class="external text" title="http://goletas.com/solutions/collections/" rel="nofollow">TreeDictionary&lt;K,V&gt; Implementation in C#</a></li>
+<li><a href="http://www.nist.gov/dads/HTML/assocarray.html" class="external text" title="http://www.nist.gov/dads/HTML/assocarray.html" rel="nofollow">NIST's Dictionary of Algorithms and Data Structures: Associative Array</a></li>
+<li><a href="http://www.nist.gov/dads/HTML/dictionary.html" class="external text" title="http://www.nist.gov/dads/HTML/dictionary.html" rel="nofollow">NIST's Dictionary of Algorithms and Data Structures: Association List</a></li>
+<li><a href="http://www.sgi.com/tech/stl/Map.html" class="external text" title="http://www.sgi.com/tech/stl/Map.html" rel="nofollow">SGI STL page on Associative Containers</a></li>
+<li><a href="http://www.sgi.com/tech/stl/Map.html" class="external text" title="http://www.sgi.com/tech/stl/Map.html" rel="nofollow">SGI STL page on std::map</a></li>
+<li><a href="http://www.sgi.com/tech/stl/hash_map.html" class="external text" title="http://www.sgi.com/tech/stl/hash_map.html" rel="nofollow">SGI STL page on std::hash_map</a></li>
+</ul>
+<p><a name="References" id="References"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Associative_array&amp;action=edit&amp;section=36" title="Edit section: References">edit</a>]</span> <span class="mw-headline">References</span></h2>
+<ol class="references">
+<li id="_note-0"><b><a href="#_ref-0" title="">^</a></b> About the implementation of <a href="http://se.php.net/manual/en/language.types.array.php" class="external text" title="http://se.php.net/manual/en/language.types.array.php" rel="nofollow">Arrays</a> in PHP</li>
+</ol>
+
+<!-- 
+Pre-expand include size: 18755 bytes
+Post-expand include size: 5551 bytes
+Template argument size: 2415 bytes
+Maximum: 2048000 bytes
+-->
+
+<!-- Saved in parser cache with key enwiki:pcache:idhash:95154-0!1!0!default!!en!2 and timestamp 20070916072620 -->
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org/wiki/Associative_array">http://en.wikipedia.org/wiki/Associative_array</a>"</div>
+			<div id="catlinks"><p class='catlinks'><a href="/wiki/Special:Categories" title="Special:Categories">Categories</a>: <span dir='ltr'><a href="/wiki/Category:Articles_to_be_expanded_since_January_2007" title="Category:Articles to be expanded since January 2007">Articles to be expanded since January 2007</a></span> | <span dir='ltr'><a href="/wiki/Category:All_articles_to_be_expanded" title="Category:All articles to be expanded">All articles to be expanded</a></span> | <span dir='ltr'><a href="/wiki/Category:All_articles_with_unsourced_statements" title="Category:All articles with unsourced statements">All articles with unsourced statements</a></span> | <span dir='ltr'><a href="/wiki/Category:Articles_with_unsourced_statements_since_March_2007" title="Category:Articles with unsourced statements since March 2007">Articles with unsourced statements since March 2007</a></span> | <span dir='ltr'><a href="/wiki/Category:Arrays" title="Category:Arrays">Arrays</a></span> | <span dir='ltr'><a href="/wiki/Category:Data_structures" title="Category:Data structures">Data structures</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<div class="pBody">
+			<ul>
+					 <li id="ca-nstab-main" class="selected"><a href="/wiki/Associative_array" title="View the content page [c]" accesskey="c">Article</a></li>
+					 <li id="ca-talk"><a href="/wiki/Talk:Associative_array" title="Discussion about the content page [t]" accesskey="t">Discussion</a></li>
+					 <li id="ca-edit"><a href="/w/index.php?title=Associative_array&amp;action=edit" title="You can edit this page. Please use the preview button before saving. [e]" accesskey="e">Edit this page</a></li>
+					 <li id="ca-history"><a href="/w/index.php?title=Associative_array&amp;action=history" title="Past versions of this page [h]" accesskey="h">History</a></li>
+				</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-personal">
+		<h5>Personal tools</h5>
+		<div class="pBody">
+			<ul>
+				<li id="pt-login"><a href="/w/index.php?title=Special:Userlogin&amp;returnto=Associative_array" title="You are encouraged to log in, it is not mandatory however. [o]" accesskey="o">Sign in / create account</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-logo">
+		<a style="background-image: url(/images/wiki-en.png);" href="/wiki/Main_Page" title="Visit the Main Page [z]" accesskey="z"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-Main-page"><a href="/wiki/Main_Page">Main page</a></li>
+				<li id="n-Contents"><a href="/wiki/Wikipedia:Contents">Contents</a></li>
+				<li id="n-Featured-content"><a href="/wiki/Wikipedia:Featured_content">Featured content</a></li>
+				<li id="n-currentevents"><a href="/wiki/Portal:Current_events" title="Find background information on current events">Current events</a></li>
+				<li id="n-randompage"><a href="/wiki/Special:Random" title="Load a random page [x]" accesskey="x">Random article</a></li>
+			</ul>
+		</div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+		<h5>interaction</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-About-Wikipedia"><a href="/wiki/Wikipedia:About">About Wikipedia</a></li>
+				<li id="n-portal"><a href="/wiki/Wikipedia:Community_Portal" title="About the project, what you can do, where to find things">Community portal</a></li>
+				<li id="n-recentchanges"><a href="/wiki/Special:Recentchanges" title="The list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li>
+				<li id="n-contact"><a href="/wiki/Wikipedia:Contact_us">Contact Wikipedia</a></li>
+				<li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising" title="Support us">Donate to Wikipedia</a></li>
+				<li id="n-help"><a href="/wiki/Help:Contents" title="Guidance on how to use and edit Wikipedia">Help</a></li>
+			</ul>
+		</div>
+	</div>
+		<div id="p-search" class="portlet">
+		<h5><label for="searchInput">Search</label></h5>
+		<div id="searchBody" class="pBody">
+			<form action="/wiki/Special:Search" id="searchform"><div>
+				<input id="searchInput" name="search" type="text" title="Search Wikipedia [f]" accesskey="f" value="" />
+				<input type='submit' name="go" class="searchButton" id="searchGoButton"	value="Go" />&nbsp;
+				<input type='submit' name="fulltext" class="searchButton" id="mw-searchButton" value="Search" />
+			</div></form>
+		</div>
+	</div>
+	<div class="portlet" id="p-tb">
+		<h5>Toolbox</h5>
+		<div class="pBody">
+			<ul>
+				<li id="t-whatlinkshere"><a href="/wiki/Special:Whatlinkshere/Associative_array" title="List of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+				<li id="t-recentchangeslinked"><a href="/wiki/Special:Recentchangeslinked/Associative_array" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+<li id="t-upload"><a href="/wiki/Wikipedia:Upload" title="Upload images or media files [u]" accesskey="u">Upload file</a></li>
+<li id="t-specialpages"><a href="/wiki/Special:Specialpages" title="List of all special pages [q]" accesskey="q">Special pages</a></li>
+				<li id="t-print"><a href="/w/index.php?title=Associative_array&amp;printable=yes" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>				<li id="t-permalink"><a href="/w/index.php?title=Associative_array&amp;oldid=157768968" title="Permanent link to this version of the page">Permanent link</a></li><li id="t-cite"><a href="/w/index.php?title=Special:Cite&amp;page=Associative_array&amp;id=157768968">Cite this article</a></li>			</ul>
+		</div>
+	</div>
+	<div id="p-lang" class="portlet">
+		<h5>In other languages</h5>
+		<div class="pBody">
+			<ul>
+				<li class="interwiki-cs"><a href="http://cs.wikipedia.org/wiki/Asociativn%C3%AD_pole">Česky</a></li>
+				<li class="interwiki-de"><a href="http://de.wikipedia.org/wiki/Assoziatives_Array">Deutsch</a></li>
+				<li class="interwiki-fr"><a href="http://fr.wikipedia.org/wiki/Tableau_associatif">Français</a></li>
+				<li class="interwiki-nl"><a href="http://nl.wikipedia.org/wiki/Associatieve_array">Nederlands</a></li>
+				<li class="interwiki-ja"><a href="http://ja.wikipedia.org/wiki/%E9%80%A3%E6%83%B3%E9%85%8D%E5%88%97">日本語</a></li>
+				<li class="interwiki-pl"><a href="http://pl.wikipedia.org/wiki/Tablica_asocjacyjna">Polski</a></li>
+				<li class="interwiki-ru"><a href="http://ru.wikipedia.org/wiki/%D0%90%D1%81%D1%81%D0%BE%D1%86%D0%B8%D0%B0%D1%82%D0%B8%D0%B2%D0%BD%D1%8B%D0%B9_%D0%BC%D0%B0%D1%81%D1%81%D0%B8%D0%B2">Русский</a></li>
+				<li class="interwiki-fi"><a href="http://fi.wikipedia.org/wiki/Hakurakenne">Suomi</a></li>
+			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="/skins-1.5/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>
+				<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="/images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>
+			<ul id="f-list">
+				<li id="lastmod"> This page was last modified 02:58, 14 September 2007.</li>
+				<li id="copyright">All text is available under the terms of the <a class='internal' href="/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="/wiki/Wikipedia:Copyrights" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a U.S. registered <a class='internal' href="/wiki/501%28c%29#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="/wiki/Non-profit_organization" title="Non-profit organization">nonprofit</a> <a href="/wiki/Charitable_organization" title="Charitable organization">charity</a>.<br /></li>
+				<li id="privacy"><a href="http://wikimediafoundation.org/wiki/Privacy_policy" title="wikimedia:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="/wiki/Wikipedia:About" title="Wikipedia:About">About Wikipedia</a></li>
+				<li id="disclaimer"><a href="/wiki/Wikipedia:General_disclaimer" title="Wikipedia:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+		
+	
+		<script type="text/javascript">if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by srv188 in 0.713 secs. --></body></html>

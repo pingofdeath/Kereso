@@ -1,0 +1,374 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+				<meta name="keywords" content="Uninformed Search Project,Bots,Constraint Satisfaction,Decision Making,History of AI,Intelligent Agents,Knowledge Representation and Reasoning,Learning and Neural Networks,Logical Inference,Reasoning under Uncertainty,Search techniques" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikiversity (English)" />
+		<link rel="copyright" href="http://www.gnu.org/copyleft/fdl.html" />
+		<title>Uninformed Search Project - Wikiversity</title>
+		<style type="text/css" media="screen, projection">/*<![CDATA[*/
+			@import "/skins-1.5/common/shared.css?99";
+			@import "/skins-1.5/monobook/main.css?99";
+		/*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="/skins-1.5/common/commonPrint.css?99" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE50Fixes.css?99";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE55Fixes.css?99";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "/skins-1.5/monobook/IE60Fixes.css?99";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "/skins-1.5/monobook/IE70Fixes.css?99";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="/skins-1.5/common/IEFixes.js?99"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		
+		<script type= "text/javascript">/*<![CDATA[*/
+var skin = "monobook";
+var stylepath = "/skins-1.5";
+var wgArticlePath = "/wiki/$1";
+var wgScriptPath = "/w";
+var wgScript = "/w/index.php";
+var wgServer = "http://en.wikiversity.org";
+var wgCanonicalNamespace = "";
+var wgCanonicalSpecialPageName = false;
+var wgNamespaceNumber = 0;
+var wgPageName = "Uninformed_Search_Project";
+var wgTitle = "Uninformed Search Project";
+var wgAction = "view";
+var wgRestrictionEdit = [];
+var wgRestrictionMove = [];
+var wgArticleId = "25304";
+var wgIsArticle = true;
+var wgUserName = null;
+var wgUserGroups = null;
+var wgUserLanguage = "en";
+var wgContentLanguage = "en";
+var wgBreakFrames = false;
+var wgCurRevisionId = "129785";
+/*]]>*/</script>
+                
+		<script type="text/javascript" src="/skins-1.5/common/wikibits.js?99"><!-- wikibits js --></script>
+		<script type="text/javascript" src="/w/index.php?title=-&amp;action=raw&amp;gen=js&amp;useskin=monobook"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "/w/index.php?title=MediaWiki:Common.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=MediaWiki:Monobook.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=-&action=raw&gen=css&maxage=2678400";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+		<script type="text/javascript" src="/skins-1.5/common/ajax.js?99"></script>
+	</head>
+<body  class="mediawiki ns-0 ltr page-Uninformed_Search_Project">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+		<div id="siteNotice"><script type="text/javascript" language="JavaScript">
+<!--
+document.writeln("\x3cdiv class=\"plainlinks\" id=\"wm07cfp\" style=\"width:98%; margin:5px auto 0; background:transparent; text-align:center;\"\x3e\x3ca href=\"http://meta.wikimedia.org/wiki/Wikimedia_Foundation\" class=\"extiw\" title=\"m:Wikimedia_Foundation\"\x3eWikimedia Foundation\x3c/a\x3e 2007 \x3cb\x3efundraising\x3c/b\x3e planning begins: \x3ca href=\"http://lists.wikimedia.org/pipermail/foundation-l/2007-August/032469.html\" class=\"external text\" title=\"http://lists.wikimedia.org/pipermail/foundation-l/2007-August/032469.html\" rel=\"nofollow\"\x3eyour help is requested\x3c/a\x3e.\x3c/div\x3e\n");
+-->
+</script></div>		<h1 class="firstHeading">Uninformed Search Project</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From Wikiversity</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<p><b><a href="/wiki/Topic:Artificial_Intelligence" title="Topic:Artificial Intelligence">Artificial Intelligence</a>:</b> <a href="/wiki/History_of_AI" title="History of AI">History of AI</a> | <a href="/wiki/Intelligent_Agents" title="Intelligent Agents">Intelligent Agents</a> | <a href="/wiki/Search_techniques" title="Search techniques">Search techniques</a> | <a href="/wiki/Constraint_Satisfaction" title="Constraint Satisfaction">Constraint Satisfaction</a> | <a href="/wiki/Knowledge_Representation_and_Reasoning" title="Knowledge Representation and Reasoning">Knowledge Representation and Reasoning</a> | <a href="/wiki/Logical_Inference" title="Logical Inference">Logical Inference</a> | <a href="/wiki/Reasoning_under_Uncertainty" title="Reasoning under Uncertainty">Reasoning under Uncertainty</a> | <a href="/wiki/Decision_Making" title="Decision Making">Decision Making</a> | <a href="/wiki/Learning_and_Neural_Networks" title="Learning and Neural Networks">Learning and Neural Networks</a> | <a href="/wiki/Bots" title="Bots">Bots</a></p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Uninformed_Search"><span class="tocnumber">1</span> <span class="toctext">Uninformed Search</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Problem_1_-_Preperation"><span class="tocnumber">1.1</span> <span class="toctext">Problem 1 - Preperation</span></a></li>
+<li class="toclevel-2"><a href="#Problem_2_Programming_and_Analysis"><span class="tocnumber">1.2</span> <span class="toctext">Problem 2 Programming and Analysis</span></a></li>
+<li class="toclevel-2"><a href="#Analysis_and_questions"><span class="tocnumber">1.3</span> <span class="toctext">Analysis and questions</span></a></li>
+<li class="toclevel-2"><a href="#Assignment_Material"><span class="tocnumber">1.4</span> <span class="toctext">Assignment Material</span></a></li>
+<li class="toclevel-2"><a href="#External_Links"><span class="tocnumber">1.5</span> <span class="toctext">External Links</span></a></li>
+<li class="toclevel-2"><a href="#Optional:_Suggestions_for_Giving_this_as_a_Project_for_a_Large_Class"><span class="tocnumber">1.6</span> <span class="toctext">Optional: Suggestions for Giving this as a Project for a Large Class</span></a>
+<ul>
+<li class="toclevel-3"><a href="#Guidelines"><span class="tocnumber">1.6.1</span> <span class="toctext">Guidelines</span></a></li>
+<li class="toclevel-3"><a href="#Other_information"><span class="tocnumber">1.6.2</span> <span class="toctext">Other information</span></a></li>
+<li class="toclevel-3"><a href="#Handing_in_the_Assignment"><span class="tocnumber">1.6.3</span> <span class="toctext">Handing in the Assignment</span></a></li>
+<li class="toclevel-3"><a href="#Electronic_Submission_of_code"><span class="tocnumber">1.6.4</span> <span class="toctext">Electronic Submission of code</span></a></li>
+<li class="toclevel-3"><a href="#What_exactly_is_Stubby.3F"><span class="tocnumber">1.6.5</span> <span class="toctext">What exactly is Stubby?</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</td>
+</tr>
+</table>
+<script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script>
+<p><a name="Uninformed_Search" id="Uninformed_Search"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Uninformed_Search_Project&amp;action=edit&amp;section=1" title="Edit section: Uninformed Search">edit</a>]</span> <span class="mw-headline"><a href="http://en.wikipedia.org/wiki/Uninformed_search" class="external text" title="http://en.wikipedia.org/wiki/Uninformed_search" rel="nofollow">Uninformed Search</a></span></h3>
+<p>This assignment was first created and used for two semesters at the <a href="http://www.usc.edu" class="external text" title="http://www.usc.edu" rel="nofollow">University of Southern California</a> in the Artificial Intelligence Course <a href="http://ilab.usc.edu/classes/2006cs561/" class="external text" title="http://ilab.usc.edu/classes/2006cs561/" rel="nofollow">CSCI561</a> and <a href="http://ilab.usc.edu/classes/2005cs460/" class="external text" title="http://ilab.usc.edu/classes/2005cs460/" rel="nofollow">CSCI460</a>. This project has been changed from its original form to make it more of a self-guided project. The original version can be found at <a href="http://wwww.cool-ai.com" class="external text" title="http://wwww.cool-ai.com" rel="nofollow">cool-ai.com</a></p>
+<p><a name="Problem_1_-_Preperation" id="Problem_1_-_Preperation"></a></p>
+<h4><span class="editsection">[<a href="/w/index.php?title=Uninformed_Search_Project&amp;action=edit&amp;section=2" title="Edit section: Problem 1 - Preperation">edit</a>]</span> <span class="mw-headline">Problem 1 - Preperation</span></h4>
+<p>Gung Ho Joe is a video game warrior. He is slashing his way through vile monsters when he comes upon the gratuitously tentacled Purple People Eater. He must act fast and dispatch the hideous foe before it splashes radioactive bacteria on him. There are a variety of items Joe can use to destroy this beast.</p>
+<ul>
+<li>Joe has an M-16 with a grenade launcher and two types of bullet ammunition, Teflon® tipped and explosive tipped.</li>
+<li>Joe is wearing a coat, which has inside it a very large .45 caliber gun, a rubber mallet and two Lakers tickets.</li>
+<li>Joe has slung over his shoulder some really cool particle cannon and a weird alien hand that as far as we can tell, shoots bees.</li>
+<li>Joe has a sack, which contains a hand grenade, a two-way radio, the galactic transponder and a small change purse, which has a nickel, two dimes and pocket lint inside.</li>
+</ul>
+<p>Assume that any of these items can be used against the Purple People Eater. Also, assume that in order to use an item inside another i.e. coat or sack, Joe must first open it. As such, to use the nickel, Joe must first use the sack, then the change purse. Also, assume that the cost is the same for each edge in this problem.</p>
+<ol>
+<li>Draw the basic search tree assuming Joe will try all of these items against the people eater.</li>
+<li>Given the tree you have drawn, list the order that the items will be used in a <a href="http://en.wikipedia.org/wiki/Breadth_first_search" class="external text" title="http://en.wikipedia.org/wiki/Breadth_first_search" rel="nofollow">breadth first search</a>.</li>
+<li>Given the tree you have drawn, list the order the items will be used in a <a href="http://en.wikipedia.org/wiki/Depth-first_search" class="external text" title="http://en.wikipedia.org/wiki/Depth-first_search" rel="nofollow">depth first search</a>.</li>
+<li>Give an example from the tree of a <a href="http://en.wikipedia.org/wiki/Depth-limited_search" class="external text" title="http://en.wikipedia.org/wiki/Depth-limited_search" rel="nofollow">depth-limited search</a> with limit L=2 (the start node is at depth 0 and its children at depth 1).</li>
+<li>Would using an <a href="http://en.wikipedia.org/wiki/Iterative_deepening_depth-first_search" class="external text" title="http://en.wikipedia.org/wiki/Iterative_deepening_depth-first_search" rel="nofollow">iterative deepening search</a> be helpful in this example?</li>
+<li>Give the time and memory complexity for both depth first and breadth first search and give a simple derivation and explanation of how they are computed.</li>
+<li>If the Purple People Eater was a tollbooth operator in its past life and a dime will make it go away, will one of the search types be more optimal? Would your answer change if Joe needed to use the really cool particle cannon? Explain.</li>
+<li>How could you augment this problem to work with a <a href="http://en.wikipedia.org/wiki/Uniform_cost_search" class="external text" title="http://en.wikipedia.org/wiki/Uniform_cost_search" rel="nofollow">Uniform-cost search</a>? Intuitively, do you believe such an augmentation would make more sense?</li>
+<li>Does trying each item like this seem like a reasonable thing to do? In real life when would it be reasonable to do so?</li>
+<li>You might give some intuitive examples and explanations as to how else you might try and select the correct item for Joe to use.</li>
+</ol>
+<p><a name="Problem_2_Programming_and_Analysis" id="Problem_2_Programming_and_Analysis"></a></p>
+<h4><span class="editsection">[<a href="/w/index.php?title=Uninformed_Search_Project&amp;action=edit&amp;section=3" title="Edit section: Problem 2 Programming and Analysis">edit</a>]</span> <span class="mw-headline">Problem 2 Programming and Analysis</span></h4>
+<p>Homer Simpson is at the nuclear power plant. A plutonium rod has fallen on his head. He no longer remembers the way to Moe’s Tavern. You will need to help Homer find the way so he can enjoy a frosty Duff™ beer after work.</p>
+<p>To accomplish this, you will be given a list of street intersections, which list the streets that meet each other. You will be required to create a program in GNU C++ (g++) that finds the list of streets Homer must travel on in order to get to Moe’s.</p>
+<ul>
+<li>If giving this to students, you might want to specify the compiler as such:</li>
+</ul>
+<pre>
+You may either use the g++ version on <i>SomeCommonUnixServer</i> or g++ versions 3.3 to 3.4.1 on Linux. 
+Be sure and clearly note which one you used so I know which machine to compile it on. 
+</pre>
+<p>Of course c++ is optional. Java would also work well.</p>
+<p>Your program should take in an arbitrarily large list of intersections and find the correct route to take. It will then output a list of each street taken in order (see example file). An example input would be a list of intersections (edges):</p>
+<pre>
+Nuclear_Plant Burns_Ave
+Burns_Ave West_Springfield_Bvld
+Burns_Ave Ye_Olde_Fortran_St
+Burns_Ave Krustofski_Way
+Moes_Tavern Krustofski_Way
+</pre>
+<p>Ideally, your program would return the output of streets and other connecting locations traveled over including the starting and finishing states, in order of travel:</p>
+<pre>
+Nuclear_Plant
+Burns_Ave
+Krustofski_Way
+Moes_Tavern
+</pre>
+<p>You can assume that capitalization will be maintained and node names will not have any white spaces in them. Additionally, the very first row has the starting state, while the very last row has the ending state just in the same way as the example. So, with other test cases, you must be able to help Homer find his way to other places as well. After all, you never know, he might want to go home to his loving family.</p>
+<p><b>Hint:</b> It may be helpful to use the C++ member function ‘compare’ or the C function ‘strcmp’ function to transform the street names into states. These functions will compare two strings to let you know how similar they are. Thus, one way to approach the problem is to read the list of streets and if a street name has not been read in yet, create a state for it. Thus, keep some sort of list for street names and which states they correspond to.</p>
+<p>You may solve this problem using both depth first and breadth first search. Additionally, you should keep track of memory and time requirements. Time required is tracked by incrementing a counter for each node that is expanded. Memory required is tracked by storing the largest number of unexpanded nodes, which were stored in memory at any given time. These may be output by your computer program at the same time as the solution. Please keep in mind that the streets of Springfield can lead many places, including in circles. So you should be able to detect loops in this problem.</p>
+<p>Ideally, you would like your program to output three files:</p>
+<p>If your input is example01.txt, your output files will be:</p>
+<ol>
+<li>example01.depth.txt – this is your depth first search solution</li>
+<li>example01.breadth.txt – this is your breadth first search solution</li>
+</ol>
+<p>You will be provided with at least one set of example solution files, which you can use to make sure your output, matches the standard (see below).</p>
+<p>Thus your program should:</p>
+<ol>
+<li>Read in a list of names as detailed above and create associated states.</li>
+<li>Find the route from the start to the ending states.</li>
+<li>Write files with the solution routes, as detailed above.</li>
+</ol>
+<p>If you have some problems with C++ or would just like a handy reference I recommend the following book:</p>
+<pre>
+C++ Black Book
+Steve Holzner
+ISBN: 1-57610-777-9
+</pre>
+<p>It is available on amazon.com for $23.00. As far as C++ books go its rather comprehensive over all the basic C++ topics and has easy to read and understand examples.</p>
+<p><a name="Analysis_and_questions" id="Analysis_and_questions"></a></p>
+<h4><span class="editsection">[<a href="/w/index.php?title=Uninformed_Search_Project&amp;action=edit&amp;section=4" title="Edit section: Analysis and questions">edit</a>]</span> <span class="mw-headline">Analysis and questions</span></h4>
+<ol>
+<li>Analyze the memory and time requirements for depth first and breadth first search over the example files.
+<ol>
+<li>Show the mean and standard deviation of the number of steps needed to execute depth and breadth first search.</li>
+<li>Show the mean and standard deviation for the amount of memory required given the examples. You can represent this as the maximum number of nodes, which must be kept in memory at any one time for each example.</li>
+</ol>
+</li>
+<li>From your analysis, which of the two methods yields superior results.</li>
+<li>What if we added more than one goal state to each graph and we asked you to find the shortest (optimal) solution, would that change the complexity of the problem?</li>
+<li>What if in addition to adding more than one goal, we added a cost to each intersection (edge) such as the wait time at the traffic light. Would a breadth-first search still make sense?</li>
+<li>If Matt Goening stuffed all his money under a mattress, how large would his mattress need to be in order to cover all of his cash?</li>
+</ol>
+<p><a name="Assignment_Material" id="Assignment_Material"></a></p>
+<h4><span class="editsection">[<a href="/w/index.php?title=Uninformed_Search_Project&amp;action=edit&amp;section=5" title="Edit section: Assignment Material">edit</a>]</span> <span class="mw-headline">Assignment Material</span></h4>
+<p><a href="http://www.cool-ai.com/uninformed.search/material.rar" class="external text" title="http://www.cool-ai.com/uninformed.search/material.rar" rel="nofollow">Uninformed Search material.rar</a> - Rar can be opened with <a href="http://www.rarlab.com/" class="external text" title="http://www.rarlab.com/" rel="nofollow">WinRAR</a></p>
+<p><a name="External_Links" id="External_Links"></a></p>
+<h4><span class="editsection">[<a href="/w/index.php?title=Uninformed_Search_Project&amp;action=edit&amp;section=6" title="Edit section: External Links">edit</a>]</span> <span class="mw-headline">External Links</span></h4>
+<ol>
+<li><a href="http://www.cool-ai.com/" class="external text" title="http://www.cool-ai.com/" rel="nofollow">More Free Projects in Artificial Intelligence</a></li>
+<li><a href="http://ilab.usc.edu/classes/2006cs561/" class="external text" title="http://ilab.usc.edu/classes/2006cs561/" rel="nofollow">Original Web Page For The Class This Assignment Was Used In</a></li>
+</ol>
+<p><a name="Optional:_Suggestions_for_Giving_this_as_a_Project_for_a_Large_Class" id="Optional:_Suggestions_for_Giving_this_as_a_Project_for_a_Large_Class"></a></p>
+<h4><span class="editsection">[<a href="/w/index.php?title=Template:AI_Large_Class_Suggestions&amp;action=edit&amp;section=1" title="Template:AI Large Class Suggestions">edit</a>]</span> <span class="mw-headline">Optional: Suggestions for Giving this as a Project for a Large Class</span></h4>
+<p>This project can also be given to a whole class. If the class is large then it is helpful to automate the handing in and grading of projects. Grading of the coding part can be semi-automated. The idea is to give students a stub of the script you will use to grade their project so that they can check to make sure their project is compatible with your grading scripts. Additioanlly, you might want to download the original project from <a href="http://www.cool-ai.com" class="external text" title="http://www.cool-ai.com" rel="nofollow">here</a> given to the students since the on this page have been changed for self-guided study. These are the directions we gave the students. They are of course just a suggestion:</p>
+<p>Due: By class <i>Day, Date, Time</i></p>
+<p><a name="Guidelines" id="Guidelines"></a></p>
+<h5><span class="editsection">[<a href="/w/index.php?title=Template:AI_Large_Class_Suggestions&amp;action=edit&amp;section=2" title="Template:AI Large Class Suggestions">edit</a>]</span> <span class="mw-headline">Guidelines</span></h5>
+<p>This assignment has a written and programming component. You can see how much each part of the assignment is worth by the percentage next to it. For the written part, please turn in typewritten answers. You are not English majors, however blatant spelling and grammatical errors may cost you points, so be sure and run the spell check at least once. Answers on the written part will require justification and a simple yes/no answer will almost certainly garner you little or no points. In general, it is safer to write longer answers than shorter ones, but stay focused as a long but off-topic answer will not work either. This way, we can discern your train of thoughts better and grant partial credit for a wrong answer, if you were on the right track. Graphs must be neat and tidy. Hand-drawn graphs are OK, but computer-drawn graphs (e.g., made with Adobe Illustrator or Microsoft Power Point) are preferred. If you draw a graph by hand, be sure and use a straight edge (ruler) so it looks neat.</p>
+<p>For the programming part, you will be provided sample inputs and at least one sample output. Since each homework is checked via an automated Perl script, your output should match the example format exactly. Failure to do so will most certainly cost some points. Since the output format is simple and there is an example on the web, this should not be a problem. Additionally, if your code generates a large number of warnings during compilation, you may lose points, so try and eliminate compile-time warnings. Additionally, your code should be well documented. If something goes wrong during compile and grading, if the fix proves easy, the amount of points lost will be far less. As such, documentation makes fixing easier, so it is to your advantage to do so.</p>
+<p>You will be provided with a stub Perl script called “stubby.pl”, which works like the grading Perl script. You can run this script to make sure that your project will work properly. Thus, it is expected that your project will run through the grading Perl script without problems. Pedantically, we assert it will cost you points if your code does not run on the Perl script correctly. You will be able to tell if your output is correct if stubby shows each of the lines from your program output is exactly the same as from the comparison file which shows what output you should be getting.</p>
+<p>To run stubby, copy it to your code directory along with the input, output and comparison files. Be sure to be in your code directory then type “perl stubby.pl”. The script is loaded with all sorts of output and feedback, so you should be able to see what it is doing if for some reason it isn’t working for you. If you don’t understand the script and want to know more about Perl, go to <a href="http://www.perl.org/" class="external free" title="http://www.perl.org/" rel="nofollow">http://www.perl.org/</a>.</p>
+<p>Small amounts of extra credit (not more than 10% total) are given for all sorts of things. So long as you meet the base homework requirements anything creative, fun, interesting or outright cool will most likely earn you extra credit. What is cool and earns you extra credit is somewhat subjective and bound to the whim of the grader.</p>
+<p><a name="Other_information" id="Other_information"></a></p>
+<h5><span class="editsection">[<a href="/w/index.php?title=Template:AI_Large_Class_Suggestions&amp;action=edit&amp;section=3" title="Template:AI Large Class Suggestions">edit</a>]</span> <span class="mw-headline">Other information</span></h5>
+<p>For this assignment and many others you will be required to parse input and output files. To help you out, a file called “proj1.cpp” is in the homework 1 folder on den. This is an example file on how to open, read in and then dump a file back out to disk. You may use parts of this code for your homework if you wish.</p>
+<p>To compile this file, try something like:</p>
+<pre>
+g++ proj1.cpp -o proj1
+</pre>
+<p>Then to run it, try something like:</p>
+<pre>
+./proj1 matrix2.mat out2.mat
+</pre>
+<p>This will read in the matrix file “matrix2.mat” and dump it back out to another file “out2.mat”.</p>
+<p><a name="Handing_in_the_Assignment" id="Handing_in_the_Assignment"></a></p>
+<h5><span class="editsection">[<a href="/w/index.php?title=Template:AI_Large_Class_Suggestions&amp;action=edit&amp;section=4" title="Template:AI Large Class Suggestions">edit</a>]</span> <span class="mw-headline">Handing in the Assignment</span></h5>
+<p>Since the class is very large it is important to hand in your homework as directed. The homework is due before class on the due date shown. There are two parts of the homework, which you must hand in. These are:</p>
+<ol>
+<li>Your code tar/gzipped in one file. Do not send the binaries. - This should just include your uncompiled code and a readme file called readme.txt. When I run tar/gzip to uncompress your file, it should uncompress into its own directory. To keep things uniform, do not use bzip2. I should then be able to run my stubby Perl script and grade your code. See below on how to tar/gzip your code.</li>
+<li>Your written part on paper. You must submit a paper copy either in class or in a drop-box in front of my office in <i>Building</i> (NOTE: the <i>Building</i> building closes at 5:00pm). Late submissions will be noted. Be sure your homework is stapled together and is generally tidy.</li>
+</ol>
+<p>Be sure that your name is clearly visible on all material you hand in. To hand in your code you can compress it with tar/gzip with a command like:</p>
+<pre>
+tar –czvf my.name.hw1.code.tgz my.name.hw1.code
+</pre>
+<p>You might also try:</p>
+<pre>
+tar –cvf my.name.hw1.code.tar  my.name.hw1.code 
+</pre>
+<p>then type</p>
+<pre>
+gzip my.name.hw1.code.tar  
+</pre>
+<p>This will compress the contents of the directory named “my.name.hw1.code” into a single file my.name.hw1.code.tgz. If you need more info on this, try “man tar”.</p>
+<p><a name="Electronic_Submission_of_code" id="Electronic_Submission_of_code"></a></p>
+<h5><span class="editsection">[<a href="/w/index.php?title=Template:AI_Large_Class_Suggestions&amp;action=edit&amp;section=5" title="Template:AI Large Class Suggestions">edit</a>]</span> <span class="mw-headline">Electronic Submission of code</span></h5>
+<ul>
+<li>Generally it is helpful to have an electronic submission system. However, if you do not, then just skip this.</li>
+</ul>
+<p>You need to submit the assignment electronically using the EXACT following command FROM YOUR <i>UnixMachine</i> ACCOUNT.</p>
+<pre>
+submit -user csci561 -tag hw1 my.name.hw1.code.tgz
+</pre>
+<p>Be sure and substitute “my.name” with your own name. The submit command will immediately respond with a SUCCEEDED if your submission of file "my.name.hw1.code.tgz" is successful. That will be your means to know that your homework has reached the right place. Your submissions will be time stamped, so we will know the exact time when you made the submission.</p>
+<p><a name="What_exactly_is_Stubby.3F" id="What_exactly_is_Stubby.3F"></a></p>
+<h5><span class="editsection">[<a href="/w/index.php?title=Template:AI_Large_Class_Suggestions&amp;action=edit&amp;section=6" title="Template:AI Large Class Suggestions">edit</a>]</span> <span class="mw-headline">What exactly is Stubby?</span></h5>
+<p>This is very important. We use a Perl script to automate the grading process. Stubby is a Perl script we give to you so that you can check and make sure that your project conforms to specifications. That is, you can use Stubby to make sure that your assignment when handed in will run with our grading script. Thus, we have our own grading script like stubby, which we use to grade your project. By checking to make sure your project works with stubby, you make sure that your project will work with our automated grading script.</p>
+<p>It is important to note that we will not use your version of stubby. We have our own script. As such, if you edit stubby to work with your code and not the other way around, this will not be very helpful. Additionally, since there are so many projects to grade, it is imperative that your program work with the grading Perl script. If your program does not work with the grading Perl script you <i>will lose points</i>.</p>
+<hr />
+<p><a href="/wiki/User:Mundhenk" title="User:Mundhenk">Mundhenk</a> 00:38, 2 February 2007 (UTC)</p>
+
+<!-- 
+Pre-expand include size: 7996 bytes
+Post-expand include size: 7937 bytes
+Template argument size: 0 bytes
+Maximum: 2048000 bytes
+-->
+
+<!-- Saved in parser cache with key enwikiversity:pcache:idhash:25304-0!1!0!!en!2 and timestamp 20070914221759 -->
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikiversity.org/wiki/Uninformed_Search_Project">http://en.wikiversity.org/wiki/Uninformed_Search_Project</a>"</div>
+			<div id="catlinks"><p class='catlinks'><a href="/wiki/Special:Categories" title="Special:Categories">Category</a>: <span dir='ltr'><a href="/wiki/Category:Artificial_intelligence" title="Category:Artificial intelligence">Artificial intelligence</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<div class="pBody">
+			<ul>
+					 <li id="ca-nstab-main" class="selected"><a href="/wiki/Uninformed_Search_Project" title="View the content page [c]" accesskey="c">resource</a></li>
+					 <li id="ca-talk" class="new"><a href="/w/index.php?title=Talk:Uninformed_Search_Project&amp;action=edit" title="Discussion about the content page [t]" accesskey="t">Discussion</a></li>
+					 <li id="ca-edit"><a href="/w/index.php?title=Uninformed_Search_Project&amp;action=edit" title="You can edit this page. Please use the preview button before saving. [e]" accesskey="e">Edit this page</a></li>
+					 <li id="ca-history"><a href="/w/index.php?title=Uninformed_Search_Project&amp;action=history" title="Past versions of this page. [h]" accesskey="h">History</a></li>
+				</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-personal">
+		<h5>Personal tools</h5>
+		<div class="pBody">
+			<ul>
+				<li id="pt-login"><a href="/w/index.php?title=Special:Userlogin&amp;returnto=Uninformed_Search_Project" title="You are encouraged to log in, it is not mandatory however. [o]" accesskey="o">Log in / create account</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-logo">
+		<a style="background-image: url(http://upload.wikimedia.org/wikiversity/en/b/bc/Wiki.png);" href="/wiki/Wikiversity:Main_Page" title="Visit the Main Page [z]" accesskey="z"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-Main-Page"><a href="/wiki/Wikiversity:Main_Page">Main Page</a></li>
+				<li id="n-Browse"><a href="/wiki/Wikiversity:Browse">Browse</a></li>
+				<li id="n-recentchanges"><a href="/wiki/Special:Recentchanges" title="The list of recent changes in the wiki. [r]" accesskey="r">Recent changes</a></li>
+				<li id="n-randompage"><a href="/wiki/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li>
+				<li id="n-help"><a href="/wiki/Help:Contents" title="The place to find out.">Help</a></li>
+				<li id="n-Help-desk"><a href="/wiki/Wikiversity:Help_desk">Help desk</a></li>
+				<li id="n-sitesupport"><a href="/wiki/Wikiversity:Site_support" title="Support us">Donations</a></li>
+			</ul>
+		</div>
+	</div>
+		<div class='portlet' id='p-community'>
+		<h5>community</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-portal"><a href="/wiki/Wikiversity:Community_Portal" title="About the project, what you can do, where to find things">Portal</a></li>
+				<li id="n-Colloquium"><a href="/wiki/Wikiversity:Colloquium">Colloquium</a></li>
+				<li id="n-currentevents"><a href="/wiki/Wikiversity:News" title="Find background information on current events">News</a></li>
+			</ul>
+		</div>
+	</div>
+		<div id="p-search" class="portlet">
+		<h5><label for="searchInput">Search</label></h5>
+		<div id="searchBody" class="pBody">
+			<form action="/wiki/Special:Search" id="searchform"><div>
+				<input id="searchInput" name="search" type="text" title="Search Wikiversity [f]" accesskey="f" value="" />
+				<input type='submit' name="go" class="searchButton" id="searchGoButton"	value="Go" />&nbsp;
+				<input type='submit' name="fulltext" class="searchButton" id="mw-searchButton" value="Search" />
+			</div></form>
+		</div>
+	</div>
+	<div class="portlet" id="p-tb">
+		<h5>Toolbox</h5>
+		<div class="pBody">
+			<ul>
+				<li id="t-whatlinkshere"><a href="/wiki/Special:Whatlinkshere/Uninformed_Search_Project" title="List of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+				<li id="t-recentchangeslinked"><a href="/wiki/Special:Recentchangeslinked/Uninformed_Search_Project" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+<li id="t-upload"><a href="/wiki/Special:Upload" title="Upload images or media files [u]" accesskey="u">Upload file</a></li>
+<li id="t-specialpages"><a href="/wiki/Special:Specialpages" title="List of all special pages [q]" accesskey="q">Special pages</a></li>
+				<li id="t-print"><a href="/w/index.php?title=Uninformed_Search_Project&amp;printable=yes" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>				<li id="t-permalink"><a href="/w/index.php?title=Uninformed_Search_Project&amp;oldid=129785" title="Permanent link to this version of the page">Permanent link</a></li>			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="/skins-1.5/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>
+				<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="/images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>
+			<ul id="f-list">
+				<li id="lastmod"> This page was last modified 15:00, 2 June 2007.</li>
+				<li id="copyright">All text is available under the terms of the <a class='internal' href="/wiki/Wikiversity:GNU_Free_Documentation_License">GNU Free Documentation License</a> (see <b><a class='internal' href="/wiki/Wikiversity:Copyrights">Copyrights</a></b> for details).<br />
+Wikiversity is a trademark of the <a
+href="http://www.wikimediafoundation.org">Wikimedia Foundation,
+Inc.</a>, a US-registered <a class='internal'
+href="http://en.wikipedia.org/wiki/501(c)" title="501(c)(3)">501(c)(3)</a> <a
+href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a>;
+<a class='internal' href="http://en.wikipedia.org/wiki/Non-profit_organization"
+title="Non-profit organization">nonprofit</a> <a
+href="http://en.wikipedia.org/wiki/Charitable_organization" title="Charitable
+organization">charity</a>.<br /></li>
+				<li id="privacy"><a href="/wiki/Wikiversity:Privacy_policy" title="Wikiversity:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="/wiki/Wikiversity:About" title="Wikiversity:About">About Wikiversity</a></li>
+				<li id="disclaimer"><a href="/wiki/Wikiversity:General_disclaimer" title="Wikiversity:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+		
+	
+		<script type="text/javascript">if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by srv184 in 0.206 secs. --></body></html>

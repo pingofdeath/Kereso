@@ -1,0 +1,240 @@
+<HTML>
+<HEAD>
+   <TITLE>Interactive Data Structure Visualizations </TITLE>
+</HEAD>
+<SCRIPT>
+var appletRunning = false;
+var codeDisplayed = false;
+var screen;
+var defNo = 0;
+var group = "1";
+var studentName;
+
+function menu1Line(segment, longName, shortName)
+  {
+  if ("" + segment == screen.applet)
+    this.menu1.document.write('   <FONT COLOR="#000080">' + shortName + '</FONT><BR>');
+  else
+    this.menu1.document.write('   <A HREF="javascript:parent.setScreen(' + segment + ',' + "'" + longName + "'" +'); parent.load(1);">' + shortName + '</A><BR>');
+  }
+function loadPage()
+  {
+  screen = new Object();
+  screen.applet = 0;
+  if (this.applet.document.screen != null)
+    this.applet.document.screen.stop();
+  studentName = prompt("Please enter your name: ", "");
+  if (studentName == null)
+      studentName = "Anonymous";
+  this.title.open("title.html","title");
+  this.main.open("intro.html","main");
+  this.menu2a.open("white.html","menu2a");
+  this.menu2b.open("white.html","menu2b");
+  makeMenu1();
+  }
+function makeMenu1()
+  {
+  this.menu1.document.write('<HTML><BODY BGCOLOR="#C0C0C0">');
+  this.menu1.document.write('<P><PRE><FONT FACE="Arial"><B><FONT COLOR="#000080">Binary Trees</FONT></B><BR>');
+  menu1Line(1, "Binary Tree Traversals", "Traversals");
+  menu1Line(2, "Priority Queue with Heap", "Priority Queue");
+  menu1Line(3, "Heap Sort", "Heap Sort");
+  menu1Line(4, "Binary Search Trees", "Search Trees");
+  menu1Line(5, "Height Balanced Trees", "Height Balancing");
+  menu1Line(6, "Categorizing Binary Trees", "Categorizing");
+  this.menu1.document.write('</FONT></PRE><PRE><FONT FACE="Arial"><B><FONT COLOR="#000080">Graphs</FONT></B><BR>');
+  menu1Line(7, "Graph Representation", "Representation");
+  menu1Line(8, "Graphs Searches", "Searches");
+  menu1Line(9, "Categorizing Graphs", "Categorizing");
+  this.menu1.document.write('</FONT></PRE><PRE><FONT FACE="Arial"><B><FONT COLOR="#000080">Sorting</FONT></B><BR>');
+  menu1Line(10, "Quadratic Sorts", "Quadratic Sorts");
+  menu1Line(11, "Efficient Sorts", "Efficient Sorts");
+  this.menu1.document.write('</FONT></PRE></BODY></HTML>');
+  this.menu1.document.close();
+  }
+function makeMenu2()
+  {
+  var button1, button2, action1, action2;
+  if (!codeDisplayed)
+    {
+    button1 = "     Ada Code     ";
+    action1 = "parent.loadMain(2)";
+    }
+  else
+    {
+    button1 = "   Explanation   ";
+    action1 = "parent.loadMain(1);"
+    }
+  if (appletRunning)
+    {
+    button2 = " Stop Visualization";
+    action2 = "parent.visualClicked(2)";
+    }
+  else
+    {
+    button2 = "Start Visualization";
+    action2 = "parent.visualClicked(1);"
+    }
+  this.menu2a.document.write('<HTML><BODY BGCOLOR="#FFFFFF"><FORM><CENTER>' +
+    '<INPUT TYPE="button" VALUE="' + button1 + '" onClick="' + action1 + '">' +
+    '</CENTER></FORM></BODY><HTML>');
+  this.menu2a.document.close();
+  this.menu2b.document.write('<HTML><BODY BGCOLOR="#FFFFFF"><FORM><CENTER>' +
+    '<INPUT TYPE="button" VALUE="' + button2 + '" onClick="' + action2 + '">' +
+    '</CENTER></FORM></BODY><HTML>');
+  this.menu2b.document.close();
+  }
+function setScreen(applet, title)
+  {
+  if (appletRunning)
+    if (!confirm('Changing Segments Will Stop Visualization, Do You Wish To Proceed?'))
+      return;
+    else
+      visualization();
+  screen.applet = applet;
+  screen.title = title;
+  }
+function visualClicked(choice)
+  {
+  if (choice == 1)
+    loadApplet();
+  else if (choice == 2)
+    unloadApplet();
+  makeMenu2();
+  }
+function loadMain(choice)
+  {
+  if (choice == 1)
+    {
+    open("text" + screen.applet + ".html", "main");
+    codeDisplayed = false;
+    }
+  else if (choice == 2)
+    {
+    this.main.open("code" + screen.applet + ".html", "main");
+    codeDisplayed = true;
+    }
+  makeMenu2();
+  }
+function load(choice)
+  {
+  this.title.document.write('<HTML><BODY BGCOLOR="#FFFFFF" text="#000080"><H3><CENTER><FONT FACE="Arial">Interactive Data Structure Visualizations<BR>' +
+    screen.title + '</FONT></CENTER></H4></BODY></HTML>');
+  this.title.document.close();
+  loadMain(choice);
+  makeMenu1();
+  }
+function loadApplet()
+  {
+  this.applet.document.write(
+    '<BODY><APPLET NAME="screen" ARCHIVE="idsv.jar" CODE="Animator.class" WIDTH=0 HEIGHT=0>' +
+    '<PARAM NAME="studentName" VALUE="' + studentName +
+    '">' + '<PARAM NAME="panelNo" VALUE=' + screen.applet +
+    '><PARAM NAME="allowTry" VALUE="true">' +
+    '<PARAM NAME="showProgress" VALUE="true">' +
+    '</APPLET></BODY></HTML>');
+  this.applet.document.close();
+  eventLog = studentName + "_";
+  appletRunning = true;
+  }
+function unloadApplet()
+  {
+//  if (this.applet.document.screen != null)
+//    this.applet.document.screen.stop();
+  this.applet.document.write('<BODY></BODY></HTML>');
+  this.applet.document.close();
+  appletRunning = false;
+  }
+function define(term, number)
+  {
+  var def;
+  if (term == "AVL_Tree")
+    def = "An AVL tree, named for Adelson-Velskii and Landis, is a binary search tree that is balanced--meaning the balance factor of every node is either -1, 0, or 1.";
+  else if (term == "Balance_Factors")
+    def = "The balance factor of the node of a binary tree is computed by subtracting the height of its left subtree from the height of its right subtree.";
+  else if (term == "Balanced_Tree")
+    def = "A balanced tree is a binary tree in which the balance factor of every node is either -1, 0, or 1.";
+  else if (term == "Binary_Search")
+    def = "A binary search examines the middle value of an array first and repeats the process of the left half is the value to be found is less and the right half if it is greater. It's efficiency is O(log n).";
+  else if (term == "Binary_Search_Tree")
+    def = "A binary search tree is a binary tree each of whose nodes contains a value that is greater than all the values in the nodes in its left subtree and less than all the values in the nodes in its right subtree.";
+  else if (term == "Binary_Tree_Traversal")
+    def = "Traversing a binary tree means visiting each node of that tree.  There are several different kinds of binary tree traversals.  Different kinds of traversals visit the nodes of the tree in different orders.";
+  else if (term == "Breadth-First")
+    def = "A breadth-first tree traversal or graph search always visits both the siblings of a node, or all of its neighbors in a graph, before it visits any of its grandchildren, or neighbor's neighbors in a graph.";
+  else if (term == "Complete_Binary_Tree")
+    def = "A complete binary tree is a tree of height <I>n</I> that contains all possible nodes on levels 1 through <I>n</I>-1.  On level <I>n</I> if a node is missing, all its right siblings must be missing also.";
+  else if (term == "Connected")
+    def = "An undirected graph is connected if there is a path between every pair of nodes.";
+  else if (term == "Cycle")
+    def = "A cycle is a path in which the source of first edge is the same as the destination of the last edge.";
+  else if (term == "Depth-First")
+    def = "A depth-first tree traversal or graph search always moves as far down one branch of the tree or graph as it can. After visiting the child or neighbor in a graph, it visits the grandchild or neighbor's neighbor and so on until it reaches a leaf node. Each of the depth-first traversals is naturally recursive, because a stack is needed to maintain a record of all of the nodes visited along any particular branch.";
+  else if (term == "Edge")
+    def = "In an <I>un</I>directed graph, an edge is an <I>un</I>ordered pair of nodes.";
+  else if (term == "First-In_First-Out_Queue")
+    def = "A first-in first-out queue is a data structure that has two operations, enqueue, adding to the queue and dequeue, removing from the queue. The essential property of such a queue is that the first element enqueued in the first element dequeued.";
+  else if (term == "Full_Binary_Tree")
+    def = "A full binary tree is a tree of height <I>n</I> that contains all possible nodes on levels 1 through <I>n</I>. A full tree of height n always has exactly 2<I><SUP>n</SUP></I>-1 nodes.";
+  else if (term == "Heap")
+    def = "A heap is a complete binary tree with the property that the value in each node is greater than the value in both children. Because a heap is an complete binary tree, each node of such a tree with n nodes can be mapped to an element of an array with n elements. A heap has the property that the root node always contains the largest value.";
+  else if (term == "Height")
+    def = "The height or depth of a binary tree is measured by the number of nodes along its longest branch.  Sometimes branches are counted instead of nodes resulting in a value one less.  Height can be defined recursively as follows:  Empty trees have height 0, the height of a nonempty trees is the maximum of its two subtrees plus 1.";
+  else if (term == "Height_Balanced_Tree")
+    def = "A binary tree is height balanced-<I>n</I> if the balance factors of each of its nodes are between -<I>n</I> and <I>n</I>, inclusive.";
+  else if (term == "Inorder_Binary_Tree_Traversal")
+    def = "A inorder binary tree traversal uses the order LDR, left, data--extracting the data, and then right. When an arithmetic expression binary tree is traversed in inorder the arithmetic expression is generated in infix notation.";
+  else if (term == "Keyed_Table")
+    def = "A keyed table is a table that is ordered according to some key.  The most fundamental operations of a keyed table are the ability to add elements, delete them and find them by providing the key.";
+  else if (term == "Level_Order_Binary_Tree_Traversal")
+    def = "A level order traversal always visits the nodes of the tree, level by level. It begins at the root and proceeds top down. It visits the nodes on each level from left to right.";
+  else if (term == "Merge")
+    def = "Two sorted arrays are merged by selecting the smallest of the next values of each and appending it to a new array.  The new array will contain all the values of the original two and be in sorted order.";
+  else if (term == "Path")
+    def = "A sequence of edges in which the destination of each edge is the source of the next edge.";
+  else if (term == "Postorder_Binary_Tree_Traversal")
+    def = "A postorder binary tree traversal uses the order LRD, first left, then right, then data--extracting the data. When an arithmetic expression binary tree is traversed in postorder the arithmetic expression is generated in postfix notation.";
+  else if (term == "Preorder_Binary_Tree_Traversal")
+    def = "A preorder binary tree traversal uses the order DLR, data--extracting the data, left and then right. When an arithmetic expression binary tree is traversed in preorder the arithmetic expression is generated in prefix notation.";
+  else if (term == "Priority_Queue")
+    def = "Like a first-in first-out queue, a priority queue has two fundamental operations, entering the queue called enqueue, and leaving the queue, called dequeue. Unlike a first-in first-out queue, the criteria for deciding which element to dequeue is based on the priority of the element, not the order of arrival.";
+  else if (term == "Right_Rotation")
+    def = "Right rotating an array means shifting all values one position to the right, and moving the value inthe last position into the first position.";
+  else if (term == "Stack")
+    def = "A stack is a data structure that has two operations, push, adding to the stack and pop, removing from the stack. The essential property of such a stack is that the last element pushed in the first element popped.";
+  else if (term == "Swap")
+    def = "Swapping two values involves interchanging them.  A swap involves three assignments and a temporary variable.";
+  else if (term == "Undirected_Graph")
+    def = "An undirected graph is an ordered pair of nodes, or vertices, and edges.  The edges are <I>un</I>ordered pairs of nodes.";
+  else if (term == "Undirected_Tree")
+    def = "An undirected tree is an undirected graph that is connected and contains no cycles.";
+  termName = "";
+  for (i = 0; i < term.length; i++)
+    if (term.charAt(i) == '_')
+      termName += ' ';
+    else
+      termName += term.charAt(i);
+  var height = 110 + def.length / 3;
+  win = window.open("", "window"+defNo++, "width=400,height="+height);
+  win.document.write('<HTML><HEAD><TITLE>' + termName + ' Definition</TITLE></HEAD><BODY TEXT="#800000">');
+  win.document.write('<H4><CENTER><FONT COLOR="#000000">' + termName  + '</FONT></CENTER></H4>');
+  win.document.write('<P>' + def + '</P>');
+  win.document.write('<FORM><CENTER><INPUT TYPE="button" VALUE="OK" onClick="self.close();"></CENTER></FORM></BODY></HTML>');
+  win.document.close();
+  }
+</SCRIPT>
+<FRAMESET COLS="140,*" FRAMEBORDER="0" BORDER="0" FRAMESPACING="0" onLoad="loadPage()">
+   <FRAME SRC="white.html" NAME="menu1" MARGINWIDTH="5" MARGINHEIGHT="10" SCROLLING="no">
+   <FRAMESET ROWS="55,*,35,0">
+      <FRAME SRC="title.html" NAME="title" MARGINWIDTH="0" MARGINHEIGHT="5" SCROLLING="no">
+      <FRAME SRC="intro.html" NAME="main" MARGINWIDTH="10" MARGINHEIGHT="5">
+      <FRAMESET COLS="10%,40%,40%,10%">
+         <FRAME SRC="white.html" MARGINWIDTH="5" MARGINHEIGHT="5" SCROLLING="no">
+         <FRAME SRC="white.html" NAME="menu2a" MARGINWIDTH="5" MARGINHEIGHT="5" SCROLLING="no">
+         <FRAME SRC="white.html" NAME="menu2b" MARGINWIDTH="5" MARGINHEIGHT="5" SCROLLING="no">
+         <FRAME SRC="white.html" MARGINWIDTH="5" MARGINHEIGHT="5" SCROLLING="no">
+      </FRAMESET>
+      <FRAME SRC="white.html" NAME="applet" MARGINWIDTH="0" MARGINHEIGHT="0" SCROLLING="no">
+   </FRAMESET>
+</FRAMESET>
+</HTML>

@@ -1,0 +1,377 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de" lang="de" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+				<meta name="keywords" content="Breitensuche,WikiProjekt Gesprochene Wikipedia,Beschränkte Tiefensuche,Datenstruktur,Deutschland,Glossar Graphentheorie,Graph,Graphentheorie,Informatik,Iterative Tiefensuche,Klasse" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (Deutsch)" />
+		<link rel="copyright" href="http://www.gnu.org/copyleft/fdl.html" />
+		<title>Breitensuche - Wikipedia</title>
+		<style type="text/css" media="screen, projection">/*<![CDATA[*/
+			@import "/skins-1.5/common/shared.css?97";
+			@import "/skins-1.5/monobook/main.css?97";
+		/*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="/skins-1.5/common/commonPrint.css?97" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE50Fixes.css?97";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE55Fixes.css?97";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "/skins-1.5/monobook/IE60Fixes.css?97";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "/skins-1.5/monobook/IE70Fixes.css?97";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="/skins-1.5/common/IEFixes.js?97"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		
+		<script type= "text/javascript">/*<![CDATA[*/
+var skin = "monobook";
+var stylepath = "/skins-1.5";
+var wgArticlePath = "/wiki/$1";
+var wgScriptPath = "/w";
+var wgScript = "/w/index.php";
+var wgServer = "http://de.wikipedia.org";
+var wgCanonicalNamespace = "";
+var wgCanonicalSpecialPageName = false;
+var wgNamespaceNumber = 0;
+var wgPageName = "Breitensuche";
+var wgTitle = "Breitensuche";
+var wgAction = "view";
+var wgRestrictionEdit = [];
+var wgRestrictionMove = [];
+var wgArticleId = "148518";
+var wgIsArticle = true;
+var wgUserName = null;
+var wgUserGroups = null;
+var wgUserLanguage = "de";
+var wgContentLanguage = "de";
+var wgBreakFrames = false;
+var wgCurRevisionId = "33828076";
+/*]]>*/</script>
+                
+		<script type="text/javascript" src="/skins-1.5/common/wikibits.js?97"><!-- wikibits js --></script>
+		<script type="text/javascript" src="/w/index.php?title=-&amp;action=raw&amp;gen=js&amp;useskin=monobook"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "/w/index.php?title=MediaWiki:Common.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=MediaWiki:Monobook.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=-&action=raw&gen=css&maxage=2678400";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+		<script type="text/javascript" src="/skins-1.5/common/ajax.js?97"></script>
+<script type="text/javascript" src="/w/extensions/OggHandler/OggPlayer.js?5"></script>
+<script type="text/javascript">
+wgOggPlayer.msg = {"ogg-play": "Start", "ogg-pause": "Pause", "ogg-stop": "Stop", "ogg-no-player": "Dein System scheint über keine Abspielsoftware zu verfügen. Bitte installiere \x3ca href=\"http://www.java.com/de/download/manual.jsp\"\x3eJava\x3c/a\x3e", "ogg-player-videoElement": "\x3cvideo\x3e-Element", "ogg-player-oggPlugin": "Ogg-Plugin", "ogg-player-cortado": "Cortado (Java)", "ogg-player-vlc-mozilla": "VLC", "ogg-player-vlc-activex": "VLC (ActiveX)", "ogg-player-quicktime-mozilla": "QuickTime", "ogg-player-quicktime-activex": "QuickTime (ActiveX)", "ogg-player-thumbnail": "Zeige Vorschaubild", "ogg-player-selected": "(ausgewählt)", "ogg-use-player": "Abspielsoftware: ", "ogg-more": "Optionen …", "ogg-download": "Datei speichern", "ogg-desc-link": "Über diese Datei", "ogg-dismiss": "Schließen", "ogg-player-soundthumb": "Kein Player", "ogg-no-xiphqt": "You do not appear to have the XiphQT component for QuickTime. QuickTime cannot play Ogg files without this component. Please \x3ca href=\"http://www.mediawiki.org/wiki/Extension:OggHandler/Client_download\"\x3edownload XiphQT\x3c/a\x3e or choose another player."};
+wgOggPlayer.cortadoUrl = "http://upload.wikimedia.org/jars/cortado.jar";
+wgOggPlayer.extPathUrl = "/w/extensions/OggHandler";
+</script>
+<style type="text/css">
+.ogg-player-options {
+	border: solid 1px #ccc;
+	padding: 2pt;
+	text-align: left;
+	font-size: 10pt;
+}
+</style>	</head>
+<body  class="mediawiki ns-0 ltr page-Breitensuche">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+		<div id="siteNotice"><script type="text/javascript" language="JavaScript">
+<!--
+document.writeln("\x3cdiv style=\"position:absolute; z-index:100; right:5px; top:-20px;\" class=\"metadata\" id=\"donate\"\x3e\n\x3cdiv style=\"text-align:right; font-size:80%\"\x3e\x3ca href=\"http://wikimediafoundation.org/wiki/Spenden\" class=\"extiw\" title=\"wikimedia:Spenden\"\x3eIhre \x3cb\x3eSpenden\x3c/b\x3e\x3c/a\x3e helfen, Wikipedia zu betreiben. \n\x3c/div\x3e\x3c/div\x3e\n");
+-->
+</script></div>		<h1 class="firstHeading">Breitensuche</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">aus Wikipedia, der freien Enzyklopädie</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Wechseln zu: <a href="#column-one">Navigation</a>, <a href="#searchInput">Suche</a></div>			<!-- start content -->
+			<table border="1" cellspacing="0" style="float:right;margin-left:0.5em">
+<tr>
+<th align="center" bgcolor="#FFC0C0">Breitensuche</th>
+</tr>
+<tr>
+<td align="center">
+<div class="floatnone"><span><a href="/wiki/Bild:Breitensuche.png" class="image" title="Reihenfolge im Beispielbaum"><img alt="Reihenfolge im Beispielbaum" src="http://upload.wikimedia.org/wikipedia/de/thumb/5/5d/Breitensuche.png/300px-Breitensuche.png" width="300" height="207" border="0" /></a></span></div>
+<small>Reihenfolge im Beispielbaum</small></td>
+</tr>
+<tr>
+<th align="center" bgcolor="#FFC0C0"><b>Allgemeine Daten</b></th>
+</tr>
+<tr>
+<td>
+<table border="0">
+<tr>
+<td><i><a href="/wiki/Klasse" title="Klasse">Klasse</a>:</i></td>
+<td><a href="/wiki/Suchalgorithmus" title="Suchalgorithmus">Suchalgorithmus</a></td>
+</tr>
+<tr>
+<td><i><a href="/wiki/Datenstruktur" title="Datenstruktur">Datenstruktur</a>:</i></td>
+<td><a href="/wiki/Graph" title="Graph">Graph</a></td>
+</tr>
+<tr>
+<td><i><a href="/wiki/Zeitkomplexit%C3%A4t" title="Zeitkomplexität">Zeitkomplexität</a>:</i></td>
+<td><span class="texhtml"><i>O</i>( | <i>V</i> | + | <i>E</i> | )</span></td>
+</tr>
+<tr>
+<td><i><a href="/wiki/Platzkomplexit%C3%A4t" title="Platzkomplexität">Platzkomplexität</a>:</i></td>
+<td><span class="texhtml"><i>O</i>( | <i>V</i> | + | <i>E</i> | )</span></td>
+</tr>
+<tr>
+<td><i><a href="/w/index.php?title=Optimal_%28Algorithmus%29&amp;action=edit" class="new" title="Optimal (Algorithmus)">Optimal</a>:</i></td>
+<td>ja</td>
+</tr>
+<tr>
+<td><i><a href="/w/index.php?title=Vollst%C3%A4ndig_%28Algorithmus%29&amp;action=edit" class="new" title="Vollständig (Algorithmus)">Vollständig</a>:</i></td>
+<td>ja</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<p><b>Breitensuche</b> (Breadth First Search) ist ein Fachbegriff der <a href="/wiki/Informatik" title="Informatik">Informatik</a>, welcher ein Verfahren zum Durchsuchen bzw. Durchlaufen der <a href="/wiki/Glossar_Graphentheorie#Knoten" title="Glossar Graphentheorie">Knoten</a> eines <a href="/wiki/Glossar_Graphentheorie#Graph" title="Glossar Graphentheorie">Graphens</a> bezeichnet. Sie zählt zu den <a href="/wiki/Uninformierter_Suchalgorithmus" title="Uninformierter Suchalgorithmus">uninformierten Suchalgorithmen</a>.</p>
+<table id="toc" class="toc" summary="Inhaltsverzeichnis">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Inhaltsverzeichnis</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Arbeitsweise"><span class="tocnumber">1</span> <span class="toctext">Arbeitsweise</span></a></li>
+<li class="toclevel-1"><a href="#Algorithmus_.28informell.29"><span class="tocnumber">2</span> <span class="toctext">Algorithmus (informell)</span></a></li>
+<li class="toclevel-1"><a href="#Eigenschaften"><span class="tocnumber">3</span> <span class="toctext">Eigenschaften</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Speicherplatzverbrauch"><span class="tocnumber">3.1</span> <span class="toctext">Speicherplatzverbrauch</span></a></li>
+<li class="toclevel-2"><a href="#Laufzeit"><span class="tocnumber">3.2</span> <span class="toctext">Laufzeit</span></a></li>
+<li class="toclevel-2"><a href="#Vollst.C3.A4ndigkeit"><span class="tocnumber">3.3</span> <span class="toctext">Vollständigkeit</span></a></li>
+<li class="toclevel-2"><a href="#Optimalit.C3.A4t"><span class="tocnumber">3.4</span> <span class="toctext">Optimalität</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Anwendung"><span class="tocnumber">4</span> <span class="toctext">Anwendung</span></a></li>
+<li class="toclevel-1"><a href="#Siehe_auch"><span class="tocnumber">5</span> <span class="toctext">Siehe auch</span></a></li>
+<li class="toclevel-1"><a href="#Literatur"><span class="tocnumber">6</span> <span class="toctext">Literatur</span></a></li>
+<li class="toclevel-1"><a href="#Weblinks"><span class="tocnumber">7</span> <span class="toctext">Weblinks</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "Anzeigen"; var tocHideText = "Verbergen"; showTocToggle(); } 
+//]]>
+</script>
+<p><a name="Arbeitsweise" id="Arbeitsweise"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Breitensuche&amp;action=edit&amp;section=1" title="Abschnitt bearbeiten: Arbeitsweise">Bearbeiten</a>]</span> <span class="mw-headline">Arbeitsweise</span></h2>
+<p>Die Breitensuche ist eine <a href="/wiki/Uninformierter_Suchalgorithmus" title="Uninformierter Suchalgorithmus">uninformierte Suche</a>, welche durch Expansion der einzelnen <i>Level</i> der Graphen ausgehend vom Startknoten den Graph <i>in die Breite</i> nach einem Element durchsucht.</p>
+<p>Zuerst wird ein Startknoten <i>u</i> ausgewählt. Von diesem Knoten aus wird nun jede <a href="/wiki/Glossar_Graphentheorie#Kante" title="Glossar Graphentheorie">Kante</a> (<i>u</i>,<i>v</i>) betrachtet und getestet, ob der gegenüberliegende Knoten <i>v</i> schon entdeckt wurde bzw. das gesuchte Element ist. Ist dies noch nicht der Fall, so wird der entsprechende Knoten in einer <a href="/wiki/Warteschlange_%28Datenstruktur%29" title="Warteschlange (Datenstruktur)">Warteschlange</a> gespeichert und im nächsten Schritt bearbeitet. Hierbei ist zu beachten, dass Breitensuche immer zuerst alle direkt nachfolgenden Knoten bearbeitet, und nicht wie die <a href="/wiki/Tiefensuche" title="Tiefensuche">Tiefensuche</a> einem <a href="/wiki/Glossar_Graphentheorie#Pfad" title="Glossar Graphentheorie">Pfad</a> in die Tiefe folgt. Nachdem alle Kanten des Ausgangsknotens betrachtet wurden, wird der erste Knoten der Warteschlange entnommen, und das Verfahren wiederholt.</p>
+<table>
+<tr>
+<td>
+<div class="thumb tleft">
+<div class="thumbinner" style="width:227px;"><a href="/wiki/Bild:MapGermanyGraph.svg" class="image" title="Eine Landkarte von Deutschland mit den Verbindungen zwischen einigen Städten."><img alt="Eine Landkarte von Deutschland mit den Verbindungen zwischen einigen Städten." src="http://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/MapGermanyGraph.svg/225px-MapGermanyGraph.svg.png" width="225" height="227" border="0" class="thumbimage" /></a>
+<div class="thumbcaption">
+<div class="magnify" style="float:right"><a href="/wiki/Bild:MapGermanyGraph.svg" class="internal" title="vergrößern"><img src="/skins-1.5/common/images/magnify-clip.png" width="15" height="11" alt="" /></a></div>
+Eine Landkarte von <a href="/wiki/Deutschland" title="Deutschland">Deutschland</a> mit den Verbindungen zwischen einigen Städten.</div>
+</div>
+</div>
+<div class="thumb tright">
+<div class="thumbinner" style="width:252px;"><a href="/wiki/Bild:GermanyBFS.svg" class="image" title="Der Baum welcher entsteht wenn man BFS auf die Landkarte anwendet und in Frankfurt startet."><img alt="Der Baum welcher entsteht wenn man BFS auf die Landkarte anwendet und in Frankfurt startet." src="http://upload.wikimedia.org/wikipedia/commons/thumb/6/63/GermanyBFS.svg/250px-GermanyBFS.svg.png" width="250" height="179" border="0" class="thumbimage" /></a>
+<div class="thumbcaption">
+<div class="magnify" style="float:right"><a href="/wiki/Bild:GermanyBFS.svg" class="internal" title="vergrößern"><img src="/skins-1.5/common/images/magnify-clip.png" width="15" height="11" alt="" /></a></div>
+Der Baum welcher entsteht wenn man BFS auf die Landkarte anwendet und in Frankfurt startet.</div>
+</div>
+</div>
+</td>
+</tr>
+</table>
+<p><a name="Algorithmus_.28informell.29" id="Algorithmus_.28informell.29"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Breitensuche&amp;action=edit&amp;section=2" title="Abschnitt bearbeiten: Algorithmus (informell)">Bearbeiten</a>]</span> <span class="mw-headline">Algorithmus (informell)</span></h2>
+<ol>
+<li>Bestimme den Knoten, an dem die Suche beginnen soll, und speichere ihn in einer <a href="/wiki/Warteschlange_%28Datenstruktur%29" title="Warteschlange (Datenstruktur)">Warteschlange</a> ab.</li>
+<li>Entnimm einen Knoten vom Beginn der Warteschlange und markiere ihn.
+<ul>
+<li>Falls das gesuchte Element gefunden wurde, brich die Suche ab und liefere "gefunden" zurück.</li>
+<li>Anderenfalls hänge alle bisher unmarkierten Nachfolger dieses Knotens, die sich noch nicht in der Warteschlange befinden, ans Ende der Warteschlange an.</li>
+</ul>
+</li>
+<li>Wenn die Warteschlange leer ist, dann wurde jeder Knoten bereits untersucht. Beende die Suche und liefere "nicht gefunden" zurück.</li>
+<li>Wiederhole ab Schritt 2.</li>
+</ol>
+<p><a name="Eigenschaften" id="Eigenschaften"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Breitensuche&amp;action=edit&amp;section=3" title="Abschnitt bearbeiten: Eigenschaften">Bearbeiten</a>]</span> <span class="mw-headline">Eigenschaften</span></h2>
+<p>Bezeichne <img class="tex" alt=" \vert V \vert " src="http://upload.wikimedia.org/math/0/e/0/0e023d3ec0c14433b1c9c3303e0ed5d1.png" /> die Anzahl der <a href="/wiki/Glossar_Graphentheorie#Knoten" title="Glossar Graphentheorie">Knoten</a> (<b>V</b>ertex) und <img class="tex" alt=" \vert E \vert " src="http://upload.wikimedia.org/math/e/4/c/e4ce0b3316dfd763e5401c160d6ede65.png" /> die Anzahl der <a href="/wiki/Glossar_Graphentheorie#Kante" title="Glossar Graphentheorie">Kanten</a> (<b>E</b>dge) im Graphen.</p>
+<p><a name="Speicherplatzverbrauch" id="Speicherplatzverbrauch"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Breitensuche&amp;action=edit&amp;section=4" title="Abschnitt bearbeiten: Speicherplatzverbrauch">Bearbeiten</a>]</span> <span class="mw-headline">Speicherplatzverbrauch</span></h3>
+<p>Da alle bisher entdeckten Knoten gespeichert werden, beträgt der <a href="/wiki/Platzkomplexit%C3%A4t" title="Platzkomplexität">Speicherplatzverbrauch</a> von Breitensuche <img class="tex" alt="O( \vert V \vert + \vert E \vert )" src="http://upload.wikimedia.org/math/d/7/0/d70b5d18ffd41b4f794022688dc7c948.png" />. Somit ist die Breitensuche aufgrund des immensen Platzverbrauches für größere Probleme ungeeignet.<br />
+Ein der Breitensuche ähnliches Verfahren, jedoch mit deutlich geringerem Speicherplatzverbrauch, ist die <a href="/wiki/Iterative_Tiefensuche" title="Iterative Tiefensuche">iterative Tiefensuche</a>.</p>
+<p><a name="Laufzeit" id="Laufzeit"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Breitensuche&amp;action=edit&amp;section=5" title="Abschnitt bearbeiten: Laufzeit">Bearbeiten</a>]</span> <span class="mw-headline">Laufzeit</span></h3>
+<p>Da im schlimmsten Fall alle möglichen Pfade zu allen möglichen Knoten betrachtet werden müssen, beträgt die <a href="/wiki/Zeitkomplexit%C3%A4t" title="Zeitkomplexität">Laufzeit</a> von Breitensuche <img class="tex" alt="O( \vert V \vert + \vert E \vert )" src="http://upload.wikimedia.org/math/d/7/0/d70b5d18ffd41b4f794022688dc7c948.png" />.</p>
+<p><a name="Vollst.C3.A4ndigkeit" id="Vollst.C3.A4ndigkeit"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Breitensuche&amp;action=edit&amp;section=6" title="Abschnitt bearbeiten: Vollständigkeit">Bearbeiten</a>]</span> <span class="mw-headline">Vollständigkeit</span></h3>
+<p>Wenn in jedem Knoten nur endlich viele Alternativen existieren ist Breitensuche vollständig. Dies bedeutet, dass, wenn eine Lösung existiert, diese auch gefunden wird. Dies ist unabhängig davon, ob der zugrundeliegende <a href="/wiki/Glossar_Graphentheorie#Graph" title="Glossar Graphentheorie">Graph</a> endlich ist oder nicht. Sollte jedoch keine Lösung existieren, so divergiert die Breitensuche bei einem unendlichen Graphen.</p>
+<p><a name="Optimalit.C3.A4t" id="Optimalit.C3.A4t"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Breitensuche&amp;action=edit&amp;section=7" title="Abschnitt bearbeiten: Optimalität">Bearbeiten</a>]</span> <span class="mw-headline">Optimalität</span></h3>
+<p>Breitensuche ist im allgemeinen nicht optimal, da immer das Ergebnis mit dem kürzesten Pfad zum Anfangsknoten gefunden wird. Führt man <a href="/wiki/Glossar_Graphentheorie#Kantengewicht" title="Glossar Graphentheorie">Kantengewichte</a> ein, so muss das Ergebnis, welches am nächsten zum Startknoten liegt, nicht notwendigerweise auch das Ergebnis mit den geringsten Pfadkosten sein. Dieses Problem umgeht man, indem man die Breitensuche zur Uniformen Kostensuche erweitert. Sind jedoch alle Kantengewichte äquivalent, so ist die Breitensuche optimal, da in diesem Fall die Lösung, die am nächsten zum Ausgangsknoten liegt, auch die Lösung mit den geringsten Kosten ist.</p>
+<p><b>Uniforme Kostensuche</b> (Uniform Cost Search) ist eine Modifizierung der Breitensuche. Der Unterschied besteht darin, dass bei der Uniformen Kostensuche die Kanten gewichtet sind. Der Algorithmus geht nun entlang der geringsten Gewichte (Kosten) der Kanten und findet so die optimale Lösung. Außerdem muss gelten, dass die Pfadkosten mit zunehmender Tiefe im Suchbaum nicht kleiner werden, die Kosten eines Knotens also nicht negativ sind. Andernfalls würde die Uniforme Kostensuche nicht die günstigste Lösung finden können.</p>
+<p><a name="Anwendung" id="Anwendung"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Breitensuche&amp;action=edit&amp;section=8" title="Abschnitt bearbeiten: Anwendung">Bearbeiten</a>]</span> <span class="mw-headline">Anwendung</span></h2>
+<p>Die Breitensuche kann für viele Fragestellungen in der <a href="/wiki/Graphentheorie" title="Graphentheorie">Graphentheorie</a> verwendet werden. Einige sind:</p>
+<ul>
+<li>Finde alle <a href="/wiki/Zusammenh%C3%A4ngender_Graph" title="Zusammenhängender Graph">Zusammenhangskomponenten</a> in einem Graph</li>
+<li>Finde alle Knoten innerhalb einer Zusammenhangskomponente</li>
+<li>Finde zwischen zwei Knoten u und w einen <a href="/wiki/K%C3%BCrzester_Pfad" title="Kürzester Pfad">kürzesten Pfad</a> (ungewichtete Kanten)</li>
+</ul>
+<p><a name="Siehe_auch" id="Siehe_auch"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Breitensuche&amp;action=edit&amp;section=9" title="Abschnitt bearbeiten: Siehe auch">Bearbeiten</a>]</span> <span class="mw-headline">Siehe auch</span></h2>
+<ul>
+<li><a href="/wiki/Beschr%C3%A4nkte_Tiefensuche" title="Beschränkte Tiefensuche">Beschränkte Tiefensuche</a></li>
+<li><a href="/wiki/Iterative_Tiefensuche" title="Iterative Tiefensuche">Iterative Tiefensuche</a></li>
+<li><a href="/wiki/Tiefensuche" title="Tiefensuche">Tiefensuche</a></li>
+</ul>
+<p><a name="Literatur" id="Literatur"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Breitensuche&amp;action=edit&amp;section=10" title="Abschnitt bearbeiten: Literatur">Bearbeiten</a>]</span> <span class="mw-headline">Literatur</span></h2>
+<ul>
+<li>Thomas H. Cormen, Charles Leiserson, <a href="/wiki/Ronald_L._Rivest" title="Ronald L. Rivest">Ronald L. Rivest</a>, Clifford Stein: <i>Introduction to Algorithms.</i> MIT Press, 2<sup>nd</sup> edition 2001, <a href="/w/index.php?title=Spezial:ISBN-Suche&amp;isbn=0262531968" class="internal">ISBN 0262531968</a></li>
+</ul>
+<p><a name="Weblinks" id="Weblinks"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Breitensuche&amp;action=edit&amp;section=11" title="Abschnitt bearbeiten: Weblinks">Bearbeiten</a>]</span> <span class="mw-headline">Weblinks</span></h2>
+<ul>
+<li><a href="http://www.cs.duke.edu/csed/jawaa2/examples/BFS.html" class="external text" title="http://www.cs.duke.edu/csed/jawaa2/examples/BFS.html" rel="nofollow">Java-Applet zur Demonstration</a></li>
+</ul>
+<div id="artikelstadium" style="overflow:hidden; right:12px; top:23px; position:absolute; width:20px; height:15px; z-index:2; text-align:right;"><a href="/wiki/Bild:Qsicon_gesprochen.png" class="image" title="Qsicon gesprochen.png"><img alt="" src="http://upload.wikimedia.org/wikipedia/de/thumb/6/62/Qsicon_gesprochen.png/15px-Qsicon_gesprochen.png" width="15" height="15" border="0" /></a>
+<div style="position:absolute; top:0; right:0; padding-top:3px; z-index:3;"><a href="#Gesprochene_Version" title=""><span style="float:left; width:15px; height:15px; font-size:15px; line-height:15px; word-spacing:15px; cursor:pointer;" title="Dieser Artikel existiert auch als Audiodatei.">&#160; &#160;</span></a></div>
+</div>
+<div id="Vorlage_GesprocheneWikipedia">
+<table border="0" cellspacing="3" cellpadding="3" style="margin-left:auto; margin-right:auto; border:solid 1px #CCCC99; margin:0.5em; padding:0.2em; color:inherit; background-color:#F8F8F8;" id="Gesprochene_Version">
+<tr valign="middle">
+<td>
+<div style="position: relative;"><a href="/wiki/Wikipedia:WikiProjekt_Gesprochene_Wikipedia" title="Wikipedia:WikiProjekt Gesprochene Wikipedia"><img alt="Gesprochene Wikipedia" src="http://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Sound-icon.svg/30px-Sound-icon.svg.png" width="30" height="23" border="0" /></a></div>
+</td>
+<td align="left">Dieser Artikel als Audiodatei:
+<div style="display:inline">
+<div id="ogg_player_1" style="width: 150px;">
+<div><button onclick="wgOggPlayer.init(false, {&quot;id&quot;: &quot;ogg_player_1&quot;, &quot;videoUrl&quot;: &quot;http://upload.wikimedia.org/wikipedia/commons/1/1b/De-Breitensuche-article.ogg&quot;, &quot;width&quot;: 150, &quot;height&quot;: 0, &quot;length&quot;: 0, &quot;linkUrl&quot;: &quot;/wiki/Bild:De-Breitensuche-article.ogg&quot;, &quot;isVideo&quot;: false});" style="width: 150px;" title="Audio abspielen"><img src="/w/extensions/OggHandler/play.png" width="22" height="22" alt="Audio abspielen" /></button></div>
+</div>
+</div>
+&#160;| 06:03 min (8,6 MB)</td>
+</tr>
+<tr>
+<td></td>
+<td><i><a href="/wiki/Wikipedia:WikiProjekt_Gesprochene_Wikipedia" title="Wikipedia:WikiProjekt Gesprochene Wikipedia">Mehr Informationen zur Gesprochenen Wikipedia</a></i></td>
+</tr>
+</table>
+</div>
+
+<!-- 
+Pre-expand include size: 3522 bytes
+Post-expand include size: 1494 bytes
+Template argument size: 141 bytes
+Maximum: 2048000 bytes
+-->
+
+<!-- Saved in parser cache with key dewiki:pcache:idhash:148518-0!1!0!!de!2 and timestamp 20070910153706 -->
+<div class="printfooter">
+Von „<a href="http://de.wikipedia.org/wiki/Breitensuche">http://de.wikipedia.org/wiki/Breitensuche</a>“</div>
+			<div id="catlinks"><p class='catlinks'><a href="/wiki/Spezial:Categories" title="Spezial:Categories">Kategorien</a>: <span dir='ltr'><a href="/wiki/Kategorie:Wikipedia:Gesprochene_Artikel" title="Kategorie:Wikipedia:Gesprochene Artikel">Wikipedia:Gesprochene Artikel</a></span> | <span dir='ltr'><a href="/wiki/Kategorie:Suchalgorithmus" title="Kategorie:Suchalgorithmus">Suchalgorithmus</a></span> | <span dir='ltr'><a href="/wiki/Kategorie:Graphentheorie" title="Kategorie:Graphentheorie">Graphentheorie</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Ansichten</h5>
+		<div class="pBody">
+			<ul>
+					 <li id="ca-nstab-main" class="selected"><a href="/wiki/Breitensuche" title="Seiteninhalt anzeigen [c]" accesskey="c">Artikel</a></li>
+					 <li id="ca-talk"><a href="/wiki/Diskussion:Breitensuche" title="Diskussion zum Seiteninhalt [t]" accesskey="t">Diskussion</a></li>
+					 <li id="ca-edit"><a href="/w/index.php?title=Breitensuche&amp;action=edit" title="Seite bearbeiten. Bitte vor dem Speichern die Vorschaufunktion benutzen. [e]" accesskey="e">Seite bearbeiten</a></li>
+					 <li id="ca-history"><a href="/w/index.php?title=Breitensuche&amp;action=history" title="Frühere Versionen dieser Seite [h]" accesskey="h">Versionen/Autoren</a></li>
+				</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-personal">
+		<h5>Persönliche Werkzeuge</h5>
+		<div class="pBody">
+			<ul>
+				<li id="pt-login"><a href="/w/index.php?title=Spezial:Anmelden&amp;returnto=Breitensuche" title="Sich einzuloggen wird zwar gerne gesehen, ist aber keine Pflicht. [o]" accesskey="o">Anmelden</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-logo">
+		<a style="background-image: url(http://upload.wikimedia.org/wikipedia/de/b/bc/Wiki.png);" href="/wiki/Hauptseite" title="Hauptseite anzeigen [z]" accesskey="z"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="/wiki/Hauptseite" title="Hauptseite anzeigen [z]" accesskey="z">Hauptseite</a></li>
+				<li id="n-aboutsite"><a href="/wiki/Wikipedia:%C3%9Cber_Wikipedia">Über Wikipedia</a></li>
+				<li id="n-topics"><a href="/wiki/Portal:Wikipedia_nach_Themen">Themenportale</a></li>
+				<li id="n-alphindex"><a href="/wiki/Spezial:Alle_Seiten">Von A bis Z</a></li>
+				<li id="n-randompage"><a href="/wiki/Spezial:Zuf%C3%A4llige_Seite" title="Zufällige Seite [x]" accesskey="x">Zufälliger Artikel</a></li>
+			</ul>
+		</div>
+	</div>
+		<div class='portlet' id='p-Mitmachen'>
+		<h5>Mitmachen</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-help"><a href="/wiki/Wikipedia:Hilfe" title="Hilfeseite anzeigen">Hilfe</a></li>
+				<li id="n-portal"><a href="/wiki/Wikipedia:Autorenportal" title="Über das Portal, was du tun kannst, wo was zu finden ist">Autorenportal</a></li>
+				<li id="n-recentchanges"><a href="/wiki/Spezial:Letzte_%C3%84nderungen" title="Liste der letzten Änderungen in Wikipedia. [r]" accesskey="r">Letzte Änderungen</a></li>
+				<li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Spenden" title="Unterstützen Sie uns">Spenden</a></li>
+			</ul>
+		</div>
+	</div>
+		<div id="p-search" class="portlet">
+		<h5><label for="searchInput">Suche</label></h5>
+		<div id="searchBody" class="pBody">
+			<form action="/wiki/Spezial:Suche" id="searchform"><div>
+				<input id="searchInput" name="search" type="text" title="Durchsuche die Wikipedia [f]" accesskey="f" value="" />
+				<input type='submit' name="go" class="searchButton" id="searchGoButton"	value="Artikel" />&nbsp;
+				<input type='submit' name="fulltext" class="searchButton" id="mw-searchButton" value="Volltext" />
+			</div></form>
+		</div>
+	</div>
+	<div class="portlet" id="p-tb">
+		<h5>Werkzeuge</h5>
+		<div class="pBody">
+			<ul>
+				<li id="t-whatlinkshere"><a href="/wiki/Spezial:Linkliste/Breitensuche" title="Liste aller Seiten, die hierher zeigen [j]" accesskey="j">Links auf diese Seite</a></li>
+				<li id="t-recentchangeslinked"><a href="/wiki/Spezial:%C3%84nderungen_an_verlinkten_Seiten/Breitensuche" title="Letzte Änderungen an Seiten, die von hier verlinkt sind [k]" accesskey="k">Änderungen an verlinkten Seiten</a></li>
+<li id="t-upload"><a href="/wiki/Spezial:Hochladen" title="Dateien hochladen [u]" accesskey="u">Hochladen</a></li>
+<li id="t-specialpages"><a href="/wiki/Spezial:Spezialseiten" title="Liste aller Spezialseiten [q]" accesskey="q">Spezialseiten</a></li>
+				<li id="t-print"><a href="/w/index.php?title=Breitensuche&amp;printable=yes" title="Druckansicht dieser Seite [p]" accesskey="p">Druckversion</a></li>				<li id="t-permalink"><a href="/w/index.php?title=Breitensuche&amp;oldid=33828076" title="Dauerhafter Link zu dieser Seitenversion">Permanentlink</a></li><li id="t-cite"><a href="/w/index.php?title=Spezial:Cite&amp;page=Breitensuche&amp;id=33828076">Artikel zitieren</a></li>			</ul>
+		</div>
+	</div>
+	<div id="p-lang" class="portlet">
+		<h5>Andere Sprachen</h5>
+		<div class="pBody">
+			<ul>
+				<li class="interwiki-en"><a href="http://en.wikipedia.org/wiki/Breadth-first_search">English</a></li>
+				<li class="interwiki-es"><a href="http://es.wikipedia.org/wiki/B%C3%BAsqueda_en_anchura">Español</a></li>
+				<li class="interwiki-fr"><a href="http://fr.wikipedia.org/wiki/Algorithme_de_parcours_en_largeur">Français</a></li>
+				<li class="interwiki-he"><a href="http://he.wikipedia.org/wiki/%D7%90%D7%9C%D7%92%D7%95%D7%A8%D7%99%D7%AA%D7%9D_%D7%97%D7%99%D7%A4%D7%95%D7%A9_%D7%9C%D7%A8%D7%95%D7%97%D7%91">עברית</a></li>
+				<li class="interwiki-ja"><a href="http://ja.wikipedia.org/wiki/%E5%B9%85%E5%84%AA%E5%85%88%E6%8E%A2%E7%B4%A2">日本語</a></li>
+				<li class="interwiki-lt"><a href="http://lt.wikipedia.org/wiki/Paie%C5%A1ka_%C4%AF_plot%C4%AF">Lietuvių</a></li>
+				<li class="interwiki-pl"><a href="http://pl.wikipedia.org/wiki/Przeszukiwanie_wszerz">Polski</a></li>
+				<li class="interwiki-pt"><a href="http://pt.wikipedia.org/wiki/Busca_em_largura">Português</a></li>
+			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="/skins-1.5/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>
+				<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="/images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>
+			<ul id="f-list">
+				<li id="lastmod"> Diese Seite wurde zuletzt am 30. Juni 2007 um 22:19 Uhr geändert.</li>
+				<li id="copyright">Ihr Inhalt steht unter der <a class='internal' href="/wiki/Wikipedia:GNU_Free_Documentation_License">GNU-Lizenz für freie Dokumentation</a>.<br />
+Wikipedia® ist eine eingetragene Marke der Wikimedia Foundation Inc.<br /></li>
+				<li id="privacy"><a href="/wiki/Wikipedia:Datenschutz" title="Wikipedia:Datenschutz">Datenschutz</a></li>
+				<li id="about"><a href="/wiki/Wikipedia:%C3%9Cber_Wikipedia" title="Wikipedia:Über Wikipedia">Über Wikipedia</a></li>
+				<li id="disclaimer"><a href="/wiki/Wikipedia:Impressum" title="Wikipedia:Impressum">Impressum</a></li>
+			</ul>
+		</div>
+		
+	
+		<script type="text/javascript">if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by srv159 in 0.069 secs. --></body></html>

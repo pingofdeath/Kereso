@@ -1,0 +1,239 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+				<meta name="keywords" content="Graph (data structure),Abstract data type,Adjacency list,Adjacency matrix,Binary tree,Breadth-first search,Computer network,Computer science,Data structure,Depth-first search,Dijkstra's algorithm" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="http://www.gnu.org/copyleft/fdl.html" />
+		<title>Graph (data structure) - Wikipedia, the free encyclopedia</title>
+		<style type="text/css" media="screen, projection">/*<![CDATA[*/
+			@import "/skins-1.5/common/shared.css?97";
+			@import "/skins-1.5/monobook/main.css?97";
+		/*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="/skins-1.5/common/commonPrint.css?97" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE50Fixes.css?97";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE55Fixes.css?97";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "/skins-1.5/monobook/IE60Fixes.css?97";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "/skins-1.5/monobook/IE70Fixes.css?97";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="/skins-1.5/common/IEFixes.js?97"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		
+		<script type= "text/javascript">/*<![CDATA[*/
+var skin = "monobook";
+var stylepath = "/skins-1.5";
+var wgArticlePath = "/wiki/$1";
+var wgScriptPath = "/w";
+var wgScript = "/w/index.php";
+var wgServer = "http://en.wikipedia.org";
+var wgCanonicalNamespace = "";
+var wgCanonicalSpecialPageName = false;
+var wgNamespaceNumber = 0;
+var wgPageName = "Graph_(data_structure)";
+var wgTitle = "Graph (data structure)";
+var wgAction = "view";
+var wgRestrictionEdit = [];
+var wgRestrictionMove = [];
+var wgArticleId = "557931";
+var wgIsArticle = true;
+var wgUserName = null;
+var wgUserGroups = null;
+var wgUserLanguage = "en";
+var wgContentLanguage = "en";
+var wgBreakFrames = false;
+var wgCurRevisionId = "153660662";
+/*]]>*/</script>
+                
+		<script type="text/javascript" src="/skins-1.5/common/wikibits.js?97"><!-- wikibits js --></script>
+		<script type="text/javascript" src="/w/index.php?title=-&amp;action=raw&amp;gen=js&amp;useskin=monobook"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "/w/index.php?title=MediaWiki:Common.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=MediaWiki:Monobook.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=-&action=raw&gen=css&maxage=2678400";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+		<script type="text/javascript" src="/skins-1.5/common/ajax.js?97"></script>
+	</head>
+<body  class="mediawiki ns-0 ltr page-Graph_data_structure">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">Graph (data structure)</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<div class="thumb tright">
+<div class="thumbinner" style="width:252px;"><a href="/wiki/Image:6n-graf.svg" class="image" title="A labeled graph of 6 vertices and 7 edges."><img alt="A labeled graph of 6 vertices and 7 edges." src="http://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/6n-graf.svg/250px-6n-graf.svg.png" width="250" height="165" border="0" class="thumbimage" /></a>
+<div class="thumbcaption">
+<div class="magnify" style="float:right"><a href="/wiki/Image:6n-graf.svg" class="internal" title="Enlarge"><img src="/skins-1.5/common/images/magnify-clip.png" width="15" height="11" alt="" /></a></div>
+A labeled graph of 6 vertices and 7 edges.</div>
+</div>
+</div>
+<p>In <a href="/wiki/Computer_science" title="Computer science">computer science</a>, a <b>graph</b> is a kind of <a href="/wiki/Data_structure" title="Data structure">data structure</a>, specifically an <a href="/wiki/Abstract_data_type" title="Abstract data type">abstract data type</a> (ADT), that consists of a set of nodes and a set of edges that establish relationships (connections) between the nodes. The graph ADT follows directly from the <a href="/wiki/Graph_%28mathematics%29" title="Graph (mathematics)">graph</a> concept from <a href="/wiki/Mathematics" title="Mathematics">mathematics</a>.</p>
+<p>A graph <i>G</i> is defined as follows: <i>G=(V,E)</i>, where <i>V</i> is a finite, non-empty set of vertices (singular: vertex) and <i>E</i> is a set of edges (links between pairs of vertices). When the edges in a graph have no direction, the graph is called undirected, otherwise called directed. In practice, some <a href="/wiki/Information" title="Information">information</a> is associated with each node and edge.</p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Choices_of_representation"><span class="tocnumber">1</span> <span class="toctext">Choices of representation</span></a></li>
+<li class="toclevel-1"><a href="#Comparison_with_other_data_structures"><span class="tocnumber">2</span> <span class="toctext">Comparison with other data structures</span></a></li>
+<li class="toclevel-1"><a href="#Operations"><span class="tocnumber">3</span> <span class="toctext">Operations</span></a></li>
+<li class="toclevel-1"><a href="#See_also"><span class="tocnumber">4</span> <span class="toctext">See also</span></a></li>
+<li class="toclevel-1"><a href="#External_links"><span class="tocnumber">5</span> <span class="toctext">External links</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script>
+<p><a name="Choices_of_representation" id="Choices_of_representation"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Graph_%28data_structure%29&amp;action=edit&amp;section=1" title="Edit section: Choices of representation">edit</a>]</span> <span class="mw-headline">Choices of representation</span></h2>
+<p>Two main data structures for the representation of graphs are used in practice. The first is called an <a href="/wiki/Adjacency_list" title="Adjacency list">adjacency list</a>, and is implemented by representing each node as a data structure that contains a list of all adjacent nodes. The second is an <a href="/wiki/Adjacency_matrix" title="Adjacency matrix">adjacency matrix</a>, in which the rows and columns of a two-dimensional array represent source and destination vertices and entries in the graph indicate whether an edge exists between the vertices. Adjacency lists are preferred for <a href="/wiki/Sparse_graph" title="Sparse graph">sparse graphs</a>; otherwise, an adjacency matrix is a good choice. Finally, for very large graphs with some regularity in the placement of edges, a <a href="/w/index.php?title=Symbolic_graph&amp;action=edit" class="new" title="Symbolic graph">symbolic graph</a> is a possible choice of representation.</p>
+<p><a name="Comparison_with_other_data_structures" id="Comparison_with_other_data_structures"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Graph_%28data_structure%29&amp;action=edit&amp;section=2" title="Edit section: Comparison with other data structures">edit</a>]</span> <span class="mw-headline">Comparison with other data structures</span></h2>
+<p>Graph data structures are non-<a href="/wiki/Hierarchy" title="Hierarchy">hierarchical</a> and therefore suitable for data sets where the individual elements are interconnected in complex ways. For example, a <a href="/wiki/Computer_network" title="Computer network">computer network</a> can be simulated with a graph.</p>
+<p>Hierarchical data sets can be represented by a <a href="/wiki/Binary_tree" title="Binary tree">binary</a> or <a href="/wiki/Tree_%28data_structure%29" title="Tree (data structure)">nonbinary tree</a>. It is worth mentioning, however, that trees can be seen as a special form of graph.</p>
+<p><a name="Operations" id="Operations"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Graph_%28data_structure%29&amp;action=edit&amp;section=3" title="Edit section: Operations">edit</a>]</span> <span class="mw-headline">Operations</span></h2>
+<p>Graph algorithms are a significant field of interest for computer scientists. Typical operations associated with graphs are: finding a path between two nodes, like <a href="/wiki/Depth-first_search" title="Depth-first search">depth-first search</a> and <a href="/wiki/Breadth-first_search" title="Breadth-first search">breadth-first search</a> and finding the shortest path from one node to another, like <a href="/wiki/Dijkstra%27s_algorithm" title="Dijkstra's algorithm">Dijkstra's algorithm</a>. A solution to finding shortest path from each node to every other node also exists in the form of the <a href="/wiki/Floyd-Warshall_algorithm" title="Floyd-Warshall algorithm">Floyd-Warshall algorithm</a>.</p>
+<p>A directed graph can be seen as a <a href="/wiki/Flow_network" title="Flow network">flow network</a>, where each edge has a capacity and each edge receives a flow. <a href="/wiki/Ford-Fulkerson_algorithm" title="Ford-Fulkerson algorithm">Ford-Fulkerson algorithm</a> is used to find out <a href="/wiki/Maximum_flow_problem" title="Maximum flow problem">the maximum flow</a> from a source to a sink in a graph.</p>
+<p><a name="See_also" id="See_also"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Graph_%28data_structure%29&amp;action=edit&amp;section=4" title="Edit section: See also">edit</a>]</span> <span class="mw-headline">See also</span></h2>
+<ul>
+<li><a href="/wiki/Graph_theory" title="Graph theory">Graph theory</a></li>
+<li><a href="/wiki/Scene_graph" title="Scene graph">Scene graph</a></li>
+<li><a href="/wiki/Shortest_path_problem" title="Shortest path problem">Shortest path problem</a></li>
+<li><a href="/wiki/Minimum_spanning_tree" title="Minimum spanning tree">Minimum spanning tree</a></li>
+</ul>
+<p><a name="External_links" id="External_links"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Graph_%28data_structure%29&amp;action=edit&amp;section=5" title="Edit section: External links">edit</a>]</span> <span class="mw-headline">External links</span></h2>
+<ul>
+<li><a href="http://student.seas.gwu.edu/~idsv/idsv.html" class="external text" title="http://student.seas.gwu.edu/~idsv/idsv.html" rel="nofollow">Interactive visualisations</a> (not working with <a href="/wiki/Mozilla_Firefox" title="Mozilla Firefox">Mozilla Firefox</a>) of graphs and other data structures.</li>
+<li><a href="http://hamilton.bell.ac.uk/swdev2/notes/notes_18.pdf" class="external text" title="http://hamilton.bell.ac.uk/swdev2/notes/notes_18.pdf" rel="nofollow">Notes</a></li>
+<li><a href="http://search.cpan.org/search?query=Graph&amp;mode=all" class="external text" title="http://search.cpan.org/search?query=Graph&amp;mode=all" rel="nofollow">Perl graph routines</a></li>
+<li><a href="http://www.codeplex.com/quickgraph" class="external text" title="http://www.codeplex.com/quickgraph" rel="nofollow">QuickGraph: Graph Data Structures And Algorithms for .NET</a></li>
+</ul>
+
+
+<!-- Saved in parser cache with key enwiki:pcache:idhash:557931-0!1!0!default!!en!2 and timestamp 20070909191133 -->
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org/wiki/Graph_%28data_structure%29">http://en.wikipedia.org/wiki/Graph_%28data_structure%29</a>"</div>
+			<div id="catlinks"><p class='catlinks'><a href="/wiki/Special:Categories" title="Special:Categories">Categories</a>: <span dir='ltr'><a href="/wiki/Category:Graph_theory" title="Category:Graph theory">Graph theory</a></span> | <span dir='ltr'><a href="/wiki/Category:Data_structures" title="Category:Data structures">Data structures</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<div class="pBody">
+			<ul>
+					 <li id="ca-nstab-main" class="selected"><a href="/wiki/Graph_%28data_structure%29" title="View the content page [c]" accesskey="c">Article</a></li>
+					 <li id="ca-talk"><a href="/wiki/Talk:Graph_%28data_structure%29" title="Discussion about the content page [t]" accesskey="t">Discussion</a></li>
+					 <li id="ca-edit"><a href="/w/index.php?title=Graph_%28data_structure%29&amp;action=edit" title="You can edit this page. Please use the preview button before saving. [e]" accesskey="e">Edit this page</a></li>
+					 <li id="ca-history"><a href="/w/index.php?title=Graph_%28data_structure%29&amp;action=history" title="Past versions of this page [h]" accesskey="h">History</a></li>
+				</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-personal">
+		<h5>Personal tools</h5>
+		<div class="pBody">
+			<ul>
+				<li id="pt-login"><a href="/w/index.php?title=Special:Userlogin&amp;returnto=Graph_(data_structure)" title="You are encouraged to log in, it is not mandatory however. [o]" accesskey="o">Sign in / create account</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-logo">
+		<a style="background-image: url(/images/wiki-en.png);" href="/wiki/Main_Page" title="Visit the Main Page [z]" accesskey="z"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-Main-page"><a href="/wiki/Main_Page">Main page</a></li>
+				<li id="n-Contents"><a href="/wiki/Wikipedia:Contents">Contents</a></li>
+				<li id="n-Featured-content"><a href="/wiki/Wikipedia:Featured_content">Featured content</a></li>
+				<li id="n-currentevents"><a href="/wiki/Portal:Current_events" title="Find background information on current events">Current events</a></li>
+				<li id="n-randompage"><a href="/wiki/Special:Random" title="Load a random page [x]" accesskey="x">Random article</a></li>
+			</ul>
+		</div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+		<h5>interaction</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-About-Wikipedia"><a href="/wiki/Wikipedia:About">About Wikipedia</a></li>
+				<li id="n-portal"><a href="/wiki/Wikipedia:Community_Portal" title="About the project, what you can do, where to find things">Community portal</a></li>
+				<li id="n-recentchanges"><a href="/wiki/Special:Recentchanges" title="The list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li>
+				<li id="n-contact"><a href="/wiki/Wikipedia:Contact_us">Contact Wikipedia</a></li>
+				<li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising" title="Support us">Donate to Wikipedia</a></li>
+				<li id="n-help"><a href="/wiki/Help:Contents" title="Guidance on how to use and edit Wikipedia">Help</a></li>
+			</ul>
+		</div>
+	</div>
+		<div id="p-search" class="portlet">
+		<h5><label for="searchInput">Search</label></h5>
+		<div id="searchBody" class="pBody">
+			<form action="/wiki/Special:Search" id="searchform"><div>
+				<input id="searchInput" name="search" type="text" title="Search Wikipedia [f]" accesskey="f" value="" />
+				<input type='submit' name="go" class="searchButton" id="searchGoButton"	value="Go" />&nbsp;
+				<input type='submit' name="fulltext" class="searchButton" id="mw-searchButton" value="Search" />
+			</div></form>
+		</div>
+	</div>
+	<div class="portlet" id="p-tb">
+		<h5>Toolbox</h5>
+		<div class="pBody">
+			<ul>
+				<li id="t-whatlinkshere"><a href="/wiki/Special:Whatlinkshere/Graph_%28data_structure%29" title="List of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+				<li id="t-recentchangeslinked"><a href="/wiki/Special:Recentchangeslinked/Graph_%28data_structure%29" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+<li id="t-upload"><a href="/wiki/Wikipedia:Upload" title="Upload images or media files [u]" accesskey="u">Upload file</a></li>
+<li id="t-specialpages"><a href="/wiki/Special:Specialpages" title="List of all special pages [q]" accesskey="q">Special pages</a></li>
+				<li id="t-print"><a href="/w/index.php?title=Graph_%28data_structure%29&amp;printable=yes" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>				<li id="t-permalink"><a href="/w/index.php?title=Graph_%28data_structure%29&amp;oldid=153660662" title="Permanent link to this version of the page">Permanent link</a></li><li id="t-cite"><a href="/w/index.php?title=Special:Cite&amp;page=Graph_%28data_structure%29&amp;id=153660662">Cite this article</a></li>			</ul>
+		</div>
+	</div>
+	<div id="p-lang" class="portlet">
+		<h5>In other languages</h5>
+		<div class="pBody">
+			<ul>
+				<li class="interwiki-bg"><a href="http://bg.wikipedia.org/wiki/%D0%93%D1%80%D0%B0%D1%84_%28%D0%BC%D0%B0%D1%82%D0%B5%D0%BC%D0%B0%D1%82%D0%B8%D0%BA%D0%B0%29">Български</a></li>
+				<li class="interwiki-de"><a href="http://de.wikipedia.org/wiki/Graph_%28Graphentheorie%29">Deutsch</a></li>
+				<li class="interwiki-it"><a href="http://it.wikipedia.org/wiki/Grafo">Italiano</a></li>
+				<li class="interwiki-lt"><a href="http://lt.wikipedia.org/wiki/Grafas_%28duomen%C5%B3_strukt%C5%ABra%29">Lietuvių</a></li>
+				<li class="interwiki-lt"><a href="http://lt.wikipedia.org/wiki/Grafas_%28matematika%29">Lietuvių</a></li>
+				<li class="interwiki-hu"><a href="http://hu.wikipedia.org/wiki/Gr%C3%A1f_%28halmazelm%C3%A9let%29">Magyar</a></li>
+				<li class="interwiki-pl"><a href="http://pl.wikipedia.org/wiki/Graf_%28matematyka%29">Polski</a></li>
+				<li class="interwiki-ru"><a href="http://ru.wikipedia.org/wiki/%D0%93%D1%80%D0%B0%D1%84_%28%D0%BC%D0%B0%D1%82%D0%B5%D0%BC%D0%B0%D1%82%D0%B8%D0%BA%D0%B0%29">Русский</a></li>
+				<li class="interwiki-sr"><a href="http://sr.wikipedia.org/wiki/%D0%93%D1%80%D0%B0%D1%84_%28%D1%81%D1%82%D1%80%D1%83%D0%BA%D1%82%D1%83%D1%80%D0%B0_%D0%BF%D0%BE%D0%B4%D0%B0%D1%82%D0%B0%D0%BA%D0%B0%29">Српски / Srpski</a></li>
+				<li class="interwiki-th"><a href="http://th.wikipedia.org/wiki/%E0%B8%81%E0%B8%A3%E0%B8%B2%E0%B8%9F_%28%E0%B8%84%E0%B8%93%E0%B8%B4%E0%B8%95%E0%B8%A8%E0%B8%B2%E0%B8%AA%E0%B8%95%E0%B8%A3%E0%B9%8C%29">ไทย</a></li>
+				<li class="interwiki-zh"><a href="http://zh.wikipedia.org/wiki/%E5%9B%BE">中文</a></li>
+			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="/skins-1.5/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>
+				<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="/images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>
+			<ul id="f-list">
+				<li id="lastmod"> This page was last modified 01:59, 26 August 2007.</li>
+				<li id="copyright">All text is available under the terms of the <a class='internal' href="/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="/wiki/Wikipedia:Copyrights" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a U.S. registered <a class='internal' href="/wiki/501%28c%29#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="/wiki/Non-profit_organization" title="Non-profit organization">nonprofit</a> <a href="/wiki/Charitable_organization" title="Charitable organization">charity</a>.<br /></li>
+				<li id="privacy"><a href="http://wikimediafoundation.org/wiki/Privacy_policy" title="wikimedia:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="/wiki/Wikipedia:About" title="Wikipedia:About">About Wikipedia</a></li>
+				<li id="disclaimer"><a href="/wiki/Wikipedia:General_disclaimer" title="Wikipedia:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+		
+	
+		<script type="text/javascript">if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by srv167 in 0.057 secs. --></body></html>

@@ -1,0 +1,1632 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+				<meta name="keywords" content="Partial function,Primitive recursive function,Mu operator,Post–Turing machine,Peano axioms,Counter machine,Mu recursive function,Turing machine,Post-Turing machine,Martin Davis,Stephen Kleene" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="http://www.gnu.org/copyleft/fdl.html" />
+		<title>Partial function - Wikipedia, the free encyclopedia</title>
+		<style type="text/css" media="screen, projection">/*<![CDATA[*/
+			@import "/skins-1.5/common/shared.css?99";
+			@import "/skins-1.5/monobook/main.css?99";
+		/*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="/skins-1.5/common/commonPrint.css?99" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE50Fixes.css?99";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE55Fixes.css?99";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "/skins-1.5/monobook/IE60Fixes.css?99";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "/skins-1.5/monobook/IE70Fixes.css?99";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="/skins-1.5/common/IEFixes.js?99"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		
+		<script type= "text/javascript">/*<![CDATA[*/
+var skin = "monobook";
+var stylepath = "/skins-1.5";
+var wgArticlePath = "/wiki/$1";
+var wgScriptPath = "/w";
+var wgScript = "/w/index.php";
+var wgServer = "http://en.wikipedia.org";
+var wgCanonicalNamespace = "";
+var wgCanonicalSpecialPageName = false;
+var wgNamespaceNumber = 0;
+var wgPageName = "Partial_function";
+var wgTitle = "Partial function";
+var wgAction = "view";
+var wgRestrictionEdit = [];
+var wgRestrictionMove = [];
+var wgArticleId = "23577";
+var wgIsArticle = true;
+var wgUserName = null;
+var wgUserGroups = null;
+var wgUserLanguage = "en";
+var wgContentLanguage = "en";
+var wgBreakFrames = false;
+var wgCurRevisionId = "157338004";
+/*]]>*/</script>
+                
+		<script type="text/javascript" src="/skins-1.5/common/wikibits.js?99"><!-- wikibits js --></script>
+		<script type="text/javascript" src="/w/index.php?title=-&amp;action=raw&amp;gen=js&amp;useskin=monobook"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "/w/index.php?title=MediaWiki:Common.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=MediaWiki:Monobook.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=-&action=raw&gen=css&maxage=2678400";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+		<script type="text/javascript" src="/skins-1.5/common/ajax.js?99"></script>
+	</head>
+<body  class="mediawiki ns-0 ltr page-Partial_function">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">Partial function</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<table align="right">
+<tr>
+<td>
+<div class="thumb tright">
+<div class="thumbinner" style="width:202px;"><a href="/wiki/Image:Partial_function.svg" class="image" title="An example of a partial function that is not a total function."><img alt="An example of a partial function that is not a total function." src="http://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Partial_function.svg/200px-Partial_function.svg.png" width="200" height="200" border="0" class="thumbimage" /></a>
+<div class="thumbcaption">
+<div class="magnify" style="float:right"><a href="/wiki/Image:Partial_function.svg" class="internal" title="Enlarge"><img src="/skins-1.5/common/images/magnify-clip.png" width="15" height="11" alt="" /></a></div>
+An example of a partial function that is not a total function.</div>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="thumb tright">
+<div class="thumbinner" style="width:202px;"><a href="/wiki/Image:Total_function.svg" class="image" title="An example of a partial function that is also a total function."><img alt="An example of a partial function that is also a total function." src="http://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Total_function.svg/200px-Total_function.svg.png" width="200" height="200" border="0" class="thumbimage" /></a>
+<div class="thumbcaption">
+<div class="magnify" style="float:right"><a href="/wiki/Image:Total_function.svg" class="internal" title="Enlarge"><img src="/skins-1.5/common/images/magnify-clip.png" width="15" height="11" alt="" /></a></div>
+An example of a partial function that is also a total function.</div>
+</div>
+</div>
+</td>
+</tr>
+</table>
+<p>In <a href="/wiki/Mathematics" title="Mathematics">mathematics</a>, a <b>partial function</b> is a <a href="/wiki/Binary_relation" title="Binary relation">binary relation</a> that associates each <a href="/wiki/Element_%28mathematics%29" title="Element (mathematics)">element</a> of a <a href="/wiki/Set" title="Set">set</a>, sometimes called its <a href="/wiki/Domain_%28mathematics%29" title="Domain (mathematics)">domain</a>, with <i>at most</i> one element of another (possibly the same) set, called its <a href="/wiki/Codomain" title="Codomain">codomain</a>. However, not every element of the domain has to be associated with an element of the codomain.</p>
+<p>An example of a partial function with domain and codomain equal to the <a href="/wiki/Integer" title="Integer">integers</a>, is given by</p>
+<dl>
+<dd><img class="tex" alt="g(n) = \sqrt{n}," src="http://upload.wikimedia.org/math/4/4/e/44e4f2439be3e20119bcd60d9363e2dc.png" /></dd>
+</dl>
+<p>where <i>g(</i>n<i>)</i> is only defined for those nonnegative integers which are <a href="/wiki/Perfect_square" title="Perfect square">perfect squares</a>, that is are equal to the square of some integer.</p>
+<p>If every element of the domain of a binary relation <i>f</i> is associated to exactly one element of its codomain, then <i>f</i> is termed a <b>total function</b>, or simply a "<a href="/wiki/Function_%28mathematics%29" title="Function (mathematics)">function</a>". Note that a total function is a partial function; this is consistent with the concept that the whole is a part of itself (see <a href="/wiki/Subset" title="Subset">subset</a>).</p>
+<p>The term <i>partial function</i> may also refer to other meanings: In the context of <a href="/wiki/Multilinear_map" title="Multilinear map">multilinear maps</a>, one speaks of the partial function <a href="/wiki/W.r.t." title="W.r.t.">w.r.t.</a> the <i>k</i>-th argument, when all other arguments are fixed.</p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Domain_of_a_partial_function"><span class="tocnumber">1</span> <span class="toctext">Domain of a partial function</span></a></li>
+<li class="toclevel-1"><a href="#Discussion_and_examples"><span class="tocnumber">2</span> <span class="toctext">Discussion and examples</span></a>
+<ul>
+<li class="toclevel-2"><a href="#A_function_viewed_as_an_algorithm"><span class="tocnumber">2.1</span> <span class="toctext">A function viewed as an algorithm</span></a></li>
+<li class="toclevel-2"><a href="#Incompletely-specified_look-up_tables"><span class="tocnumber">2.2</span> <span class="toctext">Incompletely-specified look-up tables</span></a></li>
+<li class="toclevel-2"><a href="#Incompletely-defined_Decrement"><span class="tocnumber">2.3</span> <span class="toctext">Incompletely-defined Decrement</span></a></li>
+<li class="toclevel-2"><a href="#Subtraction_with_a_.22successor.22_counter_machine_model"><span class="tocnumber">2.4</span> <span class="toctext">Subtraction with a "successor" counter machine model</span></a></li>
+<li class="toclevel-2"><a href="#Subtraction_with_a_Post.E2.80.93Turing_machine_model"><span class="tocnumber">2.5</span> <span class="toctext">Subtraction with a Post–Turing machine model</span></a></li>
+<li class="toclevel-2"><a href="#Partial_subtraction_that_yields_NOT-numbers"><span class="tocnumber">2.6</span> <span class="toctext">Partial subtraction that yields NOT-numbers</span></a></li>
+<li class="toclevel-2"><a href="#A_total_function_.E2.80.94_.22proper.22_subtraction"><span class="tocnumber">2.7</span> <span class="toctext">A total function — "proper" subtraction</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#See_also"><span class="tocnumber">3</span> <span class="toctext">See also</span></a></li>
+<li class="toclevel-1"><a href="#References"><span class="tocnumber">4</span> <span class="toctext">References</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script>
+<p><a name="Domain_of_a_partial_function" id="Domain_of_a_partial_function"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Partial_function&amp;action=edit&amp;section=1" title="Edit section: Domain of a partial function">edit</a>]</span> <span class="mw-headline">Domain of a partial function</span></h2>
+<p>There are two distinct meanings in current mathematical usage for the notion of the domain of a partial function. One, probably the <i>less</i> common, but favored by <a href="/wiki/Category_theory" title="Category theory">category theorists</a>, is the one alluded to above: The domain of a partial function <i>f</i>:<i>X</i>→<i>Y</i> is <i>X</i>. Some authors may refer to the <b>domain of definition</b> as those values on which the function is defined, and consider it distinct from the domain.</p>
+<p>Many other mathematicians, including <a href="/wiki/Recursion_theory" title="Recursion theory">recursion theorists</a>, prefer to reserve the term "domain of <i>f</i>" for the set of all values <i>x</i> such that <i>f(x)</i> is defined. In this terminology, a partial function on a set <i>S</i> is simply a function whose domain is a subset of <i>S</i>.</p>
+<p><a name="Discussion_and_examples" id="Discussion_and_examples"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Partial_function&amp;action=edit&amp;section=2" title="Edit section: Discussion and examples">edit</a>]</span> <span class="mw-headline">Discussion and examples</span></h2>
+<p>The first diagram above represents a partial function that is <b>not</b> a total function since the element 1 in the left-hand set is not associated with anything in the right-hand set. Until the second half of the <a href="/wiki/20th_century" title="20th century">20th century</a>, only total functions were considered "well-defined".</p>
+<p>Consider the <a href="/wiki/Natural_logarithm" title="Natural logarithm">natural logarithm</a> function mapping the <a href="/wiki/Real_number" title="Real number">real numbers</a> to themselves. The logarithm of a non-positive real is not a real number, so the natural logarithm function doesn't associate any real number in the codomain with any non-positive real number in the domain. Therefore, the natural logarithm function is not a total function when viewed as a function from the reals to themselves, but it is a partial function. If the domain is restricted to only include the positive reals (that is, if the natural logarithm function is viewed as a function from the positive reals to the reals), then the natural logarithm is a total function.</p>
+<p><a name="A_function_viewed_as_an_algorithm" id="A_function_viewed_as_an_algorithm"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Partial_function&amp;action=edit&amp;section=3" title="Edit section: A function viewed as an algorithm">edit</a>]</span> <span class="mw-headline">A function viewed as an algorithm</span></h3>
+<p>A function is an algorithm calculated by a person, or computed by a machine. Unless they are intentionally imitating the actions of machines, persons calculating by hand are using learned algorithms that can be defined by the <a href="/wiki/Mu_recursive_function" title="Mu recursive function">mu recursive functions</a> (cf Stone (1972) pp. 3-8, his example of finding the roots of a quadratic equation). Machines "computing by the rules" can be described, in the abstract, by the use of a <a href="/wiki/Turing_machine" title="Turing machine">Turing machine</a> or a <a href="/wiki/Register_machine" title="Register machine">register machine</a> model, the most primitive example of which is the <a href="/wiki/Counter_machine" title="Counter machine">counter machine</a>.</p>
+<p><a name="Incompletely-specified_look-up_tables" id="Incompletely-specified_look-up_tables"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Partial_function&amp;action=edit&amp;section=4" title="Edit section: Incompletely-specified look-up tables">edit</a>]</span> <span class="mw-headline">Incompletely-specified look-up tables</span></h3>
+<p>If all its entries are completely specified a lookup table is actually an example of a primitive recursive function known as the CASE operator — e.g. "If case 1 then do w else if case 2 then do x else if case 3 then do y else do z as default"). An incompletely specified table is an example of a CASE operator in a <a href="/wiki/Mu_recursive_function" title="Mu recursive function">mu recursive function</a> that is missing its <a href="/wiki/Mu_operator" title="Mu operator">mu operator</a> — it represents a partial function. Such things can happen in the state machine's TABLE of instructions for a <a href="/wiki/Turing_machine" title="Turing machine">Turing machine</a>.</p>
+<p><a name="Incompletely-defined_Decrement" id="Incompletely-defined_Decrement"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Partial_function&amp;action=edit&amp;section=5" title="Edit section: Incompletely-defined Decrement">edit</a>]</span> <span class="mw-headline">Incompletely-defined Decrement</span></h3>
+<p>An interesting example to ponder is a <a href="/wiki/Counter_machine" title="Counter machine">counter machine</a> with the instruction set shown below, in the eventuality that instruction "DECrement (r)" occurs but the contents of "r" is zero.</p>
+<dl>
+<dd>{ INCrement (r), DECrement (r), JZ (r, z), HALT }</dd>
+</dl>
+<p>Here "r" is a name of a particular "register" in the model (It can anywhere from 1 to a boundless maximum register number.). Each register holds a single natural number { 0, 1, 2, 3, ... }. (i) INCrement means "add 1 to the contents of". (ii) DECrement means "remove 1 from the contents of". (iii) JZ means "If the contents of register r is zero, then jump to instruction "z", else continue to the next instruction.", i.e. register r is empty. (iv) HALT means terminate the computation. Except when the contents of register r is zero, in all cases the program executes the next instruction in sequence.</p>
+<p>What happens during DEC (r) when the contents of r is zero (meaning the register is empty), <i>but the outcome has not been defined</i>? Indeed, the function DEC (r) — by itself — represents a <i>partial</i> function. If we do not define what happens in this eventuality, then we must never use DEC (r) without preceding it with the test for zero, JZ (r, z). We must think of these two as working together.</p>
+<p>But DEC (r), INC (r) and JZ (r, z) represent examples of functions that have the capability of being partial in another way — by failure of specification. Each requires a pre-defined <i>acceptable</i> register "r" to test, and JZ requires a pre-defined instruction number "z" that does not send the algorithm to an undefined place in its TABLE. More often than not, if "mistakes are made", the algorithm will be a partial function, but not necessarily. (Question: how can we determine this, in the most general case? Answer: we cannot.)</p>
+<p><a name="Subtraction_with_a_.22successor.22_counter_machine_model" id="Subtraction_with_a_.22successor.22_counter_machine_model"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Partial_function&amp;action=edit&amp;section=6" title="Edit section: Subtraction with a &quot;successor&quot; counter machine model">edit</a>]</span> <span class="mw-headline">Subtraction with a "successor" counter machine model</span></h3>
+<p>The following is an example of the first of the two Kleene (1952) "eventualities" for a failing partial function:</p>
+<dl>
+<dd>"An algorithm for calculating a function φ may, for a given x, fail to lead to a number as value of φ(x) either by not terminating (so that no matter how many steps have already been performed, the rules of the algorithm call for a next step), or by terminating but without giving a number as value." (p. 325)</dd>
+</dl>
+<p>The algorithm, in the form of a so-called "successor" counter machine model equipped with a 6-line program, computes the difference <b>d</b> = <b>x</b> - <b>y</b>, given a natural number <b>x</b> and a natural number <b>y</b>. The successor counter machine is closely akin to the <a href="/wiki/Peano_axioms" title="Peano axioms">Peano axioms</a> and what Kleene (1952) called his "BASIS B" for the <a href="/wiki/Primitive_recursive_function" title="Primitive recursive function">primitive recursive functions</a>. In this example, this primitive machine will come equipped with only 4 "registers" { 0, 1, 2, 3 } that we rename { 0, <b>x</b>, <b>y</b>, <b>d</b> } to keep track of what is going on. Each "register" can contain only a single natural number { 0, 1, 2, . . . } . The machine must follow the commands of its instruction table which has only four instruction-<i>types</i>: (i) CLEAR contents of register <i>r</i> to "0", (ii) INCREMENT contents of register <i>r</i>, (iii) COMPARE contents of register <i>r<sub>j</sub></i> to contents of register <i>r<sub>k</sub></i> and JUMP, if EQUAL, to instruction <i>z</i>, and (iv) HALT. In all cases the program proceeds in sequence through its list of instructions unless a jump is successful. We abbreviate the instructions as follows:</p>
+<dl>
+<dd>{ CLR ( r ), INC ( r ), JE ( r<sub>j</sub>, r<sub>k</sub>, z ), H }</dd>
+</dl>
+<p>We allow the algorithm to alter the input parameters <b>x</b> and <b>y</b>&#160;; we are only after the difference <b>d</b>. The following table defines the program: it starts by clearing the difference-register <b>d</b> (#1), then, until <b>x</b> and <b>y</b> are equal (#2), it increments <b>y</b> (#3) and increments <b>d</b> (#4) and jumps back to instruction #2 where <b>x</b> and <b>y</b> are again compared. If <b>x</b> and <b>y</b> are compared and found to be equal, then the algorithm jumps to #6 and halts with the answer in <b>d</b>. This simple algorithm "operates on the assumption that" <b>y</b> is always less than or equal to <b>x</b>. (It is no coincidence that this behavior resembles the <a href="/wiki/Mu_operator" title="Mu operator">mu operator</a> ). (In the following, The symbolism, e.g. " [ d ] +1 → d ", is to be read as "The contents of register d plus one is put into register d."</p>
+<table class="wikitable">
+<tr style="font-size:9pt" align="center" valign="bottom">
+<td width="34.2" height="12"></td>
+<td style="font-weight:bold" width="67.2">Instruction #:</td>
+<td style="font-weight:bold" width="57">Instruction:</td>
+<td width="268.2">action: [ d ] + 1 → d means "contents of d" +1 replaces contents of d</td>
+</tr>
+<tr style="font-size:9pt" align="center" valign="bottom">
+<td height="12"></td>
+<td>1</td>
+<td>CLR ( d )</td>
+<td>0 → d</td>
+</tr>
+<tr style="font-size:9pt" align="center" valign="bottom">
+<td style="font-style:Italic" height="12">loop:</td>
+<td>2</td>
+<td>JE ( x, y, 6 )</td>
+<td>IF x = y THEN instr #6 ELSE next instr</td>
+</tr>
+<tr style="font-size:9pt" align="center" valign="bottom">
+<td height="12"></td>
+<td>3</td>
+<td>INC ( y )</td>
+<td>[ y ] + 1 → y</td>
+</tr>
+<tr style="font-size:9pt" align="center" valign="bottom">
+<td height="12"></td>
+<td>4</td>
+<td>INC ( d )</td>
+<td>[ d ] + 1 → d</td>
+</tr>
+<tr style="font-size:9pt" align="center" valign="bottom">
+<td height="12"></td>
+<td>5</td>
+<td>JE ( 0, 0, 2 )</td>
+<td>Unconditional jump to instr #2</td>
+</tr>
+<tr style="font-size:9pt" align="center" valign="bottom">
+<td height="12"></td>
+<td>6</td>
+<td>H</td>
+<td>HALT</td>
+</tr>
+</table>
+<p>This is how the program behaves when <b>x</b> &gt; <b>y</b>. When it halts the machine yields the correct number "2" in register <b>d</b>:</p>
+<table class="wikitable">
+<tr style="font-size:9pt" align="center" valign="bottom">
+<td style="font-weight:bold" width="30" height="9.6">step</td>
+<td style="font-weight:bold" width="33">Inst #</td>
+<td style="font-weight:bold" width="28.2">Instr</td>
+<td style="font-weight:bold" width="19.8">rj</td>
+<td style="font-weight:bold" width="19.8">rk</td>
+<td style="font-weight:bold" width="19.8">z</td>
+<td style="font-weight:bold" width="7.8"></td>
+<td style="font-weight:bold" width="28.8">reg 0</td>
+<td style="font-weight:bold" width="28.8">reg x</td>
+<td style="font-weight:bold" width="28.8">reg y</td>
+<td style="font-weight:bold" width="28.8">reg d</td>
+<td width="7.8"></td>
+<td width="153">Comments</td>
+</tr>
+<tr style="font-size:9pt">
+<td height="9.6" align="center" valign="bottom"></td>
+<td style="font-weight:bold;color:#0000FF" align="center" valign="bottom"></td>
+<td align="center" valign="bottom"></td>
+<td align="center" valign="bottom"></td>
+<td align="center" valign="bottom"></td>
+<td style="font-weight:bold;color:#0000FF" align="center" valign="bottom"></td>
+<td style="font-weight:bold;color:#0000FF" align="center" valign="bottom"></td>
+<td style="background-color:#FFFF99;font-weight:bold" align="center" valign="bottom">0</td>
+<td style="background-color:#FFFF99;font-weight:bold" align="center" valign="bottom">3</td>
+<td style="background-color:#FFFF99;font-weight:bold" align="center" valign="bottom">1</td>
+<td style="background-color:#FFFF99;font-weight:bold" align="center" valign="bottom">4</td>
+<td align="center" valign="bottom"></td>
+<td valign="bottom">← initially 3 - 1, but d is not cleared</td>
+</tr>
+<tr style="font-size:9pt" align="center" valign="bottom">
+<td height="9.6">1</td>
+<td>1</td>
+<td>CLR</td>
+<td>d</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td>0</td>
+<td>3</td>
+<td>1</td>
+<td style="background-color:#C0C0C0;font-weight:bold">0</td>
+<td></td>
+<td>Clear register d to 0</td>
+</tr>
+<tr style="font-size:9pt" align="center" valign="bottom">
+<td height="9.6">2</td>
+<td>2</td>
+<td>JE</td>
+<td>x</td>
+<td>y</td>
+<td>6</td>
+<td></td>
+<td>0</td>
+<td style="background-color:#C0C0C0;font-weight:bold">3</td>
+<td style="background-color:#C0C0C0;font-weight:bold">1</td>
+<td>0</td>
+<td></td>
+<td>x&#160;?= y: no</td>
+</tr>
+<tr style="font-size:9pt" align="center" valign="bottom">
+<td height="9.6">3</td>
+<td>3</td>
+<td>INC</td>
+<td>y</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td>0</td>
+<td>3</td>
+<td style="background-color:#C0C0C0;font-weight:bold">2</td>
+<td>0</td>
+<td></td>
+<td>y+1</td>
+</tr>
+<tr style="font-size:9pt" align="center" valign="bottom">
+<td height="9.6">4</td>
+<td>4</td>
+<td>INC</td>
+<td>d</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td>0</td>
+<td>3</td>
+<td>2</td>
+<td style="background-color:#C0C0C0;font-weight:bold">1</td>
+<td></td>
+<td>d+1</td>
+</tr>
+<tr style="font-size:9pt" align="center" valign="bottom">
+<td height="9.6">5</td>
+<td>5</td>
+<td>JE</td>
+<td>0</td>
+<td>0</td>
+<td>2</td>
+<td></td>
+<td style="background-color:#C0C0C0;font-weight:bold">0</td>
+<td>3</td>
+<td>2</td>
+<td>1</td>
+<td></td>
+<td>Unconditional jump</td>
+</tr>
+<tr style="font-size:9pt" align="center" valign="bottom">
+<td height="9.6">6</td>
+<td>2</td>
+<td>JE</td>
+<td>x</td>
+<td>y</td>
+<td>6</td>
+<td></td>
+<td>0</td>
+<td style="background-color:#C0C0C0;font-weight:bold">3</td>
+<td style="background-color:#C0C0C0;font-weight:bold">2</td>
+<td>1</td>
+<td></td>
+<td>x&#160;?= y: no</td>
+</tr>
+<tr style="font-size:9pt" align="center" valign="bottom">
+<td height="9.6">7</td>
+<td>3</td>
+<td>INC</td>
+<td>y</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td>0</td>
+<td>3</td>
+<td style="background-color:#C0C0C0;font-weight:bold">3</td>
+<td>1</td>
+<td></td>
+<td>y+1→y</td>
+</tr>
+<tr style="font-size:9pt" align="center" valign="bottom">
+<td height="9.6">8</td>
+<td>4</td>
+<td>INC</td>
+<td>d</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td>0</td>
+<td>3</td>
+<td>3</td>
+<td style="background-color:#C0C0C0">2</td>
+<td></td>
+<td>d+1→d</td>
+</tr>
+<tr style="font-size:9pt" align="center" valign="bottom">
+<td height="9.6">9</td>
+<td>5</td>
+<td>JE</td>
+<td>0</td>
+<td>0</td>
+<td>2</td>
+<td></td>
+<td style="background-color:#C0C0C0;font-weight:bold">0</td>
+<td>3</td>
+<td>3</td>
+<td>2</td>
+<td></td>
+<td>Unconditional jump</td>
+</tr>
+<tr style="font-size:9pt" align="center" valign="bottom">
+<td height="9.6">10</td>
+<td>2</td>
+<td>JE</td>
+<td>x</td>
+<td>y</td>
+<td>6</td>
+<td></td>
+<td>0</td>
+<td style="background-color:#C0C0C0;font-weight:bold">3</td>
+<td style="background-color:#C0C0C0;font-weight:bold">3</td>
+<td>2</td>
+<td></td>
+<td>x&#160;?= y: YES, goto HALT</td>
+</tr>
+<tr style="font-size:9pt" align="center" valign="bottom">
+<td height="9.6">11</td>
+<td>6</td>
+<td>H</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td>0</td>
+<td>3</td>
+<td>3</td>
+<td style="background-color:#FFFF99;font-weight:bold">2</td>
+<td></td>
+<td>HALT: d = 2</td>
+</tr>
+</table>
+<p>The following table shows what happens when the machine confronts the input <b>x</b> &lt; <b>y</b>. Because the algorithm "assumes" (operates on the principle that) <b>y</b> is less than <b>x</b> it increments <b>y</b> as it increments <b>d</b>. So <b>x</b> starts out and always remains less than <b>y</b>. The algorithm never halts.</p>
+<table class="wikitable">
+<tr style="font-size:9pt" align="center" valign="bottom">
+<td style="font-weight:bold" width="29.4" height="12">step</td>
+<td style="font-weight:bold" width="33">Inst #</td>
+<td style="font-weight:bold" width="31.8">Instr</td>
+<td style="font-weight:bold" width="18">rj</td>
+<td style="font-weight:bold" width="18">rk</td>
+<td style="font-weight:bold" width="18">z</td>
+<td width="11.4"></td>
+<td style="font-weight:bold" width="28.8">reg 0</td>
+<td style="font-weight:bold" width="28.8">reg x</td>
+<td style="font-weight:bold" width="28.8">reg y</td>
+<td style="font-weight:bold" width="28.8">reg d</td>
+<td width="7.8">4</td>
+<td style="font-weight:bold" width="153">Comments</td>
+</tr>
+<tr style="font-size:9pt">
+<td height="11.4" align="center" valign="bottom"></td>
+<td align="center" valign="bottom"></td>
+<td align="center" valign="bottom"></td>
+<td align="center" valign="bottom"></td>
+<td align="center" valign="bottom"></td>
+<td align="center" valign="bottom"></td>
+<td align="center" valign="bottom"></td>
+<td style="background-color:#FFFF99;font-weight:bold" align="center" valign="bottom">0</td>
+<td style="background-color:#FFFF99;font-weight:bold" align="center" valign="bottom">1</td>
+<td style="background-color:#FFFF99;font-weight:bold" align="center" valign="bottom">3</td>
+<td style="background-color:#FFFF99;font-weight:bold" align="center" valign="bottom">4</td>
+<td align="center" valign="bottom">0</td>
+<td valign="bottom">&lt;= initially 1 - 3, but d is not cleared</td>
+</tr>
+<tr style="font-size:9pt" align="center" valign="bottom">
+<td height="11.4">1</td>
+<td>1</td>
+<td>CLR</td>
+<td>d</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td>0</td>
+<td>1</td>
+<td>3</td>
+<td style="background-color:#C0C0C0;font-weight:bold">0</td>
+<td>0</td>
+<td>Clear register d to 0</td>
+</tr>
+<tr style="font-size:9pt" align="center" valign="bottom">
+<td height="11.4">2</td>
+<td>2</td>
+<td>JE</td>
+<td>x</td>
+<td>y</td>
+<td>6</td>
+<td></td>
+<td>0</td>
+<td style="background-color:#C0C0C0;font-weight:bold">1</td>
+<td style="background-color:#C0C0C0;font-weight:bold">3</td>
+<td>0</td>
+<td>0</td>
+<td>x&#160;?= y: no</td>
+</tr>
+<tr style="font-size:9pt" align="center" valign="bottom">
+<td height="11.4">3</td>
+<td>3</td>
+<td>INC</td>
+<td>y</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td>0</td>
+<td>1</td>
+<td style="background-color:#C0C0C0;font-weight:bold">4</td>
+<td>0</td>
+<td>0</td>
+<td>y+1→y</td>
+</tr>
+<tr style="font-size:9pt" align="center" valign="bottom">
+<td height="11.4">4</td>
+<td>4</td>
+<td>INC</td>
+<td>d</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td>0</td>
+<td>1</td>
+<td>4</td>
+<td style="background-color:#C0C0C0;font-weight:bold">1</td>
+<td>0</td>
+<td>d+1→d</td>
+</tr>
+<tr style="font-size:9pt" align="center" valign="bottom">
+<td height="11.4">5</td>
+<td>5</td>
+<td>JE</td>
+<td>0</td>
+<td>0</td>
+<td>2</td>
+<td></td>
+<td style="background-color:#C0C0C0;font-weight:bold">0</td>
+<td>1</td>
+<td>4</td>
+<td>1</td>
+<td>0</td>
+<td>Unconditional jump</td>
+</tr>
+<tr style="font-size:9pt" align="center" valign="bottom">
+<td height="11.4">6</td>
+<td>2</td>
+<td>JE</td>
+<td>x</td>
+<td>y</td>
+<td>6</td>
+<td></td>
+<td>0</td>
+<td style="background-color:#C0C0C0;font-weight:bold">1</td>
+<td style="background-color:#C0C0C0;font-weight:bold">4</td>
+<td>1</td>
+<td>0</td>
+<td>x&#160;?= y: no</td>
+</tr>
+<tr style="font-size:9pt" align="center" valign="bottom">
+<td height="11.4">7</td>
+<td>3</td>
+<td>INC</td>
+<td>y</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td>0</td>
+<td>1</td>
+<td style="background-color:#C0C0C0;font-weight:bold">5</td>
+<td>1</td>
+<td>0</td>
+<td>y+1→y</td>
+</tr>
+<tr style="font-size:9pt" align="center" valign="bottom">
+<td height="11.4">8</td>
+<td>4</td>
+<td>INC</td>
+<td>d</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td>0</td>
+<td>1</td>
+<td>5</td>
+<td style="background-color:#C0C0C0;font-weight:bold">2</td>
+<td>0</td>
+<td>d+1→d</td>
+</tr>
+<tr style="font-size:9pt" align="center" valign="bottom">
+<td height="11.4">9</td>
+<td>5</td>
+<td>JE</td>
+<td>0</td>
+<td>0</td>
+<td>2</td>
+<td></td>
+<td style="background-color:#C0C0C0;font-weight:bold">0</td>
+<td>1</td>
+<td>5</td>
+<td>2</td>
+<td>0</td>
+<td>Unconditional jump</td>
+</tr>
+<tr style="font-size:9pt" align="center" valign="bottom">
+<td height="11.4">10</td>
+<td>2</td>
+<td>JE</td>
+<td>x</td>
+<td>y</td>
+<td>6</td>
+<td></td>
+<td>0</td>
+<td style="background-color:#C0C0C0;font-weight:bold">1</td>
+<td style="background-color:#C0C0C0;font-weight:bold">5</td>
+<td>2</td>
+<td>0</td>
+<td>x&#160;?= y: no</td>
+</tr>
+<tr style="font-size:9pt" align="center" valign="bottom">
+<td height="11.4">11</td>
+<td>3</td>
+<td>INC</td>
+<td>y</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td>0</td>
+<td>1</td>
+<td style="background-color:#C0C0C0;font-weight:bold">6</td>
+<td>2</td>
+<td>0</td>
+<td>y+1→y</td>
+</tr>
+<tr style="font-size:9pt" align="center" valign="bottom">
+<td height="11.4">12</td>
+<td>4</td>
+<td>INC</td>
+<td>d</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td>0</td>
+<td>1</td>
+<td>6</td>
+<td style="background-color:#C0C0C0;font-weight:bold">3</td>
+<td>0</td>
+<td>d+1→d</td>
+</tr>
+</table>
+<p><a name="Subtraction_with_a_Post.E2.80.93Turing_machine_model" id="Subtraction_with_a_Post.E2.80.93Turing_machine_model"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Partial_function&amp;action=edit&amp;section=7" title="Edit section: Subtraction with a Post–Turing machine model">edit</a>]</span> <span class="mw-headline">Subtraction with a Post–Turing machine model</span></h3>
+<p>Kleene fails to mention a third eventuality: that the algorithm terminates in the expected manner but with the wrong answer<b>!</b> One wonders: Is this a case of a "partial function", or just a lousy algorithm? Whatever answer the reader chooses, the example does emphasize Minsky's point that a person should not assume that a recursive function is total. And to Kleene's point: we have to demonstrate that, even if the function has been shown to be recursive, that the <i>demonstration</i> itself must be "effective"(!) (Kleene (1952) p. 319).</p>
+<p>The next example shows this third eventuality is a real possibility. (It is possible to modify the algorithm to provide non-standard output).</p>
+<p>The following example shows what happens to a <a href="/wiki/Post%E2%80%93Turing_machine" title="Post–Turing machine">Post–Turing machine</a> when the function <b>x - y</b> is not defined over the entire range of its variables — i.e. what happens when <b>x &lt; y</b>. The example given here is suggested by an example in Davis (1958) pp. 12-15. Davis however, rather than using a much simpler <a href="/wiki/Post-Turing_machine" title="Post-Turing machine">Post-Turing machine</a> model, used a full <a href="/wiki/Turing_machine" title="Turing machine">Turing machine</a> thereby rendering his example more difficult. But the outcome is the same: the machine behaves badly when its input is "improper". (His example never terminates because he designed a test for <b>x &lt; y</b> that sends his algorithm into a never-ending 'circle').</p>
+<p>As before, we define the function <b>f(x, y) = x - y</b> as a "number-theoretic function", that is, one whose variables <b>x</b> and <b>y</b> range over the counting numbers greater than or equal to zero — the natural numbers { 0, 1, 2, ... }, and its output likewise ranges over the natural numbers { 0, 1, 2, ... }.</p>
+<p>We design our machine to accept the numbers <b>x</b> and <b>y</b> represented as <a href="/wiki/Unary" title="Unary">unary</a> numbers (tally marks ■ ) printed on its tape, with "0" = Blank (B), "1" = ■, "2" = ■■, etc. A single blank square acts as a separator between the two numbers, and at least one square to the left and right of our numbers must be blank:</p>
+<dl>
+<dd>
+<ul>
+<li>"x - y" ≡ . . . B <b>x</b> B <b>y</b> B . . .</li>
+<li>"5 - 3" ≡ . . . B [■] ■ ■ ■ ■ B ■ ■ ■ B . . .</li>
+<li>"0 - 3" ≡ . . . B [ B ] B ■ ■ ■ B . . .</li>
+<li>"5 - 0" ≡ . . . B [■] ■ ■ ■ ■ B B B . . .</li>
+<li>"0 - 0" ≡ . . . B [B] B B B . . .</li>
+</ul>
+</dd>
+</dl>
+<p>The brackets [B] and [■] show where the tape head <i>must</i> be placed initially, both when <b>x</b> equals 0 and when <b>x</b> &gt; 0 — on the far left mark of the left string <b>x</b>. This we specify as: "The initial standard position as defined by the algorithm ". At the end of the calculation, <b>y</b> will be gone leaving <b>x - y</b> with the head over the left-most mark in what we specify as: "The final standard position as defined by the algorithm"; marks not in this position are not considered to be "numbers". For example these are <i>NOT</i> considered "numbers":</p>
+<dl>
+<dd>. . . B [B] ■ ■ ■ B B B . . .</dd>
+<dd>. . . B [B] B ■ ■ ■ B B B . . .</dd>
+<dd>. . . B ■ B [■] ■ ■ B B B . . . (this assumes the tape was blank to begin with)</dd>
+<dd>. . . B B B ■ ■ ■ [B] B B . . . (etc.)</dd>
+</dl>
+<p>The following table shows what the algorithm does when it encounters <b>x</b> and <b>y</b> within its defined range — the range <b>x</b> ≥ <b>y</b>, with <b>x</b> = 3, <b>y</b> = 1. In line #1, the algorithm starts in "standard position". Until <b>y</b> is equal to 0 represented by Blank (B), the algorithm does the following: (#2) search right for the right-most end of <b>y</b>, (#3) erase the right-end mark of <b>y</b>, (#4) go left to the left-most mark of <b>x</b> (the column labelled "x3"), and (#5) erase the mark there. (#6) Repeat the cycle until all the <b>y</b>-marks are gone. Then (#7) go to the left-end of what is left of <b>x</b> and (#8) place the head in "final standard position" with the head over the left-most mark (or over a blank if the result is 0). The following table shows all the "actions" of the head (left and right moves, and erasure):</p>
+<table class="wikitable">
+<tr style="font-size:9pt" align="center" valign="bottom">
+<td width="25.2" height="9">row</td>
+<td style="font-weight:bold" width="20.4">x</td>
+<td style="font-weight:bold" width="20.4">y</td>
+<td width="7.8"></td>
+<td width="18.6"></td>
+<td width="18.6"></td>
+<td width="18.6"></td>
+<td width="18.6">x3</td>
+<td width="18.6">x2</td>
+<td width="18.6">x1</td>
+<td width="18.6"></td>
+<td width="18.6">y1</td>
+<td width="18.6"></td>
+<td width="18.6"></td>
+<td width="18.6"></td>
+<td style="font-weight:bold" width="160.2">Action of tape head:</td>
+<td width="20.4"></td>
+<td width="93">Post-Turing Instruction</td>
+</tr>
+<tr align="center" valign="bottom">
+<td style="font-size:9pt" height="9">1</td>
+<td style="font-size:9pt">3</td>
+<td style="font-size:9pt">1</td>
+<td style="font-size:9pt"></td>
+<td style="font-size:9pt;font-weight:bold">. . .</td>
+<td style="font-size:9pt;color:#969696">B</td>
+<td style="font-size:9pt;color:#969696">B</td>
+<td style="background-color:#969696">■</td>
+<td>■</td>
+<td>■</td>
+<td style="font-size:9pt;color:#969696">B</td>
+<td>■</td>
+<td style="font-size:9pt;color:#969696">B</td>
+<td style="font-size:9pt;color:#969696">B</td>
+<td style="font-size:9pt;font-weight:bold">. . .</td>
+<td style="font-size:9pt">initial "standard position"</td>
+<td style="font-size:9pt"></td>
+<td style="font-size:9pt">R</td>
+</tr>
+<tr align="center" valign="bottom">
+<td style="font-size:9pt" height="9">2a</td>
+<td style="font-size:9pt">3</td>
+<td style="font-size:9pt">1</td>
+<td style="font-size:9pt"></td>
+<td style="font-size:9pt;font-weight:bold">. . .</td>
+<td style="font-size:9pt;color:#969696">B</td>
+<td style="font-size:9pt;color:#969696">B</td>
+<td>■</td>
+<td>■</td>
+<td>■</td>
+<td style="background-color:#969696">B</td>
+<td>■</td>
+<td style="font-size:9pt;color:#969696">B</td>
+<td style="font-size:9pt;color:#969696">B</td>
+<td style="font-size:9pt;font-weight:bold">. . .</td>
+<td style="font-size:9pt">right through x to separator blank</td>
+<td style="font-size:9pt"></td>
+<td style="font-size:9pt">J1 *-1</td>
+</tr>
+<tr align="center" valign="bottom">
+<td style="font-size:9pt" height="9">2b</td>
+<td style="font-size:9pt">3</td>
+<td style="font-size:9pt">1</td>
+<td style="font-size:9pt"></td>
+<td style="font-size:9pt;font-weight:bold">. . .</td>
+<td style="font-size:9pt;color:#969696">B</td>
+<td style="font-size:9pt;color:#969696">B</td>
+<td>■</td>
+<td>■</td>
+<td>■</td>
+<td style="font-size:9pt;color:#969696">B</td>
+<td style="background-color:#969696;font-weight:bold">■</td>
+<td style="font-size:9pt;color:#969696">B</td>
+<td style="font-size:9pt;color:#969696">B</td>
+<td style="font-size:9pt;font-weight:bold">. . .</td>
+<td style="font-size:9pt">right once to where y1 should be</td>
+<td style="font-size:9pt"></td>
+<td style="font-size:9pt">R</td>
+</tr>
+<tr align="center" valign="bottom">
+<td style="font-size:9pt" height="9">2c</td>
+<td style="font-size:9pt">3</td>
+<td style="font-size:9pt">1</td>
+<td style="font-size:9pt"></td>
+<td style="font-size:9pt;font-weight:bold">. . .</td>
+<td style="font-size:9pt;color:#969696">B</td>
+<td style="font-size:9pt;color:#969696">B</td>
+<td>■</td>
+<td>■</td>
+<td>■</td>
+<td style="font-size:9pt;color:#969696">B</td>
+<td style="background-color:#969696;font-weight:bold">■</td>
+<td style="font-size:9pt;color:#969696">B</td>
+<td style="font-size:9pt;color:#969696">B</td>
+<td style="font-size:9pt;font-weight:bold">. . .</td>
+<td style="font-size:9pt">Test y1: square is marked so y ≠ 0</td>
+<td style="font-size:9pt"></td>
+<td style="font-size:9pt">J0 end</td>
+</tr>
+<tr align="center" valign="bottom">
+<td style="font-size:9pt" height="9">2d</td>
+<td style="font-size:9pt">3</td>
+<td style="font-size:9pt">1</td>
+<td style="font-size:9pt"></td>
+<td style="font-size:9pt;font-weight:bold">. . .</td>
+<td style="font-size:9pt;color:#969696">B</td>
+<td style="font-size:9pt;color:#969696">B</td>
+<td>■</td>
+<td>■</td>
+<td>■</td>
+<td style="font-size:9pt;color:#969696">B</td>
+<td>■</td>
+<td style="background-color:#969696">B</td>
+<td style="font-size:9pt;color:#969696">B</td>
+<td style="font-size:9pt;font-weight:bold">. . .</td>
+<td style="font-size:9pt">right to first blank beyond right end of y</td>
+<td style="font-size:9pt">loop:</td>
+<td style="font-size:9pt">R, J1 *-1</td>
+</tr>
+<tr align="center" valign="bottom">
+<td style="font-size:9pt" height="9">2e</td>
+<td style="font-size:9pt">3</td>
+<td style="font-size:9pt">1</td>
+<td style="font-size:9pt"></td>
+<td style="font-size:9pt;font-weight:bold">. . .</td>
+<td style="font-size:9pt;color:#969696">B</td>
+<td style="font-size:9pt;color:#969696">B</td>
+<td>■</td>
+<td>■</td>
+<td>■</td>
+<td style="font-size:9pt;color:#969696">B</td>
+<td style="background-color:#969696;font-weight:bold">■</td>
+<td style="font-size:9pt;color:#969696">B</td>
+<td style="font-size:9pt;color:#969696">B</td>
+<td style="font-size:9pt;font-weight:bold">. . .</td>
+<td style="font-size:9pt">left once to right-most mark of y</td>
+<td style="font-size:9pt"></td>
+<td style="font-size:9pt">L</td>
+</tr>
+<tr align="center" valign="bottom">
+<td style="font-size:9pt" height="9">3</td>
+<td style="font-size:9pt">3</td>
+<td style="font-size:9pt">0</td>
+<td style="font-size:9pt"></td>
+<td style="font-size:9pt;font-weight:bold">. . .</td>
+<td style="font-size:9pt;color:#969696">B</td>
+<td style="font-size:9pt;color:#969696">B</td>
+<td>■</td>
+<td>■</td>
+<td>■</td>
+<td style="font-size:9pt;color:#969696">B</td>
+<td style="background-color:#969696">B</td>
+<td style="font-size:9pt;color:#969696">B</td>
+<td style="font-size:9pt;color:#969696">B</td>
+<td style="font-size:9pt;font-weight:bold">. . .</td>
+<td style="font-size:9pt">erase mark</td>
+<td style="font-size:9pt"></td>
+<td style="font-size:9pt">E</td>
+</tr>
+<tr align="center" valign="bottom">
+<td style="font-size:9pt" height="9">4a</td>
+<td style="font-size:9pt">3</td>
+<td style="font-size:9pt">0</td>
+<td style="font-size:9pt"></td>
+<td style="font-size:9pt;font-weight:bold">. . .</td>
+<td style="font-size:9pt;color:#969696">B</td>
+<td style="font-size:9pt;color:#969696">B</td>
+<td>■</td>
+<td>■</td>
+<td>■</td>
+<td style="background-color:#969696">B</td>
+<td style="font-size:9pt;color:#969696">B</td>
+<td style="font-size:9pt;color:#969696">B</td>
+<td style="font-size:9pt;color:#969696">B</td>
+<td style="font-size:9pt;font-weight:bold">. . .</td>
+<td style="font-size:9pt">left through y to separator-blank</td>
+<td style="font-size:9pt"></td>
+<td style="font-size:9pt">L, J1 *-1</td>
+</tr>
+<tr align="center" valign="bottom">
+<td style="font-size:9pt" height="9">4b</td>
+<td style="font-size:9pt">3</td>
+<td style="font-size:9pt">0</td>
+<td style="font-size:9pt"></td>
+<td style="font-size:9pt;font-weight:bold">. . .</td>
+<td style="font-size:9pt;color:#969696">B</td>
+<td style="background-color:#969696">B</td>
+<td>■</td>
+<td>■</td>
+<td>■</td>
+<td style="font-size:9pt;color:#969696">B</td>
+<td style="font-size:9pt;color:#969696">B</td>
+<td style="font-size:9pt;color:#969696">B</td>
+<td style="font-size:9pt;color:#969696">B</td>
+<td style="font-size:9pt;font-weight:bold">. . .</td>
+<td style="font-size:9pt">left to left end of x</td>
+<td style="font-size:9pt"></td>
+<td style="font-size:9pt">L, J1 *-1</td>
+</tr>
+<tr align="center" valign="bottom">
+<td style="font-size:9pt" height="9">4c</td>
+<td style="font-size:9pt">3</td>
+<td style="font-size:9pt">0</td>
+<td style="font-size:9pt"></td>
+<td style="font-size:9pt;font-weight:bold">. . .</td>
+<td style="font-size:9pt;color:#969696">B</td>
+<td style="font-size:9pt;color:#969696">B</td>
+<td style="background-color:#969696">■</td>
+<td>■</td>
+<td>■</td>
+<td style="font-size:9pt;color:#969696">B</td>
+<td style="font-size:9pt;color:#969696">B</td>
+<td style="font-size:9pt;color:#969696">B</td>
+<td style="font-size:9pt;color:#969696">B</td>
+<td style="font-size:9pt;font-weight:bold">. . .</td>
+<td style="font-size:9pt">right to "standard position"</td>
+<td style="font-size:9pt"></td>
+<td style="font-size:9pt">R</td>
+</tr>
+<tr align="center" valign="bottom">
+<td style="font-size:9pt" height="9">5</td>
+<td style="font-size:9pt">2</td>
+<td style="font-size:9pt">0</td>
+<td style="font-size:9pt"></td>
+<td style="font-size:9pt;font-weight:bold">. . .</td>
+<td style="font-size:9pt;color:#969696">B</td>
+<td style="font-size:9pt;color:#969696">B</td>
+<td style="background-color:#969696">B</td>
+<td>■</td>
+<td>■</td>
+<td style="font-size:9pt;color:#969696">B</td>
+<td style="font-size:9pt;color:#969696">B</td>
+<td style="font-size:9pt;color:#969696">B</td>
+<td style="font-size:9pt;color:#969696">B</td>
+<td style="font-size:9pt;font-weight:bold">. . .</td>
+<td style="font-size:9pt">erase mark</td>
+<td style="font-size:9pt"></td>
+<td style="font-size:9pt">E</td>
+</tr>
+<tr align="center" valign="bottom">
+<td style="font-size:9pt" height="9">6b</td>
+<td style="font-size:9pt">2</td>
+<td style="font-size:9pt">0</td>
+<td style="font-size:9pt"></td>
+<td style="font-size:9pt;font-weight:bold">. . .</td>
+<td style="font-size:9pt;color:#969696">B</td>
+<td style="font-size:9pt;color:#969696">B</td>
+<td style="font-size:9pt;color:#969696">B</td>
+<td>■</td>
+<td>■</td>
+<td style="background-color:#969696">B</td>
+<td style="font-size:9pt;color:#969696">B</td>
+<td style="font-size:9pt;color:#969696">B</td>
+<td style="font-size:9pt;color:#969696">B</td>
+<td style="font-size:9pt;font-weight:bold">. . .</td>
+<td style="font-size:9pt">right through x to separator blank</td>
+<td style="font-size:9pt"></td>
+<td style="font-size:9pt">R, J1 *-1</td>
+</tr>
+<tr align="center" valign="bottom">
+<td style="font-size:9pt" height="9">6c</td>
+<td style="font-size:9pt">2</td>
+<td style="font-size:9pt">0</td>
+<td style="font-size:9pt"></td>
+<td style="font-size:9pt;font-weight:bold">. . .</td>
+<td style="font-size:9pt;color:#969696">B</td>
+<td style="font-size:9pt;color:#969696">B</td>
+<td style="font-size:9pt;color:#969696">B</td>
+<td>■</td>
+<td>■</td>
+<td style="font-size:9pt;color:#969696">B</td>
+<td style="background-color:#969696">B</td>
+<td style="font-size:9pt;color:#969696">B</td>
+<td style="font-size:9pt;color:#969696">B</td>
+<td style="font-size:9pt;font-weight:bold">. . .</td>
+<td style="font-size:9pt">right once to where y1 should be</td>
+<td style="font-size:9pt"></td>
+<td style="font-size:9pt">R</td>
+</tr>
+<tr align="center" valign="bottom">
+<td style="font-size:9pt" height="9">6d</td>
+<td style="font-size:9pt">2</td>
+<td style="font-size:9pt">0</td>
+<td style="font-size:9pt"></td>
+<td style="font-size:9pt;font-weight:bold">. . .</td>
+<td style="font-size:9pt;color:#969696">B</td>
+<td style="font-size:9pt;color:#969696">B</td>
+<td style="font-size:9pt;color:#969696">B</td>
+<td>■</td>
+<td>■</td>
+<td style="font-size:9pt;color:#969696">B</td>
+<td style="background-color:#969696">B</td>
+<td style="font-size:9pt;color:#969696">B</td>
+<td style="font-size:9pt;color:#969696">B</td>
+<td style="font-size:9pt;font-weight:bold">. . .</td>
+<td style="font-size:9pt">Test y1: square is blank, so y = 0</td>
+<td style="font-size:9pt"></td>
+<td style="font-size:9pt">J0 end; J1 loop</td>
+</tr>
+<tr align="center" valign="bottom">
+<td style="font-size:9pt" height="9">8</td>
+<td style="font-size:9pt">2</td>
+<td style="font-size:9pt">0</td>
+<td style="font-size:9pt"></td>
+<td style="font-size:9pt;font-weight:bold">. . .</td>
+<td style="font-size:9pt;color:#969696">B</td>
+<td style="font-size:9pt;color:#969696">B</td>
+<td style="font-size:9pt;color:#969696">B</td>
+<td style="background-color:#969696">■</td>
+<td>■</td>
+<td style="font-size:9pt;color:#969696">B</td>
+<td style="font-size:9pt;color:#969696">B</td>
+<td style="font-size:9pt;color:#969696">B</td>
+<td style="font-size:9pt;color:#969696">B</td>
+<td style="font-size:9pt;font-weight:bold">. . .</td>
+<td style="font-size:9pt">find left-most mark of x</td>
+<td style="font-size:9pt">end:</td>
+<td style="font-size:9pt">L, L, J1 *-1</td>
+</tr>
+<tr align="center" valign="bottom">
+<td style="font-size:9pt" height="9">9</td>
+<td style="font-size:9pt">2</td>
+<td style="font-size:9pt">0</td>
+<td style="font-size:9pt"></td>
+<td style="font-size:9pt;font-weight:bold">. . .</td>
+<td style="font-size:9pt;color:#969696">B</td>
+<td style="font-size:9pt;color:#969696">B</td>
+<td style="font-size:9pt;color:#969696">B</td>
+<td style="background-color:#969696">■</td>
+<td>■</td>
+<td style="font-size:9pt;color:#969696">B</td>
+<td style="font-size:9pt;color:#969696">B</td>
+<td style="font-size:9pt;color:#969696">B</td>
+<td style="font-size:9pt;color:#969696">B</td>
+<td style="font-size:9pt;font-weight:bold">. . .</td>
+<td style="font-size:9pt">HALT in final "standard position"</td>
+<td style="font-size:9pt"></td>
+<td style="font-size:9pt">R, HALT</td>
+</tr>
+</table>
+<p>Now what happens to our algorithm when <b>x</b> &lt; <b>y</b>, e.g. <b>x</b> = 1, <b>y</b> = 3? This particular algorithm halts in standard position with the final number "1" — it has made an <i>error</i>. This is far worse than Kleene's eventuality #2: It has not, to quote Kleene (1952) "terminat[ed] but without giving a number", <i>it has deceived us</i>.</p>
+<p>The following chart shows what this particular algorithm produces over a small range of its variables:</p>
+<table class="wikitable">
+<tr style="font-size:9pt;font-weight:bold" align="center" valign="bottom">
+<td width="26.4" height="12">x-y</td>
+<td style="background-color:#FFFF99" width="18.6">x</td>
+<td style="background-color:#FFFF99" width="18.6">0</td>
+<td style="background-color:#FFFF99" width="18.6">1</td>
+<td style="background-color:#FFFF99" width="18.6">2</td>
+<td style="background-color:#FFFF99" width="18.6">3</td>
+<td style="background-color:#FFFF99" width="18.6">4</td>
+</tr>
+<tr style="font-size:9pt" align="center" valign="bottom">
+<td style="background-color:#CCFFFF;font-weight:bold" height="12">y</td>
+<td style="background-color:#CCFFFF;font-weight:bold">0</td>
+<td>0</td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+<td>4</td>
+</tr>
+<tr style="font-size:9pt" align="center" valign="bottom">
+<td height="12"></td>
+<td style="background-color:#CCFFFF;font-weight:bold">1</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+</tr>
+<tr style="font-size:9pt" align="center" valign="bottom">
+<td height="12"></td>
+<td style="background-color:#CCFFFF;font-weight:bold">2</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>2</td>
+</tr>
+<tr style="font-size:9pt" align="center" valign="bottom">
+<td height="12"></td>
+<td style="background-color:#CCFFFF;font-weight:bold">3</td>
+<td>2</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr style="font-size:9pt" align="center" valign="bottom">
+<td height="12"></td>
+<td style="background-color:#CCFFFF;font-weight:bold">4</td>
+<td>3</td>
+<td>2</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+</tr>
+</table>
+<p><a name="Partial_subtraction_that_yields_NOT-numbers" id="Partial_subtraction_that_yields_NOT-numbers"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Partial_function&amp;action=edit&amp;section=8" title="Edit section: Partial subtraction that yields NOT-numbers">edit</a>]</span> <span class="mw-headline">Partial subtraction that yields NOT-numbers</span></h3>
+<p>The following fixes the deceitful algorithm above with a few extra instructions to test for numbers <b>x &lt; y</b>. The original is shown above the modified version in a way to emphasize where the changes occurred.</p>
+<table class="wikitable">
+<tr style="font-size:9pt">
+<td style="font-weight:bold" width="81.6" height="9.6" valign="bottom">Instruction #:</td>
+<td width="15.6" align="center" valign="bottom"></td>
+<td style="background-color:#C0C0C0;font-weight:bold" width="15.6" align="center" valign="bottom">1</td>
+<td style="background-color:#C0C0C0;font-weight:bold" width="15.6" align="center" valign="bottom">2</td>
+<td style="background-color:#C0C0C0;font-weight:bold" width="15.6" align="center" valign="bottom">3</td>
+<td style="background-color:#C0C0C0;font-weight:bold" width="15.6" align="center" valign="bottom">4</td>
+<td style="background-color:#C0C0C0;font-weight:bold" width="15.6" align="center" valign="bottom">5</td>
+<td style="background-color:#C0C0C0;font-weight:bold" width="15.6" align="center" valign="bottom">6</td>
+<td style="background-color:#C0C0C0;font-weight:bold" width="15.6" align="center" valign="bottom">7</td>
+<td style="background-color:#C0C0C0;font-weight:bold" width="15.6" align="center" valign="bottom">8</td>
+<td style="background-color:#C0C0C0;font-weight:bold" width="15.6" align="center" valign="bottom">9</td>
+<td style="background-color:#C0C0C0;font-weight:bold" width="15.6" align="center" valign="bottom">10</td>
+<td style="background-color:#C0C0C0;font-weight:bold" width="15.6" align="center" valign="bottom">11</td>
+<td style="background-color:#C0C0C0;font-weight:bold" width="15.6" align="center" valign="bottom">12</td>
+<td style="background-color:#C0C0C0;font-weight:bold" width="15.6" align="center" valign="bottom">13</td>
+<td style="background-color:#C0C0C0;font-weight:bold" width="15.6" align="center" valign="bottom">14</td>
+<td style="background-color:#C0C0C0;font-weight:bold" width="15.6" align="center" valign="bottom">15</td>
+<td width="15.6" align="center" valign="bottom"></td>
+<td width="15.6" align="center" valign="bottom"></td>
+<td width="15.6" align="center" valign="bottom"></td>
+<td style="background-color:#C0C0C0;font-weight:bold" width="15.6" align="center" valign="bottom">16</td>
+<td style="background-color:#C0C0C0;font-weight:bold" width="15.6" align="center" valign="bottom">17</td>
+<td style="background-color:#C0C0C0;font-weight:bold" width="15.6" align="center" valign="bottom">18</td>
+<td style="background-color:#C0C0C0;font-weight:bold" width="15.6" align="center" valign="bottom">19</td>
+<td style="background-color:#C0C0C0;font-weight:bold" width="15.6" align="center" valign="bottom">20</td>
+<td style="background-color:#C0C0C0;font-weight:bold" width="15.6" align="center" valign="bottom">21</td>
+<td style="background-color:#C0C0C0;font-weight:bold" width="15.6" align="center" valign="bottom">22</td>
+<td style="background-color:#C0C0C0;font-weight:bold" width="15.6" align="center" valign="bottom">23</td>
+<td style="background-color:#C0C0C0;font-weight:bold" width="15.6" align="center" valign="bottom">24</td>
+</tr>
+<tr style="font-size:9pt">
+<td style="font-weight:bold" height="9.6" valign="bottom">Instruction:</td>
+<td align="center" valign="bottom"></td>
+<td align="center" valign="bottom">L</td>
+<td align="center" valign="bottom">J1</td>
+<td align="center" valign="bottom">L</td>
+<td align="center" valign="bottom">J0</td>
+<td align="center" valign="bottom">L</td>
+<td align="center" valign="bottom">J1</td>
+<td align="center" valign="bottom">R</td>
+<td align="center" valign="bottom">E</td>
+<td align="center" valign="bottom">R</td>
+<td align="center" valign="bottom">J1</td>
+<td align="center" valign="bottom">R</td>
+<td align="center" valign="bottom">J1</td>
+<td align="center" valign="bottom">L</td>
+<td align="center" valign="bottom">E</td>
+<td align="center" valign="bottom">L</td>
+<td align="center" valign="bottom"></td>
+<td align="center" valign="bottom"></td>
+<td align="center" valign="bottom"></td>
+<td align="center" valign="bottom">J1</td>
+<td align="center" valign="bottom">L</td>
+<td align="center" valign="bottom">J0</td>
+<td align="center" valign="bottom">J1</td>
+<td align="center" valign="bottom">R</td>
+<td align="center" valign="bottom">R</td>
+<td align="center" valign="bottom">J1</td>
+<td align="center" valign="bottom">L</td>
+<td align="center" valign="bottom">H</td>
+</tr>
+<tr style="font-size:9pt">
+<td style="font-weight:bold" height="12" valign="bottom">Jump-to address#:</td>
+<td align="center" valign="bottom"></td>
+<td align="center" valign="bottom"></td>
+<td align="center" valign="bottom">1</td>
+<td align="center" valign="bottom"></td>
+<td align="center" valign="bottom">20</td>
+<td align="center" valign="bottom"></td>
+<td align="center" valign="bottom">5</td>
+<td align="center" valign="bottom"></td>
+<td align="center" valign="bottom"></td>
+<td align="center" valign="bottom"></td>
+<td align="center" valign="bottom">9</td>
+<td align="center" valign="bottom"></td>
+<td align="center" valign="bottom">11</td>
+<td align="center" valign="bottom"></td>
+<td align="center" valign="bottom"></td>
+<td align="center" valign="bottom"></td>
+<td align="center" valign="bottom"></td>
+<td align="center" valign="bottom"></td>
+<td align="center" valign="bottom"></td>
+<td align="center" valign="bottom">15</td>
+<td align="center" valign="bottom"></td>
+<td align="center" valign="bottom">20</td>
+<td align="center" valign="bottom">5</td>
+<td align="center" valign="bottom"></td>
+<td align="center" valign="bottom"></td>
+<td align="center" valign="bottom">21</td>
+<td align="center" valign="bottom"></td>
+<td align="center" valign="bottom"></td>
+</tr>
+<tr style="font-size:9pt" align="center" valign="bottom">
+<td height="3.6"></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr style="font-size:9pt;font-weight:bold">
+<td height="12" valign="bottom">Instruction #:</td>
+<td style="background-color:#C0C0C0" align="center" valign="bottom">1</td>
+<td style="background-color:#C0C0C0" align="center" valign="bottom">2</td>
+<td style="background-color:#C0C0C0" align="center" valign="bottom">3</td>
+<td style="background-color:#C0C0C0" align="center" valign="bottom">4</td>
+<td style="background-color:#C0C0C0" align="center" valign="bottom">5</td>
+<td style="background-color:#C0C0C0" align="center" valign="bottom">6</td>
+<td style="background-color:#C0C0C0" align="center" valign="bottom">7</td>
+<td style="background-color:#C0C0C0" align="center" valign="bottom">8</td>
+<td style="background-color:#C0C0C0" align="center" valign="bottom">9</td>
+<td style="background-color:#C0C0C0" align="center" valign="bottom">10</td>
+<td style="background-color:#C0C0C0" align="center" valign="bottom">11</td>
+<td style="background-color:#C0C0C0" align="center" valign="bottom">12</td>
+<td style="background-color:#C0C0C0" align="center" valign="bottom">13</td>
+<td style="background-color:#C0C0C0" align="center" valign="bottom">14</td>
+<td style="background-color:#C0C0C0" align="center" valign="bottom">15</td>
+<td style="background-color:#C0C0C0" align="center" valign="bottom">16</td>
+<td style="background-color:#C0C0C0" align="center" valign="bottom">17</td>
+<td style="background-color:#C0C0C0" align="center" valign="bottom">18</td>
+<td style="background-color:#C0C0C0" align="center" valign="bottom">19</td>
+<td style="background-color:#C0C0C0" align="center" valign="bottom">20</td>
+<td style="background-color:#C0C0C0" align="center" valign="bottom">21</td>
+<td style="background-color:#C0C0C0" align="center" valign="bottom">22</td>
+<td style="background-color:#C0C0C0" align="center" valign="bottom">23</td>
+<td style="background-color:#C0C0C0" align="center" valign="bottom">24</td>
+<td style="background-color:#C0C0C0" align="center" valign="bottom">25</td>
+<td style="background-color:#C0C0C0" align="center" valign="bottom">26</td>
+<td style="background-color:#C0C0C0" align="center" valign="bottom">27</td>
+<td style="background-color:#C0C0C0" align="center" valign="bottom">28</td>
+</tr>
+<tr style="font-size:9pt">
+<td style="font-weight:bold" height="12" valign="bottom">Instruction:</td>
+<td align="center" valign="bottom">J0</td>
+<td align="center" valign="bottom">L</td>
+<td align="center" valign="bottom">J1</td>
+<td align="center" valign="bottom">L</td>
+<td align="center" valign="bottom">J0</td>
+<td align="center" valign="bottom">L</td>
+<td align="center" valign="bottom">J1</td>
+<td align="center" valign="bottom">R</td>
+<td align="center" valign="bottom">E</td>
+<td align="center" valign="bottom">R</td>
+<td align="center" valign="bottom">J1</td>
+<td align="center" valign="bottom">R</td>
+<td align="center" valign="bottom">J1</td>
+<td align="center" valign="bottom">L</td>
+<td align="center" valign="bottom">E</td>
+<td align="center" valign="bottom">L</td>
+<td align="center" valign="bottom">J0</td>
+<td align="center" valign="bottom">R</td>
+<td align="center" valign="bottom">L</td>
+<td align="center" valign="bottom">J1</td>
+<td align="center" valign="bottom">L</td>
+<td align="center" valign="bottom">J0</td>
+<td align="center" valign="bottom">J1</td>
+<td align="center" valign="bottom">R</td>
+<td align="center" valign="bottom">R</td>
+<td align="center" valign="bottom">J1</td>
+<td align="center" valign="bottom">L</td>
+<td align="center" valign="bottom">H</td>
+</tr>
+<tr style="font-size:9pt">
+<td style="font-weight:bold" height="12" valign="bottom">Jump-to address#:</td>
+<td align="center" valign="bottom">27</td>
+<td align="center" valign="bottom"></td>
+<td align="center" valign="bottom">2</td>
+<td align="center" valign="bottom"></td>
+<td align="center" valign="bottom">24</td>
+<td align="center" valign="bottom"></td>
+<td align="center" valign="bottom">6</td>
+<td align="center" valign="bottom"></td>
+<td align="center" valign="bottom"></td>
+<td align="center" valign="bottom"></td>
+<td align="center" valign="bottom">10</td>
+<td align="center" valign="bottom"></td>
+<td align="center" valign="bottom">12</td>
+<td align="center" valign="bottom"></td>
+<td align="center" valign="bottom"></td>
+<td align="center" valign="bottom"></td>
+<td align="center" valign="bottom">28</td>
+<td align="center" valign="bottom"></td>
+<td align="center" valign="bottom"></td>
+<td align="center" valign="bottom">19</td>
+<td align="center" valign="bottom"></td>
+<td align="center" valign="bottom">24</td>
+<td align="center" valign="bottom">6</td>
+<td align="center" valign="bottom"></td>
+<td align="center" valign="bottom"></td>
+<td align="center" valign="bottom">25</td>
+<td align="center" valign="bottom"></td>
+<td align="center" valign="bottom"></td>
+</tr>
+</table>
+<p><a name="A_total_function_.E2.80.94_.22proper.22_subtraction" id="A_total_function_.E2.80.94_.22proper.22_subtraction"></a></p>
+<h3><span class="editsection">[<a href="/w/index.php?title=Partial_function&amp;action=edit&amp;section=9" title="Edit section: A total function — &quot;proper&quot; subtraction">edit</a>]</span> <span class="mw-headline">A total function — "proper" subtraction</span></h3>
+<p>The following will use the "successor" counter machine model.</p>
+<p>How do we eliminate the uncertainty of the partial function? We can design an algorithm to test for <b>x</b> empty before <b>y</b> is empty, and if so then send the algorithm off to an empty <b>d</b> and then halt. This will yield what is known as proper subtraction:</p>
+<dl>
+<dd>f(x, y) ≡ d ≡ "IF x &lt; y THEN 0 ELSE x - y".</dd>
+</dl>
+<p>We will define this with help of the primitive recursive function called the CASE operator (a string of IF-THEN-ELSE tests), what Boolos-Burgess-Jeffrey (2002) calls "an important process for obtaining new recursive functions from old... in more complicated examples, definition by cases makes it far easier to establish the (primitive) recursiveness of important functions" (p. 74).</p>
+<p>Proper subtraction is not as simple as it seems. We have to provide for all <i>six</i> cases in a manner that our machine permits, e.g. the successor machine allows only comparisons of equality, incrementing and clearing. We just throw down the six cases in any order to ponder them (the last case #6 is called the "default" case):</p>
+<dl>
+<dd>d ≡ SUBRACTION_CASE( x, y ) =
+<ol>
+<li>IF [x] = 0 &amp; [y] = 0 THEN 0 → d ELSE;</li>
+<li>IF [x] = 0 &amp; [y] ≠ 0 THEN 0 → d ELSE;</li>
+<li>IF [x] ≠ 0 &amp; [y] = 0 THEN [x] → d ELSE;</li>
+<li>IF [x] = [y] &amp; [x] ≠ 0 THEN 0 → d ELSE;</li>
+<li>IF [x] &lt; y THEN 0 → d ELSE;</li>
+<li>[x] - [y] → d</li>
+</ol>
+</dd>
+</dl>
+<p>The first two we can "solve" by doing an "IF-THEN-ELSE" test on x and then y; the third can follow by a test on y given than x ≠ 0. And case #4 ( [x] = [y] is easy, too (it turns out we can get this one later). But case #5 requires us to <i>compare</i> numbers [x] to [y].</p>
+<dl>
+<dd>CLR ( d )&#160;; be sure that difference d is truly empty</dd>
+<dd>JE ( x, y, d_is_zero); case #4</dd>
+<dd>JE ( x, 0, d_is_zero); cases #1, #2</dd>
+<dd>JE ( y, 0, compute_d); case #3</dd>
+</dl>
+<p><b>Compare [x] to [y]</b>: We clear a spare register ("s") and increment its contents from 0 to n at the same time we are comparing it to both [x] and [y]. Whichever of [x] or [y] (but not both) reaches the value of [s] is the smaller of the two. If they reach the value at the same time, then they are equal.</p>
+<p>This requires a sequence of two tests that we should write as a CASE to be sure we've covered them all:</p>
+<dl>
+<dd>CASE #5:
+<ul>
+<li>(5a) [x] = [y]: IF [x] = [s] &amp; [y] = [s] THEN 0 → d ELSE;</li>
+<li>(5b) [x] &lt; [y]: IF [x] = [s] &amp; [y] ≠ [s] THEN 0 → d ELSE;</li>
+<li>(5c) [x] &gt; [y]: IF [s] ≠ [x] &amp; [s] = [y] THEN <i>compute_d</i> ELSE;</li>
+<li>(5d) [s] ≠ [x] &amp; [s]≠[y]: <b>u</b> → output.</li>
+</ul>
+</dd>
+</dl>
+<p>The <b>u</b> for "undecided" requires our algorithm to increment [s] and repeat this CASE #5 until it makes a match to either [x] or [y] (Again, that this sounds like the mu-recursive operator is no accident.):</p>
+<dl>
+<dd>loop_CASE#5:
+<dl>
+<dd>JE (x, s, d_is_zero)&#160;;cases (5a), (5b)</dd>
+<dd>JE (y, s, compute_d)&#160;;case (5c)</dd>
+<dd>INC ( s )&#160;;default case (5d)</dd>
+<dd>JE (0, 0, loop_CASE#4)</dd>
+</dl>
+</dd>
+</dl>
+<p><b>Compute_d:</b> We are left with only the case (5c): [x] - [s] that we are calling "compute_d". What we do is increment [s] <i>and [d]</i> until [x] and [s] are equal. The difference d will be [d]:</p>
+<dl>
+<dd><i>compute_d</i>: CASE #5c:
+<dl>
+<dd>(5ci)&#160;: IF [s]=[x] THEN [x]-[s=y]→ d ELSE;</dd>
+<dd>(5cii)[x]≠[s]: <b>u</b> → output.</dd>
+</dl>
+</dd>
+</dl>
+<p>Again, because this CASE yields <b>u</b> the algorithm must increment [s] and continue on until the match to [x] occurs.</p>
+<dl>
+<dd>compute_d:
+<dl>
+<dd>JE ( x, s, done_d )</dd>
+<dd>INC ( s )</dd>
+<dd>JE ( 0, 0, compute_d )</dd>
+</dl>
+</dd>
+</dl>
+<p>We assemble the whole algorithm. It works as expected:</p>
+<table class="wikitable">
+<tr style="font-size:9pt" align="center" valign="bottom">
+<td width="61.8" height="9.6"></td>
+<td style="font-weight:bold" width="34.8">Instr #:</td>
+<td style="font-weight:bold" width="37.8">Instr:</td>
+<td style="font-weight:bold" width="29.4">Reg rj</td>
+<td style="font-weight:bold" width="31.2">Reg rk</td>
+<td style="font-weight:bold" width="44.4">Jump-to:</td>
+<td style="font-weight:bold" width="142.2">Comments</td>
+<td style="font-weight:bold" width="102">Case</td>
+<td style="font-weight:bold" width="48.6">Action</td>
+</tr>
+<tr style="font-size:9pt" align="center" valign="bottom">
+<td height="9.6"></td>
+<td style="font-weight:bold">1</td>
+<td>CLR</td>
+<td>d</td>
+<td></td>
+<td></td>
+<td>Clear difference "d"</td>
+<td></td>
+<td>0 → d</td>
+</tr>
+<tr style="font-size:9pt" align="center" valign="bottom">
+<td height="9.6"></td>
+<td style="font-weight:bold">2</td>
+<td>CLR</td>
+<td>s</td>
+<td></td>
+<td></td>
+<td>Clear spare "s"</td>
+<td></td>
+<td>0 → s</td>
+</tr>
+<tr style="font-size:9pt" align="center" valign="bottom">
+<td height="9.6"></td>
+<td style="font-weight:bold">3</td>
+<td style="color:#969696">JE</td>
+<td style="color:#969696">x</td>
+<td style="color:#969696">y</td>
+<td style="color:#969696">14</td>
+<td style="color:#969696">Optional: If [x] = [y] then done</td>
+<td style="color:#969696">[x] = [y]</td>
+<td style="color:#969696">0 → d</td>
+</tr>
+<tr style="font-size:9pt" align="center" valign="bottom">
+<td height="9.6"></td>
+<td style="font-weight:bold">4</td>
+<td>JE</td>
+<td>x</td>
+<td>0</td>
+<td>14</td>
+<td>If [x] = 0 then done</td>
+<td>[x] &lt; [y] or [x] = [y] = 0</td>
+<td>0 → d</td>
+</tr>
+<tr style="font-size:9pt" align="center" valign="bottom">
+<td height="9.6"></td>
+<td style="font-weight:bold">5</td>
+<td>JE</td>
+<td>y</td>
+<td>0</td>
+<td>10</td>
+<td>If [y] = 0 then compute_d</td>
+<td>[y] = 0 &amp; [x] ≠ 0</td>
+<td>compute_d</td>
+</tr>
+<tr style="font-size:9pt" align="center" valign="bottom">
+<td style="font-style:Italic" height="9.6">loop_case#4:</td>
+<td style="font-weight:bold">6</td>
+<td>JE</td>
+<td>x</td>
+<td>s</td>
+<td>14</td>
+<td>If [x] =[s] then done</td>
+<td>[x] = [y] or [x] &lt; [y]</td>
+<td>0 → d</td>
+</tr>
+<tr style="font-size:9pt" align="center" valign="bottom">
+<td height="9.6"></td>
+<td style="font-weight:bold">7</td>
+<td>JE</td>
+<td>y</td>
+<td>s</td>
+<td>10</td>
+<td>If [y] = [s] then compute_d</td>
+<td>[x] &gt; [y]</td>
+<td>compute_d</td>
+</tr>
+<tr style="font-size:9pt" align="center" valign="bottom">
+<td height="9.6"></td>
+<td style="font-weight:bold">8</td>
+<td>INC</td>
+<td>s</td>
+<td></td>
+<td></td>
+<td>Increment spare register s</td>
+<td></td>
+<td>[s] +1 → s</td>
+</tr>
+<tr style="font-size:9pt" align="center" valign="bottom">
+<td height="9.6"></td>
+<td style="font-weight:bold">9</td>
+<td>JE</td>
+<td>0</td>
+<td>0</td>
+<td>6</td>
+<td>unconditional jump to loop_case#4:</td>
+<td></td>
+<td></td>
+</tr>
+<tr style="font-size:9pt" align="center" valign="bottom">
+<td style="font-style:Italic" height="9.6">compute_d:</td>
+<td style="font-weight:bold">10</td>
+<td>JE</td>
+<td>x</td>
+<td>s</td>
+<td>14</td>
+<td>If [x] = [s] then done</td>
+<td>[x] &gt; [y] or [x] &gt; 0 &amp; [y]=0</td>
+<td>[x] - [y] → d</td>
+</tr>
+<tr style="font-size:9pt" align="center" valign="bottom">
+<td height="9.6"></td>
+<td style="font-weight:bold">11</td>
+<td>INC</td>
+<td>d</td>
+<td></td>
+<td></td>
+<td>Increment difference d</td>
+<td></td>
+<td>[d] +1 → d</td>
+</tr>
+<tr style="font-size:9pt" align="center" valign="bottom">
+<td height="9.6"></td>
+<td style="font-weight:bold">12</td>
+<td>INC</td>
+<td>s</td>
+<td></td>
+<td></td>
+<td>Increment spare register s</td>
+<td></td>
+<td>[s] +1 → s</td>
+</tr>
+<tr style="font-size:9pt" align="center" valign="bottom">
+<td height="9.6"></td>
+<td style="font-weight:bold">13</td>
+<td>JE</td>
+<td>0</td>
+<td>0</td>
+<td>10</td>
+<td>unconditional jump to compute_d</td>
+<td></td>
+<td></td>
+</tr>
+<tr style="font-size:9pt" align="center" valign="bottom">
+<td style="font-style:Italic" height="9.6">done:</td>
+<td style="font-weight:bold">14</td>
+<td>H</td>
+<td></td>
+<td></td>
+<td></td>
+<td>HALT</td>
+<td></td>
+<td></td>
+</tr>
+</table>
+<p>If for some reason we wanted to make the algorithm 'circle' when it encountered the case <b>x &lt; y</b> we could send the algorithm into a pair of instructions that jump back and forth, i.e. → 14 → 15 → 14 → 15 . . . ad infinitum. This is what Davis (1958) did in his subtraction algorithm. Kleene (1952) seems to think that this is appropriate:</p>
+<dl>
+<dd>"...we aragne that, when the given algorithm terminates without giving a number as value of φ(x), the new algorithm calls for additional steps which will continue ad infinitum." (p. 325)</dd>
+</dl>
+<p>The reader is left to ponder why one would intentionally do this.</p>
+<p><a name="See_also" id="See_also"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Partial_function&amp;action=edit&amp;section=10" title="Edit section: See also">edit</a>]</span> <span class="mw-headline">See also</span></h2>
+<ul>
+<li><a href="/wiki/Bijection" title="Bijection">bijection</a></li>
+<li><a href="/wiki/Injective_function" title="Injective function">injective function</a></li>
+<li><a href="/wiki/Surjective_function" title="Surjective function">surjective function</a></li>
+<li><a href="/wiki/Multivalued_function" title="Multivalued function">multivalued function</a></li>
+</ul>
+<p><a name="References" id="References"></a></p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Partial_function&amp;action=edit&amp;section=11" title="Edit section: References">edit</a>]</span> <span class="mw-headline">References</span></h2>
+<ul>
+<li><a href="/wiki/Martin_Davis" title="Martin Davis">Martin Davis</a> (1958), <i>Computability and Unsolvability</i>, McGraw-Hill Book Company, Inc, New York. Republished by Dover in 1982. <a href="/w/index.php?title=Special:Booksources&amp;isbn=0486614719" class="internal">ISBN 0-486-61471-9</a>.</li>
+<li><a href="/wiki/Stephen_Kleene" title="Stephen Kleene">Stephen Kleene</a> (1952), <i>Introduction to Meta-Mathematics</i>, North-Holland Publishing Company, Amsterdam, Netherlands, 10th printing with corrections added on 7th printing (1974). <a href="/w/index.php?title=Special:Booksources&amp;isbn=0720421039" class="internal">ISBN 0-7204-2103-9</a>.</li>
+<li><a href="/w/index.php?title=Harold_S._Stone&amp;action=edit" class="new" title="Harold S. Stone">Harold S. Stone</a> (1972), <i>Introduction to Computer Organization and Data Structures</i>, McGraw-Hill Book Company, New York.</li>
+</ul>
+
+
+<!-- Saved in parser cache with key enwiki:pcache:idhash:23577-0!1!0!default!!en!2 and timestamp 20070912084850 -->
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org/wiki/Partial_function">http://en.wikipedia.org/wiki/Partial_function</a>"</div>
+			<div id="catlinks"><p class='catlinks'><a href="/wiki/Special:Categories" title="Special:Categories">Category</a>: <span dir='ltr'><a href="/wiki/Category:Mathematical_relations" title="Category:Mathematical relations">Mathematical relations</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<div class="pBody">
+			<ul>
+					 <li id="ca-nstab-main" class="selected"><a href="/wiki/Partial_function" title="View the content page [c]" accesskey="c">Article</a></li>
+					 <li id="ca-talk"><a href="/wiki/Talk:Partial_function" title="Discussion about the content page [t]" accesskey="t">Discussion</a></li>
+					 <li id="ca-edit"><a href="/w/index.php?title=Partial_function&amp;action=edit" title="You can edit this page. Please use the preview button before saving. [e]" accesskey="e">Edit this page</a></li>
+					 <li id="ca-history"><a href="/w/index.php?title=Partial_function&amp;action=history" title="Past versions of this page [h]" accesskey="h">History</a></li>
+				</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-personal">
+		<h5>Personal tools</h5>
+		<div class="pBody">
+			<ul>
+				<li id="pt-login"><a href="/w/index.php?title=Special:Userlogin&amp;returnto=Partial_function" title="You are encouraged to log in, it is not mandatory however. [o]" accesskey="o">Sign in / create account</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-logo">
+		<a style="background-image: url(/images/wiki-en.png);" href="/wiki/Main_Page" title="Visit the Main Page [z]" accesskey="z"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-Main-page"><a href="/wiki/Main_Page">Main page</a></li>
+				<li id="n-Contents"><a href="/wiki/Wikipedia:Contents">Contents</a></li>
+				<li id="n-Featured-content"><a href="/wiki/Wikipedia:Featured_content">Featured content</a></li>
+				<li id="n-currentevents"><a href="/wiki/Portal:Current_events" title="Find background information on current events">Current events</a></li>
+				<li id="n-randompage"><a href="/wiki/Special:Random" title="Load a random page [x]" accesskey="x">Random article</a></li>
+			</ul>
+		</div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+		<h5>interaction</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-About-Wikipedia"><a href="/wiki/Wikipedia:About">About Wikipedia</a></li>
+				<li id="n-portal"><a href="/wiki/Wikipedia:Community_Portal" title="About the project, what you can do, where to find things">Community portal</a></li>
+				<li id="n-recentchanges"><a href="/wiki/Special:Recentchanges" title="The list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li>
+				<li id="n-contact"><a href="/wiki/Wikipedia:Contact_us">Contact Wikipedia</a></li>
+				<li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising" title="Support us">Donate to Wikipedia</a></li>
+				<li id="n-help"><a href="/wiki/Help:Contents" title="Guidance on how to use and edit Wikipedia">Help</a></li>
+			</ul>
+		</div>
+	</div>
+		<div id="p-search" class="portlet">
+		<h5><label for="searchInput">Search</label></h5>
+		<div id="searchBody" class="pBody">
+			<form action="/wiki/Special:Search" id="searchform"><div>
+				<input id="searchInput" name="search" type="text" title="Search Wikipedia [f]" accesskey="f" value="" />
+				<input type='submit' name="go" class="searchButton" id="searchGoButton"	value="Go" />&nbsp;
+				<input type='submit' name="fulltext" class="searchButton" id="mw-searchButton" value="Search" />
+			</div></form>
+		</div>
+	</div>
+	<div class="portlet" id="p-tb">
+		<h5>Toolbox</h5>
+		<div class="pBody">
+			<ul>
+				<li id="t-whatlinkshere"><a href="/wiki/Special:Whatlinkshere/Partial_function" title="List of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+				<li id="t-recentchangeslinked"><a href="/wiki/Special:Recentchangeslinked/Partial_function" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+<li id="t-upload"><a href="/wiki/Wikipedia:Upload" title="Upload images or media files [u]" accesskey="u">Upload file</a></li>
+<li id="t-specialpages"><a href="/wiki/Special:Specialpages" title="List of all special pages [q]" accesskey="q">Special pages</a></li>
+				<li id="t-print"><a href="/w/index.php?title=Partial_function&amp;printable=yes" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>				<li id="t-permalink"><a href="/w/index.php?title=Partial_function&amp;oldid=157338004" title="Permanent link to this version of the page">Permanent link</a></li><li id="t-cite"><a href="/w/index.php?title=Special:Cite&amp;page=Partial_function&amp;id=157338004">Cite this article</a></li>			</ul>
+		</div>
+	</div>
+	<div id="p-lang" class="portlet">
+		<h5>In other languages</h5>
+		<div class="pBody">
+			<ul>
+				<li class="interwiki-de"><a href="http://de.wikipedia.org/wiki/Partielle_Funktion">Deutsch</a></li>
+				<li class="interwiki-he"><a href="http://he.wikipedia.org/wiki/%D7%A4%D7%95%D7%A0%D7%A7%D7%A6%D7%99%D7%94_%D7%97%D7%9C%D7%A7%D7%99%D7%AA">עברית</a></li>
+				<li class="interwiki-it"><a href="http://it.wikipedia.org/wiki/Funzione_parziale">Italiano</a></li>
+				<li class="interwiki-pl"><a href="http://pl.wikipedia.org/wiki/Funkcja_cz%C4%99%C5%9Bciowa">Polski</a></li>
+			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="/skins-1.5/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>
+				<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="/images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>
+			<ul id="f-list">
+				<li id="lastmod"> This page was last modified 08:45, 12 September 2007.</li>
+				<li id="copyright">All text is available under the terms of the <a class='internal' href="/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="/wiki/Wikipedia:Copyrights" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a U.S. registered <a class='internal' href="/wiki/501%28c%29#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="/wiki/Non-profit_organization" title="Non-profit organization">nonprofit</a> <a href="/wiki/Charitable_organization" title="Charitable organization">charity</a>.<br /></li>
+				<li id="privacy"><a href="http://wikimediafoundation.org/wiki/Privacy_policy" title="wikimedia:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="/wiki/Wikipedia:About" title="Wikipedia:About">About Wikipedia</a></li>
+				<li id="disclaimer"><a href="/wiki/Wikipedia:General_disclaimer" title="Wikipedia:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+		
+	
+		<script type="text/javascript">if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by srv177 in 0.059 secs. --></body></html>

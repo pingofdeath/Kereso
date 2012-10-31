@@ -95,12 +95,12 @@ public class Kereso {
         }
 
         for (int j = 0; j < 100; j++) {
-            //double[] rank2 = new double[n];
+            double[] rank2 = new double[n];
             for (int i = 0; i < n; i++) {
-                rank[i] = PageRank(i);
+                rank2[i] = PageRank(i);
                 //System.out.println((i + 1) + ":" + Nj[i] + ":" + rank[i] + " | " + rank2[i]);
             }
-            //rank = rank2;
+            rank = rank2;
         }
 
         for (int i = 0; i < n; i++) {
